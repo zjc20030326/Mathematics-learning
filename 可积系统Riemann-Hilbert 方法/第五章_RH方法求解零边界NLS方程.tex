@@ -1,0 +1,2384 @@
+\documentclass[
+    lang=cn,
+    scheme=chinese,
+    mode=simple,
+    device=normal,
+    color=blue,
+    math=cm,
+    thmcnt=section,
+    12pt,
+    nowatermark
+]{elegantbook}
+
+\input{preamble.tex}
+
+\begin{document}
+
+\setcounter{chapter}{4}
+
+\chapter{RH 方法求解零边界 NLS 方程}
+
+\begin{callout}[编号说明]
+    本笔记直接从原书第 5 章进入，不再单独设置``前四章基础''章节。凡是用到前面章节的结果，或第一次出现但本章没有解释的概念，都放入 callout 补充框中。
+    本笔记直接沿用原书的节号与公式编号，例如 \eqref{eq:5.1.15} 就是原书 \eqref{eq:5.1.15}；正文中的公式引用全部使用这个编号。第 0 节（主线导览）和第 5 节（逻辑闭环）是笔记自加的两节，原书没有对应内容。
+\end{callout}
+
+\section*{先把整条主线理清楚}
+
+书中以零边界聚焦 NLS 为例，但真正要掌握的是一类具有 Lax 对的可积方程如何转化成 RH 问题。整条路线不是``直接解非线性 PDE''，而是把非线性问题转移到谱平面上处理。
+
+\begin{callout}[前置概念：RH 问题（原书定义 3.12，3.8 节）]
+    设 $\Sigma$ 为复平面 $\mathbb{C}$ 内的有向路径，$v(z):\Sigma\to GL(n,\mathbb{C})$ 是 $\Sigma^0$ 上光滑的映射。
+    $(\Sigma,v)$ 决定一个 RH 问题：求 $n\times n$ 矩阵 $M(z)$，使它满足
+
+    \begin{itemize}
+        \item $M(z)$ 在 $\mathbb{C}\setminus\Sigma$ 上解析（原书 (3.8.1)）；
+        \item $M_+(z)=M_-(z)v(z)$，$z\in\Sigma$（原书 (3.8.2)）；
+        \item $M(z)\to I$，$z\to\infty$（原书 (3.8.3)）。
+    \end{itemize}
+
+    其中 $M_\pm$ 表示在正负域内 $z'$ 趋于 $\Sigma$ 上相应的 $z$ 点时的极限。$\Sigma$ 称为跳跃曲线，$v(z)$ 称为跳跃矩阵。
+    根据 Beals-Coifman 定理 (CPAM, 37(1984), 39-90), 如上 RH 问题的解为
+
+    \[
+        M(z)
+        =
+        I+\dfrac{1}{2\pi i}\int\limits_\Sigma\dfrac{\mu(\xi)w(\xi)}{\xi-z}\,\mathrm d\xi,
+    \]
+    其中 $\mu$ 是奇异积分方程 $(I-C_w)\mu=I$ 的解，$w=w_++w_-$ 由跳跃矩阵的分解 $v=(b_-)^{-1}b_+$ 给出（$w_+=b_+-I$、$w_-=I-b_-$）。算子 $C_w$ 定义为
+
+    \[
+        C_wf=C_+(fw_-)+C_-(fw_+),
+    \]
+    而 $C_\pm$ 是 Cauchy 投影
+
+    \[
+        (C_\pm f)(z)=\lim\limits_{\substack{z'\to z\\ z'\in\pm\Sigma}}\dfrac{1}{2\pi i}\int\limits_\Sigma\dfrac{f(\xi)}{\xi-z'}\,\mathrm d\xi.
+    \]
+    以上即原书 (3.8.6)---(3.8.10)。
+\end{callout}
+
+\begin{enumerate}[(1)]
+
+    \Needspace{8\baselineskip}
+    \item \textbf{Lax 对：把 NLS 编码成线性谱问题}
+
+          \[
+              \Psi_x=U(q,z)\Psi,
+              \qquad
+              \Psi_t=V(q,z)\Psi.
+          \]
+
+          \textbf{为什么走到下一步：}
+          两个线性方程不能彼此矛盾，相容条件 $\Psi_{xt}=\Psi_{tx}$ 给出零曲率方程，并恰好恢复原来的非线性 PDE。
+          零边界下 $q(x,t)\to0$，所以 $x\to\pm\infty$ 时系统退化成可以显式求解的自由系统。
+
+          \Needspace{8\baselineskip}
+    \item \textbf{Jost 解：用两个无穷远的自由渐近条件挑出基本解}
+
+          Jost 解在 $x\to-\infty$ 与 $x\to+\infty$ 分别与自由波匹配；再把已知的指数振荡因子提出，得到趋于单位矩阵的归一化特征函数 $\mu_1,\mu_2$。
+
+          \textbf{为什么走到下一步：}
+          整条实轴有两个归一化端点，所以有两个 Jost 解；剥掉自由振荡以后，$\mu_j$ 才适合讨论谱平面上的解析性和 $z\to\infty$ 的规范化。
+
+          \Needspace{8\baselineskip}
+    \item \textbf{等价的 Lax 对}
+
+          把 $\mu_j=\psi_j e^{i\theta\sigma_3}$ 代回 Lax 对，得到等价的线性系统
+
+          \[
+              \mu_x+iz[\sigma_3,\mu]=P\mu,
+              \qquad
+              \mu_t+2iz^2[\sigma_3,\mu]=Q\mu.
+          \]
+
+          \textbf{为什么走到下一步：}
+          这个形式里的未知函数趋于 $I$，且不再含已知的指数因子，可以直接对谱参数 $z$ 作展开。
+
+          \Needspace{8\baselineskip}
+    \item \textbf{无穷远点 Taylor 展开：先建立重构公式}
+
+          \[
+              \mu
+              =I+\dfrac{\mu^{(1)}}{z}+O(z^{-2}),
+              \qquad
+              q(x,t)
+              =2i(\mu^{(1)})_{12}
+              =2i\lim\limits_{z\to\infty}(z\mu)_{12}.
+          \]
+
+          \textbf{为什么走到下一步：}
+          这一步先拿到``输出接口''——只要能从后面的 RH 问题解出 $\mu$ 在 $z=\infty$ 处的首个非平凡系数，就恢复出 $q(x,t)$。
+
+          \Needspace{8\baselineskip}
+    \item \textbf{全微分形式：得到两个特征函数与谱矩阵函数}
+
+          把第 (3) 步写成全微分
+
+          \[
+              \mathrm{d}\!\left(e^{i\theta\widehat{\sigma}_3}\mu\right)
+              =
+              e^{i\theta\widehat{\sigma}_3}
+              \left[(P\,\mathrm{d}x+Q\,\mathrm{d}t)\mu\right].
+          \]
+
+          沿 $x$ 从左右无穷远积分，得到两个特征函数 $\mu_1,\mu_2$（即两个 Volterra 积分方程）；它们作为同一个 Lax 对的基本矩阵解，彼此相差一个与 $x,t$ 无关的矩阵
+
+          \[
+              \psi_1=\psi_2S(z).
+          \]
+
+          $S(z)$ 就是谱矩阵（散射矩阵），它把初值 $q_0$ 编码成谱数据。
+
+          \textbf{为什么走到下一步：}
+          积分核里出现 $e^{\pm2iz(x-y)}$，它在上下半平面的衰减性直接决定 $\mu_1,\mu_2$ 各列、各行的解析区域。
+
+          \Needspace{8\baselineskip}
+    \item \textbf{解析性拼接：拼出 $P_+,P_-$，得到 RH 问题}
+
+          把上半平面解析的列、下半平面解析的行分别拼起来，得到 $P_+,P_-$，于是
+
+          \[
+              P_-(x,t,z)P_+(x,t,z)=G(x,t,z),
+              \qquad z\in\mathbb{R}.
+          \]
+
+          再配上两侧的解析性和无穷远归一化 $P_\pm\to I$，就是一个完整的 RH 问题；重构公式相应地变成
+
+          \[
+              q(x,t)=2i(P_+^{(1)})_{12}.
+          \]
+
+          \textbf{为什么走到下一步：}
+          原来的 PDE 已经被完全转化成一个复平面边值问题，接下来只需要讨论这个 RH 问题是否正则、怎么求解。
+
+          \Needspace{8\baselineskip}
+    \item \textbf{区分正则与非正则 RH 问题}
+
+          \begin{itemize}
+              \item 无离散零点：正则 RH，用 Plemelj（普莱梅尔）公式转成奇异积分方程；
+              \item 有离散零点：非正则 RH，用 $\Gamma(z)$ 把零点结构剥离，再化成正则 RH。
+          \end{itemize}
+
+          \textbf{为什么走到下一步：}
+          求出 RH 解以后，用第 (6) 步的重构公式恢复 $q(x,t)$。
+
+          \textbf{无反射情形：}
+          连续谱跳跃消失，只剩离散谱，RH 问题退化成有限维代数问题，从而得到 $N$ 孤子解。
+
+\end{enumerate}
+
+\section{NLS 方程、Lax 对与大谱参数重构}
+
+\subsection{NLS 初值问题}
+
+考虑零边界聚焦 NLS 方程
+
+\begin{equation}
+    iq_t(x,t)+q_{xx}(x,t)+2q(x,t)\lvert q(x,t)\rvert^2=0.
+    \tag{5.1.1}
+    \label{eq:5.1.1}
+\end{equation}
+
+初值为
+
+\begin{equation}
+    q(x,0)=q_0(x)\in\mathcal S(\mathbb{R}).
+    \tag{5.1.2}
+    \label{eq:5.1.2}
+\end{equation}
+
+\begin{callout}[前置概念：Schwartz 空间与``固定 $t$ 时仍然零边界''（原书定义 4.4，4.1.2 节）]
+    Schwartz 空间定义为
+
+    \[
+        \mathcal S(\mathbb{R})=
+        \left\{
+        f\in C^\infty(\mathbb{R}):
+        \sup_{x\in\mathbb{R}}\lvert x^\alpha\partial^\beta f(x)\rvert<\infty,\
+        \alpha,\beta\in\mathbb{Z}_+
+        \right\}.
+    \]
+    它表示函数及其任意阶导数都快于任意多项式幂衰减。
+    仅由 $q_0\in\mathcal S$ 的定义，不能直接推出所有时刻都衰减；这里还默认使用了 NLS 流保持 Schwartz 正则性这一结论：在所考虑的光滑解范围内，对每个固定的有限 $t$，有 $q(\cdot,t)\in\mathcal S(\mathbb{R})$。
+    因此
+
+    \[
+        q(x,t)\to0,\qquad \lvert x\rvert\to\infty.
+    \]
+    这里的``零边界''指空间无穷远处的边界为零，并不是 $q\equiv0$。
+\end{callout}
+
+\subsection{Lax 对}
+
+NLS 方程具有矩阵形式的 Lax 对
+
+\begin{equation}
+    \psi_x+iz\sigma_3\psi=P\psi,
+    \tag{5.1.3}
+    \label{eq:5.1.3}
+\end{equation}
+
+\begin{equation}
+    \psi_t+2iz^2\sigma_3\psi=Q\psi,
+    \tag{5.1.4}
+    \label{eq:5.1.4}
+\end{equation}
+
+其中
+
+\[
+    \sigma_3=
+    \begin{pmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{pmatrix},
+    \qquad
+    P=
+    \begin{pmatrix}
+        0       & q \\
+        -\bar q & 0
+    \end{pmatrix},
+\]
+
+\[
+    Q=
+    \begin{pmatrix}
+        i\lvert q\rvert^2 & iq_x               \\
+        i\bar q_x         & -i\lvert q\rvert^2
+    \end{pmatrix}
+    +2zP.
+\]
+
+\begin{callout}[前置概念：Lax 对、谱参数和零曲率条件]
+    把 \eqref{eq:5.1.3}---\eqref{eq:5.1.4} 写成
+
+    \[
+        \psi_x=U\psi,\qquad \psi_t=V\psi,
+    \]
+    其中 $U=P-iz\sigma_3$、$V=Q-2iz^2\sigma_3$。因为同一个 $\psi$ 同时满足两式，所以必须有
+
+    \[
+        \psi_{xt}=\psi_{tx}.
+    \]
+    展开后得到
+
+    \[
+        U_t-V_x+[U,V]=0.
+    \]
+    这就是零曲率条件。把这里的 $U,V$ 代入，非对角元恰好恢复 NLS \eqref{eq:5.1.1}。因此 Lax 对把非线性方程编码成一对关于 $\psi$ 的线性系统。
+    $z$ 称为谱参数。固定 $t,z$ 后，\eqref{eq:5.1.3} 是关于 $x$ 的一阶线性矩阵微分方程。
+\end{callout}
+
+\begin{callout}[计算：零曲率条件怎样恢复 NLS？]
+    写成
+
+    \[
+        \psi_x=U\psi,\qquad
+        \psi_t=V\psi,
+    \]
+    其中
+
+    \[
+        U=
+        P-iz\sigma_3
+        =
+        \begin{pmatrix}
+            -iz     & q  \\
+            -\bar q & iz
+        \end{pmatrix},
+    \]
+
+    \[
+        V=
+        Q-2iz^2\sigma_3
+        =
+        \begin{pmatrix}
+            i|q|^2-2iz^2       & iq_x+2zq      \\
+            i\bar q_x-2z\bar q & -i|q|^2+2iz^2
+        \end{pmatrix}.
+    \]
+    计算可得
+
+    \[
+        U_t-V_x+[U,V]
+        =
+        \begin{pmatrix}
+            0                                    &
+            q_t-iq_{xx}-2i|q|^2q                   \\
+            -\bar q_t-i\bar q_{xx}-2i|q|^2\bar q &
+            0
+        \end{pmatrix}.
+    \]
+    令其为零，右上角给出
+
+    \[
+        q_t-iq_{xx}-2i|q|^2q=0.
+    \]
+    两边乘 $i$：
+
+    \[
+        iq_t+q_{xx}+2q|q|^2=0,
+    \]
+    正好就是 NLS 方程 \eqref{eq:5.1.1}；左下角是它的共轭方程。
+\end{callout}
+
+\subsection{Jost 解与变换}
+
+当 $\lvert x\rvert\to\infty$ 时，$q\to0$，所以 $P\to0$，同时 $Q$ 的非自由部分也趋于零。Lax 对渐近为
+
+\[
+    \psi_x+iz\sigma_3\psi=0,\qquad
+    \psi_t+2iz^2\sigma_3\psi=0.
+\]
+
+自由基本矩阵解为
+
+\[
+    e^{-i\theta(z)\sigma_3},
+    \qquad
+    \theta(z)=zx+2z^2t.
+\]
+
+Jost 解是在空间无穷远处与这个自由解匹配的特殊基本矩阵解。为了剥离已知的自由振荡，作变换
+
+\begin{equation}
+    \mu(x,t,z)=\psi(x,t,z)e^{i\theta(z)\sigma_3}.
+    \tag{5.1.5}
+    \label{eq:5.1.5}
+\end{equation}
+
+因此
+
+\begin{equation}
+    \mu(x,t,z)\sim I,\qquad \lvert x\rvert\to\infty.
+    \tag{5.1.6}
+    \label{eq:5.1.6}
+\end{equation}
+
+\begin{callout}[计算：这个自由基本解是怎样求出来的？]
+    先固定 $t,z$ 解 $x$-方程：
+
+    \[
+        \psi_x=-iz\sigma_3\psi.
+    \]
+    由于 $\sigma_3$ 是常矩阵，
+
+    \[
+        \psi(x,t,z)
+        =
+        e^{-izx\sigma_3}C(t,z),
+    \]
+    其中 $C(t,z)$ 与 $x$ 无关。再代入 $t$-方程
+
+    \[
+        \psi_t+2iz^2\sigma_3\psi=0.
+    \]
+    因为
+
+    \[
+        \psi_t=e^{-izx\sigma_3}C_t,
+    \]
+    所以
+
+    \[
+        C_t+2iz^2\sigma_3C=0,
+    \]
+    从而
+
+    \[
+        C(t,z)
+        =
+        e^{-2iz^2t\sigma_3}C_0(z).
+    \]
+    于是
+
+    \[
+        \psi(x,t,z)
+        =
+        e^{-i(zx+2z^2t)\sigma_3}C_0(z)
+        =
+        e^{-i\theta(z)\sigma_3}C_0(z).
+    \]
+    选择 Jost 归一化时取相应的 $C_0(z)=I$，所以自由归一化解为
+
+    \[
+        e^{-i\theta(z)\sigma_3}
+        =
+        \begin{pmatrix}
+            e^{-i\theta(z)} & 0              \\
+            0               & e^{i\theta(z)}
+        \end{pmatrix}.
+    \]
+
+\end{callout}
+
+\begin{callout}[概念：Jost 解为什么有左右两个？]
+    固定 $t,z$ 后，Lax 对的 $x$ 部分是一个 $2\times2$ 一阶线性系统。
+    一个基本矩阵解本身包含两个线性无关的列解，而且基本矩阵解并不唯一：若 $\Psi$ 是基本矩阵解，则 $\Psi C$（$C$ 为可逆常矩阵）仍是基本矩阵解。
+    整条实轴有两个自然的归一化端点，所以分别选取
+
+    \[
+        \psi_1e^{i\theta\sigma_3}\to I,\qquad x\to-\infty,
+    \]
+
+    \[
+        \psi_2e^{i\theta\sigma_3}\to I,\qquad x\to+\infty.
+    \]
+    因此``两个 Jost 解''不是说线性系统只有两个解，而是说我们选取了两个不同无穷远归一化条件下的基本矩阵解。
+\end{callout}
+
+\subsection{等价 Lax 对与全微分形式}
+
+由 \eqref{eq:5.1.5} 得到与原 Lax 对等价的系统
+
+\begin{equation}
+    \mu_x+iz[\sigma_3,\mu]=P\mu,
+    \tag{5.1.7}
+    \label{eq:5.1.7}
+\end{equation}
+
+\begin{equation}
+    \mu_t+2iz^2[\sigma_3,\mu]=Q\mu.
+    \tag{5.1.8}
+    \label{eq:5.1.8}
+\end{equation}
+
+进一步写成全微分形式
+
+\begin{equation}
+    \mathrm d\!\left(e^{i\theta(z)\widehat{\sigma}_3}\mu\right)
+    =
+    e^{i\theta(z)\widehat{\sigma}_3}
+    \left[(P\,\mathrm dx+Q\,\mathrm dt)\mu\right].
+    \tag{5.1.9}
+    \label{eq:5.1.9}
+\end{equation}
+
+\begin{callout}[计算：从 $\psi$ 的 Lax 对得到 \eqref{eq:5.1.7}---\eqref{eq:5.1.9}]
+    由 \eqref{eq:5.1.5}
+
+    \[
+        \psi=\mu e^{-i\theta\sigma_3}.
+    \]
+    对 $x$ 求导，利用 $\theta_x=z$：
+
+    \[
+        \psi_x
+        =
+        \left(
+        \mu_x-iz\mu\sigma_3
+        \right)e^{-i\theta\sigma_3}.
+    \]
+    代入 \eqref{eq:5.1.3}：
+
+    \[
+        \left(
+        \mu_x-iz\mu\sigma_3
+        \right)e^{-i\theta\sigma_3}
+        +
+        iz\sigma_3\mu e^{-i\theta\sigma_3}
+        =
+        P\mu e^{-i\theta\sigma_3}.
+    \]
+    右乘 $e^{i\theta\sigma_3}$，得到
+
+    \[
+        \mu_x+iz(\sigma_3\mu-\mu\sigma_3)=P\mu,
+    \]
+    即 \eqref{eq:5.1.7}。同理利用 $\theta_t=2z^2$ 得到 \eqref{eq:5.1.8}。
+    再令
+
+    \[
+        F=e^{i\theta\widehat{\sigma}_3}\mu.
+    \]
+    则
+
+    \[
+        F_x
+        =
+        e^{i\theta\widehat{\sigma}_3}
+        \left(
+        \mu_x+iz[\sigma_3,\mu]
+        \right)
+        =
+        e^{i\theta\widehat{\sigma}_3}P\mu,
+    \]
+
+    \[
+        F_t
+        =
+        e^{i\theta\widehat{\sigma}_3}
+        \left(
+        \mu_t+2iz^2[\sigma_3,\mu]
+        \right)
+        =
+        e^{i\theta\widehat{\sigma}_3}Q\mu.
+    \]
+    因此
+
+    \[
+        \mathrm dF
+        =
+        F_x\,\mathrm dx+F_t\,\mathrm dt
+        =
+        e^{i\theta\widehat{\sigma}_3}
+        \left[(P\,\mathrm dx+Q\,\mathrm dt)\mu\right],
+    \]
+    这就是 \eqref{eq:5.1.9}。
+\end{callout}
+
+\begin{callout}[概念：$\widehat{\sigma}_3$ 是什么？]
+    带帽的 $\widehat{\sigma}_3$ 不是 $2\times2$ 矩阵，而是作用在矩阵空间上的交换子算子：
+
+    \[
+        \widehat{\sigma}_3A=[\sigma_3,A]=\sigma_3A-A\sigma_3.
+    \]
+    其指数满足
+
+    \[
+        e^{a\widehat{\sigma}_3}A
+        =
+        e^{a\sigma_3}Ae^{-a\sigma_3}.
+    \]
+    若
+
+    \[
+        A=\begin{pmatrix}a&b\\c&d\end{pmatrix},
+    \]
+    则
+
+    \[
+        e^{\alpha\widehat{\sigma}_3}A
+        =
+        \begin{pmatrix}
+            a             & e^{2\alpha}b \\
+            e^{-2\alpha}c & d
+        \end{pmatrix}.
+    \]
+    因而这个算子真正改变的是非对角元，这正是后面出现 $e^{\pm2iz(x-y)}$ 的原因。
+\end{callout}
+
+\subsection{为什么还要证明 \texorpdfstring{$\mu\to I$}{μ → I}（\texorpdfstring{$z\to\infty$}{z → ∞}）？}
+
+构造规范 RH 问题时，希望 RH 未知函数满足
+
+\[
+    M(z)\to I,\qquad z\to\infty.
+\]
+
+所以除了已经有的空间无穷远归一化 \eqref{eq:5.1.6}，还要证明谱参数无穷远处
+
+\[
+    \mu(x,t,z)\to I,\qquad z\to\infty.
+\]
+
+将 $\mu$ 在无穷远点作渐近展开
+
+\begin{equation}
+    \mu
+    =
+    \mu^{(0)}
+    +\dfrac{\mu^{(1)}}{z}
+    +\dfrac{\mu^{(2)}}{z^2}
+    +\cdots
+    =
+    \mu^{(0)}+O(z^{-1}),
+    \qquad z\to\infty.
+    \tag{5.1.10}
+    \label{eq:5.1.10}
+\end{equation}
+
+其中 $\mu^{(0)},\mu^{(1)},\ldots$ 与 $z$ 无关。
+将 \eqref{eq:5.1.10} 代入 Lax 对 \eqref{eq:5.1.7}---\eqref{eq:5.1.8}，比较 $z$ 的幂次系数，可得到 $x$-部分：
+
+\begin{equation}
+    O(z):\quad[\sigma_3,\mu^{(0)}]=0,
+    \tag{5.1.11}
+    \label{eq:5.1.11}
+\end{equation}
+
+\begin{equation}
+    O(z^0):\quad\mu_x^{(0)}+i[\sigma_3,\mu^{(1)}]=P\mu^{(0)},
+    \tag{5.1.12}
+    \label{eq:5.1.12}
+\end{equation}
+
+$t$-部分：
+
+\begin{equation}
+    O(z^2):\quad[\sigma_3,\mu^{(0)}]=0,
+    \tag{5.1.13}
+    \label{eq:5.1.13}
+\end{equation}
+
+\begin{equation}
+    O(z):\quad i[\sigma_3,\mu^{(1)}]=P\mu^{(0)}.
+    \tag{5.1.14}
+    \label{eq:5.1.14}
+\end{equation}
+
+由 \eqref{eq:5.1.11}、\eqref{eq:5.1.13}，知道 $\mu^{(0)}$ 为对角矩阵，而 \eqref{eq:5.1.12}、\eqref{eq:5.1.14} 推知 $\mu_x^{(0)}=0$。
+这说明 $\mu^{(0)}$ 是与 $x$ 无关的对角矩阵。
+因此 \eqref{eq:5.1.10} 对 $x,z$ 同时取极限，并注意交换极限顺序，我们有
+
+\[
+    \lim\limits_{z\to\infty}\lim\limits_{\lvert x\rvert\to\infty}\mu
+    =
+    \lim\limits_{\lvert x\rvert\to\infty}\lim\limits_{z\to\infty}\left(\mu^{(0)}+O(z^{-1})\right).
+\]
+
+利用 \eqref{eq:5.1.6} 和 \eqref{eq:5.1.10}，上述左边极限为 $I$，右边为 $\mu^{(0)}$，因此有 $\mu^{(0)}=I$，从而
+
+\[
+    \mu\to I,\qquad z\to\infty.
+\]
+
+再将 $\mu^{(0)}=I$ 代回 \eqref{eq:5.1.14}，比较矩阵对应元素，可得到
+
+\begin{equation}
+    q(x,t)
+    =
+    2i(\mu^{(1)})_{12}
+    =
+    2i\lim\limits_{z\to\infty}(z\mu)_{12}.
+    \tag{5.1.15}
+    \label{eq:5.1.15}
+\end{equation}
+
+其中下标 $12$ 表示该矩阵的第一行第二列元素。
+
+\begin{callout}[式 \eqref{eq:5.1.15} 的作用]
+    \eqref{eq:5.1.15} 第一次把 \textbf{NLS 的解 $q$} 与 \textbf{特征函数 $\mu$} 联系起来。接下来第 2、3 节要继续把特征函数与 RH 问题联系起来。这样最终就形成
+
+    \[
+        \text{NLS 解 }q
+        \longleftrightarrow
+        \text{特征函数}
+        \longleftrightarrow
+        \text{RH 问题的解}.
+    \]
+    因而以后不再直接求 NLS，而是求 RH 问题，再用 \eqref{eq:5.1.15} 或其 RH 版本恢复 $q$。
+\end{callout}
+
+\section{特征函数的解析性与对称性}
+
+由于 \eqref{eq:5.1.9} 是全微分形式，在相应区域中积分只与端点有关。取固定 $t$ 的两条水平路径
+
+\[
+    (-\infty,t)\to(x,t),
+    \qquad
+    (+\infty,t)\to(x,t),
+\]
+
+得到两个特征函数
+
+\begin{equation}
+    \mu_1(x,t,z)
+    =
+    I+
+    \int_{-\infty}^{x}
+    e^{-iz(x-y)\widehat{\sigma}_3}
+    P(y,t)\mu_1(y,t,z)\,\mathrm dy,
+    \tag{5.2.1}
+    \label{eq:5.2.1}
+\end{equation}
+
+\begin{equation}
+    \mu_2(x,t,z)
+    =
+    I-
+    \int_x^{\infty}
+    e^{-iz(x-y)\widehat{\sigma}_3}
+    P(y,t)\mu_2(y,t,z)\,\mathrm dy.
+    \tag{5.2.2}
+    \label{eq:5.2.2}
+\end{equation}
+
+它们满足各自的空间归一化
+
+\[
+    \mu_1\to I\quad(x\to-\infty),
+    \qquad
+    \mu_2\to I\quad(x\to+\infty),
+\]
+
+并且由第 5.1 节的大 $z$ 分析，
+
+\[
+    \mu_1,\mu_2\to I,\qquad z\to\infty.
+\]
+
+\begin{callout}[概念：为什么 \eqref{eq:5.2.1}---\eqref{eq:5.2.2} 是 Volterra 积分方程？（原书 5.2.1 节）]
+    Volterra 型积分方程的积分区间端点包含当前点 $x$，例如 $\displaystyle\int_{-\infty}^x$ 或 $\displaystyle\int_x^\infty$。
+    这种结构使它适合逐次迭代，后面存在性与唯一性正是通过 Neumann 级数和 Bellman/Grönwall 型估计得到的。
+\end{callout}
+
+令
+
+\[
+    \psi_1=\mu_1e^{-i\theta(z)\sigma_3},
+    \qquad
+    \psi_2=\mu_2e^{-i\theta(z)\sigma_3}.
+\]
+
+二者都是原 Lax 对 \eqref{eq:5.1.3}---\eqref{eq:5.1.4} 的基本矩阵解，所以存在与 $x,t$ 无关的可逆矩阵 $S(z)$，使$\psi_1=\psi_2S$，即
+
+\begin{equation}
+    \mu_1(x,t,z)
+    =
+    \mu_2(x,t,z)e^{-i\theta(z)\widehat{\sigma}_3}S(z).
+    \tag{5.2.3}
+    \label{eq:5.2.3}
+\end{equation}
+
+其中
+
+\[
+    S(z)=
+    \begin{pmatrix}
+        s_{11}(z) & s_{12}(z) \\
+        s_{21}(z) & s_{22}(z)
+    \end{pmatrix}
+\]
+
+称为谱矩阵或散射矩阵。
+
+\begin{callout}[为什么 $S$ 与 $x,t$ 无关？]
+    原始 Jost 解满足 $\psi_1=\psi_2S$，即 $S=\psi_2^{-1}\psi_1$。对 $x$ 求导：
+
+    \[
+        S_x
+        =
+        -\psi_2^{-1}U\psi_1+\psi_2^{-1}U\psi_1
+        =0.
+    \]
+    对 $t$ 同理有 $S_t=0$。因此在本书采用的规范下，$S=S(z)$；时空依赖进入相位 $\theta$、跳跃矩阵和离散核向量中。
+\end{callout}
+
+\subsection{解析性}
+
+记 $\mu_1$ 的两列为
+
+\begin{equation}
+    \mu_1
+    =
+    \begin{pmatrix}
+        \mu_1^{(11)} & \mu_1^{(12)} \\
+        \mu_1^{(21)} & \mu_1^{(22)}
+    \end{pmatrix}
+    =
+    (\mu_1^+,\mu_1^-).
+    \tag{5.2.4}
+    \label{eq:5.2.4}
+\end{equation}
+
+由 \eqref{eq:5.2.1} 分列得到
+
+\begin{equation}
+    \mu_1^+(x,t,z)
+    =
+    \begin{pmatrix}1\\0\end{pmatrix}
+    +
+    \int_{-\infty}^{x}
+    \operatorname{diag}\!\left(1,e^{2iz(x-y)}\right)
+    P(y,t)\mu_1^+(y,t,z)\,\mathrm dy,
+    \tag{5.2.5}
+    \label{eq:5.2.5}
+\end{equation}
+
+\begin{equation}
+    \mu_1^-(x,t,z)
+    =
+    \begin{pmatrix}0\\1\end{pmatrix}
+    +
+    \int_{-\infty}^{x}
+    \operatorname{diag}\!\left(e^{-2iz(x-y)},1\right)
+    P(y,t)\mu_1^-(y,t,z)\,\mathrm dy.
+    \tag{5.2.6}
+    \label{eq:5.2.6}
+\end{equation}
+
+对 \eqref{eq:5.2.5}---\eqref{eq:5.2.6}，积分区域满足 $y<x$，即 $x-y>0$。令 $z=\operatorname{Re}z+i\operatorname{Im}z$，则
+
+\[
+    e^{2iz(x-y)}
+    =
+    e^{2i(x-y)\operatorname{Re}z}
+    e^{-2(x-y)\operatorname{Im}z},
+\]
+
+\[
+    e^{-2iz(x-y)}
+    =
+    e^{-2i(x-y)\operatorname{Re}z}
+    e^{2(x-y)\operatorname{Im}z}.
+\]
+
+因此：
+
+\begin{itemize}
+    \item 当 $\operatorname{Im}z>0$ 时，$e^{2iz(x-y)}$ 衰减，所以 $\mu_1^+$ 在 $\mathbb{C}^+$ 解析；
+    \item 当 $\operatorname{Im}z<0$ 时，$e^{-2iz(x-y)}$ 衰减，所以 $\mu_1^-$ 在 $\mathbb{C}^-$ 解析。
+\end{itemize}
+
+\begin{callout}[存在性、唯一性与解析性的严格证明思路（原书 5.2.1 节）]
+    书中对 $\mu_1^+$ 用 Neumann 级数作严格证明。令
+
+    \begin{equation}
+        w^{(0)}=\begin{pmatrix}1\\0\end{pmatrix},
+        \qquad
+        w^{(n+1)}(x,t,z)
+        =
+        \int_{-\infty}^{x}
+        F(x,y,z)w^{(n)}(y,t,z)\,\mathrm dy,
+        \tag{5.2.7}
+        \label{eq:5.2.7}
+    \end{equation}
+    其中
+
+    \begin{equation}
+        F(x,y,z)
+        =
+        \operatorname{diag}\!\left(1,e^{2iz(x-y)}\right)P(y,t).
+        \tag{5.2.8}
+        \label{eq:5.2.8}
+    \end{equation}
+    构造 Neumann 级数
+
+    \begin{equation}
+        \sum\limits_{n=0}^{\infty}w^{(n)}(x,t,z).
+        \tag{5.2.9}
+        \label{eq:5.2.9}
+    \end{equation}
+    取向量 $L^1$ 范数，有
+
+    \begin{equation}
+        \lVert w^{(n+1)}(x,t,z)\rVert
+        \le
+        \int_{-\infty}^{x}
+        \lVert F\rVert
+        \lVert w^{(n)}(y,t,z)\rVert\,\mathrm dy,
+        \tag{5.2.10}
+        \label{eq:5.2.10}
+    \end{equation}
+    且在相应半平面
+
+    \begin{equation}
+        \lVert F\rVert\le4\lvert q\rvert.
+        \tag{5.2.11}
+        \label{eq:5.2.11}
+    \end{equation}
+    因此
+
+    \begin{equation}
+        \lVert w^{(n+1)}(x,t,z)\rVert
+        \le
+        \int_{-\infty}^{x}
+        4\lvert q\rvert
+        \lVert w^{(n)}(y,t,z)\rVert\,\mathrm dy.
+        \tag{5.2.12}
+        \label{eq:5.2.12}
+    \end{equation}
+    记
+
+    \begin{equation}
+        \rho(x,t)
+        =
+        \int_{-\infty}^{x}4\lvert q(y,t)\rvert\,\mathrm dy,
+        \tag{5.2.13}
+        \label{eq:5.2.13}
+    \end{equation}
+    则
+
+    \begin{equation}
+        \rho_x=4\lvert q\rvert,
+        \qquad
+        \lVert w^{(1)}\rVert\le\rho(x,t).
+        \tag{5.2.14}
+        \label{eq:5.2.14}
+    \end{equation}
+    归纳得到
+
+    \begin{equation}
+        \lVert w^{(n)}(x,t,z)\rVert
+        \le
+        \dfrac{\rho^n(x,t)}{n!}.
+        \tag{5.2.15}
+        \label{eq:5.2.15}
+    \end{equation}
+    对 $x\le a$，令 $\sigma=\displaystyle\int_{-\infty}^{a}4\lvert q\rvert\,\mathrm dy$，则
+
+    \begin{equation}
+        \lVert w^{(n)}(x,t,z)\rVert
+        \le
+        \dfrac{\sigma^n}{n!}.
+        \tag{5.2.16}
+        \label{eq:5.2.16}
+    \end{equation}
+    因而级数绝对一致收敛，定义
+
+    \begin{equation}
+        w(x,t,z)
+        =
+        \sum\limits_{n=0}^{\infty}w^{(n)}(x,t,z),
+        \tag{5.2.17}
+        \label{eq:5.2.17}
+    \end{equation}
+    并满足
+
+    \begin{equation}
+        w(x,t,z)
+        =
+        w^{(0)}
+        +
+        \int_{-\infty}^{x}
+        F(x,y,z)w(y,t,z)\,\mathrm dy.
+        \tag{5.2.18}
+        \label{eq:5.2.18}
+    \end{equation}
+    每个迭代项对 $z$ 解析，一致收敛保证极限仍解析；唯一性则对两个解之差使用 Bellman/Grönwall 型不等式。
+    组会上不需要展开证明，说明``Volterra 迭代 + 阶乘估计 + 一致收敛 + 唯一性估计''即可。
+\end{callout}
+
+同理，
+
+\begin{equation}
+    \mu_2
+    =
+    \begin{pmatrix}
+        \mu_2^{(11)} & \mu_2^{(12)} \\
+        \mu_2^{(21)} & \mu_2^{(22)}
+    \end{pmatrix}
+    =
+    (\mu_2^-,\mu_2^+),
+    \tag{5.2.19}
+    \label{eq:5.2.19}
+\end{equation}
+
+其中 $\mu_2^-$ 在 $\mathbb{C}^-$ 解析，$\mu_2^+$ 在 $\mathbb{C}^+$ 解析。
+接下来要得到逆矩阵各行的解析性，因此先证明 $\det\mu_j=1$。注意 $\psi_1,\psi_2$ 均满足 Lax 对，并且
+
+\[
+    \operatorname{tr}(P-iz\sigma_3)
+    =
+    \operatorname{tr}(Q-2iz^2\sigma_3)
+    =
+    0.
+\]
+
+由 Abel 公式，
+
+\begin{equation}
+    (\det\psi_j)_x
+    =
+    (\det\psi_j)_t
+    =
+    0.
+    \tag{5.2.20}
+    \label{eq:5.2.20}
+\end{equation}
+
+又因为 $\mu_j=\psi_je^{i\theta\sigma_3}$ 且 $\det e^{i\theta\sigma_3}=1$，所以 $\det\mu_j=\det\psi_j$。结合空间无穷远归一化，
+
+\begin{equation}
+    \det\mu_j=1,\qquad j=1,2.
+    \tag{5.2.21}
+    \label{eq:5.2.21}
+\end{equation}
+
+从 \eqref{eq:5.2.3} 再取行列式，得到
+
+\[
+    \det S(z)=1.
+\]
+
+\begin{callout}[前置工具：Abel 公式（原书第 2 章定理 2.12）]
+    对矩阵微分方程
+
+    \[
+        Y_x=A(x)Y,
+    \]
+    有
+
+    \[
+        (\det Y)_x=\operatorname{tr}(A)\det Y,
+    \]
+    从而
+
+    \[
+        \det Y(x)
+        =
+        \det Y(x_0)
+        \exp\!\left(\int_{x_0}^{x}\operatorname{tr}A(s)\,\mathrm ds\right).
+    \]
+    特别地，若 $\operatorname{tr}A=0$，则 $\det Y$ 为常数。本节只需要这个零迹特例。
+\end{callout}
+
+由于 $\det\mu_j=1$，$\mu_1,\mu_2$ 可逆，并且对 $2\times2$ 矩阵逆矩阵可直接写成伴随矩阵。具体地，如果
+
+\[
+    \mu=
+    \begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix},
+    \qquad
+    \det\mu=ad-bc=1,
+\]
+
+那么一般的 $2\times2$ 逆矩阵公式给出
+
+\[
+    \mu^{-1}
+    =
+    \dfrac{1}{ad-bc}
+    \begin{pmatrix}
+        d  & -b \\
+        -c & a
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        d  & -b \\
+        -c & a
+    \end{pmatrix}.
+\]
+
+这就是为什么 $\det\mu_j=1$ 后，逆矩阵的元素可以直接由原矩阵的元素写出。特别地，如果 $\mu_1$ 的第一列在 $\mathbb{C}^+$ 解析、第二列在 $\mathbb{C}^-$ 解析，那么
+
+\[
+    \mu_1^{-1}
+    =
+    \begin{pmatrix}
+        \mu_1^{(22)}  & -\mu_1^{(12)} \\
+        -\mu_1^{(21)} & \mu_1^{(11)}
+    \end{pmatrix}
+\]
+
+的第一行全部来自 $\mu_1$ 的第二列，所以在 $\mathbb{C}^-$ 解析；第二行全部来自第一列，所以在 $\mathbb{C}^+$ 解析。于是
+
+\begin{equation}
+    \mu_1^{-1}
+    =
+    \begin{pmatrix}
+        \mu_1^{(22)}  & -\mu_1^{(12)} \\
+        -\mu_1^{(21)} & \mu_1^{(11)}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \widehat\mu_1^- \\
+        \widehat\mu_1^+
+    \end{pmatrix},
+    \tag{5.2.22}
+    \label{eq:5.2.22}
+\end{equation}
+
+\begin{equation}
+    \mu_2^{-1}
+    =
+    \begin{pmatrix}
+        \mu_2^{(22)}  & -\mu_2^{(12)} \\
+        -\mu_2^{(21)} & \mu_2^{(11)}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \widehat\mu_2^+ \\
+        \widehat\mu_2^-
+    \end{pmatrix}.
+    \tag{5.2.23}
+    \label{eq:5.2.23}
+\end{equation}
+
+这里帽号 $\widehat\mu_j^\pm$ 用来表示\textbf{行向量}。
+由 \eqref{eq:5.2.22}---\eqref{eq:5.2.23} 可见：$\mu_1^{-1}$ 第一、二行分别在 $\mathbb{C}^-$、$\mathbb{C}^+$ 解析；$\mu_2^{-1}$ 第一、二行分别在 $\mathbb{C}^+$、$\mathbb{C}^-$ 解析。
+由 \eqref{eq:5.2.3} 得
+
+\[
+    e^{-i\theta(z)\widehat{\sigma}_3}S(z)
+    =
+    \mu_2^{-1}\mu_1
+    =
+    \begin{pmatrix}
+        \widehat\mu_2^+ \\
+        \widehat\mu_2^-
+    \end{pmatrix}
+    (\mu_1^+,\mu_1^-)
+    =
+    \begin{pmatrix}
+        \widehat\mu_2^+\mu_1^+ & \widehat\mu_2^+\mu_1^- \\
+        \widehat\mu_2^-\mu_1^+ & \widehat\mu_2^-\mu_1^-
+    \end{pmatrix}.
+\]
+
+因此对角元的解析性直接读出：
+
+\[
+    s_{11}(z)\text{ 在 }\mathbb{C}^+\text{ 解析},
+    \qquad
+    s_{22}(z)\text{ 在 }\mathbb{C}^-\text{ 解析}.
+\]
+
+而 $s_{12},s_{21}$ 一般不能解析延拓到整个上、下半平面，但连续到连续谱所在的实轴 $\mathbb{R}$。
+
+\subsection{对称性}
+
+这一部分主要掌握证明思路和最终结论。原 $x$-部分为
+
+\begin{equation}
+    \mu_{j,x}(x,t,z)
+    +
+    iz[\sigma_3,\mu_j(x,t,z)]
+    =
+    P\mu_j(x,t,z),
+    \qquad j=1,2.
+    \tag{5.2.24}
+    \label{eq:5.2.24}
+\end{equation}
+
+把 $z$ 换成 $\bar z$ 后取 Hermite 共轭，并用 $P^H=-P$，得到
+
+\begin{equation}
+    \mu_{j,x}^H(x,t,\bar z)
+    +
+    iz[\sigma_3,\mu_j^H(x,t,\bar z)]
+    =
+    -\mu_j^H(x,t,\bar z)P.
+    \tag{5.2.25}
+    \label{eq:5.2.25}
+\end{equation}
+
+另一方面，由 $\mu_j\mu_j^{-1}=I$ 对 $x$ 求导：
+
+\begin{equation}
+    (\mu_j^{-1})_x
+    =
+    -\mu_j^{-1}\mu_{j,x}\mu_j^{-1}.
+    \tag{5.2.26}
+    \label{eq:5.2.26}
+\end{equation}
+
+代入 \eqref{eq:5.2.24}，整理为
+
+\begin{equation}
+    (\mu_j^{-1})_x
+    +
+    iz[\sigma_3,\mu_j^{-1}]
+    =
+    -\mu_j^{-1}P.
+    \tag{5.2.27}
+    \label{eq:5.2.27}
+\end{equation}
+
+\eqref{eq:5.2.25} 与 \eqref{eq:5.2.27} 是同一个一阶线性方程，并具有相同的无穷远归一化，因此由唯一性
+
+\begin{equation}
+    \mu_j^H(x,t,\bar z)
+    =
+    \mu_j^{-1}(x,t,z),
+    \qquad j=1,2.
+    \tag{5.2.28}
+    \label{eq:5.2.28}
+\end{equation}
+
+将散射关系改写为
+
+\begin{equation}
+    S(z)
+    =
+    e^{i\theta(z)\widehat{\sigma}_3}
+    \left[\mu_2^{-1}(x,t,z)\mu_1(x,t,z)\right],
+    \tag{5.2.29}
+    \label{eq:5.2.29}
+\end{equation}
+
+再利用 \eqref{eq:5.2.28}，得到
+
+\[
+    S^H(\bar z)
+    =
+    \begin{pmatrix}
+        \overline{s_{11}(\bar z)} & \overline{s_{21}(\bar z)} \\
+        \overline{s_{12}(\bar z)} & \overline{s_{22}(\bar z)}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        s_{22}(z)  & -s_{12}(z) \\
+        -s_{21}(z) & s_{11}(z)
+    \end{pmatrix}
+    =
+    S^{-1}(z),
+\]
+
+从而矩阵元满足相应的共轭关系，可写为
+
+\begin{equation}
+    \overline{s_{11}(\bar z)}=s_{22}(z),
+    \qquad
+    \overline{s_{12}(\bar z)}=-s_{21}(z).
+    \tag{5.2.30}
+    \label{eq:5.2.30}
+\end{equation}
+
+\begin{callout}[2.2 节真正要记住什么？]
+    不是每一步共轭转置计算，而是以下逻辑：
+
+    \[
+        \begin{aligned}
+            P^H=-P
+             & \Longrightarrow
+            \mu_j^H(\bar z)\text{ 与 }\mu_j^{-1}(z)
+            \text{ 满足同一方程和同一归一化},
+            \\
+            \mu_j^H(\bar z)=\mu_j^{-1}(z)
+             & \Longrightarrow
+            S^H(\bar z)=S^{-1}(z).
+        \end{aligned}
+    \]
+    这个对称性后面保证上半平面的离散零点与下半平面的共轭零点成对出现。
+\end{callout}
+
+\section{构造并求解 RH 问题}
+
+\subsection{规范化 RH 问题}
+
+基于第 5.2 节得到的解析列和解析行，引入投影矩阵
+
+\begin{equation}
+    H_1=
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & 0
+    \end{pmatrix},
+    \qquad
+    H_2=
+    \begin{pmatrix}
+        0 & 0 \\
+        0 & 1
+    \end{pmatrix}.
+    \tag{5.3.1}
+    \label{eq:5.3.1}
+\end{equation}
+
+右乘 $H_1,H_2$ 分别选取第一、二列；左乘 $H_1,H_2$ 分别选取第一、二行。因此定义
+
+\[
+    P_+
+    =
+    \mu_1H_1+\mu_2H_2
+    =
+    (\mu_1^+,\mu_2^+),
+\]
+
+\[
+    P_-
+    =
+    H_1\mu_1^{-1}+H_2\mu_2^{-1}
+    =
+    \begin{pmatrix}
+        \widehat\mu_1^- \\
+        \widehat\mu_2^-
+    \end{pmatrix}.
+\]
+
+由第 5.2 节的解析性，$P_+$ 在 $\mathbb{C}^+$ 解析，$P_-$ 在 $\mathbb{C}^-$ 解析，而且
+
+\[
+    P_\pm(x,t,z)\to I,\qquad z\to\infty.
+\]
+
+由 \eqref{eq:5.2.28} 还得到对称性
+
+\begin{equation}
+    P_+^H(x,t,\bar z)
+    =
+    H_1\mu_1^H(x,t,\bar z)
+    +
+    H_2\mu_2^H(x,t,\bar z)
+    =
+    P_-(x,t,z).
+    \tag{5.3.3}
+    \label{eq:5.3.3}
+\end{equation}
+
+于是得到本章真正需要的 RH 问题：
+
+\begin{equation}
+    P_\pm(x,t,z)\text{ 在 }\mathbb{C}^\pm\text{ 上解析},
+    \tag{5.3.4}
+    \label{eq:5.3.4}
+\end{equation}
+
+\begin{equation}
+    P_-(x,t,z)P_+(x,t,z)
+    =
+    G(x,t,z),
+    \qquad z\in\mathbb{R},
+    \tag{5.3.5}
+    \label{eq:5.3.5}
+\end{equation}
+
+\begin{equation}
+    P_\pm(x,t,z)\to I,
+    \qquad z\to\infty.
+    \tag{5.3.6}
+    \label{eq:5.3.6}
+\end{equation}
+
+跳跃矩阵为
+
+\begin{equation}
+    G(x,t,z)
+    =
+    e^{-i\theta(z)\widehat{\sigma}_3}
+    \begin{pmatrix}
+        1         & -s_{12}(z) \\
+        s_{21}(z) & 1
+    \end{pmatrix}.
+    \tag{5.3.7}
+    \label{eq:5.3.7}
+\end{equation}
+
+NLS 的解可由 RH 解重构：
+
+\begin{equation}
+    q(x,t)
+    =
+    2i\lim\limits_{z\to\infty}(zP_+)_{12}
+    =
+    2i(P_+^{(1)})_{12},
+    \tag{5.3.8}
+    \label{eq:5.3.8}
+\end{equation}
+
+其中
+
+\begin{equation}
+    P_+(x,t,z)
+    =
+    I+\dfrac{P_+^{(1)}(x,t)}{z}
+    +O(z^{-2}).
+    \tag{5.3.9}
+    \label{eq:5.3.9}
+\end{equation}
+
+\begin{callout}[计算：跳跃矩阵 $G$ 从哪里来？]
+    由定义
+
+    \[
+        P_-P_+
+        =
+        (H_1\mu_1^{-1}+H_2\mu_2^{-1})
+        (\mu_1H_1+\mu_2H_2).
+    \]
+    完全展开：
+
+    \[
+        \begin{aligned}
+            P_-P_+
+            ={} &
+            H_1\mu_1^{-1}\mu_1H_1
+            +
+            H_1\mu_1^{-1}\mu_2H_2 \\
+                & +
+            H_2\mu_2^{-1}\mu_1H_1
+            +
+            H_2\mu_2^{-1}\mu_2H_2.
+        \end{aligned}
+    \]
+    第一、四项给出
+
+    \[
+        H_1+H_2=I.
+    \]
+    由散射关系 \eqref{eq:5.2.3}，
+
+    \[
+        \mu_2^{-1}\mu_1
+        =
+        e^{-i\theta\widehat{\sigma}_3}S,
+    \]
+
+    \[
+        \mu_1^{-1}\mu_2
+        =
+        e^{-i\theta\widehat{\sigma}_3}S^{-1}.
+    \]
+    又因为 $\det S=1$，
+
+    \[
+        S^{-1}
+        =
+        \begin{pmatrix}
+            s_{22}  & -s_{12} \\
+            -s_{21} & s_{11}
+        \end{pmatrix}.
+    \]
+    利用 $H_1,H_2$ 只保留相应行列，最后得到
+
+    \[
+        P_-P_+
+        =
+        e^{-i\theta\widehat{\sigma}_3}
+        \begin{pmatrix}
+            1      & -s_{12} \\
+            s_{21} & 1
+        \end{pmatrix},
+    \]
+    即 \eqref{eq:5.3.7}。
+    因为
+
+    \[
+        e^{-i\theta\widehat{\sigma}_3}
+        \begin{pmatrix}
+            a & b \\c&d
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            a             & e^{-2i\theta}b \\
+            e^{2i\theta}c & d
+        \end{pmatrix},
+    \]
+    所以也可以把跳跃矩阵理解为
+
+    \[
+        G=
+        \begin{pmatrix}
+            1                     & -s_{12}(z)e^{-2i\theta} \\
+            s_{21}(z)e^{2i\theta} & 1
+        \end{pmatrix}.
+    \]
+    此外，直接由散射关系可得两个非常重要的结果：
+
+    \[
+        \det P_+(z)=s_{11}(z),
+        \qquad
+        \det P_-(z)=s_{22}(z).
+    \]
+    以 $P_+$ 为例，由
+
+    \[
+        \mu_1
+        =
+        \mu_2e^{-i\theta\widehat{\sigma}_3}S
+    \]
+    可写成
+
+    \[
+        P_+
+        =
+        \mu_1H_1+\mu_2H_2
+        =
+        \mu_2
+        \left[
+            \left(e^{-i\theta\widehat{\sigma}_3}S\right)H_1+H_2
+            \right].
+    \]
+    而
+
+    \[
+        e^{-i\theta\widehat{\sigma}_3}S
+        =
+        \begin{pmatrix}
+            s_{11}             & s_{12}e^{-2i\theta} \\
+            s_{21}e^{2i\theta} & s_{22}
+        \end{pmatrix},
+    \]
+    所以
+
+    \[
+        \left(e^{-i\theta\widehat{\sigma}_3}S\right)H_1+H_2
+        =
+        \begin{pmatrix}
+            s_{11}             & 0 \\
+            s_{21}e^{2i\theta} & 1
+        \end{pmatrix}.
+    \]
+    因此
+
+    \[
+        \det P_+
+        =
+        \det\mu_2\cdot s_{11}
+        =
+        s_{11}.
+    \]
+    同理可得 $\det P_-=s_{22}$。
+\end{callout}
+
+\begin{callout}[到这里发生了什么？]
+    第 5.1 节把 $q$ 与特征函数的大 $z$ 系数联系起来（\eqref{eq:5.1.15}）：
+
+    \[
+        q(x,t)=2i(\mu^{(1)})_{12}=2i\lim\limits_{z\to\infty}(z\mu)_{12}.
+    \]
+    第 5.2 节得到特征函数的解析性与散射数据；第 5.3.1 节把这些解析列、解析行重新拼装成 $P_\pm$，于是终于得到
+
+    \[
+        \boxed{\text{NLS 初值问题}\longrightarrow\text{RH 问题}.}
+    \]
+    恢复 $q$ 的公式也随之从 $\mu$ 的版本换成 $P_+$ 的版本（\eqref{eq:5.3.8}）：
+
+    \[
+        q(x,t)=2i\lim\limits_{z\to\infty}(zP_+)_{12}=2i(P_+^{(1)})_{12}.
+    \]
+    后面只需要解决这个 RH 问题，再代回 \eqref{eq:5.3.8} 恢复 $q$。
+\end{callout}
+
+\subsection{RH 问题的可解性}
+
+\subsubsection{正则 RH 问题}
+
+如果
+
+\begin{equation}
+    \det P_\pm(z)\ne0,
+    \tag{5.3.10}
+    \label{eq:5.3.10}
+\end{equation}
+
+即相应解析区域中不存在零点，则称 RH 问题为正则的。由 \eqref{eq:5.3.5}
+
+\[
+    P_-P_+=G
+\]
+
+右乘 $P_+^{-1}$ 后得到
+
+\[
+    P_-=GP_+^{-1}.
+\]
+
+因此
+
+\[
+    P_+^{-1}-P_-
+    =
+    (I-G)P_+^{-1}
+    \triangleq
+    \widehat G\,P_+^{-1}.
+\]
+
+这是一个\textbf{加性 RH 跳跃关系}。由 Plemelj(普莱梅尔) 公式，
+
+\[
+    P_+^{-1}(z)
+    =
+    I+
+    \dfrac{1}{2\pi i}
+    \int_{-\infty}^{\infty}
+    \dfrac{\widehat G(s)P_+^{-1}(s)}{s-z}\,\mathrm ds,
+    \qquad
+    z\in\mathbb{C}^+.
+\]
+
+注意右端仍含 $P_+^{-1}$，所以这不是显式解，而是把 RH 问题转化成了一个奇异积分方程。
+
+\begin{callout}[前置工具：这里具体用了哪个 Plemelj 公式？（原书 3.5.3 节，(3.5.26)---(3.5.28)）]
+    前面复分析部分的加性 RH 问题是
+
+    \[
+        F_+-F_-=f,
+    \]
+    其 Cauchy 表示为
+
+    \[
+        F(z)
+        =
+        A+
+        \dfrac{1}{2\pi i}
+        \int\limits_\Sigma
+        \dfrac{f(\xi)}{\xi-z}\,\mathrm d\xi.
+    \]
+    本节取
+
+    \[
+        F_+=P_+^{-1},
+        \qquad
+        F_-=P_-,
+        \qquad
+        f=\widehat G\,P_+^{-1},
+    \]
+    跳跃曲线取 $\Sigma=\mathbb{R}$，再由 $P_+^{-1}\to I$ 取 $A=I$，就得到上面的积分方程。
+    所以这里的逻辑是：
+
+    \[
+        \text{乘法跳跃}
+        \longrightarrow
+        \text{加法跳跃}
+        \longrightarrow
+        \text{Plemelj}
+        \longrightarrow
+        \text{奇异积分方程}.
+    \]
+
+\end{callout}
+
+\subsubsection{非正则 RH 问题}
+
+若 \eqref{eq:5.3.10} 不成立，假设 $z_j\in\mathbb{C}^+$ 是 $\det P_+=s_{11}$ 的离散零点，则由对称性，$\bar z_j\in\mathbb{C}^-$ 是 $\det P_-=s_{22}$ 的对应零点。
+因为矩阵在这些点奇异，所以存在非零列向量、行向量
+
+\begin{equation}
+    P_+(z_j)w_j=0,
+    \qquad j=1,\ldots,N,
+    \tag{5.3.11}
+    \label{eq:5.3.11}
+\end{equation}
+
+\begin{equation}
+    w_j^*P_-(\bar z_j)=0.
+    \tag{5.3.12}
+    \label{eq:5.3.12}
+\end{equation}
+
+由 \eqref{eq:5.3.3} 可取
+
+\begin{equation}
+    w_j^*=w_j^H.
+    \tag{5.3.13}
+    \label{eq:5.3.13}
+\end{equation}
+
+\begin{callout}[概念：为什么零点对应``离散谱''？（原书 5.3.2 节）]
+    $\det P_+(z)=s_{11}(z)$。
+    当 $s_{11}(z_j)=0$ 时，$P_+(z_j)$ 失去可逆性，出现非平凡核向量 $w_j$。
+    这些不位于连续谱实轴上的孤立复零点就是离散谱。
+    后面孤子正是由这些离散谱数据产生。
+\end{callout}
+
+\textbf{定理 5.3（Zakharov--Shabat 零点剥离）}\\
+带有上述简单零点结构的非正则 RH 问题可分解为
+
+\begin{equation}
+    P_+(z)
+    =
+    \widehat P_+(z)\Gamma(z),
+    \tag{5.3.14}
+    \label{eq:5.3.14}
+\end{equation}
+
+\begin{equation}
+    P_-(z)
+    =
+    \Gamma^{-1}(z)\widehat P_-(z),
+    \tag{5.3.15}
+    \label{eq:5.3.15}
+\end{equation}
+
+其中
+
+\begin{equation}
+    \Gamma(z)
+    =
+    I+
+    \sum\limits_{k,j=1}^{N}
+    \dfrac{
+        w_k(M^{-1})_{kj}w_j^*
+    }{
+        z-\bar z_j
+    },
+    \tag{5.3.16}
+    \label{eq:5.3.16}
+\end{equation}
+
+\begin{equation}
+    \Gamma^{-1}(z)
+    =
+    I-
+    \sum\limits_{k,j=1}^{N}
+    \dfrac{
+        w_k(M^{-1})_{kj}w_j^*
+    }{
+        z-z_k
+    },
+    \tag{5.3.17}
+    \label{eq:5.3.17}
+\end{equation}
+
+而
+
+\[
+    M_{kj}
+    =
+    \dfrac{w_k^*w_j}{\bar z_k-z_j},
+    \qquad
+    1\le k,j\le N.
+\]
+
+并且
+
+\[
+    \det\Gamma(z)
+    =
+    \prod\limits_{j=1}^{N}
+    \dfrac{z-z_j}{z-\bar z_j}.
+\]
+
+剥离后的 $\widehat P_\pm$ 满足正则 RH 问题：
+
+\begin{itemize}
+    \item $\widehat P_\pm$ 在 $\mathbb{C}^\pm$ 上解析；
+    \item 在实轴上
+
+          \[
+              \widehat P_-(z)\widehat P_+(z)
+              =
+              \Gamma(z)G(z)\Gamma^{-1}(z);
+          \]
+
+    \item $\widehat P_\pm(z)\to I$，$z\to\infty$。
+\end{itemize}
+
+核心思想就是：\textbf{把所有离散零点结构装入有理矩阵 $\Gamma$，剩余的 $\widehat P_\pm$ 不再含这些零点，于是非正则 RH 问题被化归为正则 RH 问题。}
+
+\begin{callout}[定理 5.3 的证明思路（组会可略）]
+    对第 $j$ 个零点引入单极点因子
+
+    \[
+        \Gamma_j(z)
+        =
+        I+
+        \dfrac{\bar z_j-z_j}{z-\bar z_j}
+        \dfrac{v_jv_j^*}{v_j^*v_j},
+    \]
+
+    \begin{equation}
+        \Gamma_j^{-1}(z)
+        =
+        I-
+        \dfrac{\bar z_j-z_j}{z-z_j}
+        \dfrac{v_jv_j^*}{v_j^*v_j}.
+        \tag{5.3.19}
+        \label{eq:5.3.19}
+    \end{equation}
+    逐个消去 $P_+$ 在 $z_j$ 和 $P_-$ 在 $\bar z_j$ 的零点。核向量与逐步变换后的向量满足
+
+    \begin{equation}
+        w_j(z_j)
+        =
+        \Gamma_1^{-1}(z_j)\cdots
+        \Gamma_{j-1}^{-1}(z_j)v_j(z_j),
+        \tag{5.3.18}
+        \label{eq:5.3.18}
+    \end{equation}
+    以及相应的左核关系。最后令
+
+    \begin{equation}
+        \Gamma(z)
+        =
+        \Gamma_N(z)\cdots\Gamma_1(z),
+        \qquad
+        \Gamma^{-1}(z)
+        =
+        \Gamma_1^{-1}(z)\cdots\Gamma_N^{-1}(z).
+        \tag{5.3.20}
+        \label{eq:5.3.20}
+    \end{equation}
+    为得到 \eqref{eq:5.3.16}---\eqref{eq:5.3.17} 的显式形式，再作部分分式展开
+
+    \begin{equation}
+        \Gamma(z)
+        =
+        I+
+        \sum\limits_{j=1}^{N}
+        \dfrac{\zeta_jw_j^*}{z-\bar z_j},
+        \tag{5.3.21}
+        \label{eq:5.3.21}
+    \end{equation}
+
+    \begin{equation}
+        \Gamma^{-1}(z)
+        =
+        I-
+        \sum\limits_{j=1}^{N}
+        \dfrac{w_j\zeta_j^*}{z-z_j}.
+        \tag{5.3.22}
+        \label{eq:5.3.22}
+    \end{equation}
+    由 $\Gamma\Gamma^{-1}=I$，在 $z=z_k$ 取留数：
+
+    \begin{equation}
+        0
+        =
+        -\Gamma(z_k)w_k\zeta_k^*
+        =
+        \left(
+        -w_k+
+        \sum\limits_{j=1}^{N}
+        \dfrac{w_j^*w_k}{\bar z_j-z_k}\zeta_j
+        \right)\zeta_k^*.
+        \tag{5.3.23}
+        \label{eq:5.3.23}
+    \end{equation}
+    因而
+
+    \begin{equation}
+        -w_k+
+        \sum\limits_{j=1}^{N}
+        \dfrac{w_j^*w_k}{\bar z_j-z_k}\zeta_j
+        =
+        0.
+        \tag{5.3.24}
+        \label{eq:5.3.24}
+    \end{equation}
+    写成分块线性方程组：
+
+    \begin{equation}
+        (\zeta_1,\ldots,\zeta_N)M
+        =
+        (w_1,\ldots,w_N).
+        \tag{5.3.25}
+        \label{eq:5.3.25}
+    \end{equation}
+    解得 $\displaystyle \zeta_j=\sum\limits_k w_k(M^{-1})_{kj}$，代回即得到 \eqref{eq:5.3.16}---\eqref{eq:5.3.17}。
+\end{callout}
+
+\section{NLS 方程的 \texorpdfstring{$N$}{N} 孤子解}
+
+\subsection{离散核向量的时空演化}
+
+从 \eqref{eq:5.3.11}
+
+\[
+    P_+(z_j)w_j=0
+\]
+
+分别对 $x,t$ 求导：
+
+\begin{equation}
+    P_{+,x}w_j+P_+w_{j,x}=0,
+    \tag{5.4.1}
+    \label{eq:5.4.1}
+\end{equation}
+
+\begin{equation}
+    P_{+,t}w_j+P_+w_{j,t}=0.
+    \tag{5.4.2}
+    \label{eq:5.4.2}
+\end{equation}
+
+利用 $P_+$ 的定义和 Lax 对 \eqref{eq:5.1.7}，得到
+
+\begin{equation}
+    P_{+,x}
+    =
+    \mu_{1,x}H_1+\mu_{2,x}H_2
+    =
+    -iz_j[\sigma_3,P_+]+PP_+.
+    \tag{5.4.3}
+    \label{eq:5.4.3}
+\end{equation}
+
+同理由 \eqref{eq:5.1.8} 得到
+
+\begin{equation}
+    P_{+,t}
+    =
+    -2iz_j^2[\sigma_3,P_+]+QP_+.
+    \tag{5.4.4}
+    \label{eq:5.4.4}
+\end{equation}
+
+代入 \eqref{eq:5.4.1}---\eqref{eq:5.4.2}，再使用 $P_+(z_j)w_j=0$：
+
+\[
+    P_+\left(w_{j,x}+iz_j\sigma_3w_j\right)=0,
+\]
+
+\[
+    P_+\left(w_{j,t}+2iz_j^2\sigma_3w_j\right)=0.
+\]
+
+选择核向量的规范，使括号内向量为零：
+
+\[
+    w_{j,x}+iz_j\sigma_3w_j=0,
+    \qquad
+    w_{j,t}+2iz_j^2\sigma_3w_j=0.
+\]
+
+解得
+
+\begin{equation}
+    w_j
+    =
+    e^{-i\theta(z_j)\sigma_3}w_{j0},
+    \qquad
+    j=1,\ldots,N,
+    \tag{5.4.5}
+    \label{eq:5.4.5}
+\end{equation}
+
+其中 $w_{j0}$ 为二维常数列向量，因此
+
+\begin{equation}
+    w_j^*
+    =
+    w_{j0}^He^{i\theta(\bar z_j)\sigma_3}.
+    \tag{5.4.6}
+    \label{eq:5.4.6}
+\end{equation}
+
+\subsection{\texorpdfstring{$N$}{N} 孤子解公式}
+
+由正则部分的 Plemelj 表示作 $z\to\infty$ 展开，有
+
+\begin{equation}
+    \widehat P_+(z)
+    =
+    I+
+    \dfrac{1}{2\pi iz}
+    \int_{-\infty}^{\infty}
+    \Gamma\widehat G\Gamma^{-1}\widehat P_+^{-1}\,\mathrm ds
+    +
+    O(z^{-2}).
+    \tag{5.4.7}
+    \label{eq:5.4.7}
+\end{equation}
+
+另一方面，由 \eqref{eq:5.3.16}
+
+\begin{equation}
+    \Gamma(z)
+    =
+    I+
+    \dfrac{1}{z}
+    \sum\limits_{k,j=1}^{N}
+    w_k(M^{-1})_{kj}w_j^*
+    +
+    O(z^{-2}).
+    \tag{5.4.8}
+    \label{eq:5.4.8}
+\end{equation}
+
+利用
+
+\[
+    P_+=\widehat P_+\Gamma
+\]
+
+以及 \eqref{eq:5.3.9}，比较 $z^{-1}$ 系数：
+
+\begin{equation}
+    P_+^{(1)}
+    =
+    \dfrac{1}{2\pi i}
+    \int_{-\infty}^{\infty}
+    \Gamma\widehat G\Gamma^{-1}\widehat P_+^{-1}\,\mathrm ds
+    +
+    \sum\limits_{k,j=1}^{N}
+    w_k(M^{-1})_{kj}w_j^*.
+    \tag{5.4.9}
+    \label{eq:5.4.9}
+\end{equation}
+
+这个式子非常重要：第一项是连续谱贡献，第二项是离散谱贡献。
+特别地，当散射数据
+
+\[
+    s_{12}=s_{21}=0
+\]
+
+时，由 \eqref{eq:5.3.7} 有 $G=I$，连续谱积分项消失：
+
+\[
+    P_+^{(1)}
+    =
+    \sum\limits_{k,j=1}^{N}
+    w_k(M^{-1})_{kj}w_j^*.
+\]
+
+记
+
+\[
+    \lambda_j
+    =
+    -i(z_jx+2z_j^2t),
+\]
+
+并取
+
+\[
+    w_{j0}
+    =
+    \begin{pmatrix}
+        c_j \\1
+    \end{pmatrix}.
+\]
+
+由 \eqref{eq:5.4.5}
+
+\begin{equation}
+    w_j
+    =
+    \begin{pmatrix}
+        e^{\lambda_j} & 0              \\
+        0             & e^{-\lambda_j}
+    \end{pmatrix}
+    \begin{pmatrix}
+        c_j \\1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        c_je^{\lambda_j} \\
+        e^{-\lambda_j}
+    \end{pmatrix}.
+    \tag{5.4.10}
+    \label{eq:5.4.10}
+\end{equation}
+
+因此
+
+\begin{equation}
+    w_j^*
+    =
+    \left(
+    \bar c_je^{\bar\lambda_j},
+    e^{-\bar\lambda_j}
+    \right).
+    \tag{5.4.11}
+    \label{eq:5.4.11}
+\end{equation}
+
+矩阵 $M$ 的元素为
+
+\begin{equation}
+    M_{kj}
+    =
+    \dfrac{w_k^*w_j}{\bar z_k-z_j}
+    =
+    \dfrac{
+        \bar c_kc_je^{\bar\lambda_k+\lambda_j}
+        +
+        e^{-\bar\lambda_k-\lambda_j}
+    }{
+        \bar z_k-z_j
+    }.
+    \tag{5.4.12}
+    \label{eq:5.4.12}
+\end{equation}
+
+由重构公式 \eqref{eq:5.3.8}：
+
+\begin{equation}
+    \begin{aligned}
+        q
+         & =
+        2i(P_+^{(1)})_{12}           \\
+         & =
+        2i
+        \sum\limits_{k,j=1}^{N}
+        (w_kw_j^*)_{12}(M^{-1})_{kj} \\
+         & =
+        2i
+        \sum\limits_{k,j=1}^{N}
+        c_ke^{\lambda_k-\bar\lambda_j}(M^{-1})_{kj}.
+    \end{aligned}
+    \tag{5.4.13}
+    \label{eq:5.4.13}
+\end{equation}
+
+定义 $(N+1)\times(N+1)$ 矩阵
+
+\begin{equation}
+    R=
+    \begin{pmatrix}
+        0                  & c_1e^{\lambda_1} & \cdots & c_Ne^{\lambda_N} \\
+        e^{-\bar\lambda_1} & M_{11}           & \cdots & M_{1N}           \\
+        \vdots             & \vdots           &        & \vdots           \\
+        e^{-\bar\lambda_N} & M_{N1}           & \cdots & M_{NN}
+    \end{pmatrix}.
+    \tag{5.4.14}
+    \label{eq:5.4.14}
+\end{equation}
+
+按第一行、第一列展开，或者等价地使用 Schur 补，可把双重求和写成伴随矩阵形式：
+
+\begin{equation}
+    \det R
+    =
+    -\sum\limits_{k,j=1}^{N}
+    c_ke^{\lambda_k-\bar\lambda_j}(M^*)_{jk}
+    =
+    -\det M
+    \sum\limits_{k,j=1}^{N}
+    c_ke^{\lambda_k-\bar\lambda_j}(M^{-1})_{kj}.
+    \tag{5.4.15}
+    \label{eq:5.4.15}
+\end{equation}
+
+这里 $M^*$ 在这一式中表示 \textbf{伴随矩阵（adjugate）}，不是 Hermite 共轭。使用
+
+\[
+    M^{-1}
+    =
+    \dfrac{1}{\det M}M^*,
+    \qquad
+    (M^{-1})_{kj}
+    =
+    \dfrac{(M^*)_{jk}}{\det M}.
+\]
+
+于是
+
+\begin{equation}
+    \sum\limits_{k,j=1}^{N}
+    c_ke^{\lambda_k-\bar\lambda_j}(M^{-1})_{kj}
+    =
+    -\dfrac{\det R}{\det M}.
+    \tag{5.4.16}
+    \label{eq:5.4.16}
+\end{equation}
+
+代回 \eqref{eq:5.4.13}，得到 $N$ 孤子解
+
+\begin{equation}
+    \boxed{
+        q(x,t)
+        =
+        -2i\dfrac{\det R}{\det M}.
+    }
+    \tag{5.4.17}
+    \label{eq:5.4.17}
+\end{equation}
+
+\begin{callout}[4.2 节的核心思路]
+    一般 RH 解的 $z^{-1}$ 系数由两部分组成：
+
+    \[
+        P_+^{(1)}
+        =
+        \text{连续谱积分}
+        +
+        \text{离散谱有限和}.
+    \]
+    无反射 $s_{12}=s_{21}=0$ 时，$G=I$，连续谱积分消失，只剩离散谱有限和；再借助有限维矩阵 $M$ 和 $R$，就得到行列式形式 \eqref{eq:5.4.17}。因此：
+
+    \[
+        \boxed{\text{连续谱对应辐射/反射，离散谱对应孤子}.}
+    \]
+
+\end{callout}
+
+\subsection{单孤子解}
+
+现在令 $N=1$。取一对离散谱点
+
+\[
+    z_1\in\mathbb{C}^+,
+    \qquad
+    \bar z_1\in\mathbb{C}^-,
+\]
+
+并记
+
+\[
+    \lambda_1
+    =
+    -i(z_1x+2z_1^2t).
+\]
+
+由 \eqref{eq:5.4.10}---\eqref{eq:5.4.12}，
+
+\[
+    w_1
+    =
+    \begin{pmatrix}
+        c_1e^{\lambda_1} \\
+        e^{-\lambda_1}
+    \end{pmatrix},
+    \qquad
+    w_1^*
+    =
+    \left(
+    \bar c_1e^{\bar\lambda_1},
+    e^{-\bar\lambda_1}
+    \right).
+\]
+
+此时 $M$ 是 $1\times1$ 矩阵，所以
+
+\[
+    \det M
+    =
+    M_{11}
+    =
+    \dfrac{
+        \lvert c_1\rvert^2e^{\lambda_1+\bar\lambda_1}
+        +
+        e^{-(\lambda_1+\bar\lambda_1)}
+    }{
+        \bar z_1-z_1
+    }.
+\]
+
+而
+
+\[
+    R=
+    \begin{pmatrix}
+        0                  & c_1e^{\lambda_1} \\
+        e^{-\bar\lambda_1} & M_{11}
+    \end{pmatrix},
+\]
+
+因此
+
+\[
+    \det R
+    =
+    -c_1e^{\lambda_1-\bar\lambda_1}.
+\]
+
+代入 \eqref{eq:5.4.17}，得到单孤子解
+
+\begin{equation}
+    q(x,t)
+    =
+    2i(\bar z_1-z_1)
+    \dfrac{
+        c_1e^{\lambda_1-\bar\lambda_1}
+    }{
+        \lvert c_1\rvert^2e^{\lambda_1+\bar\lambda_1}
+        +
+        e^{-(\lambda_1+\bar\lambda_1)}
+    }.
+    \tag{5.4.18}
+    \label{eq:5.4.18}
+\end{equation}
+
+进一步取
+
+\[
+    z_1=\xi+i\eta,
+    \qquad
+    c_1=e^{-\delta_0+ik_0},
+    \qquad
+    \eta>0.
+\]
+
+由
+
+\[
+    \lambda_1=-i(z_1x+2z_1^2t)
+\]
+
+可得
+
+\[
+    \lambda_1+\bar\lambda_1
+    =
+    2\eta(x+4\xi t),
+\]
+
+\[
+    \lambda_1-\bar\lambda_1
+    =
+    -2i\xi x-4i(\xi^2-\eta^2)t,
+\]
+
+以及
+
+\[
+    2i(\bar z_1-z_1)=4\eta.
+\]
+
+代入 \eqref{eq:5.4.18} 并化简：
+
+\[
+    \boxed{
+        q(x,t)
+        =
+        2\eta\,
+        e^{-2i\xi x-4i(\xi^2-\eta^2)t+ik_0}
+        \operatorname{sech}
+        \!\left[
+            2\eta(x+4\xi t)-\delta_0
+            \right].
+    }
+\]
+
+这个解的模长是局域的 $\operatorname{sech}$ 型波包，因此属于零边界下的亮孤子。
+
+\begin{callout}[参数的直观意义]
+    $z_1=\xi+i\eta$ 中，$\eta>0$ 控制孤子的振幅和宽度，$\xi$ 控制传播速度和相位；$c_1=e^{-\delta_0+ik_0}$ 中，$\delta_0$ 与孤子的位置平移有关，$k_0$ 是额外相位。
+    离散谱点决定孤子的主要动力学参数，而归一化常数决定位置、相位等自由度。
+\end{callout}
+
+\section*{最后的逻辑闭环}
+
+现在可以把整章压缩成四个层次。
+\textbf{第一层：非线性方程与线性谱问题}
+
+\[
+    \text{NLS}
+    \overset{\text{Lax 对}}{\longleftrightarrow}
+    \text{线性谱问题}.
+\]
+
+\textbf{第二层：谱问题与散射数据}
+
+\[
+    \text{Jost 解}
+    \longrightarrow
+    S(z)
+    \longrightarrow
+    \begin{cases}
+        \text{连续谱数据 }s_{12},s_{21}, \\
+        \text{离散谱数据 }z_j,w_j.
+    \end{cases}
+\]
+
+\textbf{第三层：谱数据与 RH 问题}
+
+\[
+    \text{解析列/解析行}
+    +
+    \text{散射数据}
+    \longrightarrow
+    (P_+,P_-,G).
+\]
+
+正则时用 Plemelj；非正则时先用 $\Gamma$ 剥离零点。
+\textbf{第四层：RH 解回到 NLS}
+
+\[
+    P_+(z)
+    =
+    I+\dfrac{P_+^{(1)}}{z}+O(z^{-2})
+    \longrightarrow
+    q(x,t)=2i(P_+^{(1)})_{12}.
+\]
+
+无反射时 $G=I$，只剩离散谱：
+
+\[
+    q(x,t)
+    =
+    -2i\dfrac{\det R}{\det M}.
+\]
+
+\begin{callout}[组会最后一句]
+    这一章真正建立的是一条完整的逆散射/RH 链条：
+
+    \[
+        \boxed{
+            q_0
+            \longrightarrow
+            \text{Jost 解}
+            \longrightarrow
+            \text{散射数据}
+            \longrightarrow
+            \text{RH 问题}
+            \longrightarrow
+            P_+
+            \longrightarrow
+            q(x,t).
+        }
+    \]
+    Lax 对负责把非线性 PDE 编码成谱问题；Jost 解和散射矩阵负责提取谱数据；解析性负责组织 RH 问题；Plemelj 公式和 $\Gamma$ 零点剥离负责求解 RH 问题；最后用大谱参数展开完成重构。
+    无反射条件去掉连续谱贡献后，离散谱直接产生孤子。
+\end{callout}
+
+
+\end{document}

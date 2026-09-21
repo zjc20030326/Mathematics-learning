@@ -1,0 +1,93 @@
+% =============================================================================
+% Project / personal preamble for the integrable-systems notes
+% General document-class settings live in elegantbook.cls.
+% This file contains only project-specific or frequently adjusted preferences.
+% =============================================================================
+
+% ================= Project structure =================
+% Kept here rather than in the class because not every ElegantBook document
+% needs to be split into subfiles.
+\usepackage{subfiles}
+
+% ================= Watermark appearance =================
+% Whether the watermark is shown is controlled by the class option:
+%   watermark   -> show
+%   nowatermark -> hide (default)
+% The personal watermark content stays here.
+\SetWatermarkText{欧拉的小迷弟}
+\SetWatermarkScale{0.4}
+\SetWatermarkLightness{0.9}
+
+% ================= Header and footer =================
+% Personal layout: current section on the left, nickname on the right,
+% page number centered in the footer.
+\fancyhf{}
+\fancyhead[L]{\rightmark}
+\fancyhead[R]{欧拉的小迷弟}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrule}{\hrule width\headwidth}
+\renewcommand{\headrulewidth}{0.4pt}
+\pagestyle{fancy}
+
+% Keep the same personal header/footer on chapter-opening pages.
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyhead[L]{\rightmark}
+    \fancyhead[R]{欧拉的小迷弟}
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrule}{\hrule width\headwidth}
+    \renewcommand{\headrulewidth}{0.4pt}%
+}
+
+% ================= Obsidian-style supplementary callout =================
+% ElegantBook's native remark environment is intentionally left untouched.
+% Use callout for supplementary material that should be visually secondary
+% during a presentation or review.
+\newtcolorbox{callout}[1][]{
+    enhanced,
+    breakable,
+    colback=black!3,
+    colframe=black!35,
+    boxrule=0pt,
+    borderline west={1.4pt}{0pt}{black!45},
+    arc=0pt,
+    outer arc=0pt,
+    left=8pt,
+    right=8pt,
+    top=7pt,
+    bottom=7pt,
+    before skip=10pt,
+    after skip=10pt,
+    title={#1},
+    colbacktitle=black!7,
+    coltitle=black,
+    fonttitle=\bfseries\small,
+    fontupper=\small,
+    titlerule=0pt
+}
+
+% ================= Importance markers =================
+\newcommand{\marktriangle}{\ensuremath{\blacktriangle}}
+\newcommand{\markstar}{\ensuremath{\bigstar}}
+\newcommand{\markstartriangle}{\ensuremath{\bigstar\blacktriangle}}
+\newcommand{\marktwostar}{\ensuremath{\bigstar\bigstar}}
+
+% ================= Internal section helper =================
+% Preserve unnumbered (A)(B)(C)...-style headings while adding them to the TOC.
+\newcommand{\methodsection}[1]{%
+    \subsubsection*{#1}%
+    \addcontentsline{toc}{subsubsection}{#1}%
+}
+
+% ================= Space after examples =================
+\newcommand{\exampleblank}{\par\vspace{10\baselineskip}}
+\newcommand{\myspace}[1]{\par\vspace{#1\baselineskip}}
+
+% ================= Custom mathematical operators =================
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ree}{Re}
+\DeclareMathOperator{\Imm}{Im}
+\DeclareMathOperator{\Ker}{Ker}
