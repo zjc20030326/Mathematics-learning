@@ -1391,7 +1391,6 @@
     \ifdefstring{\ELEGANT@result}{noanswer}{
       \AtBeginDocument{
         \excludecomment{solution}
-        \excludecomment{proof}
         \excludecomment{inline}
       }
     }{\relax}
