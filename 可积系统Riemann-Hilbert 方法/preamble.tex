@@ -7,24 +7,28 @@
 % 3. 以后想改页眉、水印文字、callout 样式、自定义命令，只改本文件即可。
 % =============================================================================
 
-% ================= 1. 项目结构 =================
+% ================= 项目结构 =================
 % subfiles 用于把大文档拆成多个可单独编译的子文件。
 % 当前第五章虽然是独立编译，但保留这个宏包，便于以后扩展。
+% ================= 子文件支持 ===============
 \usepackage{subfiles}
 
-% ================= 2. 水印内容与外观 =================
-% 是否显示水印由文档类选项控制：
-%
-%   \documentclass[...,watermark]{elegantbook}    % 开启水印
-%   \documentclass[...,nowatermark]{elegantbook}  % 关闭水印
-%
-% elegantbook.cls 只负责开关；具体文字和样式放在这里，避免把个人信息
-% 写死到通用文档类中。
-\SetWatermarkText{欧拉的小迷弟}
+% 单章编译可能读取 TeX Live 自带的 elegantbook.cls，故不使用文档类选项
+% 控制水印，而统一读取主文件中定义的项目级开关。
+\usepackage{draftwatermark}
+
+% ================= 水印内容 =================
 \SetWatermarkScale{0.4}
 \SetWatermarkLightness{0.9}
+\AtBeginDocument{%
+    \ifmathanalysiswatermark
+        \SetWatermarkText{欧拉的小迷弟}%
+    \else
+        \SetWatermarkText{}%
+    \fi
+}
 
-% ================= 3. 页眉页脚 =================
+% ================= 页眉页脚 =================
 % 这是个人化设置，因此覆盖 ElegantBook 默认的 fancyhdr 样式。
 %
 % 左页眉：当前 section
@@ -49,7 +53,7 @@
     \renewcommand{\headrulewidth}{0.4pt}%
 }
 
-% ================= 4. 补充说明 callout 环境 =================
+% ================= 补充说明 callout 环境 =================
 % ElegantBook 原生的 remark 环境保持不动。
 %
 % 本环境专门承载原 Obsidian 中的 callout，例如：
@@ -85,14 +89,14 @@
     titlerule=0pt
 }
 
-% ================= 5. 重要性标记 =================
+% ================= 重要性标记 =================
 % 用于在讲义中手动标记重点程度。
 \newcommand{\marktriangle}{\ensuremath{\blacktriangle}}
 \newcommand{\markstar}{\ensuremath{\bigstar}}
 \newcommand{\markstartriangle}{\ensuremath{\bigstar\blacktriangle}}
 \newcommand{\marktwostar}{\ensuremath{\bigstar\bigstar}}
 
-% ================= 6. 章节内部的小标题 =================
+% ================= 章节内部的小标题 =================
 % 用于类似 (A)(B)(C)... 的无编号小标题。
 %
 % 当前定义会：
@@ -107,7 +111,7 @@
     \addcontentsline{toc}{subsubsection}{#1}%
 }
 
-% ================= 7. 例题后的手写留白 =================
+% ================= 例题后的手写留白 =================
 % 每道例题后统一空出 10 行正文高度，方便打印后手写。
 % 若觉得太多或太少，只改这里的 10 即可。
 \newcommand{\exampleblank}{\par\vspace{10\baselineskip}}
@@ -115,7 +119,7 @@
 % 通用手动留白命令：\myspace{3} 表示空出 3 行正文高度。
 \newcommand{\myspace}[1]{\par\vspace{#1\baselineskip}}
 
-% ================= 8. 自定义数学算子 =================
+% ================= 自定义数学算子 =================
 % 用 \DeclareMathOperator 定义后，排版时会使用直立字体和正确的运算符间距。
 % 例如：$\rank A$、$\diag A$、$\Ker T$。
 \DeclareMathOperator{\Tr}{Tr}
@@ -125,3 +129,12 @@
 \DeclareMathOperator{\Ree}{Re}
 \DeclareMathOperator{\Imm}{Im}
 \DeclareMathOperator{\Ker}{Ker}
+% ================= 行宽溢出容错 =================
+\setlength{\emergencystretch}{2em}
+% ================= enumerate 列表间距 =================
+\setlist[enumerate]{
+    itemsep=0.4em,
+    topsep=0.5em,
+    parsep=0pt,
+    partopsep=0pt
+}

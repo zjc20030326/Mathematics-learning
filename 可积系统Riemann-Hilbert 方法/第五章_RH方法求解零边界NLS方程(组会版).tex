@@ -10,7 +10,11 @@
     nowatermark
 ]{elegantbook}
 
-\input{preamble.tex}
+% 项目级水印开关：true 显示，false 关闭。
+\newif\ifmathanalysiswatermark
+\mathanalysiswatermarkfalse
+
+\input{preamble}
 
 \begin{document}
 
@@ -183,26 +187,26 @@
     \label{eq:5.1.2}
 \end{equation}
 
-\begin{callout}[前置概念：Schwartz 空间与``固定 $t$ 时仍然零边界''（原书定义 4.4，4.1.2 节）]
-    Schwartz 空间定义为
+% \begin{callout}[前置概念：Schwartz 空间与``固定 $t$ 时仍然零边界''（原书定义 4.4，4.1.2 节）]
+%     Schwartz 空间定义为
 
-    \[
-        \mathcal S(\mathbb{R})=
-        \left\{
-        f\in C^\infty(\mathbb{R}):
-        \sup_{x\in\mathbb{R}}\lvert x^\alpha\partial^\beta f(x)\rvert<\infty,\
-        \alpha,\beta\in\mathbb{Z}_+
-        \right\}.
-    \]
-    它表示函数及其任意阶导数都快于任意多项式幂衰减。
-    仅由 $q_0\in\mathcal S$ 的定义，不能直接推出所有时刻都衰减；这里还默认使用了 NLS 流保持 Schwartz 正则性这一结论：在所考虑的光滑解范围内，对每个固定的有限 $t$，有 $q(\cdot,t)\in\mathcal S(\mathbb{R})$。
-    因此
+%     \[
+%         \mathcal S(\mathbb{R})=
+%         \left\{
+%         f\in C^\infty(\mathbb{R}):
+%         \sup_{x\in\mathbb{R}}\lvert x^\alpha\partial^\beta f(x)\rvert<\infty,\
+%         \alpha,\beta\in\mathbb{Z}_+
+%         \right\}.
+%     \]
+%     它表示函数及其任意阶导数都快于任意多项式幂衰减。
+%     仅由 $q_0\in\mathcal S$ 的定义，不能直接推出所有时刻都衰减；这里还默认使用了 NLS 流保持 Schwartz 正则性这一结论：在所考虑的光滑解范围内，对每个固定的有限 $t$，有 $q(\cdot,t)\in\mathcal S(\mathbb{R})$。
+%     因此
 
-    \[
-        q(x,t)\to0,\qquad \lvert x\rvert\to\infty.
-    \]
-    这里的``零边界''指空间无穷远处的边界为零，并不是 $q\equiv0$。
-\end{callout}
+%     \[
+%         q(x,t)\to0,\qquad \lvert x\rvert\to\infty.
+%     \]
+%     这里的``零边界''指空间无穷远处的边界为零，并不是 $q\equiv0$。
+% \end{callout}
 
 \subsection{Lax 对}
 
@@ -265,58 +269,58 @@ NLS 方程具有矩阵形式的 Lax 对
     $z$ 称为谱参数。固定 $t,z$ 后，\eqref{eq:5.1.3} 是关于 $x$ 的一阶线性矩阵微分方程。
 \end{callout}
 
-\begin{callout}[计算：零曲率条件怎样恢复 NLS？]
-    写成
+% \begin{callout}[计算：零曲率条件怎样恢复 NLS？]
+%     写成
 
-    \[
-        \psi_x=U\psi,\qquad
-        \psi_t=V\psi,
-    \]
-    其中
+%     \[
+%         \psi_x=U\psi,\qquad
+%         \psi_t=V\psi,
+%     \]
+%     其中
 
-    \[
-        U=
-        P-iz\sigma_3
-        =
-        \begin{pmatrix}
-            -iz     & q  \\
-            -\bar q & iz
-        \end{pmatrix},
-    \]
+%     \[
+%         U=
+%         P-iz\sigma_3
+%         =
+%         \begin{pmatrix}
+%             -iz     & q  \\
+%             -\bar q & iz
+%         \end{pmatrix},
+%     \]
 
-    \[
-        V=
-        Q-2iz^2\sigma_3
-        =
-        \begin{pmatrix}
-            i|q|^2-2iz^2       & iq_x+2zq      \\
-            i\bar q_x-2z\bar q & -i|q|^2+2iz^2
-        \end{pmatrix}.
-    \]
-    计算可得
+%     \[
+%         V=
+%         Q-2iz^2\sigma_3
+%         =
+%         \begin{pmatrix}
+%             i|q|^2-2iz^2       & iq_x+2zq      \\
+%             i\bar q_x-2z\bar q & -i|q|^2+2iz^2
+%         \end{pmatrix}.
+%     \]
+%     计算可得
 
-    \[
-        U_t-V_x+[U,V]
-        =
-        \begin{pmatrix}
-            0                                    &
-            q_t-iq_{xx}-2i|q|^2q                   \\
-            -\bar q_t-i\bar q_{xx}-2i|q|^2\bar q &
-            0
-        \end{pmatrix}.
-    \]
-    令其为零，右上角给出
+%     \[
+%         U_t-V_x+[U,V]
+%         =
+%         \begin{pmatrix}
+%             0                                    &
+%             q_t-iq_{xx}-2i|q|^2q                   \\
+%             -\bar q_t-i\bar q_{xx}-2i|q|^2\bar q &
+%             0
+%         \end{pmatrix}.
+%     \]
+%     令其为零，右上角给出
 
-    \[
-        q_t-iq_{xx}-2i|q|^2q=0.
-    \]
-    两边乘 $i$：
+%     \[
+%         q_t-iq_{xx}-2i|q|^2q=0.
+%     \]
+%     两边乘 $i$：
 
-    \[
-        iq_t+q_{xx}+2q|q|^2=0,
-    \]
-    正好就是 NLS 方程 \eqref{eq:5.1.1}；左下角是它的共轭方程。
-\end{callout}
+%     \[
+%         iq_t+q_{xx}+2q|q|^2=0,
+%     \]
+%     正好就是 NLS 方程 \eqref{eq:5.1.1}；左下角是它的共轭方程。
+% \end{callout}
 
 \subsection{Jost 解与变换}
 
@@ -408,20 +412,20 @@ Jost 解是在空间无穷远处与这个自由解匹配的特殊基本矩阵解
 
 \end{callout}
 
-\begin{callout}[概念：Jost 解为什么有左右两个？]
-    固定 $t,z$ 后，Lax 对的 $x$ 部分是一个 $2\times2$ 一阶线性系统。
-    一个基本矩阵解本身包含两个线性无关的列解，而且基本矩阵解并不唯一：若 $\Psi$ 是基本矩阵解，则 $\Psi C$（$C$ 为可逆常矩阵）仍是基本矩阵解。
-    整条实轴有两个自然的归一化端点，所以分别选取
+% \begin{callout}[概念：Jost 解为什么有左右两个？]
+%     固定 $t,z$ 后，Lax 对的 $x$ 部分是一个 $2\times2$ 一阶线性系统。
+%     一个基本矩阵解本身包含两个线性无关的列解，而且基本矩阵解并不唯一：若 $\Psi$ 是基本矩阵解，则 $\Psi C$（$C$ 为可逆常矩阵）仍是基本矩阵解。
+%     整条实轴有两个自然的归一化端点，所以分别选取
 
-    \[
-        \psi_1e^{i\theta\sigma_3}\to I,\qquad x\to-\infty,
-    \]
+%     \[
+%         \psi_1e^{i\theta\sigma_3}\to I,\qquad x\to-\infty,
+%     \]
 
-    \[
-        \psi_2e^{i\theta\sigma_3}\to I,\qquad x\to+\infty.
-    \]
-    因此``两个 Jost 解''不是说线性系统只有两个解，而是说我们选取了两个不同无穷远归一化条件下的基本矩阵解。
-\end{callout}
+%     \[
+%         \psi_2e^{i\theta\sigma_3}\to I,\qquad x\to+\infty.
+%     \]
+%     因此``两个 Jost 解''不是说线性系统只有两个解，而是说我们选取了两个不同无穷远归一化条件下的基本矩阵解。
+% \end{callout}
 
 \subsection{等价 Lax 对与全微分形式}
 
@@ -450,78 +454,78 @@ Jost 解是在空间无穷远处与这个自由解匹配的特殊基本矩阵解
     \label{eq:5.1.9}
 \end{equation}
 
-\begin{callout}[计算：从 $\psi$ 的 Lax 对得到 \eqref{eq:5.1.7}---\eqref{eq:5.1.9}]
-    由 \eqref{eq:5.1.5}
+% \begin{callout}[计算：从 $\psi$ 的 Lax 对得到 \eqref{eq:5.1.7}---\eqref{eq:5.1.9}]
+%     由 \eqref{eq:5.1.5}
 
-    \[
-        \psi=\mu e^{-i\theta\sigma_3}.
-    \]
-    对 $x$ 求导，利用 $\theta_x=z$：
+%     \[
+%         \psi=\mu e^{-i\theta\sigma_3}.
+%     \]
+%     对 $x$ 求导，利用 $\theta_x=z$：
 
-    \[
-        \psi_x
-        =
-        \left(
-        \mu_x-iz\mu\sigma_3
-        \right)e^{-i\theta\sigma_3}.
-    \]
-    代入 \eqref{eq:5.1.3}：
+%     \[
+%         \psi_x
+%         =
+%         \left(
+%         \mu_x-iz\mu\sigma_3
+%         \right)e^{-i\theta\sigma_3}.
+%     \]
+%     代入 \eqref{eq:5.1.3}：
 
-    \[
-        \left(
-        \mu_x-iz\mu\sigma_3
-        \right)e^{-i\theta\sigma_3}
-        +
-        iz\sigma_3\mu e^{-i\theta\sigma_3}
-        =
-        P\mu e^{-i\theta\sigma_3}.
-    \]
-    右乘 $e^{i\theta\sigma_3}$，得到
+%     \[
+%         \left(
+%         \mu_x-iz\mu\sigma_3
+%         \right)e^{-i\theta\sigma_3}
+%         +
+%         iz\sigma_3\mu e^{-i\theta\sigma_3}
+%         =
+%         P\mu e^{-i\theta\sigma_3}.
+%     \]
+%     右乘 $e^{i\theta\sigma_3}$，得到
 
-    \[
-        \mu_x+iz(\sigma_3\mu-\mu\sigma_3)=P\mu,
-    \]
-    即 \eqref{eq:5.1.7}。同理利用 $\theta_t=2z^2$ 得到 \eqref{eq:5.1.8}。
-    再令
+%     \[
+%         \mu_x+iz(\sigma_3\mu-\mu\sigma_3)=P\mu,
+%     \]
+%     即 \eqref{eq:5.1.7}。同理利用 $\theta_t=2z^2$ 得到 \eqref{eq:5.1.8}。
+%     再令
 
-    \[
-        F=e^{i\theta\widehat{\sigma}_3}\mu.
-    \]
-    则
+%     \[
+%         F=e^{i\theta\widehat{\sigma}_3}\mu.
+%     \]
+%     则
 
-    \[
-        F_x
-        =
-        e^{i\theta\widehat{\sigma}_3}
-        \left(
-        \mu_x+iz[\sigma_3,\mu]
-        \right)
-        =
-        e^{i\theta\widehat{\sigma}_3}P\mu,
-    \]
+%     \[
+%         F_x
+%         =
+%         e^{i\theta\widehat{\sigma}_3}
+%         \left(
+%         \mu_x+iz[\sigma_3,\mu]
+%         \right)
+%         =
+%         e^{i\theta\widehat{\sigma}_3}P\mu,
+%     \]
 
-    \[
-        F_t
-        =
-        e^{i\theta\widehat{\sigma}_3}
-        \left(
-        \mu_t+2iz^2[\sigma_3,\mu]
-        \right)
-        =
-        e^{i\theta\widehat{\sigma}_3}Q\mu.
-    \]
-    因此
+%     \[
+%         F_t
+%         =
+%         e^{i\theta\widehat{\sigma}_3}
+%         \left(
+%         \mu_t+2iz^2[\sigma_3,\mu]
+%         \right)
+%         =
+%         e^{i\theta\widehat{\sigma}_3}Q\mu.
+%     \]
+%     因此
 
-    \[
-        \mathrm dF
-        =
-        F_x\,\mathrm dx+F_t\,\mathrm dt
-        =
-        e^{i\theta\widehat{\sigma}_3}
-        \left[(P\,\mathrm dx+Q\,\mathrm dt)\mu\right],
-    \]
-    这就是 \eqref{eq:5.1.9}。
-\end{callout}
+%     \[
+%         \mathrm dF
+%         =
+%         F_x\,\mathrm dx+F_t\,\mathrm dt
+%         =
+%         e^{i\theta\widehat{\sigma}_3}
+%         \left[(P\,\mathrm dx+Q\,\mathrm dt)\mu\right],
+%     \]
+%     这就是 \eqref{eq:5.1.9}。
+% \end{callout}
 
 \begin{callout}[概念：$\widehat{\sigma}_3$ 是什么？]
     带帽的 $\widehat{\sigma}_3$ 不是 $2\times2$ 矩阵，而是作用在矩阵空间上的交换子算子：
@@ -704,10 +708,10 @@ $t$-部分：
     \mu_1,\mu_2\to I,\qquad z\to\infty.
 \]
 
-\begin{callout}[概念：为什么 \eqref{eq:5.2.1}---\eqref{eq:5.2.2} 是 Volterra 积分方程？（原书 5.2.1 节）]
-    Volterra 型积分方程的积分区间端点包含当前点 $x$，例如 $\displaystyle\int_{-\infty}^x$ 或 $\displaystyle\int_x^\infty$。
-    这种结构使它适合逐次迭代，后面存在性与唯一性正是通过 Neumann 级数和 Bellman/Grönwall 型估计得到的。
-\end{callout}
+% \begin{callout}[概念：为什么 \eqref{eq:5.2.1}---\eqref{eq:5.2.2} 是 Volterra 积分方程？（原书 5.2.1 节）]
+%     Volterra 型积分方程的积分区间端点包含当前点 $x$，例如 $\displaystyle\int_{-\infty}^x$ 或 $\displaystyle\int_x^\infty$。
+%     这种结构使它适合逐次迭代，后面存在性与唯一性正是通过 Neumann 级数和 Bellman/Grönwall 型估计得到的。
+% \end{callout}
 
 令
 
@@ -817,124 +821,124 @@ $t$-部分：
     \item 当 $\operatorname{Im}z<0$ 时，$e^{-2iz(x-y)}$ 衰减，所以 $\mu_1^-$ 在 $\mathbb{C}^-$ 解析。
 \end{itemize}
 
-\begin{callout}[存在性、唯一性与解析性的严格证明思路（原书 5.2.1 节）]
-    书中对 $\mu_1^+$ 用 Neumann 级数作严格证明。令
+% \begin{callout}[存在性、唯一性与解析性的严格证明思路（原书 5.2.1 节）]
+%     书中对 $\mu_1^+$ 用 Neumann 级数作严格证明。令
 
-    \begin{equation}
-        w^{(0)}=\begin{pmatrix}1\\0\end{pmatrix},
-        \qquad
-        w^{(n+1)}(x,t,z)
-        =
-        \int_{-\infty}^{x}
-        F(x,y,z)w^{(n)}(y,t,z)\,\mathrm dy,
-        \tag{5.2.7}
-        \label{eq:5.2.7}
-    \end{equation}
-    其中
+%     \begin{equation}
+%         w^{(0)}=\begin{pmatrix}1\\0\end{pmatrix},
+%         \qquad
+%         w^{(n+1)}(x,t,z)
+%         =
+%         \int_{-\infty}^{x}
+%         F(x,y,z)w^{(n)}(y,t,z)\,\mathrm dy,
+%         \tag{5.2.7}
+%         \label{eq:5.2.7}
+%     \end{equation}
+%     其中
 
-    \begin{equation}
-        F(x,y,z)
-        =
-        \operatorname{diag}\!\left(1,e^{2iz(x-y)}\right)P(y,t).
-        \tag{5.2.8}
-        \label{eq:5.2.8}
-    \end{equation}
-    构造 Neumann 级数
+%     \begin{equation}
+%         F(x,y,z)
+%         =
+%         \operatorname{diag}\!\left(1,e^{2iz(x-y)}\right)P(y,t).
+%         \tag{5.2.8}
+%         \label{eq:5.2.8}
+%     \end{equation}
+%     构造 Neumann 级数
 
-    \begin{equation}
-        \sum\limits_{n=0}^{\infty}w^{(n)}(x,t,z).
-        \tag{5.2.9}
-        \label{eq:5.2.9}
-    \end{equation}
-    取向量 $L^1$ 范数，有
+%     \begin{equation}
+%         \sum\limits_{n=0}^{\infty}w^{(n)}(x,t,z).
+%         \tag{5.2.9}
+%         \label{eq:5.2.9}
+%     \end{equation}
+%     取向量 $L^1$ 范数，有
 
-    \begin{equation}
-        \lVert w^{(n+1)}(x,t,z)\rVert
-        \le
-        \int_{-\infty}^{x}
-        \lVert F\rVert
-        \lVert w^{(n)}(y,t,z)\rVert\,\mathrm dy,
-        \tag{5.2.10}
-        \label{eq:5.2.10}
-    \end{equation}
-    且在相应半平面
+%     \begin{equation}
+%         \lVert w^{(n+1)}(x,t,z)\rVert
+%         \le
+%         \int_{-\infty}^{x}
+%         \lVert F\rVert
+%         \lVert w^{(n)}(y,t,z)\rVert\,\mathrm dy,
+%         \tag{5.2.10}
+%         \label{eq:5.2.10}
+%     \end{equation}
+%     且在相应半平面
 
-    \begin{equation}
-        \lVert F\rVert\le4\lvert q\rvert.
-        \tag{5.2.11}
-        \label{eq:5.2.11}
-    \end{equation}
-    因此
+%     \begin{equation}
+%         \lVert F\rVert\le4\lvert q\rvert.
+%         \tag{5.2.11}
+%         \label{eq:5.2.11}
+%     \end{equation}
+%     因此
 
-    \begin{equation}
-        \lVert w^{(n+1)}(x,t,z)\rVert
-        \le
-        \int_{-\infty}^{x}
-        4\lvert q\rvert
-        \lVert w^{(n)}(y,t,z)\rVert\,\mathrm dy.
-        \tag{5.2.12}
-        \label{eq:5.2.12}
-    \end{equation}
-    记
+%     \begin{equation}
+%         \lVert w^{(n+1)}(x,t,z)\rVert
+%         \le
+%         \int_{-\infty}^{x}
+%         4\lvert q\rvert
+%         \lVert w^{(n)}(y,t,z)\rVert\,\mathrm dy.
+%         \tag{5.2.12}
+%         \label{eq:5.2.12}
+%     \end{equation}
+%     记
 
-    \begin{equation}
-        \rho(x,t)
-        =
-        \int_{-\infty}^{x}4\lvert q(y,t)\rvert\,\mathrm dy,
-        \tag{5.2.13}
-        \label{eq:5.2.13}
-    \end{equation}
-    则
+%     \begin{equation}
+%         \rho(x,t)
+%         =
+%         \int_{-\infty}^{x}4\lvert q(y,t)\rvert\,\mathrm dy,
+%         \tag{5.2.13}
+%         \label{eq:5.2.13}
+%     \end{equation}
+%     则
 
-    \begin{equation}
-        \rho_x=4\lvert q\rvert,
-        \qquad
-        \lVert w^{(1)}\rVert\le\rho(x,t).
-        \tag{5.2.14}
-        \label{eq:5.2.14}
-    \end{equation}
-    归纳得到
+%     \begin{equation}
+%         \rho_x=4\lvert q\rvert,
+%         \qquad
+%         \lVert w^{(1)}\rVert\le\rho(x,t).
+%         \tag{5.2.14}
+%         \label{eq:5.2.14}
+%     \end{equation}
+%     归纳得到
 
-    \begin{equation}
-        \lVert w^{(n)}(x,t,z)\rVert
-        \le
-        \dfrac{\rho^n(x,t)}{n!}.
-        \tag{5.2.15}
-        \label{eq:5.2.15}
-    \end{equation}
-    对 $x\le a$，令 $\sigma=\displaystyle\int_{-\infty}^{a}4\lvert q\rvert\,\mathrm dy$，则
+%     \begin{equation}
+%         \lVert w^{(n)}(x,t,z)\rVert
+%         \le
+%         \dfrac{\rho^n(x,t)}{n!}.
+%         \tag{5.2.15}
+%         \label{eq:5.2.15}
+%     \end{equation}
+%     对 $x\le a$，令 $\sigma=\displaystyle\int_{-\infty}^{a}4\lvert q\rvert\,\mathrm dy$，则
 
-    \begin{equation}
-        \lVert w^{(n)}(x,t,z)\rVert
-        \le
-        \dfrac{\sigma^n}{n!}.
-        \tag{5.2.16}
-        \label{eq:5.2.16}
-    \end{equation}
-    因而级数绝对一致收敛，定义
+%     \begin{equation}
+%         \lVert w^{(n)}(x,t,z)\rVert
+%         \le
+%         \dfrac{\sigma^n}{n!}.
+%         \tag{5.2.16}
+%         \label{eq:5.2.16}
+%     \end{equation}
+%     因而级数绝对一致收敛，定义
 
-    \begin{equation}
-        w(x,t,z)
-        =
-        \sum\limits_{n=0}^{\infty}w^{(n)}(x,t,z),
-        \tag{5.2.17}
-        \label{eq:5.2.17}
-    \end{equation}
-    并满足
+%     \begin{equation}
+%         w(x,t,z)
+%         =
+%         \sum\limits_{n=0}^{\infty}w^{(n)}(x,t,z),
+%         \tag{5.2.17}
+%         \label{eq:5.2.17}
+%     \end{equation}
+%     并满足
 
-    \begin{equation}
-        w(x,t,z)
-        =
-        w^{(0)}
-        +
-        \int_{-\infty}^{x}
-        F(x,y,z)w(y,t,z)\,\mathrm dy.
-        \tag{5.2.18}
-        \label{eq:5.2.18}
-    \end{equation}
-    每个迭代项对 $z$ 解析，一致收敛保证极限仍解析；唯一性则对两个解之差使用 Bellman/Grönwall 型不等式。
-    组会上不需要展开证明，说明``Volterra 迭代 + 阶乘估计 + 一致收敛 + 唯一性估计''即可。
-\end{callout}
+%     \begin{equation}
+%         w(x,t,z)
+%         =
+%         w^{(0)}
+%         +
+%         \int_{-\infty}^{x}
+%         F(x,y,z)w(y,t,z)\,\mathrm dy.
+%         \tag{5.2.18}
+%         \label{eq:5.2.18}
+%     \end{equation}
+%     每个迭代项对 $z$ 解析，一致收敛保证极限仍解析；唯一性则对两个解之差使用 Bellman/Grönwall 型不等式。
+%     组会上不需要展开证明，说明``Volterra 迭代 + 阶乘估计 + 一致收敛 + 唯一性估计''即可。
+% \end{callout}
 
 同理，
 
@@ -1356,149 +1360,149 @@ NLS 的解可由 RH 解重构：
     \label{eq:5.3.9}
 \end{equation}
 
-\begin{callout}[计算：跳跃矩阵 $G$ 从哪里来？]
-    由定义
+% \begin{callout}[计算：跳跃矩阵 $G$ 从哪里来？]
+%     由定义
 
-    \[
-        P_-P_+
-        =
-        (H_1\mu_1^{-1}+H_2\mu_2^{-1})
-        (\mu_1H_1+\mu_2H_2).
-    \]
-    完全展开：
+%     \[
+%         P_-P_+
+%         =
+%         (H_1\mu_1^{-1}+H_2\mu_2^{-1})
+%         (\mu_1H_1+\mu_2H_2).
+%     \]
+%     完全展开：
 
-    \[
-        \begin{aligned}
-            P_-P_+
-            ={} &
-            H_1\mu_1^{-1}\mu_1H_1
-            +
-            H_1\mu_1^{-1}\mu_2H_2 \\
-                & +
-            H_2\mu_2^{-1}\mu_1H_1
-            +
-            H_2\mu_2^{-1}\mu_2H_2.
-        \end{aligned}
-    \]
-    第一、四项给出
+%     \[
+%         \begin{aligned}
+%             P_-P_+
+%             ={} &
+%             H_1\mu_1^{-1}\mu_1H_1
+%             +
+%             H_1\mu_1^{-1}\mu_2H_2 \\
+%                 & +
+%             H_2\mu_2^{-1}\mu_1H_1
+%             +
+%             H_2\mu_2^{-1}\mu_2H_2.
+%         \end{aligned}
+%     \]
+%     第一、四项给出
 
-    \[
-        H_1+H_2=I.
-    \]
-    由散射关系 \eqref{eq:5.2.3}，
+%     \[
+%         H_1+H_2=I.
+%     \]
+%     由散射关系 \eqref{eq:5.2.3}，
 
-    \[
-        \mu_2^{-1}\mu_1
-        =
-        e^{-i\theta\widehat{\sigma}_3}S,
-    \]
+%     \[
+%         \mu_2^{-1}\mu_1
+%         =
+%         e^{-i\theta\widehat{\sigma}_3}S,
+%     \]
 
-    \[
-        \mu_1^{-1}\mu_2
-        =
-        e^{-i\theta\widehat{\sigma}_3}S^{-1}.
-    \]
-    又因为 $\det S=1$，
+%     \[
+%         \mu_1^{-1}\mu_2
+%         =
+%         e^{-i\theta\widehat{\sigma}_3}S^{-1}.
+%     \]
+%     又因为 $\det S=1$，
 
-    \[
-        S^{-1}
-        =
-        \begin{pmatrix}
-            s_{22}  & -s_{12} \\
-            -s_{21} & s_{11}
-        \end{pmatrix}.
-    \]
-    利用 $H_1,H_2$ 只保留相应行列，最后得到
+%     \[
+%         S^{-1}
+%         =
+%         \begin{pmatrix}
+%             s_{22}  & -s_{12} \\
+%             -s_{21} & s_{11}
+%         \end{pmatrix}.
+%     \]
+%     利用 $H_1,H_2$ 只保留相应行列，最后得到
 
-    \[
-        P_-P_+
-        =
-        e^{-i\theta\widehat{\sigma}_3}
-        \begin{pmatrix}
-            1      & -s_{12} \\
-            s_{21} & 1
-        \end{pmatrix},
-    \]
-    即 \eqref{eq:5.3.7}。
-    因为
+%     \[
+%         P_-P_+
+%         =
+%         e^{-i\theta\widehat{\sigma}_3}
+%         \begin{pmatrix}
+%             1      & -s_{12} \\
+%             s_{21} & 1
+%         \end{pmatrix},
+%     \]
+%     即 \eqref{eq:5.3.7}。
+%     因为
 
-    \[
-        e^{-i\theta\widehat{\sigma}_3}
-        \begin{pmatrix}
-            a & b \\c&d
-        \end{pmatrix}
-        =
-        \begin{pmatrix}
-            a             & e^{-2i\theta}b \\
-            e^{2i\theta}c & d
-        \end{pmatrix},
-    \]
-    所以也可以把跳跃矩阵理解为
+%     \[
+%         e^{-i\theta\widehat{\sigma}_3}
+%         \begin{pmatrix}
+%             a & b \\c&d
+%         \end{pmatrix}
+%         =
+%         \begin{pmatrix}
+%             a             & e^{-2i\theta}b \\
+%             e^{2i\theta}c & d
+%         \end{pmatrix},
+%     \]
+%     所以也可以把跳跃矩阵理解为
 
-    \[
-        G=
-        \begin{pmatrix}
-            1                     & -s_{12}(z)e^{-2i\theta} \\
-            s_{21}(z)e^{2i\theta} & 1
-        \end{pmatrix}.
-    \]
-    此外，直接由散射关系可得两个非常重要的结果：
+%     \[
+%         G=
+%         \begin{pmatrix}
+%             1                     & -s_{12}(z)e^{-2i\theta} \\
+%             s_{21}(z)e^{2i\theta} & 1
+%         \end{pmatrix}.
+%     \]
+%     此外，直接由散射关系可得两个非常重要的结果：
 
-    \[
-        \det P_+(z)=s_{11}(z),
-        \qquad
-        \det P_-(z)=s_{22}(z).
-    \]
-    以 $P_+$ 为例，由
+%     \[
+%         \det P_+(z)=s_{11}(z),
+%         \qquad
+%         \det P_-(z)=s_{22}(z).
+%     \]
+%     以 $P_+$ 为例，由
 
-    \[
-        \mu_1
-        =
-        \mu_2e^{-i\theta\widehat{\sigma}_3}S
-    \]
-    可写成
+%     \[
+%         \mu_1
+%         =
+%         \mu_2e^{-i\theta\widehat{\sigma}_3}S
+%     \]
+%     可写成
 
-    \[
-        P_+
-        =
-        \mu_1H_1+\mu_2H_2
-        =
-        \mu_2
-        \left[
-            \left(e^{-i\theta\widehat{\sigma}_3}S\right)H_1+H_2
-            \right].
-    \]
-    而
+%     \[
+%         P_+
+%         =
+%         \mu_1H_1+\mu_2H_2
+%         =
+%         \mu_2
+%         \left[
+%             \left(e^{-i\theta\widehat{\sigma}_3}S\right)H_1+H_2
+%             \right].
+%     \]
+%     而
 
-    \[
-        e^{-i\theta\widehat{\sigma}_3}S
-        =
-        \begin{pmatrix}
-            s_{11}             & s_{12}e^{-2i\theta} \\
-            s_{21}e^{2i\theta} & s_{22}
-        \end{pmatrix},
-    \]
-    所以
+%     \[
+%         e^{-i\theta\widehat{\sigma}_3}S
+%         =
+%         \begin{pmatrix}
+%             s_{11}             & s_{12}e^{-2i\theta} \\
+%             s_{21}e^{2i\theta} & s_{22}
+%         \end{pmatrix},
+%     \]
+%     所以
 
-    \[
-        \left(e^{-i\theta\widehat{\sigma}_3}S\right)H_1+H_2
-        =
-        \begin{pmatrix}
-            s_{11}             & 0 \\
-            s_{21}e^{2i\theta} & 1
-        \end{pmatrix}.
-    \]
-    因此
+%     \[
+%         \left(e^{-i\theta\widehat{\sigma}_3}S\right)H_1+H_2
+%         =
+%         \begin{pmatrix}
+%             s_{11}             & 0 \\
+%             s_{21}e^{2i\theta} & 1
+%         \end{pmatrix}.
+%     \]
+%     因此
 
-    \[
-        \det P_+
-        =
-        \det\mu_2\cdot s_{11}
-        =
-        s_{11}.
-    \]
-    同理可得 $\det P_-=s_{22}$。
-\end{callout}
+%     \[
+%         \det P_+
+%         =
+%         \det\mu_2\cdot s_{11}
+%         =
+%         s_{11}.
+%     \]
+%     同理可得 $\det P_-=s_{22}$。
+% \end{callout}
 
 \begin{callout}[到这里发生了什么？]
     第 5.1 节把 $q$ 与特征函数的大 $z$ 系数联系起来（\eqref{eq:5.1.15}）：
@@ -1517,6 +1521,7 @@ NLS 的解可由 RH 解重构：
         q(x,t)=2i\lim\limits_{z\to\infty}(zP_+)_{12}=2i(P_+^{(1)})_{12}.
     \]
     后面只需要解决这个 RH 问题，再代回 \eqref{eq:5.3.8} 恢复 $q$。
+    
 \end{callout}
 
 \subsection{RH 问题的可解性}
@@ -1726,107 +1731,107 @@ NLS 的解可由 RH 解重构：
 
 核心思想就是：\textbf{把所有离散零点结构装入有理矩阵 $\Gamma$，剩余的 $\widehat P_\pm$ 不再含这些零点，于是非正则 RH 问题被化归为正则 RH 问题。}
 
-\begin{callout}[定理 5.3 的证明思路（组会可略）]
-    对第 $j$ 个零点引入单极点因子
+% \begin{callout}[定理 5.3 的证明思路（组会可略）]
+%     对第 $j$ 个零点引入单极点因子
 
-    \[
-        \Gamma_j(z)
-        =
-        I+
-        \dfrac{\bar z_j-z_j}{z-\bar z_j}
-        \dfrac{v_jv_j^*}{v_j^*v_j},
-    \]
+%     \[
+%         \Gamma_j(z)
+%         =
+%         I+
+%         \dfrac{\bar z_j-z_j}{z-\bar z_j}
+%         \dfrac{v_jv_j^*}{v_j^*v_j},
+%     \]
 
-    \begin{equation}
-        \Gamma_j^{-1}(z)
-        =
-        I-
-        \dfrac{\bar z_j-z_j}{z-z_j}
-        \dfrac{v_jv_j^*}{v_j^*v_j}.
-        \tag{5.3.19}
-        \label{eq:5.3.19}
-    \end{equation}
-    逐个消去 $P_+$ 在 $z_j$ 和 $P_-$ 在 $\bar z_j$ 的零点。核向量与逐步变换后的向量满足
+%     \begin{equation}
+%         \Gamma_j^{-1}(z)
+%         =
+%         I-
+%         \dfrac{\bar z_j-z_j}{z-z_j}
+%         \dfrac{v_jv_j^*}{v_j^*v_j}.
+%         \tag{5.3.19}
+%         \label{eq:5.3.19}
+%     \end{equation}
+%     逐个消去 $P_+$ 在 $z_j$ 和 $P_-$ 在 $\bar z_j$ 的零点。核向量与逐步变换后的向量满足
 
-    \begin{equation}
-        w_j(z_j)
-        =
-        \Gamma_1^{-1}(z_j)\cdots
-        \Gamma_{j-1}^{-1}(z_j)v_j(z_j),
-        \tag{5.3.18}
-        \label{eq:5.3.18}
-    \end{equation}
-    以及相应的左核关系。最后令
+%     \begin{equation}
+%         w_j(z_j)
+%         =
+%         \Gamma_1^{-1}(z_j)\cdots
+%         \Gamma_{j-1}^{-1}(z_j)v_j(z_j),
+%         \tag{5.3.18}
+%         \label{eq:5.3.18}
+%     \end{equation}
+%     以及相应的左核关系。最后令
 
-    \begin{equation}
-        \Gamma(z)
-        =
-        \Gamma_N(z)\cdots\Gamma_1(z),
-        \qquad
-        \Gamma^{-1}(z)
-        =
-        \Gamma_1^{-1}(z)\cdots\Gamma_N^{-1}(z).
-        \tag{5.3.20}
-        \label{eq:5.3.20}
-    \end{equation}
-    为得到 \eqref{eq:5.3.16}---\eqref{eq:5.3.17} 的显式形式，再作部分分式展开
+%     \begin{equation}
+%         \Gamma(z)
+%         =
+%         \Gamma_N(z)\cdots\Gamma_1(z),
+%         \qquad
+%         \Gamma^{-1}(z)
+%         =
+%         \Gamma_1^{-1}(z)\cdots\Gamma_N^{-1}(z).
+%         \tag{5.3.20}
+%         \label{eq:5.3.20}
+%     \end{equation}
+%     为得到 \eqref{eq:5.3.16}---\eqref{eq:5.3.17} 的显式形式，再作部分分式展开
 
-    \begin{equation}
-        \Gamma(z)
-        =
-        I+
-        \sum\limits_{j=1}^{N}
-        \dfrac{\zeta_jw_j^*}{z-\bar z_j},
-        \tag{5.3.21}
-        \label{eq:5.3.21}
-    \end{equation}
+%     \begin{equation}
+%         \Gamma(z)
+%         =
+%         I+
+%         \sum\limits_{j=1}^{N}
+%         \dfrac{\zeta_jw_j^*}{z-\bar z_j},
+%         \tag{5.3.21}
+%         \label{eq:5.3.21}
+%     \end{equation}
 
-    \begin{equation}
-        \Gamma^{-1}(z)
-        =
-        I-
-        \sum\limits_{j=1}^{N}
-        \dfrac{w_j\zeta_j^*}{z-z_j}.
-        \tag{5.3.22}
-        \label{eq:5.3.22}
-    \end{equation}
-    由 $\Gamma\Gamma^{-1}=I$，在 $z=z_k$ 取留数：
+%     \begin{equation}
+%         \Gamma^{-1}(z)
+%         =
+%         I-
+%         \sum\limits_{j=1}^{N}
+%         \dfrac{w_j\zeta_j^*}{z-z_j}.
+%         \tag{5.3.22}
+%         \label{eq:5.3.22}
+%     \end{equation}
+%     由 $\Gamma\Gamma^{-1}=I$，在 $z=z_k$ 取留数：
 
-    \begin{equation}
-        0
-        =
-        -\Gamma(z_k)w_k\zeta_k^*
-        =
-        \left(
-        -w_k+
-        \sum\limits_{j=1}^{N}
-        \dfrac{w_j^*w_k}{\bar z_j-z_k}\zeta_j
-        \right)\zeta_k^*.
-        \tag{5.3.23}
-        \label{eq:5.3.23}
-    \end{equation}
-    因而
+%     \begin{equation}
+%         0
+%         =
+%         -\Gamma(z_k)w_k\zeta_k^*
+%         =
+%         \left(
+%         -w_k+
+%         \sum\limits_{j=1}^{N}
+%         \dfrac{w_j^*w_k}{\bar z_j-z_k}\zeta_j
+%         \right)\zeta_k^*.
+%         \tag{5.3.23}
+%         \label{eq:5.3.23}
+%     \end{equation}
+%     因而
 
-    \begin{equation}
-        -w_k+
-        \sum\limits_{j=1}^{N}
-        \dfrac{w_j^*w_k}{\bar z_j-z_k}\zeta_j
-        =
-        0.
-        \tag{5.3.24}
-        \label{eq:5.3.24}
-    \end{equation}
-    写成分块线性方程组：
+%     \begin{equation}
+%         -w_k+
+%         \sum\limits_{j=1}^{N}
+%         \dfrac{w_j^*w_k}{\bar z_j-z_k}\zeta_j
+%         =
+%         0.
+%         \tag{5.3.24}
+%         \label{eq:5.3.24}
+%     \end{equation}
+%     写成分块线性方程组：
 
-    \begin{equation}
-        (\zeta_1,\ldots,\zeta_N)M
-        =
-        (w_1,\ldots,w_N).
-        \tag{5.3.25}
-        \label{eq:5.3.25}
-    \end{equation}
-    解得 $\displaystyle \zeta_j=\sum\limits_k w_k(M^{-1})_{kj}$，代回即得到 \eqref{eq:5.3.16}---\eqref{eq:5.3.17}。
-\end{callout}
+%     \begin{equation}
+%         (\zeta_1,\ldots,\zeta_N)M
+%         =
+%         (w_1,\ldots,w_N).
+%         \tag{5.3.25}
+%         \label{eq:5.3.25}
+%     \end{equation}
+%     解得 $\displaystyle \zeta_j=\sum\limits_k w_k(M^{-1})_{kj}$，代回即得到 \eqref{eq:5.3.16}---\eqref{eq:5.3.17}。
+% \end{callout}
 
 \section{NLS 方程的 \texorpdfstring{$N$}{N} 孤子解}
 
