@@ -1,0 +1,1118 @@
+% XeLaTeX；从本文件所在目录编译。沿用项目 ElegantBook 与 preamble。
+% 内容及手工公式编号以二校20220303版为主；补充推导不占原书编号。
+\makeatletter
+\def\input@path{{../}}
+\makeatother
+\documentclass[lang=cn,scheme=chinese,mode=simple,device=normal,color=blue,
+math=cm,thmcnt=section,12pt]{elegantbook}
+\newif\ifmathanalysiswatermark
+\mathanalysiswatermarkfalse
+\input{../preamble.tex}
+\hypersetup{hypertexnames=false,pdftitle={第六章：RH 方法求解非零边界的 NLS 方程（10.13）}}
+\DeclareMathOperator*{\Res}{Res}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\eqq}[2]{\tag{#1}\label{eq:#1}#2}
+\renewcommand{\methodsection}[1]{\subsubsection*{#1}\phantomsection
+\addcontentsline{toc}{subsubsection}{#1}}
+\begin{document}
+\setcounter{chapter}{5}
+\chapter{RH 方法求解非零边界的 NLS 方程}
+\noindent 学习笔记：10.13。依据范恩贵《可积系统、正交多项式和随机矩阵——Riemann--Hilbert 方法》二校版第六章，书内第 88--119 页。公式编号沿用二校版；无编号公式和计算说明为补充推导。正文统一采用可相互验证的符号，原书问题另见同目录校订记录。
+
+\section*{先把整条主线理清楚}
+第五章从零背景出发，空间无穷远处的谱矩阵是对角矩阵；第六章的背景 $q_\pm\ne0$ 使谱矩阵不再对角。于是自由指数中的谱参数从 $k$ 变成 $\lambda=\sqrt{k^2+q_0^2}$，这一步引出两张谱面、单值化变量、实轴与圆周组成的连续谱，以及四元组离散谱。
+
+本章仍按“初值 $\to$ 直接散射 $\to$ 谱数据 $\to$ RH 逆问题 $\to$ 位势重构”前进。所有散射数据都由初值计算；随后 $x,t$ 通过显式相位 $\theta$ 进入跳跃矩阵和极点条件。无反射时，连续谱积分消失，RH 问题归结为有限维线性代数。
+
+\begin{callout}[阅读约定：先分清四组符号]
+原 NLS 位势写为 $\widetilde q$，去掉背景时间振荡后写为 $q$，最后 $\widetilde q=e^{2iq_0^2t}q$。下标 $\pm$ 表示在 $x\to\pm\infty$ 归一化；上标 $\pm$ 表示谱域 $D^\pm$，两者不能混同。
+第五章用 $P$ 表示位势矩阵，本章用 $Q$；记第五章谱变量为 $z_{(5)}$，则其与本章 $k$ 的对应关系为 $z_{(5)}=-k$。本章单值化变量 $z=k+\lambda$ 不能直接当作第五章的 $z$。
+简单极点部分用 $\bar\xi_n$ 标记 $D^-$ 中的点，双重极点部分用 $\widehat\xi_n=-q_0^2/\xi_n$；这是同一个点集的不同排序。
+\end{callout}
+
+\section{非零边界问题}
+\subsection{亮孤子、背景与本章的研究对象}
+聚焦 NLS 方程为
+\begin{equation}
+\eqq{6.1.1}{i\widetilde q_t+\widetilde q_{xx}+2|\widetilde q|^2\widetilde q=0.}
+\end{equation}
+第五章的零边界为 $\widetilde q\to0$。例如取 $z_1=\xi+i\eta$、$\eta>0$、$c_1=e^{-\delta_0+ik_0}$，由第五章 (5.4.18) 可得
+\[
+\widetilde q=2\eta e^{-2i\xi x-4i(\xi^2-\eta^2)t+ik_0}
+\operatorname{sech}\bigl(2\eta(x+4\xi t)-\delta_0\bigr).
+\]
+它的模长在两端趋于零。本章则要求 $\widetilde q\to q_\pm e^{2iq_0^2t}$，其中 $|q_\pm|=q_0>0$，两端振幅相同，允许相位不同。孤子或呼吸子是叠加在非零背景上的局部结构；“无反射”并不等于位势在两端为零。
+
+\subsection{散焦情形为什么不同}
+原书用散焦谱问题作比较：
+\begin{equation}
+\eqq{6.1.2}{\psi_x=
+\begin{pmatrix}-ik&q\\\bar q&ik\end{pmatrix}\psi.}
+\end{equation}
+判断自伴性应把它改写成关于 $k$ 的算子特征值问题。令 $Q_{\mathrm d}=\begin{pmatrix}0&q\\\bar q&0\end{pmatrix}$，则
+$L\psi=k\psi$，其中 $L=i\sigma_3\partial_x-i\sigma_3Q_{\mathrm d}$。
+在适当定义域上，$i\sigma_3\partial_x$ 自伴，且 $(-i\sigma_3Q_{\mathrm d})^H=-i\sigma_3Q_{\mathrm d}$。
+因此其离散特征值为实数。零背景下没有产生衰减束缚态的谱隙；非零背景下则可出现实谱隙中的离散谱，对应暗孤子。本章后续始终研究聚焦方程。
+
+\begin{callout}[补充：散焦暗孤子的正确时间相位]
+对于 $i\widetilde q_t+\widetilde q_{xx}-2|\widetilde q|^2\widetilde q=0$，常背景应为 $q_0e^{-2iq_0^2t+i\theta_\pm}$。
+一个相容的暗孤子是
+\[
+\widetilde q=q_0e^{-2iq_0^2t}
+\{\cos a-i\sin a\,\tanh[q_0\sin a(x-2q_0t\cos a-x_0)]\}.
+\]
+代入常背景即可先检查时间指数的正负号。暗孤子这一比较不改变本章聚焦问题的正时间相位。
+保持这里的速度 $2q_0\cos a$ 时，$\tanh$ 项前为 $-i$；若用 $+i$，传播速度应改为 $-2q_0\cos a$。
+\end{callout}
+
+\section{NLS 方程的 Lax 对}
+\subsection{去掉背景的时间振荡}
+原始问题为
+\begin{equation}\eqq{6.2.1}{i\widetilde q_t+\widetilde q_{xx}+2|\widetilde q|^2\widetilde q=0.}\end{equation}
+\begin{equation}\eqq{6.2.2}{\widetilde q(x,t)\to q_\pm e^{2iq_0^2t},\qquad x\to\pm\infty,\quad |q_\pm|=q_0>0.}\end{equation}
+相应 Lax 对写为
+\begin{equation}\eqq{6.2.3}{\widetilde\varphi_x=U\widetilde\varphi,\qquad\widetilde\varphi_t=V\widetilde\varphi.}\end{equation}
+\begin{equation}\eqq{6.2.4}{U=ik\sigma_3+\widetilde Q,\qquad V=-2ik^2\sigma_3+i\sigma_3(\widetilde Q_x-\widetilde Q^2)-2k\widetilde Q.}\end{equation}
+这里 $\sigma_3=\diag(1,-1)$、$\widetilde Q=\begin{pmatrix}0&\widetilde q\\-\conj{\widetilde q}&0\end{pmatrix}$。
+明确区分变换前后的变量：
+\begin{equation}\eqq{6.2.5}{\widetilde q=e^{2iq_0^2t}q,\qquad\widetilde\varphi=e^{iq_0^2t\sigma_3}\varphi.}\end{equation}
+由于 $\widetilde q_t=e^{2iq_0^2t}(q_t+2iq_0^2q)$，原方程和边界化为
+\begin{equation}\eqq{6.2.6}{iq_t+q_{xx}+2(|q|^2-q_0^2)q=0,}\end{equation}
+\begin{equation}\eqq{6.2.7}{q(x,t)\to q_\pm,\qquad x\to\pm\infty.}\end{equation}
+变换后的 Lax 对为
+\begin{equation}\eqq{6.2.8}{\varphi_x=X\varphi,\qquad\varphi_t=T\varphi,}\end{equation}
+其中 $Q=\begin{pmatrix}0&q\\-\bar q&0\end{pmatrix}$，且
+\[
+X=ik\sigma_3+Q,\qquad T=-2ik^2\sigma_3+i\sigma_3(Q_x-Q^2-q_0^2I)-2kQ.
+\]
+
+\subsection{为什么位势和特征函数要一起变换}
+先考虑更一般的常数 $\alpha,\beta$：
+\begin{equation}\eqq{6.2.9}{\widetilde q=e^{2i\alpha t}q,\qquad\widetilde\varphi=e^{i\beta t\sigma_3}\varphi.}\end{equation}
+与上面相同的求导给出
+\begin{equation}\eqq{6.2.10}{iq_t+q_{xx}+2(|q|^2-\alpha)q=0.}\end{equation}
+记交换子算子 $\widehat\sigma_3A=[\sigma_3,A]$，则
+$e^{a\widehat\sigma_3}A=e^{a\sigma_3}Ae^{-a\sigma_3}$。
+因为 $\widetilde Q=e^{i\alpha t\widehat\sigma_3}Q$，将变换代入两个线性方程可得
+\begin{equation}
+\eqq{6.2.11}{\varphi_x=\left[e^{it(\alpha-\beta)\widehat\sigma_3}
+\begin{pmatrix}ik&q\\-\bar q&-ik\end{pmatrix}\right]\varphi,}
+\end{equation}
+\begin{equation}
+\eqq{6.2.12}{\varphi_t=\left[e^{it(\alpha-\beta)\widehat\sigma_3}
+\begin{pmatrix}-2ik^2+i(|q|^2-\beta)&iq_x-2kq\\i\bar q_x+2k\bar q&2ik^2-i(|q|^2-\beta)\end{pmatrix}\right]\varphi.}
+\end{equation}
+具体地，$\varphi_t=e^{-i\beta t\sigma_3}Ve^{i\beta t\sigma_3}\varphi-i\beta\sigma_3\varphi$，
+最后一项使对角元中的 $|q|^2$ 变为 $|q|^2-\beta$。取 $\alpha=\beta$ 就消去了非对角元的额外时间因子：
+\begin{equation}\eqq{6.2.13}{\varphi_x=\begin{pmatrix}ik&q\\-\bar q&-ik\end{pmatrix}\varphi=X\varphi,}\end{equation}
+\begin{equation}\eqq{6.2.14}{\varphi_t=\begin{pmatrix}-2ik^2+i(|q|^2-\beta)&iq_x-2kq\\i\bar q_x+2k\bar q&2ik^2-i(|q|^2-\beta)\end{pmatrix}\varphi=T\varphi.}\end{equation}
+若还要求
+\begin{equation}\eqq{6.2.15}{q(x,t)\to q_\pm,\qquad |q_\pm|=q_0,\qquad x\to\pm\infty,}\end{equation}
+则空间和时间渐近系统为
+\begin{equation}\eqq{6.2.16}{\varphi_x=\begin{pmatrix}ik&q_\pm\\-\bar q_\pm&-ik\end{pmatrix}\varphi=X_\pm\varphi,}\end{equation}
+\begin{equation}\eqq{6.2.17}{\varphi_t=\{-2kX_\pm+i(q_0^2-\beta)\sigma_3\}\varphi=T_\pm\varphi.}\end{equation}
+取 $\beta=q_0^2$，就同时得到常边界和 $T_\pm=-2kX_\pm$。
+这使两矩阵共享特征向量，空间和时间的自由解可以用同一个对角化矩阵组织。
+
+\begin{callout}[计算：零曲率条件与第五章的关系]
+本章仍使用 $X_t-T_x+[X,T]=0$。右上角为
+$q_t-iq_{xx}-2i(|q|^2-q_0^2)q$，乘以 $i$ 就得到 \eqref{eq:6.2.6}。
+第五章的空间谱矩阵为 $P-iz_{(5)}\sigma_3$；令 $k=-z_{(5)}$，则 $Q=P$，空间 Lax 对一致。再令 $q_0\to0$，本章时间矩阵也回到第五章。后面的重构系数不同，是谱变量改变所致，不是方程改变所致。
+\end{callout}
+
+\section{Riemann 面和单值化坐标}
+\subsection{平方根从何而来}
+渐近系统为
+\begin{equation}\eqq{6.3.1}{\psi_x=X_\pm\psi,\qquad\psi_t=T_\pm\psi,\qquad T_\pm=-2kX_\pm.}\end{equation}
+利用 $Q_\pm^2=-q_0^2I$ 和 $\sigma_3Q_\pm+Q_\pm\sigma_3=0$，
+有 $X_\pm^2=-(k^2+q_0^2)I$，因此特征值是 $\pm i\lambda$，其中
+\begin{equation}\eqq{6.3.2}{\lambda^2=k^2+q_0^2=(k+iq_0)(k-iq_0).}\end{equation}
+两支平方根在 $k=\pm iq_0$ 汇合。沿线段 $i\lbrack-q_0,q_0\rbrack$ 割开两张 $k$ 平面并交叉粘合，得到两叶 Riemann 面。
+选 $S_1$ 上 $\lambda\sim k$、$S_2$ 上 $\lambda\sim-k$。
+若 $k+iq_0=r_1e^{i\theta_1}$、$k-iq_0=r_2e^{i\theta_2}$，则
+\begin{equation}
+\eqq{6.3.3}{\lambda(k)=
+\begin{cases}
+\sqrt{r_1r_2}\,e^{\frac{i(\theta_1+\theta_2)}{2}},&S_1,\\
+-\sqrt{r_1r_2}\,e^{\frac{i(\theta_1+\theta_2)}{2}},&S_2.
+\end{cases}}
+\end{equation}
+这里选取 $-\pi/2<\theta_j<3\pi/2$，支割线上的值从两侧取极限；指数中的 $i$ 保证平方后回到 \eqref{eq:6.3.2}。
+
+\subsection{单值化及其逆变换}
+定义
+\begin{equation}\eqq{6.3.4}{z=k+\lambda.}\end{equation}
+由 $(\lambda-k)(\lambda+k)=q_0^2$ 得 $\lambda-k=q_0^2/z$，相加和相减给出
+\begin{equation}\eqq{6.3.5}{k(z)=\dfrac{1}{2}\left(z-\dfrac{q_0^2}{z}\right),\qquad
+\lambda(z)=\dfrac{1}{2}\left(z+\dfrac{q_0^2}{z}\right).}\end{equation}
+它们在 $z\ne0$ 上都是单值有理函数。交换两叶对应
+$f(z)=-q_0^2/z$，因为 $k(f(z))=k(z)$、$\lambda(f(z))=-\lambda(z)$。
+这不是普通共轭变换，是本章新增的第二种对称性。
+
+\subsection{解析域与连续谱}
+由极坐标形式先得到
+\begin{equation}
+\eqq{6.3.6}{\Imm\lambda=
+\begin{cases}\sqrt{r_1r_2}\sin\dfrac{\theta_1+\theta_2}{2},&S_1,\\
+-\sqrt{r_1r_2}\sin\dfrac{\theta_1+\theta_2}{2},&S_2.
+\end{cases}}
+\end{equation}
+实际判断 $z$ 平面的符号时，用有理表达式更方便：
+\begin{equation}\eqq{6.3.7}{\lambda(z)=\dfrac{z^2+q_0^2}{2z}
+=\dfrac{(|z|^2-q_0^2)z+q_0^2(z+\bar z)}{2|z|^2},}\end{equation}
+\begin{equation}\eqq{6.3.8}{\lambda(z)=\dfrac{(|z|^2-q_0^2)z+2q_0^2\Ree z}{2|z|^2},}\end{equation}
+\begin{equation}\eqq{6.3.9}{\Imm\lambda(z)=\dfrac{(|z|^2-q_0^2)\Imm z}{2|z|^2}.}\end{equation}
+于是 $D^+=\{(|z|^2-q_0^2)\Imm z>0\}$、$D^-=\{(|z|^2-q_0^2)\Imm z<0\}$。
+$D^+$ 是上半平面的圆外部分与下半平面的圆内部分；$D^-$ 则相反。
+连续谱由 $\lambda\in\mathbb R$ 决定，故 $k$ 面上为 $\mathbb R\cup i\lbrack-q_0,q_0\rbrack$，
+$z$ 面上为 $\Sigma=\mathbb R\cup C_0$，其中 $C_0=\{|z|=q_0\}$。
+
+\begin{center}
+\begin{tikzpicture}[scale=1.12]
+\fill[blue!8] (-2.5,0) rectangle (2.5,1.65);
+\fill[white] (0,0) circle (1);
+\fill[blue!8] (0,0) -- (180:1) arc (180:360:1) -- cycle;
+\draw[thick] (0,0) circle (1);
+\draw[->] (-2.65,0)--(2.75,0) node[right] {$\Ree z$};
+\draw[->] (0,-1.7)--(0,1.8) node[above] {$\Imm z$};
+\node at (1.65,0.9) {$D^+$};
+\node at (0.45,-0.45) {$D^+$};
+\node at (-1.65,-0.9) {$D^-$};
+\node at (-0.45,0.45) {$D^-$};
+\node[below right] at (1,0) {$q_0$};
+\node[below left] at (-1,0) {$-q_0$};
+\node[right] at (0,1) {$iq_0$};
+\node[right] at (0,-1) {$-iq_0$};
+\end{tikzpicture}
+\par\small 单值化后的解析区域：浅色部分为 $D^+$，实轴与圆周组成 $\Sigma$。
+\end{center}
+
+\begin{callout}[计算：为什么必须同时处理无穷远和零点]
+在 $S_1$ 上，$\lambda=k+q_0^2/(2k)+O(k^{-3})$，故
+$z=2k+q_0^2/(2k)+O(k^{-3})\to\infty$；在 $S_2$ 上，
+$z=-q_0^2/(2k)+O(k^{-3})\to0$。
+因此 $z=0$ 代表第二叶的谱无穷远，并非普通可忽略的点。第五章只有一个归一化端点；本章 RH 解在 $z\to\infty$ 趋于 $I$，在 $z\to0$ 带有规定的背景主部。
+后文统一把 $\Sigma$ 定向为 $D^+$ 在左侧，从而 Cauchy 边界值满足 $C_+-C_-=I$。实轴圆外的两段向右、圆内一段向左；上下两个半圆都从 $-q_0$ 到 $q_0$。
+\end{callout}
+
+\section{Jost 函数、解析性和对称性}
+\subsection{Jost 函数与 Volterra 方程}
+定义 $H_\pm=\sigma_3Q_\pm=\begin{pmatrix}0&q_\pm\\\bar q_\pm&0\end{pmatrix}$，
+$Y_\pm=I+iH_\pm/z$。直接检查 $X_\pm Y_\pm=Y_\pm i\lambda\sigma_3$：
+第一列的第一分量为 $i(k+q_0^2/z)=i\lambda$，第二分量为
+$\bar q_\pm(k/z-1)=-\lambda\bar q_\pm/z$；第二列同样成立。
+因而
+\begin{equation}\eqq{6.4.1}{X_\pm=Y_\pm(i\lambda\sigma_3)Y_\pm^{-1},\qquad
+T_\pm=Y_\pm(-2ik\lambda\sigma_3)Y_\pm^{-1}.}\end{equation}
+在 $z\ne0,\pm iq_0$ 时 $\det Y_\pm=\gamma(z)=1+q_0^2/z^2\ne0$。
+令 $\eta=Y_\pm^{-1}\psi$，则
+\begin{equation}\eqq{6.4.2}{\eta_x=i\lambda\sigma_3\eta,\qquad\eta_t=-2ik\lambda\sigma_3\eta.}\end{equation}
+解得 $\psi=Y_\pm e^{i\theta\sigma_3}$，其中
+$\theta(z)=\lambda(z)[x-2k(z)t]$。
+令 $\varphi_\pm$ 在相应空间无穷远与此匹配，并剥离指数：
+\begin{equation}\eqq{6.4.3}{\mu_\pm=\varphi_\pm e^{-i\theta\sigma_3},}\end{equation}
+\begin{equation}\eqq{6.4.4}{\mu_\pm\to Y_\pm,\qquad x\to\pm\infty.}\end{equation}
+注意：第五章是 $\mu\to I$，本章是 $\mu_\pm\to Y_\pm$。
+
+令 $A_\pm=Y_\pm^{-1}\mu_\pm$、$\Delta Q_\pm=Q-Q_\pm$、
+$\Delta T_\pm=T-T_\pm$。由 $\varphi_\pm=\mu_\pm e^{i\theta\sigma_3}$ 求导：
+$\mu_{\pm,x}+i\lambda\mu_\pm\sigma_3=(X_\pm+\Delta Q_\pm)\mu_\pm$。
+左乘 $Y_\pm^{-1}$ 后得
+\begin{equation}\eqq{6.4.5}{(A_\pm)_x+i\lambda[A_\pm,\sigma_3]=Y_\pm^{-1}\Delta Q_\pm\mu_\pm,}\end{equation}
+\begin{equation}\eqq{6.4.6}{(A_\pm)_t-2ik\lambda[A_\pm,\sigma_3]=Y_\pm^{-1}\Delta T_\pm\mu_\pm.}\end{equation}
+利用 $[A,\sigma_3]=-[\sigma_3,A]$，可合写为
+\begin{equation}\eqq{6.4.7}{\mathrm{d}(e^{-i\theta\widehat\sigma_3}A_\pm)
+=e^{-i\theta\widehat\sigma_3}
+[Y_\pm^{-1}(\Delta Q_\pm\,\mathrm{d}x+\Delta T_\pm\,\mathrm{d}t)\mu_\pm].}\end{equation}
+固定 $t$，从左右归一化端点积分，得到
+\begin{equation}
+\eqq{6.4.8}{\mu_-(x)=Y_-+\int_{-\infty}^x
+Y_-e^{i\lambda(x-y)\widehat\sigma_3}[Y_-^{-1}\Delta Q_-(y)\mu_-(y)]\dd y,}
+\end{equation}
+\begin{equation}
+\eqq{6.4.9}{\mu_+(x)=Y_+-\int_x^\infty
+Y_+e^{i\lambda(x-y)\widehat\sigma_3}[Y_+^{-1}\Delta Q_+(y)\mu_+(y)]\dd y.}
+\end{equation}
+这里省略了固定的 $t,z$，所有矩阵乘法次序均须保留。右端的负号来自从 $+\infty$ 积分到 $x$。
+
+\subsection{两个基本解与散射矩阵}
+在 $\Sigma\setminus\{0,\pm iq_0\}$ 上，$\varphi_\pm$ 为同一系统的基本矩阵解，所以
+\begin{equation}\eqq{6.4.10}{\mu_+e^{i\theta\sigma_3}=\mu_-e^{i\theta\sigma_3}S(z),}\end{equation}
+\begin{equation}\eqq{6.4.11}{\mu_+=\mu_-e^{i\theta\widehat\sigma_3}S(z).}\end{equation}
+例如 $S=\varphi_-^{-1}\varphi_+$，求导有
+$S_x=-\varphi_-^{-1}X\varphi_++\varphi_-^{-1}X\varphi_+=0$，同理 $S_t=0$。
+这不是说特征函数与时间无关，而是已把显式时间相位放进了 Jost 归一化。
+$S=(s_{ij})_{i,j=1}^2$ 称为散射矩阵。
+
+\subsection{存在唯一性和逐列解析性}
+\begin{callout}[假设及结论：哪些列能延拓]
+固定 $t$，要求 $q-q_-\in L^1((-\infty,a))$、$q-q_+\in L^1((a,\infty))$，
+其中 $a$ 为任意有限分界点。两端背景不同时，不能同时要求 $q-q_\pm\in L^1(\mathbb R)$。
+在这些条件下，各列 Volterra 解存在唯一，并有
+$\mu_{+,1},\mu_{-,2}$ 在 $D^+$ 解析，$\mu_{-,1},\mu_{+,2}$ 在 $D^-$ 解析。
+以下证明避开 $z=0,\pm iq_0$；支点处的连续性需要额外的加权可积条件。
+\end{callout}
+以 $\mu_{-,1}$ 为例，令 $w=Y_-^{-1}\mu_{-,1}$、$e_1=(1,0)^{\mathsf T}$。第一列的右指数是 $e^{-i\lambda(x-y)}$，所以
+\begin{equation}\eqq{6.4.12}{w(x)=e_1+\int_{-\infty}^x F(x,y,z)w(y)\dd y,}\end{equation}
+\begin{equation}\eqq{6.4.13}{F(x,y,z)=\diag(1,e^{-2i\lambda(x-y)})Y_-^{-1}\Delta Q_-(y)Y_-.}\end{equation}
+当 $y\le x$、$\Imm\lambda<0$ 时，$|e^{-2i\lambda(x-y)}|=e^{2\Imm\lambda(x-y)}\le1$。
+因此这一列的自然解析域是 $D^-$。
+第二列的指数换为 $e^{2i\lambda(x-y)}$，自然解析域就变成 $D^+$。
+对 $\mu_+$，积分中 $y\ge x$，符号再次交换。
+
+取 $0<\epsilon<1$，令 $D^-_\epsilon$ 为从 $D^-$ 中删去支点的 $\epsilon q_0$ 邻域后的区域，
+并取 $z\ne0$。构造
+\begin{equation}\eqq{6.4.14}{w^{(0)}=e_1,\qquad w^{(n+1)}(x)=\int_{-\infty}^x F(x,y,z)w^{(n)}(y)\dd y,\quad n\ge0,}\end{equation}
+\begin{equation}\eqq{6.4.15}{w(x)=\sum\limits_{n=0}^\infty w^{(n)}(x).}\end{equation}
+使用向量 $1$-范数及诱导矩阵 $1$-范数，有
+\begin{equation}\eqq{6.4.16}{\|w^{(n+1)}(x)\|_1\le\int_{-\infty}^x\|F(x,y,z)\|_1\|w^{(n)}(y)\|_1\dd y,}\end{equation}
+\begin{equation}\eqq{6.4.17}{\|F\|_1\le\|\diag(1,e^{-2i\lambda(x-y)})\|_1\|Y_-^{-1}\|_1\|\Delta Q_-(y)\|_1\|Y_-\|_1.}\end{equation}
+因为 $\|Y_-\|_1=1+q_0/|z|$，
+$\|Y_-^{-1}\|_1=(1+q_0/|z|)/|1+q_0^2/z^2|$，可选取
+\begin{equation}\eqq{6.4.18}{c_\epsilon=\sup_{z\in D^-_\epsilon}\dfrac{(|z|+q_0)^2}{|z-iq_0||z+iq_0|}
+\le\dfrac{9}{\epsilon}.}\end{equation}
+一个直接的界是：$|z|\ge2q_0$ 时比值不超过 $9$；$|z|<2q_0$ 时，两支点距离中至少一个不小于 $q_0$，另一个不小于 $\epsilon q_0$，故比值不超过 $9/\epsilon$；
+后文只需 $c_\epsilon<\infty$，不依赖最优常数。这个界保留了原书估计的作用，并可直接验证。
+\begin{equation}\eqq{6.4.19}{\|\diag(1,e^{-2i\lambda(x-y)})\|_1=1\le2,\qquad y\le x,\ z\in D^-,}\end{equation}
+\begin{equation}\eqq{6.4.20}{\|\Delta Q_-(y)\|_1=|q(y)-q_-|.}\end{equation}
+为保持与原书后续记号对应，使用较宽的系数 $2c_\epsilon$：
+\begin{equation}\eqq{6.4.21}{\|w^{(n+1)}(x)\|_1\le2c_\epsilon\int_{-\infty}^x|q(y)-q_-|\|w^{(n)}(y)\|_1\dd y,}\end{equation}
+\begin{equation}\eqq{6.4.22}{\varrho(x)=2c_\epsilon\int_{-\infty}^x|q(y)-q_-|\dd y,}\end{equation}
+\begin{equation}\eqq{6.4.23}{\varrho_x=2c_\epsilon|q-q_-|,\qquad \|w^{(1)}(x)\|_1\le\varrho(x).}\end{equation}
+若 $\|w^{(n)}(y)\|_1\le\varrho(y)^n/n!$，则
+\begin{equation}\eqq{6.4.24}{\|w^{(n+1)}(x)\|_1
+\le\int_{-\infty}^x\dfrac{\varrho_x(y)\varrho(y)^n}{n!}\dd y
+=\dfrac{\varrho(x)^{n+1}}{(n+1)!}.}\end{equation}
+对 $x\le a$，设 $\sigma_a=\varrho(a)$，于是
+\begin{equation}\eqq{6.4.25}{\|w^{(n)}(x)\|_1\le\dfrac{\sigma_a^n}{n!}.}\end{equation}
+阶乘来自有序积分区域，因而无需“小位势”条件。级数绝对一致收敛，且在每个避开奇点的谱紧集上一致收敛；各项解析，故和解析。
+利用可积控制交换求和与积分：
+\begin{equation}\eqq{6.4.26}{w=e_1+\sum\limits_{n=1}^\infty w^{(n)}
+=e_1+\int_{-\infty}^xF(x,y,z)\sum\limits_{n=0}^\infty w^{(n)}(y)\dd y
+=e_1+\int_{-\infty}^xFw\dd y.}\end{equation}
+这说明和确实满足原方程。若两解之差为 $h$，则
+\begin{equation}\eqq{6.4.27}{\|h(x)\|_1\le2c_\epsilon\int_{-\infty}^x|q(y)-q_-|\|h(y)\|_1\dd y.}\end{equation}
+在 $x\le a$ 上迭代 $n$ 次，右端不超过
+$H_a\varrho(x)^n/n!$，其中 $H_a=\sup_{y\le a}\|h(y)\|_1<\infty$。
+令 $n\to\infty$ 得 $h=0$；这也补全了无穷积分端点上的唯一性论证。
+
+\subsection{行列式、逆矩阵和散射系数}
+因为 $\tr X=\tr T=0$，Abel 公式给出 $(\det\varphi_\pm)_x=(\det\varphi_\pm)_t=0$。
+又 $\det e^{i\theta\sigma_3}=1$，故
+\begin{equation}\eqq{6.4.28}{\det\mu_\pm=\det Y_\pm=\gamma(z)=1+\dfrac{q_0^2}{z^2},\qquad z\ne0,\pm iq_0.}\end{equation}
+逆矩阵的行直接由另一列给出：
+\begin{equation}\eqq{6.4.29}{\mu_+^{-1}=\dfrac{1}{\gamma}
+\begin{pmatrix}(\mu_+)_{22}&-(\mu_+)_{12}\\-(\mu_+)_{21}&(\mu_+)_{11}\end{pmatrix},}\end{equation}
+\begin{equation}\eqq{6.4.30}{\mu_-^{-1}=\dfrac{1}{\gamma}
+\begin{pmatrix}(\mu_-)_{22}&-(\mu_-)_{12}\\-(\mu_-)_{21}&(\mu_-)_{11}\end{pmatrix}.}\end{equation}
+因此 $\det S=1$。把 \eqref{eq:6.4.11} 逐列展开：
+\begin{equation}\eqq{6.4.31}{\mu_{+,1}=s_{11}\mu_{-,1}+s_{21}e^{-2i\theta}\mu_{-,2},}\end{equation}
+\begin{equation}\eqq{6.4.32}{\mu_{+,2}=s_{12}e^{2i\theta}\mu_{-,1}+s_{22}\mu_{-,2}.}\end{equation}
+分别与相应列取行列式，就能消去一个系数：
+\begin{equation}\eqq{6.4.33}{s_{11}=\dfrac{\det(\mu_{+,1},\mu_{-,2})}{\gamma},\qquad
+s_{21}=\dfrac{e^{2i\theta}\det(\mu_{-,1},\mu_{+,1})}{\gamma},}\end{equation}
+\begin{equation}\eqq{6.4.34}{s_{12}=\dfrac{e^{-2i\theta}\det(\mu_{+,2},\mu_{-,2})}{\gamma},\qquad
+s_{22}=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{\gamma}.}\end{equation}
+$s_{11}$ 的两列都在 $D^+$ 解析，$s_{22}$ 的两列都在 $D^-$ 解析；
+$s_{12},s_{21}$ 一般只在连续谱上定义边界值，不能随意在离散谱点代入它们。
+
+\subsection{共轭对称与换叶对称}
+令 $\sigma=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$。
+先列出逐列关系：
+\begin{equation}\eqq{6.4.35}{\mu_{\pm,1}(z)=\sigma\conj{\mu_{\pm,2}(\bar z)},}\end{equation}
+\begin{equation}\eqq{6.4.36}{\mu_{\pm,2}(z)=-\sigma\conj{\mu_{\pm,1}(\bar z)},}\end{equation}
+\begin{equation}\eqq{6.4.37}{\mu_{\pm,1}(z)=\dfrac{i\bar q_\pm}{z}\mu_{\pm,2}\!\left(-\dfrac{q_0^2}{z}\right),}\end{equation}
+\begin{equation}\eqq{6.4.38}{\mu_{\pm,2}(z)=\dfrac{iq_\pm}{z}\mu_{\pm,1}\!\left(-\dfrac{q_0^2}{z}\right).}\end{equation}
+对应散射系数为
+\begin{equation}\eqq{6.4.39}{s_{11}(z)=\conj{s_{22}(\bar z)},\qquad s_{12}(z)=-\conj{s_{21}(\bar z)},}\end{equation}
+\begin{equation}\eqq{6.4.40}{s_{11}(z)=\dfrac{\bar q_+}{\bar q_-}s_{22}(f(z)),\qquad
+s_{12}(z)=\dfrac{q_+}{\bar q_-}s_{21}(f(z)),\quad f(z)=-\dfrac{q_0^2}{z}.}\end{equation}
+取比值得 $\widetilde\rho(z)=-\conj{\rho(\bar z)}$，其中
+$\rho=s_{21}/s_{11}$、$\widetilde\rho=s_{12}/s_{22}$。
+
+\methodsection{(A) 共轭对称的证明}
+写出等价空间方程：
+\begin{equation}\eqq{6.4.41}{[Y_\pm^{-1}(z)\mu_\pm(z)]_x+
+i\lambda(z)[Y_\pm^{-1}(z)\mu_\pm(z),\sigma_3]
+=Y_\pm^{-1}(z)\Delta Q_\pm\mu_\pm(z).}\end{equation}
+先把 $z$ 换成 $\bar z$，逐项共轭并在两边乘 $\sigma$：
+\begin{equation}
+\eqq{6.4.42}{\begin{aligned}
+\bigl[\sigma\conj{Y_\pm^{-1}(\bar z)\mu_\pm(\bar z)}\sigma\bigr]_x
+&-i\conj{\lambda(\bar z)}\,\sigma[\conj{Y_\pm^{-1}(\bar z)\mu_\pm(\bar z)},\sigma_3]\sigma\\
+&=\sigma\conj{Y_\pm^{-1}(\bar z)\Delta Q_\pm\mu_\pm(\bar z)}\sigma.
+\end{aligned}}
+\end{equation}
+利用
+\begin{equation}\eqq{6.4.43}{\sigma\conj{Y_\pm^{-1}(\bar z)}\sigma=-Y_\pm^{-1}(z),\qquad
+\conj{\lambda(\bar z)}=\lambda(z),\qquad \sigma\sigma_3\sigma=\sigma_3,}\end{equation}
+\begin{equation}\eqq{6.4.44}{\sigma\conj{\Delta Q_\pm}\sigma=-\Delta Q_\pm,}\end{equation}
+令 $N_\pm=-\sigma\conj{\mu_\pm(\bar z)}\sigma$，可化为
+\begin{equation}\eqq{6.4.45}{(Y_\pm^{-1}N_\pm)_x+i\lambda[Y_\pm^{-1}N_\pm,\sigma_3]
+=Y_\pm^{-1}\Delta Q_\pm N_\pm.}\end{equation}
+又 $-\sigma\conj{Y_\pm(\bar z)}\sigma=Y_\pm(z)$，故 $N_\pm$ 与 $\mu_\pm$ 满足同一个 Volterra 方程和归一化。由唯一性，
+\begin{equation}\eqq{6.4.46}{\mu_\pm(z)=-\sigma\conj{\mu_\pm(\bar z)}\sigma.}\end{equation}
+由散射定义
+\begin{equation}\eqq{6.4.47}{S(z)=e^{-i\theta(z)\widehat\sigma_3}[\mu_-^{-1}(z)\mu_+(z)],}\end{equation}
+配合 $\conj{\theta(\bar z)}=\theta(z)$，得到 $S(z)=-\sigma\conj{S(\bar z)}\sigma$，
+这给出 \eqref{eq:6.4.39}。
+
+\methodsection{(B) 换叶对称的证明}
+令 $f(z)=-q_0^2/z$。因为 $H_\pm^2=q_0^2I$，
+$Y_\pm(f(z))(iH_\pm/z)=Y_\pm(z)$。
+又 $\theta(f(z))=-\theta(z)$、$H_\pm\sigma_3=-\sigma_3H_\pm$，所以
+\[
+Y_\pm(f(z))e^{-i\theta(z)\sigma_3}\dfrac{iH_\pm}{z}
+=Y_\pm(z)e^{i\theta(z)\sigma_3}.
+\]
+两边也满足同一个原 Lax 对，因为 $k(f(z))=k(z)$。
+由归一化唯一性得
+$\varphi_\pm(z)=\varphi_\pm(f(z))iH_\pm/z$，进而
+$\mu_\pm(z)=\mu_\pm(f(z))iH_\pm/z$，即 \eqref{eq:6.4.37}--\eqref{eq:6.4.38}。
+代入 $\varphi_+=\varphi_-S$，消去 $\varphi_-(f(z))$ 得
+$S(z)=H_-^{-1}S(f(z))H_+$。
+其 $(1,1)$ 元为 $(\bar q_+/\bar q_-)s_{22}(f(z))$；
+共轭的位置由这次矩阵乘法确定。
+
+\subsection{两端渐近性与重构公式}
+以下渐近展开按每一列所在的解析域理解，要求位势足够光滑并且两端的扰动及所需导数可积。
+写 $D_\pm(x,t)$ 为对角矩阵，则完整展开为
+\begin{equation}\eqq{6.4.48}{\mu_\pm=I+\dfrac{i\sigma_3Q+D_\pm}{z}+O(z^{-2}),\qquad z\to\infty,}\end{equation}
+\begin{equation}\eqq{6.4.49}{\mu_\pm=\dfrac{i}{z}\sigma_3Q_\pm+O(1),\qquad z\to0.}\end{equation}
+第二式直接由换叶对称与第一式的首项得到。
+同时 $S(z)=I+O(z^{-1})$（$z\to\infty$），
+$S(z)=\diag(q_-/q_+,q_+/q_-)+O(z)$（$z\to0$）。
+其中小参数首项也可由 $Y_-^{-1}Y_+$ 计算：
+$H_-^{-1}H_+=\diag(q_-/q_+,q_+/q_-)$。
+
+\methodsection{(A) 大参数展开：哪些系数能由交换子决定}
+正确的背景矩阵及逆矩阵是
+\begin{equation}\eqq{6.4.50}{Y_\pm=I+\dfrac{i}{z}H_\pm,\qquad
+Y_\pm^{-1}=\dfrac{1}{\gamma}\left(I-\dfrac{i}{z}H_\pm\right),\quad H_\pm=\sigma_3Q_\pm.}\end{equation}
+设
+\begin{equation}\eqq{6.4.51}{\mu_\pm=\mu_0^\pm+\dfrac{\mu_1^\pm}{z}
++\dfrac{\mu_2^\pm}{z^2}+O(z^{-3}).}\end{equation}
+为免符号拥挤，记 $W_\pm=I-iH_\pm/z$、
+$L_\pm=\mu_0^\pm+\mu_1^\pm/z+\mu_2^\pm/z^2+\cdots$。
+将 \eqref{eq:6.4.50}--\eqref{eq:6.4.51} 代入等价 Lax 对，并约去与 $x,t$ 无关的 $\gamma$：
+\begin{equation}\eqq{6.4.52}{(W_\pm L_\pm)_x+
+\dfrac{i}{2}\left(z+\dfrac{q_0^2}{z}\right)[W_\pm L_\pm,\sigma_3]
+=W_\pm\Delta Q_\pm L_\pm,}\end{equation}
+\begin{equation}\eqq{6.4.53}{(W_\pm L_\pm)_t-
+\dfrac{i}{2}\left(z^2-\dfrac{q_0^4}{z^2}\right)[W_\pm L_\pm,\sigma_3]
+=W_\pm\Delta T_\pm L_\pm.}\end{equation}
+这里必须保留
+$\Delta T_\pm=-2k\Delta Q_\pm+i\sigma_3[Q_x-(Q^2-Q_\pm^2)]$；
+第二部分虽不影响最高阶比较，却影响低阶系数。
+由于 $W_\pm L_\pm=\mu_0^\pm+(\mu_1^\pm-iH_\pm\mu_0^\pm)/z+O(z^{-2})$，
+比较空间式 $O(z)$、$O(1)$ 和时间式 $O(z)$：
+\begin{equation}\eqq{6.4.54}{[\mu_0^\pm,\sigma_3]=0,}\end{equation}
+\begin{equation}\eqq{6.4.55}{(\mu_0^\pm)_x+
+\dfrac{i}{2}[\mu_1^\pm-iH_\pm\mu_0^\pm,\sigma_3]
+=\Delta Q_\pm\mu_0^\pm,}\end{equation}
+\begin{equation}\eqq{6.4.56}{\dfrac{i}{2}[\mu_1^\pm-iH_\pm\mu_0^\pm,\sigma_3]
+=\Delta Q_\pm\mu_0^\pm.}\end{equation}
+所以 $\mu_0^\pm$ 对角且与 $x$ 无关。大参数 Volterra 估计及空间归一化给出 $\mu_0^\pm=I$；
+不能仅凭两个极限各自存在就交换极限次序。代回得
+\begin{equation}\eqq{6.4.57}{\mu_1^\pm=i\sigma_3Q+D_\pm,\qquad D_\pm\text{ 为对角矩阵}.}\end{equation}
+理由是 $[D_\pm,\sigma_3]=0$，交换子只能确定非对角元，不能推出 $D_\pm=0$。
+比较 $(1,2)$ 元即可得到
+\begin{equation}\eqq{6.4.58}{q(x,t)=-i(\mu_1^\pm)_{12}
+=-i\lim\limits_{z\to\infty}(z\mu_\pm)_{12}.}\end{equation}
+
+\begin{callout}[补充：首项归一化不需要交换两个无穷远极限]
+在 Volterra 展开中，$Y_\pm\to I$、
+$Y_\pm^{-1}\Delta Q_\pm Y_\pm=\Delta Q_\pm+O(z^{-1})$。
+后一矩阵的对角元为 $O(z^{-1})$；其非对角元作用在列向量上时，在有序积分中必然带至少一个
+$e^{\pm2i\lambda(x-y)}$。固定 $x,t$，在对应解析域令 $|z|\to\infty$，
+每个非零阶迭代项都由可积函数的 Fourier--Laplace 积分趋于零，或由显式 $O(z^{-1})$ 因子趋于零。
+前面阶乘界在大参数区域给出统一可求和的控制，故可先取有限项极限，再把级数尾项一致压小。
+于是逐列得到 $\mu_\pm\to I$。若进一步假设扰动及其导数可积，分部积分给出 $O(z^{-1})$ 阶；
+比较 Lax 系数才确定其具体形式。这一论证只固定 $x$ 取谱极限。
+\end{callout}
+
+\begin{callout}[计算：被省略的对角项到底是什么]
+直接对 $\mu_\pm$ 写空间式
+$\mu_{\pm,x}=ik[\sigma_3,\mu_\pm]+Q\mu_\pm-i(\lambda-k)\mu_\pm\sigma_3$。
+代入 $\mu_\pm=I+\mu_1^\pm/z+\mu_2^\pm/z^2+\cdots$，
+$O(z^{-1})$ 项为
+\[
+(\mu_1^\pm)_x=\dfrac{i}{2}[\sigma_3,\mu_2^\pm]+Q\mu_1^\pm-iq_0^2\sigma_3.
+\]
+取对角部分，使用 $Q(i\sigma_3Q)=i|q|^2\sigma_3$ 和 $QD_\pm$ 非对角，
+得 $(D_\pm)_x=i(|q|^2-q_0^2)\sigma_3$。
+由两端归一化，
+$D_\pm=i\sigma_3\displaystyle\int_{\pm\infty}^x(|q(y,t)|^2-q_0^2)\dd y$。
+这项一般不为零，但不影响重构所需的 $(1,2)$ 元。
+第五章同样利用大参数的非对角系数重构位势；第六章因为 $z\sim2k=-2z_{(5)}$，
+$q=2i(P_+^{(1)})_{12}$ 变为 $q=-i(M^{(1)})_{12}$，二者相容。
+\end{callout}
+
+\section{相关广义 RH 问题}
+\subsection{把解析列拼成分片亚纯矩阵}
+定义
+\begin{equation}\eqq{6.5.1}{M^+=(\mu_{+,1}/s_{11},\,\mu_{-,2}),\qquad
+M^-=(\mu_{-,1},\,\mu_{+,2}/s_{22}).}\end{equation}
+除散射系数零点外，$M^\pm$ 分别在 $D^\pm$ 解析，且
+\begin{equation}\eqq{6.5.2}{M^\pm=I+O(z^{-1}),\qquad z\to\infty,}\end{equation}
+\begin{equation}\eqq{6.5.3}{M^\pm=\dfrac{i}{z}\sigma_3Q_-+O(1),\qquad z\to0.}\end{equation}
+以 $M^+$ 第一列为例，小参数时
+$\mu_{+,1}/s_{11}\sim(0,i\bar q_+/z)^{\mathsf T}/(q_-/q_+)
+=(0,i\bar q_-/z)^{\mathsf T}$，这里使用 $q_\pm\bar q_\pm=q_0^2$。
+第二列本来就用 $\mu_{-,2}$。因此两个域的背景主部均是 $Q_-$。
+
+\subsection{跳跃矩阵的直接推导}
+记 $a=\mu_{+,1}/s_{11}$、$b=\mu_{-,2}$、$u=\mu_{-,1}$。
+由散射式，$u=a-\rho e^{-2i\theta}b$、
+$\mu_{+,2}/s_{22}=\widetilde\rho e^{2i\theta}a+(1-\rho\widetilde\rho)b$。
+因此完整 RH 数据为
+\begin{equation}\eqq{6.5.4}{M^\pm\text{ 在 }D^\pm\text{ 上亚纯},}\end{equation}
+\begin{equation}\eqq{6.5.5}{M^-=M^+(I-G),\qquad z\in\Sigma,}\end{equation}
+\begin{equation}\eqq{6.5.6}{Z=\{z\in D^+:s_{11}(z)=0\}\cup\{z\in D^-:s_{22}(z)=0\},
+\quad M\text{ 在 }Z\text{ 上满足极点条件},}\end{equation}
+\begin{equation}\eqq{6.5.7}{M^\pm=I+O(z^{-1}),\qquad z\to\infty,}\end{equation}
+\begin{equation}\eqq{6.5.8}{M^\pm=\dfrac{i}{z}\sigma_3Q_-+O(1),\qquad z\to0,}\end{equation}
+\begin{equation}\eqq{6.5.9}{G=e^{i\theta\widehat\sigma_3}
+\begin{pmatrix}0&-\widetilde\rho\\\rho&\rho\widetilde\rho\end{pmatrix}
+=\begin{pmatrix}0&-\widetilde\rho e^{2i\theta}\\
+\rho e^{-2i\theta}&\rho\widetilde\rho\end{pmatrix}.}\end{equation}
+位势重构为 $q=-i\displaystyle\lim\limits_{z\to\infty}(zM)_{12}$。
+这里分母零点是两个域中零点集合的并集，不是要求 $s_{11},s_{22}$ 在同一点同时为零。
+
+\begin{callout}[与第五章比较：RH 约定改变了什么]
+第五章用解析列和逆矩阵的解析行构造 $P_-P_+=G_5$；
+本章直接用两组解析列构造 $M^-=M^+(I-G)$。
+无反射时第五章 $G_5=I$，本章 $G=0$，两者都表示跳跃矩阵为单位矩阵。
+本章即使无跳跃，仍有离散极点及 $i\sigma_3Q_-/z$，所以 RH 解一般不会等于 $I$。
+若要使用标准 $M_+=M_-v$ 记号，则 $v=(I-G)^{-1}$。
+\end{callout}
+
+\section{离散谱和留数条件}
+\subsection{为什么谱点必须成四元组}
+选择互不重复的代表点 $z_n\in D^+$，满足 $\Imm z_n>0$、$|z_n|>q_0$，
+并假设是 $s_{11}$ 的简单零点，避开连续谱。由两种对称性，
+\begin{equation}\eqq{6.6.1}{s_{11}(z_n)=0\ \Longleftrightarrow\ s_{22}(\bar z_n)=0
+\ \Longleftrightarrow\ s_{22}(-q_0^2/z_n)=0
+\ \Longleftrightarrow\ s_{11}(-q_0^2/\bar z_n)=0.}\end{equation}
+记 $\xi_n=z_n$、$\xi_{N+n}=-q_0^2/\bar z_n$，则 $D^+$ 中有 $2N$ 个点 $\xi_n$，
+$D^-$ 中有 $2N$ 个点 $\bar\xi_n$。这里 $N$ 数的是四元组数。
+第五章只有共轭对称，故每个代表点只带来一对离散谱。
+
+\subsection{简单零点怎样变为留数条件}
+由 $\det(\mu_{+,1}(\xi_n),\mu_{-,2}(\xi_n))=0$，两列成比例：
+\begin{equation}\eqq{6.6.2}{\mu_{+,1}(\xi_n)=b_ne^{-2i\theta(\xi_n)}\mu_{-,2}(\xi_n),\qquad n=1,\ldots,2N.}\end{equation}
+在原特征函数中，这就是 $\varphi_{+,1}(\xi_n)=b_n\varphi_{-,2}(\xi_n)$。
+两者满足同一空间和时间系统，故 $b_n$ 与 $x,t$ 无关。
+用 $s_{11}(z)=s_{11}'(\xi_n)(z-\xi_n)+O((z-\xi_n)^2)$，
+得到
+\begin{equation}\eqq{6.6.3}{\Res_{z=\xi_n}\dfrac{\mu_{+,1}(z)}{s_{11}(z)}
+=\dfrac{\mu_{+,1}(\xi_n)}{s_{11}'(\xi_n)}
+=C_ne^{-2i\theta(\xi_n)}\mu_{-,2}(\xi_n),\quad C_n=\dfrac{b_n}{s_{11}'(\xi_n)}.}\end{equation}
+在共轭点同样有
+\begin{equation}\eqq{6.6.4}{\mu_{+,2}(\bar\xi_n)=d_ne^{2i\theta(\bar\xi_n)}\mu_{-,1}(\bar\xi_n),}\end{equation}
+\begin{equation}\eqq{6.6.5}{\sigma\conj{\mu_{+,2}(\bar\xi_n)}
+=\bar d_ne^{-2i\theta(\xi_n)}\sigma\conj{\mu_{-,1}(\bar\xi_n)},}\end{equation}
+\begin{equation}\eqq{6.6.6}{\mu_{+,1}(\xi_n)=-\bar d_ne^{-2i\theta(\xi_n)}\mu_{-,2}(\xi_n).}\end{equation}
+因此 $d_n=-\bar b_n$。又 $s_{22}'(\bar\xi_n)=\conj{s_{11}'(\xi_n)}$，故
+\begin{equation}\eqq{6.6.7}{\Res_{z=\bar\xi_n}\dfrac{\mu_{+,2}(z)}{s_{22}(z)}
+=D_ne^{2i\theta(\bar\xi_n)}\mu_{-,1}(\bar\xi_n),\qquad D_n=-\bar C_n.}\end{equation}
+由于 $M^+$ 只在第一列有极点、$M^-$ 只在第二列有极点，最终为
+\begin{equation}\eqq{6.6.8}{\Res_{z=\xi_n}M^+=(C_ne^{-2i\theta(\xi_n)}\mu_{-,2}(\xi_n),\,0),}\end{equation}
+\begin{equation}\eqq{6.6.9}{\Res_{z=\bar\xi_n}M^-=(0,\,-\bar C_ne^{2i\theta(\bar\xi_n)}\mu_{-,1}(\bar\xi_n)).}\end{equation}
+
+\begin{callout}[补充推导：一个四元组内的常数不能任意选]
+令 $\widehat\xi=f(\xi)$。换叶关系给出
+$\varphi_{+,2}(\widehat\xi)=(q_-/\bar q_+)b\,\varphi_{-,1}(\widehat\xi)$，
+而 $f'(\xi)=q_0^2/\xi^2$。
+对 $s_{11}(z)=(\bar q_+/\bar q_-)s_{22}(f(z))$ 求导，
+就得到换叶点第二列的留数常数
+$\widehat C=(q_-/\bar q_-)q_0^2C/\xi^2$。
+再共轭，$D^+$ 中的伙伴必须满足
+\[
+C_{N+n}=-\dfrac{\bar q_-}{q_-}\dfrac{q_0^2}{\bar z_n^2}\bar C_n.
+\]
+因此每个四元组只需给一个 $C_n$，其余由对称性决定。
+\end{callout}
+
+\section{RH 问题的可解性}
+\subsection{去掉主部，再使用 Plemelj 公式}
+记 $R_n^+=\Res_{\xi_n}M^+$、$R_n^-=\Res_{\bar\xi_n}M^-$，
+并设
+$\mathcal P(z)=I+i\sigma_3Q_-/z+
+\displaystyle\sum\limits_{n=1}^{2N}(R_n^+/(z-\xi_n)+R_n^-/(z-\bar\xi_n))$。
+从两个域的 $M$ 中减去同一个 $\mathcal P$，便同时去掉背景主部、极点主部与无穷远常数：
+\begin{equation}\eqq{6.7.1}{M^--\mathcal P=M^+-\mathcal P-M^+G,\qquad z\in\Sigma.}\end{equation}
+余项在相应域解析且在无穷远衰减，其加性跳跃为 $M^+G$。
+按 $D^+$ 在左侧的定向，Plemelj 公式给出
+\begin{equation}
+\eqq{6.7.2}{M(z)=I+\dfrac{i\sigma_3Q_-}{z}
++\sum\limits_{n=1}^{2N}\left(\dfrac{R_n^-}{z-\bar\xi_n}+\dfrac{R_n^+}{z-\xi_n}\right)
++\dfrac{1}{2\pi i}\int\limits_\Sigma\dfrac{M^+(s)G(s)}{s-z}\dd s.}
+\end{equation}
+这里还需连续谱无散射系数零点，并规定支点及交点处的局部行为，使正则化余项不含遗漏的奇性。
+这给出逆问题的积分表示；对一般任意给定矩阵 $G$，不能仅凭此表示就声称解必然存在。
+
+分别在 $\xi_n$ 取第二列、在 $\bar\xi_n$ 取第一列，使用留数式：
+\begin{equation}
+\eqq{6.7.3}{\mu_{-,2}(\xi_n)=
+\begin{pmatrix}iq_-/\xi_n\\1\end{pmatrix}
+-\sum\limits_{k=1}^{2N}\dfrac{\bar C_ke^{2i\theta(\bar\xi_k)}\mu_{-,1}(\bar\xi_k)}{\xi_n-\bar\xi_k}
++\dfrac{1}{2\pi i}\int\limits_\Sigma\dfrac{(M^+G)_2(s)}{s-\xi_n}\dd s,}
+\end{equation}
+\begin{equation}
+\eqq{6.7.4}{\mu_{-,1}(\bar\xi_n)=
+\begin{pmatrix}1\\i\bar q_-/\bar\xi_n\end{pmatrix}
++\sum\limits_{j=1}^{2N}\dfrac{C_je^{-2i\theta(\xi_j)}\mu_{-,2}(\xi_j)}{\bar\xi_n-\xi_j}
++\dfrac{1}{2\pi i}\int\limits_\Sigma\dfrac{(M^+G)_1(s)}{s-\bar\xi_n}\dd s.}
+\end{equation}
+下标 $1,2$ 在积分中表示整列。$\xi_n$ 处的第一列有极点，但第二列正则，故上述取值合法。
+
+\subsection{重构：背景、离散谱和连续谱}
+展开 $(z-\xi)^{-1}=z^{-1}+O(z^{-2})$、
+$(s-z)^{-1}=-z^{-1}+O(z^{-2})$，得到
+\begin{equation}
+\eqq{6.7.5}{M=I+\dfrac{1}{z}\left\{i\sigma_3Q_-+
+\sum\limits_{n=1}^{2N}(R_n^++R_n^-)
+-\dfrac{1}{2\pi i}\int\limits_\Sigma M^+(s)G(s)\dd s\right\}+O(z^{-2}).}
+\end{equation}
+只取 $(1,2)$ 元，再乘 $-i$：
+\begin{equation}
+\eqq{6.7.6}{q=q_-+i\sum\limits_{n=1}^{2N}\bar C_ne^{2i\theta(\bar\xi_n)}
+(\mu_{-,1}(\bar\xi_n))_1+
+\dfrac{1}{2\pi}\int\limits_\Sigma(M^+G)_{12}(s)\dd s.}
+\end{equation}
+三个来源分别是背景、离散谱与连续谱。
+其中 $R_n^+$ 仅占第一列，不贡献 $(1,2)$ 元；
+$R_n^-$ 第二列带有 $-\bar C_n$，乘 $-i$ 后成为 $+i\bar C_n$。
+Cauchy 积分的大参数系数带负号，最后变成 $+1/(2\pi)$。
+
+\subsection{迹公式与 theta 条件}
+“迹公式”在这里是用反射数据和离散零点恢复 $s_{11},s_{22}$ 的标量公式，不是简单地对矩阵取迹。
+剥去离散零点：
+\begin{equation}\eqq{6.7.7}{\beta^+=s_{11}\prod\limits_{j=1}^{2N}\dfrac{z-\bar\xi_j}{z-\xi_j},\qquad
+\beta^-=s_{22}\prod\limits_{j=1}^{2N}\dfrac{z-\xi_j}{z-\bar\xi_j}.}\end{equation}
+两个函数在相应域无零点，$\beta^\pm\to1$。
+由 $\det S=s_{11}s_{22}-s_{12}s_{21}=1$，
+\[
+\beta^+\beta^-=s_{11}s_{22}=\dfrac{1}{1-\rho\widetilde\rho}
+=\dfrac{1}{1+\rho(z)\conj{\rho(\bar z)}}.
+\]
+设 $\mathcal L(s)=\log[1+\rho(s)\conj{\rho(\bar s)}]$，
+对数分支与无穷远归一化相容，并假设相应标量跳跃指数为零。
+实轴上 $\mathcal L=\log(1+|\rho|^2)$；圆周上不能把 $\conj{\rho(\bar s)}$ 改成 $\bar\rho(s)$。
+对加性跳跃 $\log\beta^+-(-\log\beta^-)=-\mathcal L$ 用 Plemelj：
+\begin{equation}\eqq{6.7.8}{\log\beta^\pm(z)=\mp\dfrac{1}{2\pi i}
+\int\limits_\Sigma\dfrac{\mathcal L(s)}{s-z}\dd s,\qquad z\in D^\pm.}\end{equation}
+乘回离散因子：
+\begin{equation}\eqq{6.7.9}{s_{11}(z)=
+\exp\left[-\dfrac{1}{2\pi i}\int\limits_\Sigma\dfrac{\mathcal L(s)}{s-z}\dd s\right]
+\prod\limits_{j=1}^{2N}\dfrac{z-\xi_j}{z-\bar\xi_j},\qquad z\in D^+,}\end{equation}
+\begin{equation}\eqq{6.7.10}{s_{22}(z)=
+\exp\left[\dfrac{1}{2\pi i}\int\limits_\Sigma\dfrac{\mathcal L(s)}{s-z}\dd s\right]
+\prod\limits_{j=1}^{2N}\dfrac{z-\bar\xi_j}{z-\xi_j},\qquad z\in D^-.}\end{equation}
+无反射时 $\mathcal L=0$，于是
+\begin{equation}\eqq{6.7.11}{s_{11}=\prod\limits_{j=1}^{2N}\dfrac{z-\xi_j}{z-\bar\xi_j},\qquad
+s_{22}=\prod\limits_{j=1}^{2N}\dfrac{z-\bar\xi_j}{z-\xi_j}.}\end{equation}
+令 $z\to0$，每个四元组的两个 $D^+$ 点贡献
+$\xi_n\xi_{N+n}/(\bar\xi_n\bar\xi_{N+n})=e^{4i\arg\xi_n}$。因此
+\begin{equation}\eqq{6.7.12}{\dfrac{q_-}{q_+}=
+\exp\left[\dfrac{i}{2\pi}\int\limits_\Sigma\dfrac{\mathcal L(s)}{s}\dd s\right]
+\exp\left[4i\sum\limits_{n=1}^N\arg\xi_n\right],}\end{equation}
+\begin{equation}\eqq{6.7.13}{\arg\dfrac{q_-}{q_+}\equiv
+\Ree\left(\dfrac{1}{2\pi}\int\limits_\Sigma\dfrac{\mathcal L(s)}{s}\dd s\right)
++4\sum\limits_{n=1}^N\arg\xi_n\pmod{2\pi},}\end{equation}
+\begin{equation}\eqq{6.7.14}{\arg\dfrac{q_-}{q_+}\equiv4\sum\limits_{n=1}^N\arg\xi_n\pmod{2\pi},
+\qquad \rho=\widetilde\rho=0.}\end{equation}
+相容散射数据及相容对数分支使 \eqref{eq:6.7.12} 的指数具有单位模；取相位时写出实部可避免把复积分当作实数。
+这说明背景相位差受散射数据约束，不能与谱点独立指定。
+
+\subsection{无反射时的有限维闭合}
+令 $G=0$，记 $u_j=(\mu_{-,2}(\xi_j))_1$、
+$X_n=(\mu_{-,1}(\bar\xi_n))_1$，则
+\begin{equation}\eqq{6.7.15}{u_j=\dfrac{iq_-}{\xi_j}
+-\sum\limits_{k=1}^{2N}\dfrac{\bar C_ke^{2i\theta(\bar\xi_k)}}{\xi_j-\bar\xi_k}X_k,}\end{equation}
+\begin{equation}\eqq{6.7.16}{X_n=1+\sum\limits_{j=1}^{2N}
+\dfrac{C_je^{-2i\theta(\xi_j)}}{\bar\xi_n-\xi_j}u_j,}\end{equation}
+\begin{equation}\eqq{6.7.17}{q=q_-+i\sum\limits_{n=1}^{2N}\bar C_ne^{2i\theta(\bar\xi_n)}X_n.}\end{equation}
+引入
+\begin{equation}\eqq{6.7.18}{c_j(z)=\dfrac{C_je^{-2i\theta(\xi_j)}}{z-\xi_j},}\end{equation}
+\begin{equation}\eqq{6.7.19}{\conj{c_k(\bar\xi_j)}=
+\dfrac{\bar C_ke^{2i\theta(\bar\xi_k)}}{\xi_j-\bar\xi_k}.}\end{equation}
+于是
+\begin{equation}\eqq{6.7.20}{u_j=\dfrac{iq_-}{\xi_j}
+-\sum\limits_{k=1}^{2N}\conj{c_k(\bar\xi_j)}X_k,}\end{equation}
+\begin{equation}\eqq{6.7.21}{X_n=1+\sum\limits_{j=1}^{2N}c_j(\bar\xi_n)u_j.}\end{equation}
+消去 $u_j$，得到
+\begin{equation}
+\eqq{6.7.22}{X_n=1+iq_-\sum\limits_{j=1}^{2N}\dfrac{c_j(\bar\xi_n)}{\xi_j}
+-\sum\limits_{j,k=1}^{2N}c_j(\bar\xi_n)\conj{c_k(\bar\xi_j)}X_k,\qquad n=1,\ldots,2N.}
+\end{equation}
+这一消元就是从无限维 RH 问题转向有限维代数的关键。第一项的符号应与 $Y_-=I+i\sigma_3Q_-/z$ 一致。
+
+\section{NLS 方程的 \texorpdfstring{$N$}{N} 孤子解}
+\subsection{从线性方程组到行列式}
+令 $\boldsymbol X=(X_1,\ldots,X_{2N})^{\mathsf T}$、
+$\boldsymbol B=(B_1,\ldots,B_{2N})^{\mathsf T}$，其中
+$B_n=1+iq_-\displaystyle\sum\limits_{j=1}^{2N}c_j(\bar\xi_n)/\xi_j$。
+设 $K_{nj}=c_j(\bar\xi_n)$，则
+$A_{nk}=\displaystyle\sum\limits_{j=1}^{2N}K_{nj}\conj{K_{jk}}$，
+即 $A=K\bar K$，这里 $\bar K$ 是逐元素共轭，不是共轭转置。
+为与原书对应，仍记有限矩阵 $M=I_{2N}+A$；它与 RH 矩阵 $M(z)$ 要靠是否带谱变量区分。
+方程 \eqref{eq:6.7.22} 等价于
+\begin{equation}\eqq{6.8.1}{M\boldsymbol X=\boldsymbol B,\qquad M=I_{2N}+K\bar K.}\end{equation}
+在 $\det M\ne0$ 时，Cramer 法则给出
+\begin{equation}\eqq{6.8.2}{X_n=\dfrac{\det M_n^{\mathrm{rep}}}{\det M},\qquad
+M_n^{\mathrm{rep}}=(M_1,\ldots,M_{n-1},\boldsymbol B,M_{n+1},\ldots,M_{2N}).}\end{equation}
+令 $Y_n=\bar C_ne^{2i\theta(\bar\xi_n)}$、$\boldsymbol Y=(Y_1,\ldots,Y_{2N})$，则
+\begin{equation}\eqq{6.8.3}{q=q_-+\dfrac{i}{\det M}\sum\limits_{n=1}^{2N}Y_n\det M_n^{\mathrm{rep}}
+=q_--i\dfrac{\det M^{\mathrm{aug}}}{\det M},}\end{equation}
+\begin{equation}\eqq{6.8.4}{M^{\mathrm{aug}}=
+\begin{pmatrix}0&\boldsymbol Y\\\boldsymbol B&M\end{pmatrix}.}\end{equation}
+负号可用 Schur 补一次核对：
+$\det M^{\mathrm{aug}}=\det M(0-\boldsymbol YM^{-1}\boldsymbol B)$。
+于是 $q=q_-+i\boldsymbol YM^{-1}\boldsymbol B$。
+第五章也是“有限矩阵逆 $\to$ 增广行列式”，但这里多出背景 $q_-$，矩阵维数由 $N$ 变成 $2N$。
+
+\subsection{一个四元组的单孤子：把公式算到底}
+首先把背景振幅缩放到 $q_0=1$。
+若 $q$ 满足背景为 $q_0$ 的 \eqref{eq:6.2.6}，则 $cq(cx,c^2t)$ 的背景为 $cq_0$，
+其中 $c>0$；缩放时背景参数必须同步改变。
+选择
+$\xi_1=i\sigma e^{i\alpha}$、$\sigma>1$、$-\pi/2<\alpha<\pi/2$。
+于是 $\xi_2=-ie^{i\alpha}/\sigma$、$\bar\xi_1=-i\sigma e^{-i\alpha}$、
+$\bar\xi_2=ie^{-i\alpha}/\sigma$。
+theta 条件给出 $q_-=e^{4i\alpha}$、$q_+=1$（整体常相位已取为零）。
+迹公式为
+\[
+s_{11}(z)=\dfrac{(z-i\sigma e^{i\alpha})(z+ie^{i\alpha}/\sigma)}
+{(z+i\sigma e^{-i\alpha})(z-ie^{-i\alpha}/\sigma)},\qquad s_{22}(z)=s_{11}(z)^{-1}.
+\]
+令 $C_1=e^{\ell+i\phi}$，$\ell,\phi\in\mathbb R$，对称性要求
+$C_2=e^{-6i\alpha}\bar C_1/\sigma^2$，不是独立常数。
+令 $E_j=C_je^{-2i\theta(\xi_j)}$、$d_{nj}=\bar\xi_n-\xi_j$，
+则 $K_{nj}=E_j/d_{nj}$，$Y_n=\bar E_n$，且
+$B_n=1+ie^{4i\alpha}(K_{n1}/\xi_1+K_{n2}/\xi_2)$。
+只需计算四个元素
+$M_{nk}=\delta_{nk}+K_{n1}\bar K_{1k}+K_{n2}\bar K_{2k}$，便得到
+\begin{equation}
+\eqq{6.8.5}{q=e^{4i\alpha}-i
+\dfrac{\det\begin{pmatrix}0&Y_1&Y_2\\B_1&M_{11}&M_{12}\\B_2&M_{21}&M_{22}\end{pmatrix}}
+{M_{11}M_{22}-M_{12}M_{21}}.}
+\end{equation}
+为了真正看出行列式里是什么，令 $\Delta=M_{11}M_{22}-M_{12}M_{21}$，
+$L_1=M_{22}B_1-M_{12}B_2$、$L_2=M_{11}B_2-M_{21}B_1$。
+则 $X_1=L_1/\Delta$、$X_2=L_2/\Delta$，所以
+\[
+q=e^{4i\alpha}+\dfrac{i(Y_1L_1+Y_2L_2)}{\Delta}.
+\]
+这是只含四个谱点、两个指数及四个矩阵元素的显式单孤子表达式，不需要再解任何积分方程。
+与长三角展开相比，这种形式能逐项追踪散射常数及符号，适合实际计算和检查。
+
+\begin{callout}[纯虚谱点：为什么会出现呼吸]
+取 $\alpha=0$，记 $\Delta_1=\sigma+\sigma^{-1}$、
+$\Delta_2=\sigma-\sigma^{-1}$、$\Omega=\Delta_1\Delta_2=\sigma^2-\sigma^{-2}$。
+此时 $q_-=q_+=1$，
+$\theta(\xi_1)=i\Delta_2x/2+\Omega t/2$、
+$\theta(\xi_2)=i\Delta_2x/2-\Omega t/2$，所以
+$E_1=C_1e^{\Delta_2x-i\Omega t}$、
+$E_2=\bar C_1e^{\Delta_2x+i\Omega t}/\sigma^2$。
+空间上指数控制局域结构，时间上相反的相位造成周期呼吸，去背景后的周期为 $2\pi/\Omega$。
+对原方程应恢复 $\widetilde q=e^{2it}q$；其模长保持同一呼吸周期。
+第五章纯虚离散谱给出零背景亮孤子，第六章纯虚圆外离散谱给出非零背景上的 Kuznetsov--Ma 型呼吸子。
+支点极限 $\sigma\to1$ 需同时调节归一化常数，不属于直接代入本章非退化简单极点公式的情形。
+\end{callout}
+
+\section{带有非零边界的 NLS 方程的双重极点解}
+\subsection{双重极点的离散谱和 Laurent 主部}
+现在设 $s_{11}(\xi_n)=s_{11}'(\xi_n)=0$、
+$s_{11}''(\xi_n)\ne0$。仍取 $\xi_n=z_n$、
+$\xi_{N+n}=-q_0^2/\bar z_n$，但改记
+$\widehat\xi_n=-q_0^2/\xi_n$，所以
+$\widehat\xi_n=-q_0^2/z_n$、$\widehat\xi_{N+n}=\bar z_n$。
+集合 $\{\widehat\xi_n\}$ 与 $\{\bar\xi_n\}$ 相同，只是排列交换了。
+这次 $M$ 的 Laurent 主部有 $(z-\xi_n)^{-2}$ 和 $(z-\xi_n)^{-1}$ 两项，不能只给留数。
+
+\methodsection{(A) 函数值与谱导数的线性关系}
+零点处仍有
+\begin{equation}\eqq{6.9.1}{\mu_{+,1}(\xi_n)=b_ne^{-2i\theta(\xi_n)}\mu_{-,2}(\xi_n).}\end{equation}
+对行列式公式求导，记 $a=\mu_{+,1}$、$v=\mu_{-,2}$：
+\begin{equation}
+\eqq{6.9.2}{0=s_{11}'(\xi_n)=
+\left[\dfrac{\det(a',v)+\det(a,v')}{\gamma}
+-\dfrac{\gamma'}{\gamma^2}\det(a,v)\right]_{z=\xi_n}.}
+\end{equation}
+因为 $\det(a,v)=0$ 且 $a=b_ne^{-2i\theta}v$，
+可推出 $a'-b_ne^{-2i\theta}v'$ 与 $v$ 共线。
+为了识别这个比例系数的时间依赖，回到未去指数的列函数：
+$\varphi_{+,1}'-b_n\varphi_{-,2}'$ 满足同一个齐次空间和时间系统。
+这是因为对 Lax 对求 $z$ 导数产生的 $X_z\varphi$、$T_z\varphi$ 项，在
+$\varphi_{+,1}=b_n\varphi_{-,2}$ 下相消。
+因此存在与 $x,t$ 无关的 $d_n$，使
+$\varphi_{+,1}'=d_n\varphi_{-,2}+b_n\varphi_{-,2}'$。
+再拆除指数，得到
+\begin{equation}
+\eqq{6.9.3}{\mu_{+,1}'(\xi_n)=e^{-2i\theta(\xi_n)}
+\{[d_n-2ib_n\theta'(\xi_n)]\mu_{-,2}(\xi_n)+b_n\mu_{-,2}'(\xi_n)\}.}
+\end{equation}
+所有撇号均表示对谱变量 $z$ 求导，不是对 $x,t$ 求导。
+换叶点对应
+\begin{equation}\eqq{6.9.4}{\mu_{+,2}(\widehat\xi_n)=\widehat b_ne^{2i\theta(\widehat\xi_n)}
+\mu_{-,1}(\widehat\xi_n),}\end{equation}
+\begin{equation}
+\eqq{6.9.5}{\mu_{+,2}'(\widehat\xi_n)=e^{2i\theta(\widehat\xi_n)}
+\{[\widehat d_n+2i\widehat b_n\theta'(\widehat\xi_n)]\mu_{-,1}(\widehat\xi_n)
++\widehat b_n\mu_{-,1}'(\widehat\xi_n)\}.}
+\end{equation}
+其中
+$\widehat b_n=(q_-/\bar q_+)b_n$、
+$\widehat d_n=(q_-/\bar q_+)(\xi_n^2/q_0^2)d_n$、
+$\theta(\widehat\xi_n)=-\theta(\xi_n)$。
+
+\methodsection{(B) 双零点的商：两个系数必须一起计算}
+令 $h=z-\xi_n$，一般的向量分子 $a$ 与双零点分母 $s$ 满足
+$a=a_0+a_1h+O(h^2)$、
+$s=s''(\xi_n)h^2/2+s'''(\xi_n)h^3/6+O(h^4)$。
+把分母提取首项并求逆：
+\[
+\dfrac{1}{s}=\dfrac{2}{s''(\xi_n)h^2}
+\left[1-\dfrac{s'''(\xi_n)}{3s''(\xi_n)}h+O(h^2)\right].
+\]
+相乘给出
+\[
+\dfrac{a}{s}=
+\dfrac{2a_0}{s''(\xi_n)}h^{-2}
++\left[\dfrac{2a_1}{s''(\xi_n)}
+-\dfrac{2a_0s'''(\xi_n)}{3s''(\xi_n)^2}\right]h^{-1}+O(1).
+\]
+这里负二次项分母是 $s''$，不能使用已经等于零的 $s'$。
+令 $P_{-2}$ 表示 Laurent 展开的负二次幂系数，得到
+\begin{equation}\eqq{6.9.6}{P_{-2,\xi_n}\left[\dfrac{\mu_{+,1}}{s_{11}}\right]
+=\dfrac{2\mu_{+,1}(\xi_n)}{s_{11}''(\xi_n)}
+=A_ne^{-2i\theta(\xi_n)}\mu_{-,2}(\xi_n),}\end{equation}
+\begin{equation}
+\eqq{6.9.7}{\Res_{\xi_n}\dfrac{\mu_{+,1}}{s_{11}}
+=A_ne^{-2i\theta(\xi_n)}
+\{\mu_{-,2}'(\xi_n)+[B_n-2i\theta'(\xi_n)]\mu_{-,2}(\xi_n)\},}
+\end{equation}
+其中 $A_n=2b_n/s_{11}''(\xi_n)$、
+$B_n=d_n/b_n-s_{11}'''(\xi_n)/(3s_{11}''(\xi_n))$。
+本节 $A_n,B_n$ 是双重极点常数，与上一节的有限矩阵 $A$、右端向量 $\boldsymbol B$ 区别开。
+同理，
+\begin{equation}\eqq{6.9.8}{P_{-2,\widehat\xi_n}\left[\dfrac{\mu_{+,2}}{s_{22}}\right]
+=\dfrac{2\mu_{+,2}(\widehat\xi_n)}{s_{22}''(\widehat\xi_n)}
+=\widehat A_ne^{2i\theta(\widehat\xi_n)}\mu_{-,1}(\widehat\xi_n),}\end{equation}
+\begin{equation}
+\eqq{6.9.9}{\Res_{\widehat\xi_n}\dfrac{\mu_{+,2}}{s_{22}}
+=\widehat A_ne^{2i\theta(\widehat\xi_n)}
+\{\mu_{-,1}'(\widehat\xi_n)+[\widehat B_n+2i\theta'(\widehat\xi_n)]\mu_{-,1}(\widehat\xi_n)\}.}
+\end{equation}
+
+\begin{callout}[计算：换叶后的双极点常数]
+令 $f(z)=-q_0^2/z$、$a=\bar q_+/\bar q_-$。
+在双零点处，
+$s_{11}''=a\,s_{22}''(f')^2$、
+$s_{11}'''=a[s_{22}'''(f')^3+3s_{22}''f'f'']$。
+结合 $\widehat b=(q_-/\bar q_+)b$、$\widehat d=(q_-/\bar q_+)d/f'$，得到
+\[
+\widehat A_n=\dfrac{q_-}{\bar q_-}\dfrac{q_0^4}{\xi_n^4}A_n,\qquad
+\widehat B_n=\dfrac{B_n}{f'(\xi_n)}+
+\dfrac{f''(\xi_n)}{f'(\xi_n)^2}
+=\dfrac{q_0^2}{\widehat\xi_n^2}B_n+\dfrac{2}{\widehat\xi_n}.
+\]
+最后一项来自非线性换叶映射的二阶导数。共轭点第二列的常数则为
+$-\bar A_n,\bar B_n$，所以 $D^+$ 伙伴满足
+$A_{N+n}=-\conj{\widehat A_n}$、$B_{N+n}=\conj{\widehat B_n}$。
+简单极点每个四元组只要一个 $C_n$，双重极点每个四元组需要两个常数 $A_n,B_n$。
+\end{callout}
+
+\subsection{双重极点 RH 问题与重构}
+二校版的编号对应为
+\begin{equation}\eqq{6.9.10}{M^\pm\text{ 在 }D^\pm\text{ 上亚纯},}\end{equation}
+\begin{equation}\eqq{6.9.11}{M^-=M^+(I-G),\qquad z\in\Sigma,}\end{equation}
+\begin{equation}\eqq{6.9.12}{M^\pm\text{ 在各自双零点上满足负二次幂系数和留数条件},}\end{equation}
+\begin{equation}\eqq{6.9.13}{Z=\{z\in D^+:s_{11}(z)=s_{11}'(z)=0\}
+\cup\{z\in D^-:s_{22}(z)=s_{22}'(z)=0\},}\end{equation}
+\begin{equation}\eqq{6.9.14}{M^\pm=I+O(z^{-1}),\qquad z\to\infty,}\end{equation}
+\begin{equation}\eqq{6.9.15}{M^\pm=\dfrac{i}{z}\sigma_3Q_-+O(1),\qquad z\to0,}\end{equation}
+\begin{equation}\eqq{6.9.16}{G=e^{i\theta\widehat\sigma_3}
+\begin{pmatrix}0&-\widetilde\rho\\\rho&\rho\widetilde\rho\end{pmatrix},
+\qquad \rho=\dfrac{s_{21}}{s_{11}},\quad\widetilde\rho=\dfrac{s_{12}}{s_{22}}.}\end{equation}
+极点阶数不改变从散射关系推导出来的跳跃相位。
+为缩短后续式子，记
+\[
+p_n^+=A_ne^{-2i\theta(\xi_n)}\mu_{-,2}(\xi_n),
+\]
+\[
+r_n^+=A_ne^{-2i\theta(\xi_n)}
+[\mu_{-,2}'(\xi_n)+(B_n-2i\theta'(\xi_n))\mu_{-,2}(\xi_n)],
+\]
+以及 $p_n^-,r_n^-$ 为 \eqref{eq:6.9.8}--\eqref{eq:6.9.9} 的右端。
+于是
+\begin{equation}\eqq{6.9.17}{\Res_{\xi_n}M^+=(r_n^+,0),\qquad P_{-2,\xi_n}M^+=(p_n^+,0),}\end{equation}
+\begin{equation}\eqq{6.9.18}{\Res_{\widehat\xi_n}M^-=(0,r_n^-),\qquad
+P_{-2,\widehat\xi_n}M^-=(0,p_n^-).}\end{equation}
+减去全部 Laurent 主部后使用 Plemelj，得到
+\begin{equation}
+\eqq{6.9.19}{\begin{aligned}
+M(z)={}&I+\dfrac{i\sigma_3Q_-}{z}
++\sum\limits_{n=1}^{2N}\left[
+\dfrac{(r_n^+,0)}{z-\xi_n}+\dfrac{(p_n^+,0)}{(z-\xi_n)^2}
++\dfrac{(0,r_n^-)}{z-\widehat\xi_n}+\dfrac{(0,p_n^-)}{(z-\widehat\xi_n)^2}\right]\\
+&+\dfrac{1}{2\pi i}\int\limits_\Sigma\dfrac{M^+(s)G(s)}{s-z}\dd s.
+\end{aligned}}
+\end{equation}
+负二次幂主部只从 $z^{-2}$ 阶开始，直接贡献重构系数的仍是留数；但负二次幂主部会改变求留数所需的线性系统。
+
+\methodsection{(A) 对函数值和谱导数分别取方程}
+令 $v_k=\mu_{-,2}(\xi_k)$、$u_n=\mu_{-,1}(\widehat\xi_n)$、
+$h_n=\mu_{-,1}'(\widehat\xi_n)$，
+并定义 $a_n=\widehat A_ne^{2i\theta(\widehat\xi_n)}$、
+$C_n(z)=a_n/(z-\widehat\xi_n)$、
+$D_n=\widehat B_n+2i\theta'(\widehat\xi_n)$、
+$d_{kn}=\xi_k-\widehat\xi_n$。
+这里 $C_n(z)$ 是谱变量的有理函数，与简单极点部分的常数 $C_n$ 不同。
+记 $\mathcal I_2(z)=\dfrac{1}{2\pi i}\displaystyle\int\limits_\Sigma
+(M^+G)_2(s)/(s-z)\dd s$，则 \eqref{eq:6.9.19} 第二列在 $\xi_k$ 给出
+\begin{equation}
+\eqq{6.9.20}{v_k=
+\begin{pmatrix}iq_-/\xi_k\\1\end{pmatrix}+\mathcal I_2(\xi_k)
++\sum\limits_{n=1}^{2N}C_n(\xi_k)\left[h_n+
+\left(D_n+\dfrac{1}{d_{kn}}\right)u_n\right].}
+\end{equation}
+其中 $C_n/d_{kn}$ 来自负二次幂项，$C_n(h_n+D_nu_n)$ 来自留数项。
+由换叶关系 $v_k=iq_-u_k/\xi_k$，可改写为
+\begin{equation}
+\eqq{6.9.21}{0=
+\begin{pmatrix}iq_-/\xi_k\\1\end{pmatrix}+\mathcal I_2(\xi_k)
++\sum\limits_{n=1}^{2N}\left\{C_n(\xi_k)h_n+
+\left[C_n(\xi_k)\left(D_n+\dfrac{1}{d_{kn}}\right)
+-\dfrac{iq_-}{\xi_k}\delta_{kn}\right]u_n\right\}.}
+\end{equation}
+对第二列求谱导数，利用 $C_n'(z)=-C_n(z)/(z-\widehat\xi_n)$，得到
+\begin{equation}
+\eqq{6.9.22}{v_k'=
+\begin{pmatrix}-iq_-/\xi_k^2\\0\end{pmatrix}+\mathcal I_2'(\xi_k)
+-\sum\limits_{n=1}^{2N}\dfrac{C_n(\xi_k)}{d_{kn}}
+\left[h_n+\left(D_n+\dfrac{2}{d_{kn}}\right)u_n\right].}
+\end{equation}
+因 $f'(z)=q_0^2/z^2$，对 $\mu_{-,2}(z)=iq_-\mu_{-,1}(f(z))/z$ 求导得
+\begin{equation}\eqq{6.9.23}{v_k'=-\dfrac{iq_-}{\xi_k^2}u_k+
+\dfrac{iq_-q_0^2}{\xi_k^3}h_k.}\end{equation}
+第一项来自 $1/z$ 的导数，第二项来自链式法则，分母必须为 $\xi_k^3$。
+相减便得到
+\begin{equation}
+\eqq{6.9.24}{\begin{aligned}
+0={}&\begin{pmatrix}-iq_-/\xi_k^2\\0\end{pmatrix}+\mathcal I_2'(\xi_k)
+-\sum\limits_{n=1}^{2N}\left\{
+\left[\dfrac{C_n(\xi_k)}{d_{kn}}+\dfrac{iq_-q_0^2}{\xi_k^3}\delta_{kn}\right]h_n\right.\\
+&\hspace{42mm}\left.+
+\left[\dfrac{C_n(\xi_k)}{d_{kn}}\left(D_n+\dfrac{2}{d_{kn}}\right)
+-\dfrac{iq_-}{\xi_k^2}\delta_{kn}\right]u_n\right\}.
+\end{aligned}}
+\end{equation}
+这是一组关于函数值和谱导数取值的线性代数条件；在有反射时还与未知边界值 $M^+$ 耦合。
+它不是把 $u_n,h_n$ 当作关于 $x$ 的未知函数再求解的微分方程组。
+
+\methodsection{(B) 大参数展开与位势重构}
+从 \eqref{eq:6.9.19} 取 $(1,2)$ 元：
+\begin{equation}
+\eqq{6.9.25}{M_{12}(z)=\dfrac{1}{z}\left[
+iq_-+\sum\limits_{n=1}^{2N}(r_n^-)_1
+-\dfrac{1}{2\pi i}\int\limits_\Sigma(M^+G)_{12}(s)\dd s\right]+O(z^{-2}).}
+\end{equation}
+代入重构公式，得到
+\begin{equation}
+\eqq{6.9.26}{q=q_-+\dfrac{1}{2\pi}\int\limits_\Sigma(M^+G)_{12}(s)\dd s
+-i\sum\limits_{n=1}^{2N}a_n[(h_n)_1+D_n(u_n)_1].}
+\end{equation}
+函数值的系数为 $D_n$，谱导数的系数为 $1$；顺序由留数式 \eqref{eq:6.9.9} 直接决定。
+
+\subsection{双重极点的迹公式和相位差}
+把简单零点因子改为平方：
+\begin{equation}\eqq{6.9.27}{\beta^+=s_{11}\prod\limits_{n=1}^{2N}
+\dfrac{(z-\widehat\xi_n)^2}{(z-\xi_n)^2},\qquad
+\beta^-=s_{22}\prod\limits_{n=1}^{2N}\dfrac{(z-\xi_n)^2}{(z-\widehat\xi_n)^2}.}\end{equation}
+因为 $\{\widehat\xi_n\}=\{\bar\xi_n\}$，两个域的去零点函数仍满足
+$\beta^+\beta^-=(1+\rho\conj{\rho(\bar z)})^{-1}$。
+故
+\begin{equation}\eqq{6.9.28}{\log\beta^\pm(z)=\mp\dfrac{1}{2\pi i}
+\int\limits_\Sigma\dfrac{\mathcal L(s)}{s-z}\dd s,\qquad z\in D^\pm,}\end{equation}
+\begin{equation}\eqq{6.9.29}{s_{11}(z)=
+\exp\left[-\dfrac{1}{2\pi i}\int\limits_\Sigma\dfrac{\mathcal L(s)}{s-z}\dd s\right]
+\prod\limits_{n=1}^{2N}\dfrac{(z-\xi_n)^2}{(z-\widehat\xi_n)^2},}\end{equation}
+\begin{equation}\eqq{6.9.30}{s_{22}(z)=
+\exp\left[\dfrac{1}{2\pi i}\int\limits_\Sigma\dfrac{\mathcal L(s)}{s-z}\dd s\right]
+\prod\limits_{n=1}^{2N}\dfrac{(z-\widehat\xi_n)^2}{(z-\xi_n)^2}.}\end{equation}
+无反射时，
+\begin{equation}\eqq{6.9.31}{s_{11}=\prod\limits_{n=1}^{2N}\dfrac{(z-\xi_n)^2}{(z-\widehat\xi_n)^2},\qquad
+s_{22}=\prod\limits_{n=1}^{2N}\dfrac{(z-\widehat\xi_n)^2}{(z-\xi_n)^2}.}\end{equation}
+令 $z\to0$，由于重数加倍，
+\begin{equation}\eqq{6.9.32}{\dfrac{q_-}{q_+}=
+\exp\left[\dfrac{i}{2\pi}\int\limits_\Sigma\dfrac{\mathcal L(s)}{s}\dd s\right]
+\exp\left[8i\sum\limits_{n=1}^N\arg\xi_n\right],}\end{equation}
+\begin{equation}\eqq{6.9.33}{\arg\dfrac{q_-}{q_+}\equiv
+\Ree\left(\dfrac{1}{2\pi}\int\limits_\Sigma\dfrac{\mathcal L(s)}{s}\dd s\right)
++8\sum\limits_{n=1}^N\arg\xi_n\pmod{2\pi},}\end{equation}
+\begin{equation}\eqq{6.9.34}{\arg\dfrac{q_-}{q_+}\equiv8\sum\limits_{n=1}^N\arg\xi_n\pmod{2\pi},\qquad G=0.}\end{equation}
+对一个纯虚代表点 $\arg\xi_1=\pi/2$，相位贡献为 $4\pi$，因此两端背景相同。
+
+\subsection{无反射情况下的双重极点解}
+\methodsection{(A) 把两类取值写成一个矩阵方程}
+令 $m=2N$，将 $X_n=(u_n)_1$、$X_{m+n}=(h_n)_1$ 组成 $4N$ 维向量。
+在 $G=0$ 时，\eqref{eq:6.9.21}--\eqref{eq:6.9.24} 的第一分量等价于
+\begin{equation}\eqq{6.9.35}{\mathcal A\boldsymbol X=\boldsymbol V,}\end{equation}
+其中 $V_k=-iq_-/\xi_k$、$V_{m+k}=-iq_-/\xi_k^2$。
+为了方便逐块检查，四个 $m\times m$ 块分别为
+\[
+\mathcal A_{k,n}=C_n(\xi_k)\left(D_n+\dfrac{1}{d_{kn}}\right)-\dfrac{iq_-}{\xi_k}\delta_{kn},
+\qquad \mathcal A_{k,m+n}=C_n(\xi_k),
+\]
+\[
+\mathcal A_{m+k,n}=\dfrac{C_n(\xi_k)}{d_{kn}}
+\left(D_n+\dfrac{2}{d_{kn}}\right)-\dfrac{iq_-}{\xi_k^2}\delta_{kn},
+\qquad
+\mathcal A_{m+k,m+n}=\dfrac{C_n(\xi_k)}{d_{kn}}+
+\dfrac{iq_-q_0^2}{\xi_k^3}\delta_{kn}.
+\]
+第二组方程是先把 \eqref{eq:6.9.24} 的求和项移到左边，因此其右端为 $-iq_-/\xi_k^2$。
+若把第二组整行乘 $-1$，矩阵与右端都必须一起变号。
+求得 $\boldsymbol X$ 后，
+\begin{equation}\eqq{6.9.36}{q=q_--i\sum\limits_{n=1}^{2N}a_n(X_{2N+n}+D_nX_n).}\end{equation}
+令 $\boldsymbol W=(a_1D_1,\ldots,a_mD_m,a_1,\ldots,a_m)$，即
+$q=q_--i\boldsymbol W\mathcal A^{-1}\boldsymbol V$。
+与简单极点一样，这仍是有限维线性代数；双极点把函数值和谱导数都加入未知量，使维数从 $2N$ 增加到 $4N$。
+
+\methodsection{(B) 纯虚代表点的完整可计算实例}
+取 $N=1$、$q_0=1$、$q_-=q_+=e^{i\gamma}$，
+$\xi_1=i\sigma$、$\xi_2=-i/\sigma$、
+$\widehat\xi_1=i/\sigma$、$\widehat\xi_2=-i\sigma$，其中 $\sigma>1$。
+用 $\gamma$ 单独表示背景相位，避免与归一化常数模长的参数混用。
+无反射散射系数为
+\[
+s_{11}(z)=\dfrac{(z-i\sigma)^2(z+i/\sigma)^2}
+{(z+i\sigma)^2(z-i/\sigma)^2},\qquad s_{22}(z)=s_{11}(z)^{-1}.
+\]
+给定 $b_1=e^{\ell+i\beta}$、$d_1=e^{\mu+i\delta}$，
+其中 $\ell,\beta,\mu,\delta\in\mathbb R$。为具体算出 $A_1,B_1$，
+写 $s_{11}(z)=(z-\xi_1)^2h(z)$，则 $s_{11}''(\xi_1)=2h(\xi_1)$、
+$s_{11}'''(\xi_1)=6h'(\xi_1)$。
+记 $\Delta_1=\sigma+\sigma^{-1}$、$\Delta_2=\sigma-\sigma^{-1}$，
+直接代入给出
+\[
+h(\xi_1)=-\dfrac{\Delta_1^2}{4\sigma^2\Delta_2^2},\qquad
+\dfrac{h'(\xi_1)}{h(\xi_1)}
+=i\left(\dfrac{1}{\sigma}+\dfrac{2}{\Delta_2}-\dfrac{2}{\Delta_1}\right).
+\]
+因此不需要数值求三阶导数：
+\[
+A_1=-\dfrac{4\sigma^2\Delta_2^2}{\Delta_1^2}b_1,\qquad
+B_1=\dfrac{d_1}{b_1}
+-i\left(\dfrac{1}{\sigma}+\dfrac{2}{\Delta_2}-\dfrac{2}{\Delta_1}\right).
+\]
+再由对称性决定其余常数：
+$\widehat A_1=e^{2i\gamma}A_1/\sigma^4$、
+$\widehat B_1=-\sigma^2B_1-2i\sigma$、
+$A_2=-\conj{\widehat A_1}$、$B_2=\conj{\widehat B_1}$，
+从而 $\widehat A_2=-\bar A_1$、$\widehat B_2=\bar B_1$。
+
+令 $\Omega=\Delta_1\Delta_2$，进入矩阵的两个指数和两个导数因子为
+\[
+a_1=\widehat A_1e^{\Delta_2x-i\Omega t},\qquad
+a_2=-\bar A_1e^{\Delta_2x+i\Omega t},
+\]
+\[
+D_1=-\sigma^2B_1-2i\sigma+i(1+\sigma^2)x+2(\sigma^3+\sigma^{-1})t,
+\]
+\[
+D_2=\bar B_1+i(1+\sigma^{-2})x-2(\sigma+\sigma^{-3})t.
+\]
+这些式子来自
+$\theta'(z)=(1-z^{-2})x/2-(z+z^{-3})t$。
+四个差值全部为
+$d_{11}=i\Delta_2$、$d_{12}=2i\sigma$、
+$d_{21}=-2i/\sigma$、$d_{22}=i\Delta_2$。
+因此 $C_n(\xi_k)=a_n/d_{kn}$ 已完全显式，
+按上面的四块公式写出 $4\times4$ 矩阵 $\mathcal A$，
+并取
+$\boldsymbol V=e^{i\gamma}(-\sigma^{-1},\,\sigma,\,i\sigma^{-2},\,i\sigma^2)^{\mathsf T}$、
+$\boldsymbol W=(a_1D_1,a_2D_2,a_1,a_2)$，即可直接计算。
+
+最后三式保留二校版编号，但采用前面已推导的有限行列式形式表达分子、分母，
+使每个参数都有定义且可独立核验：
+\begin{equation}\eqq{6.9.37}{q(x,t)=e^{i\gamma}\dfrac{q_N(x,t)}{q_D(x,t)},}\end{equation}
+\begin{equation}\eqq{6.9.38}{q_N=\det\mathcal A
+-ie^{-i\gamma}\sum\limits_{j=1}^4W_j\det\mathcal A_j^{\mathrm{rep}},}\end{equation}
+\begin{equation}\eqq{6.9.39}{q_D=\det\mathcal A,\qquad
+\mathcal A_j^{\mathrm{rep}}=(\mathcal A_1,\ldots,\mathcal A_{j-1},
+\boldsymbol V,\mathcal A_{j+1},\ldots,\mathcal A_4).}\end{equation}
+这里 $\mathcal A_j$ 是第 $j$ 列。Cramer 法则给出
+$X_j=\det\mathcal A_j^{\mathrm{rep}}/\det\mathcal A$，
+代入 \eqref{eq:6.9.36} 就证明了 \eqref{eq:6.9.37}--\eqref{eq:6.9.39}。
+若想只算两个行列式，也可用
+$q_N=\det\mathcal A+ie^{-i\gamma}
+\det\begin{pmatrix}0&\boldsymbol W\\\boldsymbol V&\mathcal A\end{pmatrix}$。
+原 NLS 解为 $\widetilde q=e^{2it+i\gamma}q_N/q_D$。
+对一般 $q_0>0$，把归一化解写为
+$\widetilde q_{q_0}(x,t)=q_0e^{2iq_0^2t}q_1(q_0x,q_0^2t)$。
+
+\begin{callout}[为什么双极点解与简单极点呼吸子不同]
+简单极点仅有 $e^{\pm2i\theta}$ 的指数依赖；双极点还含
+$D_n=\widehat B_n+2i\theta'(\widehat\xi_n)$，其中有显式 $x,t$ 项。
+这来自对谱参数求导：导数作用于相位指数时产生 $\theta'$。
+因此双极点即使代表点纯虚，也不能只凭指数周期就断言整个解周期。
+可以把双极点理解为离散零点合并后的退化结构，但不能直接令两个简单极点相等而不同时处理归一化常数及主部。
+\end{callout}
+
+\section*{第五章与第六章的对比}
+\begin{center}
+\small
+\begin{tabular}{p{0.17\textwidth}p{0.35\textwidth}p{0.35\textwidth}}
+\toprule
+比较项&第五章：零边界&第六章：非零边界\\
+\midrule
+空间背景&$q\to0$，自由谱矩阵已对角&$q\to q_\pm$，先求背景特征向量\\
+谱变量&单个谱平面&$\lambda^2=k^2+q_0^2$，用 $z=k+\lambda$ 单值化\\
+连续谱&实轴&实轴与半径 $q_0$ 的圆周\\
+解析域&上下半平面&圆内外交换的 $D^\pm$\\
+Jost 归一化&$\mu\to I$（空间两端）&$\mu_\pm\to Y_\pm$（空间两端）\\
+谱归一化&谱无穷远一个端点&$z=\infty$ 及 $z=0$ 两个端点\\
+离散谱&共轭对&共轭与换叶组成四元组\\
+无反射约定&$G_5=I$&$G=0$，实际跳跃仍为 $I$\\
+重构&$q=2i(P_+^{(1)})_{12}$&$q=-i(M^{(1)})_{12}$\\
+有限维求解&$N$ 维核向量矩阵&简单极点 $2N$ 维，双极点 $4N$ 维\\
+相位约束&没有非零背景相位差&theta 条件约束 $q_-/q_+$\\
+\bottomrule
+\end{tabular}
+\end{center}
+两章共同的骨架是“Lax 对 $\to$ Jost 解 $\to$ 解析列及散射数据 $\to$ RH 问题 $\to$ 大参数重构”。
+第五章通过有理矩阵 $\Gamma$ 剥去行列式零点，第六章通过除以 $s_{11},s_{22}$ 把零点显式转成极点，再减去 Laurent 主部。
+二者都在无反射时把连续谱积分化为有限维代数。
+需要保留的是这条构造逻辑；不能逐字照搬谱变量、背景矩阵和留数常数。
+
+\section*{最后的逻辑闭环与复习检查}
+给定初值 $\widetilde q(x,0)=q(x,0)$，先确认两端具有同一非零振幅 $q_0$，
+再从空间 Volterra 方程计算散射数据。根据单值化后的解析域，把 $s_{11}$、
+$s_{22}$ 的零点组织成四元组，并从 Jost 列的线性关系提取归一化常数。
+这些数据与 $x,t$ 无关；在逆问题中加入 $\theta(z)=\lambda(z)[x-2k(z)t]$，
+构造跳跃及极点条件，求得 RH 矩阵后由 $(1,2)$ 元的大参数系数重构 $q$，
+最后恢复 $\widetilde q=e^{2iq_0^2t}q$。
+
+复习时应能独立回答以下问题：
+\begin{enumerate}
+\item 为什么非零背景使自由谱矩阵出现平方根？为什么 $z=0$ 是第二叶的无穷远？
+\item 如何从 Volterra 核的指数符号判断四个 Jost 列各自的解析域？
+\item 为什么共轭与换叶会把一个零点扩展为四元组？为什么归一化常数也必须满足对称性？
+\item 为什么 $M^\pm$ 在 $z=0$ 的主部都是 $i\sigma_3Q_-/z$？
+\item 为什么重构只需要大参数非对角系数，不能把完整一阶系数直接写成 $i\sigma_3Q$？
+\item 无反射时，如何逐列取值、消元、写成有限矩阵，再用 Schur 补得到行列式公式？
+\item 双重极点为什么多出谱导数和 $\theta'$？为什么重构中的组合必须为 $u'+Du$？
+\item 怎样从迹公式检查两端背景相位是否与所选谱点一致？
+\end{enumerate}
+\begin{callout}[本章最应记住的结论]
+非零背景带来两叶谱面；单值化把它压回一个 $z$ 平面，但保留了圆形连续谱、第二个归一化端点及换叶对称性。
+这些几何变化决定解析列、四元组离散谱和 theta 条件。
+简单极点与双重极点的区别在 Laurent 主部及未知取值数量，
+而位势重构始终来自 RH 解在谱无穷远的非对角一阶系数。
+\end{callout}
+\end{document}
