@@ -1,3 +1,7 @@
+% !LW recipe = latexmk (XeLaTeX)
+\makeatletter
+\def\input@path{{../}}
+\makeatother
 \documentclass[
     lang=cn,
     scheme=chinese,
@@ -6,15 +10,19 @@
     color=blue,
     math=cm,
     thmcnt=section,
-    12pt,
-    nowatermark
+    12pt
 ]{elegantbook}
 
 % 项目级水印开关：true 显示，false 关闭。
 \newif\ifmathanalysiswatermark
 \mathanalysiswatermarkfalse
 
-\input{preamble}
+\input{../preamble.tex}
+\hypersetup{hypertexnames=false}
+% needspace 支持本文件已有的标题及列表项分页控制。
+\usepackage{needspace}
+% 定理编号沿用原书，不随笔记的小节重排。
+\renewcommand{\thetheorem}{\thechapter.\arabic{theorem}}
 
 \begin{document}
 
@@ -1121,7 +1129,16 @@ $t$-部分：
 
 \subsection{对称性}
 
-这一部分主要掌握证明思路和最终结论。原 $x$-部分为
+\setcounter{theorem}{0}
+\begin{theorem}[特征函数与散射矩阵的共轭对称]
+如上构造的特征函数 $\mu_1,\mu_2$ 和散射矩阵 $S(z)$ 满足
+\[
+\mu_j^H(x,t,\bar z)=\mu_j^{-1}(x,t,z),\qquad j=1,2,\qquad S^H(\bar z)=S^{-1}(z).
+\]
+这里 $H$ 表示共轭转置；散射矩阵关系先在实轴成立，对可解析延拓的矩阵元素按各自解析域理解。
+\end{theorem}
+
+下面保留原书 (5.2.24)--(5.2.30) 的证明步骤。原 $x$-部分为
 
 \begin{equation}
     \mu_{j,x}(x,t,z)
@@ -1285,7 +1302,17 @@ $t$-部分：
     P_\pm(x,t,z)\to I,\qquad z\to\infty.
 \]
 
-由 \eqref{eq:5.2.28} 还得到对称性
+\setcounter{theorem}{1}
+\begin{theorem}[RH 矩阵的共轭对称]
+$P_+(x,t,z)$ 和 $P_-(x,t,z)$ 具有对称性
+\begin{equation}
+    P_+^H(x,t,\bar z)=P_-(x,t,z).
+    \tag{5.3.2}
+    \label{eq:5.3.2}
+\end{equation}
+\end{theorem}
+
+由 \eqref{eq:5.2.28}，其证明为
 
 \begin{equation}
     P_+^H(x,t,\bar z)
@@ -1646,7 +1673,8 @@ NLS 的解可由 RH 解重构：
     后面孤子正是由这些离散谱数据产生。
 \end{callout}
 
-\textbf{定理 5.3（Zakharov--Shabat 零点剥离）}\\
+\setcounter{theorem}{2}
+\begin{theorem}[Zakharov--Shabat 零点剥离]
 带有上述简单零点结构的非正则 RH 问题可分解为
 
 \begin{equation}
@@ -1728,6 +1756,8 @@ NLS 的解可由 RH 解重构：
 
     \item $\widehat P_\pm(z)\to I$，$z\to\infty$。
 \end{itemize}
+
+\end{theorem}
 
 核心思想就是：\textbf{把所有离散零点结构装入有理矩阵 $\Gamma$，剩余的 $\widehat P_\pm$ 不再含这些零点，于是非正则 RH 问题被化归为正则 RH 问题。}
 
