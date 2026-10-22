@@ -1,0 +1,1735 @@
+% !LW recipe = latexmk (XeLaTeX)
+% XeLaTeX；从本文件所在目录编译。沿用项目 ElegantBook 与 preamble。
+% 编号以二校20220303版为主；计算说明不占原书编号。
+\makeatletter
+\def\input@path{{../}}
+\makeatother
+\documentclass[lang=cn,scheme=chinese,mode=simple,device=normal,color=blue,math=cm,thmcnt=section,12pt]{elegantbook}
+\newif\ifmathanalysiswatermark
+\mathanalysiswatermarkfalse
+\input{../preamble.tex}
+\hypersetup{hypertexnames=false,pdftitle={第七章：dbar 方法与可积系统（10.20）}}
+\renewcommand{\theproposition}{\thechapter.\arabic{proposition}}
+\renewcommand{\thedefinition}{\thechapter.\arabic{definition}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\eqq}[2]{\tag{#1}\label{eq:#1}#2}
+% 只在本文件声明原书反复使用的两个标准函数名，不修改共享模板。
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\sgn}{sgn}
+\usepackage{needspace}
+\begin{document}
+\tableofcontents\clearpage
+\setcounter{chapter}{6}
+\chapter{\texorpdfstring{$\bar\partial$}{dbar} 方法与可积系统}
+\noindent 学习笔记：10.20。依据范恩贵《可积系统、正交多项式和随机矩阵——Riemann--Hilbert 方法》二校 20220303 版第七章，书内第 120--163 页。沿用原书五节及全部 225 个公式编号；无编号计算和 callout 为补充推导。原书中的错误在正文改正，依据另见同目录校订记录；逐式检查及尚需额外条件之处另见逐式核验记录。
+
+\section*{本章的主线与前两章的连接}
+第五、六章的基本未知量在谱轮廓外解析，边界值之间满足跳跃条件；本章允许谱平面内部出现非零的 $\bar\partial$ 密度。Cauchy 积分随之变成 Cauchy--Green 面积积分。先由基本解建立积分方程，再对谱数据规定线性的空间、时间流；归一化与积分恒等式把这些流变成位势的 Lax 对和非线性演化。
+
+第 7.1 节建立共同工具；第 7.2 节在 ZS 空间谱问题上重得 NLS；第 7.3 节用二次空间相位得到 WKI 和导数 NLS；第 7.4 节把谱点之间的作用推广为非局部积分核；第 7.5 节具体展示 KPII 的正、反谱问题与重构。先抓住“数据流 $\to$ 积分解 $\to$ 谱系数 $\to$ 位势”的同一顺序，再看每节的特殊符号。
+
+\begin{callout}[阅读约定：形式计算和分析条件分别交代]
+本章有三种不同层次：光滑密度的积分计算、Dirac 数据的有限维代数、递推算子的形式 Laurent 展开。前者须有积分可积性和可交换求导的控制；第二种须避免所求列本身的极点取值，并解出有限系统；第三种须固定逆导数的积分常数。笔记在相应位置说明这些条件，不以形式逆算子代替一般存在性证明。
+
+面积元统一为 $\dd z\wedge\dd\bar z=-2i\dd z_R\dd z_I$，而 $\delta(z-z_0)$ 按实面积归一化。$\langle f,g\rangle$ 是带矩阵转置的双线性配对。算子在函数右侧从左至右作用，谱参数乘法不能任意穿过 $C_z$。这三点决定了本章最常见的符号与系数。
+\end{callout}
+
+
+\section{\texorpdfstring{$\bar\partial$}{dbar} 问题}
+\subsection{复坐标、解析性与面积元}
+这一节的 $x,y$ 是复平面的坐标；从下一节起，$x,y,t$ 是物理变量，$z$ 是谱变量。两种用途按各节语境区分。
+\begin{equation}
+\eqq{7.1.1}{z=x+iy,\qquad \bar z=x-iy.}
+\end{equation}
+解得 $x=\dfrac{z+\bar z}{2}$、$y=\dfrac{z-\bar z}{2i}$。链式法则中，$z,\bar z$ 作为求导坐标独立处理，并非声称实际复共轭可独立取值。
+\begin{equation}
+\eqq{7.1.2}{\partial\equiv\dfrac{\partial}{\partial z}=\dfrac{1}{2}(\partial_x-i\partial_y),\qquad
+\bar\partial\equiv\dfrac{\partial}{\partial\bar z}=\dfrac{1}{2}(\partial_x+i\partial_y).}
+\end{equation}
+\begin{equation}
+\eqq{7.1.3}{\partial_x=\partial+\bar\partial,\qquad \partial_y=i(\partial-\bar\partial).}
+\end{equation}
+\begin{callout}[计算：\eqref{eq:7.1.2}--\eqref{eq:7.1.3} 的坐标求导]
+由 $x_z=x_{\bar z}=\dfrac{1}{2}$、$y_z=\dfrac{1}{2i}=-\dfrac{i}{2}$、$y_{\bar z}=\dfrac{i}{2}$，
+$f_z=f_xx_z+f_yy_z=\dfrac{f_x-if_y}{2}$，$f_{\bar z}=\dfrac{f_x+if_y}{2}$；两式相加、相减即得逆关系。
+\end{callout}
+\begin{definition}[非齐次 $\bar\partial$ 问题]
+给定区域 $D$ 内的 $g$，求未知函数 $f$ 满足
+\begin{equation}
+\eqq{7.1.4}{\bar\partial f(z)=g(z),\qquad z\in D.}
+\end{equation}
+还需另给归一化或相容边界条件，才能讨论唯一性。
+\end{definition}
+令 $f=u+iv$、$g=q+ip$。直接计算 $2\bar\partial f=u_x-v_y+i(v_x+u_y)$，比较实部和虚部得
+\begin{equation}
+\eqq{7.1.5}{u_x-v_y=2q,\qquad u_y+v_x=2p.}
+\end{equation}
+当 $g=0$ 时，成为
+\begin{equation}
+\eqq{7.1.6}{u_x=v_y,\qquad u_y=-v_x.}
+\end{equation}
+在 $f\in C^1(D)$ 条件下，这就是 Cauchy--Riemann 方程，等价于 $f$ 解析。共轭求导的正确形式是
+$\overline{\partial f}=\bar\partial\bar f$，不是无条件地把 $\partial f$ 与 $\bar\partial f$ 等同。
+乘积法则给 $\bar\partial(fg)=(\bar\partial f)g+f\bar\partial g$；$f$ 解析时第一项消失。
+
+\subsection{命题 7.1：广义 Cauchy 定理}
+解析函数的两个经典结论是
+\begin{equation}
+\eqq{7.1.7}{\oint\limits_{\partial D}f(z)\dd z=0,}
+\end{equation}
+\begin{equation}
+\eqq{7.1.8}{f(z)=\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{f(\zeta)}{\zeta-z}\dd\zeta,\qquad z\in D.}
+\end{equation}
+以下区域有界，边界分段 $C^1$，外边界逆时针；有内边界时取顺时针。这些公式也适用于相应定向的多连通区域。
+\begin{proposition}[广义 Cauchy 积分定理]
+若 $f\in C^1(\overline D)$，则
+\begin{equation}
+\eqq{7.1.9}{\oint\limits_{\partial D}f(z)\dd z=-\iint\limits_D\bar\partial f(z)\dd z\wedge\dd\bar z,}
+\end{equation}
+\begin{equation}
+\eqq{7.1.10}{\oint\limits_{\partial D}f(z)\dd\bar z=\iint\limits_D\partial f(z)\dd z\wedge\dd\bar z.}
+\end{equation}
+\end{proposition}
+\begin{proof}
+先算面积元：
+\[
+\dd z\wedge\dd\bar z=(\dd x+i\dd y)\wedge(\dd x-i\dd y)
+=-i\dd x\wedge\dd y+i\dd y\wedge\dd x=-2i\dd x\dd y.
+\]
+以 $f=u+iv$ 代入实 Green 公式，
+\[
+\begin{aligned}
+\oint\limits_{\partial D}f\dd z
+&=\oint\limits_{\partial D}(u\dd x-v\dd y)+i\oint\limits_{\partial D}(v\dd x+u\dd y)\\
+&=\iint\limits_D[-v_x-u_y+i(u_x-v_y)]\dd x\dd y
+=2i\iint\limits_D\bar\partial f\dd x\dd y,
+\end{aligned}
+\]
+这就是 \eqref{eq:7.1.9}。同样，$f\dd\bar z=(u\dd x+v\dd y)+i(v\dd x-u\dd y)$，故其围线积分为
+$\displaystyle\iint\limits_D[v_x-u_y-i(u_x+v_y)]\dd x\dd y=-2i\iint\limits_D\partial f\dd x\dd y$，即 \eqref{eq:7.1.10}。
+\end{proof}
+对一形式 $\omega=f\dd z+g\dd\bar z$，用 $\dd f=\partial f\dd z+\bar\partial f\dd\bar z$，
+得 $\dd\omega=(\partial g-\bar\partial f)\dd z\wedge\dd\bar z$，于是
+\begin{equation}
+\eqq{7.1.11}{\oint\limits_{\partial D}(f\dd z+g\dd\bar z)=\iint\limits_D(\partial g-\bar\partial f)\dd z\wedge\dd\bar z,}
+\end{equation}
+\begin{equation}
+\eqq{7.1.12}{\oint\limits_{\partial D}\omega=\iint\limits_D\dd\omega.}
+\end{equation}
+\subsection{命题 7.2：Cauchy--Green 公式}
+\begin{proposition}[广义 Cauchy 积分公式]
+在上述区域及正则性条件下，任意内部点 $z$ 满足
+\begin{equation}
+\eqq{7.1.13}{f(z)=\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{f(\zeta)}{\zeta-z}\dd\zeta
++\dfrac{1}{2\pi i}\iint\limits_D\dfrac{\bar\partial_\zeta f(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+\end{proposition}
+\begin{proof}
+去掉以 $z$ 为圆心、半径 $\varepsilon$ 的小圆盘 $D_\varepsilon$，其圆周 $C_\varepsilon$ 先按逆时针记。
+在穿孔区域，$\bar\partial_\zeta(\dfrac{1}{\zeta-z})=0$，因为
+$\partial_\xi(\dfrac{1}{\zeta-z})=-(\zeta-z)^{-2}$、
+$i\partial_\eta(\dfrac{1}{\zeta-z})=(\zeta-z)^{-2}$。对商使用命题 7.1，内边界的实际方向产生减号：
+\begin{equation}
+\eqq{7.1.14}{\oint\limits_{\partial D}\dfrac{f(\zeta)}{\zeta-z}\dd\zeta
+-\oint\limits_{C_\varepsilon}\dfrac{f(\zeta)}{\zeta-z}\dd\zeta
+=-\iint\limits_{D\setminus D_\varepsilon}\dfrac{\bar\partial_\zeta f(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+令 $\zeta=z+\varepsilon e^{i\theta}$，则
+\begin{equation}
+\eqq{7.1.15}{\oint\limits_{C_\varepsilon}\dfrac{f(\zeta)}{\zeta-z}\dd\zeta
+=i\int_0^{2\pi}f(z+\varepsilon e^{i\theta})\dd\theta\longrightarrow2\pi if(z).}
+\end{equation}
+连续性保证小圆上的收敛一致。若 $|\bar\partial f|\le M$，被去掉的面积项满足
+\begin{equation}
+\eqq{7.1.16}{\left|\iint\limits_{D_\varepsilon}\dfrac{\bar\partial_\zeta f(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta\right|
+\le2\int_0^\varepsilon\int_0^{2\pi}\dfrac{M}{r}r\dd\theta\dd r=4\pi M\varepsilon\longrightarrow0.}
+\end{equation}
+故可在 \eqref{eq:7.1.14} 中取极限，移项并除以 $2\pi i$，得
+\begin{equation}
+\eqq{7.1.17}{f(z)=\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{f(\zeta)}{\zeta-z}\dd\zeta
++\dfrac{1}{2\pi i}\iint\limits_D\dfrac{\bar\partial_\zeta f(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+\end{proof}
+当 $f$ 解析时面积项为零，恢复
+\begin{equation}
+\eqq{7.1.18}{f(z)=\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{f(\zeta)}{\zeta-z}\dd\zeta.}
+\end{equation}
+\subsection{分布基本解及边界相容性}
+本章 $\delta(z-z_0)$ 是相对于实面积 $\dd x\dd y$ 的二维 Dirac 分布。因此
+\begin{equation}
+\eqq{7.1.19}{\iint\limits_D\phi(z)\delta(z-z_0)\dd z\wedge\dd\bar z=-2i\phi(z_0).}
+\end{equation}
+对解析的 $\phi$，留数公式与 Green 公式的分布延拓给
+\begin{equation}
+\eqq{7.1.20}{\phi(z_0)=\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{\phi(z)}{z-z_0}\dd z
+=-\dfrac{1}{2\pi i}\iint\limits_D\phi(z)\bar\partial_z\dfrac{1}{z-z_0}\dd z\wedge\dd\bar z,}
+\end{equation}
+\begin{equation}
+\eqq{7.1.21}{\bar\partial_z\dfrac{1}{\pi(z-z_0)}=\delta(z-z_0).}
+\end{equation}
+\begin{callout}[证明：\eqref{eq:7.1.21} 必须对一般测试函数成立]
+只检验解析函数还不足以证明分布恒等式。平移到 $z_0=0$，对任意 $\phi\in C_c^\infty$，定义导数并在穿孔区域用 Green 公式：
+\[
+\left\langle\bar\partial\dfrac{1}{\pi z},\phi\right\rangle
+=-\lim\limits_{\varepsilon\to0}\iint\limits_{|z|>\varepsilon}\dfrac{\bar\partial\phi}{\pi z}\dd x\dd y
+=\lim\limits_{\varepsilon\to0}\dfrac{1}{2\pi i}\oint\limits_{|z|=\varepsilon}\dfrac{\phi(z)}{z}\dd z=\phi(0).
+\]
+外边界项因测试函数紧支撑而消失，原点附近 $\dfrac{1}{|z|}$ 局部可积，所以穿孔极限合法。
+\end{callout}
+于是 \eqref{eq:7.1.4} 的一般解为
+\begin{equation}
+\eqq{7.1.22}{f(z)=a(z)+\dfrac{1}{2\pi i}\iint\limits_D\dfrac{g(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta,\qquad \bar\partial a=0.}
+\end{equation}
+\begin{callout}[计算：\eqref{eq:7.1.22} 的符号及一般性]
+核对 $z$ 求 $\bar\partial$ 时，$\dfrac{1}{\zeta-z}=-\dfrac{1}{z-\zeta}$，故积分的导数为
+$\displaystyle-(2i)^{-1}\iint\limits_Dg(\zeta)\delta(z-\zeta)\dd\zeta\wedge\dd\bar\zeta=g(z)$。
+任意两个解之差满足 $\bar\partial(f_1-f_2)=0$，因此差为解析函数；弱解情形使用 $\bar\partial$ 的 Weyl 引理。
+\end{callout}
+把广义 Cauchy 公式依次写为
+\begin{equation}
+\eqq{7.1.23}{f(z)=\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{f(\zeta)}{\zeta-z}\dd\zeta
++\dfrac{1}{2\pi i}\iint\limits_D\dfrac{\bar\partial f(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta,}
+\end{equation}
+\begin{equation}
+\eqq{7.1.24}{f(z)=\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{f(\zeta)}{\zeta-z}\dd\zeta
++\dfrac{1}{2\pi i}\iint\limits_D\dfrac{g(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+全平面上若面积势在谱无穷远趋零，$f\to1$ 就把解析自由项固定为 1。
+有限区域的 Dirichlet 数据却不能任意指定。设
+\begin{equation}
+\eqq{7.1.25}{f(z)=h(z),\qquad z\in\partial D,}
+\end{equation}
+则任何存在的解必须具有
+\begin{equation}
+\eqq{7.1.26}{f(z)=\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{h(\zeta)}{\zeta-z}\dd\zeta
++\dfrac{1}{2\pi i}\iint\limits_D\dfrac{g(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+在边界光滑、$h$ Hölder 连续、面积势具有连续迹时，从内部取非切向极限。Plemelj 公式的内部半跳为 $+\dfrac{h}{2}$，故
+
+\[
+h=\dfrac{h}{2}+\dfrac{1}{2\pi i}\operatorname{p.v.}\oint\limits_{\partial D}\dfrac{h(\zeta)}{\zeta-z}\dd\zeta
++\dfrac{1}{2\pi i}\iint\limits_D\dfrac{g(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta.
+\]
+移项得相容条件
+\begin{equation}
+\eqq{7.1.27}{h(z)=\dfrac{1}{\pi i}\operatorname{p.v.}\oint\limits_{\partial D}\dfrac{h(\zeta)}{\zeta-z}\dd\zeta
++\dfrac{1}{\pi i}\iint\limits_D\dfrac{g(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+面积密度属于 $L^p$、$p>2$ 时，Cauchy 面积势有相应连续性；本节光滑条件已足够。
+边界 Cauchy 积分的导数是支撑在曲线上的分布：
+\begin{equation}
+\eqq{7.1.28}{\bar\partial_z\left[\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{h(\zeta)}{\zeta-z}\dd\zeta\right]
+=\dfrac{i}{2}\oint\limits_{\partial D}h(\zeta)\delta(z-\zeta)\dd\zeta.}
+\end{equation}
+因此对 $f$ 等于该积分时，
+\begin{equation}
+\eqq{7.1.29}{\bar\partial f(z)=\dfrac{i}{2}\oint\limits_{\partial D}h(\zeta)\delta(z-\zeta)\dd\zeta,}
+\end{equation}
+\begin{equation}
+\eqq{7.1.30}{f_+(z)-f_-(z)=h(z),\qquad z\in\partial D,}
+\end{equation}
+\begin{equation}
+\eqq{7.1.31}{\bar\partial f(z)=\dfrac{i}{2}\oint\limits_{\partial D}[f_+(\zeta)-f_-(\zeta)]\delta(z-\zeta)\dd\zeta.}
+\end{equation}
+实轴从左向右定向时，正侧在上方，得到
+\begin{equation}
+\eqq{7.1.32}{\bar\partial f(x+iy)=\dfrac{i}{2}[f_+(x)-f_-(x)]\delta(y).}
+\end{equation}
+\begin{callout}[计算：曲线分布与 RH 跳跃的联系]
+式 \eqref{eq:7.1.28} 由 \eqref{eq:7.1.21} 对 $z$ 求导直接得到，系数为 $-\dfrac{1}{2i}=\dfrac{i}{2}$。
+对实轴也可写 $f=f_-+(f_+-f_-)H(y)$；远离实轴两片都解析，而 $\bar\partial H(y)=\dfrac{i}{2}\delta(y)$，即得 \eqref{eq:7.1.32}。
+若域内本来还有非零的 $g$，分布导数必须再加体密度，不能把以上纯跳跃公式误用于全部解。
+\end{callout}
+
+\subsection{RH 问题与广义解析函数}
+给定归一化 $f\to0$ 的标量加性 RH 问题：
+\begin{equation}
+\eqq{7.1.33}{f(z)\text{ 在 }\mathbb C\setminus\partial D\text{ 上解析},}
+\end{equation}
+\begin{equation}
+\eqq{7.1.34}{f_+(z)-f_-(z)=h(z),\qquad z\in\partial D.}
+\end{equation}
+其解为
+\begin{equation}
+\eqq{7.1.35}{f(z)=\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{h(\zeta)}{\zeta-z}\dd\zeta.}
+\end{equation}
+把跳跃视为 \eqref{eq:7.1.31} 的曲线源，用 \eqref{eq:7.1.22} 积分也得到
+\begin{equation}
+\eqq{7.1.36}{f(z)=\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{h(\zeta)}{\zeta-z}\dd\zeta.}
+\end{equation}
+两种表达的相等来自同一基本解；区别是源集中在曲线上还是铺在面积上。没有无穷远归一化时，还可加整函数。
+\begin{remark}
+第五章用解析行列拼装 RH 跳跃，第六章还加入圆周和背景端点；这里的分布公式可把这些曲线跳跃写进 $\bar\partial$ 方程。它并未把第六章非零背景自动变成零背景，端点归一化和极点条件仍须保留。
+\end{remark}
+\begin{definition}[广义解析函数]
+设系数 $A,B$ 具有所需可积性，满足
+\begin{equation}
+\eqq{7.1.37}{\bar\partial f(z)=A(z)f(z)+B(z)\overline{f(z)}}
+\end{equation}
+的函数称为相应方程的广义解析函数。原书取 $A,B\in L^1\cap L^\infty$。
+\end{definition}
+先取 $B=0$：
+\begin{equation}
+\eqq{7.1.38}{\bar\partial f=Af.}
+\end{equation}
+由基本解有
+\begin{equation}
+\eqq{7.1.39}{A(z)=\bar\partial_z\left[\dfrac{1}{2\pi i}\iint\limits_D\dfrac{A(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta\right].}
+\end{equation}
+把方括号的负指数乘到 $f$ 上，用乘积法则，$Af$ 与负指数的导数相消。因此
+\begin{equation}
+\eqq{7.1.40}{f(z)=w(z)\exp\left[\dfrac{1}{2\pi i}\iint\limits_D\dfrac{A(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta\right],\qquad \bar\partial w=0.}
+\end{equation}
+当 $D=\mathbb C$、$f\to1$ 且面积势趋零时，$w\to1$，Liouville 定理给
+\begin{equation}
+\eqq{7.1.41}{f(z)=\exp\left[\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{A(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta\right].}
+\end{equation}
+\begin{callout}[计算：归一化及 $B\ne0$ 时不能省去的限制]
+对 $A\in L^1\cap L^\infty$，把面积积分分成固定紧集和远端尾部。紧集贡献为 $O(|z|^{-1})$。尾部的近核部分满足
+\[
+\iint\limits_{|\zeta-z|<\rho}\dfrac{|A(\zeta)|}{|\zeta-z|}\dd\zeta_R\dd\zeta_I\le2\pi\rho\|A\|_\infty.
+\]
+其余部分用 $\rho^{-1}\|A\|_{L^1(\text{尾部})}$ 控制。
+先压小尾部再取极限，得面积势趋零，这才可以应用 Liouville。
+若 $B\ne0$，只能在 $f\ne0$ 的区域把有效系数写为 $A+B\dfrac{\bar f}{f}$，其中比值必须在积分变量 $\zeta$ 处取值。
+这样的指数表达仍含未知 $f$，不是显式通解；本笔记不把它当作已经解决了一般广义解析方程。
+\end{callout}
+
+\section{ZS 谱问题和 NLS 方程族}
+\subsection{归一化问题、右作用算子与双线性配对}
+本节沿用零边界的谱约定。$\sigma_3=\diag(1,-1)$，$\bar\partial$ 只对谱变量作用。先在保证下列积分、求导与积分交换合法的函数类内讨论；例如光滑且有紧支集的谱数据是进行代数推导的方便起点。推广到分布谱数据时，须另用后面的有限维方程解释。
+\begin{equation}
+\eqq{7.2.1}{\bar\partial\psi(x,t,z)=\psi(x,t,z)R(x,t,z),\qquad \psi\to I\quad(z\to\infty).}
+\end{equation}
+将 \eqref{eq:7.1.22} 用于每个矩阵元，得
+\begin{equation}
+\eqq{7.2.2}{\psi=I+\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{\psi(\zeta)R(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta
+\equiv I+\psi RC_z.}
+\end{equation}
+算子从左至右作用：$fRC_z=(fR)C_z$，不是先积分再乘 $R(z)$。若 $I-RC_z$ 可逆，则
+\begin{equation}
+\eqq{7.2.3}{\psi=I\cdot(I-RC_z)^{-1}.}
+\end{equation}
+这既给存在性也给唯一性，但前提是指定函数空间上的可逆性；例如有界算子范数 $\|RC_z\|<1$ 时，Neumann 级数给逆算子。不能把形式逆当成任意数据下的存在定理。
+
+定义双线性配对（这里没有复共轭，故不是 Hermitian 内积）
+\[
+\langle f,g\rangle=\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}f(\zeta)g(\zeta)^T\dd\zeta\wedge\dd\bar\zeta,
+\qquad \langle f\rangle=\langle f,I\rangle.
+\]
+由积分核的反对称性，
+\begin{equation}
+\eqq{7.2.4}{\langle fC_z,g\rangle=-\langle f,gC_z\rangle.}
+\end{equation}
+\begin{callout}[计算：配对、转置与逆算子的实际次序]
+在二重迭代积分绝对收敛时，Fubini 定理及 $\dfrac{1}{\zeta-z}=-\dfrac{1}{z-\zeta}$ 给
+\[
+\langle fC_z,g\rangle=\dfrac{1}{(2\pi i)^2}\iint\limits_{\mathbb C^2}
+\dfrac{f(\zeta)g(z)^T}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta\,\dd z\wedge\dd\bar z
+=-\langle f,gC_z\rangle.
+\]
+并且 $\langle fR,g\rangle=\langle f,gR^T\rangle$，故
+$\langle fRC_z,g\rangle=-\langle f,gC_zR^T\rangle$。
+将 $f=h(I-RC_z)^{-1}$ 代入 $\langle f(I-RC_z),g\rangle=\langle f,g(I+C_zR^T)\rangle$，得到下一式。
+\end{callout}
+\begin{equation}
+\eqq{7.2.5}{\langle h(I-RC_z)^{-1},g\rangle=\langle h,g(I+C_zR^T)^{-1}\rangle.}
+\end{equation}
+以后还会用其伴随版本
+\[
+\langle h(I-C_zR)^{-1},g\rangle=\langle h,g(I+R^TC_z)^{-1}\rangle.
+\]
+两式中的 $C_z,R^T$ 顺序不同，正对应左边两种不同的逆算子。
+
+\subsection{由谱数据的线性流得到 ZS 对}
+\setcounter{proposition}{2}
+\begin{proposition}[由 $\bar\partial$ 数据重构 ZS 对]
+假设 \eqref{eq:7.2.1}--\eqref{eq:7.2.3} 的归一化解存在且可按 $x,t$ 求导，所需谱矩可积，并且
+\begin{equation}
+\eqq{7.2.6}{R_x=iz[R,\sigma_3],}
+\end{equation}
+\begin{equation}
+\eqq{7.2.7}{R_t=[R,\Omega],}
+\end{equation}
+其中一般色散可写为
+\begin{equation}
+\eqq{7.2.8}{\Omega=\Omega_p+\Omega_s=\alpha_nz^n\sigma_3+
+\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{w(\zeta)\sigma_3}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta,
+\qquad \bar\partial\Omega_s=w(z)\sigma_3.}
+\end{equation}
+当 $\Omega=2iz^2\sigma_3$，即
+\begin{equation}
+\eqq{7.2.9}{R_t=2iz^2[R,\sigma_3],}
+\end{equation}
+则归一化函数满足
+\begin{equation}
+\eqq{7.2.10}{\psi_x+iz[\sigma_3,\psi]=Q\psi,}
+\end{equation}
+\begin{equation}
+\eqq{7.2.11}{\psi_t+2iz^2[\sigma_3,\psi]=(2zQ+i\sigma_3Q_x-i\sigma_3Q^2)\psi,}
+\end{equation}
+其中 $Q=-i[\sigma_3,\langle\psi R\rangle]$。
+\end{proposition}
+\begin{proof}
+{\heiti 一、空间方程。}对恒等式 $(I-RC_z)(I-RC_z)^{-1}=I$ 求导，移项后得
+$\partial_x(I-RC_z)^{-1}=(I-RC_z)^{-1}R_xC_z(I-RC_z)^{-1}$。因此
+\begin{equation}
+\eqq{7.2.12}{\psi_x=\psi R_xC_z(I-RC_z)^{-1}
+=i\{(z\psi R)C_z\sigma_3-(z\psi\sigma_3)RC_z\}(I-RC_z)^{-1}.}
+\end{equation}
+括号内的 $z$ 是积分输入变量，必须留在 $C_z$ 左侧。利用 $\zeta=(\zeta-z)+z$，
+\begin{equation}
+\eqq{7.2.13}{(iz\psi R)C_z=\dfrac{i}{2\pi i}\iint\limits_{\mathbb C}
+\dfrac{\zeta\psi(\zeta)R(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta
+=i\langle\psi R\rangle+iz(\psi-I).}
+\end{equation}
+这里的矩记为
+\begin{equation}
+\eqq{7.2.14}{\langle\psi R\rangle=\langle\psi R,I\rangle
+=\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\psi(\zeta)R(\zeta)\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+另一方面，
+\begin{equation}
+\eqq{7.2.15}{RC_z(I-RC_z)^{-1}=[I-(I-RC_z)](I-RC_z)^{-1}=(I-RC_z)^{-1}-I.}
+\end{equation}
+常矩阵可从积分左侧提出，\eqref{eq:7.2.12} 整理为
+\begin{equation}
+\eqq{7.2.16}{\psi_x=i\langle\psi R\rangle\sigma_3\psi-i\sigma_3[(zI)(I-RC_z)^{-1}]+iz\psi\sigma_3.}
+\end{equation}
+由 $(z\psi R)C_z=\langle\psi R\rangle+z\psi-zI$，移项并作用逆算子得
+\begin{equation}
+\eqq{7.2.17}{(zI)(I-RC_z)^{-1}=\langle\psi R\rangle\psi+z\psi.}
+\end{equation}
+代回 \eqref{eq:7.2.16}，两个矩项按原次序相减，得
+\begin{equation}
+\eqq{7.2.18}{\psi_x+iz[\sigma_3,\psi]=-i[\sigma_3,\langle\psi R\rangle]\psi.}
+\end{equation}
+定义
+\begin{equation}
+\eqq{7.2.19}{Q=\begin{pmatrix}0&q\\r&0\end{pmatrix}=-i[\sigma_3,\langle\psi R\rangle],}
+\end{equation}
+便得到
+\begin{equation}
+\eqq{7.2.20}{\psi_x+iz[\sigma_3,\psi]=Q\psi.}
+\end{equation}
+特别地，$[\sigma_3,A]_{12}=2A_{12}$、$[\sigma_3,A]_{21}=-2A_{21}$，所以 $q=-2i\langle\psi R\rangle_{12}$、$r=2i\langle\psi R\rangle_{21}$。
+
+{\heiti 二、时间方程。}把 $R_t=2iz^2[R,\sigma_3]$ 代入同一个求导公式，先用 \eqref{eq:7.2.15}，得到
+\begin{equation}
+\eqq{7.2.21}{\psi_t=2i\{(z^2\psi R)C_z\sigma_3(I-RC_z)^{-1}
+-\sigma_3[(z^2I)(I-RC_z)^{-1}]\}+2iz^2\psi\sigma_3.}
+\end{equation}
+因为 $\zeta^2=(\zeta-z)(\zeta+z)+z^2$，
+\begin{equation}
+\eqq{7.2.22}{(z^2\psi R)C_z=\langle\zeta\psi R\rangle+z\langle\psi R\rangle+z^2\psi-z^2I.}
+\end{equation}
+于是
+\begin{equation}
+\eqq{7.2.23}{\begin{aligned}
+\psi_t={}&2i\{\langle\zeta\psi R\rangle\sigma_3\psi
++\langle\psi R\rangle\sigma_3[(zI)(I-RC_z)^{-1}]
+-\sigma_3[(z^2I)(I-RC_z)^{-1}]\}+2iz^2\psi\sigma_3.
+\end{aligned}}
+\end{equation}
+对 \eqref{eq:7.2.22} 移项，使用 \eqref{eq:7.2.17} 消去 $zI$ 的逆算子作用，得
+\begin{equation}
+\eqq{7.2.24}{(z^2I)(I-RC_z)^{-1}
+=\{\langle\zeta\psi R\rangle+\langle\psi R\rangle^2+z\langle\psi R\rangle+z^2I\}\psi.}
+\end{equation}
+把 \eqref{eq:7.2.17}、\eqref{eq:7.2.24} 代回，常数项中的乘积为
+$2i(\langle\psi R\rangle\sigma_3-\sigma_3\langle\psi R\rangle)\langle\psi R\rangle=2Q\langle\psi R\rangle$，因此
+\begin{equation}
+\eqq{7.2.25}{\psi_t+2iz^2[\sigma_3,\psi]
+=\{-2i[\sigma_3,\langle\zeta\psi R\rangle]+2Q\langle\psi R\rangle+2zQ\}\psi.}
+\end{equation}
+下标 $\mathrm d,\mathrm o$ 分别表示对角、非对角部分。对 \eqref{eq:7.2.19} 求导，
+\begin{equation}
+\eqq{7.2.26}{Q_x=-i[\sigma_3,\langle\psi R\rangle_x]
+=-2i\sigma_3(\langle\psi R\rangle_x)_{\mathrm o}.}
+\end{equation}
+用 \eqref{eq:7.2.6}、\eqref{eq:7.2.20} 逐项相加，$\psi\sigma_3R$ 两项抵消，得
+\begin{equation}
+\eqq{7.2.27}{(\psi R)_x=Q\psi R-i[\sigma_3,z\psi R].}
+\end{equation}
+取矩与非对角部分，再左乘 $\sigma_3$，利用 $\sigma_3Q\sigma_3=-Q$，便有
+\begin{equation}
+\eqq{7.2.28}{\langle z\psi R\rangle_{\mathrm o}
+=-\dfrac{1}{4}Q_x-\dfrac{i}{2}\sigma_3Q\langle\psi R\rangle_{\mathrm d}.}
+\end{equation}
+另一方面，\eqref{eq:7.2.19} 给
+\begin{equation}
+\eqq{7.2.29}{\langle\psi R\rangle-\langle\psi R\rangle_{\mathrm d}=\dfrac{i}{2}\sigma_3Q.}
+\end{equation}
+将 \eqref{eq:7.2.28} 代入 \eqref{eq:7.2.25}，对角矩项 $-2Q\langle\psi R\rangle_{\mathrm d}$ 与 $+2Q\langle\psi R\rangle_{\mathrm d}$ 相消；剩下
+$2Q\dfrac{i}{2}\sigma_3Q=-i\sigma_3Q^2$。故
+\begin{equation}
+\eqq{7.2.30}{\psi_t+2iz^2[\sigma_3,\psi]=(2zQ+i\sigma_3Q_x-i\sigma_3Q^2)\psi.}
+\end{equation}
+这证明了命题，也固定了二次项的负号。
+\end{proof}
+\begin{remark}[与第五章的联系]
+本节把第五章的 Jost 散射数据换成平面上的 $\bar\partial$ 数据：先解归一化谱问题，再由大参数系数重构位势。这里空间谱相位的符号按本章使用；比较 Lax 对时应连同相位和时间约定一起看，不能只替换谱字母。
+\end{remark}
+
+\subsection{一般色散、递推算子与有源 NLS}
+设 $\psi$ 可逆。若 $\operatorname{tr}R=0$，则 $\bar\partial\det\psi=(\det\psi)\operatorname{tr}R=0$；在无额外谱奇点且 $\det\psi\to1$ 的条件下，Liouville 定理给 $\det\psi=1$。
+对 $\psi R$ 求时间导数必须先保留两个乘积项：
+\[
+(\psi R)_t=\psi R_tC_z(I-RC_z)^{-1}R+\psi R_t
+=\psi R_t\{I+C_z(I-RC_z)^{-1}R\}.
+\]
+利用 $(I-C_zR)C_z=C_z(I-RC_z)$ 得到
+\begin{equation}
+\eqq{7.2.31}{(\psi R)_t=\psi R_t(I-C_zR)^{-1}.}
+\end{equation}
+于是
+\begin{equation}
+\eqq{7.2.32}{\partial_t\langle\psi R\rangle=\langle\psi R_t(I-C_zR)^{-1},I\rangle,}
+\end{equation}
+\begin{equation}
+\eqq{7.2.33}{Q_t=-i[\sigma_3,\langle\psi R_t,I(I+R^TC_z)^{-1}\rangle].}
+\end{equation}
+对 $\psi\psi^{-1}=I$ 作 $\bar\partial$ 求导，$\bar\partial\psi^{-1}=-R\psi^{-1}$；转置、积分并使用无穷远归一化，得
+\begin{equation}
+\eqq{7.2.34}{(\psi^{-1})^T=I-(\psi^{-1})^TR^TC_z=I(I+R^TC_z)^{-1}.}
+\end{equation}
+配对第二项转置后是 $\psi^{-1}$，所以
+\begin{equation}
+\eqq{7.2.35}{Q_t=-i[\sigma_3,\langle\psi[R,\Omega]\psi^{-1}\rangle].}
+\end{equation}
+定义原书的矩阵 $M=\psi\sigma_3\psi^{-1}$。乘积法则实际给
+\[
+\bar\partial(\psi\Omega\psi^{-1})
+=\psi[R,\Omega]\psi^{-1}+\psi(\bar\partial\Omega)\psi^{-1}.
+\]
+若 $\Omega_s=O(z^{-1})$，则 $\bar\partial(\psi\Omega_s\psi^{-1})$ 的平面矩等于其无穷远 $z^{-1}$ 系数的负值；该系数与 $\Omega_s$ 相同，因而为对角矩阵，不贡献与 $\sigma_3$ 的交换子。这就给
+\begin{equation}
+\eqq{7.2.36}{Q_t=-i\alpha_n[\sigma_3,\langle\bar\partial(z^nM)\rangle]
++i[\sigma_3,\langle wM\rangle].}
+\end{equation}
+由 \eqref{eq:7.2.20} 与逆矩阵求导，
+\begin{equation}
+\eqq{7.2.37}{M_x+iz[\sigma_3,M]-[Q,M]=0.}
+\end{equation}
+因为对角矩阵之间交换，非对角矩阵的乘积是对角矩阵，故
+\begin{equation}
+\eqq{7.2.38}{\begin{cases}
+(M_{\mathrm d})_x=[Q,M_{\mathrm o}],\\
+(M_{\mathrm o})_x+iz[\sigma_3,M_{\mathrm o}]-[Q,M_{\mathrm d}]=0.
+\end{cases}}
+\end{equation}
+第一式即
+\begin{equation}
+\eqq{7.2.39}{(M_{\mathrm d})_x=[Q,M_{\mathrm o}],}
+\end{equation}
+第二式利用 $[\sigma_3,M_{\mathrm o}]=2\sigma_3M_{\mathrm o}$ 写为
+\begin{equation}
+\eqq{7.2.40}{(M_{\mathrm o})_x+2iz\sigma_3M_{\mathrm o}=[Q,M_{\mathrm d}].}
+\end{equation}
+以下取 $\partial_x^{-1}f=\displaystyle\int_{-\infty}^x f(s)\dd s$，并要求 $M_{\mathrm d}(-\infty)=\sigma_3$；这是一项空间边界条件，不能仅由谱无穷远归一化推出。积分得
+\begin{equation}
+\eqq{7.2.41}{M_{\mathrm d}=\sigma_3+\partial_x^{-1}[Q,M_{\mathrm o}].}
+\end{equation}
+代入 \eqref{eq:7.2.40}，左乘 $\dfrac{i}{2}\sigma_3$，注意 $\sigma_3[Q,\sigma_3]=-2Q$，得到
+\begin{equation}
+\eqq{7.2.42}{-zM_{\mathrm o}+\dfrac{i}{2}\sigma_3\{(M_{\mathrm o})_x-[Q,\partial_x^{-1}[Q,M_{\mathrm o}]]\}=-iQ.}
+\end{equation}
+定义原书递推算子 $\Lambda$ 作用于非对角矩阵：
+\begin{equation}
+\eqq{7.2.43}{M_{\mathrm o}=-i(\Lambda-z)^{-1}Q,\qquad
+\Lambda=\dfrac{i}{2}\sigma_3\{\partial_x-[Q,\partial_x^{-1}[Q,\,\cdot\,]]\}.}
+\end{equation}
+此处逆算子及其谱展开首先按形式级数理解；真正的算子逆还需指定定义域与边界条件。用 $[\sigma_3,A]=2\sigma_3A_{\mathrm o}$，\eqref{eq:7.2.36} 变为
+\begin{equation}
+\eqq{7.2.44}{Q_t=-2\alpha_n\sigma_3\langle\bar\partial[z^n(\Lambda-z)^{-1}]Q\rangle+i[\sigma_3,\langle wM\rangle].}
+\end{equation}
+在形式 Laurent 级数意义下，先展开逆算子，再代回 \eqref{eq:7.2.44}：
+\[
+(\Lambda-z)^{-1}=-\sum\limits_{j=1}^{\infty}z^{-j}\Lambda^{j-1}.
+\]
+\begin{equation}
+\eqq{7.2.45}{Q_t=2\alpha_n\sigma_3\sum\limits_{j=1}^{\infty}\langle\bar\partial z^{n-j}\rangle\Lambda^{j-1}Q
++i[\sigma_3,\langle wM\rangle].}
+\end{equation}
+\begin{callout}[计算：谱矩只选出 $z^{-1}$ 项]
+由 \eqref{eq:7.1.21} 及分布导数，
+$\bar\partial z^{-m}=\dfrac{(-1)^{m-1}\pi}{(m-1)!}\partial_z^{m-1}\delta$。
+与常函数 $1$ 配对时，仅 $m=1$ 存活，且面积元给
+$\langle\bar\partial z^{-1}\rangle=-1$。
+对于多项式 $z^\ell$，$\bar\partial z^\ell=0$。因此下面的等式是取 Laurent 系数的矩恒等式，不是说所有高阶分布导数都等于零。
+\end{callout}
+\begin{equation}
+\eqq{7.2.46}{\sum\limits_{j=1}^{\infty}\langle\bar\partial z^{n-j}\rangle\Lambda^{j-1}Q=-\Lambda^nQ.}
+\end{equation}
+将 \eqref{eq:7.2.45}--\eqref{eq:7.2.46} 代入 \eqref{eq:7.2.44}，得到层级
+\begin{equation}
+\eqq{7.2.47}{Q_t+2\alpha_n\sigma_3\Lambda^nQ=i[\sigma_3,\langle wM\rangle].}
+\end{equation}
+它和辅助方程
+\begin{equation}
+\eqq{7.2.48}{M_x+iz[\sigma_3,M]=[Q,M]}
+\end{equation}
+一起构成闭合的有源系统；$M$ 并非任意外力，而受同一位势的线性方程约束。
+
+\begin{example}[有源 NLS]
+取 $\alpha_2=2i$、$Q=\begin{pmatrix}0&q\\-\bar q&0\end{pmatrix}$，以及
+$M=\begin{pmatrix}-r&p\\\bar p&r\end{pmatrix}$、$r\in\mathbb R$，在实谱线上取
+$w(z)=\pi g(z_R)\delta(z_I)$。若同时要求 $Q^\dagger=-Q$、$M^\dagger=M$，还须 $\bar g=-g$，以使源项保持此约化；不加这个条件时，先按独立矩阵元理解。定义
+$\langle\!\langle p\rangle\!\rangle=2\displaystyle\int_{\mathbb R}g(z_R)p(x,t,z_R)\dd z_R$。则
+\begin{equation}
+\eqq{7.2.49}{\begin{cases}
+iq_t+q_{xx}+2|q|^2q=\langle\!\langle p\rangle\!\rangle,\\
+p_x+2iz_Rp=-2qr,\\
+r_x=-(q\bar p+\bar qp).
+\end{cases}}
+\end{equation}
+\end{example}
+\begin{proof}
+首先 $\Lambda Q=\dfrac{i}{2}\sigma_3Q_x$，因为 $[Q,Q]=0$。其次
+$[Q,\sigma_3Q_x]=-\sigma_3(Q^2)_x$，故在零边界下
+$\partial_x^{-1}[Q,\Lambda Q]=-\dfrac{i}{2}\sigma_3Q^2$，再代入递推算子得到
+\[
+\Lambda^2Q=-\dfrac{1}{4}Q_{xx}+\dfrac{1}{2}Q^3,
+\qquad Q^2=-|q|^2I.
+\]
+取 \eqref{eq:7.2.47} 的 $(1,2)$ 元并乘 $i$，左边就是 $iq_t+q_{xx}+2|q|^2q$。
+右边 $\langle wM\rangle=-\displaystyle\int_{\mathbb R}gM\dd z_R$，乘 $i$ 后为
+$\displaystyle-i\,i[\sigma_3,\int gM]=2\int gp$。
+最后 $[Q,M]_{12}=-2qr$、$[Q,M]_{11}=q\bar p+\bar qp$，而 $M_{11}=-r$，所以 \eqref{eq:7.2.48} 给其余两式。
+\end{proof}
+取 $w=0$，第一式退化为
+\begin{equation}
+\eqq{7.2.50}{iq_t+q_{xx}+2|q|^2q=0.}
+\end{equation}
+\subsection{单孤子：分布数据化为两个代数未知量}
+取 $z_1=\xi+i\eta$、$\eta>0$，谱点不依赖 $x,t$。令
+\begin{equation}
+\eqq{7.2.51}{R=\pi e^{-izx\sigma_3}
+\begin{pmatrix}0&-c\delta(z-z_1)\\\bar c\delta(z-\bar z_1)&0\end{pmatrix}e^{izx\sigma_3}.}
+\end{equation}
+面积元和矩定义给
+\begin{equation}
+\eqq{7.2.52}{q=-2ic\,e^{-2iz_1x}\psi_{11}(z_1).}
+\end{equation}
+对 \eqref{eq:7.2.2} 取第一行，得到
+\begin{equation}
+\eqq{7.2.53}{\psi_{11}(z)=1+\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{\psi_{12}(\zeta)R_{21}(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta,}
+\end{equation}
+\begin{equation}
+\eqq{7.2.54}{\psi_{12}(z)=\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{\psi_{11}(\zeta)R_{12}(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+\begin{callout}[计算：\eqref{eq:7.2.52}--\eqref{eq:7.2.55} 的取值与闭合]
+$\dfrac{\pi}{2\pi i}\dd\zeta\wedge\dd\bar\zeta=-\dd\zeta_R\dd\zeta_I$，故
+\[
+\psi_{11}(z)=1+\dfrac{\bar c e^{2i\bar z_1x}}{z-\bar z_1}\psi_{12}(\bar z_1),\qquad
+\psi_{12}(z)=-\dfrac{ce^{-2iz_1x}}{z-z_1}\psi_{11}(z_1).
+\]
+分别取 $z=z_1$、$z=\bar z_1$，先消去 $\psi_{12}(\bar z_1)$；分母乘积为
+$(z_1-\bar z_1)(\bar z_1-z_1)=4\eta^2$，指数乘积为 $e^{4\eta x}$。所以
+$\psi_{11}(z_1)=1-\dfrac{|c|^2e^{4\eta x}}{4\eta^2}\psi_{11}(z_1)$。
+将下面 \eqref{eq:7.2.56} 代入，便得到 \eqref{eq:7.2.55}。
+\end{callout}
+\begin{equation}
+\eqq{7.2.55}{\begin{aligned}
+\psi_{11}(z_1)&=1-\dfrac{|c|^2}{|z_1-\bar z_1|^2}e^{2i(\bar z_1-z_1)x}\psi_{11}(z_1)\\
+&=1-e^{4\eta(x-\alpha)}\psi_{11}(z_1)=\dfrac{1}{1+e^{4\eta(x-\alpha)}}.
+\end{aligned}}
+\end{equation}
+这里最后一个等号表示解出同一线性方程。参数化为
+\begin{equation}
+\eqq{7.2.56}{c=-2\eta e^{-2\eta\alpha+i\varphi},\qquad \alpha,\varphi\in\mathbb R.}
+\end{equation}
+若 $\Omega_s(z_1)=(\omega_1-i\omega_2)\sigma_3$，则 $R_t=[R,\Omega]$ 的 $(1,2)$ 元给
+\begin{equation}
+\eqq{7.2.57}{c_t=-2c(2iz_1^2+\omega_1-i\omega_2).}
+\end{equation}
+对参数化求导，
+\begin{equation}
+\eqq{7.2.58}{c_t=c(-2\eta\alpha_t+i\varphi_t).}
+\end{equation}
+由于 $2iz_1^2=-4\xi\eta+2i(\xi^2-\eta^2)$，比较实、虚部得到
+$\alpha_t=-4\xi+\dfrac{\omega_1}{\eta}$、$\varphi_t=-4(\xi^2-\eta^2)+2\omega_2$。
+当 $\omega_1,\omega_2$ 为常数时，
+\begin{equation}
+\eqq{7.2.59}{\alpha=\left(-4\xi+\dfrac{\omega_1}{\eta}\right)t+\xi_0,
+\qquad \varphi=-4(\xi^2-\eta^2)t+2\omega_2t+\varphi_0.}
+\end{equation}
+若其依赖时间，上式的线性项应改为从初始时刻起的积分。将 \eqref{eq:7.2.55}--\eqref{eq:7.2.56} 代入重构式，并用
+$\dfrac{e^{2\eta(x-\alpha)}}{1+e^{4\eta(x-\alpha)}}=\dfrac{1}{2}\sech[2\eta(x-\alpha)]$，得
+\begin{equation}
+\eqq{7.2.60}{q_s=2i\eta e^{-2i\xi x+i\varphi}\sech[2\eta(x-\alpha)].}
+\end{equation}
+\subsection{多孤子及行列式公式}
+无源 NLS 取 $\theta(z)=zx+2z^2t$，则
+\begin{equation}
+\eqq{7.2.61}{R=e^{-i\theta(z)\sigma_3}v(z)e^{i\theta(z)\sigma_3}.}
+\end{equation}
+选择互异上半平面谱点 $z_j$，
+\begin{equation}
+\eqq{7.2.62}{\begin{gathered}
+v=\pi\sum\limits_{j=1}^N\begin{pmatrix}0&-c_j\delta(z-z_j)\\\bar c_j\delta(z-\bar z_j)&0\end{pmatrix},\\
+R=\pi\sum\limits_{j=1}^N\begin{pmatrix}0&-c_je^{-2i\theta(z)}\delta(z-z_j)\\
+\bar c_je^{2i\theta(z)}\delta(z-\bar z_j)&0\end{pmatrix}.
+\end{gathered}}
+\end{equation}
+逐点使用分布取值，得
+\begin{equation}
+\eqq{7.2.63}{q=-2i\sum\limits_{j=1}^Nc_je^{-2i\theta(z_j)}\psi_{11}(z_j).}
+\end{equation}
+积分形式仍为
+\begin{equation}
+\eqq{7.2.64}{\psi_{11}(z)=1+\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{\psi_{12}(\zeta)R_{21}(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta,}
+\end{equation}
+\begin{equation}
+\eqq{7.2.65}{\psi_{12}(z)=\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{\psi_{11}(\zeta)R_{12}(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta,}
+\end{equation}
+因而
+\begin{equation}
+\eqq{7.2.66}{\psi_{11}(z)=1+\sum\limits_{j=1}^N\dfrac{\bar c_je^{2i\theta(\bar z_j)}}{z-\bar z_j}\psi_{12}(\bar z_j),}
+\end{equation}
+\begin{equation}
+\eqq{7.2.67}{\psi_{12}(z)=-\sum\limits_{j=1}^N\dfrac{c_je^{-2i\theta(z_j)}}{z-z_j}\psi_{11}(z_j).}
+\end{equation}
+到此才引入原书的简记
+\begin{equation}
+\eqq{7.2.68}{C_j(z)=\dfrac{\bar c_je^{2i\theta(\bar z_j)}}{z-\bar z_j}.}
+\end{equation}
+在 $z_n$ 处取第一式，在 $\bar z_j$ 处取第二式；$x,t$ 实数，故
+$\overline{C_k(z_j)}=\dfrac{c_ke^{-2i\theta(z_k)}}{\bar z_j-z_k}$。得到
+\begin{equation}
+\eqq{7.2.69}{\psi_{11}(z_n)=1+\sum\limits_{j=1}^NC_j(z_n)\psi_{12}(\bar z_j),}
+\end{equation}
+\begin{equation}
+\eqq{7.2.70}{\psi_{12}(\bar z_j)=-\sum\limits_{k=1}^N\overline{C_k(z_j)}\psi_{11}(z_k).}
+\end{equation}
+代入并把含未知量的项移到左边，
+\begin{equation}
+\eqq{7.2.71}{\psi_{11}(z_n)=1-\sum\limits_{j,k=1}^NC_j(z_n)\overline{C_k(z_j)}\psi_{11}(z_k).}
+\end{equation}
+因此有限维系统是
+\begin{equation}
+\eqq{7.2.72}{M\begin{pmatrix}\psi_{11}(z_1)\\\vdots\\\psi_{11}(z_N)\end{pmatrix}
+=\begin{pmatrix}1\\\vdots\\1\end{pmatrix}.}
+\end{equation}
+写 $M_n$ 为将 $M$ 的第 $n$ 列替换为全 $1$ 列得到的矩阵，Cramer 法则给
+\begin{equation}
+\eqq{7.2.73}{M_{nk}=\delta_{nk}+\sum\limits_{j=1}^NC_j(z_n)\overline{C_k(z_j)},\qquad
+\psi_{11}(z_n)=\dfrac{\det M_n}{\det M}\quad(\det M\ne0).}
+\end{equation}
+此处 $M$ 是有限矩阵，与前面谱函数 $\psi\sigma_3\psi^{-1}$ 分属不同小节，按原书记号保留。进一步按原书引入
+\[
+M^{\rm aug}=\begin{pmatrix}0&Y\\B&M\end{pmatrix},\qquad
+B=(1,\ldots,1)^T,\quad Y_n=c_ne^{-2i\theta(z_n)}.
+\]
+\begin{callout}[计算：增广行列式怎样给出位势]
+对增广矩阵作第一块行消元：第一行减去 $YM^{-1}$ 乘下面的块行，得到
+\[
+\begin{pmatrix}0&Y\\B&M\end{pmatrix}
+\longmapsto\begin{pmatrix}-YM^{-1}B&0\\B&M\end{pmatrix}.
+\]
+行列式不变，因此 $\det M^{\rm aug}=-YM^{-1}B\det M$。
+而 \eqref{eq:7.2.63}、\eqref{eq:7.2.72} 给 $q=-2iYM^{-1}B$，所以
+$q=2i\dfrac{\det M^{\rm aug}}{\det M}$。这也检查了 $Y$ 中应当出现 $c_n$ 与负相位，而不能换成共轭数据。
+\end{callout}
+
+\subsection{行分块与 Heisenberg 铁磁链的规范变换}
+当 $R_{11}=R_{22}=0$，\eqref{eq:7.2.1} 的两行分别为
+\begin{equation}
+\eqq{7.2.74}{\bar\partial\psi_{11}=\psi_{12}R_{21},\qquad \bar\partial\psi_{12}=\psi_{11}R_{12},}
+\end{equation}
+\begin{equation}
+\eqq{7.2.75}{\bar\partial\psi_{21}=\psi_{22}R_{21},\qquad \bar\partial\psi_{22}=\psi_{21}R_{12},}
+\end{equation}
+归一化为
+\begin{equation}
+\eqq{7.2.76}{\psi_{11},\psi_{22}\to1,\qquad \psi_{12},\psi_{21}\to0\quad(z\to\infty).}
+\end{equation}
+所以统一的积分形式仍是
+\begin{equation}
+\eqq{7.2.77}{\psi=I+\psi RC_z=I(I-RC_z)^{-1}.}
+\end{equation}
+假定 $\psi(0)$ 有限可逆。令原书的 $g(x,t)=\psi(x,t,0)$，则
+\begin{equation}
+\eqq{7.2.78}{\psi=g\varphi,\qquad \bar\partial\varphi=\varphi R,}
+\end{equation}
+\begin{equation}
+\eqq{7.2.79}{\varphi=g^{-1}(I-RC_z)^{-1}.}
+\end{equation}
+保留左乘规范矩阵的次序，求导得
+\begin{equation}
+\eqq{7.2.80}{\varphi_x=-g^{-1}g_x\varphi+g^{-1}\psi R_xC_z(I-RC_z)^{-1}.}
+\end{equation}
+由 $\varphi=g^{-1}+\varphi RC_z$ 及 \eqref{eq:7.2.13} 的同一分解，
+\begin{equation}
+\eqq{7.2.81}{(iz\varphi R)C_z=i\langle\varphi R\rangle+iz(\varphi-g^{-1}).}
+\end{equation}
+需要的消元关系为
+\begin{equation}
+\eqq{7.2.82}{RC_z(I-RC_z)^{-1}=(I-RC_z)^{-1}-I.}
+\end{equation}
+代入后先整理成
+\begin{equation}
+\eqq{7.2.83}{\varphi_x=-g^{-1}g_x\varphi+i\langle\varphi R\rangle\sigma_3g\varphi
+-ig^{-1}\sigma_3[(zI)(I-RC_z)^{-1}]+iz\varphi\sigma_3.}
+\end{equation}
+再使用 \eqref{eq:7.2.17} 及 $\langle\varphi R\rangle=g^{-1}\langle\psi R\rangle$，得到
+\begin{equation}
+\eqq{7.2.84}{\varphi_x=-g^{-1}\{g_x+i[\sigma_3,\langle\psi R\rangle]g\}\varphi
+-izg^{-1}\sigma_3g\varphi+iz\varphi\sigma_3.}
+\end{equation}
+\begin{callout}[计算：空间规范和铁磁链方程]
+将 $z=0$ 代入 \eqref{eq:7.2.20}，得 $g_x=Qg$，正好消去 \eqref{eq:7.2.84} 的花括号。记原书的自旋矩阵
+$S=g^{-1}\sigma_3g$，则 $S^2=I$，且
+\[
+\varphi_x+izS\varphi-iz\varphi\sigma_3=0,\qquad
+S_x=g^{-1}[\sigma_3,Q]g=2g^{-1}\sigma_3Qg.
+\]
+无源时 \eqref{eq:7.2.30} 在 $z=0$ 给 $g_t=(i\sigma_3Q_x-i\sigma_3Q^2)g$，故
+\[
+S_t=g^{-1}[\sigma_3,i\sigma_3Q_x-i\sigma_3Q^2]g=2ig^{-1}Q_xg.
+\]
+又 $S_{xx}=2g^{-1}(\sigma_3Q_x+2\sigma_3Q^2)g$，所以
+$[S,S_{xx}]=4g^{-1}Q_xg$，由此 $S_t=\dfrac{i}{2}[S,S_{xx}]$。
+在使 $g$ 酉的 NLS 约化下，$S$ 还满足 $S^\dagger=S$。若有源项，应把对应的时间规范项一并带入，不能直接沿用这一无源方程。
+\end{callout}
+
+\section{WKI 谱问题和 mNLS 方程族}
+\subsection{偶次谱色散与空间谱问题}
+这一节的 $\alpha\ne0$、$\beta$ 为实常数。与上一节相比，空间相位由 $z$ 换成 $\dfrac{z^2+\beta}{\alpha}$；保留本节自己的位势归一化，不把它强行改成 ZS 记号。
+\begin{equation}
+\eqq{7.3.1}{\bar\partial\psi=\psi R,\qquad \psi\to I\quad(z\to\infty).}
+\end{equation}
+对谱数据规定
+\begin{equation}
+\eqq{7.3.2}{R_x=\dfrac{i}{\alpha}(z^2+\beta)[R,\sigma_3],\qquad R_t=[R,\Omega].}
+\end{equation}
+这里 $\Omega_p=\displaystyle\sum\limits_{j=0}^n\gamma_{2j}z^{2j}\sigma_3$。
+为使原书奇性色散的记号明确，约定
+\[
+\Omega_s=\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}
+\dfrac{\zeta^2\omega(\zeta^2)\sigma_3}{\zeta^2-z^2}\dd\zeta\wedge\dd\bar\zeta,
+\qquad \omega_s(z)=\omega(z^2),\qquad \bar\partial\Omega_s=z\omega_s(z)\sigma_3.
+\]
+最后一个等式可由
+$\dfrac{\zeta^2}{\zeta^2-z^2}=\dfrac{\zeta}{2}\bigl(\dfrac{1}{\zeta-z}+\dfrac{1}{\zeta+z}\bigr)$
+逐项使用 \eqref{eq:7.1.21} 得到；第二项在 $\zeta=-z$ 取值，连同求 $\bar z$ 导数的负号，贡献与第一项相同。
+积分方程及形式解为
+\begin{equation}
+\eqq{7.3.3}{\psi=I+\psi RC_z,}
+\end{equation}
+\begin{equation}
+\eqq{7.3.4}{\psi=I(I-RC_z)^{-1}.}
+\end{equation}
+\begin{callout}[计算：\eqref{eq:7.3.5}--\eqref{eq:7.3.7} 与上一节消元的对应]
+对 \eqref{eq:7.3.4} 求 $x$ 导数，得到
+$\psi_x=\dfrac{i}{\alpha}\{((z^2+\beta)\psi R)C_z\sigma_3-
+((z^2+\beta)\psi\sigma_3)RC_z\}(I-RC_z)^{-1}$。
+分别用 \eqref{eq:7.2.13}、\eqref{eq:7.2.15}、\eqref{eq:7.2.17}、\eqref{eq:7.2.22}、\eqref{eq:7.2.24}，一次项与二次项按原次序相减，得下一式。
+\end{callout}
+\begin{equation}
+\eqq{7.3.5}{\begin{aligned}
+\psi_x={}&-\dfrac{i}{\alpha}(z^2+\beta)[\sigma_3,\psi]
+-\dfrac{i}{\alpha}z[\sigma_3,\langle\psi R\rangle]\psi\\
+&-\dfrac{i}{\alpha}[\sigma_3,\langle\psi R\rangle]\langle\psi R\rangle\psi
+-\dfrac{i}{\alpha}[\sigma_3,\langle z\psi R\rangle]\psi.
+\end{aligned}}
+\end{equation}
+要使用原书接下来的奇偶分块，需附加谱约束
+$R(-z)=-\sigma_3R(z)\sigma_3$。
+因为 $\bar\partial_z\psi(-z)=-(\bar\partial\psi)(-z)$，$\sigma_3\psi(-z)\sigma_3$ 满足与 $\psi(z)$ 相同的归一化问题；唯一性给
+$\psi(-z)=\sigma_3\psi(z)\sigma_3$。
+于是 $\psi R$ 的对角元为奇函数、非对角元为偶函数；在对称谱域积分后，$\langle\psi R\rangle$ 非对角而 $\langle z\psi R\rangle$ 对角。定义
+\begin{equation}
+\eqq{7.3.6}{Q=\begin{pmatrix}0&q\\-\bar q&0\end{pmatrix}
+=-\dfrac{i}{\alpha}[\sigma_3,\langle\psi R\rangle].}
+\end{equation}
+这里的复共轭约化也须由数据相应满足；奇偶性本身只给非对角结构，并不自动给 $Q_{21}=-\bar q$。
+由 $\langle\psi R\rangle=\dfrac{i\alpha}{2}\sigma_3Q$，\eqref{eq:7.3.5} 的常数乘积为
+$Q\langle\psi R\rangle=-\dfrac{i\alpha}{2}Q^2\sigma_3$，所以
+\begin{equation}
+\eqq{7.3.7}{\psi_x=-\dfrac{i}{\alpha}(z^2+\beta)[\sigma_3,\psi]+zQ\psi-\dfrac{i\alpha}{2}Q^2\sigma_3\psi.}
+\end{equation}
+\subsection{mNLS 递推、形式展开与源项}
+由位势定义，
+\begin{equation}
+\eqq{7.3.8}{Q_t=-\dfrac{i}{\alpha}[\sigma_3,\langle\psi R\rangle_t].}
+\end{equation}
+本节仍使用 \eqref{eq:7.2.31} 中已经证明的密度求导，不能把两个逆算子的次序交换：
+\begin{equation}
+\eqq{7.3.9}{(\psi R)_t=\psi R_t(I-C_zR)^{-1},}
+\end{equation}
+\begin{equation}
+\eqq{7.3.10}{\langle\psi R\rangle_t=\langle\psi R_t(I-C_zR)^{-1},I\rangle
+=\langle\psi R_t,I(I+R^TC_z)^{-1}\rangle.}
+\end{equation}
+由逆矩阵的 $\bar\partial$ 方程，
+\begin{equation}
+\eqq{7.3.11}{(\psi^{-1})^T=I-(\psi^{-1})^TR^TC_z=I(I+R^TC_z)^{-1}.}
+\end{equation}
+把 $R_t=[R,\Omega]$ 及上式代入 \eqref{eq:7.3.8}，再用
+$\bar\partial(\psi\Omega\psi^{-1})=\psi[R,\Omega]\psi^{-1}+\psi(\bar\partial\Omega)\psi^{-1}$，得
+\begin{equation}
+\eqq{7.3.12}{Q_t=-\dfrac{i}{\alpha}\left[\sigma_3,\sum\limits_{j=0}^n\gamma_{2j}\langle\bar\partial(z^{2j}M)\rangle\right]
++\dfrac{i}{\alpha}[\sigma_3,\langle z\omega_sM\rangle],\qquad M=\psi\sigma_3\psi^{-1}.}
+\end{equation}
+与 \eqref{eq:7.2.36} 一样，奇性色散全导数的矩只产生对角项，故其交换子为零。
+对 $M$ 求导，代入 \eqref{eq:7.3.7}；$Q^2=-|q|^2I$ 是标量矩阵，因此
+\begin{equation}
+\eqq{7.3.13}{M_x+\dfrac{i}{\alpha}\left(z^2+\beta+\dfrac{\alpha^2}{2}Q^2\right)[\sigma_3,M]-z[Q,M]=0.}
+\end{equation}
+取形式大参数展开
+\begin{equation}
+\eqq{7.3.14}{M=\sigma_3+\sum\limits_{j=1}^{\infty}\dfrac{M^{(j)}}{z^j},\qquad
+M^{(2j)}\text{ 对角},\quad M^{(2j+1)}\text{ 非对角}.}
+\end{equation}
+\begin{callout}[计算：比较各次幂并解出递推算子]
+非对角部分的 $z^1$ 项为
+$\dfrac{i}{\alpha}[\sigma_3,M^{(1)}]-[Q,\sigma_3]=0$，故 $M^{(1)}=i\alpha Q$。
+其余系数逐幂比较得
+\[
+(M^{(2j)})_x=[Q,M^{(2j+1)}],
+\]
+\[
+(M^{(2j-1)})_x=-\dfrac{i}{\alpha}[\sigma_3,M^{(2j+1)}]
+-\dfrac{i}{\alpha}\left(\beta+\dfrac{\alpha^2}{2}Q^2\right)[\sigma_3,M^{(2j-1)}]
++[Q,M^{(2j)}].
+\]
+对角系数用零边界积分常数确定：$M^{(2j)}=\partial_x^{-1}[Q,M^{(2j+1)}]$（$j\ge1$）。将它代入第二式，左乘 $\dfrac{i\alpha}{2}\sigma_3$，得到
+\[
+(I-L)M^{(2j+1)}=\left(\dfrac{i\alpha}{2}\sigma_3\partial_x-\beta-\dfrac{\alpha^2}{2}Q^2\right)M^{(2j-1)},
+\quad L\cdot=-\dfrac{i\alpha}{2}[\sigma_3Q,\partial_x^{-1}[Q,\,\cdot\,]].
+\]
+这里 $\partial_x^{-1}[Q,F]$ 为对角迹零矩阵，故为某个标量乘 $\sigma_3$；于是 $LF$ 是标量乘 $Q$，从而 $[Q,LF]=0$、$L^2F=0$。
+所以 $(I-L)^{-1}=I+L$，原书的递推算子确实为
+\[
+\Lambda=(I+L)\left(\dfrac{i\alpha}{2}\sigma_3\partial_x-\beta-\dfrac{\alpha^2}{2}Q^2\right).
+\]
+这说明不能仅因出现 $I+L$ 就把它判作遗漏逆号。
+\end{callout}
+\begin{equation}
+\eqq{7.3.15}{M^{(2j+1)}=i\alpha\Lambda^jQ,\qquad M_{\mathrm o}=-i\alpha z(\Lambda-z^2)^{-1}Q.}
+\end{equation}
+第二式展开为 $i\alpha\displaystyle\sum\limits_{j\ge0}z^{-2j-1}\Lambda^jQ$，与第一式逐项相符。
+利用 \eqref{eq:7.2.46} 的取系数规则，\eqref{eq:7.3.12} 给
+\[
+Q_t=-2\sigma_3\sum\limits_{j=0}^n\gamma_{2j}\Lambda^jQ+\dfrac{i}{\alpha}[\sigma_3,\langle z\omega_sM\rangle].
+\]
+\setcounter{exam}{1}
+\begin{example}[四次色散的 mNLS 方程]
+取 $\gamma_4=\dfrac{2i}{\alpha^2}$、$\gamma_2=2\beta\gamma_4$、$\gamma_0=\beta^2\gamma_4$，得
+\begin{equation}
+\eqq{7.3.16}{iQ_t+\sigma_3Q_{xx}+i\alpha QQ_xQ+2\beta\sigma_3Q^3+\dfrac{\alpha^2}{2}\sigma_3Q^5
+=-\dfrac{2}{\alpha}\sigma_3\langle z\omega_sM_{\mathrm o}\rangle.}
+\end{equation}
+\end{example}
+\begin{proof}
+首先 $\Lambda Q=\dfrac{i\alpha}{2}\sigma_3Q_x-\beta Q$：在 $(I+L)$ 中，
+$L(-\beta Q-\dfrac{\alpha^2}{2}Q^3)=0$，并且
+\[
+\partial_x^{-1}[Q,\sigma_3Q_x]=-\sigma_3Q^2,\qquad
+L\left(\dfrac{i\alpha}{2}\sigma_3Q_x\right)=\dfrac{\alpha^2}{2}Q^3,
+\]
+恰好消去前面的立方项。
+再将 $\dfrac{i\alpha}{2}\sigma_3Q_x$ 送入 $\Lambda+\beta$。需要积分的交换子逐项为
+\[
+\begin{aligned}
+&\partial_x^{-1}\left[Q,-\dfrac{\alpha^2}{4}Q_{xx}-\dfrac{i\alpha\beta}{2}\sigma_3Q_x-\dfrac{i\alpha^3}{4}Q^2\sigma_3Q_x\right]\\
+&=-\dfrac{\alpha^2}{4}[Q,Q_x]+\dfrac{i\alpha\beta}{2}\sigma_3Q^2+\dfrac{i\alpha^3}{8}\sigma_3Q^4.
+\end{aligned}
+\]
+这里依次用了 $[Q,Q_{xx}]=[Q,Q_x]_x$、
+$[Q,\sigma_3Q_x]=-\sigma_3(Q^2)_x$、
+$Q^2(Q^2)_x=\dfrac{1}{2}(Q^4)_x$，积分常数均由零边界固定。
+再用实际乘积恒等式
+\[
+[\sigma_3Q,[Q,Q_x]]=2\sigma_3(Q^2Q_x-QQ_xQ),\quad
+[\sigma_3Q,\sigma_3Q^2]=-2Q^3,\quad [\sigma_3Q,\sigma_3Q^4]=-2Q^5,
+\]
+可见 $L$ 作用后贡献
+$\dfrac{i\alpha^3}{4}\sigma_3(Q^2Q_x-QQ_xQ)-\dfrac{\alpha^2\beta}{2}Q^3-\dfrac{\alpha^4}{8}Q^5$。
+其中第一项的 $Q^2Q_x$ 与原先的 $-\dfrac{i\alpha^3}{4}Q^2\sigma_3Q_x$ 相消，得到
+\[
+(\Lambda+\beta)^2Q=-\dfrac{\alpha^2}{4}
+\left(Q_{xx}+i\alpha\sigma_3QQ_xQ+2\beta Q^3+\dfrac{\alpha^2}{2}Q^5\right).
+\]
+将这个式子代入 $Q_t=-\dfrac{4i}{\alpha^2}\sigma_3(\Lambda+\beta)^2Q+\dfrac{i}{\alpha}[\sigma_3,\langle z\omega_sM\rangle]$，乘 $i$ 后移项，利用 $[\sigma_3,A]=2\sigma_3A_{\mathrm o}$，即得 \eqref{eq:7.3.16}。
+\end{proof}
+
+\subsection{成对谱点的孤子及其显式谱函数}
+取 $z_1=\xi+i\eta$，$\xi\eta\ne0$，并令 $\alpha\in\mathbb R\setminus\{0\}$。为满足 \eqref{eq:7.3.2}，谱数据必须按共轭规范写成
+\begin{equation}
+\eqq{7.3.17}{R=2\pi i E^{-1}\begin{pmatrix}0&c[\delta(z-z_1)+\delta(z+z_1)]\\
+\bar c[\delta(z-\bar z_1)+\delta(z+\bar z_1)]&0\end{pmatrix}E,
+\qquad E=e^{\frac{i}{\alpha}(z^2+\beta)\sigma_3x}.}
+\end{equation}
+这里原书 $E$ 是矩阵；下面的相位均直接写指数，避免同一个 $E$ 又表示标量。
+令原书的
+\[
+\Delta=1+\dfrac{|c|^2\bar z_1^2}{\xi^2\eta^2}e^{\frac{8\xi\eta}{\alpha}x}.
+\]
+则完整谱函数为
+\begin{equation}
+\eqq{7.3.18}{\psi=\begin{pmatrix}
+\dfrac{z^2-z_1^2}{z^2-\bar z_1^2}+\dfrac{z_1^2-\bar z_1^2}{z^2-\bar z_1^2}\Delta^{-1}
+&\dfrac{4icz}{z^2-z_1^2}\Delta^{-1}e^{-\frac{2i}{\alpha}(z_1^2+\beta)x}\\[5pt]
+\dfrac{4i\bar cz}{z^2-\bar z_1^2}\bar\Delta^{-1}e^{\frac{2i}{\alpha}(\bar z_1^2+\beta)x}
+&\dfrac{z^2-\bar z_1^2}{z^2-z_1^2}+\dfrac{\bar z_1^2-z_1^2}{z^2-z_1^2}\bar\Delta^{-1}
+\end{pmatrix}.}
+\end{equation}
+\begin{callout}[计算：\eqref{eq:7.3.18} 的分母、共轭与闭合系数]
+由面积元，单个分布点的系数为 $-2i$；把 $\zeta-z$ 改成 $z-\zeta$ 后为 $2i$。奇偶性给 $\psi_{11}(-z_1)=\psi_{11}(z_1)$、$\psi_{12}(-\bar z_1)=-\psi_{12}(\bar z_1)$。于是
+\[
+\psi_{12}(z)=\dfrac{4icz}{z^2-z_1^2}e^{-\frac{2i}{\alpha}(z_1^2+\beta)x}\psi_{11}(z_1),
+\]
+\[
+\psi_{11}(z)=1+\dfrac{4i\bar c\bar z_1}{z^2-\bar z_1^2}
+e^{\frac{2i}{\alpha}(\bar z_1^2+\beta)x}\psi_{12}(\bar z_1).
+\]
+先把第一式取 $z=\bar z_1$，再代入第二式取 $z=z_1$；用 $z_1^2-\bar z_1^2=4i\xi\eta$ 得
+\[
+\psi_{11}(z_1)=1-\dfrac{|c|^2\bar z_1^2}{\xi^2\eta^2}e^{\frac{8\xi\eta}{\alpha}x}\psi_{11}(z_1),
+\qquad \psi_{11}(z_1)=\Delta^{-1}.
+\]
+回代得第一行；第二行由 $\psi_{22}(z)=\overline{\psi_{11}(\bar z)}$、$\psi_{21}(z)=-\overline{\psi_{12}(\bar z)}$ 得到。因而两个非对角分母的位置和第二行的 $\bar\Delta$ 都被确定。
+\end{callout}
+由 \eqref{eq:7.3.6} 或 $\psi=I-\dfrac{\langle\psi R\rangle}{z}+O(z^{-2})$，
+\[
+q=\dfrac{2i}{\alpha}\lim\limits_{z\to\infty}z\psi_{12}(z)
+=-\dfrac{8c}{\alpha\Delta}e^{-\frac{2i}{\alpha}(z_1^2+\beta)x}.
+\]
+这是不另加参数的完整显式孤子形式。因 $\Im(\bar z_1^2)=-2\xi\eta\ne0$，$\Delta$ 在实 $x$ 上不为零。
+对 \eqref{eq:7.3.2} 的 $(1,2)$ 分布系数求导，得 $c_t=-2\Omega_{11}(z_1)c$。若 $\Omega_{11}(z_1)$ 不依赖时间，则
+$c(t)=c(0)e^{-2\Omega_{11}(z_1)t}$；一般情形将指数改为时间积分。纯四次色散时
+\[
+\dfrac{c_t}{c}=-\dfrac{4i}{\alpha^2}(z_1^2+\beta)^2
+=\dfrac{16\xi\eta(\xi^2-\eta^2+\beta)}{\alpha^2}
+-\dfrac{4i}{\alpha^2}\{(\xi^2-\eta^2+\beta)^2-4\xi^2\eta^2\}.
+\]
+这分别给模长增长率与相位速度，不必沿用原书未明确区分的若干 $\nu$ 简记。
+
+\subsection{规范等价与带源导数 NLS}
+取与谱无关的可逆对角矩阵 $g$，满足
+$g_x=-\dfrac{i\alpha}{2}Q^2\sigma_3g$，并固定左端归一化；置 $\varphi=g^{-1}\psi$，则
+\begin{equation}
+\eqq{7.3.19}{\bar\partial\varphi=g^{-1}\bar\partial\psi=\varphi R,\qquad \varphi\to g^{-1}.}
+\end{equation}
+记 $\widetilde Q=g^{-1}Qg$、$\widetilde M=g^{-1}Mg$。求导中的 $-g^{-1}g_x$ 正好消去 \eqref{eq:7.3.7} 的对角常数项，得到
+\begin{equation}
+\eqq{7.3.20}{\widetilde M_x+\left[\dfrac{i}{\alpha}(z^2+\beta)\sigma_3-z\widetilde Q,\widetilde M\right]=0.}
+\end{equation}
+相应位势方程为
+\begin{equation}
+\eqq{7.3.21}{i\widetilde Q_t+\sigma_3\widetilde Q_{xx}-i\alpha(\widetilde Q^3)_x+2\beta\sigma_3\widetilde Q^3
+=-\left\langle\omega_s\left(\dfrac{z}{\alpha}[\sigma_3,\widetilde M]+i[\widetilde Q,\widetilde M_{\mathrm d}]\right)\right\rangle.}
+\end{equation}
+\begin{callout}[计算：规范变换中时间项及源项的来由]
+空间规范为
+$g=\exp\bigl[\dfrac{i\alpha}{2}\sigma_3\displaystyle\int_{-\infty}^x|q|^2\dd s\bigr]$。
+无源的 \eqref{eq:7.3.16} 的 $(1,2)$ 元是
+\[
+iq_t+q_{xx}-i\alpha q^2\bar q_x-2\beta|q|^2q+\dfrac{\alpha^2}{2}|q|^4q=0.
+\]
+把它与共轭式分别乘 $\bar q,q$ 后相减，得
+\[
+(|q|^2)_t=\partial_x\left\{i(q_x\bar q-q\bar q_x)+\dfrac{\alpha}{2}|q|^4\right\}.
+\]
+另一方面，\eqref{eq:7.3.13} 的对角部分给
+$\partial_x\langle\omega_sM_{\mathrm d}\rangle=[Q,\langle z\omega_sM_{\mathrm o}\rangle]$。
+结合 \eqref{eq:7.3.16} 的源项及左端积分常数，完整的时间规范为
+\[
+g_tg^{-1}=\dfrac{i\alpha}{2}\left\{i(q_x\bar q-q\bar q_x)+\dfrac{\alpha}{2}|q|^4\right\}\sigma_3
+-\langle\omega_sM_{\mathrm d}\rangle.
+\]
+实际代入时使用
+\[
+g^{-1}Q_xg=\widetilde Q_x+[g^{-1}g_x,\widetilde Q],\qquad
+g^{-1}Q_tg=\widetilde Q_t+[g^{-1}g_t,\widetilde Q],
+\]
+\[
+g^{-1}Q_{xx}g=\widetilde Q_{xx}+2[g^{-1}g_x,\widetilde Q_x]
++[(g^{-1}g_x)_x,\widetilde Q]+[g^{-1}g_x,[g^{-1}g_x,\widetilde Q]].
+\]
+以 $g^{-1}g_x=-\dfrac{i\alpha}{2}\widetilde Q^2\sigma_3$ 代入，可在 $(1,2)$ 元中具体检查。先只列无源时间规范的贡献：
+\[
+\begin{aligned}
+(g^{-1}Q_xg)_{12}&=E_x+i\alpha|E|^2E,\\
+(g^{-1}Q_{xx}g)_{12}&=E_{xx}+2i\alpha|E|^2E_x+i\alpha(|E|^2)_xE-\alpha^2|E|^4E,\\
+(g^{-1}Q_tg)_{12}&=E_t-\alpha(E_x\bar E-E\bar E_x)E-\dfrac{3i\alpha^2}{2}|E|^4E,\\
+(g^{-1}QQ_xQg)_{12}&=-E^2\bar E_x+i\alpha|E|^4E.
+\end{aligned}
+\]
+代回上面的标量 mNLS，五次项系数是
+$\dfrac{3}{2}-1-1+\dfrac{1}{2}=0$；导数三次项为
+\[
+-i\alpha(E_x\bar E-E\bar E_x)E+2i\alpha|E|^2E_x+i\alpha(|E|^2)_xE-i\alpha E^2\bar E_x
+=i\alpha(|E|^2E)_x.
+\]
+下左元由复共轭约化确定，这就是矩阵形式的 $-i\alpha(\widetilde Q^3)_x$。
+原源项变成 $-\dfrac{2}{\alpha}\sigma_3\langle z\omega_s\widetilde M_{\mathrm o}\rangle$；时间规范还贡献
+$-i[\widetilde Q,\langle\omega_s\widetilde M_{\mathrm d}\rangle]$。两项合起来正是 \eqref{eq:7.3.21} 的右边。
+\end{callout}
+按原书取特殊谱分布
+\begin{equation}
+\eqq{7.3.22}{\widetilde\Lambda=g^{-1}\Lambda g,\qquad
+\omega_s(z)=ia\pi\delta(z_I)\delta(z_R^2-\gamma^2),\qquad \gamma>0,}
+\end{equation}
+其中 $g^{-1}\Lambda g$ 表示先共轭输入、再作用算子、再共轭输出。取
+\begin{equation}
+\eqq{7.3.23}{\widetilde Q=\begin{pmatrix}0&E\\-\bar E&0\end{pmatrix},\qquad
+\widetilde M=\begin{pmatrix}-r&p\\\bar p&r\end{pmatrix},\qquad r\in\mathbb R
+\quad(z=\gamma).}
+\end{equation}
+这里 $E$ 现为位势标量，和上一小节的指数矩阵语境不同。方程为
+\begin{equation}
+\eqq{7.3.24}{\begin{cases}
+iE_t+E_{xx}+i\alpha(|E|^2E)_x-2\beta|E|^2E=\dfrac{2ia}{\alpha}p-\dfrac{2a}{\gamma}Er,\\
+p_x+\dfrac{2i}{\alpha}(\gamma^2+\beta)p=2\gamma Er,\\
+r_x=-\gamma(E\bar p+\bar Ep).
+\end{cases}}
+\end{equation}
+\begin{callout}[计算：两个实谱点的取值与系数 $2$]
+$\delta(z_R^2-\gamma^2)=\dfrac{\delta(z_R-\gamma)+\delta(z_R+\gamma)}{2\gamma}$。
+由奇偶性，$\widetilde M_{\mathrm o}(-\gamma)=-\widetilde M_{\mathrm o}(\gamma)$、$\widetilde M_{\mathrm d}(-\gamma)=\widetilde M_{\mathrm d}(\gamma)$。面积元给
+\[
+\langle z\omega_s\widetilde M_{\mathrm o}\rangle=-ia\widetilde M_{\mathrm o}(\gamma),\qquad
+\langle\omega_s\widetilde M_{\mathrm d}\rangle=-\dfrac{ia}{\gamma}\widetilde M_{\mathrm d}(\gamma)
+=\dfrac{ia}{\gamma}r\sigma_3.
+\]
+因此 \eqref{eq:7.3.21} 的 $(1,2)$ 元依次贡献 $\dfrac{2ia}{\alpha}p$ 和 $-\dfrac{2a}{\gamma}Er$。
+对 \eqref{eq:7.3.20} 取 $(1,2)$ 元与 $(1,1)$ 元分别得到后两式；下左元必须是 $+\bar p$ 才与 Hermitian 约化及这些符号一致。
+\end{callout}
+对前面的孤子，直接对 $\Delta$ 求导可得
+$\partial_x\log\dfrac{\Delta}{\bar\Delta}=-\dfrac{i\alpha}{2}|q|^2$，所以
+可以选取常数对角规范，使 $g=\diag\left(\dfrac{\bar\Delta}{\Delta},\dfrac{\Delta}{\bar\Delta}\right)$。
+当 $\xi\eta/\alpha>0$ 时，这正好满足前面的左端单位归一化；另一种符号下须乘固定的对角常矩阵才能采用同一端点归一化。按这里展示的 $g$ 约定，最终
+\[
+E=\dfrac{\Delta^2}{\bar\Delta^2}q.
+\]
+这里要同时使 $c(t)$ 满足所选色散的数据流；仅有空间代数解并不自动满足任意指定的时间方程。
+
+\section{非局部 \texorpdfstring{$\bar\partial$}{dbar} 问题和 2+1 维可积系统}
+\subsection{非局部核及二维空间谱问题}
+\setcounter{definition}{2}
+\begin{definition}[非局部 $\bar\partial$ 问题]
+给定二元函数 $g(z,\zeta)$，方程
+\begin{equation}
+\eqq{7.4.1}{\bar\partial f(z)=\iint\limits_{\mathbb C}g(z,\zeta)\dd\zeta\wedge\dd\bar\zeta}
+\end{equation}
+称为非局部 $\bar\partial$ 问题。实际应用中，$g$ 通常还依赖未知函数在其他谱点的值，因而 $z$ 处的导数涉及整个谱平面。
+\end{definition}
+在右端可积且无穷远常数固定为 $1$ 时，直接对 \eqref{eq:7.4.1} 作 Cauchy--Green 积分，得
+\[
+f(z)=1+\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{\dd\zeta\wedge\dd\bar\zeta}{\zeta-z}
+\iint\limits_{\mathbb C}g(\zeta,m)\dd m\wedge\dd\bar m.
+\]
+考虑矩阵问题
+\begin{equation}
+\eqq{7.4.2}{\bar\partial\psi(z)=\iint\limits_{\mathbb C}\psi(\zeta)R(z,\zeta)\dd\zeta\wedge\dd\bar\zeta
+\equiv\psi R_zF,\qquad \psi=I+O(z^{-1}).}
+\end{equation}
+$F$ 表示对另一个谱变量的平面积分。于是
+\begin{equation}
+\eqq{7.4.3}{\psi(z)=I+\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{\dd\zeta\wedge\dd\bar\zeta}{\zeta-z}
+\iint\limits_{\mathbb C}\psi(m)R(\zeta,m)\dd m\wedge\dd\bar m
+=I+\psi R_zFC_z,}
+\end{equation}
+\begin{equation}
+\eqq{7.4.4}{\psi=I(I-R_zFC_z)^{-1}.}
+\end{equation}
+与局部问题相同，逆算子存在、迭代积分及各导数收敛是以下计算的条件。
+尤其要明确原书转置算子的含义：
+\[
+(fR_zF)(z)=\iint\limits_{\mathbb C}f(\zeta)R(z,\zeta)\dd\zeta\wedge\dd\bar\zeta,
+\quad
+(gR_z^TF)(z)=\iint\limits_{\mathbb C}g(\zeta)R(\zeta,z)^T\dd\zeta\wedge\dd\bar\zeta.
+\]
+交换两个积分变量并转置矩阵乘积，才有 $\langle fR_zF,g\rangle=\langle f,gR_z^TF\rangle$。仅在每点取矩阵转置而不交换核的两个变量，不能得到这一配对性质。
+令核满足
+\begin{equation}
+\eqq{7.4.5}{\partial_xR(z,\zeta)=i\zeta\sigma_3R(z,\zeta)-izR(z,\zeta)\sigma_3,}
+\end{equation}
+\begin{equation}
+\eqq{7.4.6}{\partial_yR(z,\zeta)=i(z-\zeta)R(z,\zeta).}
+\end{equation}
+逆算子求导给
+\begin{equation}
+\eqq{7.4.7}{\psi_x=\psi(\partial_xR_z)FC_z(I-R_zFC_z)^{-1}.}
+\end{equation}
+\begin{callout}[计算：\eqref{eq:7.4.8}--\eqref{eq:7.4.10} 中输入变量与输出变量]
+\eqref{eq:7.4.5} 的 $i\zeta$ 乘在输入函数 $\psi(\zeta)$ 上，$-iz$ 乘在积分后的输出上。因此先有
+\[
+\psi(\partial_xR_z)F=i(z\psi\sigma_3)R_zF-iz(\psi R_zF)\sigma_3.
+\]
+第二项再作用 $C_z$，用 $(zf)C_z=\langle f\rangle+z(fC_z)$，即得 \eqref{eq:7.4.8}。
+随后用 $\psi R_zFC_z=\psi-I$ 和
+$R_zFC_z(I-R_zFC_z)^{-1}=(I-R_zFC_z)^{-1}-I$，含 $(z\psi\sigma_3)(I-R_zFC_z)^{-1}$ 的两项抵消，得到 \eqref{eq:7.4.9}。
+对 $y$，由 \eqref{eq:7.4.6} 先写
+$\psi(\partial_yR_z)F=iz\psi R_zF-i(z\psi)R_zF$，作同一次积分消元就得到 \eqref{eq:7.4.10}。
+\end{callout}
+\begin{equation}
+\eqq{7.4.8}{\psi(\partial_xR_z)FC_z=i(z\psi\sigma_3)R_zFC_z-i\langle\psi R_zF\rangle\sigma_3-iz(\psi R_zFC_z)\sigma_3.}
+\end{equation}
+\begin{equation}
+\eqq{7.4.9}{\psi_x=-iz\psi\sigma_3-i\langle\psi R_zF\rangle\sigma_3\psi
++i\sigma_3[(zI)(I-R_zFC_z)^{-1}],}
+\end{equation}
+\begin{equation}
+\eqq{7.4.10}{\psi_y=iz\psi+i\langle\psi R_zF\rangle\psi-i[(zI)(I-R_zFC_z)^{-1}].}
+\end{equation}
+将第二式左乘 $\sigma_3$ 加到第一式，逆算子项完全抵消，得
+\begin{equation}
+\eqq{7.4.11}{\psi_x+\sigma_3\psi_y-iz[\sigma_3,\psi]-i[\sigma_3,\langle\psi R_zF\rangle]\psi=0.}
+\end{equation}
+定义
+\begin{equation}
+\eqq{7.4.12}{Q(x,y,t)=-i[\sigma_3,\langle\psi R_zF\rangle],}
+\end{equation}
+即得到二维空间的 ZS 型方程
+\begin{equation}
+\eqq{7.4.13}{(\partial_x+\sigma_3\partial_y+Q)\psi-iz[\sigma_3,\psi]=0.}
+\end{equation}
+注意其 $Q$ 项在等号左侧，与 \eqref{eq:7.2.20} 的写法不同；这来自核流 \eqref{eq:7.4.5} 的符号，而不是笔记中的记号替换。
+
+\subsection{时间谱问题与奇性色散}
+规定
+\begin{equation}
+\eqq{7.4.14}{\partial_tR(z,\zeta)=R(z,\zeta)\Omega(z)-\Omega(\zeta)R(z,\zeta),\qquad \Omega=\Omega_p+\Omega_s.}
+\end{equation}
+构造时间方程
+\begin{equation}
+\eqq{7.4.15}{\psi_t=V\psi+\psi\Omega.}
+\end{equation}
+由逆算子求导及 \eqref{eq:7.4.14}，
+\begin{equation}
+\eqq{7.4.16}{\begin{aligned}
+\psi_t&=(\psi R_zF\Omega C_z-\psi\Omega R_zFC_z)(I-R_zFC_z)^{-1}\\
+&=(\psi R_zF\Omega C_z-\psi\Omega)(I-R_zFC_z)^{-1}+\psi\Omega.
+\end{aligned}}
+\end{equation}
+第二行使用的是 $R_zFC_z(I-R_zFC_z)^{-1}=(I-R_zFC_z)^{-1}-I$，未交换 $\Omega$ 与积分算子。因此
+\begin{equation}
+\eqq{7.4.17}{V\psi=(\psi R_zF\Omega C_z-\psi\Omega)(I-R_zFC_z)^{-1}.}
+\end{equation}
+对奇性色散取
+\begin{equation}
+\eqq{7.4.18}{\Omega_s(z)=\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{\omega(\zeta)\sigma_3}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta,
+\qquad \bar\partial\Omega_s=\omega(z)\sigma_3.}
+\end{equation}
+\begin{callout}[计算：奇性色散怎样留下一个 Cauchy 项]
+先考虑只有 $\Omega_s$ 的部分。代入 \eqref{eq:7.4.17} 之前，使用核恒等式
+\[
+\dfrac{1}{(\zeta-z)(s-\zeta)}=\dfrac{1}{s-z}
+\left(\dfrac{1}{\zeta-z}-\dfrac{1}{\zeta-s}\right).
+\]
+依次完成 $\zeta$ 积分，两项分别给
+$(\psi-I)\Omega_s$ 与 $-(\omega(\psi-I)\sigma_3)C_z$。减去 $\psi\Omega_s$ 后，利用
+$(\omega\sigma_3)C_z=\Omega_s$，只剩
+\[
+V\psi(I-R_zFC_z)=-(\omega\psi\sigma_3)C_z,
+\qquad V\psi=-(\omega\psi\sigma_3)C_z(I-R_zFC_z)^{-1}.
+\]
+对第一式作 $\bar\partial$ 求导时，$V(z)$ 不能移进非局部积分当成 $V(\zeta)$；实际为
+\[
+(\bar\partial V)\psi+V(z)\iint\limits_{\mathbb C}\psi(\zeta)R(z,\zeta)\dd\zeta\wedge\dd\bar\zeta
+-\iint\limits_{\mathbb C}V(\zeta)\psi(\zeta)R(z,\zeta)\dd\zeta\wedge\dd\bar\zeta
+=-\omega\psi\sigma_3.
+\]
+若 $\psi(z)$ 可逆，右乘 $\psi^{-1}(z)$ 得
+\[
+\bar\partial V=-\omega\psi\sigma_3\psi^{-1}
++\iint\limits_{\mathbb C}[V(\zeta)-V(z)]\psi(\zeta)R(z,\zeta)\psi^{-1}(z)\dd\zeta\wedge\dd\bar\zeta.
+\]
+这解释了为什么非局部问题中的时间矩阵一般还满足一个积分方程。
+\end{callout}
+
+\subsection{对偶谱函数与位势的时间演化}
+对 \eqref{eq:7.4.12} 求导，
+\begin{equation}
+\eqq{7.4.19}{Q_t=-i[\sigma_3,\langle\partial_t(\psi R_zF)\rangle].}
+\end{equation}
+先把密度当作整体求导，完全对应局部问题 \eqref{eq:7.2.31}：
+\begin{equation}
+\eqq{7.4.20}{\partial_t(\psi R_zF)=(\psi R_zF\Omega-\psi\Omega R_zF)(I-C_zR_zF)^{-1}.}
+\end{equation}
+\begin{callout}[计算：密度求导后的逆算子为何在这个位置]
+写开乘积导数，
+\[
+\partial_t(\psi R_zF)=\psi(\partial_tR_z)F
++\psi(\partial_tR_z)FC_z(I-R_zFC_z)^{-1}R_zF.
+\]
+提取同一个左因子，使用
+$I+C_z(I-R_zFC_z)^{-1}R_zF=(I-C_zR_zF)^{-1}$，再代入 \eqref{eq:7.4.14}，就是 \eqref{eq:7.4.20}。
+由配对性质及 \eqref{eq:7.2.4}，$C_zR_zF$ 的配对伴随为 $-R_z^TFC_z$，从而得到下一式。
+\end{callout}
+\begin{equation}
+\eqq{7.4.21}{\begin{aligned}
+Q_t=-i\bigl[\sigma_3,{}&\langle\psi R_zF\Omega,I(I+R_z^TFC_z)^{-1}\rangle\\
+&-\langle\psi\Omega,I(I+R_z^TFC_z)^{-1}R_z^TF\rangle\bigr].
+\end{aligned}}
+\end{equation}
+按原书引入对偶函数
+\begin{equation}
+\eqq{7.4.22}{\widetilde\psi^T=I(I+R_z^TFC_z)^{-1}.}
+\end{equation}
+它所满足的积分微分方程是
+\begin{equation}
+\eqq{7.4.23}{\bar\partial\widetilde\psi(z)=-\iint\limits_{\mathbb C}R(\zeta,z)\widetilde\psi(\zeta)\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+并有对偶空间方程
+\begin{equation}
+\eqq{7.4.24}{\widetilde\psi_x+\widetilde\psi_y\sigma_3-\widetilde\psi Q-iz[\sigma_3,\widetilde\psi]=0.}
+\end{equation}
+\begin{callout}[证明：\eqref{eq:7.4.23}--\eqref{eq:7.4.24} 的转置与求导]
+先把 \eqref{eq:7.4.22} 乘回原算子，得
+\begin{equation}
+\eqq{7.4.25}{\widetilde\psi^T=I-\widetilde\psi^TR_z^TFC_z.}
+\end{equation}
+作 $\bar\partial$ 求导并按转置核定义写开，
+\[
+\bar\partial\widetilde\psi^T(z)=-\iint\limits_{\mathbb C}\widetilde\psi(\zeta)^TR(\zeta,z)^T\dd\zeta\wedge\dd\bar\zeta;
+\]
+转置即得 \eqref{eq:7.4.23}。再对 \eqref{eq:7.4.22} 求空间导数，
+\begin{equation}
+\eqq{7.4.26}{\partial_x\widetilde\psi^T=-\widetilde\psi^T(\partial_xR_z^T)FC_z(I+R_z^TFC_z)^{-1}.}
+\end{equation}
+对每点矩阵转置，原核流给
+\begin{equation}
+\eqq{7.4.27}{\partial_xR(z,\zeta)^T=i\zeta R(z,\zeta)^T\sigma_3-iz\sigma_3R(z,\zeta)^T,}
+\end{equation}
+\begin{equation}
+\eqq{7.4.28}{\partial_yR(z,\zeta)^T=i(z-\zeta)R(z,\zeta)^T.}
+\end{equation}
+用于转置算子时，应在这两式中再交换 $z,\zeta$。
+利用 $\widetilde\psi^TR_z^TFC_z=I-\widetilde\psi^T$，而不是 $\widetilde\psi^T-I$，与 \eqref{eq:7.4.8} 同样分离输出谱因子，得到
+\begin{equation}
+\eqq{7.4.29}{\widetilde\psi_x=iz\sigma_3\widetilde\psi-i\widetilde\psi\sigma_3\langle I,\widetilde\psi^TR_z^TF\rangle
+-i[(zI)(I+R_z^TFC_z)^{-1}]^T\sigma_3,}
+\end{equation}
+\begin{equation}
+\eqq{7.4.30}{\widetilde\psi_y=-iz\widetilde\psi+i\widetilde\psi\langle I,\widetilde\psi^TR_z^TF\rangle
++i[(zI)(I+R_z^TFC_z)^{-1}]^T.}
+\end{equation}
+例如 $x$ 导数在转置前的三项是
+$iz\widetilde\psi^T\sigma_3-i\langle\widetilde\psi^TR_z^TF\rangle\sigma_3\widetilde\psi^T
+-i\sigma_3[(zI)(I+R_z^TFC_z)^{-1}]$；逐项转置即是 \eqref{eq:7.4.29}。
+将 \eqref{eq:7.4.30} 右乘 $\sigma_3$ 再与 \eqref{eq:7.4.29} 相加，逆算子项相消，得
+\begin{equation}
+\eqq{7.4.31}{\widetilde\psi_x+\widetilde\psi_y\sigma_3
+=iz[\sigma_3,\widetilde\psi]+i\widetilde\psi[\langle I,\widetilde\psi^TR_z^TF\rangle,\sigma_3].}
+\end{equation}
+所需的矩恒等式按配对转移逐步得到：
+\begin{equation}
+\eqq{7.4.32}{\begin{aligned}
+\langle\psi R_zF,I\rangle
+&=\langle I(I-R_zFC_z)^{-1},IR_z^TF\rangle\\
+&=\langle I,IR_z^TF(I+C_zR_z^TF)^{-1}\rangle\\
+&=\langle I,I(I+R_z^TFC_z)^{-1}R_z^TF\rangle
+=\langle I,\widetilde\psi^TR_z^TF\rangle.
+\end{aligned}}
+\end{equation}
+第二个等号正用 \eqref{eq:7.2.5}，第三个等号用 $A(I+BA)^{-1}=(I+AB)^{-1}A$。
+所以
+\begin{equation}
+\eqq{7.4.33}{-i[\sigma_3,\langle\psi R_zF,I\rangle]
+=i[\langle I,\widetilde\psi^TR_z^TF\rangle,\sigma_3]=Q.}
+\end{equation}
+代入 \eqref{eq:7.4.31}，就得到 \eqref{eq:7.4.24}。
+\end{callout}
+将对偶函数代入 \eqref{eq:7.4.21}，在全部谱变量的平面积分中使用 \eqref{eq:7.4.2}、\eqref{eq:7.4.23}，两项合成乘积导数：
+\begin{equation}
+\eqq{7.4.34}{Q_t=-i[\sigma_3,\langle\bar\partial(\psi\Omega_p\widetilde\psi)\rangle]
++i[\sigma_3,\langle\omega\psi\sigma_3\widetilde\psi\rangle].}
+\end{equation}
+这里乘积的次序由矩阵转置固定；$\widetilde\psi$ 在一般非局部问题中不等于 $\psi^{-1}$。
+
+\subsection{双局部函数与二维递推}
+按原书在不同的物理位置定义
+$M_{12}=\psi(x,y_1,t,z)\sigma_3\widetilde\psi(x,y_2,t,z)$，并记 $Q_j=Q(x,y_j,t)$。
+由 \eqref{eq:7.4.13}、\eqref{eq:7.4.24} 逐项求乘积导数：
+\[
+\psi_x=-\sigma_3\psi_{y_1}-Q_1\psi+iz[\sigma_3,\psi],\qquad
+\widetilde\psi_x=-\widetilde\psi_{y_2}\sigma_3+\widetilde\psi Q_2+iz[\sigma_3,\widetilde\psi].
+\]
+中间的 $\psi\sigma_3\widetilde\psi_x$ 与 $\psi_x\sigma_3\widetilde\psi$ 按顺序合并，给
+\begin{equation}
+\eqq{7.4.35}{\partial_xM_{12}+\sigma_3\partial_{y_1}M_{12}+\partial_{y_2}M_{12}\sigma_3
+-iz[\sigma_3,M_{12}]+Q_1M_{12}-M_{12}Q_2=0.}
+\end{equation}
+注意只有在 $y_1=y_2=y$ 后才恢复原来的位势演化。若 $\Omega_p=\alpha_nz^n\sigma_3$，则
+\begin{equation}
+\eqq{7.4.36}{Q_t=\left\{-i\alpha_n[\sigma_3,\langle\bar\partial(z^nM_{12})\rangle]
++i[\sigma_3,\langle\omega M_{12}\rangle]\right\}_{y_1=y_2=y}.}
+\end{equation}
+定义原书的三个算子
+\begin{equation}
+\eqq{7.4.37}{P_{12}M=\partial_xM+\sigma_3\partial_{y_1}M+\partial_{y_2}M\sigma_3,
+\qquad Q_{12}^{\pm}M=Q_1M\pm MQ_2.}
+\end{equation}
+按对角和非对角拆开，
+\begin{equation}
+\eqq{7.4.38}{\begin{cases}
+P_{12}M_{12}^{\mathrm d}+Q_{12}^-M_{12}^{\mathrm o}=0,\\
+P_{12}M_{12}^{\mathrm o}-2iz\sigma_3M_{12}^{\mathrm o}+Q_{12}^-M_{12}^{\mathrm d}=0.
+\end{cases}}
+\end{equation}
+\begin{callout}[计算：消去对角部分并提取时间演化系数]
+指定 $P_{12}$ 的特征方向边界条件后，记其相应的逆为 $P_{12}^{-1}$。由第一式及 $M_{12}\to\sigma_3$ 的谱归一化，取兼容的齐次项 $\sigma_3$，得
+\[
+M_{12}^{\mathrm d}=\sigma_3-P_{12}^{-1}Q_{12}^-M_{12}^{\mathrm o}.
+\]
+在第二式代入，利用 $Q_{12}^-\sigma_3=-\sigma_3Q_{12}^+I$，左乘 $\dfrac{1}{2i}\sigma_3$，得到
+\[
+(\Lambda-z)M_{12}^{\mathrm o}=\dfrac{1}{2i}Q_{12}^+I,\qquad
+\Lambda=\dfrac{1}{2i}\sigma_3(P_{12}-Q_{12}^-P_{12}^{-1}Q_{12}^-).
+\]
+所以形式展开为
+$M_{12}^{\mathrm o}=\dfrac{i}{2}\displaystyle\sum\limits_{j=1}^\infty z^{-j}\Lambda^{j-1}Q_{12}^+I$。
+使用 \eqref{eq:7.2.46} 的谱矩规则，$\langle\bar\partial(z^nM_{12}^{\mathrm o})\rangle=-\dfrac{i}{2}\Lambda^nQ_{12}^+I$。
+再乘 $-2i\alpha_n\sigma_3$，系数为 $(-2i)\left(-\dfrac{i}{2}\right)=-1$，即得下一式。
+\end{callout}
+\begin{equation}
+\eqq{7.4.39}{-i\alpha_n[\sigma_3,\langle\bar\partial(z^nM_{12})\rangle]
+=-\alpha_n\sigma_3\Lambda^nQ_{12}^+I.}
+\end{equation}
+因此二维层级写成
+\begin{equation}
+\eqq{7.4.40}{Q_t=\left\{-\alpha_n\sigma_3\Lambda^nQ_{12}^+I+i[\sigma_3,\langle\omega M_{12}\rangle]\right\}_{y_1=y_2=y},}
+\end{equation}
+并受辅助方程
+\begin{equation}
+\eqq{7.4.41}{P_{12}M_{12}-iz[\sigma_3,M_{12}]+Q_{12}^-M_{12}=0}
+\end{equation}
+约束。$P_{12}^{-1}$ 与 $\Lambda$ 在这里首先是带指定积分常数的形式算子；未指定空间边界条件时，不能声称有唯一全局逆。
+原书把这一构造与 Davey--Stewartson 族联系起来；要得到具体 DS 方程，还需选择色散、约化及消去非局部位势。本节没有把 $M_{12}=\sigma_3$ 当作非零位势的完整解：把它代入 \eqref{eq:7.4.41} 会额外要求 $Q_{12}^-\sigma_3=0$，一般并不成立。
+若 $\Omega_p=0$，则多项式递推项消失，保留原书的二维 Maxwell--Bloch 型系统
+\[
+Q_t=i[\sigma_3,\langle\omega M_{12}\rangle]_{y_1=y_2=y},\qquad
+P_{12}M_{12}-iz[\sigma_3,M_{12}]+Q_{12}^-M_{12}=0.
+\]
+源项的辅助函数仍受第二式约束，不能独立指定。
+
+\section{\texorpdfstring{$\bar\partial$}{dbar} 方法求解 KPII 方程}
+\subsection{Lax 对、归一化与 Green 函数}
+本节 $u=u(x,y,t)$ 为实位势，空间衰减及其所需导数须足以支撑下述积分。KPII 方程为
+\begin{equation}
+\eqq{7.5.1}{u_t+6uu_x+u_{xxx}+3\partial_x^{-1}u_{yy}=0.}
+\end{equation}
+这里采用原书的对称逆导数
+$\partial_x^{-1}f=\dfrac{1}{2}\bigl(\displaystyle\int_{-\infty}^x-\displaystyle\int_x^\infty\bigr)f(x',y,t)\dd x'$。
+其 Lax 对是
+\begin{equation}
+\eqq{7.5.2}{\psi_y-\psi_{xx}-u\psi=0,}
+\end{equation}
+\begin{equation}
+\eqq{7.5.3}{\psi_t+4\psi_{xxx}+6u\psi_x+3u_x\psi+3(\partial_x^{-1}u_y)\psi+\alpha\psi=0.}
+\end{equation}
+\begin{callout}[证明：两个线性方程的相容性给 KPII]
+这里 $\alpha$ 可依赖谱参数，但与 $x,y,t$ 无关，因此不进入交换子。由乘积法则
+$[\partial_x^2,f]=2f_x\partial_x+f_{xx}$、
+$[f,\partial_x^3]=-3f_x\partial_x^2-3f_{xx}\partial_x-f_{xxx}$，计算得
+\[
+\begin{aligned}
+&[\partial_y-\partial_x^2-u,\partial_t+4\partial_x^3+6u\partial_x+3u_x+3\partial_x^{-1}u_y]\\
+&=6\{u_y-(\partial_x^{-1}u_y)_x\}\partial_x
++u_t+u_{xxx}+6uu_x+3\partial_x^{-1}u_{yy}
++3u_{xy}-3(\partial_x^{-1}u_y)_{xx}.
+\end{aligned}
+\]
+其中二阶导数项 $-12u_x\partial_x^2$ 与 $+12u_x\partial_x^2$ 相消；一阶项利用
+$(\partial_x^{-1}u_y)_x=u_y$ 相消，最后两项也相消。余下的乘法算子正是 \eqref{eq:7.5.1} 的左边。
+若先得到其 $x$ 导数形式，仍须用边界条件固定积分常数，才能回到这里的非局部形式。
+\end{callout}
+零势空间解为 $e^{izx-z^2y}$。代入时间方程，$4\partial_x^3e^{izx-z^2y}=-4iz^3e^{izx-z^2y}$，故选 $\alpha(z)=4iz^3$，不是二次幂。作变换
+\begin{equation}
+\eqq{7.5.4}{\varphi(x,y,t,z)=\psi(x,y,t,z)e^{-izx+z^2y},}
+\end{equation}
+对应所选 Jost 解的空间归一化为
+\begin{equation}
+\eqq{7.5.5}{\varphi\to1\quad\text{（所选空间无穷远归一化）}.}
+\end{equation}
+这不是任意位势下自动成立的存在性结论；下面用积分方程及其可逆性指定解。
+指数规范对导数算子的作用为
+\[
+e^{-izx+z^2y}\partial_xe^{izx-z^2y}=\partial_x+iz,\qquad
+e^{-izx+z^2y}\partial_ye^{izx-z^2y}=\partial_y-z^2.
+\]
+代入两个线性方程，得
+\begin{equation}
+\eqq{7.5.6}{\varphi_y-\varphi_{xx}-2iz\varphi_x=u\varphi,}
+\end{equation}
+\begin{equation}
+\eqq{7.5.7}{\varphi_t+4\varphi_{xxx}+12iz\varphi_{xx}-12z^2\varphi_x
++6u\varphi_x+6izu\varphi+3u_x\varphi+3(\partial_x^{-1}u_y)\varphi=0.}
+\end{equation}
+具体地，$4(\partial_x+iz)^3=4\partial_x^3+12iz\partial_x^2-12z^2\partial_x-4iz^3$，最后一项与 $\alpha$ 相消。
+
+取 Green 方程 $(\partial_y-\partial_x^2-2iz\partial_x)G=\delta(x)\delta(y)$。
+依第四章对称 Fourier 约定，二维正、逆变换前均有 $\dfrac{1}{2\pi}$，于是
+\begin{equation}
+\eqq{7.5.8}{\widehat G(\xi,\eta,z)=\dfrac{1}{2\pi}\dfrac{1}{\xi^2+2z\xi+i\eta},}
+\end{equation}
+\begin{equation}
+\eqq{7.5.9}{G(x,y,z)=\dfrac{1}{4\pi^2}\int_{\mathbb R}\int_{\mathbb R}
+\dfrac{e^{i(\xi x+\eta y)}}{\xi^2+2z\xi+i\eta}\dd\xi\dd\eta.}
+\end{equation}
+积分按下述轮廓选择或相应分布意义理解。对归一化解，正确的非齐次积分方程是
+\begin{equation}
+\eqq{7.5.10}{\varphi=1+G*(u\varphi)
+=1+\iint\limits_{\mathbb R^2}G(x-x',y-y',z)u(x',y')\varphi(x',y',z)\dd x'\dd y'.}
+\end{equation}
+其中 $1$ 是自由齐次解，不能遗漏；不带这一项的式子不能满足零势下的归一化。
+写 $z=z_1+iz_2$。原书的两个自由解是 $1$ 和 $e^{-2iz_1(x-2z_2y)}$，对应积分方程为
+\begin{equation}
+\eqq{7.5.11}{M(x,y,z)=1+\iint\limits_{\mathbb R^2}G(x-x',y-y',z)u(x',y')M(x',y',z)\dd x'\dd y',}
+\end{equation}
+\begin{equation}
+\eqq{7.5.12}{N(x,y,z)=e^{-2iz_1(x-2z_2y)}
++\iint\limits_{\mathbb R^2}G(x-x',y-y',z)u(x',y')N(x',y',z)\dd x'\dd y'.}
+\end{equation}
+为后面求谱导数，保留完整的平移核：
+\begin{equation}
+\eqq{7.5.13}{G(x-x',y-y',z)=\dfrac{1}{4\pi^2}\int_{\mathbb R}\int_{\mathbb R}
+\dfrac{e^{i\{\xi(x-x')+\eta(y-y')\}}}{\xi^2+2z\xi+i\eta}\dd\xi\dd\eta.}
+\end{equation}
+先对 $\eta$ 积分，写为
+\begin{equation}
+\eqq{7.5.14}{G(x-x',y-y',z)=\dfrac{1}{2\pi}\int_{\mathbb R}g(\xi,y-y',z)e^{i\xi(x-x')}\dd\xi,}
+\end{equation}
+\begin{equation}
+\eqq{7.5.15}{g(\xi,y-y',z)=\dfrac{1}{2\pi i}\int_{\mathbb R}
+\dfrac{e^{i\eta(y-y')}}{\eta-i\xi(\xi+2z)}\dd\eta.}
+\end{equation}
+\begin{callout}[计算：两个半平面闭合与留数符号]
+极点为 $\eta=i\xi(\xi+2z)$，其虚部 $\xi(\xi+2z_1)$ 决定是否落在积分半平面。
+当 $y-y'>0$，$|e^{i\eta(y-y')}|=e^{-\Im\eta(y-y')}$，在上半平面闭合，方向逆时针。Jordan 引理使半圆积分趋零，极点在内时的留数为
+$e^{-\xi(\xi+2z)(y-y')}$，不在内时为零。
+当 $y-y'<0$，在下半平面闭合，方向是顺时针，所以留数前有负号。这分别给下一两式。
+\end{callout}
+\begin{equation}
+\eqq{7.5.16}{g=H[\xi(\xi+2z_1)(y-y')]e^{-\xi(\xi+2z)(y-y')},\qquad y-y'>0,}
+\end{equation}
+\begin{equation}
+\eqq{7.5.17}{g=-H[\xi(\xi+2z_1)(y-y')]e^{-\xi(\xi+2z)(y-y')},\qquad y-y'<0.}
+\end{equation}
+合并为
+\begin{equation}
+\eqq{7.5.18}{g=\sgn(y-y')H[\xi(\xi+2z_1)(y-y')]e^{-\xi(\xi+2z)(y-y')}.}
+\end{equation}
+这也完整说明外层积分的取值区间：若 $z_1>0$，$y>y'$ 时取
+$(-\infty,-2z_1)\cup(0,\infty)$，$y<y'$ 时取 $(-2z_1,0)$ 并带负号；若 $z_1<0$，相应为
+$(-\infty,0)\cup(-2z_1,\infty)$ 和 $(0,-2z_1)$。在所选区间，指数实部为 $-\xi(\xi+2z_1)(y-y')<0$，给收敛方向。
+实轴上没有 RH 型跳跃，不表示 $G$ 在谱平面解析；下一小节会直接算出非零的 $\bar\partial G$。
+
+\subsection{散射数据与非局部谱关系}
+假设 \eqref{eq:7.5.11}--\eqref{eq:7.5.12} 的 Fredholm 算子在所用函数类内可逆，且允许谱求导。先在 $z_1\ne0$ 计算。
+\begin{callout}[计算：Green 函数的谱导数及两个 Jacobian]
+将分母写为 $2\xi\bigl(z+\dfrac{\xi}{2}+i\dfrac{\eta}{2\xi}\bigr)$，用 \eqref{eq:7.1.21} 得
+\[
+\bar\partial_zG=\dfrac{1}{4\pi}\int_{\mathbb R}\int_{\mathbb R}
+\dfrac{e^{i\{\xi(x-x')+\eta(y-y')\}}}{2\xi}
+\delta(z_1+\dfrac{\xi}{2})\delta(z_2+\dfrac{\eta}{2\xi})\dd\xi\dd\eta.
+\]
+对两个实 $\delta$，$\delta(z_1+\dfrac{\xi}{2})=2\delta(\xi+2z_1)$、
+$\delta(z_2+\dfrac{\eta}{2\xi})=2|\xi|\delta(\eta+2\xi z_2)$。
+先积分 $\eta$，再积分 $\xi$，给
+\[
+\bar\partial_zG=\dfrac{1}{2\pi}\sgn(-z_1)
+e^{-2iz_1\{(x-x')-2z_2(y-y')\}}.
+\]
+因而不满足 $\bar\partial_zG=0$。在 $z_1=0$，上述含 $\dfrac{1}{\xi}$ 的中间式不能直接代入；需按分布或有控制的边界极限解释，后面的逐点论证不覆盖该阈值线。
+\end{callout}
+对 \eqref{eq:7.5.11} 求 $\bar\partial$，由乘积法则及上式得
+\begin{equation}
+\eqq{7.5.19}{\bar\partial M=F(z_1,z_2)e^{-2iz_1(x-2z_2y)}
++\iint\limits_{\mathbb R^2}G(x-x',y-y',z)u(x',y')\bar\partial M(x',y',z)\dd x'\dd y',}
+\end{equation}
+其中
+\begin{equation}
+\eqq{7.5.20}{F(z_1,z_2)=\dfrac{\sgn(-z_1)}{2\pi}\iint\limits_{\mathbb R^2}
+u(x',y')M(x',y',z)e^{2iz_1(x'-2z_2y')}\dd x'\dd y'.}
+\end{equation}
+$F$ 是谱数据，对当前物理坐标 $x,y$ 不变。将 \eqref{eq:7.5.12} 乘 $F$ 后减去 \eqref{eq:7.5.19}，差满足齐次积分方程；由所假设的唯一性，
+\begin{equation}
+\eqq{7.5.21}{\bar\partial M(x,y,z)=F(z_1,z_2)N(x,y,z).}
+\end{equation}
+\begin{callout}[计算：由 Green 对称性消去 $N$]
+对 \eqref{eq:7.5.13} 中 $z\mapsto-\bar z$，用分母恒等式
+\[
+\xi^2-2\bar z\xi+i\eta=(\xi-2z_1)^2+2z(\xi-2z_1)+i(\eta+4z_1z_2).
+\]
+平移 Fourier 变量（Jacobian 为 $1$），指数增加
+$2iz_1(x-x')-4iz_1z_2(y-y')$，所以
+\[
+G(x-x',y-y',-\bar z)=G(x-x',y-y',z)e^{2iz_1\{(x-x')-2z_2(y-y')\}}.
+\]
+将 \eqref{eq:7.5.11} 中的谱变量换成 $-\bar z$，再乘 $e^{-2iz_1(x-2z_2y)}$，恰得到 \eqref{eq:7.5.12} 的自由项和相同积分核。唯一性给
+$N=M(x,y,-\bar z)e^{-2iz_1(x-2z_2y)}$，代入 \eqref{eq:7.5.21} 即得下一式。
+\end{callout}
+\begin{equation}
+\eqq{7.5.22}{\bar\partial M(x,y,z)=F(z_1,z_2)M(x,y,-\bar z)e^{-2iz_1(x-2z_2y)}.}
+\end{equation}
+这是在两个谱点 $z,-\bar z$ 之间耦合的 $\bar\partial$ 问题，不能把 $M(-\bar z)$ 当作已知常数。
+
+\subsection{反谱问题、渐近展开与位势重构}
+若谱无穷远 $M\to1$，且右端谱密度可积，Cauchy--Green 公式给
+\begin{equation}
+\eqq{7.5.23}{M(x,y,z)=1+\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}
+\dfrac{F(\zeta_1,\zeta_2)M(x,y,-\bar\zeta)e^{-2i\zeta_1(x-2\zeta_2y)}}{\zeta-z}
+\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+其中 $\zeta=\zeta_1+i\zeta_2$。将正问题与反问题的表达式并列：
+\begin{equation}
+\eqq{7.5.24}{M-1=\begin{cases}
+\displaystyle\iint\limits_{\mathbb R^2}G(x-x',y-y',z)u(x',y')M(x',y',z)\dd x'\dd y',\\[5pt]
+\displaystyle\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}
+\dfrac{F(\zeta_1,\zeta_2)M(x,y,-\bar\zeta)e^{-2i\zeta_1(x-2\zeta_2y)}}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta.
+\end{cases}}
+\end{equation}
+原书的 Green 大参数式应按弱渐近理解，不能是 $(x,y)$ 上的普通函数逐点展开：
+\begin{equation}
+\eqq{7.5.25}{G(x,y,z)\sim\dfrac{i}{4z}\sgn(x)\delta(y)+O(z^{-2})
+\quad\text{（有条件的分布渐近）}.}
+\end{equation}
+\begin{callout}[计算：\eqref{eq:7.5.25}--\eqref{eq:7.5.28} 的系数与适用条件]
+先解释首项。若 Green 分布具有 $z^{-1}$ 展开，代入
+$(\partial_y-\partial_x^2-2iz\partial_x)G=\delta(x)\delta(y)$，零次幂要求
+$-2i\partial_x(zG)_{\rm leading}=\delta(x)\delta(y)$。
+取对称逆导数，并用 $\partial_x\sgn x=2\delta(x)$，得到首项 $\dfrac{i}{4}\sgn x\delta(y)$。
+这也与 Fourier 恒等式
+$\displaystyle\int_{\mathbb R}e^{i\eta y}\dd\eta=2\pi\delta(y)$、
+$\operatorname{pv}\displaystyle\int_{\mathbb R}\dfrac{e^{i\xi x}}{\xi}\dd\xi=i\pi\sgn x$
+一致。
+
+这一比较只确定首项；若要声称 $O(z^{-2})$ 的统一弱余项，仍需对谱方向、测试函数类及 Green 算子作额外估计。不能在 \eqref{eq:7.5.9} 的整个无界 Fourier 平面上把分母几何级数逐项积分。本笔记把 \eqref{eq:7.5.25} 的余项作为相应渐近成立时的条件，不把它当作已证明的一般估计。
+
+在该展开可作用于 $uM$、且 $M=1+O(z^{-1})$ 的条件下，先积分 $y'$：
+\[
+\begin{aligned}
+M-1&=\dfrac{i}{4z}\iint\limits_{\mathbb R^2}\sgn(x-x')\delta(y-y')u(x',y')\dd x'\dd y'+O(z^{-2})\\
+&=\dfrac{i}{4z}\int_{\mathbb R}\sgn(x-x')u(x',y)\dd x'+O(z^{-2}).
+\end{aligned}
+\]
+在 $x'=x$ 处分成两个积分，即为 \eqref{eq:7.5.26}。
+对 \eqref{eq:7.5.24} 第二式，假定谱密度及其一阶谱矩可积，并沿有控制的谱无穷远方向取极限。恒等式
+$\dfrac{1}{\zeta-z}=-\dfrac{1}{z}+\dfrac{\zeta}{z(\zeta-z)}$
+给 \eqref{eq:7.5.27}；系数 $-\dfrac{1}{2\pi i}=\dfrac{i}{2\pi}$。
+比较两个首项，对 $x$ 求导，第一项中的两个积分各贡献 $u$，故得到 \eqref{eq:7.5.28}。
+\end{callout}
+\begin{equation}
+\eqq{7.5.26}{M-1=\dfrac{i}{4z}\left\{\int_{-\infty}^xu(x',y)\dd x'-\int_x^\infty u(x',y)\dd x'\right\}+O(z^{-2}).}
+\end{equation}
+\begin{equation}
+\eqq{7.5.27}{M-1=\dfrac{i}{2\pi z}\iint\limits_{\mathbb C}
+F(\zeta_1,\zeta_2)M(x,y,-\bar\zeta)e^{-2i\zeta_1(x-2\zeta_2y)}\dd\zeta\wedge\dd\bar\zeta+O(z^{-2}).}
+\end{equation}
+\begin{equation}
+\eqq{7.5.28}{u(x,y)=\dfrac{1}{\pi}\partial_x\iint\limits_{\mathbb C}
+F(\zeta_1,\zeta_2)M(x,y,-\bar\zeta)e^{-2i\zeta_1(x-2\zeta_2y)}\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+也可避开 Green 弱余项，从 \eqref{eq:7.5.6} 直接核验重构系数：若 $M=1+\dfrac{M^{(1)}}{z}+O(z^{-2})$ 可逐项求空间导数，零次幂给 $-2i(M^{(1)})_x=u$；而 \eqref{eq:7.5.27} 给 $M^{(1)}=\dfrac{i}{2\pi}\displaystyle\iint\cdots$，立刻得到同一重构式。这验证了系数，但仍不替代渐近展开存在性的分析。
+
+\subsection{谱数据的时间演化和完整反散射流程}
+将 $\psi=Me^{izx-z^2y}$ 代入 \eqref{eq:7.5.22}。由于指数对 $z$ 解析，且
+\[
+e^{-2iz_1(x-2z_2y)}e^{izx-z^2y}=e^{-i\bar zx-\bar z^2y},
+\]
+得到
+\begin{equation}
+\eqq{7.5.29}{\bar\partial\psi(x,y,t,z)=F(z_1,z_2,t)\psi(x,y,t,-\bar z).}
+\end{equation}
+求 $t$ 导数，
+\begin{equation}
+\eqq{7.5.30}{(\bar\partial\psi(z))_t=F_t\psi(-\bar z)+F\psi_t(-\bar z).}
+\end{equation}
+另一方面，时间方程中的 $u$ 与谱无关、$\bar\partial z^3=0$，因此
+\begin{equation}
+\eqq{7.5.31}{(\bar\partial\psi(z))_t=-[4\partial_x^3+6u\partial_x+3u_x+3\partial_x^{-1}u_y+4iz^3]\bar\partial\psi(z),}
+\end{equation}
+\begin{equation}
+\eqq{7.5.32}{\psi_t(-\bar z)=-[4\partial_x^3+6u\partial_x+3u_x+3\partial_x^{-1}u_y-4i\bar z^3]\psi(-\bar z).}
+\end{equation}
+将 \eqref{eq:7.5.29}、\eqref{eq:7.5.32} 代入 \eqref{eq:7.5.30}，与 \eqref{eq:7.5.31} 比较。因为 $F$ 与 $x,y$ 无关，全部空间微分算子项相消，留下
+$\{F_t+4i(z^3+\bar z^3)F\}\psi(-\bar z)=0$。
+归一化解不恒为零，所以
+\begin{equation}
+\eqq{7.5.33}{F_t=-4i(z^3+\bar z^3)F,}
+\end{equation}
+\begin{equation}
+\eqq{7.5.34}{F(z_1,z_2,t)=F(z_1,z_2,0)e^{-4i(z^3+\bar z^3)t}.}
+\end{equation}
+代回反问题时，时间相位必须使用积分谱变量：
+\[
+M(x,y,t,z)=1+\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}
+\dfrac{F(\zeta_1,\zeta_2,0)M(x,y,t,-\bar\zeta)}{\zeta-z}
+e^{-2i\zeta_1(x-2\zeta_2y)-4i(\zeta^3+\bar\zeta^3)t}\dd\zeta\wedge\dd\bar\zeta.
+\]
+最终
+\begin{equation}
+\eqq{7.5.35}{u(x,y,t)=\dfrac{1}{\pi}\partial_x\iint\limits_{\mathbb C}
+F(\zeta_1,\zeta_2,0)M(x,y,t,-\bar\zeta)
+e^{-2i\zeta_1(x-2\zeta_2y)-4i(\zeta^3+\bar\zeta^3)t}\dd\zeta\wedge\dd\bar\zeta.}
+\end{equation}
+由初值先解 \eqref{eq:7.5.11}，用 \eqref{eq:7.5.20} 得 $F(0)$；由 \eqref{eq:7.5.34} 推进谱数据，再解带时间相位的 \eqref{eq:7.5.23}，最后以 \eqref{eq:7.5.35} 重构。非线性 PDE 的时间演化变成谱数据的线性相位演化，但每个时刻仍需解反谱积分方程；其可解性条件不能省去。
+
+\section*{第五、六、七章放在一起看}
+\addcontentsline{toc}{section}{第五、六、七章放在一起看}
+第五章的零背景和第六章的非零背景，主要区别在自由谱问题、解析域与归一化；第七章则进一步改变了谱数据的载体：曲线上的跳跃可看成支撑在曲线上的 $\bar\partial$ 分布，平面密度和非局部核还容纳更一般的数据。极点数据仍会使积分退化为有限维系统，因此本章多孤子的消元、Cramer 法则和增广行列式，与前两章无反射 RH 问题的解法在结构上相通。
+
+三章都有同一个重构机制：先确定谱无穷远的单位首项，再取 $z^{-1}$ 系数的非对角元。具体常数由各章 Lax 对的谱符号决定；第七章 ZS 的 $q=-2i\langle\psi R\rangle_{12}$、WKI 的 $q=\dfrac{2i}{\alpha}\displaystyle\lim\limits_{z\to\infty}z\psi_{12}$ 不能互相套用。KPII 的重构还多一个空间导数，因为位势来自标量谱函数首个系数的 $x$ 导数。
+
+\section*{常用符号与公式速查}
+\addcontentsline{toc}{section}{常用符号与公式速查}
+这里只罗列反复使用的量，依各节原有记号查找，不另作跨章符号映射。
+\needspace{5\baselineskip}
+\noindent\textbf{复导数、面积元和基本解（7.1.2、7.1.19、7.1.21）}
+\[
+\partial=\dfrac{1}{2}(\partial_x-i\partial_y),\quad \bar\partial=\dfrac{1}{2}(\partial_x+i\partial_y),\quad
+\dd z\wedge\dd\bar z=-2i\dd x\dd y,\quad \bar\partial\dfrac{1}{\pi(z-z_0)}=\delta(z-z_0).
+\]
+\needspace{5\baselineskip}
+\noindent\textbf{Cauchy--Green 算子及平面矩（7.2.2、7.2.14）}
+\[
+(fC_z)(z)=\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}\dfrac{f(\zeta)}{\zeta-z}\dd\zeta\wedge\dd\bar\zeta,
+\qquad \langle f\rangle=\dfrac{1}{2\pi i}\iint\limits_{\mathbb C}f(\zeta)\dd\zeta\wedge\dd\bar\zeta.
+\]
+$\langle f,g\rangle=\langle fg^T\rangle$；$\langle fC_z,g\rangle=-\langle f,gC_z\rangle$。逆算子在配对中转移时，按 \eqref{eq:7.2.5} 保留次序。
+\needspace{5\baselineskip}
+\noindent\textbf{ZS 位势和辅助矩阵（7.2.19、7.2.37）}
+\[
+\sigma_3=\diag(1,-1),\quad Q=-i[\sigma_3,\langle\psi R\rangle],\quad
+M=\psi\sigma_3\psi^{-1},\quad M_x+iz[\sigma_3,M]=[Q,M].
+\]
+$M_{\mathrm d},M_{\mathrm o}$ 分别是对角和非对角部分，$M^2=I$。有限维多孤子系统也用 $M$，按第 7.2 节相应小节的语境区别。
+\needspace{5\baselineskip}
+\noindent\textbf{ZS 递推算子（7.2.43）}
+\[
+\Lambda F=\dfrac{i}{2}\sigma_3\{F_x-[Q,\partial_x^{-1}[Q,F]]\},\qquad
+M_{\mathrm o}=-i(\Lambda-z)^{-1}Q.
+\]
+\needspace{5\baselineskip}
+\noindent\textbf{WKI 归一化和递推（7.3.6、7.3.15）}
+\[
+Q=-\dfrac{i}{\alpha}[\sigma_3,\langle\psi R\rangle],\qquad
+M^{(2j+1)}=i\alpha\Lambda^jQ,\qquad M_{\mathrm o}=-i\alpha z(\Lambda-z^2)^{-1}Q.
+\]
+此处 $\Lambda=(I+L)(\dfrac{i\alpha}{2}\sigma_3\partial_x-\beta-\dfrac{\alpha^2}{2}Q^2)$，
+$LF=-\dfrac{i\alpha}{2}[\sigma_3Q,\partial_x^{-1}[Q,F]]$；它与 ZS 递推算子不同。
+\needspace{5\baselineskip}
+\noindent\textbf{非局部核与对偶函数（7.4.2、7.4.22--7.4.23）}
+\[
+(fR_zF)(z)=\iint\limits_{\mathbb C}f(\zeta)R(z,\zeta)\dd\zeta\wedge\dd\bar\zeta,
+\qquad \widetilde\psi^T=I(I+R_z^TFC_z)^{-1}.
+\]
+转置算子使用 $R(\zeta,z)^T$。$M_{12}=\psi(y_1)\sigma_3\widetilde\psi(y_2)$；演化方程最后取 $y_1=y_2=y$。
+\needspace{5\baselineskip}
+\noindent\textbf{KPII 的谱数据、时间相位和重构（7.5.22、7.5.28、7.5.34）}
+\[
+\bar\partial M=F(z_1,z_2,t)M(-\bar z)e^{-2iz_1(x-2z_2y)},\qquad
+F(t)=F(0)e^{-4i(z^3+\bar z^3)t}.
+\]
+\[
+u=\dfrac{1}{\pi}\partial_x\iint\limits_{\mathbb C}
+F(\zeta_1,\zeta_2,t)M(-\bar\zeta)e^{-2i\zeta_1(x-2\zeta_2y)}\dd\zeta\wedge\dd\bar\zeta.
+\]
+这里 $M$ 是标量，与 ZS/WKI 的矩阵 $M$ 无关。$\partial_x^{-1}$ 采用第 7.5 节说明的对称逆导数。
+\end{document}

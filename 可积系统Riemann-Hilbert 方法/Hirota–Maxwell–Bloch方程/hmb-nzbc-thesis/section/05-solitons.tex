@@ -1,0 +1,304 @@
+\section{投影 dressing：可证明的恒等式与文献输入}
+设 $\lambda_1\in\mathbb C^+$ 离开连续谱，$y$ 为某个已知解的同时 Lax 列解。记
+\begin{equation}\label{eq:projector}
+P=\dfrac{yy^\dagger}{y^\dagger y},\qquad
+\delta=\lambda_1-\conj{\lambda_1},\qquad
+D(\lambda)=I-\dfrac{\delta}{\lambda-\conj{\lambda_1}}P.
+\end{equation}
+若 $y$ 在一点非零，则线性常微分方程的唯一性保证其不变为零。因而 $P$ 良定义，且 $P^2=P=P^\dagger$、$\tr P=1$。在 $\operatorname{im}P$ 与 $\ker P$ 上，$D$ 的特征值分别为
+$(\lambda-\lambda_1)/(\lambda-\conj{\lambda_1})$ 和 1，故
+\begin{equation}\label{eq:Dinverse}
+D^{-1}=I+\dfrac{\delta}{\lambda-\lambda_1}P,\qquad
+\det D=\dfrac{\lambda-\lambda_1}{\lambda-\conj{\lambda_1}}.
+\end{equation}
+特别地，对实 $a$，
+\begin{equation}\label{eq:Dunitary}
+D(a)^{-1}=D(a)^\dagger,\qquad
+\left|\dfrac{a-\lambda_1}{a-\conj{\lambda_1}}\right|=1.
+\end{equation}
+
+为明确本章的来源，先把已知 Darboux 定理与独立推导分开。文献\cite{LHP2013}第 3 页式 (3.5)--(3.20) 建立 $T=\lambda I-S$ 的交织 关系。取
+$S=\conj{\lambda_1}I+\delta P$，则 $T=(\lambda-\conj{\lambda_1})D$；除去与 $x,z$ 无关的标量不改变 Lax 交织 关系。故同一变换在本文约定下为
+\begin{equation}\label{eq:darbouxfields}
+u^{[1]}=u-2\ii\delta P_{12},\qquad
+R^{[1]}=D(a)RD(a)^{-1}.
+\end{equation}
+这里使用的是已有 Darboux 定理，不将它标为本稿新定理。
+
+下面给出两个决定符号的独立计算。将 $D=I+D_1/\lambda+O(\lambda^{-2})$ 代入
+$D_x+D\widehat U=\widehat U^{[1]}D$，其中 $D_1=-\delta P$，比较常数项：
+\[
+A^{[1]}=A+\ii[\sg,D_1]=A-\ii\delta[\sg,P],
+\qquad u^{[1]}=u-2\ii\delta P_{12}.
+\]
+而 $(D_z+D\widehat V)D^{-1}$ 在 $\lambda=a$ 的留数为
+$\ii D(a)RD(a)^{-1}$，得到介质公式。由于 $D(a)$ 酉，
+\[
+(R^{[1]})^\dagger=R^{[1]},\quad
+\tr R^{[1]}=0,\quad
+(R^{[1]})^2=D(a)R^2D(a)^{-1}.
+\]
+所以 $\eta^{[1]}$ 为实数，Bloch 长度在变换下不变。
+
+若要直接检查交织 关系，设 $B$ 为 $\widehat U$ 或 $\widehat V$，对应变量为 $s=x$ 或 $z$，则
+\begin{equation}\label{eq:Pderivative}
+P_s=(I-P)B(\lambda_1)P-PB(\conj{\lambda_1})(I-P).
+\end{equation}
+它由 $y_s=B(\lambda_1)y$ 和
+$y_s^\dagger=-y^\dagger B(\conj{\lambda_1})$ 对商求导得到。该式使变换后在 $\lambda_1,\conj{\lambda_1}$ 的表观极点留数相消。多项式系数对应原 Darboux 定理；本稿不把只验证空间部分和共振留数夸称为重新证明了全部时间 Darboux 定理。下文还对具体例子独立代回原 PDE，避免只依赖公式传递。
+
+\section{一个无奇点的纯虚谱参数例子}
+取
+\begin{equation}\label{eq:imaginarypoint}
+\lambda_1=\ii b,\quad b>Q,\quad
+\kappa=\sqrt{b^2-Q^2},\quad
+W=b+\kappa,\quad h_0=\dfrac{Q}{W}\in(0,1).
+\end{equation}
+选择 $\rho_1=\ii\kappa$、$w_1=\ii W$。它位于外部上半平面，离开连续谱和两个分支点。定义
+\begin{equation}\label{eq:explicit-y}
+s=\kappa[x-F(\ii b)z],\qquad
+y=\begin{pmatrix}e^s-h_0e^{-s}\\-h_0e^s+e^{-s}\end{pmatrix}.
+\end{equation}
+这是背景解 $E(w_1)e^{-\ii\theta(w_1)\sg}(1,1)^{\mathsf T}$，因此同时满足去相位的两部分 Lax 方程。记
+\[
+Y_1=e^s-h_0e^{-s},\quad Y_2=-h_0e^s+e^{-s},\quad
+\Delta=|Y_1|^2+|Y_2|^2.
+\]
+$E(w_1)$ 的行列式为 $1-h_0^2>0$，两个指数都不为零，故 $y\ne0$、$\Delta>0$。得到
+\begin{equation}\label{eq:onefield}
+u^{[1]}=Q+4b\dfrac{Y_1\conj{Y_2}}{\Delta},\qquad
+R^{[1]}=D(a)R_\infty D(a)^\dagger.
+\end{equation}
+这是一组非零背景的呼吸子型解；“一个孤子”在此指一个独立离散谱轨道，不指只有一个谱平面极点，也不保证波形是固定形状的行波。
+
+\section{端态计算与共同相位的恢复}
+\begin{proposition}[端态与无奇点性]\label{prop:oneboundary}
+对任意固定实 $z$，式 \eqref{eq:onefield} 光滑且
+\[
+u^{[1]}\to-Q,\quad
+v^{[1]}\to\dfrac{\ii\eta_0Q}{a},\quad
+\eta^{[1]}\to\eta_0,\qquad x\to\pm\infty.
+\]
+将光场和极化同时乘 $-1$ 后，两端恢复为本稿指定的背景。
+\end{proposition}
+\begin{proof}
+固定 $z$，$\operatorname{Re}s=\kappa[x-\operatorname{Re}F(\ii b)z]$。故
+\begin{equation}\label{eq:Pends}
+P_+=\dfrac{1}{1+h_0^2}
+\begin{pmatrix}1&-h_0\\-h_0&h_0^2\end{pmatrix},\qquad
+P_-=\dfrac{1}{1+h_0^2}
+\begin{pmatrix}h_0^2&-h_0\\-h_0&1\end{pmatrix}.
+\end{equation}
+因为 $2bh_0=Q(1+h_0^2)$，
+\[
+Q+4b(P_\pm)_{12}=Q-\dfrac{4bh_0}{1+h_0^2}=-Q.
+\]
+记 $D_\pm=I-2\ii bP_\pm/(\lambda+\ii b)$。空间交织 在端态给出
+$D_\pm U_Q(\lambda)=U_{-Q}(\lambda)D_\pm$。在 $\lambda=a$ 使用
+$R_\infty=\ii\eta_0U_Q(a)/a$，得到
+$R_\infty^{[1]}=\ii\eta_0U_{-Q}(a)/a$，其对角元为 $\eta_0$，非对角元对应 $v^{[1]}=\ii\eta_0Q/a$。收敛速度由被舍去指数的比值给出，至少为 $O(e^{-2\kappa|x|})$（固定 $z$）。
+
+$\Delta>0$，$a+\ii b\ne0$，所以场表达式在有限实 $x,z$ 上无极点。系统对 $(q,p)\mapsto e^{\ii\phi}(q,p)$ 不变，取 $\phi=\pi$ 即可恢复背景。
+\end{proof}
+
+为固定后续 RHP 的归一化，取 $H=\diag(\ii,-\ii)$，定义最终三场
+\begin{equation}\label{eq:finalfields}
+q=-e^{-\ii\Omega z}\left(Q+4bP_{12}\right),\qquad
+p=e^{-\ii\Omega z}(R^{[1]})_{12},\qquad
+\eta=(R^{[1]})_{11}.
+\end{equation}
+去相位后的最终介质矩阵为 $HR^{[1]}H^{-1}$。式 \eqref{eq:finalfields} 中 $p$ 的正号来自 $v^{[1]}=-(R^{[1]})_{12}$ 后又乘一次 $-1$，不是另换了介质约定。
+
+给出无需展开巨大行列式的分量表达。令
+\[
+t=\dfrac{2\ii b}{a+\ii b},\quad D(a)=(d_{jk})=I-tP,\quad A_0=\dfrac{\eta_0Q}{a}.
+\]
+则
+\begin{align}
+\eta&=\eta_0(|d_{11}|^2-|d_{12}|^2)
++\ii A_0(d_{11}\conj{d_{12}}-d_{12}\conj{d_{11}}),\label{eq:etacomponent}\\
+e^{\ii\Omega z}p
+&=\eta_0(d_{11}\conj{d_{21}}-d_{12}\conj{d_{22}})
++\ii A_0(d_{11}\conj{d_{22}}-d_{12}\conj{d_{21}}).\label{eq:pcomponent}
+\end{align}
+所有量均由两个复指数与四则运算给出，可直接实现。酉共轭还严格保证
+$|p|^2+\eta^2=\eta_0^2(1+Q^2/a^2)$。
+
+\section{左右 Jost 归一化的显式对角化}
+这一节补上原谱 dressing 与标准散射 RHP 之间不能略去的一步。先讨论未乘 $H$ 的中间解，其背景为 $-Q$，记
+$E_{-Q}=I+\ii Q\sigma_1/w$。利用 \eqref{eq:Pends} 相乘，得到
+\begin{equation}\label{eq:enddiagonal}
+D_\pm(\lambda(w))E_Q(w)=E_{-Q}(w)T_\pm(w),
+\end{equation}
+其中
+\begin{align}
+T_+&=\diag\left(\dfrac{\rho-\ii\kappa}{\lambda+\ii b},
+\dfrac{\rho+\ii\kappa}{\lambda+\ii b}\right),\label{eq:Tplus}\\
+T_-&=\diag\left(\dfrac{\rho+\ii\kappa}{\lambda+\ii b},
+\dfrac{\rho-\ii\kappa}{\lambda+\ii b}\right).\label{eq:Tminus}
+\end{align}
+例如第一式的 $(1,1)$ 元按 $P_+$ 计算为
+\begin{align*}
+1-\dfrac{2\ii b}{\lambda+\ii b}
+\dfrac{1+\ii Qh_0/w}{1+h_0^2}
+&=\dfrac{\lambda+\ii b-\ii Q/h_0+Q^2/w}{\lambda+\ii b}\\
+&=\dfrac{\rho-\ii\kappa}{\lambda+\ii b}.
+\end{align*}
+这里用了 $Q/h_0=b+\kappa$；其余元素给出 \eqref{eq:enddiagonal}。
+
+故中间解的同时归一化 Jost 矩阵为
+\begin{equation}\label{eq:dressedjost}
+\Psi_\pm^{[1]}=D(\lambda)\Psi_0T_\pm^{-1}.
+\end{equation}
+由于 $T_\pm$ 是与 $x,z$ 无关的对角矩阵，它不改变 Lax 方程；端态恰好为 $E_{-Q}e^{-\ii\theta\sg}$。因此
+\begin{equation}\label{eq:onescattering}
+S^{[1]}=T_+T_-^{-1}
+=\diag\left(\dfrac{\rho-\ii\kappa}{\rho+\ii\kappa},
+\dfrac{\rho+\ii\kappa}{\rho-\ii\kappa}\right).
+\end{equation}
+这证明该解无反射，而不是从波形外观推断。
+
+最终旋转后的 Jost 矩阵是 $H\Psi_\pm^{[1]}H^{-1}$，其背景特征向量恢复为 $E_Q$。对角散射矩阵不变。$s_{11}$ 的两个简单零点为
+\begin{equation}\label{eq:onezeros}
+\zeta_1=\ii(b+\kappa),\qquad
+\zeta_2=-\ii(b-\kappa)=h(\conj{\zeta_1}).
+\end{equation}
+它们分别处于外部上半平面和内部下半圆盘。对应的 $s_{22}$ 零点是两共轭点，四点互异。
+
+\section{一组完整四点轨道的显式 RHP 解}
+\begin{theorem}[一轨道无反射 RHP]\label{thm:oneRHP}
+设 $Q>0,b>Q$，背景参数满足前述条件。用 \eqref{eq:explicit-y} 定义 $P$，则
+\begin{equation}\label{eq:explicitM}
+M(w)=H\left[(\lambda(w)+\ii b)I-2\ii bP\right]
+E_Q(w)
+\diag\left(\dfrac{1}{\rho(w)-\ii\kappa},
+\dfrac{1}{\rho(w)+\ii\kappa}\right)H^{-1}
+\end{equation}
+是第 \ref{ch:rhp} 章的无反射 RHP 的一个解。它的两处归一化为 \eqref{eq:Minfty}、\eqref{eq:Mzero}，行列式为 $\gamma$，仅有式 \eqref{eq:onezeros} 及其共轭所指定的列极点；在分支点、轮廓交点和共振原像均有限。其留数常数为
+\begin{equation}\label{eq:onec}
+c_1=\dfrac{2\ii\kappa}{\rho'(\zeta_1)},\qquad
+c_2=-\dfrac{Q^2}{\conj{\zeta_1}^{\,2}}\conj{c_1},
+\qquad \rho'(w)=\dfrac{1}{2}\left(1-\dfrac{Q^2}{w^2}\right).
+\end{equation}
+重构的三个场为 \eqref{eq:finalfields}。
+\end{theorem}
+\begin{proof}
+按式 \eqref{eq:Mdef} 拼接已归一化的 \eqref{eq:dressedjost}。由于 $s_{11}=(T_+)_{11}/(T_-)_{11}$，第一列中的透射系数恰抵消 $T_-$，两侧都得到
+$D E_QT_+^{-1}$。再作 $H$ 旋转，得到 \eqref{eq:explicitM}。因此跳跃恒为 $I$。
+
+令 $N=(\lambda+\ii b)I-2\ii bP$，其在 $\operatorname{im}P$ 与 $\ker P$ 的特征值分别为 $\lambda-\ii b$ 和 $\lambda+\ii b$，于是
+\[
+\det N=\lambda^2+b^2=\rho^2+\kappa^2.
+\]
+它与两个分母的乘积相消，故 $\det M=\det E_Q=\gamma$。表面上来自 $D$ 的 $\lambda=-\ii b$ 极点已经在 \eqref{eq:explicitM} 中消去；真正剩下的是 $\rho=\pm\ii\kappa$ 的四个列极点。
+
+当 $w\to\infty$ 时，展开为
+\[
+M=I+\dfrac{H(2\ii bI-4\ii bP-\ii Q\sigma_1+
+2\ii\kappa\sg)H^{-1}}{w}+O(w^{-2}).
+\]
+因 $H$ 共轭把非对角元变号，$\ii M^{(1)}_{12}=-Q-4bP_{12}$，恰为最终去相位光场。利用从 Jost 得到的换叶对称，则 $w\to0$ 时得到 \eqref{eq:Mzero}。共轭对称也由 Jost 约化或 $P^\dagger=P$ 的直接代数验证得到。
+
+在 $w=\pm\ii Q$ 有 $\rho=0$，两个分母均非零；$N,E_Q$ 有限，所以 $M$ 有限，虽然其行列式为零。在 $\pm Q$ 及实共振原像，$\rho$ 为实数，$\rho\pm\ii\kappa$ 不为零，所以同样有限；在共振点 $\gamma>0$，从而可逆。
+
+计算外部零点留数。由 $D(\lambda_1)y=0$，
+\[
+D(\lambda_1)E_1(\zeta_1)
+=-e^{2\ii\theta(\zeta_1)}D(\lambda_1)E_2(\zeta_1).
+\]
+中间解在该点的相关常数是 $-1$；右乘 $H^{-1}$ 使两列的相对符号改变，所以最终相关常数是 $+1$。又
+\[
+s_{11}'(\zeta_1)
+=\dfrac{\rho'(\zeta_1)}{2\ii\kappa}.
+\]
+这给出 $c_1$。另一 $D_+$ 点由命题 \ref{prop:respair} 给出 $c_2$，其余两点由共轭约化给出。
+
+由式 \eqref{eq:onescattering}，$s_{11}(\infty)=s_{11}(0)=1$，其四点表达满足 \eqref{eq:theta-condition}。介质可由 \eqref{eq:RfromM} 重构：在实共振点 $T_+$ 为对角矩阵，与 $\sg$ 对易，代入 $M$ 后即得到 $HD(a)R_\infty D(a)^{-1}H^{-1}$，与 \eqref{eq:finalfields} 一致。
+\end{proof}
+
+\begin{proposition}[上述无反射类中的唯一性]\label{prop:unique-reflectionless}
+在指定留数、两处归一化、换叶对称、$\det M=\gamma$，并要求分支点及其他轮廓点有界的亚纯矩阵类中，上述 RHP 至多有一个解。
+\end{proposition}
+\begin{proof}
+设 $M,\widetilde M$ 为两个解，考察 $L=M\widetilde M^{-1}$。简单极点处的留数矩阵为同一幂零矩阵；在局部右乘 $I-A_j/(w-\zeta_j)$ 即消去极点，因此商在离散点可去。$w=0$ 的主项为相同可逆矩阵 $-\ii Q\sigma_1/w$，故商在那里有限且趋于 $I$。
+
+分支点不能直接用“行列式非零”处理。在 $w_*= \pm\ii Q$，换叶固定该点，故
+$M(w_*)=M(w_*)C(w_*)$，$\widetilde M$ 亦同。$C(w_*)$ 有一个 $-1$ 特征空间，两个矩阵都消灭此一维子空间。$\det\widetilde M=\gamma$ 在该点为简单零，故 $\widetilde M(w_*)$ 秩为 1；其伴随矩阵的像就是该核。因此
+$M(w_*)\operatorname{adj}\widetilde M(w_*)=0$，商中的行列式简单零被分子抵消。$L$ 在全部有限点可去，无穷远趋于 $I$，Liouville 定理给出 $L=I$。
+\end{proof}
+这个唯一性命题限定于已经写清特殊点行为的无反射类，不覆盖一般含反射 RHP。
+
+\section{多次 dressing 的可计算递推}
+对互异、非实且不互为共轭的 $\lambda_j$，取背景列
+$y_j^{(0)}=\Psi_0(\lambda_j)c_j^{(0)}$，其中 $c_j^{(0)}\ne0$。按顺序定义
+\begin{align}
+y_j^{(j-1)}&=D_{j-1}(\lambda_j)\cdots D_1(\lambda_j)y_j^{(0)},\label{eq:Nrecursion}\\
+P_j&=\dfrac{y_j^{(j-1)}(y_j^{(j-1)})^\dagger}
+{(y_j^{(j-1)})^\dagger y_j^{(j-1)}},\qquad
+D_j(\lambda)=I-\dfrac{\lambda_j-\conj{\lambda_j}}
+{\lambda-\conj{\lambda_j}}P_j,\nonumber\\
+u^{[j]}&=u^{[j-1]}-2\ii(\lambda_j-\conj{\lambda_j})(P_j)_{12},\nonumber\\
+R^{[j]}&=D_j(a)R^{[j-1]}D_j(a)^\dagger.\label{eq:Nmedium}
+\end{align}
+因各 $D_k(\lambda_j)$ 可逆，输入列不为零，投影分母严格正；实 $a$ 上的酉性保持 Bloch 长度。这是基于已有 Darboux 定理的精确解生成算法，不需要数值求解 PDE。
+
+本稿实现了 $\lambda_1=1.5\ii,\lambda_2=1.9\ii$、$Q=1$ 的二重例子，两个种子常向量均取 $(1,1)^{\mathsf T}$。纯虚参数使每一步的两个端态同时变号。可归纳说明：前面各变换在新的 $\lambda_j$ 可逆，故不会消灭种子的主导端态特征向量；下一步投影仍为式 \eqref{eq:Pends} 的相应背景符号版本。最终共同端态为 $(-1)^NQ$，将光场和极化乘 $(-1)^N$ 即恢复指定端态。
+
+对任意一般复谱参数，两个端态通常获得不同相位，不能使用这一简单符号规则。本稿尚未把任意 $N$、一般复谱点的全部左右归一化、范数常数、theta condition 与有限系统 \eqref{eq:finite1}--\eqref{eq:finite2} 整理成完整对应定理。因此正文中的一般 $N$ 公式应读作可计算的 dressing 递推，而非已经完成任意数据的标准 NZBC 多孤子分类。
+
+\section{精确代回与高精度残差}
+第一项验证使用精确有理参数
+\begin{equation}\label{eq:exactparams}
+Q=1,\quad b=\dfrac{5}{4},\quad\kappa=\dfrac{3}{4},\quad
+a=2,\quad\eta_0=\dfrac{3}{5},\quad\alpha=1,\quad\beta=\dfrac{1}{10}.
+\end{equation}
+此时 $h_0=1/2$，
+\[
+F(\ii b)=-\dfrac{3321}{3560}-\dfrac{469}{356}\ii.
+\]
+写 $T=e^{2\operatorname{Re}s}>0$、$C=e^{2\ii\operatorname{Im}s}$。除去不影响投影的公共因子，$y$ 可以写成 $(TC-1/2,\ 1-TC/2)^{\mathsf T}$，其共轭将 $C$ 替为 $C^{-1}$。因此三个场的去相位形式均为 $T,C$ 的有理函数。链式法则是
+\[
+\partial_x=2\kappa T\partial_T,\qquad
+\partial_z=-2\kappa\operatorname{Re}F\,T\partial_T
+-2\ii\kappa\operatorname{Im}F\,C\partial_C.
+\]
+脚本 \texttt{scripts/verify\_exact\_example.py} 直接计算三条原 PDE 在去相位变量中的残差
+\begin{align*}
+\mathcal E_q&=u_z-\ii\Omega u-\ii\alpha(u_{xx}/2+u\conj u\,u)
+-\beta(u_{xxx}+6u\conj u\,u_x)-2v,\\
+\mathcal E_p&=v_x-2\eta u+2\ii av,\qquad
+\mathcal E_\eta=\eta_x+\conj u\,v+u\conj v,
+\end{align*}
+清分母后四个有理表达式（含 Bloch 偏差）全部精确化简为零。分母不为零已由 $\Delta>0$ 证明。这给出一个不依赖浮点采样的非平凡三场核验，而不把单参数例的代数输出当成一般参数定理。
+
+第二项验证使用 $Q=1,a=2,\eta_0=0.6,\alpha=1,\beta=0.1$，一重谱点 $1.5\ii$，二重再加入 $1.9\ii$。采用 60 位十进制精度，分别对显式表达式求导，未使用 PDE 右侧生成导数。采样点为
+$(-1.2,-0.35),(0,0),(0.37,0.21),(1.4,-0.1),(2.3,0.6)$。
+
+\begin{table}[htbp]
+\centering
+\caption{实际执行的最大绝对残差（五点，60 位精度）}
+\begin{tabular}{ccccc}
+\toprule 重数 & 光场方程 & 极化方程 & 反转方程 & Bloch 偏差\\\midrule
+1 & $1.02\times10^{-60}$ & $3.14\times10^{-61}$ & $7.47\times10^{-62}$ & $3.89\times10^{-62}$\\
+2 & $1.75\times10^{-59}$ & $2.66\times10^{-60}$ & $9.34\times10^{-61}$ & $1.95\times10^{-61}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+这些上取整数值对应工程中的实际 JSON 输出。固定 $z=0.21$、在 $x=\pm30$ 检查三个端态，一重误差均小于 $5.1\times10^{-29}$，二重误差均小于 $2.8\times10^{-28}$。独立 RHP 脚本又检查了两留数、两种谱对称、空间 Lax 方程、行列式与两共振原像的介质重构，全部误差小于 $7.0\times10^{-61}$。采样结果只是核验，不能证明所有时空点的恒等式；解析依据仍为前述证明与文献 Darboux 定理。
+
+\section{图像与既有解的比较}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/one-soliton-fields.pdf}
+\caption{一组四点谱轨道的三场图像。$Q=1,a=2,\eta_0=0.6,\alpha=1,\beta=0.1,b=1.5$；颜色分别表示 $|q|,|p|,\eta$。纵轴为传播变量 $z$，横轴为推迟时间 $x$。}
+\label{fig:one}
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/two-soliton-fields.pdf}
+\caption{同一背景下二次 dressing，谱点为 $1.5\ii,1.9\ii$。此图对应明确递推生成的解，不表示已建立任意两孤子数据的完整逆散射分类。}
+\label{fig:two}
+\end{figure}
+图 \ref{fig:one}、\ref{fig:two} 的极化模与粒子数反转并不必与光场峰值同位，但始终受同一 Bloch 长度约束。背景取 $\eta_0=0.6$ 时守恒值是 $0.45$，不是 1。绘图脚本用同一投影表达式生成图像，并独立保留原始数值核验结果。
+
+将式 \eqref{eq:darbouxfields} 的 $y_1\conj{y_2}/(y^\dagger y)$ 展开，与文献\cite{LHP2013}第 4 页式 (4.2) 及文献\cite{ZZ2026}第 3 页式 (12) 的一重光场公式一致，差别只在变量命名、$\omega=-a$ 以及最终恒定相位旋转。介质共轭公式也是已有 Darboux 构造的重写。本章没有声称得到新的波形；新增的推导工作是把特定端态归一化、四点留数与三场重构在同一套约定中连接起来。一般周期背景的椭圆函数谱理论不属于此处平面波 NZBC RHP 的证明范围。

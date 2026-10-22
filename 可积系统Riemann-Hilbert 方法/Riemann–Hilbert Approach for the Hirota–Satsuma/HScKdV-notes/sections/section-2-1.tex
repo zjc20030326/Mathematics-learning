@@ -1,0 +1,697 @@
+\section{Lax Pair／Lax 对}
+
+\EN{The HScKdV system \eqref{eq:1.1} admits the following Lax pair \OrigNine:}
+\CN{HScKdV 方程组 \eqref{eq:1.1} 具有如下 Lax 对\OrigNine：}
+\begin{equation}
+\originaleq{2.1}
+\psi_x=U\psi,\qquad \psi_t=V\psi.
+\end{equation}
+\EN{where $\psi(x,t,k)$ is a $4\times4$ matrix-valued function, $k\in\mathbb C$ is the spectral parameter, and the matrices $U(x,t,k)$ and $V(x,t,k)$ are given by}
+\CN{其中，$\psi(x,t,k)$ 是一个 $4\times4$ 矩阵值函数，$k\in\mathbb C$ 为谱参数，而矩阵 $U(x,t,k)$、$V(x,t,k)$ 由下式给出：}
+\begin{equation}
+\originaleq{2.2}
+U=U^\infty+U_1,\qquad V=V^\infty+V_1,
+\end{equation}
+\EN{with}
+\CN{其中}
+\[
+U^\infty=\begin{pmatrix}
+0&0&1&0\\0&0&0&1\\k^2&0&0&0\\0&-k^2&0&0
+\end{pmatrix},\qquad
+U_1=\begin{pmatrix}
+0&0&0&0\\0&0&0&0\\u&v&0&0\\v&u&0&0
+\end{pmatrix},
+\]
+\[
+V^\infty=\begin{pmatrix}
+0&0&2k^2&0\\0&0&0&-2k^2\\2k^4&0&0&0\\0&2k^4&0&0
+\end{pmatrix},
+\]
+\[
+V_1=\begin{pmatrix}
+\dfrac{u_x}{2}&-v_x&-u&2v\\
+-v_x&\dfrac{u_x}{2}&2v&-u\\
+g_1&-v_{xx}+uv&-\dfrac{u_x}{2}&v_x\\
+-v_{xx}+uv&g_2&v_x&-\dfrac{u_x}{2}
+\end{pmatrix},
+\]
+\[
+g_1=\dfrac{u_{xx}}{2}+2uv-u^2+k^2u,\qquad
+g_2=\dfrac{u_{xx}}{2}+2uv-u^2-k^2u.
+\]
+
+\EN{It is easy to verify that \eqref{eq:1.1} is the compatibility condition of \eqref{eq:2.1} by direct calculation.}
+\CN{通过直接计算，很容易验证 \eqref{eq:1.1} 是 \eqref{eq:2.1} 的相容条件。}
+
+\Needspace{13\baselineskip}
+\begin{note}
+\textbf{校勘 2.1：$g_1,g_2$ 中的乘积项。}
+上面的 $g_1,g_2$ 按原文第 4 页印刷式转录，确实写为 $2uv-u^2$。
+若保持矩阵的其他条目不变，该式不能使 Lax 对的相容条件等价于 \eqref{eq:1.1}。
+需要改为
+\[
+\widetilde g_1=\dfrac{u_{xx}}{2}+2v^2-u^2+k^2u,\qquad
+\widetilde g_2=\dfrac{u_{xx}}{2}+2v^2-u^2-k^2u.
+\]
+下面从一个未定的公共项 $h$ 出发推导这一结论，并验证修正后所有矩阵条目的相容性。
+此后，除明确讨论“印刷式”的地方外，$g_j$ 指 $\widetilde g_j$，$V_1,V,G,V_2$ 使用相应修正版。
+这是一项由独立代数计算得到的校勘，未声称作者已经发布勘误。
+\end{note}
+
+\begin{proof}
+\textbf{补充证明：从混合偏导到方程组，并核验校勘。}
+原文没有展开这句“直接计算”。下面直接使用原文的 $U,V,g_1,g_2$，逐项检查相容条件。
+
+\proofstep{第一步：相容条件为什么是零曲率方程。}
+取 $\psi$ 为可逆的基本解矩阵（fundamental matrix）。对 \eqref{eq:2.1} 分别求另一变量的偏导，
+\begin{align*}
+\psi_{xt}&=U_t\psi+U\psi_t=(U_t+UV)\psi,\\
+\psi_{tx}&=V_x\psi+V\psi_x=(V_x+VU)\psi.
+\end{align*}
+混合偏导相等，右乘 $\psi^{-1}$ 可得零曲率条件（zero-curvature condition）
+\begin{equation}
+\supplementeq{eq:zero-curvature}
+U_t-V_x+[U,V]=0.
+\end{equation}
+这里不能省略可逆性：恒为零的矩阵解本身不能推出位势方程。
+
+\proofstep{第二步：直接从对角条目定位印刷问题。}
+先不代入 $g_1,g_2$ 的具体表达式。由原矩阵，$V_{31}=2k^4+g_1$、
+$V_{42}=2k^4+g_2$；其中两个 $2k^4$ 来自 $V^\infty$，不能漏掉。
+例如第 $(1,1)$ 项的乘法是
+\begin{align*}
+(UV)_{11}&=2k^4+g_1,\\
+(VU)_{11}&=(2k^2-u)(k^2+u)+2v^2\\
+&=2k^4+k^2u-u^2+2v^2.
+\end{align*}
+加上 $(U_t)_{11}=0$、$(V_x)_{11}=\dfrac{u_{xx}}{2}$，并同样计算第 $(2,2)$ 项，得到
+\begin{equation}
+\supplementeq{eq:curvature-block}
+\begin{aligned}
+\bigl(U_t-V_x+[U,V]\bigr)_{11}
+ &=g_1-\dfrac{u_{xx}}{2}-k^2u+u^2-2v^2,\\
+\bigl(U_t-V_x+[U,V]\bigr)_{22}
+ &=g_2-\dfrac{u_{xx}}{2}+k^2u+u^2-2v^2.
+\end{aligned}
+\end{equation}
+将原文的印刷式代入，这两项均变成
+\begin{equation}
+\supplementeq{eq:algebraic-residual}
+2uv-2v^2=2v(u-v),
+\end{equation}
+一般不为零。反过来，要使 \eqref{eq:curvature-block} 中两项都为零，必须取
+\begin{equation}
+\supplementeq{eq:g-correction}
+\begin{aligned}
+g_1&=\dfrac{u_{xx}}{2}+2v^2-u^2+k^2u,\\
+g_2&=\dfrac{u_{xx}}{2}+2v^2-u^2-k^2u.
+\end{aligned}
+\end{equation}
+这在其余矩阵条目保持不变的前提下确定了修正式。以下使用这两个修正后的 $g_j$。
+
+\proofstep{第三步：检查其余不含时间导数的条目。}
+上左块的非对角项为
+\[
+\bigl(U_t-V_x+[U,V]\bigr)_{12}
+=\bigl(U_t-V_x+[U,V]\bigr)_{21}
+=v_{xx}+(-v_{xx}+uv)-uv=0.
+\]
+右上块的四个条目分别归结为
+\begin{align*}
+\bigl(U_t-V_x+[U,V]\bigr)_{13}
+&=\bigl(U_t-V_x+[U,V]\bigr)_{24}=u_x-u_x=0,\\
+\bigl(U_t-V_x+[U,V]\bigr)_{14}
+&=\bigl(U_t-V_x+[U,V]\bigr)_{23}=-2v_x+2v_x=0.
+\end{align*}
+这里，例如 $(UV-VU)_{13}=-u_x/2-u_x/2=-u_x$，
+$(UV-VU)_{14}=v_x-(-v_x)=2v_x$，故上述消去都有直接的矩阵乘法依据。
+右下块的两个对角项分别是 \eqref{eq:curvature-block} 中两项的相反数，
+代入修正后的 $g_j$ 后均为零；另外两项为
+\[
+\bigl(U_t-V_x+[U,V]\bigr)_{34}
+=\bigl(U_t-V_x+[U,V]\bigr)_{43}
+=-v_{xx}+uv-(-v_{xx}+uv)=0.
+\]
+至此，上面两行及右下二阶块的十二个条目全部检查完毕。
+
+\proofstep{第四步：计算剩下四项，恢复两条演化方程。}
+先算第 $(3,1)$ 项。由直接相乘，
+\begin{align*}
+(UV-VU)_{31}
+&=\left(\dfrac{(k^2+u)u_x}{2}-vv_x\right)
+ -\left(-\dfrac{(k^2+u)u_x}{2}+vv_x\right)\\
+&=(k^2+u)u_x-2vv_x.
+\end{align*}
+又因为 $\partial_xg_1=\dfrac{u_{xxx}}{2}+4vv_x-2uu_x+k^2u_x$，所以
+\begin{align*}
+\bigl(U_t-V_x+[U,V]\bigr)_{31}
+&=u_t-\left(\dfrac{u_{xxx}}{2}+4vv_x-2uu_x+k^2u_x\right)\\
+&\quad +(k^2+u)u_x-2vv_x\\
+&=u_t-\dfrac{u_{xxx}}{2}+3uu_x-6vv_x.
+\end{align*}
+对第 $(4,2)$ 项，$k^2u_x$ 的符号同时改变，故直接得到
+\begin{align*}
+\bigl(U_t-V_x+[U,V]\bigr)_{42}
+&=u_t-\left(\dfrac{u_{xxx}}{2}+4vv_x-2uu_x-k^2u_x\right)\\
+&\quad +(u-k^2)u_x-2vv_x\\
+&=u_t-\dfrac{u_{xxx}}{2}+3uu_x-6vv_x.
+\end{align*}
+第 $(3,2)$、$(4,1)$ 项的乘法表达式相同，均给出
+\begin{align*}
+\bigl(U_t-V_x+[U,V]\bigr)_{32}
+&=\bigl(U_t-V_x+[U,V]\bigr)_{41}\\
+&=v_t-\partial_x(-v_{xx}+uv)+(vu_x-2uv_x)\\
+&=v_t+v_{xxx}-u_xv-uv_x+vu_x-2uv_x\\
+&=v_t+v_{xxx}-3uv_x.
+\end{align*}
+结合前面十二项，全部相容条件就是
+\begin{equation}
+\supplementeq{eq:curvature-final}
+U_t-V_x+[U,V]=0
+\quad\Longleftrightarrow\quad
+\begin{cases}
+u_t-\dfrac{1}{2}u_{xxx}+3uu_x-6vv_x=0,\\
+v_t+v_{xxx}-3uv_x=0.
+\end{cases}
+\end{equation}
+右边恰好是 \eqref{eq:1.1}。
+
+\proofstep{第五步：反过来，零曲率确实保证线性系统相容。}
+在任意光滑矩形区域内选基点 $(x_0,t_0)$。
+先沿 $x=x_0$，以 $\psi(x_0,t_0)=I_4$ 为初值解时间方向的线性 ODE；
+再对每个 $t$，以已经得到的 $\psi(x_0,t)$ 为初值解空间方向的线性 ODE。
+光滑系数的线性 ODE 存在唯一解，且解对参数 $t$ 可微。
+直接对 $\psi_t-V\psi$ 求空间导数，
+\begin{align*}
+\partial_x(\psi_t-V\psi)
+&=U_t\psi+U\psi_t-V_x\psi-VU\psi\\
+&=U(\psi_t-V\psi)+(U_t-V_x+UV-VU)\psi\\
+&=U(\psi_t-V\psi),
+\end{align*}
+最后一步使用了零曲率条件。
+在 $x=x_0$ 处，时间初值问题给出 $\psi_t-V\psi=0$。
+因此线性 ODE 唯一性迫使 $\psi_t-V\psi$ 恒为零，两个方程确实同时成立。
+两个初值问题的基本解均可逆：若某处存在非零向量被映为零，逆向唯一性将迫使该向量在基点也为零，产生矛盾。
+这里证明的是给定光滑位势满足 \eqref{eq:1.1} 时的辅助线性系统相容性，没有另行声称非线性 PDE 初值问题的整体适定性。
+\end{proof}
+
+\EN{Since $\{u,v\}$ is a Schwartz class solution of \eqref{eq:1.1}, $U_1$ and $V_1$ decay rapidly as $|x|\to\infty$.}
+\CN{由于 $\{u,v\}$ 是 \eqref{eq:1.1} 的 Schwartz 类解，$U_1$、$V_1$ 在 $|x|\to\infty$ 时迅速衰减。}
+\begin{proof}
+\textbf{补充证明。}
+固定 $t$ 和 $k$。$U_1$ 的非零条目只有 $u,v$；$V_1$ 的条目由
+$u,v,u_x,v_x,u_{xx},v_{xx}$ 及 $u^2,v^2,uv,k^2u$ 的有限线性组合构成。
+空间导数保持 Schwartz 性；乘积也保持此性质，因为 Leibniz 公式给出
+\[
+\partial_x^b(fg)=\sum\limits_{r=0}^b C_b^r
+(\partial_x^rf)(\partial_x^{b-r}g),
+\]
+而对每一项都有
+\[
+\sup_x(1+|x|)^a|\partial_x^rf\,\partial_x^{b-r}g|
+\le
+\sup_x(1+|x|)^a|\partial_x^rf|\,
+\sup_x|\partial_x^{b-r}g|<\infty.
+\]
+因此各矩阵条目及任意空间导数都具有所述衰减，有限维矩阵范数也一样。
+这一论证适用于原印刷乘积和修正乘积；但相容性结论只能使用前面核验的修正式。
+\end{proof}
+
+\EN{Now we introduce a gauge transformation}
+\CN{现在引入如下规范变换：}
+\begin{equation}
+\originaleq{2.3}
+\psi(x,t,k)=P(k)\phi(x,t,k),\qquad
+P(k)=\begin{pmatrix}
+0&1&0&1\\1&0&1&0\\0&-k&0&k\\\ii k&0&-\ii k&0
+\end{pmatrix}
+\end{equation}
+\EN{to diagonalize the matrices $U^\infty$ and $V^\infty$, where $\ii^2=-1$.}
+\CN{用它将矩阵 $U^\infty$ 和 $V^\infty$ 对角化，其中 $\ii^2=-1$。}
+
+\begin{proof}
+\textbf{补充推导：$P$ 的来源、可逆性与同时对角化。}
+
+\proofstep{第一步：从背景特征值问题求列向量。}
+设 $p=(a,b,c,d)^{\mathsf T}$，则 $U^\infty p=\lambda p$ 等价于
+\[
+c=\lambda a,\quad d=\lambda b,\quad
+k^2a=\lambda c,\quad -k^2b=\lambda d.
+\]
+消去 $c,d$，得到
+$(\lambda^2-k^2)a=0$ 和 $(\lambda^2+k^2)b=0$。
+当 $k\ne0$ 时，四个不同的特征值依次选为
+$\lambda_1=\ii k,\lambda_2=-k,\lambda_3=-\ii k,\lambda_4=k$。
+对应选取
+\[
+p_1=\begin{pmatrix}0\\1\\0\\\ii k\end{pmatrix},\quad
+p_2=\begin{pmatrix}1\\0\\-k\\0\end{pmatrix},\quad
+p_3=\begin{pmatrix}0\\1\\0\\-\ii k\end{pmatrix},\quad
+p_4=\begin{pmatrix}1\\0\\k\\0\end{pmatrix}.
+\]
+把它们依次作为列就得到 \eqref{eq:2.3} 的 $P$，因而
+\begin{equation}
+\supplementeq{eq:background-diagonal}
+U^\infty P=P\,kJ,\qquad J=\diag(\ii,-1,-\ii,1).
+\end{equation}
+
+\proofstep{第二步：计算行列式与逆矩阵。}
+将 $P$ 的行重排为 $(2,4,1,3)$、列重排为 $(1,3,2,4)$。
+两次重排的符号均为负，合起来为正；所得矩阵为分块对角矩阵，于是
+\[
+\det P=
+\det\begin{pmatrix}1&1\\\ii k&-\ii k\end{pmatrix}
+\det\begin{pmatrix}1&1\\-k&k\end{pmatrix}
+=(-2\ii k)(2k)=-4\ii k^2.
+\]
+这也直接证明 $P$ 恰在 $k\ne0$ 时可逆。
+固定任意列指标 $j$，把原来的 $\psi=P\phi$ 逐项写为
+\[
+\psi_{1j}=\phi_{2j}+\phi_{4j},\quad
+\psi_{2j}=\phi_{1j}+\phi_{3j},\quad
+\psi_{3j}=k(\phi_{4j}-\phi_{2j}),\quad
+\psi_{4j}=\ii k(\phi_{1j}-\phi_{3j}).
+\]
+分别求和、作差解出 $\phi_{1j},\ldots,\phi_{4j}$，得到
+\begin{equation}
+\supplementeq{eq:P-inverse}
+P^{-1}=\dfrac{1}{2}
+\begin{pmatrix}
+0&1&0&-\dfrac{\ii}{k}\\
+1&0&-\dfrac{1}{k}&0\\
+0&1&0&\dfrac{\ii}{k}\\
+1&0&\dfrac{1}{k}&0
+\end{pmatrix}.
+\end{equation}
+此式是由 $\psi=P\phi$ 唯一解出 $\phi$ 得到的，故同时验证了左右逆。
+
+\proofstep{第三步：为什么同一个 $P$ 也对角化 $V^\infty$。}
+直接对原矩阵相乘，
+\[
+(U^\infty)^2=\diag(k^2,-k^2,k^2,-k^2),\qquad
+(U^\infty)^3=\begin{pmatrix}
+0&0&k^2&0\\0&0&0&-k^2\\k^4&0&0&0\\0&k^4&0&0
+\end{pmatrix}=\dfrac{1}{2}V^\infty.
+\]
+所以 $V^\infty=2(U^\infty)^3$，从而
+\begin{equation}
+\supplementeq{eq:V-background-diagonal}
+P^{-1}V^\infty P=2(P^{-1}U^\infty P)^3
+=2k^3J^3=2k^3\Omega,
+\end{equation}
+其中 $\Omega=J^3=\diag(-\ii,-1,\ii,1)$。
+对角化顺序是一个约定，固定后必须与后面的谱区域、列编号及置换矩阵保持一致。
+\end{proof}
+
+\EN{Then, the Lax pair \eqref{eq:2.1} is transformed into}
+\CN{于是 Lax 对 \eqref{eq:2.1} 被变换为}
+\begin{equation}
+\originaleq{2.4}
+\phi_x=F\phi,\qquad \phi_t=G\phi,
+\end{equation}
+\EN{where}
+\CN{其中}
+\begin{equation}
+\originaleq{2.5}
+F(x,t,k)=P^{-1}(k)U(x,t,k)P(k)=kJ+P^{-1}(k)U_1(x,t)P(k),
+\end{equation}
+\begin{equation}
+\originaleq{2.6}
+G(x,t,k)=P^{-1}(k)V(x,t,k)P(k)=2k^3\Omega+P^{-1}(k)V_1(x,t,k)P(k),
+\end{equation}
+\EN{with}
+\CN{其中}
+\[
+J=\diag(\ii,-1,-\ii,1),\qquad
+\Omega=J^3=\diag(-\ii,-1,\ii,1).
+\]
+\begin{proof}
+\textbf{补充推导。}
+$P$ 依赖 $k$ 而不依赖 $x,t$，故 $P_x=P_t=0$。
+因此
+\[
+P\phi_x=\psi_x=U\psi=UP\phi,\qquad
+P\phi_t=\psi_t=V\psi=VP\phi.
+\]
+在 $k\ne0$ 时左乘 $P^{-1}$ 就得到 \eqref{eq:2.4}。
+再将 \eqref{eq:2.2} 代入，并使用
+\eqref{eq:background-diagonal} 与 \eqref{eq:V-background-diagonal}，即得 \eqref{eq:2.5}、\eqref{eq:2.6}。
+因为 $P$ 与 $x,t$ 无关，还可直接核验
+\[
+F_t-G_x+[F,G]=P^{-1}(U_t-V_x+[U,V])P,
+\]
+所以这个可逆变换保持零曲率条件。
+若使用依赖 $x,t$ 的规范矩阵，则必须增加 $-P^{-1}P_x$、$-P^{-1}P_t$，不能照搬这里的式子。
+\end{proof}
+
+\EN{Moreover, by a direct calculation we find}
+\CN{此外，直接计算可得}
+\begin{equation}
+\originaleq{2.7}
+\begin{aligned}
+U_2=P^{-1}U_1P
+&=\dfrac{u}{2k}
+\begin{pmatrix}-\ii&0&-\ii&0\\0&-1&0&-1\\\ii&0&\ii&0\\0&1&0&1\end{pmatrix}\\
+&\quad+\dfrac{v}{2k}
+\begin{pmatrix}0&-\ii&0&-\ii\\-1&0&-1&0\\0&\ii&0&\ii\\1&0&1&0\end{pmatrix},
+\end{aligned}
+\end{equation}
+\begin{equation}
+\originaleq{2.8}
+V_2=P^{-1}V_1P\longrightarrow0\quad\text{rapidly, as }|x|\to\infty.
+\end{equation}
+\begin{proof}
+\textbf{补充推导：显式算出变换矩阵，并证明衰减。}
+
+\proofstep{第一步：逐行得到 $U_2$。}
+先右乘 $P$，有
+\[
+U_1P=\begin{pmatrix}
+0&0&0&0\\0&0&0&0\\v&u&v&u\\u&v&u&v
+\end{pmatrix}.
+\]
+再用 \eqref{eq:P-inverse} 左乘。
+四行分别是上述矩阵第 4 行的 $-\dfrac{\ii}{2k}$ 倍、第 3 行的 $-\dfrac{1}{2k}$ 倍、
+第 4 行的 $\dfrac{\ii}{2k}$ 倍、第 3 行的 $\dfrac{1}{2k}$ 倍，因此
+\[
+U_2=\dfrac{1}{2k}
+\begin{pmatrix}
+-\ii u&-\ii v&-\ii u&-\ii v\\
+-v&-u&-v&-u\\
+\ii u&\ii v&\ii u&\ii v\\
+v&u&v&u
+\end{pmatrix}.
+\]
+按 $u,v$ 分组就是 \eqref{eq:2.7}。
+
+\proofstep{第二步：直接展开 $V_2=P^{-1}V_1P$。}
+仍使用原文的矩阵和原文的 $u,v$，不再给这些系数另起简记。
+例如，$P$ 的第一列为 $(0,1,0,\ii k)^{\mathsf T}$，所以
+\[
+V_1\begin{pmatrix}0\\1\\0\\\ii k\end{pmatrix}
+=\begin{pmatrix}
+-v_x+2\ii kv\\
+\dfrac{u_x}{2}-\ii ku\\
+-v_{xx}+uv+\ii kv_x\\
+g_2-\dfrac{\ii ku_x}{2}
+\end{pmatrix}.
+\]
+左乘 \eqref{eq:P-inverse}，逐行得到 $V_2$ 的第一列：
+\begin{align*}
+(V_2)_{11}
+&=\dfrac{1}{2}\left(\dfrac{u_x}{2}-\ii ku\right)
+ -\dfrac{\ii}{2k}\left(g_2-\dfrac{\ii ku_x}{2}\right)\\
+&=-\dfrac{\ii}{2k}\left(\dfrac{u_{xx}}{2}+2v^2-u^2\right),\\
+(V_2)_{21}
+&=\dfrac{1}{2}(-v_x+2\ii kv)
+ -\dfrac{1}{2k}(-v_{xx}+uv+\ii kv_x)\\
+&=\ii kv-\dfrac{1+\ii}{2}v_x-\dfrac{uv-v_{xx}}{2k},\\
+(V_2)_{31}
+&=\dfrac{1}{2}\left(\dfrac{u_x}{2}-\ii ku\right)
+ +\dfrac{\ii}{2k}\left(g_2-\dfrac{\ii ku_x}{2}\right)\\
+&=-\ii ku+\dfrac{u_x}{2}
+ +\dfrac{\ii}{2k}\left(\dfrac{u_{xx}}{2}+2v^2-u^2\right),\\
+(V_2)_{41}
+&=\dfrac{1}{2}(-v_x+2\ii kv)
+ +\dfrac{1}{2k}(-v_{xx}+uv+\ii kv_x)\\
+&=\ii kv+\dfrac{-1+\ii}{2}v_x+\dfrac{uv-v_{xx}}{2k}.
+\end{align*}
+这里已将修正后的 $g_2=\dfrac{u_{xx}}{2}+2v^2-u^2-k^2u$ 代回并合并。
+其余三列的乘法完全相同；按 $k$ 的幂次整理后，全部条目为
+\begin{equation}
+\supplementeq{eq:V2-expanded}
+\begin{aligned}
+V_2
+&=k\begin{pmatrix}
+0&-v&\ii u&v\\
+\ii v&0&-\ii v&-u\\
+-\ii u&-v&0&v\\
+\ii v&u&-\ii v&0
+\end{pmatrix}\\
+&\quad+\dfrac{1}{2}\begin{pmatrix}
+0&(-1+\ii)v_x&u_x&(-1-\ii)v_x\\
+(-1-\ii)v_x&0&(-1+\ii)v_x&u_x\\
+u_x&(-1-\ii)v_x&0&(-1+\ii)v_x\\
+(-1+\ii)v_x&u_x&(-1-\ii)v_x&0
+\end{pmatrix}\\
+&\quad+\dfrac{u_{xx}+4v^2-2u^2}{4k}
+\begin{pmatrix}
+-\ii&0&-\ii&0\\0&-1&0&-1\\
+\ii&0&\ii&0\\0&1&0&1
+\end{pmatrix}\\
+&\quad+\dfrac{uv-v_{xx}}{2k}
+\begin{pmatrix}
+0&-\ii&0&-\ii\\-1&0&-1&0\\
+0&\ii&0&\ii\\1&0&1&0
+\end{pmatrix}.
+\end{aligned}
+\end{equation}
+这样可以直接从原位势及其导数检查每一项，无需回查额外定义的系数或矩阵。
+
+\proofstep{第三步：明确衰减的量词。}
+固定 $k\ne0$ 时，$P(k),P^{-1}(k)$ 都是有限的常矩阵。
+在次乘性矩阵范数下，
+\[
+\|V_2(x,t,k)\|\le
+\|P^{-1}(k)\|\,\|V_1(x,t,k)\|\,\|P(k)\|.
+\]
+前面已经证明 $V_1$ 的每个空间导数都迅速衰减，因而 $V_2$ 也如此。
+也可以直接从 \eqref{eq:V2-expanded} 看出：各条目只含 $u,v$ 及其空间导数的有限多项式，且没有常数背景项。
+若 $k$ 限制在避开零点的紧集中，以上估计可对 $k$ 一致成立。
+该结论不声称在整个无界谱平面上一致，更不声称能在 $k=0$ 使用 $P^{-1}$。
+\end{proof}
+
+\EN{Note that the determinant of $P(k)$ is $-4\ii k^2$, so the above transformation holds only when $k\in\mathbb C\setminus\{0\}$.}
+\CN{注意，$P(k)$ 的行列式为 $-4\ii k^2$，因此上述变换仅在 $k\in\mathbb C\setminus\{0\}$ 时成立。}
+\begin{proof}
+\textbf{补充说明。}
+行列式与逆矩阵已经由 \eqref{eq:P-inverse} 前的计算给出。
+在 $k=0$ 时，$P$ 的第一、三列相同，第二、四列也相同，秩只有 2，不能作可逆规范变换。
+注意原来的 $U,V$ 是关于 $k$ 的多项式，原点处并没有由矩阵系数引入的极点；
+变换后出现的 $\dfrac{1}{k}$ 来自所选特征向量基在原点退化。
+这不等于证明所有变换后特征函数必有极点，也不等于证明原点奇性可去；
+具体解的原点行为需要后续单独分析。
+\end{proof}
+
+\EN{It is not convenient to analyze the eigenfunction $\phi(x,t,k)$ directly.}
+\CN{直接分析特征函数 $\phi(x,t,k)$ 并不方便。}
+\begin{note}
+这里的“不方便”是方法动机：当位势为零时，$\phi$ 仍包含背景系统产生的指数因子。
+去掉这个显式因子后，零位势的归一化解变为单位矩阵，适合写成“单位矩阵加积分”的形式。
+这句话不是一个需要另设假设的存在性定理。
+\end{note}
+
+\EN{To this end, we consider the modified eigenfunction $\mu(x,t,k)=\phi(x,t,k)e^{-L(k)x-Z(k)t}$, where $L(k)$ and $Z(k)$ are given by}
+\CN{为此，考虑修正特征函数 $\mu(x,t,k)=\phi(x,t,k)e^{-L(k)x-Z(k)t}$，其中 $L(k)$ 和 $Z(k)$ 由下式给出：}
+\begin{equation}
+\originaleq{2.9}
+\begin{aligned}
+L(k)&=kJ:=\diag(l_1,l_2,l_3,l_4),\\
+Z(k)&=2k^3\Omega:=\diag(z_1,z_2,z_3,z_4).
+\end{aligned}
+\end{equation}
+\EN{Then according to \eqref{eq:2.4}, $\mu(x,t,k)$ satisfies}
+\CN{于是，根据 \eqref{eq:2.4}，$\mu(x,t,k)$ 满足}
+\begin{equation}
+\originaleq{2.10}
+\begin{cases}
+\mu_x-[L,\mu]=U_2\mu,\\
+\mu_t-[Z,\mu]=V_2\mu.
+\end{cases}
+\end{equation}
+
+\begin{proof}
+\textbf{补充推导：去掉自由指数及交换子的来源。}
+
+\proofstep{第一步：求解零位势的背景系统。}
+因为 $L,Z$ 都是对角矩阵，二者可交换。直接对指数逐项求导，
+\[
+\partial_xe^{Lx+Zt}=Le^{Lx+Zt}=e^{Lx+Zt}L,\qquad
+\partial_te^{Lx+Zt}=Ze^{Lx+Zt}=e^{Lx+Zt}Z.
+\]
+因此零位势下，$\phi=e^{Lx+Zt}$ 是以 $(x,t)=(0,0)$ 为归一化基点的背景解。
+代入原文定义 $\mu=\phi e^{-Lx-Zt}$，就得到 $\mu=I_4$。
+这里是在右侧去掉按列作用的背景指数，矩阵乘法顺序不能交换。
+
+\proofstep{第二步：对 $x$ 求导。}
+由 $F=L+U_2$ 以及 $\partial_xe^{-Lx-Zt}=-e^{-Lx-Zt}L$，
+\begin{align*}
+\mu_x
+&=\phi_xe^{-Lx-Zt}+\phi\,\partial_xe^{-Lx-Zt}\\
+&=(L+U_2)\phi e^{-Lx-Zt}-\phi e^{-Lx-Zt}L\\
+&=L\mu-\mu L+U_2\mu=[L,\mu]+U_2\mu.
+\end{align*}
+移项即得 \eqref{eq:2.10} 的第一式。
+
+\proofstep{第三步：对 $t$ 求导。}
+同样由 $G=Z+V_2$，
+\begin{align*}
+\mu_t
+&=\phi_te^{-Lx-Zt}+\phi\,\partial_te^{-Lx-Zt}\\
+&=(Z+V_2)\phi e^{-Lx-Zt}-\phi e^{-Lx-Zt}Z\\
+&=(Z+V_2)\mu-\mu Z=[Z,\mu]+V_2\mu,
+\end{align*}
+从而得到第二式。
+
+\proofstep{第四步：逐项解释交换子。}
+由于 $L$ 为对角矩阵，
+\[
+[L,\mu]_{ij}=(l_i-l_j)\mu_{ij},\qquad
+\partial_x\mu_{ij}-(l_i-l_j)\mu_{ij}
+=\sum\limits_{q=1}^4(U_2)_{iq}\mu_{qj}.
+\]
+同理 $[Z,\mu]_{ij}=(z_i-z_j)\mu_{ij}$。
+这说明后续积分核中的增长衰减由“两个列特征值之差”决定，而不是由单个 $l_j$ 决定。
+具体地，对任意矩阵 $X$，对角矩阵的左右乘法给出
+\[
+\bigl(e^{(x-y)L}Xe^{-(x-y)L}\bigr)_{ij}
+=e^{(x-y)l_i}X_{ij}e^{-(x-y)l_j}
+=e^{(l_i-l_j)(x-y)}X_{ij}.
+\]
+这些等式解释了本变换与下一节 Jost 积分方程的衔接；这里尚未对积分方程的可解性作结论。
+\end{proof}
+
+\EN{Next let us discuss the symmetries of $F(x,t,k)$ and $G(x,t,k)$.}
+\CN{下面讨论 $F(x,t,k)$ 和 $G(x,t,k)$ 的对称性。}
+\EN{The following results can be obtained by direct calculation.}
+\CN{通过直接计算可以得到下列结果。}
+
+\Needspace{19\baselineskip}
+\begin{paperlemmaen}\label{lem:2.1}
+The matrix-valued functions $F(x,t,k)$ and $G(x,t,k)$ defined by
+\eqref{eq:2.5} and \eqref{eq:2.6} satisfy
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+由 \eqref{eq:2.5}、\eqref{eq:2.6} 定义的矩阵值函数
+$F(x,t,k)$ 和 $G(x,t,k)$ 满足
+\end{paperlemmacn*}
+\begin{equation}
+\originaleq{2.11a}
+AF(\ii k)A^{-1}=F(k),\qquad AG(\ii k)A^{-1}=G(k),
+\end{equation}
+\begin{equation}
+\originaleq{2.11b}
+BF^*(k^*)B=F(k),\qquad BG^*(k^*)B=G(k),
+\end{equation}
+\EN{where}
+\CN{其中}
+\begin{equation}
+\originaleq{2.12}
+A=\begin{pmatrix}0&0&0&1\\1&0&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix},\qquad
+B=\begin{pmatrix}0&0&1&0\\0&1&0&0\\1&0&0&0\\0&0&0&1\end{pmatrix}.
+\end{equation}
+
+\begin{note}
+本引理的公式省略了不发生变换的 $x,t$；其定义域是 $k\ne0$。
+$F^*(k^*)$ 的准确含义是 $\overline{F(x,t,\overline{k})}$，
+不是 $\overline{F(x,t,k)}^{\mathsf T}$。
+矩阵 $A$ 循环置换四个坐标，故 $A^4=I_4$、$A^{-1}=A^3$；
+$B$ 交换第 1、3 个坐标，故 $B^2=I_4$。
+原文未给独立的引理证明，以下为补充证明。
+\end{note}
+
+\begin{proof}
+\textbf{引理 2.1 的补充证明。}
+为同时验证 $F$ 和较长的 $G$，先在原坐标中检查 $U,V$，再把对称性通过 $P$ 传到新坐标。
+
+\proofstep{第一步：找出谱旋转在原坐标中的置换。}
+只引入真正实现行列交换的置换矩阵
+\[
+C=\begin{pmatrix}
+0&1&0&0\\1&0&0&0\\0&0&0&1\\0&0&1&0
+\end{pmatrix}.
+\]
+它满足 $C^2=I_4$；左乘 $C$ 交换第 1、2 行及第 3、4 行，右乘 $C$ 则交换对应的列。
+由于 $(\ii k)^2=-k^2$，先在原矩阵中将 $k$ 替换为 $\ii k$，再作这两对行列交换，得到
+\begin{equation}
+\supplementeq{eq:rotation-U}
+CU(\ii k)C
+=\begin{pmatrix}
+0&0&1&0\\0&0&0&1\\k^2+u&v&0&0\\v&u-k^2&0&0
+\end{pmatrix}=U(k).
+\end{equation}
+对 $V$，修正后的原符号直接满足
+\[
+g_1(\ii k)=\dfrac{u_{xx}}{2}+2v^2-u^2-k^2u=g_2(k),\qquad
+g_2(\ii k)=g_1(k).
+\]
+再用 $(\ii k)^4=k^4$，逐行列交换得
+\begin{equation}
+\supplementeq{eq:rotation-V}
+\begin{aligned}
+CV(\ii k)C
+&=\begin{pmatrix}
+\dfrac{u_x}{2}&-v_x&2k^2-u&2v\\
+-v_x&\dfrac{u_x}{2}&2v&-2k^2-u\\
+2k^4+g_1&-v_{xx}+uv&-\dfrac{u_x}{2}&v_x\\
+-v_{xx}+uv&2k^4+g_2&v_x&-\dfrac{u_x}{2}
+\end{pmatrix}\\
+&=V(k).
+\end{aligned}
+\end{equation}
+所以不必再为 $U,V$ 的各个分块另设符号，就可以检查这两个恒等式。
+
+\proofstep{第二步：核验 $P$ 与 $A,C$ 之间的恒等式。}
+直接写出两边的共同值：
+\begin{equation}
+\supplementeq{eq:P-rotation}
+P(\ii k)A^{-1}=CP(k)
+=\begin{pmatrix}
+1&0&1&0\\0&1&0&1\\
+\ii k&0&-\ii k&0\\0&-k&0&k
+\end{pmatrix}.
+\end{equation}
+例如 $A^{-1}$ 将四列按 $(4,1,2,3)$ 排列，这与左乘 $C$ 交换两对行的结果相同。
+对该式取逆，利用 $C^{-1}=C$，得到
+$AP(\ii k)^{-1}=P(k)^{-1}C$。
+于是
+\begin{align*}
+AF(\ii k)A^{-1}
+&=AP(\ii k)^{-1}U(\ii k)P(\ii k)A^{-1}\\
+&=P(k)^{-1}CU(\ii k)CP(k)\\
+&=P(k)^{-1}U(k)P(k)=F(k),\\
+AG(\ii k)A^{-1}
+&=AP(\ii k)^{-1}V(\ii k)P(\ii k)A^{-1}\\
+&=P(k)^{-1}CV(\ii k)CP(k)\\
+&=P(k)^{-1}V(k)P(k)=G(k).
+\end{align*}
+这证明了 \eqref{eq:2.11a} 的两个等式。
+
+\proofstep{第三步：核验原坐标中的实性与共轭。}
+因为 $u,v$ 及其导数都是实数，$U,V$ 是关于 $k$ 的实系数矩阵多项式，故
+\begin{equation}
+\supplementeq{eq:real-U-V}
+\overline{U(\overline{k})}=U(k),\qquad
+\overline{V(\overline{k})}=V(k).
+\end{equation}
+另一方面，$P$ 中的显式 $\ii$ 在共轭下改变符号，必须再交换第 1、3 列。
+逐项计算给出
+\begin{equation}
+\supplementeq{eq:P-conjugation}
+\overline{P(\overline{k})}\,B=P(k),\qquad
+B\,\overline{P(\overline{k})}^{-1}=P(k)^{-1}.
+\end{equation}
+第二式由第一式取逆得到。
+将它们代入 $F$、$G$ 的定义，分别得到
+\begin{align*}
+B\overline{F(\overline{k})}B
+&=B\overline{P(\overline{k})}^{-1}
+\overline{U(\overline{k})}\,\overline{P(\overline{k})}B\\
+&=P(k)^{-1}U(k)P(k)=F(k),\\
+B\overline{G(\overline{k})}B
+&=B\overline{P(\overline{k})}^{-1}
+\overline{V(\overline{k})}\,\overline{P(\overline{k})}B\\
+&=P(k)^{-1}V(k)P(k)=G(k).
+\end{align*}
+这正是 \eqref{eq:2.11b}。
+两组等式在原始定义域 $k\ne0$ 上全部成立，证明完成。
+\end{proof}
+
+\begin{note}
+\textbf{这两种对称性在后面做什么。}
+谱旋转 $k\mapsto\ii k$ 配合列置换 $A$，把一个谱区域的信息传递到其他区域；
+共轭 $k\mapsto\overline{k}$ 配合 $B$，编码位势实值的限制。
+将来把这些矩阵系数的对称性传给 Jost 解、散射矩阵和 RH 解时，还须检查变换后的解满足同一归一化，
+再用相应解的唯一性；不能仅由系数恒等式直接省略这一步。
+本节至此结束，原文下一节为第 2.2 节 Jost Solutions。
+\end{note}

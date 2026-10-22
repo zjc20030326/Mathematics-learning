@@ -1,0 +1,1223 @@
+===== PDF PAGE 1 =====
+                                 Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+
+
+                                      Contents lists available at ScienceDirect
+
+           Commun Nonlinear Sci Numer Simulat
+
+
+                                     journal homepage: www.elsevier.com/locate/cnsns
+
+
+Research paper
+
+Focusing and defocusing Hirota equations with non-zero
+boundary conditions: Inverse scattering transforms and
+soliton solutions
+
+Guoqiang Zhang a, Shuyan Chen b ,c, Zhenya Yan b ,c ,∗
+
+a Department of Mathematical Sciences, Tsinghua University, Beijing 10 0 084, China
+b Key Laboratory of Mathematics Mechanization, Academy of Mathematics and Systems Science, Chinese Academy of Sciences, Beijing
+100190, China
+c School of Mathematical Sciences, University of Chinese Academy of Sciences, Beijing 10 0 049, China
+
+
+
+a r t i c l e    i n f o             a b s t r a c t
+
+
+Article history:                                    In this paper, we investigate the inverse scattering transforms and soliton solutions of both
+Received 6 February 2019                        focusing and defocusing Hirota equations with non-zero boundary conditions (NZBCs). The
+Revised 13 July 2019                             inverse problems are solved via the study of the matrix Riemann-Hilbert problems. As a
+Accepted 25 July 2019
+                                           consequence, we present the general solutions for the potentials, and explicit expressions
+Available online 27 July 2019
+                                                   for the reﬂectionless potentials. Moreover, the trace formulae and theta conditions are also
+Keywords:                                        given. Particularly, we discuss the simple-pole and double-pole solutions for the focusing
+Hirota equation                                    case, and the simple-pole solutions for the defocusing case. Moreover, the results of the
+Non-zero boundary conditions                    focusing case with NZBCs can reduce to ones of the focusing case with zero-boundary
+Inverse scattering                               condition (ZBC). These obtained solutions are useful to explain the related nonlinear wave
+Riemann-Hilbert problem                    phenomena.
+Solitons
+Breathers                                                      © 2019 Elsevier B.V. All rights reserved.
+
+
+
+
+1. Introduction
+
+
+   Since the inverse scattering transform (IST) was ﬁrst presented to solve exactly the well-known Korteweg-de Vries (KdV)
+equation with a Lax pair [1] , the IST has been used to study more and more physically important nonlinear wave equations
+with Lax pairs such as the nonlinear Schrödinger (NLS) equation, modiﬁed KdV equation, Benjamin-Ono equation, sine-
+Gordon equation, Kadomtsev-Petviashvili equation, Davey-Stewartson equation, and etc. (see, e.g., Refs. [2–4] and references
+therein). As physically interesting models, the NLS equation and its extensions appear in many ﬁelds of nonlinear science
+such as nonlinear optics, Bose-Einstein condensates, deep ocean, and even ﬁnance (see, e.g., Refs. [5–14] and references
+therein). The focusing ( σ = −1 ) and defocusing ( σ = 1 ) NLS equations
+       iqt + q xx −2 σ (| q | 2 −q 20 ) q = 0 ,  σ = ±1 ,  q 0 ∈ R                                                                (1)
+with ZBC, lim x →±∞ q (x, t) = 0 and q 0 = 0 , and NZBCs, limx →±∞ q (x, t) = q ± with | q ±| = q 0 = 0 , have been solved via the
+standard IST and its extension, bilinear method, and dress method (see, e.g., Refs. [8,15–30] and references therein). Recently,
+the ISTs of integrable nonlinear wave equations with NZBCs have been paid much attention to based on the solutions of the
+related Riemann-Hilbert problems (see, e.g., Refs. [22–30] and references therein).
+
+
+  ∗Corresponding author. Tel.: +861062651370.
+    E-mail address: zyyan@mmrc.iss.ac.cn (Z. Yan).
+
+
+https://doi.org/10.1016/j.cnsns.2019.104927
+1007-5704/© 2019 Elsevier B.V. All rights reserved.
+
+===== PDF PAGE 2 =====
+2                                     G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+
+   To study more complicated nonlinear wave phenomena such as the phenomena of oceanic and optical waves, the exten-
+sions of the NLS equation were needed. For example, when the optical pulses become shorter (e.g., 100 fs [6] ), higher-order
+dispersive and nonlinear effects such as third-order dispersion, self-frequency shift, and self-steepening arising from the
+stimulated Raman scattering are signiﬁcant in the study of ultra-short optical pulse propagation [31–33] . The Hirota equa-
+tion [34] is an important one of the above-mentioned higher-order NLS equations, and is completely integrable.
+   This paper focuses on the ISTs and solutions for both focusing and defocusing Hirota equations [34] with NZBCs at inﬁnity
+
+         iqt + α[ q xx −2 σ (| q | 2 −q 20 ) q ] + iβ(q xxx −6 σ| q | 2 q x ) = 0 ,  σ = ±1 , (x, t) ∈ R 2 ,
+                                                                                                                           (2)        lim q (x, t) = q ±,   |q ±| = q 0 = 0 ,
+          x →±∞
+where the real constants α, β denote the second-order and third-order dispersions, respectively, and σ = −1 , +1 stand for
+the focusing and defocusing cases, respectively. Recently, the rogue waves of the focusing Hirota equation and its modula-
+tional form have been studied via the Darboux transform [33,35–39] . For β = 0 and α = 1 , the Hirota equation with NZBCs
+(2) reduces to the NLS equation with NZBCs (1) , while when α = 0 and β = 1 , the Hirota equation with NZBCs (2) reduces
+to the complex modiﬁed Korteweg-de Vries (mKdV) equation with NZBCs
+       qt + q xxx −6 σ| q | 2 q x = 0 ,  σ = ±1 , (x, t) ∈ R 2 ,
+                                                                                                                           (3)        lim q (x, t) = q ±,   |q ±| = q 0 = 0 .
+          x →±∞
+
+   Eq. (2) is just a compatibility condition Xt −Tx = [ X, T ] = 0 of the system of linear partial differential equations (Lax pair)
+[39,40]
+      Φx = X Φ,  X (x, t; k ) = ikσ3 + Q,
+                                                                                                                           (4)
+      Φt = T Φ,   T (x, t; k ) = αTnls + βTcmkdv ,
+where Φ = Φ(x, t; k ) is a 2 × 2 matrix-valued eigenfunction, k ∈ C is a spectral parameter, and
+       Tnls = −2 kX + iσ3 (Q x −Q                                     2 + σ q 20 ) ,
+                                   2                                                         3                                                                     (5)       Tcmkdv = −2 k (Tnls −iσ q 0 σ3 ) + [ Q x , Q ] + 2 Q −Q xx ,
+          1   0                    0      q (x, t)
+     σ3 =               ,  Q = Q(x, t) =                              ,   [ Q x , Q] ≡Q x Q −QQ x ,                                  (6)
+          0  −1               σ q ∗(x, t)    0
+with q ∗( x, t ) standing for the complex conjugate of q ( x, t ). Particularly, when β = 0 , the Lax pair (4) reduces to one of the
+NLS Eq. (1) , while when α = 0 , the Lax pair (4) becomes one of the complex mKdV Eq. (3) .
+   In this paper, we will study the IST and soliton solutions for the Hirota equation with NZBCs (2) starting from its Lax pair
+(4) for any parameters α and β with α2 + β2 = 0 . The rest of this paper is arranged as follows. In Section 2 , we investigate
+the focusing Hirota equation with NZBCs such that its simple-pole and double-pole solutions are found via solving the
+matrix Riemann-Hilbert problems with the reﬂectionless potentials. Some representative solitons are given. Moreover, the
+trace formulae and theta conditions are also discussed. In Section 3 , the defocusing Hirota equation with NZBCs is explored
+such that its simple-pole solutions are obtained by solving the matrix Riemann-Hilbert problem with the reﬂectionless
+potential, and their trace formulae and theta conditions are also obtained. Moreover, some representative simple-pole multi-
+dark solitons are studied. Finally, some conclusions and discussions are given in Section 4 .
+
+2. The focusing hirota equation with NZBCs
+
+
+2.1. The direct scattering with NZBCs
+
+   Since the asymptotic problem ( x → ± ∞ ) of the Lax pair (4) for the focusing ( σ = −1 ) Hirota equation with NZBCs (2) is
+given by
+      Φx = X±Φ,    X± = lim X = ikσ3 + Q ±,
+                                        x →±∞
+                                                   2      2                                                                    (7)      Φt = T±Φ,     T± =                           lim T = [ β(4 k −2 q 0 ) −2 αk ] X±,                                       x →±∞
+
+                        0    q ±
+                                                       , thus Eq. (7) admits the fundamental matrix solutions           lim Q(x, t) =with Q ± =
+              x →±∞                    −q ∗±   0
+
+                   f           E ±(kf   ) e iθ(x,t;k ) σ3 ,                k = ±iq 0 ,
+   Φ bg (x, t; k ) =                         2                                                                              (8)                                 I + x −2(αk + 3 βq 0 ) t X±(k ) ,   k = ±iq 0 ,
+
+where I is a 2 × 2 unit matrix,
+                 f        1       k +iqλ(k± )                                    2      2                           2     2
+     E ±(k ) =      iq ∗±                 ,  θ(x, t; k ) = λ(k ) x + [ β(4 k −2 q 0 ) −2 αk ]t  ,  λ2 (k ) = k + q 0 .                  (9)
+                     k + λ(k )    1
+   To further investigate the analyticity of the Jost solutions of the Lax pair (4) with σ = −1 , we need to give the regions
+of Im λ( k ) > 0 ( < 0) in the above-deﬁned function θ( x, t ; k ) (see, e.g., Ref. [26] ) for the focusing NLS case):
+
+===== PDF PAGE 3 =====
+                                      G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927                            3
+
+
+                Table 1
+               Conformal mapping from two sheets of k -plane to z -plane, where Q kj (Q zj ) j = 1 , 2 , 3 , 4 denote the ﬁrst, second, third and
+                 fourth quadrants excluding the boundaries of k -plane ( z -plane), respectively.
+
+                   Sheet-I of k -plane  →    z -plane                         Sheet-II of k -plane  →    z -plane
+
+            Q kj ,  j = 1 , 2 , 3 , 4  →  Q zj   {| z| > q 0 } ,  j = 1 , 2 , 3 , 4  Q kj ,  j = 1 , 2 , 3 , 4   →  Q zj   {| z| < q 0 } ,  j = 1 , 2 , 3 , 4
+                      iq 0 [0, 1]      →    { z = q 0 e iθz , θz ∈ π[0 , 1 / 2] }     iq 0 [0, 1]      →    { z = q 0 e iθz , θz ∈ π[ −1 , −1 / 2] }
+                      iq 0 [ −1 , 0]     →    { z = q 0 e iθz , θz ∈ π[1 , 3 / 2] }      iq 0 [ −1 , 0]      →    { z = q 0 e iθz , θz ∈ π[ −1 / 2 , 0] }
+            ± iq 0 [1, ∞ )     →  ± iq 0 [1, ∞ )            ± iq 0 [1, ∞ )     →  ± iq 0 [1, 0]
+                       [0, ± ∞ )      →  ± q 0 [1, ∞ )                        [0, ± ∞ )      →   ±q 0 [ −1 , 0]
+
+
+
+
+
+Fig. 1. The grey (white) region for Im λ > 0 (Im λ < 0) in distinct spectral planes of the focusing Lax pair with NZBCs. Left: the ﬁrst sheet of the Riemann
+surface, showing the discrete spectrum; Right: the complex z -plane, showing the discrete spectrum [zeros of s 11 ( z ) (blue) in the grey region and those of
+s 22 ( z ) (red) in the white region], and the orientation of the jump contours for the related Riemann-Hilbert problem. (For interpretation of the references to
+colour in this ﬁgure legend, the reader is referred to the web version of this article.)
+
+ • For q 0 = 0 , that  is, the boundary conditions (BCs) are NZBCs, λ( k ) satisfying λ2 (k ) = k 2 + q 20 in the complex plane
+    is a doubly branched function of k with two branch points being k = ±iq 0 and the branch cut being the segment
+    iq 0 [ −1 , 1 ]. Let k ± iq 0 = r ± e iθ±+2 im ±π   ( r ± > 0 , θ± ∈ [ −π/ 2 , 3 π/ 2) , m ± ∈ Z ) , then two single-valued analytical branches
+                                                                              θ+ +                                                                                 θ−                                 √
+                                                                                           2                                                                        r + r −e i   of the complex k -plane are deﬁned by Sheet-I: λI (k ) =                                                             and Sheet-II: λII (k ) = −λI (k ) . In this case, one can
+   introduce a uniformization variable z deﬁned by the conformal mapping [3] : z = k + λ(k ) , whose inverse mapping is
+           1      q 20            1      q 20   k (z) = 2 (z −  z ) , λ(z) = 2 (z +  z ) . The mappings between the two-sheeted Riemann k -surface and complex z -plane are
+   presented in Table 1 (see also Fig. 1 ).
+ • For q 0 = 0 , the NZBCs reduces to the ZBC, in which λ( k ) satisfying λ2 (k ) = k 2 in the complex plane is also a doubly
+   branched function of k with two branch points being k = 0 and k = ∞ and the branch cut chosen as the segment [0 , + ∞ ) .
+   Thus, we have λI = k and λII = −k for Arg( λI ∈ [0, 2 π)). we have ImλI (k ) = Imk > 0 (< 0) , i.e., the upper-half (lower-half)
+   plane of k -plane, and Im λII (k ) = −Imk > 0 (< 0) ,  i.e., the lower-half (upper-half) plane of k -plane. Moreover, λ(k ) ∈ R
+   only for k ∈ R .
+
+   Let A = iq 0 [ −1 , 1] with A + = iq 0 [0 , 1] and A −= iq 0 [ −1 , 0] , C0 = { z ∈ C : | z| = q 0 } , and
+     D +f = { z ∈ C : Im (λ(z)) = 12 Im (z)(1 −q 20 / | z| 2 ) > 0 } ,                                                                                                                     (10)
+     D −=f    { z ∈ C : Im (λ(z)) = 12 Im (z)(1 −q 20 / | z| 2 ) < 0 } .
+The continuous spectrum of X± = limx →±∞ X is the set of all values of z satisfying λ(z) ∈ R [26] , that is, z ∈      f = R ∪ C0 ,
+which are the jump contours for the related Riemann-Hilbert problem. Since T± = [ β 4 k 2 −2 q 20 −2 αk ] X±, that is, [ X±, T±] =
+0 , thus, for all z ∈     f , similarly to [26,30] for the focusing NLS equation with NZBCs, one can deﬁne simultaneously the Jost
+solutions Φ±(x, t; z) of both parts of the Lax pair (4) satisfying the boundary conditions
+     Φ±(x, t; z) = E ±(z)f   e iθ(x,t;z) σ3 + o( 1 ),  x → ±∞ .                                                                (11)
+   Based on Φx = X±Φ +  Q ±Φ with  Q ±(x, t) = Q(x, t) −Q ± with Q ± = limx →±∞ Q| σ = −1 , we know that the modiﬁed Jost
+solutions μ ± ( x, t ; z )
+     μ±(x, t; z) = Φ±(x, t; z) e −iθ(x,t;z) σ3 → E ±(z)f     ,  x → ±∞ ,                                                      (12)
+
+admit the forms
+            E ±(z)f       I + ±∞x e iλ(x −y ) σ3 (E ±(z))f    −1 Q ±(y, t) μ±(y, t; z) dy  ,   z = ±iq 0 , q −q ± ∈ L 1( R ±),
+    μ± =                                                                                                         (13)
+            E ±(z)f  + ±∞x   [ I+ ( x −y )( Q ± ∓q 0 σ3 )] Q ±(y, t) μ±(y, t; z) dy,   z = ±iq 0 , ( 1 + |x | )( q −q ±) ∈L 1( R ±),
+
+===== PDF PAGE 4 =====
+4                                     G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+where e α σ3 A := e ασ3 Ae −ασ3 .
+   Let    0f :=      f \{±iq 0 } , μ±(x, t; z) = (μ±1 (x, t; z) , μ±2 (x, t; z)) , and Φ±(x, t; z) = (Φ±1 (x, t; z) , Φ±2 (x, t; z)) . Since they
+contain these terms e ±iλ(x −y ) , thus according to the properties of these functions in distinct domains and the deﬁnition
+(13) of μ ± ( x, t ; z ), as well as the relation (12) between μ ± ( x, t ; z ) and Φ(x, t; z) , we have easily the following property
+(see [26] for the details):
+
+Proposition 1. Suppose q −q ± ∈ L 1( R ±) , then the Jost functions Φ±2 (x, t; z) and the modiﬁed forms μ ± 2 ( x, t ; z )) given by Eqs.
+(12) and (13) have unique solutions in   0f . Moreover, μ+1 (x, t; z) , μ−2 (x, t; z) , Φ+1 (x, t; z) and Φ−2 (x, t; z) can be analyti-
+cally extended to D +f , and continuously to D +f ∪   0f , whereas μ−1 (x, t; z) ,  μ+2 (x, t; z) , Φ−1 (x, t; z) , and Φ+2 (x, t; z) can be
+analytically extended to D −,f  and continuously extended to D −∪f     0f .
+   Since Tr X(x, t; z) = Tr T (x, t; z) = 0 in the Lax pair (4) yields ( detΦ±) x = ( detΦ±)t = 0 , thus one can ﬁnd
+
+      detΦ± =               lim μ± = detE ±(z)f  = γ f (z)                                                                        (14)
+                     x →±∞
+in terms of Liouville’s formula, where γ f (z) = 1 + q 20 /z 2 = 0 for z = ±iq 0 . Since Φ±(x, t; z) are both fundamental matrix
+solutions of the Lax pair, thus there exists a constant matrix S ( z ) between them so that
+    Φ+ (x, t; z) = Φ−(x, t; z) S(z) ,   z ∈   0f ,                                                                       (15)
+where S(z) =  s ij (z) 2 ×2 with s ij ( z )’s being called scattering coeﬃcients. It follows from the relation (15) that
+       s 11 (z) = γ f−1 (z) |Φ+1 (x, t; z) , Φ−2 (x, t; z) |,   s 22 (z ) = γ f−1 (z) | Φ−1 (x, t; z) , Φ+2 (x, t; z) | ,
+       s 12 (z) = γ f−1 (z) | Φ+2 (x, t; z) , Φ−2 (x, t; z) | ,   s 21 (z) = γ f−1 (z) | Φ−1 (x, t; z) , Φ+1 (x, t; z) | ,                        (16)
+
+and det S(z) = 1 , where |·, ·| = det (·, ·) .
+   According to Proposition 1 , it is easily shown that the deﬁned scattering coeﬃcients s 11 ( z ) and s 22 ( z ) in z ∈   0f can be
+analytically extended to D +f and D −,f  and continuously extended to D +f ∪   0f and D −∪f     0f , respectively, whereas another two
+scattering coeﬃcients s 12 ( z ) and s 21 ( z ) can not be analytically continued away from   0f in general.
+   To solve the matrix Riemann-Hilbert problem during the inverse scattering problem, we require that the potential does
+not possess spectral singularities [41] , i.e., s 11 ( z ) s 22 ( z ) = 0 for z ∈      f and S (z) is continuous for z = ±iq 0 . . Thus the so-called
+reﬂection coeﬃcients are deﬁned by ρ(z) = s 21 (z) /s 11 (z) , ρ(z)ˆ  = s 12 (z) /s 22 (z) for z ∈     f .
+
+
+2.2. The inverse scattering with NZBCs and simple poles
+
+
+   To study the discrete spectrum and residue conditions in the inverse scattering problem, we need to analyze the sym-
+metries of the scattering matrix S ( z ). Similarly to [26] for the focusing NLS equation,  it follows from the previous def-
+initions of k ( z ) and λ( z ) that they correspond to the symmetries: k (z) = k ∗(z ∗) ,  k (z) = k (−q 20 /z) ,  λ(z) = λ∗(z ∗) , and
+λ(z) = −λ(−q 20 /z) , thus we have the symmetries of X , T , and θ as
+      X (x, t; z) = σ2 X ∗(x, t; z ∗) σ2 ,  X (x, t; z) = X (x, t; −q 20 /z) ,
+       T (x, t; z) = σ2 T ∗(x, t; z ∗) σ2 ,   T (x, t; z) = T (x, t; −q 20 /z) ,                                                     (17)
+       θ(x, t; z) = θ ∗(x, t; z ∗) ,        θ(x, t; z) = −θ(x, t; −q 20 /z) ,
+
+           0   −i
+where σ2 =              is the second Pauli matrix.
+                       i   0
+   Combining the above-mentioned symmetries, the Lax pair (4) , and Eq. (12) , we have the following symmetries for Φ±
+and μ ± as
+
+                                                                                        i             2      Φ±(x, t; z) = σ2 Φ∗±(x, t; z ∗) σ2 ,  Φ±(x, t; z) =  Φ±(x, t; −q 0 /z) σ3 Q ±,                                                        z                                                                                                                     (18)
+                                                                                       i             2       μ±(x, t; z) = σ2 μ∗±(x, t; z ∗) σ2 ,  μ±(x, t; z) =  μ±(x, t; −q 0 /z) σ3 Q ±.                                                       z
+
+By means of Eq. (18) with Eq. (15) , we have the symmetries
+
+      S(z) = σ2 S ∗(z ∗) σ2 ,  S(z) = (σ3 Q −) −1 S(−q 20 /z) σ3 Q + ,                                                          (19)
+which lead to the symmetries between ρ( z ) and ρ(z)ˆ    as
+                            q ∗−       2     ρ(z) = −ˆρ∗(z ∗) ,  ρ(z) =   ρ(−qˆ     0 /z) .                                                                    (20)
+                            q −
+
+The discrete spectrum of the scattering problem is the set of all values z ∈ C \     f such that they possess eigenfunctions
+in L 2 (R ) . Similarly to Refs. [26,28,30] for the focusing NLS equation, for the focusing Hirota Eq. (2) , they should satisfy
+
+===== PDF PAGE 5 =====
+                                      G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927                            5
+
+s 11 (z) = 0 for z ∈ D +f and s 22 (z) = 0 for z ∈ D −suchf       that the corresponding eigenfunctions are in L 2 (R ) from the ﬁrst two
+ones of Eq. (16) and the deﬁnition (12) of Φ±.
+    Firstly, we suppose that s 11 ( z ) has N simple zeros in D +f ∩ { z ∈ C : | z| > q 0 , Im z > 0 } denoted by z n , n = 1 , 2 , · · · , N, that
+is, s 11 (z n ) = 0 and s ′11 (z n ) = 0 (n = 1 , 2 , . . . , N) .  It follows from Eq. (19) of the scattering matrix that  if s 11 (z n ) = 0 , then
+s 22 (z n∗ ) = s 22 (−q 20 /z n ) = s 11 (−q 20 /z n∗ ) = 0 , which leads to the set of discrete spectrum as
+
+                      2          2  N
+                                 0       ,   s 11 (z n ) = 0 , z n ∈ D +f ∩ {z ∈ C : | z| > q 0 , Im z > 0 }.                            (21)                      0 , z n∗ , −q     Z f =  z n , −q∗
+                   z n        z n  n =1
+Since s 11 (z 0 ) = 0 and s ′11 (z 0 ) = 0 are required for z 0 ∈ Z f ∩ D +f , then it follows from the ﬁrst expression in Eq. (16) that there
+exists a norming constant b + (z 0 ) such that
+     Φ+1 (x, t; z 0 ) = b + (z 0 ) Φ−2 (x, t; z 0 ) .                                                                        (22)
+
+The residue condition of Φ+1 (x, t; z) /s 11 (z) in the simple zero z 0 ∈ Z f ∩ D +f yields
+
+         Φ+1 (x, t; z)    Φ+1 (x, t; z 0 )   b + (z 0 )
+               =                        =     Res                                      Φ−2 (x, t; z 0 ) .                                                  (23)
+       z= z 0      s 11 (z)                                   s ′11 (z 0 )                                                 s ′11 (z 0 )
+   Similarly, it follows from s 22 (z 0∗ ) = 0 and s ′22 (z 0∗ ) = 0 for z 0∗ ∈ Z f ∩ D −andf      the second expression of Eq. (16) that there
+exists a norming constant b −(z 0∗ ) such that
+     Φ+2 (x, t; z 0∗ ) = b −(z 0∗ ) Φ−1 (x, t; z 0∗ ) .                                                                         (24)
+The residue condition Φ+2 (x, t; z) /s 22 (z) in the simple zero z 0∗ ∈ Z f ∩ D −yieldsf
+         Φ+2 (x, t; z)    Φ+2 (x, t; z 0∗ )   b −(z 0∗ )              ∗               =                        =     Res                                      Φ−1 (x, t; z 0 ) .                                                  (25)       z= z 0∗      s 22 (z)                                   s ′22 (z 0∗ )                                                 s ′22 (z 0∗ )
+
+   For convenience, we rewrite Eqs. (23) and (25) as
+
+         Φ+1 (x, t; z)                               b + (z 0 )                     f          f     Res               = A + [ z 0 ] Φ−2 (x, t; z 0 ) ,  A + [ z 0 ] =                                                                                            ,   z 0 ∈ Z ∩ D + ,
+       z= z 0      s 11 (z)                                                                   s ′11 (z 0 )
+         Φ+2 (x, t; z)           ∗               ∗           ∗    b −(z 0∗ )      ∗         f          f     Res               = A −[ z 0 ] Φ−1 (x, t; z 0 ) ,  A −[ z 0 ] =                                                                                            ,   z 0 ∈ Z ∩ D −,                                (26)       z= z 0∗      s 22 (z)                                                                   s ′22 (z 0∗ )
+
+which correspond to the symmetries
+
+                       ∗   ∗              z 02         20                        f          f                              A − −q                                                                    ,   z 0 ∈ Z ∩ D + ,                                                  (27)     A + [ z 0 ] = −A −[ z 0 ] ,  A + [ z 0 ] =
+                                              z 0                               q 2−
+
+in terms of symmetries (18) and (19) , which further lead to
+
+                       ∗   ∗     z n2         20         n2   ∗      20                        f          f                        = −z                      A − −q                                                                                ,   z n ∈ Z ∩ D + .                                         (28)                                    A + −q     A + [ z n ] = −A −[ z n ] =
+                                     z n                                                       z n∗                       q 2−                                      q 2−
+
+The relation Φ+ (x, t; z) = Φ−(x, t; z) S(z) can be rewritten as
+     Φ+1 (x, t; z)
+           = Φ−1 (x, t; z) + ρ(z) Φ−2 (x, t; z) ,
+           s 11 (z)
+     Φ+2 (x, t; z)
+           = ρ(z)ˆ   Φ−1 (x, t; z) + Φ−2 (x, t; z) ,
+          s 22 (z)
+
+which lead to
+               Φ+2 (x, t; z)     Φ+1 (x, t; z)                                0    −ˆρ(z)
+      Φ−1 (x, t; z) ,         =                    , Φ−2 (x, t; z)  (I −J0 (x, t;λ)) ,    J0 =                                   .       (29)
+                          s 22 (z)              s 11 (z)                                    ρ(z)   ρ(z) ρ(z)ˆ
+
+   Similarly to [26] , we also have the asymptotic behaviors for modiﬁed Jost solutions and scattering data as
+       μ±(x, t; z) = I + O  1z  ,         S(z) = I + O  1z  ,     z → ∞ ,
+                                                 i                              q +                                                                  (30)
+       μ±(x, t; z) = z σ3 Q ± + O ( 1 ),   S(z) = q −I + O ( z ),   z → 0 .
+
+According to the modiﬁed Jost functions, let the sectionally meromorphic matrix M ( x, t ; z ) be
+
+                                                                                               , Φ−2 (x, t; z) e −iθ(x,t;z) σ3 ,   z ∈ D +f ,          M + (x, t; z) =  μ+1s 11(x,t;z)(z)                                                           , μ−2 (x, t; z) =  Φ+1s 11(x,t;z)(z)                                                                                                                    (31)     M(x, t; z) =
+                                                                       e −iθ(x,t;z) σ3 ,   z ∈ D −.f          M −(x, t; z) = μ−1 (x, t; z) , μ+2s 22(x,t;z)(z)                                 = Φ−1 (x, t; z) , Φ+2s 22(x,t;z)(z)
+
+===== PDF PAGE 6 =====
+6                                     G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+
+Then, according to Proposition 1 for the analyticity of the eigenfunctions, the relation (29) and asymptotic behaviors (30) , it
+follows from Eq. (31) that we have the following proposition for the Riemann-Hilbert problem:
+
+
+Proposition 2 (Riemann-Hilbert problem) . The matrix function M ( x, t ; z ) satisﬁes the matrix Riemann-Hilbert problem:
+
+ • Analyticity: M ( x, t ; z ) is analytic in (D +f ∪ D −)f \ Z f ;
+ • Jump condition: M −(x, t; z) = M + (x, t; z) ( I −J(x, t; z) ),   z ∈      f with J(x, t; z) = e iθ(x,t;z) σ3 J0 ;
+ • Asymptotic behavior: M ±(x, t; z) = I + O ( 1 /z ) for z → ∞ and M ±(x, t; z) = zi σ3 Q −+ O ( 1 ) for z → 0.
+
+   To conveniently solve the above-mentioned Riemann-Hilbert problem, let
+
+             z n ,     n = 1 , 2 , · · · , N,
+                          2      ηn =      q                          0                                                                                                (32)
+                            ∗                          ,  n = N + 1 , N + 2 , · · · , 2 N,        − z n                    −N
+
+              q 20                   f            2 N                              f                           f
+and ηn = − ηn . Then Z = { ηn , ηn } n =1 with ηn ∈ D + and ηn ∈ D −. Subtracting out the asymptotic behaviors and the simple
+pole contributions, that is,
+
+                                       2 N   Res M + (x, t; z)   Res M −(x, t; z)
+                                      i               z= ηn               z= ηn
+   M sp (x, t; z) = I +  σ3 Q −+            +                        ,                                         (33)
+                        z                   z −ηn            z − ηn
+                                      n =1
+
+from both sides of the above-mentioned jump condition M −= M + (I −J) yields
+
+   M −(x, t; z) −M sp (x, t; z) = M + (x, t; z) −M sp (x, t; z) −M + (x, t; z) J(x, t; z) ,                                    (34)
+
+in which, M ±(x, t; z) −M sp (x, t; z) are analytic in D ±.f  Moreover, their asymptotics are both O 1z  as z → ∞ and O (1) as z → 0,
+                    1                                                                                   1          f(ζ )
+and J ( x, t ; z ) is O  z  as z → ∞ , and O ( z ) as z → 0. Therefore, the Cauchy projectors P ±[ f ] (z) = 2 πi        f ζ −(z±i 0) dζ (where the
+notation z ± i 0 represents the limit taken from the left/right of z ) and Plemelj’s formulae are used to solve Eq. (34) to yield
+
+                          1   M + (x, t;ζ ) J(x, t;ζ )                                  f     M(x, t; z) = M sp (x, t; z) +                       d ζ ,   z ∈ C \    ,                                      (35)
+                         2 πi          f       ζ −z
+
+where         f stands for the integral along the oriented contours shown in Fig. 1 (right).
+    It follows from Eq. (31) that only its ﬁrst (second) column has a simple pole at z = ηn ( z = ηn ). Therefore, by means of
+Eqs. (12) and (26) , the residue parts in Eq. (35) can be found as
+
+                     Res               M −(x, t; z)      Res     M + (x, t; z)
+       z=                          z=           ηn                                 ηn                                 A + [ ηn ] e −2 iθ(x,t;ηn )           A −[ ηn ] e 2 iθ(x,t; ηn )
+             +          =                μ−2 (x, t;ηn ) ,              μ−1 (x, t; ηn )  ,        (36)
+           z −ηn            z − ηn                z −ηn                          z − ηn
+
+   For z = ηs (s = 1 , 2 , · · · , 2 N) , it follows from the second column of M ( x, t ; z ) given by Eq. (35) with Eq. (36) that
+
+                                     iq −      2 N           2 iθ(x,t; ηn )                       +                                  ηs       A −[ ηn ] e                    1       ( M  J )2 (x, t;ζ )     μ−2 (x, t;ηs ) =    +                μ−1 (x, t; ηn ) +                     dζ ,   s = 1 , 2 , · · · , 2 N.    (37)
+                                       ηs − ηn                 2 πi          f     ζ −ηs                   1      n =1
+
+Moreover, it follows from Eq. (18) that
+
+                        iq −
+     μ−2 (x, t;ηs ) =    μ−1 ( x, t; ηs ),   s = 1 , 2 , · · · , 2 N.                                                         (38)
+                      ηs
+
+The substitution of Eq. (38) into Eq. (37) yields
+
+        2 N             2 iθ(x,t; ηn )                                              iq −              +                                                                                         2 (x, t;ζ )         A −[ ηn ] e      −iq                                                                    d ζ = 0 ,   s = 1 , 2 , · · · , 2 N,  (39)                            − δsn μ−1 (x, t; ηn ) +    ηs  +  1       ( M  J )
+                                                                                                                                                                                                                         f     ζ −ηs                ηs − ηn        ηs                   1    2 πi       n =1
+
+where δsn  is the Kronecker delta function. System (39) containing 2 N equations with 2 N unknowns μ−1 (x, t; ηn ) , n =
+1 , 2 , · · · , 2 N can yield the solutions μ−1 (x, t; ηs ) , s = 1 , 2 , · · · , 2 N such that one can also get μ−2 (x, t;ηs ) , s = 1 , 2 , · · · , 2 N
+from Eq. (38) . Therefore, substituting the obtained μ−1 (x, t; ηs ) and μ−2 (x, t;ηs ) , s = 1 , 2 , · · · , 2 N into Eq. (36) , and then
+substituting Eq. (36) into Eq. (35) can yield the M ( x, t ; z ) in terms of the scattering data.
+
+===== PDF PAGE 7 =====
+                                      G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927                            7
+
+
+    It follows from Eq. (35) with Eq. (36) that the asymptotic behavior of M ( x, t ; z ) is given as
+
+           M (1) (x, t)     1
+                   + O                                                         ,   z → ∞ ,                                                              (40)     M(x, t; z) = I +
+                           z                                       z 2
+
+where
+
+                                2 N
+   M (1) (x, t) = i σ3 Q −+    A + [ ηn ] e −2 iθ(x,t;ηn ) μ−2 (x, t;ηn ) , A −[ ηn ] e 2 iθ(x,t; ηn ) μ−1 (x, t; ηn )
+
+                                n =1
+                 1      +           −     M  (x, t;ζ ) J(x, t;ζ ) d ζ ,                                                                (41)
+                2 πi          f
+with μ−1 (x, t; ηs ) and μ−2 (x, t;ηs ) , s = 1 , 2 , · · · , 2 N given by Eqs. (39) and (38) .
+    It follows from Eq. (31) that M(x, t; z) e iθ(x,t;z) σ3 satisﬁes the Lax pair (4) . Substituting M(x, t; z) e iθ(x,t;z) σ3 with Eq. (40) into
+the x -part of the Lax pair (4) and then choosing the coeﬃcients of z 0 yield the following proposition for the potential q ( x,
+t ):
+
+Proposition 3. The potential with simple poles of the focusing Hirota equation with NZBCs can be expressed as
+
+                         2 N
+                                     2 iθ(x,t; ηn )              1       +                                  M  J                                                                                (x, t;ζ ) d ζ ,                              (42)     q (x, t) = q −−i   A −[ ηn ] e       μ−11 (x, t; ηn ) +                                                                                     12                                              2 π           f
+                        n =1
+
+                              q 20                              q 20
+                                     ∗                                         , n = 1 , 2 , · · · , N, ηn = − ηn , and μ−11 (x, t; ηn ) ’s are determined by                           −Nwhere ηn = z n , ηN+ n = − z n
+
+                                                              iq −                                                                       ( M + J )12 (x, t;ζ )        2 N  A −[ ηn ] e 2 iθ(x,t; ηn ) −iq                                   +                                                               d ζ = 0 , s = 1 , 2 , . . . , 2 N,         (43)                            − δsn  μ−11 (x, t; ηn ) +
+                ηs − ηn        ηs                       ηs                   f  2 πi (ζ −ηs )
+       n =1
+
+which can be derived from system (39) .
+
+   Since s 11 ( z ) and s 22 ( z ) are analytic in D +f and D −,f   respectively, and the discrete spectral points ηn ’s and ηn ’s are the
+simple zeros of s 11 ( z ) and s 22 ( z ), respectively, then, similarly to Ref. [26] for the focusing NLS equation with NZBCs, one can
+also ﬁnd the trace formulae for the focusing Hirota equation with NZBCs
+
+       s 11 (z) = e s (z) s 0 (z) for z ∈ D +f ,   s 22 (z) = e −s (z) /s 0 (z) for z ∈ D −,f                                               (44)
+
+                                 i        log [ 1+ ρ(ζ )ρ∗(ζ ∗) ]                N   (z−z n )(z+ q 20 /z ∗n )                                                                         (see Appendix A or Ref. [26] for the detailed deriva-                                                                                       2where s (z) = 2 π         f         ζ −z      dζ and s 0 (z) =   n =1 (z−z ∗n )(z+ q                                                                                        0 /z n )
+tion).
+   According to the limit z → 0 of s 11 ( z ) in Eq. (44) and Eq. (30) one can yield the theta condition as
+                      N               log [ 1 + ρ(ζ ) ρ∗(ζ ∗) ]
+      arg (q + /q −) = 4    arg (z n ) +                      dζ ,  z → 0 .                                         (45)
+                                                                                                                      f       2 πζ
+                         n =1
+Particularly, for the case of the reﬂectionless potential, that is, ρ(z) = ρ(z)ˆ  = 0 , which leads to J = (0) 2 ×2 . Thus, Eq. (43) re-
+duces to
+        2 N  A −[ ηn ] e 2 iθ(x,t; ηn ) −iq                                                  − , s = 1 , 2 , . . . , 2 N,                                    (46)                            − δsn  μ−11 (x, t; ηn ) = −iq
+                ηs − ηn        ηs                         ηs
+       n =1
+which can be solved for μ−11 (x, t; ηn ) by using the Cramer’s rule.
+   Let w = w j 2 N×1 , v = v j  (2 N) ×1 , G = g s j  (2 N) ×(2 N) , and y = (y n ) 2 N×1 with w j = A −[ η j ] e 2 iθ(x,t;ηj )                                                                                                                                                     , v j = −iqηj− ,  g s j =
+ w j                                                                                           −1   + v s δs j , and y n = μ−11 (x, t; ηn ) . Then it follows from Eq. (46) that y = (μ−11 (x, t; ηn )) 2 N×1 = G  v . And then substi-ηs −ηj
+tuting them into Eq. (42) with  J = 0 yields the reﬂectionless potential of the focusing Hirota Eq. (2) in the determinant
+form:
+
+Proposition 4. The reﬂectionless potential with simple poles in the focusing Hirota equation with NZBCs (2) can be found as
+
+                   G   v
+                    det    T               w   0
+     q (x, t) = q −+ i                       .                                                                                (47)
+                        det G
+   For the case of the reﬂectionless potential ( ρ(z) = ρ(z)ˆ  = 0 ), the above-obtained trace formulae and theta condition
+reduce to
+               N  (z −z n )(z + q 20 /z n∗ )                       f             N  (z −z n∗ )(z + q 20 /z n )                       f
+       s 11 (z) =            ∗        2      for z ∈ D + ,   s 22 (z) =                    2   ∗   for z ∈ D −,                    (48)
+                 n =1                   (z −z n )(z + q 0 /z n )                           n =1 (z −z n )(z + q 0 /z n )
+
+===== PDF PAGE 8 =====
+8                                     G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+
+
+
+
+Fig. 2. Simple-pole stationary one-soliton solutions of the focusing Hirota equation with α = 1 , β = 0 . 01 and N = 1 , z 1 = 32 i, A + [ z 1 ] = 1 . (a): the breather
+solution with NZBCs and parameters q −= 1 ; (b) the breather with NZBCs and parameters q −= 0 . 2 ; (b) the breather with NZBCs and parameters q −= 0 . 05 ;
+(d) the bright with ZBC and parameter q 0 → 0.
+
+
+and
+
+                      N
+      arg (q + /q −) = 4    arg (z n ) ,                                                                               (49)
+
+                         n =1
+
+respectively.
+   Note  that   i) when α = 1 , β = 0 ,  the  simple-pole  potential  for  the  focusing  Hirota  equation  with NZBCs  in
+Propositions 3 and 4 can reduce to the known one of the focusing NLS equation with NZBCs [17–20,26] ;  ii) when
+α = 0 , β̸ = 0 , the simple-pole potential for the focusing Hirota equation with NZBCs in Propositions 3 and 4 can reduce
+to one of the focusing complex mKdV equation with NZBCs (3) .
+   Note that for the general parameters α, β, z n , A + [ z n ] and ﬁnite number N , with tha aid of symbolic computation such as
+Maple , we can easily give the explicit expressions for the potential via the formula (47) . Generally speaking, these expres-
+sions are so complicated for those undetermined parameters. Therefore, in what follows, we investigate the reﬂectionless
+potential of the focusing Hirota equation with NZBCs for some known parameters in terms of Proposition 4 with αβ̸ = 0 :
+   Case 1. For N = 1 , z 1 = 3 i/ 2 , Eq. (49) implies that the asymptotic phase difference is 2 π (i.e., there is no phase transition),
+it follows from Eq. (47) that we have the simple-pole breather solution of the focusing Hirota equation with NZBCs, which
+is complicated. Here we give a simple example for α = 1 , β = 0 . 01 , q −= 1 as
+            390 cosh  4320241 t −56 x + ln  1315  −325 csch  12 ln  8116   sin  6536 t −i2 ln  8116
+     q (x, t) =                                                                                                       ,                          (50)
+                       390 cosh  4320241 t −56 x + ln  1315  −360 sin  6536 t
+
+which is a time-periodic breather (also called stationary breather) displayed in Fig. 2 (a), and similar to the Kuznetsov-Ma
+breather for the focusing NLS equation [17,18] . For the ﬁxed α = 1 , β = 0 . 01 , we choose other NZBCs such as q −= 0 . 2 , 0 . 05
+to ﬁnd the corresponding simple-pole breather solutions of the focusing Hirota equation (see Fig. 2 (b) and (c)). It follows
+from Fig. 2 (a)-(c) that when the non-zero parameter q −becomes smaller, the periodic behavior of the simple-pole breather
+only appears in its top part, and the maximal amplitude under the background gradually decreases. In particular, when
+q 0 → 0, the breather solution of the focusing Hirota equation with NZBCs becomes the simple-pole bright soliton of the
+focusing Hirota equation with ZBC (see Fig. 2 (d)).
+   Case 2.  For N = 1 , z 1 = ae iν with a > 1 and ν ∈ (0, π/2) ∪ ( π/2, π), the asymptotic phase difference is arg (q + /q −) = 4 ν ∈
+(0 , 2 π) . The focusing Hirota equation with NZBCs possesses the non-stationary solitons. In particular, when α = 1 , β = 0 ,
+these non-stationary solitons reduce to ones of the focusing NLS equation with NZBCs [19,20] . For example, for N = 1 , α =
+1 , β = 0 . 01 , z 1 = 2 e iπ/ 4 , A + [ z 1 ] = 1 , we have the non-stationary soliton of the focusing Hirota equation with NZBCs as
+           √                 √
+                 6 cosh[ ξ2 −ln (25 / 136) / 2] + 30  17i sin [ ξ1 −arctan (4) + 2 ln (2) i ]     q (x, t) = −40 √                 √            √          ,                            (51)
+                40 6 cosh[ ξ2 + ln (25 / 136) / 2] + 16  17 cos (ξ1 + arccos (4 /  17 ))
+       √            √      √
+where ξ1 = 5 2 (t −16 x ) / 64 , ξ2 = 3 2 x/ 4 + (27 2 / 1600 −17 / 4)t, and the asymptotic phase difference is π (see Fig. 3 (a)
+and (b)). If we only change z 1 = 2 e 3 iπ/ 4 , then we have another non-stationary soliton of the Hirota equation with NZBCs
+(see Fig. 3 (c) and (d)), whose asymptotic phase difference is 3 π, this is, the phase difference is also π. But the slopes of
+motions of the hump centers in every period are opposite (see Fig. 3 (b) and (d)).
+   Case 3.  For N = 1 , q −= 1 , z 1 → e i π/4 ,  α = 1 , β = 0 . 01 , we have the non-stationary breather of the focusing Hirota
+equation with NZBCs
+                                   √
+            2 sinh (2t) −csch  ln 2(3)  sin   252 t −x −i2 ln (3)
+     q (x, t) =           √     √                         ,                                                   (52)
+                 2 cosh (2t) +  2 cos   252 t −x + π4
+
+which is a space-periodic breather (also called non-stationary breather) displayed in Fig. 4 (a) and (b), and similar to the
+Akhmediev breather for the focusing NLS equation [21] . Fig. 4 (b) implies that the motion of the peak centers in each period
+
+===== PDF PAGE 9 =====
+                                      G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927                            9
+
+
+
+
+
+Fig. 3. Simple-pole non-stationary breather solutions of the focusing Hirota equation with NZBCs and α = 1 , β = 0 . 01 and N = 1 , q −= 1 , A + [ z 1 ] = 1 . (a)
+z 1 = 2 e iπ/ 4 ; (b) z 1 = 2 e 3 πi/ 4 .
+
+
+
+
+
+Fig. 4. Simple-pole non-stationary AKmediev breathers of the focusing Hirota equation with NZBCs and N = 1 , α = 1 , q −= 1 , z 1 → e πi/ 4 , A + [ z 1 ] = 1 . (a)
+β = 0 . 01 ; (b) β = 0 . 5 .
+
+
+is almost vertical to the x -axis for the small third-order dispersive parameter β = 0 . 01 . If we only increase β as β = 0 . 5 ,
+then we have the modiﬁed Akhmediev breather (see Fig. 4 (c) and (d))
+                √
+            2 sinh (2t) −i 2 cos 2t −x + π4
+     q (x, t) =        √                         ,                                                                (53)
+             2 cosh (2t) +  2 cos 2t −x + π4
+
+where the motion of hump centers in each period is not vertical to the x -axis (see Fig. 4 (d)).
+   Case 4.  For N = 2 , we have the weak interactions of simple-pole breather-breather solutions of the focusing Hirota
+equation with NZBCs (see Fig. 5 (a1)-(a3) for q −= 1 and Fig. 5 (b1)-(b3) for q −= 0 . 2 , where z 1 = 1 / 5 + 3 / 2 i, z 2 = −1 / 5 +
+3 / 2 i ). It follows from Fig. 5 (b1)-(b3) that when the parameter q −becomes smaller (e.g., q −= 0 . 2 ), the periodic behaviors
+of the simple-pole breather-breather solutions only appear in their top parts. Particularly, when q 0 → 0, we have the weak
+interactions of the simple-pole bright-bright solitons of the focusing Hirota equation with ZBC (see Fig. 5 (c1)-(c3)).
+   Case 5.  For N = 2 , if we take two distinct discrete eigenvalues as z 1 = 15 + 2 i, z 2 = 1 + i, then we have the strong inter-
+actions of simple-pole breather-breather solutions of the focusing Hirota equation with NZBCs such that the larger am-
+plitude can be generated when two breathers interact (see Fig. 6 (a1)-(a3) for q −= 1 and Fig. 6 (b1)-(b3) for q −= 0 . 3 ).
+Particularly, when q 0 → 0, we have the strong interactions of the simple-pole bright-bright solitons of the focusing Hi-
+rota equation with ZBC (see Fig. 6 (c1)-(c3)).  If we take z 1 and z 2 with the same real parts and almost same imaginary
+parts, e.g., z 1 = −1 / 65 + 3 i/ 2 , z 1 = −1 / 65 + 31 i/ 20 , then we have another type of simple-pole breather-breather solutions
+(see Fig. 7 (a1)-(a3) for q −= 1 and Fig. 7 (b1)-(b3) for q −= 0 . 2 ). Particularly, when q 0 → 0, we have the simple-pole bright-
+bright solitons of the focusing Hirota equation with ZBC (see Fig. 7 (c1)-(c3)).
+    Similarly, for N > 2, we also have the higher-order simple-pole breather and bright soliton solutions, which are omitted
+here. Note that these simple-pole breather and bright solitons solutions of the focusing Hirota equation could be derived via
+the Darboux transformation [38] .
+
+2.3. The focusing hirota equation with NZBCs: Double poles
+
+
+   The direct and inverse scattering problems in the case of double poles are similar to ones in the case of simple poles, but
+they also have some differences, that is, they can make the matrix function M ( x, t ; z ) in the Riemann-Hilbert problem exhibit
+distinct types of poles (i.e., simple poles and double poles) such that the function M ( x, t ; z ) can further generate distinct
+potentials for the simple poles and double poles. Moreover, the trace formulae and theta conditions are also different for
+the two cases (see [30] for the focusing NLS equation with double poles).
+   In the following, we suppose that the discrete spectral points Z f are double zeros of the scattering coeﬃcients s 11 ( z ) and
+s 22 ( z ), that is, s 11 (z 0 ) = s ′11 (z 0 ) = 0 , s ′′11 (z 0 ) = 0 for ∀ z 0 ∈ Z f ∩ D +f , and s 22 (z 0 ) = s ′22 (z 0 ) = 0 , s ′′22 (z 0 ) = 0 for ∀ z 0 ∈ Z f ∩ D −.f
+For convenience, we give a simple proposition [30] : if f ( z ) and g ( z ) are analytic in some complex domain      , and z 0 ∈    is
+
+===== PDF PAGE 10 =====
+10                                   G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+
+
+
+
+Fig. 5. Weak interactions of simple-pole two-soliton solutions of the focusing Hirota equation with α = 1 , β = 0 . 01 , N = 2 , z 1 = 15 + 32 i, z 2 = −15 +
+3
+2 i, A + [ z 1 ] = A + [ z 2 ] = 1 . (a1, a2, a3): the breather-breather solutions with NZBCs and parameter q −= 1 ; (b1, b2, b3): the breather-breather solutions with
+NZBCs and parameter q −= 0 . 2 ; (c1, c2, c3): the bright-bright solitons with ZBC and parameter q −= q 0 → 0 .
+
+
+a double zero of g ( z ) and f(z 0 ) = 0 , then the function f ( z )/ g ( z ) has the double pole z = z 0 , and its residue Res[ f / g ] and the
+coeﬃcient P−2 [ f/g] of (z −z 0 ) −2 in the Laurent series are given by
+
+              2 f (z 0 )                                f ′ (z 0 )        0 ) g′′′ (z 0 )                                    −f(z     P            [ f /g] =                                  ,    Res                                           [ f /g] = 2                                                                                                                  .                                              (54)       −2
+                                z= z 0       z=                g′′ (z 0 )                                        g′′ (z 0 )                                                      3[ g′′ (z 0 )] 2            z 0
+
+Similarly to [30] for the focusing NLS equation with double poles, for s 11 (z 0 ) = s ′11 (z 0 ) = 0 , s ′′11 (z 0 ) = 0 in ∀ z 0 ∈ Z f ∩ D +f , Eq.
+(22) still holds (the coeﬃcient b + (z 0 ) may be distinct, we here still use the same sign). The ﬁrst one of Eq. (16) can be
+
+===== PDF PAGE 11 =====
+                                      G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927                              11
+
+
+
+
+
+Fig. 6. Strong interactions of simple-pole two-soliton solutions of the focusing Hirota equation with α = 1 , β = 0 . 01 , N = 2 , z 1 = 1 / 5 + 2 i, z 2 = 1 +
+i, A + [ z 1 ] = A + [ z 2 ] = 1 . (a1, a2, a3): the breather-breather solutions with NZBCs and parameter q −= 1 ; (b1, b2, b3): the breather-breather solutions with
+NZBCs and parameter q −= 0 . 3 ; (c1, c2, c3): the bright-bright solitons with ZBC and parameter q 0 → 0.
+
+
+rewritten as
+       s 11 (z) γ f (z) = | Φ+1 (x, t; z) , Φ−2 (x, t; z) | ,                                                                   (55)
+
+whose ﬁrst-order partial derivative with respect to z yields
+        [ s 11 (z) γ f (z)] ′ = | Φ′+1 (x, t; z) , Φ−2 (x, t; z) | + | Φ+1 (x, t; z) , Φ′−2 (x, t; z) | .                                      (56)
+Taking z = z 0 ∈ Z f ∩ D +f in Eq. (56) and using s 11 (z 0 ) = s ′11 (z 0 ) = 0 and Eq. (22) yield
+        | Φ′+1 (x, t; z 0 ) −b + (z 0 ) Φ′−2 (x, t; z 0 ) , Φ−2 (x, t; z 0 ) | = 0 ,                                                       (57)
+which implies that there exists another constant c + (z 0 ) such that
+     Φ′+1 (x, t; z 0 ) = c + (z 0 ) Φ−2 (x, t; z 0 ) + b + (z 0 ) Φ′−2 (x, t; z 0 ) .                                                    (58)
+
+===== PDF PAGE 12 =====
+12                                   G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+
+
+
+
+Fig.  7. Strong interactions of simple-pole two-soliton solutions of the focusing Hirota equation with α = 1 , β = 0 . 01 , N = 2 , z 1 = −1 / 65 + 3 i/ 2 , z 2 =
+−1 / 65 + 31 i/ 20 , A + [ z 1 ] = A + [ z 2 ] = 1 . (a1, a2, a3): the breather-breather solutions with NZBCs and parameter q −= 1 ; (b1, b2, b3): the breather-breather
+solutions with NZBCs and parameter q −= 0 . 2 ; (c1, c2, c3): the bright-bright solitons with ZBC and parameter q 0 → 0.
+
+
+
+According to Eqs. (22) , (54) and (58) , we have
+
+         Φ+1 (x, t; z)    2 Φ+1 (x, t; z 0 )   2 b + (z 0 )
+     P −2         =           ′′     =     ′′    Φ−2 (x, t; z 0 ) = A + [ z 0 ] Φ−2 (x, t; z 0 ) ,       z= z 0     s 11 (z)             s 11 (z 0 )         s 11 (z 0 )
+         Φ+1 (x, t; z)    2 Φ′+1 (x, t; z 0 )   Φ+1 (x, t; z 0 ) s ′′′11 (z 0 )               =                       −2     Res
+       z= z 0      s 11 (z)                                   s ′′11 (z 0 )                                               3(s ′′11 (z 0 )) 2
+                      2 b + (z 0 )                   c + (z 0 )          ′′′11 (z 0 )               =     ′′     Φ′−2 (x, t; z 0 ) +     −s ′′     Φ−2 (x, t; z 0 )                                s 11 (z 0 )                b + (z 0 )   3 s 11 (z 0 )
+               = A + [ z 0 ] Φ′−2 (x, t; z 0 ) + B + [ z 0 ] Φ−2 (x, t; z 0 )  .                                            (59)
+
+===== PDF PAGE 13 =====
+                                      G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927                             13
+
+   Similarly, for s 22 (z 0∗ ) = s ′22 (z 0∗ ) = 0 , s ′′22 (z 0∗ ) = 0 in ∀ z 0∗ ∈ Z f ∩ D −,f  Eq. (24) still holds (the coeﬃcient b −(z 0∗ ) may be dis-
+tinct, we here still use the same sign). It follows from the second one of Eqs. (16) and (24) that
+     Φ′+2 (x, t; z 0∗ ) = c −(z 0∗ ) Φ−1 (x, t; z 0∗ ) + b −(z 0∗ ) Φ′−1 (x, t; z 0∗ )                                                     (60)
+for some constant c −(z 0∗ ) .
+   According to Eqs. (24) , (54) , and (60) , we have
+         Φ+2 (x, t; z)    2 Φ+2 (x, t; z 0∗ )   2 b −(z 0∗ )             ∗           ∗              ∗               =                         =     P       −2                                       Φ−1 (x, t; z 0 ) = A −[ z 0 ] Φ−1 (x, t; z 0 ) ,
+       z=                                   s ′′22 (z 0∗ )                                                   s ′′22 (z 0∗ )            z 0∗      s 22 (z)
+         Φ+2 (x, t; z)    2 Φ′+2 (x, t; z 0∗ )   Φ+2 (x, t; z 0∗ ) s ′′′22 (z 0∗ )               =                       −2     R es
+       z=            z 0∗      s 22 (z)                                   s ′′22 (z 0∗ )                                               3(s ′′22 (z 0∗ )) 2
+                      2 b −(z 0∗ )               ∗      c −(z 0∗ )          ′′′22 (z 0∗ )                ∗               =     ′′    ∗   Φ′−1 (x, t; z 0 ) +         ∗ −s ′′    ∗  Φ−2 (x, t; z 0 )                                s 22 (z 0 )                b −(z 0 )   3 s 22 (z 0 )
+               = A −[ z 0∗ ] Φ′−1 (x, t; z 0∗ ) + B −[ z 0∗ ] Φ−1 (x, t; z 0∗ )  .                                             (61)
+
+   Therefore, we know
+             2 b + [ z 0 ]             c + (z 0 )          ′′′11 (z 0 )                      f          f     A + [ z 0 ] =     ′′        ,  B + [ z 0 ] =    −s ′′       ,   z 0 ∈ Z ∩ D + ,                  s 11 (z 0 )           b + (z 0 )   3 s 11 (z 0 )
+             ∗   2 b −[ z 0∗ ]          ∗    c −(z 0∗ )          ′′′22 (z 0∗ )       ∗         f          f     A −[ z 0 ] =     ′′    ∗   ,  B −[ z 0 ] =       ∗ −s ′′    ∗  ,   z 0 ∈ Z ∩ D −,                  s 22 (z 0 )           b −(z 0 )   3 s 22 (z 0 )
+
+from which we have the symmetries
+                       ∗   ∗    z 04 q ∗−        2                      ∗   ∗    q 20        2                                            f          f
+     A + [ z 0 ] = −A −[ z 0 ] =  4  A −[ −q 0 /z 0 ] ,  B + [ z 0 ] = B −[ z 0 ] =  2 B −[ −q 0 /z 0 ] + 2 /z 0 ,   z 0 ∈ Z ∩ D + ,               (62)
+                       q 0 q −                                  z 0
+
+which lead to
+                         ∗   ∗    z n4 q ∗−        2           n4 q ∗−        2   ∗                       f          f                               −z                                         A + [ −q 0 /z n ] ,   z n ∈ Z ∩ D + ,      A + [ z n ] = −A −[ z n ] =  4  A −[ −q 0 /z n ] =                                                         4
+                        q 0 q −              q 0 q −                                                                                                                (63)
+                       ∗   ∗    q 20        2            q 20  ∗     2   ∗                                      f          f
+      B + [ z n ] = B −[ z n ] =  2 B −[ −q 0 /z n ] + 2 /z n =  2 B + [ −q 0 /z n ] + 2 /z n ,   z n ∈ Z ∩ D + .                           z n                      z n
+
+    It follows from Eqs. (12) , (32), (59) , and (61) that
+          +            μ+1 (x, t; z)           −2 iθ(x,t;ηn )     P −2 M 1 (x, t; z) = P −2         = A [ ηn ] e       μ−2 (x, t;ηn ) ,       z= ηn               z= ηn      s 11 (z)
+
+          −            μ+2 (x, t; z)             2 iθ(x,t; ηn )     P −2 M 2 (x, t; z) = P −2         = A [ ηn ] e      μ−1 (x, t; ηn ) ,       z= ηn               z= ηn      s 22 (z)
+
+          +            μ+1 (x, t; z)           −2 iθ(x,t;ηn )     Res                                                              −2 (x, t;ηn ) + [ B [ ηn ] −2 i θ′ (x, t;ηn )] μ−2 (x, t;ηn ) } ,       z=          ηn     M 1 (x, t; z) = z=Resηn      s 11 (z)   = A [ ηn ] e         { μ′
+
+          −            μ+2 (x, t; z)             2 iθ(x,t; ηn )     Res M 2 (x, t; z) = Res         = A [ ηn ] e        { μ′−1 (x, t; ηn ) + [ B [ ηn ] + 2 i θ′ (x, t; ηn )] μ−1 (x, t; ηn ) } .   (64)       z= ηn               z= ηn      s 22 (z)
+
+   The Riemann-Hilbert problem in Proposition 2 still holds for the case of double poles. To solve this kind of Riemann-
+Hilbert problem, one has to subtract out the asymptotic values as z → ∞ and z → 0 and the singularity contributions
+                                       2 N              P −2 M +    Res M +    P −2 M −    Res M −
+                                       i                   (n )       (n )     z= ηn        z= ηn        z= ηn        z= ηn
+                                     +                                           +                                                  +                                                                                                                (65)                      σ3 Q −+   M dp (x, t; z) = I +                   M dp , M dp =                        z                                                                   z −ηn                                                                                           z − ηn                                                        ( z −ηn )2                                                                                 ( z − ηn )2                                      n =1
+from the jump condition M −= M + (I −J) such that we have
+
+      M −(x, t; z) −M dp (x, t; z) = M + (x, t; z) −M dp (x, t; z) −M + (x, t; z) J,                                      (66)
+in which, M ±(x, t; z) −M dp (x, t; z) are analytic in D ±.f  Moreover, their asymptotics are both O 1z  as z → ∞ and O (1) as z → 0,
+and J ( x, t ; z ) is O 1z  as z → ∞ , and O ( z ) as z → 0. Therefore, the Cauchy projectors and Plemelj’s formulae are used to solve
+Eq. (66) to yield
+                           1   M + (x, t;ζ ) J(x, t;ζ )                                  f     M(x, t; z) = M dp (x, t; z) +                       d ζ ,   z ∈ C \    ,                                      (67)                          2 πi          f       ζ −z
+
+===== PDF PAGE 14 =====
+14                                   G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+
+where         f stands for the integral along the oriented contours shown in Fig. 1 (right).
+   Therefore, by means of Eq. (64) , the parts of P −2 (·) and Res ( · ) in Eq. (67) can be found as
+           (n )                         1                                 1
+   M dp =  Cn (z) μ′−2 (ηn ) + D n +       μ−2 (ηn )  , Cn ( z) μ′−1 ( ηn ) + D n +       μ−1 ( ηn )    ,              (68)                                        z −ηn                                      z − ηn
+
+where
+           A + [ ηn ]  −2 iθ(ηn )                           A −[ ηn ]  2 iθ( ηn )     Cn (z) =       e         , D n = B + [ ηn ] −2 i θ′ (ηn ) , Cn (z) =       e        , D n = B −[ ηn ] + 2 i θ′ ( ηn ) .          (69)
+               z −ηn                                              z − ηn
+   To determine μ′−2 (ηn ) , μ−2 (ηn ) , μ′−1 (ηn ) , and μ−1 (ηn ) in Eq. (68) , for z = ηs (s = 1 , 2 , · · · , 2 N) , it follows from the sec-
+ond column of M ( x, t ; λ) given by Eq. (67) with Eq. (68) that
+
+                            iq                      −      2 N                      1              1       ( M + J )2 (ζ )                           z     μ−2 (z) =    +   Cn (z) μ′−1 ( ηn ) + D n +       μ−1 ( ηn ) +                d ζ .                    (70)                                                                                                                                                                                                                                                    f   ζ −z               1      n =1                         z − ηn           2 πi
+
+whose ﬁrst-order derivative with respect to z yields
+                −iqz 2−      2 N Cn (z)                  2              1       ( M + J )2 (ζ )              −                                                                          d ζ .                 (71)                                                 μ−1 ( ηn ) +     μ′−2 (z) =                                 μ′−1 ( ηn ) + D n +                               z − ηn                                                         z − ηn               0                                                            2 πi          f  ( ζ −z )2                              n =1
+
+   Moreover, it follows from Eq. (18) that
+                 −          2       iq 20 q −          2     μ′−2 (z) = −iq                 μ−1 (−q 0 /z) +                                     μ′−1 (−q 0 /z) .                                                            (72)                   z 2                                       z 3
+   The substitution of Eqs. (38) and (72) into Eqs. (70) and (71) with z = ηs , s = 1 , 2 , · · · , 2 N yields an algebraic system of
+4 N equations with the 4 N unknowns μ−1 ( ηn ) , μ′−1 ( ηn ) , n = 1 , 2 , · · · , 2 N in the form
+        2 N                             1        −                               iqηs−     1     ( M + J )2 (ζ )        Cn (ηs ) μ′−1 ( ηn ) + Cn (ηk ) D n +       −iq  δsn μ−1 ( ηn ) = −    −               d ζ ,                                           ηs − ηn     ηs                1    2 πi          f  ζ −ηk       n =1
+
+        2       N                                                                                                         −                          2                                                                                     +                       iq                                                                               −iq                                               2                  )                                                    )                    q −                                                                                                         ( M                                                                                                                                                               J )         Cn              (ηs                                  Cn                                              (ηs                                                                                                                      2 (ζ )                          0                                                                                                             η2s           +                                                 −iq                                                      +                                                                                      d ζ .  (73)                                  D n +                                                         − δsn μ−1 ( ηn ) =                              δsn μ′−1 ( ηn ) +        −                           −           ηs              ηn                                           ηs                                           ηn                                                        ηs −                                                      ηn                    η3                                                                      0                                                          η2s                                      s                                                                                                                                                                                                                                                                                                       f 2 πi                                                                                           ζ                                                                                                            (                                                                                                                    )2                                                                        −ηk       n       =1
+which can generate μ−1 (x, t; ηn ) , μ′−1 (x, t; ηn ) , n = 1 , 2 , · · · , 2 N such that one can also get μ−2 (x, t;ηn ) , μ′−2 (x, t;ηn ) , n =
+1 , 2 , · · · , 2 N from Eqs. (38) and (72) . Therefore, substituting them into Eq. (68) , and then substituting Eq. (68) into Eq.
+(67) can yield the M ( x, t ; z ) in terms of the scattering data.
+    It follows from Eq. (67) with Eq. (68) that the asymptotic behavior of M ( x, t ; z ) is still of the form (40) , but M (1) ( x, t ) is
+here replaced by
+           (1)               1       +   M   (x, t) = i σ3 Q −−     M  J (ζ ) dζ
+                      2 πi          f
+
+                        2 N
+           +    A + [ ηn ] e −2 iθ(ηn ) (μ′−2 (ηn ) + D n μ−2 ( ηn )) , A −[ ηn ] e 2 iθ( ηn ) (μ′−1 ( ηn ) + D n μ−1 ( ηn ))  .           (74)
+                       n =1
+    It follows from Eq. (31) that M(x, t; z) e iθ(x,t;z) σ3 satisﬁes the Lax pair (4) . Substituting M(x, t; z) e iθ(x,t;z) σ3 with Eq. (40) and
+(74) into the x -part of the Lax pair (4) and then choosing the coeﬃcients of z 0 yield the following property for the potential
+q ( x, t ) for the case of double poles:
+
+Proposition 5. The potential with double poles of the focusing Hirota equation with NZBCs is given by
+
+                         2 N
+                                     2 iθ( ηn )                        1       +                                       M  J                                                                                (ζ ) d ζ ,                         (75)     q (x, t) = q −−i   A −[ ηn ] e      μ′−11 ( ηn ) + D n μ−11 ( ηn ) +                                                                                                12                                                      2 π           f
+                        n =1
+                 e 2 iθ( ηn ) , D n = B [ ηn ] + 2 i θ′ ( ηn ) , and μ′−11 ( ηn ) and μ−11 ( ηn ) , n = 1 , 2 , · · · , 2 N are given by Eq. (73) .where Cn (z) = Az−[ ηnηn]
+
+   Similarly to the case of simple poles, we also have the trace formulae for the case of double poles as
+       s 11 (z) = e s (z) s 0 (z) for z ∈ D +f ,   s 22 (z) = e −s (z) /s 0 (z) for z ∈ D −,f                                               (76)
+                                 i        log [ 1+ ρ(ζ )ρ∗(ζ ∗) ]                N   (z−z n ) 2 (z+ q 20 /z ∗n ) 2                                                                                                                                                   . They are the same ones as those for the focusingwhere s (z) = 2 π         f         ζ −z      dζ and s 0 (z) =   n =1 (z−z ∗n )                                                                                   2 (z+ q 20 /z n ) 2
+NLS equation with double poles [30] .
+   According to the limit z → 0 of s 11 ( z ) in Eq. (76) and Eq. (30) , one can yield the theta condition as
+                      N               log [ 1 + ρ(ζ ) ρ∗(ζ ∗) ]
+      arg (q + /q −) = 8    arg (z n ) +                     d ζ ,  z → 0 .                                          (77)
+                                                                                                                      f       2 πζ
+                         n =1
+
+===== PDF PAGE 15 =====
+                                      G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927                             15
+
+In particular, for the reﬂectionless case, that is, ρ(z) = ρ(z)ˆ  = 0 , we have the following proposition:
+
+Proposition 6. The reﬂectionless potential with double poles of the focusing Hirota equation with NZBCs is given as
+
+                     H    v
+                    det                  w T   0
+     q (x, t) = q −+ i                   ,                                                                              (78)
+                        det H
+                     (s j)          (s j)        (s j)                (11)                   1       −         (12)               (21)   Cn (ηk )          2                                                                                                                                        )                                                                                                                            n +where H = (H    ) 2 ×2 , H  = (h kn ) (2 N) ×(2 N) , h kn = Cn (ηk )( D n + ηk −ηn ) −iqηk δk,n , h kn = C                                                                                                    n (ηk ) , h kn = ηk −ηn ( D                                                                                                                                            ηk −ηn
+                                      2                                        iq                           −q                                )                        n (ηk−iq         = C              +                                      0 δkn ,  y = (y 1(1) , y 2(1) , · · · , y 2(1)N , y 1(2) , y 2(2) , · · · , y 2(2)N ) T , y = w, v , w n(1) = A −[ ηn ] e 2 iθ( ηn ) D n , w n(2) =    − δkn , h kn(22)                −ηn                              η3                     ηk   η2k                                         k
+                                                                                     .A −[ ηn ] e 2 iθ( ηn ) , v n(1) = −iqηn−                                      ,  v n(2) = −iqη2n−
+   For the reﬂectionless case, that is, ρ(z) = ρ(z)ˆ  = 0 , the trace formulae and theta condition reduce to
+               N  (z −z n ) 2 (z + q 20 /z n∗ ) 2                        f             N  (z −z n∗ ) 2 (z + q 20 /z n ) 2                        f       s 11 (z) =                                           for z ∈ D + ,   s 22 (z) =                                                                                              for z ∈ D −,                (79)
+                   (z −z n∗ ) 2 (z + q 20 /z n ) 2                                                                     (z −z n ) 2 (z + q 20 /z n∗ ) 2                 n =1                                                                        n =1
+
+and
+
+                      N
+      arg (q + /q −) = 8    arg (z n ) ,                                                                                (80)
+
+                         n =1
+
+respectively.
+   The double-pole breather-breather solutions of the focusing Hirota equation with NZBCs are displayed in Fig. 8 (a1)-(b3)
+for N = 1 . When q 0 → 0, we have the double-pole bright-bright solutions of the focusing Hirota equation with ZBC (see
+Fig. 8 (c1)-(c3)).
+
+
+3. The defocusing hirota equation with NZBCs
+
+   In what follows, we study the IST and soliton solutions for the defocusing ( σ = 1 ) Hirota equation with NZBCs (2) .
+
+
+3.1. Direct scattering with NZBCs
+
+   Similarly to the focusing case, the asymptotic problem (| x | → ∞ ) of the defocusing Lax pair (4) with σ = 1 of the defo-
+cusing Hirota equation with NZBCs is
+      Φx = X±Φ,    X± = lim X = ikσ3 + Q ±,
+                                        x →±∞
+                                                   2      2                                                              (81)      Φt = T±Φ,     T± =                           lim T = [ β(4 k + 2 q 0 ) −2 αk ] X±,                                       x →±∞
+
+which admit the fundamental matrix solutions
+                  E ±(kd   ) e iθ(x,t,k ) σ3 ,                k = ±q 0 ,
+    Φdbg (x, t; k ) =                  2                                                                             (82)                                 I + x + (6 β q 0 −2 αk ) t X±(k ) ,   k = ±q 0 ,
+
+where
+
+                                        iq                               ±              1                      +                               k
+                                   ∗     E ±(kd   ) =                           λ  ,  θ(x, t; k ) = λ(k ) x + β 4 k 2 + 2 q 20 −2 αk t  ,  λ2 (k ) = k 2 −q 20 .                  (83)                       ±             −iqk + λ    1
+   To discuss the analyticity of the Jost solutions of the Lax pair (4) with σ = 1 , we here need to determine the regions
+where Im λ( k ) > 0 ( < 0) in θ( x, t ; k ) (see, e.g., Ref. [25] for the defocusing NLS equation):
+
+ • When q 0 = 0 , that  is, the BCs are NZBCs, λ( k ) satisfying λ2 (k ) = k 2 −q 20 in the complex plane is a doubly branched
+   function of k with two branch points being k = ±q 0 and the branch cut being the segment q 0 [−1 , 1 ]. Let k ± q 0 =
+    r ± e iθ±+2 im ±π   ( r ± > 0 , θ± ∈ [ −π, π) , m ± ∈ Z ) , then two single-valued analytical branches of the complex k -plane are
+                                              θ+ +                                                 θ−                 √
+                                                      2                                       r + r −e i   deﬁned by Sheet-I: λI (k ) =                                     and Sheet-II: λII (k ) = −λI (k ) .
+ • In this case, we introduce a uniformization variable z deﬁned by the conformal mapping [3] : z = k + λ(k ) , whose in-
+                               1       q 20              1       q 20   verse mapping is k (z) = 2  z +  z   ,  λ(z) = 2  z −  z    . The mappings between the two-sheeted Riemann k -surface and
+   complex z -plane are given in Table 2 (see also Fig. 9 ).
+
+   Since the continuous spectrum of X ±  is the set of all values of z satisfying λ(z) ∈ R [28] , that is, z ∈ R for which k ∈
+R \ (−q 0 , q 0 ) . Since T± = [ β(4 k 2 + 2 q 20 ) −2 αk ] X±, similar to the focusing case, for all z ∈ R , one can simultaneously deﬁne
+the Jost solutions Φ±(x, t; z) of both parts of the defocusing Lax pair (4) satisfying the boundary conditions
+     Φ±(x, t; z) = E ±(z)d   e iθ(x,t;z) σ3 + o( 1 ),  x → ±∞ .                                                            (84)
+
+===== PDF PAGE 16 =====
+16                                   G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+
+
+
+
+Fig. 8. Double-pole one-soliton solutions of the focusing Hirota equation with α = 1 , β = 0 . 01 , N = 1 , z 1 = 3 i/ 2 , A + [ z 1 ] = B + [ z 1 ] = 1 . (a1, a2, a3): the
+breather-breather solutions with NZBCs and parameter q −= 1 ; (b1, b2, b3): the breather-breather solutions with NZBCs and parameter q −= 0 . 5 ; (c1, c2,
+c3): the bright-bright solitons with ZBC and parameter q 0 → 0.
+
+
+
+
+
+                Table 2
+               Conformal mapping from two sheets of k -plane to z -plane, where Q kj (Q zj ) ,  j = 1 , 2 , 3 , 4 denote the ﬁrst, second, third,
+              and fourth quadrants excluding the boundaries of k -plane ( z -plane), respectively.
+
+                    Sheet-I of k -plane  →    z -plane                          Sheet-II of k -plane  →    z -plane
+
+            Q kj ,  j = 1 , 2 , 3 , 4  →  Q zj   {| z| > q 0 } ,  j = 1 , 2 , 3 , 4  Q kj ,  j = 1 , 2 , 3 , 4   →  Q zj   {| z| < q 0 } ,  j = 1 , 2 , 3 , 4
+                 q 0 [ −1 , 1]      →    { z = q 0 e iθz , θz ∈ [ −π, 0] }       q 0 [ −1 , 1]      →    { z = q 0 e iθz , θz ∈ [ π, 0] }
+            ± q 0 [1, ∞ )     →  ± q 0 [1, ∞ )             ± q 0 [1, ∞ )     →  ± q 0 [1, 0]
+                                i [0, ± ∞ )     →  ± iq 0 [1, ∞ )                                  i [0, ± ∞ )      →  ± iq 0 [1, 0]
+
+===== PDF PAGE 17 =====
+                                      G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927                              17
+
+
+
+
+
+Fig. 9. Defousing Hirota equation with NZBCs. Left: the sheet-I of the Riemann surface, showing the discrete spectrum, and the regions where Im λ > 0
+(grey) and Im λ < 0 (white). Right: the complex z -plane, showing the discrete spectrum [zeros of s 11 ( z ) (blue) in the grey region and those of s 22 ( z ) (red) in
+the white region], the region C + where Im λ > 0 (grey), the region C −where Im λ < 0 (white) and the orientation of the contours for the related Riemann-
+Hilbert problem. (For interpretation of the references to colour in this ﬁgure legend, the reader is referred to the web version of this article.)
+
+
+Thus, the modiﬁed Jost solutions μ ± ( x, t ; z ) deﬁned by
+
+     μ±( x, t; z ) =  ±( x, t; z ) e −iθ( x,t;z )σ3 → E d ±( z ),  x → ±∞ ,                                                   (85)
+
+have the forms
+
+                  E ±(z)d       I + ±∞x  e iλ(z)(x −y ) σ3 (E ±(z))d    −1 Q ±(y, t) μ±(y, t; z) d y  ,   z = ±q 0 ,
+                                                                                                                (86)     μ±(x, t; z) =
+                           d          x                  E ±(z) + ±∞ [ I + ( x −y ) ( Q ± ± iq 0 σ3 )] Q ±(y, t) μ±(y, t; z) d y,    z = ±q 0 ,
+
+where  Q ±(x, t) = Q(x, t) −Q ± with Q ± = lim x →±∞ Q| σ =1 .
+   Let μ±(x, t; z) = (μ±1 (x, t; z) , μ±2 (x, t; z)) and Φ± = (Φ±1 (x, t; z) , Φ±2 (x, t; z)) , and   0d = R \{±q 0 } . Since they contain
+these terms e ±iλ(x −y ) and e ± i θ( x,t ; z ) , thus according to the properties of these functions in distinct domains and the deﬁnition
+(86) of μ ± , as well as the relation (85) between μ ± and Φ±, we easily have the following properties (see [25] for the
+details):
+
+Proposition 7. Suppose q −q ± ∈ L 1( R ±) , then the Jost functions Φ±2 (x, t; z)) and the modiﬁed forms μ ± 2 ( x, t ; z )) given by Eqs.
+(85) and (86) have unique solutions in   0d . Moreover, μ+1 (x, t; z) , μ−2 (x, t; z) , Φ+1 (x, t; z) and Φ−2 (x, t; z) can be analytically
+extended to C + , and continuously extended to C + ∪   0d , whereas μ−1 (x, t; z) , μ+2 (x, t; z) , Φ−1 (x, t; z) , and Φ+2 (x, t; z) can be
+analytically extended to C −, and continuously extended to C −∪   0d .
+
+   Similarly to the focusing case, there also exists a constant matrix S ( z ) between Φ±(x, t; z) to generate Φ+ (x, t; z) =
+Φ−(x, t; z) S(z) , x, t ∈ R , z ∈   0d , where S(z) =  s ij (z) 2 ×2 . Thus one can have the similar expressions for s ij ( z ) given by Eq.
+(16) with γ f ( z ) being replaced by γd (z) = 1 −q 20 /z 2 = 0 for z = ±q 0 .
+   Notice that one can not exclude the possible presence of zeros for the scattering coeﬃcients s 11 ( z ) and s 22 ( z ) along   0d . To
+solve the Riemann-Hilbert problem during the inverse process, we here require that the potential is not of spectral singular-
+ities [41] , i.e., s 11 ( z ) s 22 ( z ) = 0 for z ∈   0d . Thus the so-called reﬂection coeﬃcients are deﬁned as ρ(z) = s 21 (z) /s 11 (z) , ρ(z)ˆ  =
+s 12 (z) /s 22 (z) .
+
+
+
+3.2. The inverse scattering with NZBCs and simple poles
+
+
+   To study the discrete spectrum and residue conditions in the inverse scattering problem, we need to analyze the symme-
+tries of the scattering matrix S ( z ). It follows from the previous deﬁnitions of k ( z ) and λ( z ) that they are of the symmetries:
+k (z) = k ∗(z ∗) , k (z) = k (q 20 /z) , λ(z) = λ∗(z ∗) , and λ(z) = −λ(q 20 /z) , thus we have the symmetries of X , T and θ as
+
+      X (x, t; z) = σ1 X ∗(x, t; z ∗) σ1 ,  X (x, t; z) = X (x, t; q 20 /z) ,
+       T (x, t; z) = σ1 T ∗(x, t; z ∗) σ1 ,  T (x, t; z) = T (x, t; q 20 /z) ,                                                     (87)
+       θ(x, t; z) = θ ∗(x, t; z ∗) ,  θ(x, t; z) = −θ(x, t; q 20 /z) ,
+
+            0   1
+where σ1 = 1   0  is the ﬁrst Pauli matrix.
+
+===== PDF PAGE 18 =====
+18                                   G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+   Combining the above-mentioned symmetries (87) , Lax pair (4) , and Eq. (85) , we have the following symmetries for Φ±
+and μ ± as
+
+                                                                                        i            2      Φ±(x, t; z) = σ1 Φ∗±(x, t; z ∗) σ1 ,  Φ±(x, t; z) =  Φ±(x, t; q 0 /z) σ3 Q ±,                                                        z
+                                                                                                                (88)
+                                                                                       i           2       μ±(x, t; z) = σ1 μ∗±(x, t; z ∗) σ1 ,  μ±(x, t; z) =  μ±(x, t; q 0 /z) σ3 Q ±.                                                       z
+By means of Eq. (88) and Φ+ (x, t; z) = Φ−(x, t; z) S(z) , x, t ∈ R , z ∈   0d , we have the symmetries
+      S(z) = σ1 S ∗(z ∗) σ1 ,  S(z) = (σ3 Q −) −1 S(q 20 /z) σ3 Q + ,                                                         (89)
+
+which can lead to the symmetries between ρ( z ) and ρ(z)ˆ    as
+
+                                           ∗
+     ρ(z) = ρ∗(zˆ   ∗) ,  ρ(z) = −q                             − ρ(qˆ   20 /z) .                                                                      (90)
+                            q −
+
+Similarly to [3,25] for the defocusing NLS equation, it can be shown that the discrete spectral points of the defocusing
+Hirota equation are also simple. Moreover, it was shown that if ( 1 + |x | )4 ( q −q ±) ∈ L 1 ( R ±) , then there is a ﬁnite number of
+discrete spectral points, all of which belong to {z : | z | = q 0 } [25] . Therefore, we give the discrete spectrum as
+     Z d = {z n , z n∗ }Nn =1 ,   z n∗ = q 20 /z n ,  Im z n > 0 .                                                                   (91)
+   For the case of defocusing simple poles, A ± [ z 0 ] deﬁned by Eq. (26) still holds, where Z f and D ±f are replaced by Z d and
+C ±, respectively. According to the above-mentioned symmetries, we have the symmetries of A [ z 0 ] as
+                     ∗   ∗              z 02     q 20             d    +
+                            A −                                                               ,   z 0 ∈ Z ∩ C                                                       (92)     A + [ z 0 ] = A −[ z 0 ] ,  A + [ z 0 ] =
+                                           z 0                             q 2−
+
+in terms of symmetries (18) and (19) , which can further lead to
+
+                           2   2      Re A + [ z n ]          2   2
+     ImA + [ z n ] = Re (q −/z n ) −1       2   2  ,  Im (q −/z n ) = 0 ,                                                   (93)                         Im (q −/z n )
+
+In particular, A + [ z n ] ∈ R for Re (q 2−/z n2 ) = 1 and A + [ z n ] ∈ i R for Re (q 2−/z n2 ) = −1 .
+   Similarly to [25] , we also have the asymptotic behaviors for modiﬁed Jost solutions and scattering data, which are same
+as ones for the focusing case given by Eq. (30) . The above-mentioned Riemann-Hilbert problem for the focusing case in
+Proposition 2 still holds for the defocusing case.
+   To solve the Riemann-Hilbert problem, subtracting out the asymptotic behavior and the simple-pole contributions, that
+is,
+                                                                                                          ∗ M −(x, t; z)                                        i         N   Resz= z n M + (x, t; z)   Resz= z n
+   M spd (x, t; z) = I +  σ3 Q −+            +            ∗                                               (94)                         z                                             z −z n            z −z n                                       n =1
+
+from both sides of the above-mentioned jump condition M −= M + (I −J) yields
+
+   M −(x, t; z) −M spd (x, t; z) = M + (x, t; z) −M spd (x, t; z) −M + (x, t; z) J(x, t; z) ,                                  (95)
+
+in which, M ±(x, t; z) −M spd (x, t; z) are analytic in D ±.f  Moreover, their asymptotics are both O 1z  as z → ∞ and O (1) as z → 0,
+                   1                                                                                   1          f(ζ )
+and J ( x, t ; z ) is O  z  as z → ∞ , and O ( z ) as z → 0. Therefore, the Cauchy projectors ( P ±[ f ] (z) = 2 πi    d ζ −(z±i 0) dζ , where the
+notation z ± i 0 represents the limit taken from the left/right of z ) and Plemelj’s formulae are used to solve Eq. (95) to yield
+
+                           1   M + (x, t;ζ ) J(x, t;ζ )                  d     M(x, t; z) = M spd (x, t; z) +                       d ζ ,   z ∈ C \    ,                                     (96)                          2 πi     d       ζ −z
+
+where    d stands for the integral along the oriented contours shown in Fig. 1 (right).
+    It follows from Eq. (31) that only its ﬁrst (second) column has a simple pole at z = z n ( z = z n∗ ). Therefore, by means of
+Eqs. (12) and (26) , the residue parts in Eq. (96) can be found as
+
+              M −(x, t; z)      Res     M + (x, t; z)   Res                                                                                                                                                            ∗ )                                                                                                                                            n                          z= z n∗       z= z n                                 A + [ z n ] e −2 iθ(x,t;z                                                                                             n )           A −[ z n∗ ] e 2 iθ(x,t;z
+             +            ∗   =               μ−2 (x, t; z n ) ,             ∗    μ−1 (x, t; z n∗ )  ,           (97)           z −z n            z −z n                z −z n                         z −z n
+
+   For z = z s (s = 1 , 2 , · · · , N) , it follows from the second column of M ( x, t ; λ) given by Eq. (96) with Eq. (97) that
+
+                                    iq                                                                                   ∗ )                                                                           n                            −     N A −[ z n∗ ] e 2 iθ(x,t;z                                                                           ∗    1       ( M + J )2 (x, t;ζ )                                  z s                +                                                                          dζ ,   s = 1 , 2 , · · · , N.       (98)     μ−2 (x, t; z s ) =                                      μ−1 (x, t; z n ) +                                                   2 πi     d     ζ −z s                  1                                       z s −z n∗                                 n =1
+
+===== PDF PAGE 19 =====
+                                      G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927                             19
+
+
+Moreover, it follows from Eq. (18) that
+                       iq −             2
+     μ−2 (x, t; z) =    μ−1 x, t; q 0 /z ,                                                                          (99)                      z
+which further leads to
+                        iq −             2        iq −              ∗            d
+     μ−2 (x, t; z s ) =    μ−1 x, t; q 0 /z s =    μ−1 ( x, t; z s ),   z s ∈ Z  ,   s = 1 , 2 , . . . , N.                          (100)
+                       z s                     z s
+
+The substitution of Eq. (100) into Eq. (98) yields
+
+                                                                                        iq                                                                   −                      2 iθ(x,t;z                                                         s                      ]                e                                                  1                                                                                     (x,                                                                            t;ζ )                                                                            ( M + J       N   A −[ z n∗                                                                                 )2                                                                                  z s                                             ∗ ) −iq                                   +                                                                        dζ = 0 ,   s = 1 , 2 , · · · , N,    (101)                           − δsn μ−1 (x, t; z n∗ ) +                           ∗                 z            −z                                                 2                                                 −z                                                    πi     d                                                                   ζ                            s                                z s                                                                                                                                 s                                            1                        n       n =1
+where δsn  is the Kronecker delta function. The system (101) containing N equations with N unknowns μ−1 (x, t; z n∗ ) , n =
+1 , 2 , · · · , 2 N can yield the solutions μ−1 (x, t; z s∗ ) , s = 1 , 2 , · · · , 2 N such that one can also get μ−2 (x, t; z s∗ ) , s = 1 , 2 , · · · , N from
+Eq. (100) . Therefore, substituting the obtained μ−1 (x, t; z s∗ ) and μ−2 (x, t; z s ) , s = 1 , 2 , · · · , N into Eq. (97) , and then substitut-
+ing Eq. (97) into Eq. (96) can yield the M ( x, t ; z ) by means of the scattering data.
+    It follows from Eq. (35) with Eq. (36) that the asymptotic behavior of M ( x, t ; z ) as
+           M (1) (x, t)     1
+                   + O                                                         ,   z → ∞ ,                                                            (102)     M(x, t; z) = I +
+                           z                                       z 2
+
+where
+
+                           N
+
+                                                                                                                         n   M (1) (x, t) = i σ3 Q −+    A + [ z n ] e −2 iθ(x,t;z                                                                           n ) μ−2 (x, t; z n ) , A −[ z n∗ ] e 2 iθ(x,t;z                                                                                                                                       ∗ ) μ−1 (x, t; z n∗ )
+                                n =1
+
+                 1      +           −     M  (x, t;ζ ) J(x, t;ζ ) d ζ .                                                            (103)
+                2 πi     d
+with μ−1 (x, t; z s∗ ) and μ−2 (x, t; z s ) , s = 1 , 2 , · · · , 2 N given by Eqs. (101) and (100) .
+    It follows from Eq. (31) that M(x, t; z) e iθ(x,t;z) σ3 satisﬁes the Lax pair (4) . Substituting M(x, t; z) e iθ(x,t;z) σ3 with Eq. (40) into
+the x -part of the Lax pair (4) and then choosing the coeﬃcients of z 0 yield the following property for the potential q ( x, t ):
+
+Proposition 8. The potential with simple poles of the defocusing Hirota equation with NZBCs is given by
+
+                     N
+                                             1
+                                                              n                                 M + J                                                                     (ζ ) d ζ ,                                  (104)     q (x, t) = q −−i   A −[ z n∗ ] e 2 iθ(x,t;z                                                                    ∗ ) μ−11 (x, t; z n∗ ) +                                                                                   12                                             2                                     π      d
+                        n =1
+where μ−11 (x, t; z n∗ ) ’s are determined by
+
+                                                        ∗ )                                                                        s       iq −    N   A −[ z s∗ ] e 2 iθ(x,t;z                                −                    ∗    1       ( M + J )12 (ζ )      +                        −iq                                                               d ζ = 0 , s = 1 , 2 , . . . , N,          (105)                                              δsn  μ−11 (x, t; z n ) +
+       z s                                      z s                                                2 πi     d   ζ −z s                        z −z s∗              n =1
+
+which are deduced from Eq. (101) .
+
+   Similarly to the case of focusing simple poles, we also have the trace formulae for the case of defocusing simple poles
+       s 11 (z) = e s (z) s 0 (z)  for z ∈ C + ,   s 22 (z) = e −s (z) /s 0 (z)  for z ∈ C −,                                         (106)
+                         i      log [1 + ρ(ζ ) ρ∗(ζ ∗) ]                N   z −z n
+where s (z) =          d                   dζ and s 0 (z) =   n =1             .           2 π            ζ −z                                z −z ∗n
+   According to the limit z → 0 of s 11 ( z ) in Eq. (106) and Eq. (30) , one can yield the theta condition as
+                      N               log [ 1 + ρ(ζ ) ρ∗(ζ ∗) ]
+      arg (q + /q −) = 2    arg (z n ) +                      dζ .                                                (107)
+                                                               d       2 πζ
+                         n =1
+In particular, for the reﬂectionless case, that is, ρ(z) = ρ(z)ˆ  = 0 , which leads to J = 0 , we have the following proposition:
+
+Proposition 9. The reﬂectionless potential with simple poles of the defocusing Hirota equation with NZBCs is given by
+
+                    H    v
+                    det                  w T   0
+     q (x, t) = q −+ i                  ,                                                                             (108)
+                       det H
+                                                                                     n = A −[ z n∗ ] e 2 iθ(x,t;z ∗n ) , and v k = −iq −/z k .where H = ( h kn )N×N , w = ( w n )N×1 , v = ( v k )N×1 , h kn = w k / (z −z k∗ ) −iqz k− δk,n , w
+
+   For the reﬂectionless case, the trace formulae and theta condition can reduce to
+               N  z −z n          +            N  z −z n∗
+       s 11 (z) =           ∗   for z ∈ C  ,   s 22 (z) =             for z ∈ C −,                                         (109)
+                                                                 n
+                 n =1                   z −z n                             n =1 z −z
+
+===== PDF PAGE 20 =====
+20                                   G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+
+
+
+
+Fig. 10. Simple-pole solitons of the defousing Hirota equation with NZBCs and α = 1 , β = 0 . 01 . (a): one-dark soliton with parameters: N = 1 , q −= 1 , z 1 =
+i, Im A + [ z 1 ] = 1 ; (b)-(c) dark-dark soliton with parameters: N = 2 , q −= 1 , z 1 = e π4  i , z 2 = e 34π  i , Re A + [ z 1 ] = 1 , Re A + [ z 2 ] = −1 .
+
+
+and
+
+                      N
+      arg (q + /q −) = 2    arg (z n ) ,                                                                                 (110)
+
+                         n =1
+
+respectively.
+   For N = 1 , α = 1 , β = 0 . 01 , q −= 1 , z 1 = i, ImA + [ z 1 ] = 1 , we have the simple-pole one-dark of the defocusing Hirota
+equation with NZBCs from Proposition 9
+
+                       1     q (x, t) = −tanh  x +     t −1 ln (2)  ,                                                                         (111)
+                      50   2
+which is displayed in Fig. 10 (a). The phase difference is π.
+                                                 π
+   For N = 2 , α = 1 , β = 0 . 01 , q −= 1 , z 1 = e                                                             4  i , z 2 = e 34π  i , Re A + [ z 1 ] = 1 , Re A + [ z 2 ] = −1 , we have the simple-pole two-
+dark-dark solitons of the defocusing Hirota equation with NZBCs from Proposition 9
+         √
+             2 2 cosh x −12 ln (2) + i sinh (2t)
+     q (x, t) = √                                              ,                                                              (112)
+            2 2 cosh x −12 ln (2) + 3 cosh (2t)
+
+which is displayed in Fig. 10 (b) and (c). The phase difference is 2 π.
+   For N > 2, we can also ﬁnd the multi-dark solitons of the defocusing Hirota equation with NZBCs (2) from Eq. (108) ,
+which are omitted here.
+
+Remark 1. These results can reduce to ones of the focusing NLS equation with NZBCs or ZBC for β = 0 [26,30] and fo-
+cusing complex mKdV equation with NZBCs or ZBC for α = 0 , and ones of the defocusing NLS equation with NZBCs for
+β = 0 [25] and defocusing complex mKdV equation with NZBCs for α = 0 .
+
+Remark 2. Similarly to the NLS equation, the focusing Hirota equation with NZBCs exhibits modulation instability, but the
+defocusing Hirota equation with NZBCs does not have this phenomenon [39,42] .
+
+
+4. Conclusions and discussions
+
+
+   In conclusion, we have presented the ISTs for both focusing and defocusing Hirota equations with NZBCs at inﬁnity. Based
+on the matrix Riemann-Hilbert problems and different types of poles, we have obtained the solutions of the focusing and
+defocusing Hirota equations with NZBCs. Particularly, we give the explicit expressions for the reﬂectionless potentials in both
+focusing and defocusing cases. Moreover, we exhibit some simple-pole and double-pole solutions for the focusing case, and
+the simple-pole solutions for the defocusing case. These results can also reduce to ones of the both focusing and defocusing
+NLS equations and complex mKdV equations with NZBCs. Of course, the idea used in this paper can also be extended to
+study the ISTs and solutions for the focusing and defocusing mKdV equation [43] , nonlocal mKV equation [44] , derivative
+NLS equation [45] , higher-order NLS equation [37] , or other nonlocal NLS equations [14,46,47] with NZBCs.
+
+
+Acknowledgements
+
+
+   The authors thank the referees for their valuable suggestions. This work was partially supported by the NSFC under
+grants Nos. 11731014 and 11571346 , and CAS Interdisciplinary Innovation Team.
+
+===== PDF PAGE 21 =====
+                                      G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927                            21
+
+
+Appendix A. The trace formulae
+
+   Since s 11 ( z ) and s 22 ( z ) are analytic in D +f and D −,f   respectively, and the discrete spectral points ηn ’s and ηn ’s are the
+simple zeros of s 11 ( z ) and s 22 ( z ), respectively, then one can introduce [26]
+                        2 N z − ηn                        2 N z −ηn      +          f  (z) = s 11 (z)              ,        f −(z) = s 22 (z)                 .                                                      (113)
+                         z −ηn                         z − ηn
+                        n =1                               n =1
+One can show that  f ± ( z ) are analytic and have no zeros in D ±.f  Since det S(z) = s 11 (z) s 22 (z) −s 12 (z) s 21 (z) = 1 , that  is,
+s 11 (z) s 22 (z) = 1 + s 11 (z) s 22 (z) ρ(z) ρ(z)ˆ    , thus we have  f + (z) f −(z) = s 11 (z) s 22 (z) = 1 −ρ(z)1 ρ(z)ˆ    , which leads to
+     −log f + (z) −log f −(z) = log [ 1 −ρ(z) ρ(z)ˆ    ] = log [ 1 + ρ(z) ρ∗(z ∗) ]                                          (114)
+
+in terms of ρ(z)ˆ  = −ρ∗(z ∗) from Eq. (20) .
+   Since  it follows from Eqs. (19) and (113) that  f ± ( z ) → 1 as z → ∞ , thus log f ± ( z ) → 0 as z → ∞ . Applying the Cauchy
+projectors P ± and Plemelj’s formulae to Eq. (114) to yield
+                            log [ 1 + ρ(ζ ) ρ∗(ζ ∗) ]                          f      log f ±(z) = ∓1                       dζ ,   z ∈ D ±.                                                   (115)                2 πi          f        ζ −z
+
+Therefore, the trace formulae are given in Eq. (44) .
+
+References
+
+
+ [1] Gardner CS , Greene JM , Kruskal MD , Miura RM . Method for solving the Korteweg-de Vries equation. Phys Rev Lett 1967;19:1095–7 .
+ [2] Ablowitz MJ , Segur H . Solitons and the inverse scattering transform. Philadelphia: SIAM; 1981 .
+ [3] Faddeev LD , Takhtajan LA . Hamiltonian methods in the theory of solitons. Berlin: Springer; 1987 .
+ [4] Ablowitz AJ , Clarkson PA . Solitons, nonlinear evolution equations and inverse scattering. Cambridge: Cambridge Univeristy Press; 1991 .
+ [5] Agrawal GP . Nonlinear ﬁber optics. the ﬁfth edition. New York: Academic Press; 2012 .
+ [6] Kivshar YS , Agrawal GP . Optical solitons: from ﬁbers to photonic crystals. New York: Academic Press; 2013 .
+ [7] Malomed BA , Mihalache D , Wise F , Torner L . Spatiotemporal optical solitons. J Opt B 2005;7:R53 .
+ [8] Pitaevskii L , Stringari S . Bose-Einstein condensation and superﬂuidity. Oxford: Oxford University Press; 2016 .
+ [9] Osborne AR . Nonlinear ocean waves. New York: Academic; 2009 .
+[10] Yan Z . Financial rogue waves. Commun Theor Phys 2010a;54:947–9 .
+[11] Yan Z . Vector ﬁnancial rogue waves. Phys Lett A 2010b;375:4274–9 .
+[12] Yan Z . Nonautonomous ‘rogons’ in the inhomogeneous nonlinear Schrödinger equation with variable coeﬃcients. Phys Lett A 2010c;374:672–9 .
+[13] Yan Z . Localized analytical solutions and parameters analysis in the nonlinear dispersive Gross-Pitaevskii mean-ﬁeld GP(m, n) model with space-mod-
+     ulated nonlinearity and potential. Stud Appl Math 2014;132:266–84 .
+[14] Yan Z . Integrable PT-symmetric local and nonlocal vector nonlinear Schrödinger equations: a uniﬁed two-parameter model. Appl Math Lett 2015;47:61 .
+[15] Zakharov VE , Shabat AB . Exact theory of two-dimensional self-focusing and one-dimensional self-modulation of waves in nonlinear media. Sov Phys
+     JETP 1972;34:62–9 .
+[16] Zakharov VE , Shabat AB . Interaction between solitons in a stable medium. Sov Phys JETP 1973;37:823–8 .
+[17] Kuznetsov EA . Solitons in a parametrically unstable plasma. Sov Phys Dokl 1977;22:507–8 .
+[18] Ma YC . The perturbed plane-wave solutions of the cubic Schrödinger equation. Stud Appl Math 1979;60:43–58 .
+[19] Tajiri M , Watanabe Y . Breather solutions to the focusing nonlinear Schrödinger equation. Phys Rev E 1998;57:3510–19 .
+[20] Zakharov VE , Gelash AA . Nonlinear stage of modulation instability. Phys Rev Lett 2013;111:054101 .
+[21] Akhmediev NN , Korneev VI . Modulational instability and periodic solutions of the nonlinear Schrödinger equation. Theor Math Phys 1986;69:1089–93 .
+[22] Prinari B , Ablowitz MJ , Biondini G . Inverse scattering transform for the vector nonlinear Schrödinger equation with nonvanishing boundary conditions.
+        J Math Phys 2006;47:063508 .
+[23] Ablowitz MJ , Biondini G , Prinari B . Inverse scattering transform for the integrable discrete nonlinear Schrödinger equation with nonvanishing boundary
+     conditions. Inverse Prob 2007;23:1711–58 .
+[24] Prinari B , Biondini G , Trubatch AD . Inverse scattering transform for the multi-component nonlinear Schrödinger equation with nonzero boundary
+     conditions. Stud Appl Math 2011;126:245–302 .
+[25] Demontis F , Prinari B , van der Mee C , Vitale F . The inverse scattering transform for the defocusing nonlinear Schrödinger equations with nonzero
+    boundary conditions. Stud Appl Math 2013;131:1–40 .
+[26] Biondini G , Kova ˇci ˇc G . Inverse scattering transform for the focusing nonlinear Schrödinger equation with nonzero boundary conditions. J Math Phys
+     2014;55:031506 .
+[27] Prinari B , Vitale F . Inverse scattering transform for the focusing nonlinear Schrödinger equation with one-sided nonzero boundary condition. Cont
+    Math 2015;651:157–94 .
+[28] Demontis F , Prinari B , van der Mee C , Vitale F . The inverse scattering transform for the focusing nonlinear Schrödinger equation with asymmetric
+    boundary conditions. J Math Phys 2014;55:101505 .
+[29] Biondini G , Fagerstrom E , Prinari B . Inverse scattering transform for the defocusing nonlinear Schrödinger equation with fully asymmetric non-zero
+    boundary conditions. Physica D 2016;333:117–36 .
+[30] Pichler M , Biondini G . On the focusing non-linear Schrödinger equation with non-zero boundary conditions and double poles. IMA  J Appl Math
+     2017;82:131–51 .
+[31] Kodama Y . Optical solitons in a monomode ﬁber. J Stat Phys 1985;39:597 .
+[32] Kodama Y , Hasegawa A . Nonlinear pulse propagation in a monomode dielectric guide. IEEE J Quantum Electron 1987;23:510 .
+[33] Yan Z , Dai C . Optical rogue waves in the generalized inhomogeneous higher-order nonlinear Schrödinger equation with modulating coeﬃcients. J Opt
+     2013;15:064012 .
+[34] Hirota R . Exact envelope-soliton solutions of a nonlinear wave equation. J Math Phys 1973;14:805 .
+[35] Ankiewicz A , Soto-Crespo JM , Akhmediev N . Rogue waves and rational solutions of the Hirota equation. Phys Rev E 2010;81:046602 .
+[36] Tao Y , He J . Multisolitons, breathers, and rogue waves for the Hirota equation generated by the Darboux transformation. Phys Rev E 2012;85:026601 .
+[37] Zhang G , Yan Z , Wang L . The general coupled Hirota equations: modulational instability and higher-order vector rogue wave and multi-dark soliton
+      structures. Proc. R. Soc. A 2019;475:20180625 .
+[38] Wang DS , Chen F , Wen XY . Darboux transformations of the general Hirota equation: multisoliton solutions, breather solutions, and rogue wave solu-
+      tions. Adv Diff Eq 2016;2016:67 .
+
+===== PDF PAGE 22 =====
+22                                   G. Zhang, S. Chen and Z. Yan / Commun Nonlinear Sci Numer Simulat 80 (2020) 104927
+
+
+[39] Yang Y , Yan Z , Malomed BA . Rogue waves, rational solitons, and modulational instability in an integrable ﬁfth-order nonlinear Schrödinger equation.
+    Chaos 2015b;25:103112 .
+[40] Chen S , Yan Z . The Hirota equation: Darboux transform of the Riemann-Hilbert problem and higher-order rogue waves. Appl Math Lett 2019;95:65 .
+[41] Zhou X . Direct and inverse scattering transforms with arbitrary spectral singularities. Commun Pure Appl Math 1989;42:895–938 .
+[42] Achilleos V , Diamantidis S , Frantzeskakis1 DJ , Karachalios NI , Kevrekidis PG . Conservation laws, exact traveling waves and modulation instability for
+    an extended nonlinear Schrödinger equation. J Phys A 2015;48:355205 .
+[43] Zhang G., Yan Z. Inverse scattering transforms and solutions for the focusing and defocusing mKdV equations with non-zero boundary conditions.
+     2018a. ArXiv: 1810.12150 .
+[44] Zhang G., Yan Z. A uniﬁed inverse scattering transform for the nonlocal modiﬁed KdV equation with non-zero boundary conditions. 2018b. ArXiv: 1810.
+    12143 .
+[45] Zhang G., Yan Z. Inverse scattering transforms and n-double-pole solutions for the derivative NLS equation with zero/non-zero boundary conditions.
+     2018c. ArXiv: 1812.02387 .
+[46] Yan Z . Nonlocal general vector nonlinear Schrödinger equations: integrability, PT symmetribility, and solutions. Appl Math Lett 2016;62:101 .
+[47] Yan Z . A novel hierarchy of two-family-parameter equations: local, nonlocal, and mixed-local, nonlocal vector nonlinear Schrödinger equations. Appl
+    Math Lett 2018;79:123 .

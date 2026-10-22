@@ -1,0 +1,38 @@
+[
+  {
+    "id": "paper01",
+    "file": "Breathers and rogue waves on the periodic background in the Hirota and the Maxwell-Bloch equations.pdf",
+    "pages": 16,
+    "sha256": "25dab833de1db68d75ff7a3df0e5ffbf802030c9f5817b79146f56f0a7475e52"
+  },
+  {
+    "id": "paper02",
+    "file": "Focusing and defocusing Hirota equations with non-zero boundary conditions Inverse scattering transforms and soliton solutions.pdf",
+    "pages": 22,
+    "sha256": "4c904b9e92ff729cfe11652bf2709d5f2a91a0c08b070d279a91f5901ee064ee"
+  },
+  {
+    "id": "paper03",
+    "file": "Inverse scattering transform and soliton solutions for the coupled Hirota-Maxwell-Bloch system with nonzero background.pdf",
+    "pages": 16,
+    "sha256": "40011bb716b28e8e4ac25077cddf33448f511265d63dcde832c73ccd46438fc0"
+  },
+  {
+    "id": "paper04",
+    "file": "Inverse scattering transform for two-level systems with nonzero background.pdf",
+    "pages": 63,
+    "sha256": "f76718c9eebded531e433d86c3b682d7148746886a93d429c3f2a2e49254d4f4"
+  },
+  {
+    "id": "paper05",
+    "file": "Rogue waves of the Hirota and the Maxwell-Bloch equations.pdf",
+    "pages": 17,
+    "sha256": "6c506ca6424db142b82c9460b3b9ed7588fe0fbce39c4204ccbebe21e36a3018"
+  },
+  {
+    "id": "paper06",
+    "file": "the-n-soliton-solutions-to-the-hirota-and-maxwell-bloch-equation-via-the-riemann-hilbert-approach.pdf",
+    "pages": 9,
+    "sha256": "16cef9e23a8622229bd637359bf62bf38d242e16618749823c022a8a5cec43de"
+  }
+]

@@ -1,0 +1,403 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          6,
+          15
+        ]
+      ],
+      "date-time": "2026-06-15T09:52:10Z",
+      "timestamp": 1781517130605,
+      "version": "3.54.1"
+    },
+    "reference-count": 22,
+    "publisher": "World Scientific Pub Co Pte Ltd",
+    "issue": "11",
+    "funder": [
+      {
+        "DOI": "10.13039/501100001809",
+        "name": "Natural Science Foundation of China",
+        "doi-asserted-by": "crossref",
+        "award": [
+          "11975145"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "11975145"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100001809",
+            "id-type": "DOI",
+            "asserted-by": "crossref"
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/501100001809",
+        "name": "Natural Science Foundation of China",
+        "doi-asserted-by": "crossref",
+        "award": [
+          "12026245"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "12026245"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100001809",
+            "id-type": "DOI",
+            "asserted-by": "crossref"
+          }
+        ]
+      },
+      {
+        "name": "Science and Technique Project of Henan",
+        "award": [
+          "212102310397"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "212102310397"
+            ]
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/501100006407",
+        "name": "Natural Science Foundation of Henan Province",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "202300410524"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "202300410524"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100006407",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "Int. J. Mod. Phys. B"
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          2021,
+          4,
+          30
+        ]
+      ]
+    },
+    "abstract": "<jats:p>In this paper, we study the [Formula: see text]-soliton solutions for the Hirota and Maxwell–Bloch equation with physical meaning. From the Lax pair and Volterra integral equations, the Riemann–Hilbert problem of this integrable equation is constructed. By solving the matrix Riemann–Hilbert problem with the condition of no reflecting, the [Formula: see text]-soliton solutions for the Hirota and Maxwell–Bloch equation are obtained explicitly. Finally, we simulate the three-dimensional diagram of [Formula: see text] with 2-soliton solutions and the motion trajectory of [Formula: see text]-axis in the case of different [Formula: see text].</jats:p>",
+    "DOI": "10.1142/s0217979221501538",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2021,
+          6,
+          21
+        ]
+      ],
+      "date-time": "2021-06-21T04:09:55Z",
+      "timestamp": 1624248595000
+    },
+    "page": "2150153",
+    "source": "Crossref",
+    "is-referenced-by-count": 3,
+    "title": [
+      "The N-soliton solutions to the Hirota and Maxwell–Bloch equation via the Riemann–Hilbert approach"
+    ],
+    "prefix": "10.1142",
+    "volume": "35",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0001-9394-0947",
+        "authenticated-orcid": false,
+        "given": "Jian",
+        "family": "Li",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Mathematics, Shanghai University, Shanghai 200444, P. R. China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tiecheng",
+        "family": "Xia",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Mathematics, Shanghai University, Shanghai 200444, P. R. China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Hanyu",
+        "family": "Wei",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "College of Mathematics and Statistics, Zhoukou Normal University, Zhoukou 466001, P. R. China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "219",
+    "published-online": {
+      "date-parts": [
+        [
+          2021,
+          6,
+          19
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "key": "S0217979221501538BIB001",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1103/PhysRevLett.74.2941"
+      },
+      {
+        "key": "S0217979221501538BIB002",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1103/PhysRevE.87.012913"
+      },
+      {
+        "key": "S0217979221501538BIB003",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1098/rspa.1997.0077"
+      },
+      {
+        "key": "S0217979221501538BIB004",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1140/epjp/s13360-020-00575-6"
+      },
+      {
+        "key": "S0217979221501538BIB005",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.nonrwa.2018.09.017"
+      },
+      {
+        "key": "S0217979221501538BIB006",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.aml.2020.106850"
+      },
+      {
+        "key": "S0217979221501538BIB007",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.jmaa.2021.125109"
+      },
+      {
+        "key": "S0217979221501538BIB008",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1088/0256-307X/36/11/110201"
+      },
+      {
+        "key": "S0217979221501538BIB009",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1088/1674-1056/27/7/070201"
+      },
+      {
+        "key": "S0217979221501538BIB010",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.amc.2013.12.057"
+      },
+      {
+        "key": "S0217979221501538BIB011",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1063/1.4732464"
+      },
+      {
+        "key": "S0217979221501538BIB012",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/s10473-020-0108-x"
+      },
+      {
+        "key": "S0217979221501538BIB013",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.wavemoti.2015.09.003"
+      },
+      {
+        "key": "S0217979221501538BIB014",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/S0034-4877(20)30012-4"
+      },
+      {
+        "key": "S0217979221501538BIB015",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1088/0951-7715/18/4/019"
+      },
+      {
+        "key": "S0217979221501538BIB016",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1088/0253-6102/68/5/580"
+      },
+      {
+        "key": "S0217979221501538BIB017",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.physleta.2013.10.027"
+      },
+      {
+        "key": "S0217979221501538BIB018",
+        "doi-asserted-by": "crossref",
+        "first-page": "148",
+        "DOI": "10.1016/j.amc.2018.03.049",
+        "volume": "332",
+        "author": "Hu B. B.",
+        "year": "2018",
+        "journal-title": "Appl. Math. Comput."
+      },
+      {
+        "key": "S0217979221501538BIB019",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.2307/2946540"
+      },
+      {
+        "key": "S0217979221501538BIB020",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.jde.2015.02.046"
+      },
+      {
+        "key": "S0217979221501538BIB021",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.geomphys.2020.103669"
+      },
+      {
+        "key": "S0217979221501538BIB022",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.nonrwa.2017.10.014"
+      }
+    ],
+    "container-title": [
+      "International Journal of Modern Physics B"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "https://www.worldscientific.com/doi/pdf/10.1142/S0217979221501538",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2023,
+          11,
+          5
+        ]
+      ],
+      "date-time": "2023-11-05T04:18:59Z",
+      "timestamp": 1699157939000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://www.worldscientific.com/doi/abs/10.1142/S0217979221501538"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2021,
+          4,
+          30
+        ]
+      ]
+    },
+    "references-count": 22,
+    "journal-issue": {
+      "issue": "11",
+      "published-print": {
+        "date-parts": [
+          [
+            2021,
+            4,
+            30
+          ]
+        ]
+      }
+    },
+    "alternative-id": [
+      "10.1142/S0217979221501538"
+    ],
+    "URL": "https://doi.org/10.1142/s0217979221501538",
+    "relation": {},
+    "ISSN": [
+      "0217-9792",
+      "1793-6578"
+    ],
+    "issn-type": [
+      {
+        "value": "0217-9792",
+        "type": "print"
+      },
+      {
+        "value": "1793-6578",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2021,
+          4,
+          30
+        ]
+      ]
+    }
+  }
+}

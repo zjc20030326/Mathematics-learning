@@ -1,0 +1,127 @@
+\section{Scattering Matrix／散射矩阵}
+\EN{When $u_0,v_0$ have compact support, $\mu_\pm(x,k)$ are analytic for $k\in\mathbb C\setminus\{0\}$.}
+\CN{初值紧支撑时，两组 Jost 解在整个穿孔谱平面解析。}
+\EN{Both of them are fundamental solutions of (2.13), so there exists a matrix $s(k)$ independent of $x$ such that $\mu_+(x,k)=\mu_-(x,k)e^{x\widehat L(k)}(s(k))$ holds for $k\in\mathbb C\setminus\{0\}$.}
+\CN{它们对应同一方程的基本解，故存在与 $x$ 无关的散射矩阵 $s(k)$，满足上述连接关系。}
+\EN{If $u_0,v_0$ are not compactly supported, then $\mu_+(x,k)$ and $\mu_-(x,k)$ are not defined on the same subset of the complex plane.}
+\CN{初值不紧支撑时，两组解的各列不在共同谱区域上定义。}
+\EN{So we have to define the scattering matrix $s(k)$ in another way.}
+\CN{因此需要另外定义散射矩阵。}
+\EN{In fact, we can define $s(k)$ by the integral equation}
+\CN{实际采用的定义为}
+\begin{equation}
+\originaleq{2.33}
+s(k)=I-\int_{\mathbb R}e^{-x\widehat L(k)}(U_2\mu_+)(x,k)\dd x.
+\end{equation}
+\begin{proof}
+\textbf{连接关系与积分定义的补充推导。}
+紧支撑时令 $\phi_\pm=\mu_\pm e^{xL}$。
+因为 $\partial_x\phi_\pm=F\phi_\pm$，
+\[
+\partial_x(\phi_-^{-1}\phi_+)
+=-\phi_-^{-1}F\phi_++\phi_-^{-1}F\phi_+=0.
+\]
+所以 $s=\phi_-^{-1}\phi_+$ 与 $x$ 无关，并给出原文的共轭连接公式。
+从 (2.15) 出发，先左乘 $e^{-xL}$、右乘 $e^{xL}$；在支撑左端之外 $\mu_-=I$，
+令 $x\to-\infty$ 即得 (2.33)。
+对一般 Schwartz 位势，下面证明各个被定义条目的积分都绝对收敛；因此可直接用 (2.33) 定义这些条目，
+而不把两组没有共同开域的整矩阵相除。
+\end{proof}
+\EN{By analyzing this integral equation, we obtain that $s(k)$ has the following properties.}
+\CN{分析此积分定义，得到下列性质。}
+\begin{paperpropositionen}\label{prop:2.4}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$, then $s(k)$ defined by (2.33) satisfies the following:
+\begin{enumerate}[label=\alph*.]
+\item The domain of matrix $s(k)$ is (2.34), where $\varnothing$ denotes the domain of the element at this position is an empty set.
+\item The matrix $s(k)$ is continuous for $k$ in (2.34), and the diagonal elements are analytic in the interior of their domain.
+\item For any positive integer $j$, $\partial_k^j s(k)$ is well-defined and continuous for $k$ in (2.34).
+\item $s(k)$ has the following symmetries (2.35), where $A,B$ are given by (2.12).
+\item There are diagonal matrices $\{s_j\}_{j=1}^\infty$ such that (2.36) holds uniformly for $k$ in (2.34) and $j=0,1,\ldots,N$. In particular, when $k\to\infty$, the off-diagonal elements of $s(k)$ vanish rapidly.
+\item For $k$ in (2.34), we have (2.37), where $\mathfrak s_1$ is a pure imaginary number (it can be 0), while $\mathfrak s_2$ is uncertain.
+\item If $u_0$ and $v_0$ are compactly supported, then $s(k)$ is analytic in $\mathbb C\setminus\{0\}$ and satisfy $\mu_+(x,k)=\mu_-(x,k)e^{x\widehat L(k)}s(k)$. Moreover, we have $\det s(k)=1$.
+\end{enumerate}
+\end{paperpropositionen}
+\begin{paperpropositioncn*}
+散射矩阵各条目的定义域为 (2.34)，其中空集表示该条目未被定义。
+在这些域上，条目及各阶谱导数连续，对角条目在域内部解析；满足对称性 (2.35)。
+无穷远展开系数为对角矩阵，非对角条目沿各自定义射线对 $k$ 迅速衰减。
+原点展开为 (2.37)，其中 $\mathfrak s_1$ 纯虚、可为零，$\mathfrak s_2$ 为一般复数。
+紧支撑时所有条目延拓到穿孔平面，连接关系成立且行列式为 1。
+\end{paperpropositioncn*}
+\begin{equation}
+\originaleq{2.34}
+\begin{pmatrix}
+-\ii\overline S&\mathbb R_+e^{\frac{\ii\pi}{4}}&\varnothing&\mathbb R_+e^{\frac{3\ii\pi}{4}}\\
+\mathbb R_+e^{\frac{\ii\pi}{4}}&-\overline S&\mathbb R_+e^{-\frac{\ii\pi}{4}}&\varnothing\\
+\varnothing&\mathbb R_+e^{-\frac{\ii\pi}{4}}&\ii\overline S&-\mathbb R_+e^{\frac{\ii\pi}{4}}\\
+\mathbb R_+e^{\frac{3\ii\pi}{4}}&\varnothing&-\mathbb R_+e^{\frac{\ii\pi}{4}}&\overline S
+\end{pmatrix}\setminus\{0\},\qquad \mathbb R_+=(0,+\infty).
+\end{equation}
+\begin{equation}
+\originaleq{2.35}
+s(k)=As(\ii k)A^{-1},\qquad s(k)=Bs^*(k^*)B.
+\end{equation}
+\begin{equation}
+\originaleq{2.36}
+\left\|\partial_k^j\left(s(k)-I-\sum\limits_{l=1}^N\dfrac{s_l}{k^l}\right)\right\|
+=O(k^{-N-1}),\qquad k\to\infty.
+\end{equation}
+\begin{equation}
+\originaleq{2.37}
+\begin{aligned}
+s(k)&=\dfrac{s^{(-1)}}{k}+O(1),\qquad k\to0,\\
+s^{(-1)}&=\begin{pmatrix}
+\mathfrak s_1&\mathfrak s_2&\varnothing&-\mathfrak s_2^*\\
+\ii\mathfrak s_2^*&-\ii\mathfrak s_1&-\ii\mathfrak s_2&\varnothing\\
+\varnothing&\mathfrak s_2^*&-\mathfrak s_1&-\mathfrak s_2\\
+\ii\mathfrak s_2&\varnothing&-\ii\mathfrak s_2^*&\ii\mathfrak s_1
+\end{pmatrix}.
+\end{aligned}
+\end{equation}
+\begin{proof}
+\EN{See [22, Theorem 3.5] for a similar proof in the context of ``good'' Boussinesq equation.}
+\CN{原文仅指向文献 [22] 定理 3.5 中关于 good Boussinesq 方程的类似证明。下面补足本文所需论证。}
+\proofstep{定义域、连续性与谱导数。}
+(2.33) 的第 $(i,j)$ 个被积条目为
+$e^{-(l_i-l_j)x}(U_2\mu_+)_{ij}$。
+Schwartz 位势只有多项式加权可积性，不保证抵消任意指数增长；
+要在整个实轴积分，非对角项需 $\operatorname{Re}(l_i-l_j)=0$，同时第 $j$ 列必须位于命题 2.1 的定义域。
+例如 $s_{12}$ 要求 $\operatorname{Re}k=\operatorname{Im}k$，与第二列的右扇区相交只留下正向对角射线。
+$s_{13}$ 则要求 $\operatorname{Im}k=0$，与第三列的下扇区除原点外无交集，故相应位置为空集。
+对角项无需额外指数条件，定义域就是相应 Jost 列的扇区。
+逐项使用这一判据得到 (2.34)。
+谱导数只增加有限次空间权，结合前节允许的多项式增长界与 Schwartz 衰减，仍有可积控制函数，
+故可用控制收敛交换微分、积分及谱边界极限。对角项的积分核在开域解析，局部一致积分给出解析性。
+
+\proofstep{对称性与两个谱端点。}
+将 (2.16) 和引理 2.1 代入积分定义，$A,B$ 为常矩阵，可移到积分外，立得 (2.35)。
+在无穷远，将任意高阶的 Jost 展开代入积分，并按 (2.19) 合并系数。
+对角项得到常数系数 $s_l$；非对角项在定义射线上含非零线性相位，
+通过对 $x$ 分部积分任意多次，且利用每次产生的位势导数与端点尾部均迅速衰减，得到任意阶的 $k^{-1}$ 衰减。
+每次分部积分的边界项为零，这是 Schwartz 条件的直接结果。
+对谱导数先求导再做更多次分部积分，额外的 $x$ 幂同样可积。
+积分中的余项由固定阶加权矩控制，所以得到 (2.36)，不需要前节有疑问的全空间有界谱导数估计。
+
+原点处，先注意 (2.7)、(2.23) 中的两个常矩阵任意相乘均为零，直接相乘即可检查。
+因此 $\widetilde U_2 C_+^{(-1)}=0$，将 (2.30) 代入 $U_2\mu_+$ 时，潜在的 $k^{-2}$ 项消失。
+余下最多是一阶极点；以加权可积控制通过原点极限，得到
+\[
+s^{(-1)}=-\int_{\mathbb R}\widetilde U_2(x)
+\bigl(I+C_+^{(0)}(x)\bigr)\dd x
+\]
+在被定义的条目上成立。
+把 $s(k)=s^{(-1)}/k+O(1)$ 代入 (2.35)，有
+$As^{(-1)}A^{-1}=\ii s^{(-1)}$、$B\overline{s^{(-1)}}B=s^{(-1)}$。
+取第一行的两个自由条目为原文的 $\mathfrak s_1,\mathfrak s_2$，沿 $A$ 的循环置换求出其余条目，
+再用 $B$ 的共轭关系得到 $\mathfrak s_1=-\overline{\mathfrak s_1}$，即 (2.37)。
+这里保留空集位置，不能把它们当作数值为零的矩阵条目参与行列式计算。
+
+\proofstep{紧支撑情形。}
+所有积分只需经过有限支撑，故谱解析延拓与连接关系由本节开头的计算成立。
+由 $\det\mu_+=\det\mu_-=1$、$\det e^{xL}=1$，连接关系立即给出 $\det s=1$。
+一般非紧支撑时，$s$ 是逐条目定义的对象，不能把紧支撑时的整矩阵恒等式不加说明地移到任意开谱域。
+\end{proof}
+\begin{note}
+\EN{Remark 1. We want to remind the reader that in (2.37), the symbol $\varnothing$ indicates that the element at this position is not defined.}
+\CN{注 1：在 (2.37) 中，空集符号表示该位置的条目没有定义，不能解释为该条目等于零。}
+\end{note}

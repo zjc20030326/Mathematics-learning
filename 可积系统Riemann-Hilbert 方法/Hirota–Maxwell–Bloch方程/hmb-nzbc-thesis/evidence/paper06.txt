@@ -1,0 +1,460 @@
+===== PDF PAGE 1 =====
+International Journal of Modern Physics B
+Vol. 35, No. 11 (2021) 2150153 (9 pages)
+© World Scientiﬁc Publishing Company
+DOI: 10.1142/S0217979221501538
+
+
+
+
+
+     The N-soliton solutions to the Hirota and Maxwell–Bloch
+             equation via the Riemann–Hilbert approach
+
+
+
+                                 Jian Li∗and Tiecheng Xia†
+
+                    Department of Mathematics, Shanghai University,
+                             Shanghai 200444, P. R. China
+                                   ∗lijianstud@163.com
+                                     †xiatc@shu.edu.cn
+
+                                 Hanyu Wei
+
+              College of Mathematics and Statistics, Zhoukou Normal University,
+                           Zhoukou 466001, P. R. China
+                              weihanyu8207@163.com
+
+
+                                 Received 22 March 2021
+                                  Revised 22 April 2021
+                                Accepted 25 April 2021
+                                  Published 19 June 2021
+
+     In this paper, we study the N-soliton solutions for the Hirota and Maxwell–Bloch equa-
+     tion with physical meaning. From the Lax pair and Volterra integral equations, the
+    Riemann–Hilbert problem of this integrable equation is constructed. By solving the
+    matrix Riemann–Hilbert problem with the condition of no reﬂecting, the N-soliton solu-
+     tions for the Hirota and Maxwell–Bloch equation are obtained explicitly. Finally, we
+     simulate the three-dimensional diagram of |E| with 2-soliton solutions and the motion
+     trajectory of t-axis in the case of diﬀerent z.
+
+    Keywords: Hirota and Maxwell–Bloch equation; Riemann–Hilbert problem; N-soliton
+     solutions; Lax pair; integrable equation.
+
+   PACS number: 05.45.Yv
+
+
+1. Introduction
+
+In this paper, we consider the integrable Hirota and Maxwell–Bloch (HMB) equa-
+tion with the zero boundary condition at inﬁnity1
+       Ez = iA1(Ett + |E|2E) −A2(Ettt + 6|E|2Et) + A3p,
+                        pt = 2iωp + 2Eη,                                                (1.1)
+       ηt = −(Ep∗+ E∗p),
+
+
+†Corresponding author.
+
+
+                                        2150153-1
+
+===== PDF PAGE 2 =====
+J. Li, T. Xia & H. Wei
+
+where A1, A2, A3, ω are real constants, ∗represents the complex conjugate, E is
+the ﬁeld, p is the polarization and η is the population inversion. In fact, the HMB
+equation has several applications about higher-order dispersion, nonlinear eﬀect,
+self-steepening, nonlinear ﬁber optics in physics, and the soliton solutions to the
+HMB equation are also obtained by Darboux transformation.2 In fact, the soliton
+solutions of the HMB equation can be constructed by the matrix Riemann–Hilbert
+problem which was born out of inverse scattering transformation in 1997.3 A few
+years later, people applied it to solve integrable equations, for example, the modiﬁed
+Korteweg–de Vries equation,4 the multi-component AKNS integrable hierarchies,5
+the nonlocal Fokas–Lenells equation,6 the Kundu-nonlinear Schr¨odinger equation7
+the N-coupled Hirota equations,8 the coupled modiﬁed nonlinear Schr¨odinger
+equations,9 the coupled nonlinear Schr¨odinger equations,10 the coupled derivative
+Schr¨odinger equation,11 the Kundu-Type equation12 and the generalized Sasa–
+Satsuma equation13,14 so on. Furthermore, the Riemann–Hilbert method can not
+only be applied to construct the N-soliton solutions, but also be used for the initial-
+boundary value problems and the long-time asymptotic behaviors of defocusing
+systems.15–22
+   This paper is arranged as follows. In Sec. 2, from the Lax pair of the HMB
+equation and the full derivative form (2.4), we obtain the asymptotic condition of φ.
+By introducing two related Volterra integral equations and some deﬁnitions, we can
+construct Riemann–Hilbert problem of the HMB equation. In Sec. 3, the N-soliton
+solutions to the HMB equation are obtained in detail and some three-dimensional
+images of N-soliton solutions are shown. In Sec. 4, we give a brief conclusion of this
+paper and present some discussions in integrable systems.
+
+
+2. Lax Pair for the HMB Equation
+
+From Ref. 2, we get that the HMB equation satisﬁes the Lax pair with A1 = 2, A2 =
+−1, A3 = 2
+ Ψt = UΨ = (−iλσ3 + U0)Ψ,
+ 
+                                                                i        Ψ = (Ψ1, Ψ2),
+   Ψz = V Ψ =  −4iλ3σ3 + λ2V2 + λV1 + V0 +     V−1 Ψ,
+                                  λ + ω
+                                                                                   (2.1)
+
+where
+                    0  E !         −2i  −4E !
+           U0 =                     ,  V2 =                        ,
+              −E∗  0          4E∗    2i
+
+                     −2i|E|2    2E −2iEt !
+            V1 =                                               ,
+              −2E∗−2iE∗t     2i|E|2
+
+                      i|E|2 −EE∗t + EtE∗    2|E|2E + iEt + Ett !
+            V0 =                                                                                 ,
+               −2|E|2E∗+ iE∗t −E∗tt  −i|E|2 + EE∗t −EtE∗
+
+                                        2150153-2
+
+===== PDF PAGE 3 =====
+                       The N-soliton solutions to the Hirota and Maxwell–Bloch equation
+
+                   η   −p !         1   0 !
+          V−1 =                     ,  σ3 =
+                −p∗  −η           0  −1
+
+is the third Pauli’s matrix, and λ ∈C is the spectral parameter. In order to facilitate
+the calculation and analysis below, we introduce a matrix function φ(t, z; λ),
+
+                 φ = Ψeiλtσ3+4iλ3zσ3,   z, t →±∞.                     (2.2)
+
+Then, we can get a simpler form of the Lax pair (2.1) as follows:
+
+               (φt + iλ[σ3, φ] = U0φ,
+                                                                                   (2.3)
+                           φz + 4iλ3[σ3, φ] = ˘V φ,
+
+where ˘V = λ2V2 + λV1 + V0 + λ+ωV−1.i      Note that Eq. (2.3) can be rewritten in full
+derivative form as follows7:
+
+                              d(e−i(λt+4λ3z)ˆσ3φ) = Υφ,                          (2.4)
+
+where
+
+              Υ = e−i(λt+4λ3z)ˆσ3(U0dt + ˘V dz).                      (2.5)
+
+According to the matrix spectral problems of Lax pair (2.1), one can obtain the
+asymptotic condition
+
+             Ψ ∼e−i(λt+4λ3z)σ3,    t, z →±∞.                      (2.6)
+
+Based on the generalized Liouville’s formula and the equivalent variable transfor-
+mation, it shows that
+
+                                  det φ = 1.                                  (2.7)
+
+In order to obtain the important scattering matrix, we can start from the analytic
+of the spectral function φ(t, z; λ). First, we introduce two related Volterra integral
+equations as follows:
+
+                         Z t
+                φL(t; λ) = I +      e−iλ(t−y)ˆσ3(U0(y)φL(y, λ))dy,             (2.8)
+                    −∞
+                         Z ∞
+                φR(t; λ) = I −     e−iλ(t−y)ˆσ3(U0(y)φR(y, λ))dy,             (2.9)
+                                               t
+
+where I is an identity matrix. Let
+
+                                          φ11L   φ12L !
+                    φL = (φ1L, φ2L) =                     ,                     (2.10)
+                                          φ21L   φ22L
+
+                                          φ11R   φ12R !
+                   φR = (φ1R, φ2R) =                     ,                     (2.11)
+                                          φ21R   φ22R
+
+                                        2150153-3
+
+===== PDF PAGE 4 =====
+J. Li, T. Xia & H. Wei
+
+where φ1L and φ1R are the ﬁrst columns of φL and φR, φ2L and φ2R are the second
+columns of φL and φR, respectively. Based on the Volterra integral equation (2.8),
+it shows that
+                                        0         Ee2iλ(t−y) !
+            e−iλ(t−y)σ3U0eiλ(t−y)σ3 =                                                 ,        (2.12)
+                                    −E∗e−2iλ(t−y)      0
+
+by calculating the formula e−iλ(t−y)σ3U0eiλ(t−y)σ3, directly. From the calculation
+results and the deﬁned Eqs. (2.10)–(2.11), it implies that φ1L is analytic in C+ =
+{λ | Imλ < 0}, φ2L is analytic in C−= {λ | Imλ > 0}, φ1R is analytic in C+, φ2R is
+analytic in C−, respectively.
+   Based on Abel’s formula and the formula tr(U0) = 0, it is easy to obtain that
+the asymptotic relations of φL and φR are independent of all t,
+                (φL →I,   t →−∞,
+                                                                               (2.13)
+                       φR →I,   t →∞.
+
+Considering two matrix Just solutions of the spectral problem (2.3), they are lin-
+early related by the scattering condition S(λ) = (sij)2×2,
+                 φLE = φRES(λ),  E = eiλtσ3.                     (2.14)
+
+It is worth noting that det S(λ) = 1 because of det φL = 1 (det φR = 1), assume
+                            (φ1L)−1 !           (φ1R)−1 !
+                 φ−1L =                  ,  φ−1R =                  ,                 (2.15)
+                            (φ2L)−1             (φ2R)−1
+this suggests that (φ1L)−1, (φ2R)−1 are analytic in C+, (φ2L)−1, (φ1R)−1 are analytic
+in C−. From the deformation of (2.14), it is obvious that the analytic of S(λ) can
+be given as follows:
+                                       (φ1R)−1φ1L  (φ1R)−1φ2L !
+            ES(λ)E−1 = φ−1R φL =                                         ,            (2.16)
+                                       (φ2R)−1φ1L  (φ2R)−1φ2L
+then s11 is analytic in C−, the other elements in S(λ) are analytic in C+. The
+purpose of the previous preparation and analysis is to construct the Riemann–
+Hilbert problem for the HMB equation, once the Riemann–Hilbert problem of the
+HMB equation is constructed, its corresponding solution can be given. First, we
+introduce two matrix functions
+        (RR = (Φ1L, Φ2R) = ΦLH1 + ΦRH2,
+                                                                               (2.17)
+           RL = ((Φ1L)−1, (Φ2R)−1) = H1(ΦL)−1 + H2(ΦR)−1,
+
+where
+                                    1  0 !
+                        H1 =              ,                             (2.18)
+                                    0  0
+
+                                    0  0 !
+                        H2 =              .                             (2.19)
+                                    0  1
+
+
+                                        2150153-4
+
+===== PDF PAGE 5 =====
+                       The N-soliton solutions to the Hirota and Maxwell–Bloch equation
+
+According to the analytic of Volterra integral equations ΦL, ΦR, it is obvious that
+RR is analytic in C−, and satisﬁes the asymptotic relation RR →I as λ ∈C−→
+∞. Similarly, RL is analytic in C+, where RL →I as λ ∈C+ →∞, and from
+Eq. (2.14), we obtain
+
+                    E−1φ−1L = S−1(λ)E−1φ−1R  ,                       (2.20)
+
+where S−1(λ) = (˘sij)2×2.
+   For the HMB equation (1.1), the relevant matrix Riemann–Hilbert problem can
+be proposed as follows:
+
+(1) RR is analytic in C−, RL is analytic in C+, respectively,
+
+     RR →I, λ ∈C−→∞,
+(2)
+     RL →I, λ ∈C+ →∞,
+
+(3) G(t, z; λ) = RLRR,
+
+where
+
+                                   1      ˘s12e−2iλt !
+                      G(t, z; λ) =                                           (2.21)
+                                        s21e2iλt      1
+
+is the jump matrix. Note that ˘s11s11 + ˘s12s21 = 1 because of the det S(λ) = 1.
+
+
+3. N -Soliton Solutions for the HMB Equation
+
+In this section, the N-soliton solutions to the HMB equation are constructed by
+the Riemann–Hilbert problem proposed above. Now, let us assume the Riemann–
+Hilbert problem (2.21) is irregular, it implies that det RR, det RL are meaningful in
+their own analytic domains except for some zeros. According to the deﬁnitions of
+RR, RL (2.17) and the scattering relationship (2.14), we ﬁnd that
+
+                     det RL = ˘s11(λ),   det RR = s11(λ),                     (3.1)
+
+it shows that of det RL and det RR possess the same zeros as ˘s11(λ) and s11(λ),
+respectively. Moreover, one can deduce that R‡L,R(λ∗) = R−1L,R(λ), where the super-
+script ‡ represents conjugate transpose, due to the spectral matrix U0  is anti-
+Hermitian (U0‡ = U0−1 ), and the formulas
+              S‡(λ∗) = S−1(λ),  Φ‡R(λ∗) = Φ−1L (λ),  λ ∈C+,             (3.2)
+
+are easy to obtain. From the relation of S‡(λ∗) = S−1(λ), we further have s∗11(λ∗) =
+˘s−111 (λ). Let λ1, λ2, . . . , λN ∈C−be the simple zeros of det RR and ˆλ1, ˆλ2, . . . , ˆλN ∈
+C+ be the simple zeros of det RL, respectively, where λ∗l = ˆλl (1 ≤l ≤N). Suppose
+ϱ is nonzero column vector and ϱ∗is nonzero row vector, it derives that
+
+                    RR(λl)ϱl(λl) = 0,   ϱ∗l (λ∗l )RL(λ∗l ) = 0,                   (3.3)
+
+                                        2150153-5
+
+===== PDF PAGE 6 =====
+J. Li, T. Xia & H. Wei
+
+
+what is more, the eigenvectors satisfy the relation
+                        ϱ∗l = ϱ‡l ,  1 ≤l ≤N,                                 (3.4)
+
+                     ∂ϱl
+                                   −iλlσ3ϱl = 0,
+                                  ∂t            RR(λl)                                                                                   (3.5)
+                                    ∂ϱl
+                                                                                l σ3ϱl = 0.            RR(λl)  ∂z −4iλ3
+
+Through substituting (3.5) into the Lax pair (2.3), we have
+
+
+                                                                    l                         ϱl = eiλltσ3+4iλ3                                            zσ3ϱl,0,  1 ≤l ≤N,                    (3.6)
+
+where ϱl,0 is independent of the variables t, z. Considering the relation (3.4), thus
+we have
+                                                            l tσ3−4i(λ∗l )3zσ3,  1 ≤l ≤N.                  (3.7)                   ϱ∗l = ϱ‡l,0e−iλ∗
+
+Therefore, the Riemann–Hilbert problem (2.21) has the solutions
+
+                    N  N                                           −1)mn                                   ϱmϱ∗n(M                                                                                              ,
+                                    λ −λ∗n          RR(λ) = I − m=1X n=1X                                                                                   (3.8)
+                          N
+                            N ϱmϱ∗                                           −1)mn                                 n(M           X            X                                                                                             ,                  RL(λ) = I +
+                                    λ                             −λm                           m=1                                   n=1          
+where M is the N × N matrix deﬁned by
+                            ϱmϱ∗n
+      M = (mmn)N×N =                             ,  1 ≤m, n ≤N,          (3.9)
+                            λn −λ∗m N×N
+and (M −1)mn is the (m, n)-element of the M −1. The asymptotic expansion of R+(λ)
+can be expressed as
+                   R1R   R2R   R3R      1         RR(λ) = I +   +   +   + o         ,  λ ∈C−→∞,        (3.10)
+                    λ    λ2    λ3      λ4
+
+and substituting (3.10) into Lax pair (2.3), we get
+                  E = 2i(R1R)12,                                 (3.11)
+                λ2 : 4i[σ3, R1R] = V2,                                        (3.12)
+                λ1 : 4i[σ3, R2R] = V2R1R + V1,                               (3.13)
+                λ0 : 4i[σ3, R3R] = V2R2R + V1R1R + V0,                       (3.14)
+                λ−1 : (R1R)z = V2R3R + V1R2R + V0R1R + V−1,            (3.15)
+
+                                                       · · · .
+
+   From Eq. (3.8), we obtain
+
+                       N  N
+                  R1R = − X X ϱmϱ∗n(M −1)mn,                    (3.16)
+                         m=1 n=1
+
+                                        2150153-6
+
+===== PDF PAGE 7 =====
+                       The N-soliton solutions to the Hirota and Maxwell–Bloch equation
+
+
+
+
+
+Fig. 1.  (Color online) Evolution plot of |E| with parameters by α1 = α2 = 1, β1 = β2 = i, λ1 =
+−12 + 12 i, λ2 = −310 + 23 i.
+
+
+
+
+
+              Fig. 2.  (Color online) The soliton of |E| along t-axis with diﬀerent z.
+
+
+then, the N-soliton solutions to the HMB equation (1.1) are given by
+
+               N  N
+         X          X ϱmϱ∗n(M −1)mn,
+                     m=1                            n=1        E = −2i                     1                    1                             (3.17)
+                 p            =                  2Ez −iEtt                            −i|E|2E + 2Ettt + 3|E|2Et,
+                         η            = −E∗p                     −Ep∗.
+
+Then, according to the formula (3.17) established above with N = 2, E(t, z) can
+be expressed as
+
+                      −2i
+         E(t, z) =                 (α1β∗2m12eξ∗2−ξ1 −α1β∗1m22eξ∗1−ξ1
+               m11m22 −m12m21
+           + α2β∗1m21eξ∗1−ξ2 −α2β∗2m11eξ∗2−ξ2),
+
+                                        2150153-7
+
+===== PDF PAGE 8 =====
+J. Li, T. Xia & H. Wei
+
+
+where
+                          1
+               m11 =         (|α1|2e−ξ∗1−ξ1 + |β1|2eξ∗1+ξ1),              (3.18)
+                       λ1 −λ∗1
+
+                          1
+               m12 =        (α∗1α2e−ξ∗1−ξ2 + β∗1β2eξ∗1+ξ2),              (3.19)
+                       λ2 −λ∗1
+
+                          1
+               m21 =        (α∗2α1e−ξ∗2−ξ1 + β∗2β1eξ∗2+ξ1),              (3.20)
+                       λ1 −λ∗2
+
+                          1
+               m22 =         (|α2|2e−ξ∗2−ξ2 + |β2|2eξ∗2+ξ2),              (3.21)
+                       λ2 −λ∗2
+and ξ1 = iλ1t + 2iλ31z, ξ2 = iλ2t + 2iλ32z. Then, some three-dimensional plots are
+presented shown in Fig. 1, and the solitons along the t axis with diﬀerent variables
+are presented, as shown in Fig. 2.
+
+
+4. Conclusion and Discussion
+
+In this paper, we construct N-soliton solutions to the HMB equation via Riemann–
+Hilbert method. In fact, the HMB equation is a kind of important equation in
+light communication, which can be equivalent to nonlinear Schr¨odinger–Maxwell–
+Bloch (NLS-MB) equation under a certain constraint, so it is still very important to
+continue to study it. Furthermore, using Riemann–Hilbert method to solve nonlocal
+integrable equations and integrable hierarchies is also a very meaningful work, which
+not only provides a method to solve integrable equations but also promotes the
+development of integrable systems. In the following work, we will focus on the long-
+time asymptotics of integrable equations.
+
+
+Acknowledgment
+
+The work is in part supported by the Natural Science Foundation of China under
+Grant No. 11975145.
+
+
+References
+
+ 1. K. Porsezian and K. Nakkeeran, Phys. Rev. Lett. 74, 2941 (1995).
+ 2. C. Z. Li, J. S. He and K. Porsezian, Phys. Rev. E 87, 012913 (2012).
+ 3. A. S. Fokas, Proc. Roy. Soc. A Math. Phys. 453, 1411 (1997).
+ 4. X. T. Chen, Y. Zhang, J. L. Liang and R. Wang, Eur. Phys. J. Plus 135, 574 (2020).
+ 5. W. X. Ma, Nonlinear Anal. Real 47, 1 (2019).
+ 6.  J. Li and T. C. Xia, Appl. Math. Lett. 113, 106850 (2020).
+ 7.  J. Li and T. C. Xia, J. Math. Anal. Appl. 500, 125109 (2021).
+ 8. Z. Z. Kang and T. C. Xia, Chin. Phys. Lett. 36, 4 (2019).
+ 9. Z. Z. Kang, T. C. Xia and X. Ma, Chin. Phys. B 27, 070201 (2018).
+10. D. S. Wang et al., Appl. Math. Comput. 229, 296 (2014).
+11. B. L. Guo and L. M. Ling, J. Math. Phys. 53, 073506 (2012).
+12. L. L. Wen, N. Zhang and E. G. Fan, Acta Math. Sci. 40, 113 (2020).
+
+
+                                        2150153-8
+
+===== PDF PAGE 9 =====
+                       The N-soliton solutions to the Hirota and Maxwell–Bloch equation
+
+
+13. X. G. Geng and J. P. Wu, Wave Motion. 60, 62 (2016).
+14.  S. Q. Xu, R. M. Li and X. G. Geng, Rep. Math. Phys. 85, 77 (2020).
+15. A. S. Fokas, A. R. Its and L. Y. Sung, Nonlinearity 18, 1771 (2005).
+16. N. Zhang, T. C. Xia and B. B. Hu, Commun. Theor. Phys. 68, 580 (2017).
+17.  J. Xu and E. G. Fan, Phys. Lett. A 378, 26 (2014).
+18. B. B. Hu, T. C. Xia and W. X. Ma, Appl. Math. Comput. 332, 148 (2018).
+19. P. Deift and X. Zhou, Ann. Math. 137, 245 (1993).
+20.  J. Xu and E. G. Fan, J. Diﬀer. Equations 259, 1098 (2015).
+21. W. X. Ma, J. Geom. Phys. 153, 103669 (2020).
+22. D. S. Wang and X. L. Wang, Nonlinear Anal. Real 41, 334 (2018).
+
+
+
+
+
+                                        2150153-9

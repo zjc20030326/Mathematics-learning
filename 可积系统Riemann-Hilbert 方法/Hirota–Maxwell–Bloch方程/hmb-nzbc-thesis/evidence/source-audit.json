@@ -1,0 +1,30 @@
+{
+  "authored_tex_files": [
+    "fduthesis.tex",
+    "section/00-frontmatter.tex",
+    "section/01-introduction.tex",
+    "section/02-model.tex",
+    "section/03-scattering.tex",
+    "section/04-rhp.tex",
+    "section/05-solitons.tex",
+    "section/06-conclusion.tex",
+    "section/07-appendix.tex"
+  ],
+  "labels": 103,
+  "reference_commands": 69,
+  "cited_entries": [
+    "BGKL2019",
+    "FanProof",
+    "LHP2013",
+    "LHPnote2013",
+    "LL2026",
+    "LXW2021",
+    "PN1995",
+    "ZCY2020",
+    "ZZ2026"
+  ],
+  "bibliography_entries": 9,
+  "issues": [],
+  "inline_large_operators_needing_manual_review": [],
+  "scope": "Static checks only; final XeLaTeX/BibTeX logs and rendered PDF must also be inspected."
+}

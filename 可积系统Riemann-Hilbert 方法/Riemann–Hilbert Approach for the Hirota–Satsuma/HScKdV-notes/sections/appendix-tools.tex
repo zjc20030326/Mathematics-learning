@@ -1,0 +1,75 @@
+\appendix
+\chapter{Tools and Reading Index／补充工具与阅读索引}
+\section{Integral estimates／积分估计}
+\begin{note}
+本附录整理正文反复调用的最小工具；矩阵计算仍放在相应原文之后。没有增加八个区域的重复公式表。
+\end{note}
+\begin{lemma}[Volterra factorial estimate／Volterra 阶乘估计]
+若 $q\geq0$ 可积，则对整数 $m\geq1$，
+\[
+\int_{-\infty}^xq(y_1)\int_{-\infty}^{y_1}q(y_2)\cdots
+\int_{-\infty}^{y_{m-1}}q(y_m)\dd y_m\cdots\dd y_2\dd y_1
+=\dfrac{1}{m!}\left(\int_{-\infty}^xq(y)\dd y\right)^m.
+\]
+\end{lemma}
+\begin{proof}
+Tonelli 定理允许把非负迭代积分看作区域 $y_m<\cdots<y_1<x$ 上的多重积分。
+乘积 $\displaystyle \prod q(y_j)$ 对变量置换不变；除去两变量相等的零测度集合，整个直积区域 $(-\infty,x)^m$ 被 $m!$ 个排序区域不交分割。
+各区积分相等，所以直积积分除以 $m!$ 即得所求。直积积分由 Tonelli 定理分离成 $m$ 个一维积分。
+\end{proof}
+\begin{lemma}[Integral Gronwall estimate／积分型 Gronwall 估计]
+若 $h$ 有界非负，$q\geq0$ 可积，且 $\displaystyle h(x)\leq a+\int_{-\infty}^xq(y)h(y)\dd y$，$a\geq0$，则
+$\displaystyle h(x)\leq a\exp(\int_{-\infty}^xq)$。特别地 $a=0$ 时 $h=0$。
+\end{lemma}
+\begin{proof}
+把不等式右侧的 $h$ 反复代回。代回 $m$ 次后，常数项为
+$a\displaystyle\sum\limits_{r=0}^{m-1}(\int_{-\infty}^xq)^r/r!$，末项至多 $\displaystyle \|h\|_\infty(\int_{-\infty}^xq)^m/m!$。
+末项趋零，级数和为指数，结论成立。这也说明从负无穷开始的积分型估计需要可积控制与端点控制。
+\end{proof}
+\section{Analytic continuation and parameters／解析粘合与参数}
+\begin{lemma}[Gluing across a ray／跨射线粘合]
+一个函数在射线两侧解析、连续至射线，且两边界值相同，则在射线的非端点处有唯一解析延拓。
+\end{lemma}
+\begin{proof}
+在跨射线的小圆盘内，沿射线把任意三角形截成有限多块，先将分割线平移到两侧，分别用 Cauchy 定理。由边界连续性取平移极限，内部边界的积分因反向相消，原三角形边界积分为零。
+Morera 定理给出整个小圆盘解析性；恒等定理给出唯一性。逐元素应用即得矩阵版本。
+\end{proof}
+\begin{lemma}[Parameter analyticity／积分与级数的参数解析性]
+若核对参数逐点解析，并在每个紧参数集上有与参数无关的可积控制函数，则积分解析。若解析级数在每个紧集上一致收敛，其和也解析。
+\end{lemma}
+\begin{proof}
+对任意小三角形，Fubini 定理交换参数边界积分与空间积分；内部解析核的闭路积分为零，故由 Morera 定理解析。
+级数情形由一致收敛交换闭路积分与求和，同理。连续到谱边界使用控制收敛定理；谱导数的控制函数应包含求导产生的所有空间矩，这正是反复要求 Schwartz 初值的原因。
+\end{proof}
+\section{Terminology and dependency index／术语与逻辑索引}
+\begin{description}[style=nextline,leftmargin=1.5em]
+\item[Lax 对（Lax pair）] §2.1；线性系统的相容性给出非线性 PDE。
+\item[零曲率条件（zero-curvature condition）] §2.1；完整逐项计算及 $g_1,g_2$ 校勘。
+\item[规范变换（gauge transformation）] $P$、(2.3)--(2.10)；对角化自由背景。
+\item[Jost 解（Jost solution）] §2.2；从空间无穷端归一化。
+\item[Volterra 积分方程（Volterra integral equation）] 命题 2.1、2.9；阶乘控制不要求位势小。
+\item[散射矩阵（scattering matrix）] §2.3；合法域内的连接系数。
+\item[伴随谱问题（adjoint spectral problem）] §2.4；负转置而非共轭转置。
+\item[外幂及基本张量（exterior power; fundamental tensor）] §2.5；中间列通过整体张量解析延拓。
+\item[加性扩张（additive extension）] 引理 2.2；生成元的和式，不能当作乘性外幂。
+\item[广义叉积（generalized cross product）] 定义 2.2；将三阶张量变为四维列。
+\item[基本亚纯解（fundamental meromorphic eigenfunction）] §2.6；逐分量混合端点归一化。
+\item[Fredholm 行列式（Fredholm determinant）] 命题 2.10；异常点、亚纯性及可逆性。
+\item[主子式（principal minor）] 定义 2.3；$S,T$ 分解的分母。
+\item[反射系数（reflection coefficient）] 第 3 章、(3.1)；连续谱数据。
+\item[跳跃条件（jump condition）] 引理 3.1、3.3；矩阵顺序与相位。
+\item[谱奇点（spectral singularity）] 假设 3.1；射线上分母为零妨碍常规 RH 设定。
+\item[留数条件（residue condition）] §3.2、(3.45)；特定纯孤子模型的附加条件。
+\item[可去奇点（removable singularity）] 引理 3.6、3.7 及定理 3.3；分别处理原点与离散极点。
+\item[重构公式（reconstruction formula）] 定理 3.2、3.3；无穷远系数恢复位势。
+\item[范数常数（norming constant）] $\tau_j$、(3.44)；决定孤子位置及留数强度。
+\end{description}
+\section{A suggested reading route／建议阅读顺序}
+\begin{enumerate}
+\item 先读引言、§2.1 和定理 3.2，明确“初值—谱数据—时间相位—RH 解—位势”的闭环。
+\item 再读 §2.2--2.4 的 Volterra、对称与渐近计算，注意每列、每个元素的合法定义域。
+\item 集中读 §2.5 的加性扩张、二阶张量和叉积，解决中间列不能同时解析的障碍。
+\item 读 §2.6 的 Fredholm 构造与 $S_1,T_1,S_8,T_8$ 消元；不需要背八套矩阵。
+\item 读无孤子 RH 唯一性，自己复算留数矩阵乘积为零，以及 $1-c^4/k^4$ 的行列式。
+\item 最后读纯孤子 RH 与二阶代数系统，独立代回两条 PDE。校勘随相应公式阅读。
+\end{enumerate}

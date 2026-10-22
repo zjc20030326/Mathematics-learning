@@ -1,0 +1,46 @@
+\section{零曲率检查的展开顺序}
+脚本 \texttt{verify\_symbolic.py} 将 $q,\conj q,p,\conj p,\eta$ 作为独立函数输入，避免计算机错误假设复函数的自变量为复数。先构造完整矩阵，再计算
+$Z=U_z-V_x+UV-VU$，最后替换
+\begin{align*}
+q_z&=\ii\alpha(q_{xx}/2+q^2\conj q)
++\beta(q_{xxx}+6q\conj q\,q_x)+2p,\\
+\conj{q}_z&=-\ii\alpha(\conj{q}_{xx}/2+\conj q^{\,2}q)
++\beta(\conj{q}_{xxx}+6q\conj q\,\conj{q}_x)+2\conj p,\\
+p_x&=2\eta q-2\ii ap,\quad
+\conj p_x=2\eta\conj q+2\ii a\conj p,\quad
+\eta_x=-(\conj q p+q\conj p).
+\end{align*}
+输出 $Z$ 四个元素均为零。同时独立计算 $R_x-[U(a),R]$、Bloch 导数、背景时间矩阵以及 $U_\infty E+\ii\rho E\sg$。这些结果保存在
+\texttt{evidence/symbolic-results.json}。它验证的是明确写出的代数表达，不依赖先前聊天中的任何计算结论。
+
+\section{为什么空间谱并不决定介质}
+仅由 $u=\ii M^{(1)}_{12}$ 得到光场后，介质方程在固定 $z$ 是沿 $x$ 的线性系统
+$R_x=[U(a),R]$。若不给介质归一化，其解仍含任意常数矩阵：
+\[
+R(x,z)=\chi(x,a)C(z)\chi(x,a)^{-1}.
+\]
+Hermitian、迹零与 Bloch 长度约束只能限制 $C(z)$ 的形状和特征值，不能自动固定它的基底方向。本文通过相容端态确定
+$C=\eta_0\rho(w_a)\sg/a$，才获得 \eqref{eq:RfromM}。所以只画出 $q$ 的轮廓，或只验证普通 Hirota 部分，均不能替代 HMB 三场解的构造。
+
+\section{显式 RHP 验证的检查对象}
+\texttt{verify\_rhp.py} 使用式 \eqref{eq:explicitM}，独立比较下列量：
+\begin{align*}
+&\det M-\left(1+\dfrac{Q^2}{w^2}\right),\\
+&M(h(w))-M(w)\dfrac{\ii w}{Q}\sigma_1,\\
+&M(w)-K\conj{M(\conj w)}K^{-1},\\
+&M_x-(-\ii\lambda\sg+A(u))M-\ii\rho M\sg.
+\end{align*}
+留数通过有理分子的值除以 $\rho'(\zeta_j)$ 求得，而不是用极近点差商近似。然后与 $c_je^{2\ii\theta_j}M_2(\zeta_j)$ 比较。两个实共振原像分别代入 \eqref{eq:RfromM}，与独立 dressing 三场计算比较。这样的检查可以发现因子 2、共轭、换叶导数及相位旋转的符号错误。
+
+\section{精确有理化为何有效}
+对式 \eqref{eq:exactparams}，在真实的 $x,z$ 上 $T>0$ 且 $|C|=1$。脚本先把共轭列写成 $(T/C-1/2,\ 1-T/(2C))$，再在形式有理函数域 $\mathbb Q(\ii)(T,C)$ 中计算。若分子多项式恒等于零，限制到实际指数参数曲面后仍为零。分母中来自 $y^\dagger y$ 的因素在实际曲面上严格为正，共振分母也不为零，故清分母不引入实际奇点。
+
+这比在若干网格上观察小残差强，但仍只直接覆盖该明确参数例。一般参数解的解析依据是原始 Darboux 定理和本文的端态、RHP 归一化计算。相关输出为
+\texttt{evidence/exact-example-results.json}。
+
+\section{数值实验的可重复性与局限}
+数值残差脚本为 \texttt{verify\_solitons.py}，使用 mpmath 的 60 位任意精度求导。每条残差都从显式三场独立求导构造；二阶、三阶空间导数没有通过方程递推。保存的 JSON 包括参数、五个采样点、三条 PDE 的最大绝对残差、Bloch 偏差和左右端态误差。
+
+绘图脚本采用 NumPy 双精度向量化，只用于生成图像；它不用于正文中的高精度残差声明。二者分开运行，避免把图形平滑性误当成方程成立的证据。
+
+可复现顺序为：运行四个核验脚本，运行绘图脚本，然后执行 XeLaTeX、BibTeX、两次 XeLaTeX。具体命令、TeX 版本、构建日志和 PDF 页数记录在 \texttt{BUILD.md}。正文只引用已经实际生成的结果；后续若更改公式或参数，应重新运行对应检查并更新记录。

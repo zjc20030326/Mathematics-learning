@@ -1,0 +1,31 @@
+% !TeX program = xelatex
+% 论文逐句双语学习笔记；原文公式编号保留。
+% 证明尽量沿用原文符号；M_n、S_n、T_n 按原文实际展开的区域详证，其余同理。
+\documentclass[lang=cn,scheme=chinese,mode=simple,device=normal,color=blue,math=cm,thmcnt=chapter,bibend=bibtex,12pt]{elegantbook}
+\newif\ifmathanalysiswatermark
+\mathanalysiswatermarkfalse
+\input{preamble.tex}
+\input{notes-settings.tex}
+\begin{document}
+\frontmatter
+\input{sections/reading-guide.tex}
+\input{sections/abstract.tex}
+\tableofcontents
+\mainmatter
+\chapter{Introduction／引言}
+\input{sections/introduction.tex}
+\chapter{Spectral Analysis / 谱分析}
+\input{sections/section-2-1.tex}
+\input{sections/section-2-2.tex}
+\input{sections/section-2-3.tex}
+\input{sections/section-2-4.tex}
+\input{sections/section-2-5.tex}
+\input{sections/section-2-6.tex}
+\chapter{The RH Problem／RH 问题}
+\input{sections/chapter-3-opening.tex}
+\input{sections/section-3-1.tex}
+\input{sections/section-3-2.tex}
+\input{sections/appendix-tools.tex}
+\backmatter
+\input{sections/references.tex}
+\end{document}

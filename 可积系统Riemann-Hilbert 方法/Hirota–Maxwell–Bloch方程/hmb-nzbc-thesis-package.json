@@ -1,0 +1,14 @@
+{
+  "archive": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-source.zip",
+  "file_count": 77,
+  "bytes": 1686186,
+  "sha256": "e9915f7f44b19e70a031a891c56c18364395bdc0c4d22e07210c129466f17329",
+  "zip_integrity": "passed",
+  "per_file_hashes": "passed",
+  "exclusions": [
+    "compiled thesis PDF (delivered separately)",
+    "reference-paper extracted text",
+    "rendered preview images",
+    "Python caches"
+  ]
+}

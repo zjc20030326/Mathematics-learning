@@ -1,0 +1,198 @@
+\section{空间 Jost 解的 Volterra 构造}
+本章首先固定 $z$，只研究空间系统
+\[
+\Psi_x=(-\ii\lambda\sg+A(u))\Psi,\qquad u(x,z)\to Q.
+\]
+记 $\Delta A=A(u)-A(Q)$。基础假设为 $u-Q\in L^1(\mathbb R)\cap L^\infty(\mathbb R)$。高能展开时另假设扰动属于 Schwartz 类；传播演化时还假设这些衰减估计在紧 $z$ 区间上一致，$u_z$ 亦可积且连续，三个场是 HMB 的经典解。介质端态及进入时间矩阵的空间导数均应按相同方式收敛。这些额外假设不是本章对任意初值证明的结论。第 \ref{ch:soliton} 章的显式解满足这些光滑和指数衰减条件。
+
+在连续谱的普通点上，空间归一化的 Jost 解 $\chi_\pm$ 满足
+\[
+\chi_\pm(x,w)e^{\ii\rho x\sg}\longrightarrow E(w),
+\qquad x\longrightarrow\pm\infty.
+\]
+写 $\mu_\pm=\chi_\pm e^{\ii\rho x\sg}$，变分常数法给出
+\begin{equation}\label{eq:volterra}
+\mu_\pm(x,w)=E(w)+\int_{\pm\infty}^{x}
+E(w)e^{-\ii\rho(x-y)\sg}E(w)^{-1}
+\Delta A(y)\mu_\pm(y,w)e^{\ii\rho(x-y)\sg}\,\dd y.
+\end{equation}
+积分上限为 $x$；对 $+\infty$ 的积分定义为负的 $\displaystyle\int_x^{+\infty}$，不能丢掉这个方向。以完整积分式代替仅写“满足 Volterra 方程”，有助于准确确定解析列。
+
+\begin{theorem}[远离阈值的解析列]\label{thm:jost}
+在上述固定 $z$ 假设下，远离 $0,\pm\ii Q$ 的连续谱点存在唯一有界的 $\mu_\pm$。列 $\mu_{-,1},\mu_{+,2}$ 向 $D_+$ 解析延拓；列 $\mu_{+,1},\mu_{-,2}$ 向 $D_-$ 解析延拓。上述列在各自闭域远离特殊点的紧子集上连续。
+\end{theorem}
+\begin{proof}
+令 $s_1=1,s_2=-1$，取式 \eqref{eq:volterra} 第 $j$ 列，核为
+\begin{equation}\label{eq:columnkernel}
+K_j(x-y,w)=
+e^{\ii s_j\rho(x-y)}
+E e^{-\ii\rho(x-y)\sg}E^{-1}.
+\end{equation}
+对 $j=1$，中间的对角指数变为
+$\diag(1,e^{2\ii\rho(x-y)})$。当 $y\le x$ 且 $\operatorname{Im}\rho>0$ 时其模不超过 1，故负端的第 1 列在 $D_+$ 有界。对 $j=2$，指数为
+$\diag(e^{-2\ii\rho(x-y)},1)$；当 $y\ge x$ 且 $\operatorname{Im}\rho>0$ 时也有界，给出正端第 2 列。交换符号即可得到 $D_-$ 的另两列。
+
+取避开 $0,\pm\ii Q$ 的紧谱集 $\mathcal K$。$E,E^{-1}$ 在其上有界，故存在 $C_{\mathcal K}$ 使允许积分方向上的 $\|K_j\|\le C_{\mathcal K}$。例如负端第 1 列的第 $n$ 次迭代项不超过
+\[
+\|E_1\|\dfrac{C_{\mathcal K}^n}{n!}
+\left(\int_{-\infty}^{x}\|\Delta A(y)\|\,\dd y\right)^n.
+\]
+阶乘来自有序积分域 $y_n<\cdots<y_1<x$。因此 Neumann 级数绝对、局部一致收敛；两个解之差同样迭代后由阶乘控制趋于零，得到唯一性。每项对 $w$ 解析，紧集一致收敛给出解析性；在闭域利用同一控制函数及支配收敛得到连续性。正端积分改用反向有序域，估计相同。
+\end{proof}
+
+\begin{remark}
+这里没有断言四列在同一非实谱域同时解析，也没有将端点可逆性偷放进假设。$\gamma(\pm\ii Q)=0$，上述核估计在那里失效。若使用矩阵指数 $e^{U_\infty(x-y)}$ 的极限，可在阈值得到线性核 $I+(x-y)U_\infty$；至少需要一阶矩条件。该局部解如何与散射系数的可能零点一起进入统一的 RHP 函数空间，本稿尚未完成。
+\end{remark}
+
+\section{散射矩阵与 Wronskian 表达}
+由于 $\tr U=0$，Liouville 公式给出
+\begin{equation}\label{eq:detjost}
+\det\chi_\pm=\det\mu_\pm=\gamma(w).
+\end{equation}
+在 $\gamma\ne0$ 的连续谱上定义
+\begin{equation}\label{eq:Sdef}
+\chi_-=\chi_+S_{\rm sp},\qquad \det S_{\rm sp}=1.
+\end{equation}
+这个方向是本稿全部公式的约定；若选 $\chi_+=\chi_-S$，跳跃矩阵和散射系数的排列都必须相应改变。
+
+在需要传播演化时，取满足两部分 Lax 对的
+\[
+\Psi_\pm=\chi_\pm e^{\ii\rho Fz\sg},\qquad
+\Psi_-=\Psi_+S,\qquad
+\mu_\pm=\Psi_\pm e^{\ii\theta\sg}.
+\]
+在共振点之外且解和端态可微时，$\Psi_\pm$ 同时满足两部分 Lax 方程。证明是对空间归一化求 $z$ 导数：$\chi_{\pm,z}-\widehat V\chi_\pm$ 满足同一空间系统，其端态为 $-\chi_\pm\ii\rho F\sg$；唯一性确定该差。因此 $S$ 与 $x,z$ 均无关。$\mu_\pm$ 与固定 $z$ 空间构造中的矩阵完全相同。
+
+以下 $S=(s_{jk})$ 指同时归一化的散射矩阵。由 Cramer 法则，
+\begin{align}
+s_{11}&=\dfrac{\det(\Psi_{-,1},\Psi_{+,2})}{\gamma},&
+s_{22}&=\dfrac{\det(\Psi_{+,1},\Psi_{-,2})}{\gamma},\label{eq:wronskian}\\
+s_{21}&=\dfrac{\det(\Psi_{+,1},\Psi_{-,1})}{\gamma},&
+s_{12}&=\dfrac{\det(\Psi_{-,2},\Psi_{+,2})}{\gamma}.\nonumber
+\end{align}
+因此 $s_{11}$ 在 $D_+$ 解析，$s_{22}$ 在 $D_-$ 解析；一般不赋予 $s_{12},s_{21}$ 离开连续谱的解析延拓。定义
+\begin{equation}\label{eq:reflection}
+r=\dfrac{s_{21}}{s_{11}},\qquad
+\widetilde r=\dfrac{s_{12}}{s_{22}},
+\end{equation}
+要求分母在所讨论轮廓上非零。无谱奇异性是额外条件，不是由半轴可积自动推出。
+
+\section{共轭与换叶对称}
+设
+\[
+K=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad K^{-1}=-K.
+\]
+直接验证 $\widehat U(w)=K\conj{\widehat U(\conj w)}K^{-1}$、
+$E(w)=K\conj{E(\conj w)}K^{-1}$。背景相位满足
+$\theta(w)=\conj{\theta(\conj w)}$，故从归一化的唯一性得到
+\begin{equation}\label{eq:conjugation}
+\Psi_\pm(w)=K\conj{\Psi_\pm(\conj w)}K^{-1},\quad
+\mu_\pm(w)=K\conj{\mu_\pm(\conj w)}K^{-1},\quad
+S(w)=K\conj{S(\conj w)}K^{-1}.
+\end{equation}
+最后一式逐元为
+\begin{equation}\label{eq:sconj}
+s_{22}(w)=\conj{s_{11}(\conj w)},\qquad
+s_{12}(w)=-\conj{s_{21}(\conj w)}.
+\end{equation}
+在实 $w$ 上，$U$ 反 Hermitian，且 $E^\dagger E=\gamma I$，从端态归一化可得 $S^\dagger S=I$，于是
+$|s_{11}|^2+|s_{21}|^2=1$。在圆周的非实点，不应无条件使用这一实轴酉性等式；应使用 \eqref{eq:conjugation} 与换叶关系。
+
+由式 \eqref{eq:E} 直接计算
+\begin{equation}\label{eq:Esheet}
+E(h(w))=E(w)C(w),\qquad C(w)=\dfrac{\ii w}{Q}\sigma_1.
+\end{equation}
+利用 $C\sg=-\sg C$ 及 $\theta(h(w))=-\theta(w)$，得到
+\begin{equation}\label{eq:musheet}
+\Psi_\pm(h(w))=\Psi_\pm(w)C(w),\quad
+\mu_\pm(h(w))=\mu_\pm(w)C(w),\quad
+S(h(w))=\sigma_1S(w)\sigma_1.
+\end{equation}
+这些是从特征向量归一化推得的关系，不是凭记忆添加的谱点配对。
+
+\begin{proposition}[简单离散谱的轨道]\label{prop:quartet}
+设 $\zeta\in D_+$ 为 $s_{11}$ 的简单零点，且远离连续谱、$0$ 和共振点。在上述约化下，
+\begin{equation}\label{eq:quartet}
+\left\{\zeta,\conj\zeta,-\dfrac{Q^2}{\zeta},
+-\dfrac{Q^2}{\conj\zeta}\right\}
+\end{equation}
+构成完整谱轨道。其中 $\zeta$ 与 $h(\conj\zeta)$ 属于 $D_+$，另外两点属于 $D_-$。
+\end{proposition}
+\begin{proof}
+共轭改变 $\operatorname{Im}\rho$ 的符号，换叶也改变其符号，二者复合保留区域。由 \eqref{eq:sconj}，$s_{22}(\conj\zeta)=0$；由 \eqref{eq:musheet}，$s_{22}(h(\zeta))=0$，$s_{11}(h(\conj\zeta))=0$。因 $h'(w)=Q^2/w^2\ne0$，简单性保持。离开实轴和圆周保证四点互异。Wronskian 为零说明 $\Psi_{-,1}$ 与 $\Psi_{+,2}$ 线性相关；两列分别在左、右端衰减，其相同向量给出平方可积本征函数。
+\end{proof}
+
+\section{高能展开及两种无穷远}
+\status{本节给出强衰减假设下的展开机制及系数比较。一致余项的完整估计尚未写成独立引理；后续一般 RHP 暂将所列渐近作为额外条件。第 \ref{ch:soliton} 章的显式无反射矩阵可直接展开，不依赖这一待补的一般估计。}
+在本节额外假设 $u-Q$ 及足够阶空间导数衰减可积。Volterra 核在闭子扇区内可作一次分部积分，振荡项获得 $O(1/w)$ 因子，非振荡项的非对角性再给出同阶估计，得到
+\[
+\mu_\pm=I+O(w^{-1}),\qquad S=I+O(w^{-1}),\qquad w\to\infty.
+\]
+这里的估计应在相应解析列的区域中解释。为展示展开系数，把任意这样的归一化解 $M=I+M^{(1)}/w+O(w^{-2})$ 代入
+\begin{equation}\label{eq:Mspace}
+M_x=-\ii\lambda\sg M+A(u)M+\ii\rho M\sg.
+\end{equation}
+利用 $\lambda=w/2-Q^2/(2w)$、$\rho=w/2+Q^2/(2w)$，比较常数项得
+\begin{equation}\label{eq:reconq}
+A(u)=\dfrac{\ii}{2}[\sg,M^{(1)}],
+\qquad u=\ii M^{(1)}_{12}.
+\end{equation}
+系数 $1/2$ 来自 $\lambda\sim w/2$。若直接沿用原谱参数展开中的系数，会造成因子 2 错误。
+
+换叶把上述展开转为
+\begin{equation}\label{eq:smallmu}
+\mu_\pm(w)=-\dfrac{\ii Q}{w}\sigma_1+O(1),\qquad
+S(w)=I+O(w),\qquad w\to0.
+\end{equation}
+证明只需在 \eqref{eq:musheet} 中令原变量趋于无穷远，并用 $h(w)=-Q^2/w$。这也解释了为何不能同时要求 $M(0)=I$ 与 $M(\infty)=I$。
+
+\section{散射数据的传播演化}
+固定 $z$ 的空间散射矩阵与同时归一化的 $S$ 关系为
+\begin{equation}\label{eq:timeS}
+S_{\rm sp}(w,z)=e^{\ii\rho Fz\sg}S(w)e^{-\ii\rho Fz\sg}.
+\end{equation}
+因此
+\begin{equation}\label{eq:timer}
+r_{\rm sp}(w,z)=e^{-2\ii\rho Fz}r_{\rm sp}(w,0),\qquad
+\widetilde r_{\rm sp}(w,z)=e^{2\ii\rho Fz}\widetilde r_{\rm sp}(w,0).
+\end{equation}
+透射系数与离散谱点不变。对于同时归一化的线性相关常数 $b_j$，其 $z$ 导数为零；若使用纯空间相位，则相应常数携带相同的指数传播因子。两种约定不能混用。
+
+\section{共振点的必要相容条件}
+\begin{proposition}[固定传播截面的共振反射条件]\label{prop:resonance}
+固定一个 $z$。设去相位后的三个场满足介质方程，并在两端趋向 $(Q,-\ii\eta_0Q/a,\eta_0)$，其中 $a\ne0,\eta_0\ne0$。再设空间 Jost 基底 $\chi_\pm(x,w_a^\pm)$ 正则可逆，具有前述振荡归一化，且 $R-R_\infty\to0$。则在两共振原像处，空间散射矩阵为对角矩阵；特别地 $r_{\rm sp}=0$。
+\end{proposition}
+\begin{proof}
+由介质方程，
+\[
+R_x=[\widehat U(a),R].
+\]
+对任一可逆空间基本解 $\chi$，
+\begin{align*}
+\partial_x(\chi^{-1}R\chi)
+&=-\chi^{-1}\widehat U(a)R\chi
++\chi^{-1}R_x\chi+\chi^{-1}R\widehat U(a)\chi\\
+&=\chi^{-1}(R_x-[\widehat U(a),R])\chi=0.
+\end{align*}
+故 $C_\pm=\chi_\pm^{-1}R\chi_\pm$ 与 $x$ 无关。由 \eqref{eq:Rbg} 和 \eqref{eq:diagE}，
+\[
+E(w_a)^{-1}R_\infty E(w_a)=
+\dfrac{\eta_0\rho(w_a)}{a}\sg=:d_a\sg.
+\]
+在实轴 $\rho(w_a)$ 为非零实数，振荡对角矩阵有界。对 $C_\pm$ 分别取其归一化端点的极限，得 $C_+=C_-=d_a\sg$。再由 $\chi_-=\chi_+S_{\rm sp}$，
+\[
+d_a\sg=S_{\rm sp}^{-1}d_a\sg S_{\rm sp}.
+\]
+$d_a\ne0$，故 $[\sg,S_{\rm sp}]=0$，其两非对角元为零。行列式为 1 保证两个对角元均非零，反射系数因而有定义且等于零。
+\end{proof}
+
+该命题不需要在 $\lambda=a$ 对时间 Lax 方程求值。若两端介质反转不同，则只得到 $C_-=S_{\rm sp}^{-1}C_+S_{\rm sp}$，并不自动推出对易。对于不同光场相位但相同模的端态，取
+\[
+B_\pm=\begin{pmatrix}0&u_\pm\\\conj{u_\pm}&0\end{pmatrix},
+\qquad E_\pm=I-\dfrac{\ii B_\pm}{w},
+\]
+并要求 $v_\pm=-\ii\eta_0u_\pm/a$，才仍得到相同的 $d_a\sg$。这说明“同一对角常数”是由介质相容性和 Jost 归一化共同决定的。
+
+最后，$r_{\rm sp}(a)=0$ 不足以控制传播正则性。实变量模型
+$f(s)=s e^{\ii c/s}$（$s\ne0$，$c\ne0$）延拓为 $f(0)=0$ 后连续，但
+$f'(s)=e^{\ii c/s}(1-\ii c/s)$ 无界。式 \eqref{eq:timer} 在共振点附近具有这种机制。故本稿不从点值为零推出一般含反射 IST 的全局可解性。

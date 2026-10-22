@@ -1,0 +1,376 @@
+\section{The Fundamental Meromorphic Eigenfunction \texorpdfstring{$M(x,k)$}{M(x,k)}／基本亚纯本征函数}
+\EN{In order to formulate an RH problem, we need to define a piecewise meromorphic matrix-valued solution $M(x,k)$ of (2.13). We denote it by $M_n(x,k)$ for $k\in D_n$, $1\leq n\leq8$. According to [22], the following integral equations define $M_n$:}
+\CN{为建立 RH 问题，需要一个分片亚纯的矩阵解。在每个扇区用 $M_n$ 表示，并由逐元素的混合端点积分方程定义：}
+\begin{equation}\originaleq{2.88}
+(M_n)_{ij}(x,k)=\delta_{ij}+\int_{\gamma_{ij}^n}\left(e^{(x-x')\widehat L(k)}(U_2M_n)(x',k)\right)_{ij}\dd x',
+\end{equation}
+\EN{Here the contours are chosen as follows.}
+\CN{积分端点按照指数的实部排序选择，使积分核沿该方向有界：}
+\begin{equation}\originaleq{2.89}
+\gamma_{ij}^n=\begin{cases}(-\infty,x)=:\gamma_1,&\operatorname{Re}l_i<\operatorname{Re}l_j,\\(+\infty,x)=:\gamma_2,&\operatorname{Re}l_i\geq\operatorname{Re}l_j.\end{cases}
+\end{equation}
+\begin{note}
+原式 (2.89) 的 $l_i(x)$、$l_j(x)$ 应读为 $l_i(k)$、$l_j(k)$。扇区内部确定的积分方向连续延用到边界；不能在边界按相等关系重新改变方向。
+一个列向量的不同分量来自不同端点，因此不再是单向 Volterra 方程；这正是引入 Fredholm 理论的原因。
+\end{note}
+\EN{Define $\mathcal Q=\{0\}\cup\mathcal Z$, where $\mathcal Z$ denotes the zeros of the Fredholm determinants associated with (2.88). In particular, $\displaystyle \mathcal Z\cap\overline D_1=\bigcup_{j=1}^4\{k\in\overline D_1:\widetilde f_j(k)=0\}$, with the determinants in (2.105). The next proposition gives the basic properties of $M$.}
+\CN{以 $\mathcal Q$ 表示原点和 Fredholm 行列式的零点所组成的异常集。零点可能对应真正极点，也可能在分子中抵消；此时应称为候选异常点。}
+\begin{paperpropositionen}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$. The eight matrix functions defined by (2.88) have these properties.
+\begin{enumerate}[label=(\alph*)]
+\item $M_n$ is well-defined for $x\in\mathbb R$, $k\in\overline D_n\setminus\mathcal Q$; for each such $k$ it is smooth in $x$ and satisfies (2.13).
+\item For each $x$, $M_n$ is continuous on $\overline D_n\setminus\mathcal Q$ and analytic on $D_n\setminus\mathcal Q$.
+\item For any $\varepsilon>0$, a constant $C$ depending on $\varepsilon$ gives (2.90).
+\item For each $x$ and positive integer $j$, $\partial_k^j M_n$ extends continuously to $\overline D_n\setminus\mathcal Q$.
+\item $\det M_n(x,k)=1$ for $x\in\mathbb R$, $k\in\overline D_n\setminus\mathcal Q$.
+\item $M$ has the two symmetries (2.91), where $A,B$ are given by (2.12).
+\item With $M^A=(M^{-1})^{\mathsf T}$, identity (2.92) holds, where $J=\operatorname{diag}(\ii,-1,-\ii,1)$.
+\end{enumerate}
+\end{paperpropositionen}
+\begin{paperpropositioncn*}
+上述矩阵在异常集之外有唯一的光滑空间解，逐扇区解析、连续到边界，谱导数也连续到边界；其行列式恒为一，满足循环、共轭和伴随三组对称关系，并有下列有界估计。
+\end{paperpropositioncn*}
+\begin{align}
+|M_n(x,k)|&\leq C,\quad x\in\mathbb R,\ k\in\overline D_n,\quad\operatorname{dist}(k,\mathcal Q)\geq\varepsilon,\originaleq{2.90}\\
+M(x,k)&=AM(x,\ii k)A^{-1}=BM^*(x,k^*)B,\originaleq{2.91}\\
+JM(x,-k)J^{-1}&=M^A(x,k).\originaleq{2.92}
+\end{align}
+\begin{proof}
+\EN{We prove the proposition for $n=1$. Consider the fourth column. Define $H(x)=1$ for $x>0$ and $H(x)=0$ for $x\leq0$, and put $w_i=(M_1)_{i4}$. Equation (2.88) becomes}
+\CN{只证明原文展开的 $n=1$。沿用原证明的阶跃函数 $H$，第四列写成}
+\begin{equation}\originaleq{2.93}
+w_i(x)=\delta_{i4}+\int_{-\infty}^{+\infty}\sum\limits_{l=1}^4K(x,x',k)_{il}w_l(x')\dd x',
+\qquad i=1,\ldots,4,
+\end{equation}
+\EN{where the kernel is given by}
+\CN{其中混合积分方向由核的正负号体现：}
+\begin{equation}\originaleq{2.94}
+K(x,x',k)_{il}=\begin{cases}
+H(x-x')e^{(x-x')(l_i-l_4)}(U_2)_{il}(x',k),&\gamma_{i4}^1=\gamma_1,\\
+-H(x'-x)e^{(x-x')(l_i-l_4)}(U_2)_{il}(x',k),&\gamma_{i4}^1=\gamma_2.
+\end{cases}
+\end{equation}
+\EN{Let $\varepsilon>0$ and $\overline D_1^\varepsilon=\overline D_1\setminus\{|k|\leq\varepsilon\}$. There is a positive Schwartz majorant $\widetilde b_1(x)$ for $|U_2(x,k)|$. Combining (2.94), there exists $\widetilde b\in\mathcal S(\mathbb R)$ giving (2.95).}
+\CN{离开原点后，$U_2$ 由可积快速下降函数控制；指数的模不超过一。因此原文的估计为}
+\begin{equation}\originaleq{2.95}
+|K(x,x',k)_{il}|\leq\widetilde b(x),\qquad x,x'\in\mathbb R,\ k\in\overline D_1^\varepsilon.
+\end{equation}
+\begin{note}
+此式右端变量印错，应为 $\widetilde b(x')$。核含的是 $U_2(x',k)$；后续 (2.97)、(2.101) 也实际使用 $x'$。以下证明使用这一改正。
+\end{note}
+\EN{Set $K^{(0)}=1$, and for $m\geq1$ define the determinant kernel by (2.96). Hadamard's inequality gives (2.97).}
+\CN{定义行列式核；右端写成元素索引形式，与原文展开的矩阵完全相同。}
+\begin{equation}\originaleq{2.96}
+K^{(m)}\left(\begin{matrix}x_1,i_1,\ldots,x_m,i_m\\x'_1,i'_1,\ldots,x'_m,i'_m\end{matrix};k\right)
+=\det\left[K(x_a,x'_b,k)_{i_ai'_b}\right]_{a,b=1}^m.
+\end{equation}
+\begin{equation}\originaleq{2.97}
+\left|K^{(m)}\left(\begin{matrix}x_1,i_1,\ldots,x_m,i_m\\x'_1,i'_1,\ldots,x'_m,i'_m\end{matrix};k\right)\right|
+\leq m^{\frac{m}{2}}\prod\limits_{b=1}^m\widetilde b(x'_b).
+\end{equation}
+\proofstep{Hadamard 不等式的依据。}
+对矩阵的列逐次作正交化，行列式的绝对值等于各正交分量长度的乘积，而每个正交投影后的长度不超过原列长度。因此 $\displaystyle |\det C|\leq\prod\|C_b\|_2$。
+这里第 $b$ 列长度至多 $\sqrt m\widetilde b(x'_b)$，相乘即得 (2.97)。这一证明也适用于复矩阵，正交化使用 Hermitian 内积，最终不改变行列式绝对值。
+\EN{Now define the Fredholm determinant and Fredholm minor related to (2.93):}
+\CN{定义 Fredholm 行列式（Fredholm determinant）及第一子式（Fredholm minor）：}
+\begin{align}
+\widetilde f(k)&=\sum\limits_{m=0}^\infty\widetilde f^{(m)}(k),\originaleq{2.98}\\
+\widetilde F(x,x',k)_{ii'}&=\sum\limits_{m=0}^\infty\widetilde F^{(m)}(x,x',k)_{ii'},\originaleq{2.99}
+\end{align}
+\EN{where their coefficients are given by}
+\CN{各项为}
+\begin{equation}\originaleq{2.100}
+\begin{aligned}
+\widetilde f^{(m)}(k)&=\dfrac{(-1)^m}{m!}\sum\limits_{i_1,\ldots,i_m=1}^4
+\int\limits_{\mathbb R^m}K^{(m)}\left(\begin{matrix}x_1,i_1,\ldots,x_m,i_m\\x_1,i_1,\ldots,x_m,i_m\end{matrix};k\right)\dd x_1\cdots\dd x_m,\\
+\widetilde F^{(m)}(x,x',k)_{ii'}&=\dfrac{(-1)^m}{m!}\sum\limits_{i_1,\ldots,i_m=1}^4
+\int\limits_{\mathbb R^m}K^{(m+1)}\left(\begin{matrix}x,i,x_1,i_1,\ldots,x_m,i_m\\x',i',x_1,i_1,\ldots,x_m,i_m\end{matrix};k\right)\dd x_1\cdots\dd x_m.
+\end{aligned}
+\end{equation}
+\EN{It is easy to verify the following estimates.}
+\CN{利用共有 $4^m$ 个指标组合并逐变量积分，得到}
+\begin{equation}\originaleq{2.101}
+\begin{aligned}
+|\widetilde f^{(m)}(k)|&\leq\dfrac{4^m m^{\frac{m}{2}}\|\widetilde b\|_1^m}{m!},\\
+|\widetilde F^{(m)}(x,x',k)_{ii'}|&\leq\dfrac{4^m(m+1)^{\frac{m+1}{2}}\|\widetilde b\|_1^m\widetilde b(x')}{m!}.
+\end{aligned}
+\end{equation}
+\EN{Thus the determinant and minor are well-defined. Analysis as in [22,32] gives the solution}
+\CN{所以级数定义良好；非零行列式处的解为}
+\begin{equation}\originaleq{2.102}
+w_i(x)=\delta_{i4}+\dfrac{1}{\widetilde f(k)}\int_{\mathbb R}\widetilde F(x,x',k)_{i4}\dd x'.
+\end{equation}
+\proofstep{补足级数收敛与解公式。}
+由 $\log m!=\displaystyle\sum\limits_{r=1}^m\log r\geq\int_1^m\log s\dd s=m\log m-m+1$，有 $m!\geq(m/e)^m$。
+故 (2.101) 第一项至多 $(4e\|\widetilde b\|_1/\sqrt m)^m$，根值判别法给出收敛；第二项只有额外多项式因子，也收敛。
+在紧谱集上可选共同控制函数，因此逐项积分、局部一致求和及解析延拓合法。
+
+解公式可从行列式沿第一行的 Laplace 展开直接验证：零阶项为 $K$，高阶展开将第一行配到外部列与内部列，分别产生 $\widetilde f K$ 和 $K\widetilde F$。整理得
+\[
+\widetilde F(x,y)=\widetilde f K(x,y)+\int_{\mathbb R}K(x,z)\widetilde F(z,y)\dd z.
+\]
+把它对 $y$ 积分并除以 $\widetilde f$，代入 (2.102)，正好得到 (2.93)。
+同样按第一列展开得 $\widetilde F=\widetilde f K+\widetilde F K$。
+若齐次解满足 $w=Kw$，两式说明 $I+\widetilde F/\widetilde f$ 是 $I-K$ 的双侧逆，故 $w=0$，唯一性成立。
+这些乘积均先在有界函数上理解；控制函数可积保证 Fubini 换序。
+
+谱导数使核增加 $(x-x')^r$；固定 $x$ 时，Schwartz 位势提供所需各阶矩，故得 (d)。
+对 $x$ 求导恢复 (2.13)，再反复使用光滑位势得 (a)。估计 (2.101) 与非零行列式的连续性给出局部有界性；无穷远处用 $\|K\|\leq C/|k|$ 的 Neumann 逆得到一致有界性，再与紧集覆盖合并即得 (c)。
+\EN{The same analysis applies to columns 1, 2 and 3, proving (a)--(d). To prove (e), the matrix of integration contours for $D_1$ is}
+\CN{其余三列同理，得到前四项。为证明行列式，$D_1$ 的方向矩阵为}
+\begin{equation}\originaleq{2.103}
+\gamma=\begin{pmatrix}\gamma_2&\gamma_2&\gamma_1&\gamma_1\\\gamma_1&\gamma_2&\gamma_1&\gamma_1\\\gamma_2&\gamma_2&\gamma_2&\gamma_1\\\gamma_2&\gamma_2&\gamma_2&\gamma_2\end{pmatrix}.
+\end{equation}
+\EN{Consequently, as $x\to+\infty$,}
+\CN{于是空间正无穷端具有如下三角形状：}
+\begin{equation}\originaleq{2.104}
+M_1(x,k)\longrightarrow\begin{pmatrix}1&0&*&*\\ *&1&*&*\\0&0&1&*\\0&0&0&1\end{pmatrix}.
+\end{equation}
+\EN{The trace of $U_2$ is zero, so standard ODE theory shows that $\det M_n$ is independent of $x$. Combining (2.104) proves (e). The symmetries follow because both sides satisfy the same Fredholm equations and uniqueness applies.}
+\CN{更准确地，(2.104) 的星号只需有界，未必在 Stokes 边界有极限；非星号项具有所列极限。按实部排序同时置换行列后，该矩阵为单位上三角形状，其行列式趋于一。
+又由 $M_x=(L+U_2)M-ML$，Jacobi 公式给出 $(\det M)_x=(\operatorname{tr}(L+U_2)-\operatorname{tr}L)\det M=0$，故恒为一。
+对称式逐一代入核：$k\mapsto\ii k$ 配合 $A$ 置换、$k\mapsto k^*$ 配合 $B$ 共轭、$k\mapsto-k$ 配合 $J$ 和逆转置，都保持相应归一化与方向。非异常点的唯一性给出 (f)、(g)。}
+\end{proof}
+\EN{Only the fourth-column Fredholm determinant was defined in the proof. For a general column $j$, it is}
+\CN{一般第 $j$ 列的行列式写为}
+\begin{equation}\originaleq{2.105}
+\widetilde f_j(k)=\sum\limits_{m=0}^\infty\dfrac{(-1)^m}{m!}\sum\limits_{i_1,\ldots,i_m=1}^4
+\int\limits_{\mathbb R^m}\det[K_j(x_a,x_b,k)_{i_ai_b}]_{a,b=1}^m\dd x_1\cdots\dd x_m,
+\end{equation}
+\EN{Here $K_j$ is given by (2.94) with $l_4,\gamma_{i4}^1$ replaced by $l_j,\gamma_{ij}^1$. Each term has an estimate like (2.101), so $\widetilde f_j$ is analytic in $D_1$, continuous to $\overline D_1\setminus\{0\}$, and not identically zero. It therefore has at most countably many zeros in $D_1$, and $M_1$ has at most countably many poles there.}
+\CN{将第四列核中的指标 4 换成 $j$ 即得 $K_j$。大谱参数时 $K_j=O(k^{-1})$，故 $\widetilde f_j\to1$，不是恒零函数。解析函数的孤立零点在每个紧子集中有限；用可数紧集穷尽开域，得到至多可数个零点。商式 (2.102) 因此为亚纯函数。边界零点无需孤立于边界，后文另作无谱奇点假设。}
+\EN{As before, the asymptotic properties at infinity are obtained from the formal series with the indicated boundary conditions.}
+\CN{仍用形式级数和逐项归一化求大谱参数展开：}
+\begin{equation}\originaleq{2.106}
+M_{n,\mathrm{formal}}=I+\dfrac{M_{n,1}(x)}{k}+\dfrac{M_{n,2}(x)}{k^2}+\cdots.
+\end{equation}
+\begin{equation}\originaleq{2.107}
+\begin{cases}\displaystyle\lim\limits_{x\to-\infty}(M_{n,l})_{ij}=0,&\gamma_{ij}^n=\gamma_1,\\
+\displaystyle\lim\limits_{x\to+\infty}(M_{n,l})_{ij}=0,&\gamma_{ij}^n=\gamma_2.
+\end{cases}
+\end{equation}
+\EN{Since $\gamma_{ii}^n=\gamma_2$, we find $M_{n,j}=\mu_+^{[j]}$ for every $n,j$. Following [22, Lemma 4.3], the following lemma can be proved.}
+\CN{对角项均在正无穷归一化；非对角项由递推代数确定。因而各区域具有相同的形式系数，等于 $\mu_+$ 的系数。}
+\begin{paperlemmaen}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$ and $u_0,v_0\not\equiv0$. For any integers $j\geq0$ and $p\geq1$, there is $R\geq0$ such that (2.108) holds.
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+原文给出 $M$ 及其谱导数的大谱参数渐近估计如下。
+\end{paperlemmacn*}
+\begin{equation}\originaleq{2.108}
+\left|\partial_k^j\left(M(x,k)-I-\sum\limits_{l=1}^p\dfrac{\mu_+^{[l]}(x)}{k^l}\right)\right|
+\leq\dfrac{C}{|k|^{p+1}},\qquad x\in\mathbb R,\ k\in\mathbb C\setminus\Gamma,\ |k|\geq R.
+\end{equation}
+\begin{proof}
+\proofstep{系数相同与余项估计。}
+将级数代入 $M_x-k[J,M]=U_2M$，比较各次幂，得到与 (2.19) 完全相同的递推。
+因 $J$ 的特征值互异，非对角分量由 $(J_{ii}-J_{jj})(M_{n,r+1})_{ij}$ 唯一确定；对角分量的一阶导数由前一阶确定，并以正无穷值零唯一积分。因此归纳得到所有 $M_{n,r}=\mu_+^{[r]}$。
+截到足够高阶后，余项方程的非齐次项为 $O(|k|^{-p-1})$，其空间导数与加权 $L^1$ 范数也有同阶界。
+混合核在 $|k|$ 大时算子范数小于 $1/2$；逆算子 $\displaystyle\sum\limits_{r\geq0}K^r$ 的范数至多二，将残差代入便得 $j=0$ 的全空间估计。
+固定有界 $x$ 区间并求 $j$ 次谱导数，核中的空间差由位势的加权矩控制，再多截取 $j$ 阶即得所列阶数。
+\end{proof}
+\begin{note}
+\EN{Remark 7. A similar proof can be found in [16, Theorem 8.4], although the definition of $M$ differs.}
+\CN{注 7：原文指向另一构造中的相似证明。与命题 2.2 相同，若 $j\geq1$，(2.108) 同时要求全空间一致、一直逼近 Stokes 射线，需额外论证；边界振荡项的谱导数会产生 $x^j$。上面的证明对 $j=0$ 给出全空间界，对一般 $j$ 给出紧空间区间一致界；后文固定 $(x,t)$ 的重构只需后者。此处不将未建立的更强全局导数界当作已证事实。}
+\end{note}
+\EN{We next establish the relation between $M$ and $\mu_\pm$, which also gives information near zero. First introduce notation for minors.}
+\CN{接下来联系 $M$ 与 Jost 解，以研究原点；先约定子式记号。}
+\begin{paperdefinitionen}
+For an $n\times n$ matrix $C$, increasing row indices $i_1<\cdots<i_p$ and increasing column indices $k_1<\cdots<k_p$, define (2.109). Principal minors are abbreviated as in (2.110).
+\end{paperdefinitionen}
+\begin{paperdefinitioncn*}
+按严格递增的行、列指标取子矩阵并求行列式；主子式只写一组指标。
+\end{paperdefinitioncn*}
+\begin{align}
+C\left(\begin{matrix}i_1,\ldots,i_p\\k_1,\ldots,k_p\end{matrix}\right)&=\det[C_{i_ak_b}]_{a,b=1}^p,\originaleq{2.109}\\
+C(i_1,\ldots,i_p)&=C\left(\begin{matrix}i_1,\ldots,i_p\\i_1,\ldots,i_p\end{matrix}\right).\originaleq{2.110}
+\end{align}
+\begin{note}
+它们不是矩阵元素的集合，也不是子矩阵本身，而是标量行列式。下列大矩阵为避免嵌套尺寸过大，仍统一使用该原文记号。
+\end{note}
+\begin{paperlemmaen}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$ have compact support. Then (2.111) holds. The matrices $S_n,T_n$ are expressed by the elements of $s$; only $S_1,S_8,T_1,T_8$ are given, the others following by similar calculations.
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+紧支撑位势下，两种归一化基解通过空间常矩阵联系。仅列出原文展开的区域 1、8。
+\end{paperlemmacn*}
+\begin{equation}\originaleq{2.111}
+M_n=\mu_+e^{x\widehat L}(T_n)=\mu_-e^{x\widehat L}(S_n).
+\end{equation}
+\begin{equation}\originaleq{2.112}
+\begin{gathered}
+S_1=\begin{pmatrix}
+\dfrac{s(1,2)}{s_{22}}&s_{12}&0&0\\
+0&s_{22}&0&0\\
+-\dfrac{s\left(\begin{smallmatrix}2,3\\1,2\end{smallmatrix}\right)}{s_{22}}&s_{32}&\dfrac{s(1,2,3)}{s(1,2)}&0\\
+-\dfrac{s\left(\begin{smallmatrix}2,4\\1,2\end{smallmatrix}\right)}{s_{22}}&s_{42}&\dfrac{s\left(\begin{smallmatrix}1,2,4\\1,2,3\end{smallmatrix}\right)}{s(1,2)}&\dfrac{1}{s(1,2,3)}
+\end{pmatrix},\\[5pt]
+T_1=\begin{pmatrix}
+1&0&\dfrac{s\left(\begin{smallmatrix}1,2\\2,3\end{smallmatrix}\right)}{s(1,2)}&-\dfrac{s\left(\begin{smallmatrix}1,2,3\\2,3,4\end{smallmatrix}\right)}{s(1,2,3)}\\
+-\dfrac{s_{21}}{s_{22}}&1&-\dfrac{s\left(\begin{smallmatrix}1,2\\1,3\end{smallmatrix}\right)}{s(1,2)}&\dfrac{s\left(\begin{smallmatrix}1,2,3\\1,3,4\end{smallmatrix}\right)}{s(1,2,3)}\\
+0&0&1&-\dfrac{s\left(\begin{smallmatrix}1,2,3\\1,2,4\end{smallmatrix}\right)}{s(1,2,3)}\\
+0&0&0&1
+\end{pmatrix}.
+\end{gathered}
+\end{equation}
+\begin{note}
+原文 (2.112) 的 $(T_1)_{21}$ 印为 $-s_{12}/s_{22}$；由 $S_1=sT_1$ 第二行第一列必须为零，正确值为 $-s_{21}/s_{22}$，此处主公式采用校正值。其余式仍照原文子式次序。
+\end{note}
+\begin{equation}\originaleq{2.113}
+\begin{gathered}
+S_8=\begin{pmatrix}
+\dfrac{s(1,2,3)}{s(2,3)}&s_{12}&-\dfrac{s\left(\begin{smallmatrix}1,2\\2,3\end{smallmatrix}\right)}{s_{22}}&0\\
+0&s_{22}&0&0\\
+0&s_{32}&\dfrac{s(2,3)}{s_{22}}&0\\
+\dfrac{s\left(\begin{smallmatrix}2,3,4\\1,2,3\end{smallmatrix}\right)}{s(2,3)}&s_{42}&\dfrac{s\left(\begin{smallmatrix}2,4\\2,3\end{smallmatrix}\right)}{s_{22}}&\dfrac{1}{s(1,2,3)}
+\end{pmatrix},\\[5pt]
+T_8=\begin{pmatrix}
+1&0&0&-\dfrac{s\left(\begin{smallmatrix}1,2,3\\2,3,4\end{smallmatrix}\right)}{s(1,2,3)}\\
+-\dfrac{s\left(\begin{smallmatrix}2,3\\1,3\end{smallmatrix}\right)}{s(2,3)}&1&-\dfrac{s_{23}}{s_{22}}&\dfrac{s\left(\begin{smallmatrix}1,2,3\\1,3,4\end{smallmatrix}\right)}{s(1,2,3)}\\
+\dfrac{s\left(\begin{smallmatrix}2,3\\1,2\end{smallmatrix}\right)}{s(2,3)}&0&1&-\dfrac{s\left(\begin{smallmatrix}1,2,3\\1,2,4\end{smallmatrix}\right)}{s(1,2,3)}\\
+0&0&0&1
+\end{pmatrix}.
+\end{gathered}
+\end{equation}
+\begin{proof}
+\EN{For compactly supported potentials, $\mu_\pm$ and $s$ are analytic on $\mathbb C\setminus\{0\}$. Since $\mu_\pm e^{xL}$ and $M_ne^{xL}$ are fundamental solutions, there exist matrices independent of $x$ giving}
+\CN{空间方程的两个可逆基本解之比为常矩阵，故}
+\begin{equation}\originaleq{2.114}
+M_n=\mu_+e^{x\widehat L}(T_n)=\mu_-e^{x\widehat L}(S_n),\qquad k\in\overline D_n\setminus\mathcal Q.
+\end{equation}
+\EN{Beyond the support the normalized Jost matrix is the identity, so the following limits exist.}
+\CN{在位势支撑外，去掉自由指数后不再随空间变化，因此}
+\begin{equation}\originaleq{2.115}
+S_n=\lim\limits_{x\to-\infty}e^{-x\widehat L}(M_n),\qquad
+T_n=\lim\limits_{x\to+\infty}e^{-x\widehat L}(M_n).
+\end{equation}
+\EN{Now derive $S_1,T_1$. Proposition 2.4(g) and (2.114) give}
+\CN{连接关系给出有限维分解}
+\begin{equation}\originaleq{2.116}
+s=S_1T_1^{-1},\qquad\text{即 }sT_1=S_1.
+\end{equation}
+\EN{Equations (2.115), (2.88) imply $(S_1)_{ij}=0$ if $\gamma_{ij}^1=\gamma_1$, and $(T_1)_{ij}=\delta_{ij}$ if $\gamma_{ij}^1=\gamma_2$. Thus (2.116) is a system of sixteen linear equations in sixteen unknowns. Solving gives the displayed expressions. Other sectors are obtained similarly.}
+\CN{方向矩阵规定一部分 $S$ 元素为零、相应 $T$ 元素为单位阵元素，剩下的是逐列线性方程。}
+\proofstep{逐列消元，说明每个分母与符号的来源。}
+对 $D_1$，第二列 $T_{1,2}=e_2$，故 $S_{1,2}=s_2$。
+第一列为 $e_1+t_{21}e_2$；零条件 $s_{21}+s_{22}t_{21}=0$ 给出 $t_{21}=-s_{21}/s_{22}$。
+于是第 1、3、4 行分别为
+\[
+s_{11}-\dfrac{s_{12}s_{21}}{s_{22}}=\dfrac{s(1,2)}{s_{22}},\qquad
+s_{a1}-\dfrac{s_{a2}s_{21}}{s_{22}}=-\dfrac{s\left(\begin{smallmatrix}2,a\\1,2\end{smallmatrix}\right)}{s_{22}},\quad a=3,4.
+\]
+第三列为 $t_{13}e_1+t_{23}e_2+e_3$，上两行的零条件是
+\[
+\begin{pmatrix}s_{11}&s_{12}\\s_{21}&s_{22}\end{pmatrix}
+\begin{pmatrix}t_{13}\\t_{23}\end{pmatrix}=-\begin{pmatrix}s_{13}\\s_{23}\end{pmatrix}.
+\]
+Cramer 法则给出 (2.112) 中这两个子式分式；代回第 3、4 行，用三阶行列式沿末列展开，即得 $S_{33},S_{43}$。
+第四列前三个分量由左上三阶块乘 $t_{14},t_{24},t_{34}$ 等于 $-(s_{14},s_{24},s_{34})^{\mathsf T}$ 决定。
+Cramer 法则依次给出负、正、负的三个子式；最后一行由 $\det s=1$ 得 $S_{44}=1/s(1,2,3)$。
+
+对 $D_8$，第二、四列与上面相同。第三列为 $t_{23}e_2+e_3$，第二行零条件给出 $t_{23}=-s_{23}/s_{22}$，代回即为 (2.113) 第三列。
+第一列为 $e_1+t_{21}e_2+t_{31}e_3$；令第 2、3 行为零：
+\[
+\begin{pmatrix}s_{22}&s_{23}\\s_{32}&s_{33}\end{pmatrix}
+\begin{pmatrix}t_{21}\\t_{31}\end{pmatrix}=-\begin{pmatrix}s_{21}\\s_{31}\end{pmatrix}.
+\]
+两次 Cramer 展开给出 $T_8$ 第一列，代入第 1、4 行即得两个三阶子式除以 $s(2,3)$。至此原文列出的四个矩阵全部核出；其余区域按循环与共轭对称同理，不另铺列。
+\end{proof}
+\EN{For the cutoff data (2.69), a counterpart of Lemma 2.5 is as follows.}
+\CN{截断初值的散射矩阵与基本亚纯解也稳定收敛。}
+\begin{paperlemmaen}
+Assume $u_0,v_0\in\mathcal S(\mathbb R)$. Denote their scattering matrices and eigenfunctions by $s,s^A,M_n$, and those of their cutoffs by $s^{(i)},(s^A)^{(i)},M_n^{(i)}$. Then (2.117)--(2.119) hold.
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+截断散射量在原散射量的各自定义域内收敛；亚纯解在非异常点收敛。
+\end{paperlemmacn*}
+\begin{align}
+\lim\limits_{i\to\infty}s^{(i)}(k)&=s(k),&&\text{逐元素在 (2.34) 的域内},\originaleq{2.117}\\
+\lim\limits_{i\to\infty}(s^A)^{(i)}(k)&=s^A(k),&&\text{逐元素在 (2.47) 的域内},\originaleq{2.118}\\
+\lim\limits_{i\to\infty}M_n^{(i)}(x,k)&=M_n(x,k),&&x\in\mathbb R,\ k\in\overline D_n\setminus\mathcal Q,\quad1\leq n\leq8.\originaleq{2.119}
+\end{align}
+\begin{proof}
+\EN{The proof is similar to [22, Lemma 4.5]. We omit details for brevity.}
+\CN{原文省略证明，现补足。}
+散射积分的差分为位势截断误差与 Jost 解之差两部分。第一部分由 $|1-\eta_i|(|u_0|+|v_0|)$ 控制，第二部分用推论 2.2 和共同可积控制函数，控制收敛得 (2.117)；伴随式同理。
+Fredholm 核满足 $K^{(i)}(x,y)=\eta_i(y)K(x,y)$，故每个行列式项多出各列因子 $\displaystyle \prod\eta_i$，逐项收敛。
+(2.101) 提供与 $i$ 无关的可求和上界，于是行列式及子式的和局部一致收敛。
+若极限行列式在固定点非零，则充分大 $i$ 时也非零，把两者代入 (2.102) 即得 (2.119)。共同紧集上的非零下界还给出局部一致收敛。
+\end{proof}
+\EN{Lemma 2.9 handled compact support. The following lemma gives the general case.}
+\CN{下一引理把紧支撑公式改写为可在一般 Schwartz 情形使用的张量表达。}
+\begin{paperlemmaen}
+Let $u_0,v_0\in\mathcal S(\mathbb R)$ and $M_n^A=(M_n^{-1})^{\mathsf T}$. Then the formulas (2.120), (2.121) hold, where $\Delta,\Xi$ are given by (2.64), (2.65).
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+区域 1、8 的矩阵及其逆转置由以下合法解析列与三重叉积给出。
+\end{paperlemmacn*}
+\begin{equation}\originaleq{2.120}
+\begin{aligned}
+M_1&=\left(-\dfrac{L(\mu_{-2}^A,\mu_{+3}^A,\mu_{+4}^A)}{s_{22}},\ \mu_{+2},\ -\dfrac{L(\mu_{-1}^A,\mu_{-2}^A,\mu_{+4}^A)}{\Delta},\ \dfrac{\mu_{-4}}{s_{44}^A}\right),\\
+M_1^A&=\left(-\dfrac{L(\mu_{+2},\mu_{-3},\mu_{-4})}{\Delta},\ \dfrac{\mu_{-2}^A}{s_{22}},\ -\dfrac{L(\mu_{+1},\mu_{+2},\mu_{-4})}{s_{44}^A},\ \mu_{+4}^A\right).
+\end{aligned}
+\end{equation}
+\begin{equation}\originaleq{2.121}
+\begin{aligned}
+M_8&=\left(-\dfrac{L(\mu_{-2}^A,\mu_{-3}^A,\mu_{+4}^A)}{\Xi},\ \mu_{+2},\ -\dfrac{L(\mu_{+1}^A,\mu_{-2}^A,\mu_{+4}^A)}{s_{22}},\ \dfrac{\mu_{-4}}{s_{44}^A}\right),\\
+M_8^A&=\left(-\dfrac{L(\mu_{+2},\mu_{+3},\mu_{-4})}{s_{44}^A},\ \dfrac{\mu_{-2}^A}{s_{22}},\ -\dfrac{L(\mu_{-1},\mu_{+2},\mu_{-4})}{\Xi},\ \mu_{+4}^A\right).
+\end{aligned}
+\end{equation}
+\begin{proof}
+\EN{First prove the identities for compactly supported cutoffs. Then take $i\to\infty$ and apply Lemma 2.5, Corollary 2.2 and Lemma 2.10. Thus assume compact support in the following calculation. Denote a matrix's $j$th column by $[A]_j$. Equation (2.111) gives $[M_1]_2=\mu_{+2}$ and $[M_1]_4=\mu_{-4}/s_{44}^A$.}
+\CN{先证明紧支撑公式，再利用截断收敛推广。第二、四列可由 $T_1,S_1$ 直接读出，且 $s_{44}^A=s(1,2,3)$。逆转置关系给出}
+\begin{equation}\originaleq{2.122}
+M_1^A=\mu_+^Ae^{-x\widehat L}(T_1^{-\mathsf T})=\mu_-^Ae^{-x\widehat L}(S_1^{-\mathsf T}).
+\end{equation}
+\EN{Direct calculation gives $[M_1^A]_2=\mu_{-2}^A/s_{22}$, $[M_1^A]_4=\mu_{+4}^A$. Write the undetermined columns as}
+\CN{余下列暂用原证明的 $\chi$ 表示：}
+\begin{equation}\originaleq{2.123}
+M_1=\left(\chi_1,\mu_{+2},\chi_3,\dfrac{\mu_{-4}}{s_{44}^A}\right),\qquad
+M_1^A=\left(\widetilde\chi_1,\dfrac{\mu_{-2}^A}{s_{22}},\widetilde\chi_3,\mu_{+4}^A\right).
+\end{equation}
+\EN{Applying Lemma 2.7 gives}
+\CN{由行列式等于一及逆转置叉积公式，}
+\begin{align}
+\chi_1&=-L\left(\dfrac{\mu_{-2}^A}{s_{22}},\widetilde\chi_3,\mu_{+4}^A\right),\originaleq{2.124}\\
+\widetilde\chi_1&=-L\left(\mu_{+2},\chi_3,\dfrac{\mu_{-4}}{s_{44}^A}\right).\originaleq{2.125}
+\end{align}
+\EN{With $\Delta=s(1,2)$, (2.111) also gives}
+\CN{紧支撑分解还给出}
+\begin{align}
+\chi_3&=\dfrac{s_{44}^A}{\Delta}\mu_{-3}-e^{x(l_4-l_3)}\dfrac{s_{34}^A}{\Delta}\mu_{-4},\originaleq{2.126}\\
+\chi_1&=\mu_{+1}-e^{x(l_2-l_1)}\dfrac{s_{21}}{s_{22}}\mu_{+2}.\originaleq{2.127}
+\end{align}
+\EN{Substitution of (2.126) into (2.125) gives (2.128); Lemma 2.7 gives (2.129), and substitution of (2.127) then gives (2.130).}
+\CN{将表达式代入，含重复列的叉积为零：}
+\begin{align}
+\widetilde\chi_1&=-\dfrac{L(\mu_{+2},\mu_{-3},\mu_{-4})}{\Delta},\originaleq{2.128}\\
+\widetilde\chi_3&=-L\left(\chi_1,\mu_{+2},\dfrac{\mu_{-4}}{s_{44}^A}\right),\originaleq{2.129}\\
+\widetilde\chi_3&=-\dfrac{L(\mu_{+1},\mu_{+2},\mu_{-4})}{s_{44}^A}.\originaleq{2.130}
+\end{align}
+\EN{Proposition 2.4(g) and $s^A=s^{-\mathsf T}$ imply}
+\CN{逆连接公式逐列展开为}
+\begin{equation}\originaleq{2.131}
+\mu_{-4}=e^{x(l_1-l_4)}s_{41}^A\mu_{+1}+e^{x(l_2-l_4)}s_{42}^A\mu_{+2}+e^{x(l_3-l_4)}s_{43}^A\mu_{+3}+s_{44}^A\mu_{+4}.
+\end{equation}
+\EN{Substituting it into (2.130) yields}
+\CN{于是前两项叉积消失，其余两项由逆转置公式化为}
+\begin{equation}\originaleq{2.132}
+\begin{aligned}
+\widetilde\chi_3
+&=-L(\mu_{+1},\mu_{+2},\mu_{+4})
+-e^{x(l_3-l_4)}\dfrac{s_{43}^A}{s_{44}^A}L(\mu_{+1},\mu_{+2},\mu_{+3})\\
+&=\mu_{+3}^A-e^{x(l_3-l_4)}\dfrac{s_{43}^A}{s_{44}^A}\mu_{+4}^A.
+\end{aligned}
+\end{equation}
+\EN{Finally combine (2.124) and (2.132) to obtain}
+\CN{代回后再次消去含重复列的项，得到}
+\begin{equation}\originaleq{2.133}
+\chi_1=-\dfrac{L(\mu_{-2}^A,\mu_{+3}^A,\mu_{+4}^A)}{s_{22}}.
+\end{equation}
+\EN{Only the third column of $M_1$ remains. It follows by the same technique; details are omitted. The expressions for $M_8,M_8^A$ follow similarly.}
+\CN{原文省略第三列及区域 8 的同类计算。第三列可由逆转置公式写为 $-L(\widetilde\chi_1,\mu_{-2}^A/s_{22},\mu_{+4}^A)$，再将 $\widetilde\chi_1$ 通过伴随连接公式展开；重复列项消失，剩下 $-L(\mu_{-1}^A,\mu_{-2}^A,\mu_{+4}^A)/\Delta$。
+对 $D_8$ 则从 (2.113) 的第二、四列开始，同样用引理 2.7 得到 (2.121)。所有分子在引理 2.6 的域内作为整体张量解析；截断收敛后公式推广到一般位势。}
+\end{proof}
+\EN{Lemma 2.11 shows that, apart from zero, singularities of $M_1$ come from zeros of $s_{22},s_{44}^A,\Delta$. Similar calculations determine the other sectors and hence $\mathcal Q$.}
+\CN{这给出异常点的散射解释。零分母只有在未被分子抵消时才是实际极点；区域 8 对应 $s_{22},s_{44}^A,\Xi$，其余由对称关系同理。}

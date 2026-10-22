@@ -1,0 +1,925 @@
+===== PDF PAGE 1 =====
+Nonlinear Dynamics (2026) 114:821
+https://doi.org/10.1007/s11071-026-12724-0
+
+ RESEARCH
+
+
+Inverse scattering transform and soliton solutions for the coupled
+Hirota-Maxwell-Bloch system with nonzero background
+
+Shuai Liu1 · Yaqing Liu1
+
+
+Received: 8 April 2026 / Revised: 21 May 2026 / Accepted: 1 June 2026 / Published online: 14 June 2026
+© The Author(s), under exclusive licence to Springer Nature B.V. 2026
+
+
+Abstract
+In this paper, we study the N-soliton solutions for Hirota-Maxwell-Bloch system (H-MB system) via Riemann-Hilbert
+approach. By a Lax pair of this system, the inverse scattering method is employed to construct a Riemann-Hilbert problem
+(RHP) for the H-MB system under a non-zero background, which is imposed only on the η component (with u, p →0 as
+x →±∞). From this RHP, the long-time asymptotics of the soliton is derived, and the N-soliton solutions are obtained,
+with explicit expressions given for the cases N = 1, 2, 3. Furthermore, the dynamical properties of the case where N = 1, 2
+are investigated, and the corresponding three-dimensional plots are presented. Compared with the conclusions reported under
+speciﬁc parameter choices, the results obtained in this paper are valid for general parameters α and β. This is of great
+signiﬁcance for the study of nonlinear pulse propagation in optical ﬁbers.
+
+Keywords Hirota-Maxwell-Bloch system · Solitons · Lax pair · Inverse scattering method · Riemann-Hilbert problem
+
+
+1 Introduction                                     The inverse scattering transform (IST) emergenced in the
+                                                                       late 1960s marked a turning point in the study of NLPDEs,
+The investigation about nonlinear phenomena occupies a    offering a systematic framework for solving initial value
+central position within contemporary theoretical and mathe-    problems associated with a family of equations now referred
+matical physics. A substantial number of fundamental phys-    to as integrable systems [3]. The IST can be interpreted as
+ical laws are expressed through nonlinear partial differential    a nonlinear counterpart to the Fourier transform employed
+equations (NLPDEs), which govern systems across diverse    in linear equations: it maps the evolution of initial data onto
+domains, including ﬂuid dynamics, plasma physics, nonlin-    a simpliﬁed linear evolution of associated scattering data,
+ear optics, condensed matter physics, and even biophysics    from which the solution may be reconstructed at arbitrary
+[1, 2]. In contrast to their linear counterparts, NLPDEs fre-     later times. This advancement paved the way for the iden-
+quently give rise to intricate and complex behaviors, notably    tiﬁcation of a broad class of integrable equations alongside
+the emergence of stable, localized wave structures capable of     their exact solutions, most notably the N-soliton solutions
+propagating without altering their form or speed. Among the     that capture the interactions among multiple solitons [4, 5].
+most notable of such structures are solitons, which originate    In the ensuing decades, a range of alternative powerful meth-
+from a precise balance between nonlinear effects and disper-    odshasemergedforconstructingexactsolutionstointegrable
+sion. Initially observed by John Scott Russell in 1834 as a   NLPDEs. These include the Hirota bilinear method, which
+“wave of translation” in a shallow water channel, the soliton    reformulates the NLPDE into a more tractable bilinear form
+concept was subsequently placed on a rigorous mathemat-     [6, 7], Bäcklund transformations, which enable the genera-
+ical footing with the formulation of the Korteweg-de Vries    tion of new solutions from pre-existing ones [8], and Darboux
+(KdV) equation.                                               transformations, which offer an algebraic means of solution
+                                                                construction. Such approaches have proved instrumental in
+                                                         uncovering a diverse array of exact solutions encompassing
+B Yaqing Liu                                                   multi-soliton solutions [9], breather solutions [10], and lump
+    liuyaqing@bistu.edu.cn                                        solutions [7], thereby deepening our comprehension of non-
+                                                                    linear wave phenomena.
+1   School of Applied Science, Beijing Information Science and
+    Technology University, Beijing 100192, China
+
+                                  123
+
+===== PDF PAGE 2 =====
+821  Page 2 of 16                                                                                                                                              S. Liu, Y. Liu
+
+
+  Among these analytical methodologies, the Riemann-    been extended to multi-component systems [33–35], nonlo-
+Hilbert (RH) approach has come to be recognized as an    cal equations [36], and equations from the KdV hierarchy,
+especially elegant and rigorous framework for addressing    such as the matrix modiﬁed KdV equation [37] and coupled
+integrable systems. The Riemann-Hilbert problem (RHP) is    extended modiﬁed KdV equations [38]. Additional notable
+to ﬁnd a matrix function, it is analytic on the complex plane,    models addressed successfully through the RH methodology
+and satisﬁes a prescribed jump condition along a given con-    comprise the massive Thirring model [22], the Degasperis-
+tour. The link between integrable systems and the RHP was    Procesi equation [39], and the short pulse equation [40]. This
+forged via a reformulation of the inverse scattering transform    substantial body of work attests to the robustness and far-
+[11]. From this examination, we can get the jump matrix and    reaching applicability of the RH method within the domain
+scattering data. Through the direct scattering process, the    of integrable systems.
+analytic properties of the eigenfunctions of the Lax pair are      This paper primarily investigates the following Hirota-
+understood. The IST problem is transformed into a matrix    Maxwell-Bloch system (H-MB) system, which constitute an
+RHP. Solving this problem then allows for the recovery of    integrable system of signiﬁcant physical importance:
+the potential function, namely, the solution to the NLPDE
+                                                            1[12].
+                                                                    ut = iα  2uxx + |u|2u + β  uxxx + 6|u|2ux + 2p,  The RH methodology presents several notable beneﬁts
+                                                                                                                            (1)
+relative to the classical IST approach, which is founded     px = 2iωp + 2uη,
+upon Gel’fand-Levitan-Marchenko  integral equations.  It                                                           ηx = − up∗+ u∗p  ,
+affords a more direct and unifying framework capable of
+accommodating a broader class of problems, including sce-   where u = u(x, t), p = p(x, t) and η = η(x, t) are com-
+narios involving non-zero boundary conditions [13, 14],    plex functions with (x, t) ∈R × R+, α, β and ω are real
+longtime asymptotic analysis [15], and solutions associ-    constants, and the superscript ‘*’ indicating complex conju-
+ated with higher order poles in the scattering data [1, 16].    gation. And u represents the electric ﬁeld envelope, p is the
+Speciﬁcally, this methodology has been successfully applied    polarization component, and η denotes the population inver-
+to investigate the Cauchy problems with step-like initial    sion component. The physical signiﬁcance of this system
+data, pole solutions, and the dynamic behaviors of soli-     lies in its description of ultrashort optical pulse propaga-
+ton solutions for various integrable systems, including the    tion within an erbium-doped nonlinear ﬁber. This model is
+nonlocal Hirota equation, the nonlocal combined nonlin-    a coupling of the Hirota and the Maxwell-Bloch equations.
+ear Schrödinger-Gerdjikov-Ivanov model, and three-coupled   The H-MB system is of great interest in nonlinear optics
+Lakshmanan-Porsezian-Danielmodel[17–19].Moreover,its    and optical communications, as it captures essential physical
+rigorous mathematical underpinnings have established it as     effects that become important for femtosecond pulse propa-
+an indispensable tool not only within the realm of integrable    gation. Understanding the soliton solutions of this system is
+systems but also across ostensibly disparate ﬁelds such as    crucial for predicting and controlling the behavior of these
+random matrix theory [11, 20, 21]. Within this framework,    ultrashort pulses, with potential applications in high-speed
+the derivation of N-soliton solutions is rendered particularly    optical switching and data transmission.
+efﬁcient. In the reﬂectionless scenario, wherein the jump      While the Maxwell-Bloch equations have been studied
+matrix becomes trivial, the problem of solving the RHP is    using the RH approach [34], and related spin systems have
+transformed into that of solving a system of linear equations,    also been investigated [41]. Studying the N-soliton solutions
+from which the N-soliton solution can be obtained, which    about the H-MB system using the RHP method is of great sig-
+typically appear in the form of determinants. [22].             niﬁcance. The coupling between the ﬁeld envelope (governed
+  The efﬁcacy and adaptability of the RH framework have   by the Hirota equation) and the atomic variables (governed
+been evidenced through its successful implementation across   by the Maxwell-Bloch equations) introduces additional com-
+a wide spectrum of integrable equations. This encompasses    plexity into the spectral problem and the subsequent analysis.
+numerous members of the nonlinear Schrödinger (NLS)   The primary motivation of this work is to apply the rigor-
+hierarchy, which serve as fundamental models in nonlin-    ous and systematic RH approach to the H-MB system to
+ear optics, plasma physics, and water waves. For example,    derive its N-soliton solutions explicitly. This endeavor not
+this method has been widely applied in deriving the N-    only extends the applicability of the RH method to another
+soliton solutions of the generalized NLS equation [23],    important physical model but also provides a deeper under-
+the Kundu-Eckhaus equation [15], the Kundu-type equation    standing of the nonlinear wave dynamics within this coupled
+[24], the novel Kundu-NLS equation [25], the Sasa-Satsuma    system. We study the H-MB system under the following con-
+equation and its generalizations [26–28], the Fokas-Lenells     ditions:
+equation [29], the Chen-Lee-Liu equation [30, 31], and
+higher-order NLS equations [16, 32]. The method has also   u = 0, p = 0, η = 1, x →±∞.                       (2)
+
+123
+
+===== PDF PAGE 3 =====
+Inverse scattering transform and soliton solutions for the…                                                           Page 3 of 16  821
+
+
+                                                           −αi −4βu                                                                                               4iβ  0  Compared with existing studies on the H-MB system,                                                                                                                                                                              .                                                          V2 =                                                                                                                    ,  V3 =                                                             4βu∗   αi              0 −4iβwhich predominantly focus on soliton solutions under a zero
+background [42], this work lies in the successful construction
+                                                        That is to say, the compatibility condition Yxt = Ytx (orof N-soliton solutions under a nonzero background speciﬁ-
+                                                       Ut −Vx + [U, V ] = 0, where [U, V ] = UV −VU) of thecally imposed on the η component using the RH approach.
+                                                 Lax pair (3) holds if and only if the potential functions u, p,This provides a more realistic representation of ultrashort
+                                                 η satisfy Eq. (1). Notably, the matrix U0 is anti-Hermitianpulse propagation in active optical ﬁbers. While Darboux
+                                                     and the trace is zero, i.e.transformations are commonly used to ﬁnd soliton solutions,
+the RH approach employed here provides a more compre-
+                                   U 0† = −U0,  tr(U0) = 0.                                (4)hensive analytical framework.  It not only allows for the
+derivation of explicit N-soliton solutions but also facilitates
+the rigorous analysis of scattering data symmetries and, cru-     The asymptotic condition (2) implies that
+cially, the long-time asymptotic behavior, which is often
+absent in studies utilizing other methods.                   Y(x, t, λ) = e−θ(x,t,λ)σ3,  x →±∞,                   (5)
+  The structure of this paper is as follows: Sects.2.1 and2.2,
+we presents the Lax pair, Jost solutions, the scattering matrix,   where θ(x, t, λ) = iλx −i 4βλ3 −αλ2 + λ+ω1     t. It is then
+and the adjoint Jost solutions. Section2.3 constructs the RHP    natural to introduce the expression Y as
+and considers the solutions of the H-MB system by regular
+and non-regular. Section3 calculates the asymptotic behavior    Y(x, t, λ) = J(x, t, λ)e−θ(x,t,λ)σ3.                       (6)
+of the solutions to the H-MB system. Section4 provides the
+explicit expressions for the N-soliton solutions, along with                                                                Substituting this transformation into (3) yields
+corresponding graphical illustrations of the soliton solutions.
+Section5 computes the inﬁnite conservation laws associated                                                                  Jx = −iλ[σ3, J] + U0J,                                 (7)
+with the H-MB system. Finally, Sect.6 presents the conclu-
+sion of this article.
+                                                     and
+
+                                                                                                                                  i
+                                                                                 Jt = (4βλ3i −αλ2i +            J] + Q0J,           (8)2 Inverse scattering transform method                          λ + ω)[σ3,
+
+2.1 Hirota–Maxwell–Bloch system                     where Q0 = αλ2iσ3+λ2V2+λV1+V0+ λ+ωi V−1− λ+ωσ3.i
+
+As an integrable system within the multi-component AKNS    2.2 Riemann–Hilbert formulation
+framework [43], Eq. (1) admit a Lax pair of the following
+form:                                             To formulate the RHP for the H-MB system (1), the matrix-
+                                                          valued functions J± are introduced as two solutions to Eq.
+⎧                                                                     (7):
+⎨ Yx = UY, U = −iλσ3 + U0,
+                                          1           (3)
+⎩ Yt = V Y,  V = λ3V3 + λ2V2 + λV1 + V0 + i      V−1,                                     λ + ω         J−=  J− 1 , J− 2  ,                                   (9)
+                                                   J+ =  J+ 1 , J+ 2  .                               (10)where λ ∈C is the spectral parameter, Y = Y(x, t, λ) is
+                            1 0
+a matrix-valued function, σ3 =             is the third Pauli   They satisfy
+                            0 −1
+matrix, and the potential matrices U0, V−1, V0, V1, V2, V3
+                                                       J±(x, λ) →I,  x →±∞,                          (11)are given by
+
+                                                    where let [J±]1 and [J±]2 be the ﬁrst and second columns of
+         0  u             η −p                    J±, and I is the identity matrix. Introduce the matrix U0 =               ,  V−1 =                  ,      −u∗0         −p∗−η
+    ⎛                            ⎞        α                           α
+              i|u|2 −β(uu∗t −utu∗)   2β|u|2u +   iut + βutt      E(x, λ) = e−iλσ3x,                                   (12)         2                               2 V0 = ⎜⎝          α                                     ⎟⎠,
+        −2β|u|2u +   iu∗t −βu∗tt −α i|u|2 + β(uu∗t −utu∗)     and the Jost functions                   2            2
+           −2βi|u|2   αu −2βiut                                                 , V1 =                                  = J−E,   = J+E.                              (13)       −αu∗−2βiu∗t   2βi|u|2
+
+                                  123
+
+===== PDF PAGE 4 =====
+821  Page 4 of 16                                                                                                                                              S. Liu, Y. Liu
+
+It can be shown that   and   are solutions of the spatial part    For λ ∈C+, it is analytic, where
+of Lax pair (3), i.e.
+                                                          1 0           0 0
+                                                H1 =          ,  H2 =            .                      (25)Yx + iλσ3Y = U0Y.                                  (14)          0 0           0 1
+
+When Eq. (14) is a homogeneous, i.e. U0Y = 0, the solution    Also, (15)–(16) yields that for λ ∈C+,
+is E. Combining this with the condition (2), we obtain the
+Volterra integral:                             P+ →I,  λ →∞.                                 (26)
+
+                       x
+J−(x, λ) = I +     eiλσ3(y−x)U0(y)J−(y, λ)eiλσ3(x−y)dy,   On the other hand, the analogue of P−in the region C−is
+          −∞                                         constructed by setting
+                                                     (15)
+          ∞                         ⎛    ⎞      ⎛    ⎞
+                                                               −1                                                                                  −1
+                                                                    J−                                                                                        J+J+(x, λ) = I −                    eiλσ3(y−x)U0(y)J+(y, λ)eiλσ3(x−y)dy.
+                                                                                                            1 ⎠.            (27)                     x                                                          J−−1 = ⎝                                                                                    1 ⎠,  J+−1 = ⎝                                                               −1                                                                                  −1
+                                                     (16)              J−                  J+
+                                                                                    2                       2
+
+For instance, setting [J−]1 = (ϕ1, ϕ2)T , we have                Then, using the relation
+
+                      x
+ϕ1(x, λ) = 1 +     u(y)ϕ2(y, λ)dy,                 (17)   0 =  J J −1  = Jx J −1 + J  J −1    ,                (28)
+          −∞                                                                   x                           x
+                    x
+ϕ2(x, λ) = −     u∗(y)ϕ1(y, λ)e2iλ(x−y)dy.         (18)    and ﬁnding matrix-valued functions J±−1 satisfy the adjoint         −∞
+                                                                  scattering problem corresponding to (7):
+   Thus, the analyticity of J± are given
+                                               Kx = −iλ[σ3, K] −KU0.                            (29)
+ • [J−]1 and [J+]2 are analytic in D+ = {λ ∈C | Im λ >
+    0}, and can be continuously extended to real axis R.           Similarly, the analytic of J±−1 are as follows:
+ • [J+]1 and [J−]2 are analytic in D−= {λ ∈C | Im λ <
+    0}, and can be continuously extended to real axis R.            −1        −1                                                    •  J+    and  J−    are analytic in D+ = {λ | Im λ >
+                                                                              1            2
+                                                                        0}, and can be continuously extended to real axis R.
+   Since both   (x, λ) and   (x, λ) are the solutions of Eq.
+                                                                                       are analytic in D−= {λ | Im λ <                                                    •  J−−1                                                               and  J+−1(13). So, existing S(λ) satisﬁes                                                                              1                                                                                            2
+                                                                        0}, and can be continuously extended to real axis R.
+  (x, λ) =   (x, λ)S(λ),  λ ∈R,                     (19)
+                                                          Writing the inverses  −1(x, λ) and  −1(x, λ) as row vectors
+i.e.
+                                                      −1     φ1      −1    ψ1                                    =         ,    =            .                    (30)J−E = J+ES,  λ ∈R.                              (20)                                                              φ2            ψ2
+
+Writing   (x, λ) and   (x, λ) as column vectors                                                        Then, according to Eq. (20)
+
+ = (φ1, φ2),   = (ψ1, ψ2).                       (21)         −1            −1                                             E−1J− = R(λ)E−1J+  ,  λ ∈R,                   (31)
+
+By Liouville’s identity and combining with (4), we obtain
+                                                    where R(λ) = (ri j)2×2 = S−1. Deﬁne
+
+det J±(x, λ) = 1.                                    (22)      ⎛    ⎞
+                                                              −1
+                                                                   J−
+                                P−= ⎝                                                                                    1 ⎠= H1J−+−1  H2J+−1 ,               (32)Then the relation (19) implies that                                                              −1
+                                                                   J+
+                                                                                    2
+det S(λ) = 1,  λ ∈R.                               (23)
+                                                    which is analytic for λ ∈C−and satisﬁes the asymptotic
+Deﬁne                                                       condition as follows:
+
+P+ =  J− 1 , J+ 2 = J−H1 + J+H2.              (24)  P−→I,  λ ∈C−, λ →∞.                        (33)
+
+123
+
+===== PDF PAGE 5 =====
+Inverse scattering transform and soliton solutions for the…                                                           Page 5 of 16  821
+
+In summary, the matrix-valued functions     ,     ,   −1, and    • Normalization condition: for λ ∈C\R,
+  −1 expressed according to their regions of analyticity as
+follows:                                                 P(x, λ) →I,  λ →∞.                          (43)
+
+   = (φ+1 , φ−2 ),   = (ψ−1 , ψ+2 ),                  (34)       In addition, from the normalization condition (43), we can                                                    assume that
+  −1    φ−1       −1   ψ+1   =          ,    =           ,                   (35)
+                                                        + O(λ−2),  λ →∞,  λ ∈C±,     (44)       φ+2          ψ−2                              P±(x, λ) = I + λ−1 P±1 (x)
+
+where the superscripts ‘±’ indicate the respective half-planes    where P±1 (x) is independent of λ. Substituting (44) into (7)
+of analyticity. And the Eq. (19) implies that                 and (29) and then equating coefﬁcients of like powers of λ
+                                                                yields
+     −1    ψ+1S =    =       (φ+1 , φ−2 ),                      (36)          ψ−2                                   λ−1 :  P+1,x = U0P+1 ,                               (45)
+           φ−1R =  −1 =               (ψ−1 , ψ+2 ).                      (37)   λ :    0 = −i[σ3, I],                                (46)           φ+2                                                       λ0 :  0 = −i[σ3, P+1 ] + U0,   0 = −i[σ3, P−1 ] −U0.
+                                                                                                                   (47)
+  Hence, the analytic properties of S and R be readily
+deduced from Eqs. (36)–(37) as follows:
+                                                       Hence, P+1 (x) be expressed as
+
+ • s11 and s22 are analytic in C+ and C−, respectively.                             x
+                                                                                        u(x)                                                            1   −∞(|u(y)|)2 dy                                                                                                                                          ,    (48)                                                   ∞ • r11 and r22 are analytic in C−and C+, respectively.     P+1 (x) =                                                                            2i       u∗(x)         x  (|u(y)|)2 dy • s12, s21, r12 and r21 are analytic only on R.
+
+                                                     and the potential function u can be constructed as
+So the matrices S and R can be written as
+                                                   u = 2i(P+1 )12 = −2i(P−1 )12.                         (49)     s+11 s12          r−11 r12S =              ,  R =                 .                  (38)
+       s21 s−22             r21 r+22                              Thus, according to Eq. (1), the expressions for p and η
+                                                       can be obtained as follows:
+Furthermore, (19) and (38) imply the following relationships
+                                                                α
+                                                             (P+between si j and ri j:                                         p =i(P+                                                                             1 )12,t +                                                                                          1 )12,xx −βi(P+1 )12,xxx                                                                         2                                   (50)
+                                                     −24βi(P+                                                                                   1 )12,x|(P+1 )12|2 + 4α(P+1 )12|(P+1 )12|2,r11 = s22,  r22 = s11,  r12 = −s12,  r21 = −s21.    (39)
+                                                                  1             α
+                                                        η =        (i(P+                                                                                       1 )12,t +  (P+1 )12,xx −βi(P+1 )12,xxx                                                            4i(P+In conclusion, if we deﬁne                                                                              1 )12            2
+                                                     −24βi(P+                                                                                   1 )12,x|(P+1 )12|2 + 4α(P+1 )12|(P+1 )12|2)x                                                                                                                   (51)
+P(x, λ) = P±(x, λ),  λ ∈C±,                      (40)           ω             α                                        −        (i(P+                                                                                         1 )12,t +  (P+1 )12,xx −βi(P+1 )12,xxx                                                        2(P+                                                                                1 )12            2
+then the RHP for P(x, λ) is obtained as follows:                −24βi(P+                                                                                   1 )12,x|(P+1 )12|2) −2αω|(P+1 )12|2.
+
+Lemma 1 Exist a 2 × 2 complex matrix-valued function                                                           Furthermore, using relationship of (20), (24) and (32) yields
+P(x, λ) that satisﬁes:
+                                                               det P+ = r22 = s11,  det P−= s22 = r11.           (52)
+ • In C\R, P(x, λ) is analytic and possesses nontangential
+    limits from both sides of R.                           Combining this with (43), as λ →∞, obtain
+ • On R, the boundary values satisfy
+                                                                1  ∞
+                                                             r22(λ) →1 +         |u(y)|2dy + O(λ−2),  λ ∈C+,   P−(x, λ)P+(x, λ) = G(x, λ),  λ ∈R,           (41)                 2iλ −∞
+                                                                                                                   (53)
+   where                                       ∞
+                                                              s22(λ) →1 −1      |u(y)|2dy + O(λ−2),  λ ∈C−.
+                                                                       2iλ −∞                                           1  r12   G = E(H1 + H2S)(H1 + S−1H2)E−1 = E          E−1. (42)                                                   s21  1                                                                     (54)
+
+                                  123
+
+===== PDF PAGE 6 =====
+821  Page 6 of 16                                                                                                                                              S. Liu, Y. Liu
+
+Moreover, combining (4), (7) and (29) gives                 2.3 Solution of the RHP
+
+J±(λ∗)x†   = −iλ∗[σ3, J±(λ∗)]†   −J±(λ∗)U0,†                   (55)    For Lemma1, the case where detP(λ)̸ ≡0 is called regular,
+ −1               −1       −1                       and the opposite case non-regular. We proceed to solve it
+J± (λ)x = −iλ[σ3, J± (λ)] −J± (λ)U0.            (56)
+                                                          according to the different cases.
+    It is known that J±(λ∗)†    and J±−1 (λ) satisfy Eq. (29). Using                                                                  2.3.1 Solution to the regular RHP
+the condition (11) for J±, one obtains
+  †          −1                                                        If detP±(λ)̸ = 0 in the upper and lower complex half-planes,J±(x, λ∗) = J± (x, λ).                              (57)                                                            then the solution to the regular Lemma1 is unique. Indeed,
+                                                        suppose that the Lemma1 admits another solution ˜P±. Then
+From (24) and (32), together with (20), the following rela-
+tionship can be obtained                                P+(λ)( ˜P+)−1(λ) = ( ˜P−)−1(λ)P−(λ),  λ ∈R.      (67)
+
+ P+ † λ∗ = P−(λ),                               (58)                                                          Since det P±(λ)̸ = 0 and det ˜P±(λ)̸ = 0 for λ ∈C±,
+                                                                   respectively, it follows that P+( ˜P+)−1 is analytic in C+ and
+and we can also ﬁnd that                               (P−)−1( ˜P−) is analytic in C−. Combining this with (67),
+                                                                    exist a matrix-valued function. It is analytic on the entire
+S†(λ∗) = R(λ) = S−1(λ).                            (59)   complex plane. In view of the normalization condition (43)
+                                                     and Liouville’s theorem, we obtain
+Now we turn to the t-evolution of the scattering data. Con-
+sider J± satisfying Eq. (8). Multiplying both sides of (8)    P+(λ)( ˜P+)−1(λ) = ( ˜P−)−1(λ)P−(λ) = I,  λ ∈C. (68)
+by E, we see that J+ES also satisﬁes (8). Combined with
+the boundary condition (11) and the fact that Q0 →0 as    Consequently,
+x →±∞, one can shows that
+                                                 P±(λ) = ˜P±(λ),                                    (69)
+                                      i
+St = (4βλ3i −αλ2i +             S].                (60)                 λ + ω)[σ3,                                                    which proves the uniqueness of the solution to the regular
+                                          Lemma 1.
+Similarly,
+                                                             Next, we rewrite the jump condition (41) as
+
+                                      i
+Rt = (4βλ3i −αλ2i +            R].                (61)    P+ −1 (λ) −P−(λ) = G(λ) P+ −1 (λ),  λ ∈R,  (70)                  λ + ω)[σ3,
+
+Hence, the following equations hold                       where
+
+∂s22    ∂s11                                                     0  r12   =   = 0,                                   (62)   G(λ) = −E         E−1.                          (71)
+ ∂t      ∂t                                                                      s21 0
+
+and                                                    Then, by applying Plemelj’s formula together with the nor-
+                                                             malization condition (43), the unique solution to the Lemma
+∂s12                          2i   = (8βλ3i −2αλ2i +                            (63)   1 is given by the following integral equation: ∂t                  λ + ω)s12,
+                                 2i∂s21   = −(8βλ3i −2αλ2i +                                                     (64)                    1  ∞ G(ξ)(P+)−1(ξ) ∂t                   λ + ω)s21.                   (P+)−1(λ) = I +                        dξ,                                                                    2πi −∞      ξ −λ
+                                                          λ ∈C+.                               (72)Consequently, one gets the following expression
+
+
+
+                                   λ+ω                                                             2i  )t,              (65)    2.3.2 Solution of the non-regular RHPs12(t; λ) = s12(0; λ)e(8βλ3i−2αλ2i+
+
+                                                                2i
+                                     λ+ω )t.             (66)    Turn to the case where the Lemma1 is non-regular. Supposes21(t; λ) = s21(0; λ)e−(8βλ3i−2αλ2i+
+                                                                    that there exist points λk ∈C+ and ˆλk ∈C−(1 ≤k ≤N)
+At this point, we have completed the analysis of the scattering    such that
+data, and we learn that the RHP can be regarded as being in
+∀(x, t) ∈R × R.                                               det P+(λk) = 0,  det P−(ˆλk) = 0,                  (73)
+
+123
+
+===== PDF PAGE 7 =====
+Inverse scattering transform and soliton solutions for the…                                                           Page 7 of 16  821
+
+
+the number of zeros is denoted by N, moreover, the symmetry   Combining this with (75) yields
+condition (59) implies that
+                                                       dvk
+                                   + iλkσ3vk = αk(x)vk.                           (85)
+λ∗k = ˆλk.                                             (74)    dx
+
+                                                          Solving the above equation gives
+The kernels of P±(λk) are spanned by the column vector vk
+and the row vector ˆvk, respectively; i.e.,                                                                       x                                                          vk(x) = e−iλkxσ3vk0e x0 αk(y)dy,                       (86)
+P+(λk)vk = 0,   ˆvk P−( ˆλk) = 0,  1 ≤k ≤N.       (75)
+                                                    where vk0 = vk|x=0. Substituting the obtained solution into
+                                                                                                                                                           x αk(y)dy
+                                                     Eqs.(79)—(82),weﬁndthattheterme x0      canbeomit-Also, from (58) to (75), we obtain
+                                                               ted without affecting the result. Therefore, the expression for
+ˆvk = v†k.                                             (76)    the vector vk reduces to
+                                                          vk(x) = e−iλkxσ3vk0.                                 (87)We recall the results for non-regular RHPs due to Zakharov
+and Shabat [44], which are stated in the following Lemma.
+                                                                  Similarly, by repeating the above procedure, we obtain
+Lemma 2 Under the standard regularity and normalization
+                                                                                        λk+ωconditions, the solution to the non-regular RHP with zeros is    vk(t) = ei(4βλ3k−αλ2k+                                                                                                                    1  )tσ3vk1.                      (88)
+given by:
+                                                             Therefore, the space-time dependence of vk is as follows:
+P+(λ) = P+(λ)  (λ),                                (77)
+
+                                                                                                    λk+ω                                                                                                                                  1  )tσ3vk,0.           (89)P−(λ) =  −1(λ) P−(λ),                             (78)    vk(x, t) = e−iλkxσ3+i(4βλ3k−αλ2k+
+
+where                                                           Similarly, the expression for ˆvk can be obtained as follows:
+
+           N                                                                            iˆλkxσ3−i(4β ˆλ3k−αˆλ2k+  1                   |v j⟩(M−1) jk⟨ˆvk|                                ˆvk(x, t) = vk,0eˆ                            ˆλk+ω )tσ3.            (90)  (λ) = I +                            ,                  (79)
+                 λ −ˆλk              j,k=1
+
+             N
+                      |v j⟩(M−1) jk⟨ˆvk|                3 Asymptotic behavior of the solution in the −1(λ) = I −                                  .                (80)
+                   λ −λ j                       long-time regime                j,k=1
+
+                                                 The Eq. (1) have no explicit solutions at any later time t.Consider a matrix M ∈CN×N whose entries are:
+                                                      However, their long-time asymptotic behavior are character-
+          ⟨ˆvj|vk⟩                                                   ized. According to the solution of conventional Lemma1, the
+M jk =           ,  1 ≤j, k ≤N,                     (81)    solution of Eq. (83) admits the following integral represen-          ˆλ j −λk
+                                                                      tation:
+          N
+            λ −λk
+det  (λ) =                 .                              (82)         −1          1
+            λ −ˆλk                           P+    (λ) = I +           k=1                                                                     2πi
+                                    ∞                    −1                                                                      (ξ) G(ξ) −1(ξ) P+    (ξ)
+  From the preceding theorem, P±(λ) is the only solution                                     dξ, λ ∈C+,    (91)
+                                                                                ξ −λto the regular RHP:                             −∞
+
+                                                    where ˆG = I −G. As λ →∞ˆP−(λ) ˆP+(λ) =  (λ)G(λ)  −1(λ),  λ ∈R,           (83)
+
+                                                                     1
+where ˆP±(λ) is analytic in C±, and satisﬁes ˆP±(λ) →I,     ( ˆP+)−1(λ) →I −                                                                   2πiλ
+as λ →∞.                                    ∞
+                                                                                (ξ) ˆG(ξ)  −1(ξ)( ˆP+)−1(ξ)dξ,   (92)
+   Differentiating (75) with respect to x, and noting that P+            −∞
+satisﬁes (7), we obtain
+                                                     and thus
+
+           dvk                                                     1P+(λk; x)    + iλkσ3vk = 0.                    (84)    ˆP+(λ) →I +
+          dx                                                   2πiλ
+
+                                  123
+
+===== PDF PAGE 8 =====
+821  Page 8 of 16                                                                                                                                              S. Liu, Y. Liu
+
+
+       ∞
+                                                            Introduce                (ξ) ˆG(ξ)  −1(ξ)( ˆP+)−1(ξ)dξ.        (93)
+       −∞
+                                                                                        1
+                                                                                                              t,(101)                                                            θk(x, t, λk) = −iλkx + i  4βλ3k −αλ2k +According to Eq. (79)                                                                                                λk + ω
+
+              N                                          then (89) and (90) can be rewritten as           1
+  (λ) →I +         |v j⟩(M−1) jk⟨ˆvk|, λ →∞.      (94)
+          λ
+                 j,k=1
+                                                              vk = eθkσ3vk,0,                                    (102)
+From Eqs. (77), (93), and (94), it follows that the term P+1        ˆvk = ˆvk,0e ˆθkσ3,                                    (103)
+in the expansion of P+ is given by
+                                                        wherevk,0 = (αk, βk)T for k = 1, 2, . . . , N, withvk,0 denot-
+            N
+                                1                     ing a ﬁxed vector in the complex domain. Consequently, we
+P+1 (x, t) =      |v j⟩(M−1) jk⟨ˆvk| +                               2πi                   can obtain
+              j,k=1
+       ∞                                                               N
+                (ξ) G(ξ)  −1(ξ)( P+)−1(ξ)dξ.       (95)                                                                                                                                              k (M−1) jk,            (104)                                                        u(x, t) = −2i    α jβ∗k eθ j−θ∗       −∞
+                                                                                   j,k=1
+Using Eq. (71), together with Eqs. (12) and (65), we derive
+                                                    where M is an N-order matrix whose entries are
+ G(ξ; x, t) =
+                           ⎞ ⎛                                                            1
+                                                                                                                                                                                                                                                               j +θk)  .     (105)            0                 −s12(0; ξ)                               M jk =                                                                 αkα∗j eθ∗                                                                                                                                                                                                                      j +θk + βkβ∗j e−(θ∗
+                                                                  2  )t                 λk −ˆλ j                                                 ξ+ω
+   ⎜⎜⎜⎝      −s21(0; ξ)       e−2iξx+i(8βξ3−2αξ2+         ⎟⎟⎟⎠.
+                                2                                    This yields as following:
+                       ξ+ω )t    e2iξx−i(8βξ3−2αξ2+                                0
+                                                     (96)              detF
+                                                        u(x, t) = 2i       ,                                 (106)
+                                                         detM
+   Setting ˆξ = ξ 3√t and substituting it into Eq. (95) yields
+                                                    where the matrix F is an (N + 1)-dimensional deﬁned by
+ ∞
+       (ξ) G(ξ) −1(ξ) P+ −1 (ξ)dξ →0,  t →∞. (97)     ⎛              ⎞
+                                                                                                 N                                                                                                                 1  . . . β∗Ne−θ∗ −∞                                                       0   β∗1e−θ∗
+                                                                     α1eθ1  M11    . . .  MN1
+Furthermore, we know                           F =                                              (107)                                                                                                                                           ⎜⎜⎜⎝             ...                               ...     ...                    ...      ⎟⎟⎟⎠.
+            N                                            αNeθN  M1N   . . . MN N
+P+1 (x, t) →      |v j⟩(M−1) jk⟨ˆvk|,   t →∞.        (98)
+              j,k=1                                       4.2 Single-soliton solutions
+
+Finally, the corresponding asymptotic solution is given by                                                        For the case N = 1, following [45], we set v1,0 = (α1, β1)T
+       ⎛           ⎞                      with α∗1α1 > 0 and β∗1β1 > 0. Deﬁne
+              N
+u(x, t) →2i ⎝      |v j⟩(M−1) jk⟨ˆvk| ⎠   ,   t →∞.  (99)                                                              β∗1β1                 j,k=1                                          12                   λ1 = a + ib,     = e−2η1,                      (108)                                                               α∗1α1
+
+                                                            then the solution u is given by
+4 N-soliton solutions for the H-MB system
+                                                                           α1β∗1eθ1−θ∗                                                                                                                                             , (109)4.1 N-soliton solutions expression                      u(x, t) = 2i(ˆλ1 −λ1)                           1
+                                                                                        |α1|2 eθ1+θ∗                                                                                                                                 1 + |β1|2 e−(θ1+θ∗1)
+When G = I and ˆG = 0, Eq. (95) admits the solution
+                                                    which can be rewritten as
+
+           N
+P+1 (x, t) =      |v j⟩(M−1) jk⟨ˆvk|.                 (100)   u = 2bβ∗                                                                             1 eη1+θ1−θ∗1 sech θ∗1 + θ1 + η1  .           (110)
+             j,k=1                                           α∗1
+
+123
+
+===== PDF PAGE 9 =====
+Inverse scattering transform and soliton solutions for the…                                                           Page 9 of 16  821
+
+   Also, from the deﬁnition of θk, we obtain                  speciﬁc parameter values, using three-dimensional plots.
+                                                 The three-dimensional of |u|, |p| and η revealing a sta-
+θ1 + θ∗1 = 2b  x −  12βa2 −4βb2 −2αa −      1             t  ,          ble, localized wave packet whose shape and velocity remain                                            (a + ω)2 + b2
+                                                        unchanged, a deﬁning characteristic of solitons.                                                  (111)
+                                                                In Fig.1, the population inversion component η exhibits a
+θ1 −θ∗1 = 2i −ax + 4βa  a2 −3b2 −α  a2 −b2                    typical dark soliton proﬁle as shown. Analytically, Eq. (115)
+             a + ω                                               reveals that η approaches the constant background value 1 as     +                         t   .                          (112)
+           (a + ω)2 + b2                                              |x| →∞. At the soliton center m(x, t) = 0, the value of η
+                                                          drops to its minimum
+Thus, Eq. (110) can be reformulated as follows
+
+                                                                  (a + ω)2 −b2
+      u(x, t) = 2b sech [m(x, t)] eiχ(x,t),              (113)    ηmin =                   ,
+                                                                  (a + ω)2 + b2
+          2ib(a + ω) cosh(m(x, t)) −2b2 sinh(m(x, t))
+p(x, t) =                                                   eiχ(x,t),
+                 (a + ω)2 + b2 cosh2(m(x, t))                     this localized dip on a non-zero background characterizes a
+                                                  (114)    dark soliton.
+                 (a + ω)2 + b2 cosh2[m(x, t)] −2b2               In Fig.2 the double-peak intensity proﬁle of the polar-
+      η(x, t) =                                                 ,  (115)    ization component |p| can be analytically explained by
+                    (a + ω)2 + b2 cosh2[m(x, t)]                                                           analyzing the modulus of Eq. (114). One can derive that
+
+where
+                                                               |p| ∝  (A2 + b2)sech2(m) −b2sech4(m),
+m(x, t) =
+                                  1                    where A = a + ω. Further extremum analysis reveals that
+2b  x −  12βa2 −4βb2 −2αa −                          t + η1,                                 (a + ω)2 + b2              when the criterion b2 > (a + ω)2 is satisﬁed, the maximum
+                                                              of |p| shifts away from the center m(x, t) = 0, resulting in aχ(x, t) = 2 −ax + 4βa  a2 −3b2 −α  a2 −b2
+                                                       symmetric double-peak structure within a single soliton. This
+            a + ω
+     +                         t   .                                       intrinsic morphological property of the single-soliton solu-
+          (a + ω)2 + b2                                                                  tion provides a fundamental explanation for the double-peak
+                                                                   distribution observed in the subsequent two-soliton collision
+From the explicit Eqs. (113)–(115), the fundamental physical
+                                                                scenarios.
+properties of the single-soliton solution, such as amplitude,
+velocity, and center position can be explicitly identiﬁed.
+                                                      4.3 Two-soliton solutionsAccording to Eq. (113), the amplitude of the envelope |u|
+determined by the imaginary part of the spectral parame-
+                                                        For the case N = 2, with vk,0 = (αk, βk)T for k = 1, 2, theter λ1 is 2b. From the expression of m(x, t), we obtain the
+                                                              two-soliton solution of system (1) can be obtained explicitly.velocity of the soliton is not only dependent on the spectral
+                                                Deﬁneparameters a and b, but also nonlinearly modulated by the
+system parameters α, β and the background frequency ω.
+                                                       λ1 = a1 + ib1,  λ2 = a2 + ib2,                    (116)Thus the expression is
+
+                             1                          the two-soliton solution for u is then given by
+z = 12βa2 −4βb2 −2αa −                       .
+                           (a + ω)2 + b2
+                                                                                                                                                    2 M12                                                        u(x, t) = −2i  α1β∗1eθ1−θ∗                                                                                                                          1 M22 −α1β∗2eθ1−θ∗ Furthermore, the center position of the soliton pulse at any            A
+                                                                                                                                             2 M11  ,    (117)time t can be expressed as:                                  −α2β∗1eθ2−θ∗                                                                                                                    1 M21 + α2β∗2eθ2−θ∗
+xc(t) = zt −η1                                       where           2b,
+
+where−η12b representstheinitialpositionofthesolitonpeakat   A = M11M22 −M12M21,   A̸ = 0,
+t = 0. These characteristic parameters provide a theoretical
+basis for analyzing the asymptotic behavior and phase shifts    and the matrix entries are
+during multi-soliton interactions.
+
+                                                                                                                                   1   Figures1 and2 present a comprehensive characterization          α1α∗1eθ1+θ∗                                                                                                              1 + β1β∗1e−θ1−θ∗                                                M11 =                                   ,of the single-soliton solution for the H-MB system under                                                                       λ1 −ˆλ1
+
+                                  123
+
+===== PDF PAGE 10 =====
+821  Page 10 of 16                                                                                                                                            S. Liu, Y. Liu
+
+
+
+
+
+Fig. 1 The three-dimensional plots of one soliton solution |u|, |p| and η with α = 1, β = 1, ω = 0, α1 = 1, β1 = 1, η1 = 0, a = 1, b = 1. Among
+them, |u| is bright solitons, |p| is bright soliton, and η is a dark soliton
+
+
+
+
+
+Fig. 2 The three-dimensional plots of |u|, |p| and η when N = 1 with α = −1, β = −12, ω = 0, α1 = 1, β1 = 1, η1 = 0, a = 0, b = 1. Among
+them, |u| is bright solitons, |p| is bright soliton with double-peak, and η is a dark soliton
+
+
+                                              1                              ditions      α2α∗1eθ2+θ∗                        1 + β2β∗1e−θ2−θ∗M12 =                                   ,
+               λ2 −ˆλ1
+                                                                                          a1 + a2 + 2ω
+                                              2                             (a1 −a2) 12β(a1 + a2) −2α +      α1α∗2eθ1+θ∗                        2 + β1β∗2e−θ1−θ∗M21 =                                   ,                                             B
+               λ1 −ˆλ2                                                  + b2
+                                                      = 0,                                              2                                                    −(b1 −b2) 4β(b1 + b2) −b1      α2α∗2eθ2+θ∗                        2 + β2β∗2e−θ2−θ∗                                                                B                                                    .M22 =
+               λ2 −ˆλ2
+                                                    where B = [(a1 + ω)2 + b21][(a2 + ω)2 + b22].
+   Figures3,4 and5 systematically present two typical types       In the ﬁrst case, i.e., when z1̸ = z2, the dynamical prop-
+of behavior of the H-MB system in the two-soliton sce-     erties of the solitons are shown in Fig.3. As time t tends to
+nario: colliding states and bound states. Figure3 correspond   −∞, the two solitons are far apart and then slowly approach
+to the elastic collision process. Speciﬁcally, Fig. 3 shows    each other. Upon collision, a strong interaction occurs. As
+the three-dimensional evolution of |u| (bright soliton), |p|      t tends to +∞, the two solitons emerge from the collision
+(bright soliton with double peaks) and η (dark soliton) dur-    again, retaining the same shape and speed, and without any
+ing the collision, intuitively illustrating the elastic collision    energy loss as they move apart. Therefore, the interaction
+feature in which two solitons approach each other from oppo-    between these solitons is elastic.
+sitesides,passthroughoneanother,andmaintaintheirshapes      The dynamic behavior  is categorized into two cases
+and velocities. Figures4 and5 correspond to the bound state    depending on the velocity hierarchy. In the regime z1 < z2,
+case, where the two solitons share the same velocity and    the slower soliton-1 is initially positioned to the right of
+remain bound together during propagation. Therefore, the    soliton-2 as t →−∞. In this case, note that bk > 0 for
+bound state of two solitons should satisfy the following con-    λk ∈C+. Alternatively, for the case z1 > z2, at t = −∞,
+
+123
+
+===== PDF PAGE 11 =====
+Inverse scattering transform and soliton solutions for the…                                                          Page 11 of 16  821
+
+soliton-1 lies to the left of soliton-2 and travels at a higher      Within the moving frame traveling at velocity z2, as
+speed, with bk < 0 holding for λk ∈C−.                                 t →±∞, the asymptotic solutions each reduce to a single
+  Within the moving frame traveling at velocity z1, we                                                 β∗2
+                                                                  soliton characterized by peak amplitude 2b2 α∗2 and velocitydeﬁne
+                                                                     z2. Consequently, the interaction induces a position shift for
+                                                    b1             the second soliton:
+  Re(θ1) = b1x −  4β(3a21b1 −b31) −2αa1b1 −
+                                                (a1 + ω)2 + b21
+                                                           α∗2     λ2 −λ1   t = b1(x −z1t) = O(1),                             (118)      x02 =       ln             ,                        (126)
+                                                           b2β∗2    λ2 −ˆλ1
+where
+                                                     and a phase shift:
+                              1
+z1 = 4β(3a21 −b21) −2αa1 −                        .      (119)
+                              (a1 + ω)2 + b21                  σ01 = −2 arg  λ2 −λ1    .                       (127)
+                                                                       λ2 −ˆλ1
+Since
+                                                             Next, we consider the second case, where z1 = z2, this is
+Re(θ2) = b2(x −z2t) = b2(x −z1t) + b2(z1 −z2)t, (120)    called a bound state. In particular, we consider two special
+                                                             cases of a1 = a2 and b1 = b2. The behavior of the solutions
+with                                                             in this case are illustrated respectively in Figs. 4 and5. In this
+                                                                     situation, the two constituent solitons share identical veloci-                              1
+z2 = 4β(3a22 −b22) −2αa2 −                    ,      (121)     ties and consequently remain together while propagating at
+                              (a2 + ω)2 + b22                                                          a common speed.
+when t →−∞, Re(θ2) →∞, the asymptotic expression of
+the two-soliton becomes                                  4.4 Three-soliton solutions
+
+                     α− β∗       1                                 1  1eθ1−θ∗                    For N=3, the three-soliton solution can get by (106). Deﬁne
+u(x, t) →2i(ˆλ1 −λ1)     2                                 ,   (122)
+                                                                1               α−                           eθ1+θ∗1 + |β1|2 e− θ1+θ∗                        1
+                                                       λ1 = a1 + ib1,  λ2 = a2 + ib2,  λ3 = a3 + ib3,    (128)
+where α−1 = α1(λ1 −λ2)/(λ1 −ˆλ2). This asymptotic solu-                                                               the solution for u is as follows:
+tion corresponds to a single soliton characterized by peak
+              β∗1
+amplitude 2b α∗1 and velocity z1.                            u(x, t) = 2i F3 ,                                   (129)
+  As t →∞and Re(θ2) →−∞, the two-soliton solution           M3
+reduces to the asymptotic form
+                                                    where
+                     α+ β∗       1                                 1  1eθ1−θ∗
+                                                                                                                       1 α1eθ1(M22M33 −M23M32)u(x, t) →2i(ˆλ1 −λ1)     2                                 ,   (123)    F3 = −β∗1e−θ∗
+                                                                1               α+                           eθ1+θ∗1 + |β1|2 e− θ1+θ∗                        1
+                                       + α2eθ2(M23M31 −M21M33) + α3eθ3(M21M32 −M31M22)
+
+                                                                                                                 2 α1eθ1(M12M33 −M13M32) + α2eθ2(M13M31 −M11M33)where α+1 = α1(λ1 −ˆλ2)/(λ1 −λ2). The asymptotic single-   + β∗2e−θ∗
+soliton solution in Eq. (123) possesses velocity z1 and peak
+               β∗1                             + α3eθ3(M11M32 −M12M31)
+amplitude 2b1 α∗1 . This indicates that while the soliton’s
+                                                                                                                 3 α1eθ1(M12M23 −M13M22) + α2eθ2(M13M21 −M11M23)proﬁle and speed remain invariant after the interaction, it   −β∗3e−θ∗
+undergoes discrete offsets in both phase and position. The
+                                       + α3eθ3(M11M22 −M12M21) ,
+position shift is given by
+
+           α∗1                                        and  x01 = −         ln |α+1 | −ln |α−1 |         2b1β∗1
+                                          M3 =M11M22M33 + M21M32M13 + M31M12M23
+         α∗1     λ1 −λ2
+   =       ln             ,                       (124)       −M13M22M31 −M12M21M33 −M11M32M23,        b1β∗1    λ1 −ˆλ2
+
+and the phase shift is                                       with the matrix entries
+
+
+                                                                                                                                   1                                   λ1 −λ2                   α1α∗1eθ1+θ∗                                                                                                              1 + β1β∗1e−θ1−θ∗  σ01 = arg(α+1 ) −arg(α−1 ) = −2 arg                   .  (125)   M11 =                                   ,
+                                   λ1 −ˆλ2                             λ1 −ˆλ1
+
+                                  123
+
+===== PDF PAGE 12 =====
+821  Page 12 of 16                                                                                                                                            S. Liu, Y. Liu
+
+
+
+
+
+Fig. 3 The three-dimensional of |u|, |p| and η under N = 2 with α = −1, β = −12, ω = 0, α1 = I, β1 = 1, α2 = 1, β2 = 1, a1 = 1, b1 = 1,
+a2 = −1, b2 = 2. Among them, |u| is bright solitons, |p| is bright soliton with double-hump, and η is a dark soliton
+
+
+
+
+
+Fig. 4  Pictures are bound state of two-soliton solution when a1 = a2, the three-dimensional plots of |u|, |p| and η with α = 1, β = 265,18 ω = 0,
+α1 = 1 + I, β1 = 1, α2 = 2 −I2 , β2 = 1, a1 = 1, b1 = 1, a2 = 1, b2 = −1112. Among them, |u| is bright solitons, |p| is bright soliton, and η is a
+dark soliton
+
+
+
+
+
+Fig. 5  Pictures are bound state of two-soliton solution when b1 = b2, three-dimensional plots of |u|, |p| and η with α = 65,7  β = 585,58 ω = 1,
+α1 = 1 + I, β1 = 1, α2 = 2 −12 I, β2 = 1, a1 = 2,1 b1 = 1, a2 = 1, b2 = 1, Among them, |u| and |p| are bright soliton, η is a dark soliton.
+
+
+
+
+
+123
+
+===== PDF PAGE 13 =====
+Inverse scattering transform and soliton solutions for the…                                                          Page 13 of 16  821
+
+                                              1                 5 Inﬁnite hierarchy of conservation laws      α2α∗1eθ2+θ∗                        1 + β2β∗1e−θ2−θ∗M12 =                                   ,
+               λ2 −ˆλ1
+                                              1                          Let Y = (y1, y2)T and set μ = y1/y2, then it can be readily      α3α∗1eθ3+θ∗                        1 + β3β∗1e−θ3−θ∗M13 =                                   ,                          derived that
+               λ3 −ˆλ1
+      α1α∗2eθ1+θ∗                        2 + β1β∗2e−θ1−θ∗                                              2                              (ln y2)x = iλ −u∗μ,                              (130)M21 =                                   ,
+               λ1 −ˆλ2                                        (ln y2)t = v3μ + v4,                              (131)
+
+                                              2      α2α∗2eθ2+θ∗                        2 + β2β∗2e−θ2−θ∗
+M22 =                                   ,                         where               λ2 −ˆλ2
+                                                                              α                                              2      α3α∗2eθ3+θ∗                        2 + β3β∗2e−θ3−θ∗                                                                                                               iu∗t                                           ,                         v3 = 4βu∗λ2 − αu∗+ 2βiu∗t λ −2β|u|2u +M23 =                                                                                          2               λ3 −ˆλ2                                                                       ip∗
+                                              3                                         −βu∗tt −      α1α∗3eθ1+θ∗                        3 + β1β∗3e−θ1−θ∗                                                        λ + ω,                                           ,M31 =
+               λ1 −ˆλ3                                                                   η                                              −α                                                                                                             |u|2 −                                              3                           v4 = i −4βλ3 + αλ2 + 2β|u|2λ                                                                                λ + ω                                                                                 2      α2α∗3eθ2+θ∗                        3 + β2β∗3e−θ2−θ∗M32 =                                   ,
+               λ2 −ˆλ3                     + β uu∗t −utu∗  .
+
+                                              3      α3α∗3eθ3+θ∗                        3 + β3β∗3e−θ3−θ∗
+M33 =                                          .                      From the mixed partials of (130)–(131) yields               λ3 −ˆλ3
+                                                               iλ −u∗μ                                        = (v3μ + v4μ)x,                      (132)                                                                                                                                                t
+  Figure6 presents the three-dimensional evolution plots of
+three-soliton |u| under three different parameter sets, intu-      i.e.
+itively showing the complex interaction process among the
+three solitons, including their mutual approach, collision, and   −u∗t μ −u∗μt = v3,xμ + v3μx + v4,x,             (133)
+separation. After the collision, each soliton retains its original
+shape and velocity, reﬂecting the essence of elastic collisions.    where
+The three parameter sets are following:
+  The parameter values for subﬁgure (a1) are                   v3,x =4βu∗xλ2 −αu∗xλ −2βiu∗txλ −2β  2|u|2ux + u∗xu2
+                                                    α                           i
+                                     +   iu∗tx −βu∗ttx −       p∗x,                                                           2            λ + ω
+a1 = 1, b1 = −3 α1 = I, β1 = 1,                                                      α             2,                                            v3 =4βu∗λ2 − αu∗+ 2βiu∗t λ −2β|u|2u +   iu∗t
+                                                                                           2
+a2 = −1, b2 = 1, α2 = 1, β2 = 1,                                                                           ip∗
+                                            −βu∗tt −a3 = 0, b3 = 1, α3 = 1, β3 = 1,                                                            λ + ω,
+                                                                                                ηx                                                                     v4,x =i  2βλ −α  uxu∗+ uu∗x −                                                                  2              λ + ω
+the parameter values for subﬁgure (a2) are
+                                     + β uxu∗t + uu∗tx −utxu∗−utu∗x  .
+
+a1 = 1, b1 = −1, α1 = I, β1 = 1,                         Expand μ as a power series in λ−1
+a2 = −1, b2 = −2, α2 = 1, β2 = 1,                     ∞
+                                                                   μn(x, t)
+a3 = 0, b3 = 1, α3 = 1, β3 = 1,                          μ(x, t, λ) =                    .                          (134)
+                                                                                (2iλ)n
+                                                                   n=1
+
+the parameter values for subﬁgure (a3) are                        Substitute it into Eq. (132), and then compare the same
+                                                    power coefﬁcient of λ−1, we can get
+
+                                                                            αu∗a1 = 1, b1 = −1, α1 = 1 + I, β1 = 1,                           (u∗μn)t = (βu∗μn+2 +                                                       + βu∗t  μn+1 + βu∗ttμn                                                                                                         2i
+a2 = 1, b2 = −2 α2 = 2 −I  β2 = 1,              3,         2,                        + 2β|u|2uμn −αi                                                                                   u∗t μn −2η)x,            (135)       √                                                                                2
+             2                                                                            αu∗a3 = 1, b3 =                      , α3 = 2 + I, β3 = 1 + I.                   (u∗μn+1)t = (βu∗μn+3 +                                                       + βu∗t  μn+2 + βu∗ttμn+1            2                                                                                                         2i
+
+                                  123
+
+===== PDF PAGE 14 =====
+821  Page 14 of 16                                                                                                                                            S. Liu, Y. Liu
+
+
+
+
+
+Fig. 6 The three-dimensional plots of three-soliton solution of |u| under N = 3 with different parameter
+
+
+                                                      an alternative to the conventional IST method. In the reﬂec-      + 2β|u|2uμn+1 −αi u∗t μn+1 −2p∗μn)x,    (136)                          2                                                                   tionless case, where the jump matrix in the RHP reduces
+                                                                  to the identity matrix, the explicit one-, two-, and three-and similarly, we see that μ satisﬁes the following Riccati
+                                                                  soliton solutions of the H-MB system can be obtained (seeequation
+                                                           Figs.1,2,3,4,5 and 6). By the constructed spectral problem
+                                                     and the properties of the scattering data, the inﬁnite con-μx = u∗μ2 −2iλμ + u,                           (137)
+                                                               servation laws for the H-MB system can also be obtained.
+                                                          This outcome serves as rigorous evidence substantiating thethen by substituting (134) into (137), The coefﬁcient of μn
+                                                        complete integrability of the system.is given by
+                                                             Furthermore,  while some  previous  researches  were
+                                                                     restricted to speciﬁc parameter choices, our results are validμ1 = u,  μ2 = −ux,                              (138)
+                                                                  for general parameters α and β. The parameters α and β are
+                  n−1
+                                                          only involved in the phase and velocity terms, implying thatμn+1 = −μn,x + u∗    μkμn−k,  n ≥2.          (139)
+                                                            they affect the soliton speed while the amplitude remains
+                   k=1
+                                                        unchanged. These advancements establish a more robust and
+  Based on the above, we substitute Eqs. (138)–(139) into     versatile theoretical foundation for predicting and control-
+Eqs. (135)–(136), and we can obtain the Eq. (1).                ling nonlinear wave dynamics in complex optical media. The
+                                                                     results presented in this work carry several signiﬁcant impli-
+                                                                  cations. From the perspective of mathematical physics, the
+6 Conclusion                                        successfulimplementationoftheRHmethodisdemonstrated
+                                                                  for a physically meaningful coupled system, thereby rein-
+This paper presents a systematic and comprehensive inves-    forcing its role as a fundamental tool within the theory of
+tigation of the H-MB system and an account is given of    integrable systems. From a physical viewpoint, the explicit
+the propagation of femtosecond optical pulses in an erbium-    soliton solutions furnish a theoretical basis for interpreting
+doped ﬁber system. The IST method, formulated within the    and potentially controlling the behavior of ultrashort pulses
+RHP framework is employed. This mathematical tool has    propagating in active optical media.
+proven highly effective in the analysis of integrable nonlin-
+                                                                Author Contributions S. Liu: Writing-original draft, Data curation,
+ear evolution equations, and the present work successfully     Software, Investigation. Y.Q. Liu: Supervision, Validation, Writing-
+extends its application to the coupled H-MB system. The     review. All authors reviewed the manuscript.
+investigation commences with the 2×2 matrix spectral prob-
+                                                               Funding This work is supported by National Natural Science Foun-
+lem, i.e., the Lax pair, associated with the H-MB system.
+                                                                        dation of China (No. 12571262) and the 2024 Project of the Beijing
+Using this approach, we do a spectral analysis and deﬁne    Higher Education Society (No. MS2024378).
+the Jost solutions as well as the scattering matrix. It is very
+important to study these things and their symmetry proper-    Data Availability No datasets were generated or analysed during the
+                                                                          current study.
+ties carefully for us to develop RHP in the future. In addition,
+an adjoint spectral problem is introduced to construct the
+                                                      Declarations
+corresponding adjoint Jost solutions, thereby completing the
+requisite analytical framework. Following this, a matrix RHP
+                                                                    Conﬂict of interest The authors declare that they have no known com-
+is formulated for the H-MB system. A direct and explicit link     peting ﬁnancial interests or personal relationships that could have
+is established between the solution of this RHP and the poten-    appeared to inﬂuence the work reported in this paper.
+tials appearing in the H-MB system. This formulation offers
+
+123
+
+===== PDF PAGE 15 =====
+Inverse scattering transform and soliton solutions for the…                                                          Page 15 of 16  821
+
+
+Conﬂict of interest The authors declare no conﬂict of interest.             17. Hu, B.B., Lin, J., Zhang, L.: Dynamic behaviors of soliton solu-
+                                                                                  tions for a three-coupled Lakshmanan–Porsezian–Daniel model.
+                                                                        Nonlinear Dyn. 107, 2773–2785 (2022)
+                                                                        18. Hu, B.B., Zhang, L., Shen, Z.Y.: Nonlocal combined nonlinear
+                                                                       Schrödinger–Gerdjikov–Ivanov model:  Integrability, Riemann–
+References                                                              Hilbert problem with simple and double poles, Cauchy problem
+                                                                        with step-like initial data. J. Math. Phys. 65, 103501 (2024)
+ 1. Liu, H.D., Tian, B., Chen, Y.Q., Cheng, C.D., Gao, X.T.: N-soliton,     19. Hu, B.B., Zhang, L., Shen, Z.Y., Lin, J.: On the Riemann-Hilbert
+    Hth-order breather, hybrid and multi-pole solutions for a general-        problem for the reverse space-time nonlocal Hirota equation with
+    ized variable-coefﬁcient Gardner equation with an external force          step-like initial data. Commun. Thero. Phys. 77, 025004 (2025)
+     in a plasma or ﬂuid. Nonlinear Dyn. 113, 3655–3672 (2024)          20. Bleher, P.M., Its, A.R.: Double scaling limit in the random matrix
+ 2. Chen,  S.S.,  Tian,  B.,  Tian,  H.Y.,  Hu,  C.C.:  Riemann-        model: The Riemann–Hilbert approach. Commun. Pure Appl.
+     Hilbert approach, dark solitons and double-pole solutions for        Math. 56, 433–516 (2003)
+    Lakshmanan–Porsezian–Daniel equation in an optical ﬁber, a     21.  Kuijlaars, A.B.J., McLaughlin, K.T.-R., Assche, W.V., Vanlessen,
+    ferromagnetic spin or a protein. Z. Angew. Math. Mech. 104,        M.: The Riemann–Hilbert approach to strong asymptotics for
+    e202200417 (2024)                                                   orthogonal polynomials on [−1, 1]. Adv. Math. 188, 337–398
+ 3. Sawada, K., Kotera, T.: A method for ﬁnding N-soliton solutions         (2004)
+    of the KdV equation and KdV-like equation. Prog. Theor. Phys. 51,     22.  Li, Y., Li, M., Xu, T., Huang, Y.H., Xu, C.X.: N-soliton solutions
+    1355–1367 (1974)                                               and asymptotic analysis for the massive Thirring model in labo-
+ 4.  Its, A.R., Matveev, V.B.: Schrödinger operators with ﬁnite-gap          ratory coordinates via the Riemann-Hilbert approach. Commun.
+    spectrum and N-soliton solutions of the Korteweg-de Vries equa-         Theor. Phys. 77, 065003 (2024)
+     tion. Theor. Math. Phys. 23, 343–355 (1975)                         23. Ma, X., Xia, T.C.: Riemann–Hilbert approach and N-soliton solu-
+ 5. Zheng, W.G., Liu, Y.Q.: Hierarchical structure and N-soliton solu-          tions for the generalized nonlinear Schrödinger equation. Phys. Scr.
+     tions of the generalized Gerdjikov–Ivanov equation via Riemann–         94, 095203 (2019)
+     Hilbert problem. Nonlinear Dyn. 113, 12021–12035 (2025)           24. Wen, L.L., Zhang, N., Fan, E.G.: N-soliton solution of the Kundu-
+ 6. Guo, Y., Chen, Y., Manaﬁan,  J., Malmir, S., Mahmoud, K.H.,         type equation via Riemann-Hilbert approach. Acta Math. Sci. 40,
+    Alsubaie, A.S.A.: N-soliton solutions, multiple rogue wave and the        113–126 (2019)
+     linear superposition principle to the generalized Hirota Satsuma-Ito     25. Chen, Y.P., Li, B.A.: N-soliton solutions for the novel Kundu-
+    equation. Sci. Rep. 14, 26171–26178 (2024)                              nonlinear Schrödinger equation and Riemann–Hilbert approach.
+ 7. Ismael,  H.J.F.,  Bulut,  H.S.,  Park,  C.,  Osman,  M.S.: M-       Wave Motion 127, 103293 (2024)
+    lump,  N-soliton  solutions, and  the  collision phenomena  for     26. Geng, X.G., Wu, J.P.: Riemann-Hilbert approach and N-soliton
+     the (2+1)-dimensional Date-Jimbo–Kashiwara–Miwa equation.          solutions for a generalized Sasa–Satsuma equation. Wave Motion
+    Results Phys. 19, 103329–103335 (2020)                                 60, 62–72 (2015)
+ 8. Feng,C.H.,Tian,B.,Gao,X.T.:BilinearBäcklundtransformations,     27. Wu, F., Huang, L.: Riemann–Hilbert approach and N-soliton solu-
+    as well as N-soliton, breather, ﬁssion fusion and hybrid solutions          tions of the coupled generalized Sasa–Satsuma equation. Nonlinear
+     for a (3+1)-dimensional integrable wave equation in a ﬂuid. Qual.        Dyn. 110, 3617–3627 (2022)
+    Theory Dyn. Syst. 24, 103329 (2025)                                28. Wang, J., Su, T., Geng, X.G., Li, R.M.: Riemann–Hilbert approach
+ 9. Wang,   K.J.:  The   generalized   (3+1)-dimensional  B-type        and N-soliton solutions for a new two-component Sasa–Satsuma
+    Kadomtsev–Petviashvili  equation:  resonant  multiple  soliton,         equation. Nonlinear Dyn. 101, 597–609 (2020)
+     N-soliton,  soliton  molecules  and  the  interaction  solutions.     29. Zhao,Y.,Nie,H.:ApplicationoftheRiemann-Hilbertapproachand
+    Nonlinear Dyn. 112, 7309–7324 (2024)                                  N-soliton solutions for the generalized Fokas–Lenells equation.
+10. Chu, J.Y., Liu, Y.Q., Ma, W.X.: Integrability and multiple-rogue        Acta Phys. Pol., B 56, 287–303 (2025)
+    and multi-soliton wave solutions of the (3+1)-dimensional Hirota–     30. Qiu, D.Q.: Riemann-Hilbert approach and N-soliton solution for
+    Satsuma-Ito equation. Mod. Phys. Lett. B 39, 2550060 (2025)             the Chen–Lee–Liu equation. Eur. Phys. J. Plus. 136, 1950002
+11.  Deift,  P.: Orthogonal polynomials and random  matrices: A         (2021)
+    Riemann–Hilbert approach. Courant Lect, Notes Math (2000)         31. Xu, M.J., Xia, T.C., Hu, B.B.: Riemann–Hilbert approach and N-
+12.  Deift, P.A., Its, A.R., Zhou, X.: A Riemann-Hilbert approach to          soliton solutions for the Chen–Lee–Liu equation. Mod. Phys. Lett.
+    asymptoticproblemsarisinginthetheoryofrandommatrixmodels,      B 33, 1950002 (2019)
+    and also in the theory of integrable statistical mechanics. Ann.     32. Kang, Z.Z., Xia, T.C., Ma, W.X.: Riemann–Hilbert approach and
+    Math. 146, 149–235 (1997)                                             N-soliton solution for an eighth-order nonlinear Schrödinger equa-
+13. Deng, B., Guo, R., Zhang,  J.: The Riemann-Hilbert approach          tion in an optical ﬁber. Adv. Differ. Equ. 2019, 188–202 (2019)
+    and N-soliton solutions for the semi-discrete complex modiﬁed     33. Wang, Y.X., Huang,  L., Yu,  J.:  N-soliton  solutions  for the
+    Korteweg-de Vries equation with non-zero boundary. Sci. Sin.        three-component Dirac–Manakov system via Riemann–Hilbert
+    Math. 55, 1–20 (2025)                                                 approach. Appl. Math. Lett. 151, 109005–109011 (2024)
+14. Liu, X.Y., Guo, R.: Mixed single, double, and triple poles solutions     34.  Li, Y., Li,  J., Wang, R.Q.: Multi-soliton solutions of the N-
+     for the space-time shifted nonlocal DNLS equation with nonzero        component nonlinear Schrödinger equations via Riemann–Hilbert
+    boundary conditions via Riemann-Hilbert approach. Nucl. Phys. B         approach. Nonlinear Dyn. 105, 1765–1772 (2021)
+    1009, 116742 (2024)                                                35. Wu, X., Tian, S.F., Yang, J.J.: Riemann–Hilbert approach and N-
+15. Wang, D.S., Wang, X.L.: Long-time asymptotics and the bright N-          soliton solutions for three-component coupled Hirota equations.
+     soliton solutions of the Kundu–Eckhaus equation via the Riemann-         East Asian J. Appl. Math. 10, 717–731 (2020)
+     Hilbert approach. Nonlinear Anal. Real World Appl. 41, 334–361     36. Wu, J.P.: Riemann–Hilbert approach and N-soliton solutions of a
+    (2017)                                                               novel n-component shifted nonlocal reverse-time NLS equation.
+16. Wang, Z.Q., Tian, S.F., Zhang, T.T., Yang, J.J.: Riemann–Hilbert         Qual. Theory Dyn. Syst. 24, 16641–16659 (2024)
+    approach and multi-soliton solutions of a variable-coefﬁcient ﬁfth-     37. Chen, X.T., Zhang, Y., Liang, J.L., Wang, R.: The N-soliton solu-
+    order nonlinear Schrödinger equation with N distinct arbitrary-          tions for the matrix modiﬁed Korteweg-de Vries equation via
+    order poles. Mod. Phys. Lett. B 35, 2150194 (2021)
+
+                                  123
+
+===== PDF PAGE 16 =====
+821  Page 16 of 16                                                                                                                                            S. Liu, Y. Liu
+
+
+     the Riemann–Hilbert approach. Eur. Phys. J. Plus. 135, 574–593     44. Zakharov, V.E., Shabat, A.B.: Integration of nonlinear equations
+    (2020)                                                                  of mathematical physics by the method of inverse scattering. II.
+38. Wu, F., Huang, L.: N-soliton solutions for the coupled extended         Funct. Anal. Appl. 13, 166–174 (1979)
+    modiﬁed KdV equations via Riemann–Hilbert approach. Appl.     45. Guo, Y.L., Zhang, W.G., Liu, L.L.: The N-soliton solution to the
+    Math. Lett. 134, 108390–108397 (2022)                                  higer-order nonlinear Schrödinger–Maxwell–Bloch system via the
+39. Monvel, A., Shepelsky, D.: A Riemann–Hilbert approach for the        Riemann–Hilbert approach. J. Math. Phys. 63, 051505 (2022)
+    Degasperis–Procesi equation. Nonlinearity 26, 2081–2107 (2013)
+40. Monvel, A.B.D., Shepelsky, D.: The short pulse equation by a
+    Riemann–Hilbert approach. Lett. Math. Phys. 107, 1345–1373
+                                                                           Publisher’s Note Springer Nature remains neutral with regard to juris-
+    (2017)
+                                                                              dictional claims in published maps and institutional afﬁliations.
+41. Cui, X.Q., Zhang, B.J., Wen, X.Y.: Bright-dark soliton solutions
+    and their elastic interaction analysis for a reduced integrable spin
+                                                                      Springer Nature or its licensor (e.g. a society or other partner) holds
+    Hirota–Maxwell–Bloch equation. Chin. J. Phys. 82, 95–104 (2023)
+                                                                         exclusive rights to this article under a publishing agreement with the
+42. Li,J.,Xia,T.C.:The N-solitonsolutionstotheHirotaandMaxwell-
+                                                                           author(s) or other rightsholder(s); author self-archiving of the accepted
+    Bloch equation via the Riemann–Hilbert approach. Int. J. Mod.
+                                                                    manuscript version of this article is solely governed by the terms of such
+    Phys. B 35, 2150153 (2021)
+                                                                       publishing agreement and applicable law.
+43. Ablowitz, M.J., Kaup, D.J., Newell, A.C., Segur, H.: Nonlinear-
+    evolution equations of physical signiﬁcance. Phys. Rev. Lett. 31,
+    125–127 (1973)
+
+
+
+
+
+123

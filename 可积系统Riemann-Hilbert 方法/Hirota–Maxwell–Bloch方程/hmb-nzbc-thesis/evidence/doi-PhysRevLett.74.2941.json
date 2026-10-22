@@ -1,0 +1,334 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          10,
+          7
+        ]
+      ],
+      "date-time": "2026-10-07T15:35:02Z",
+      "timestamp": 1791387302049,
+      "version": "4.3.3"
+    },
+    "reference-count": 16,
+    "publisher": "American Physical Society (APS)",
+    "issue": "15",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              1995,
+              4,
+              10
+            ]
+          ],
+          "date-time": "1995-04-10T00:00:00Z",
+          "timestamp": 797472000000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "http://link.aps.org/licenses/aps-default-license"
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "Phys. Rev. Lett."
+    ],
+    "DOI": "10.1103/physrevlett.74.2941",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2002,
+          7,
+          27
+        ]
+      ],
+      "date-time": "2002-07-27T01:31:09Z",
+      "timestamp": 1027733469000
+    },
+    "page": "2941-2944",
+    "source": "Crossref",
+    "is-referenced-by-count": 90,
+    "title": [
+      "Optical Soliton Propagation in an Erbium Doped Nonlinear Light Guide with Higher Order Dispersion"
+    ],
+    "prefix": "10.1103",
+    "volume": "74",
+    "author": [
+      {
+        "given": "K.",
+        "family": "Porsezian",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "K.",
+        "family": "Nakkeeran",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "16",
+    "published-online": {
+      "date-parts": [
+        [
+          1995,
+          4,
+          10
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "key": "PhysRevLett.74.2941Cc1R1",
+        "volume-title": "Nonlinear Fiber Optics",
+        "author": "G. P. Agrawal",
+        "year": "1989"
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc2R1",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1007/BFb0041283",
+        "volume-title": "Optical Fiber Solitons",
+        "author": "A. Hasegawa",
+        "year": "1989"
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc3R1",
+        "doi-asserted-by": "crossref",
+        "first-page": "1095",
+        "DOI": "10.1103/PhysRevLett.45.1095",
+        "volume": "45",
+        "author": "L. F. Mollenauer",
+        "year": "1980",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc4R1",
+        "first-page": "657",
+        "volume": "11",
+        "author": "F. M. Mitshke",
+        "year": "1986",
+        "journal-title": "Opt. Lett."
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc5R1",
+        "volume-title": "Elements of Soliton Theory",
+        "author": "G. L. Lamb, Jr.",
+        "year": "1980"
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc6R1",
+        "doi-asserted-by": "crossref",
+        "first-page": "142",
+        "DOI": "10.1063/1.1654836",
+        "volume": "23",
+        "author": "A. Hasegawa",
+        "year": "1973",
+        "journal-title": "Appl. Phys. Lett."
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc7R1",
+        "doi-asserted-by": "crossref",
+        "first-page": "908",
+        "DOI": "10.1103/PhysRevLett.18.908",
+        "volume": "18",
+        "author": "S. L. McCall",
+        "year": "1967",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc7R2",
+        "doi-asserted-by": "crossref",
+        "first-page": "457",
+        "DOI": "10.1103/PhysRev.183.457",
+        "volume": "183",
+        "year": "1969",
+        "journal-title": "Phys. Rev."
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc8R1",
+        "first-page": "685",
+        "volume": "58",
+        "author": "A. I. Maimistov",
+        "year": "1983",
+        "journal-title": "Sov. Phys. JETP"
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc10R1",
+        "doi-asserted-by": "crossref",
+        "first-page": "885",
+        "DOI": "10.1143/JPSJ.63.885",
+        "volume": "63",
+        "author": "S. Kakei",
+        "year": "1994",
+        "journal-title": "J. Phys. Soc. Jpn."
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc11R1",
+        "doi-asserted-by": "crossref",
+        "first-page": "2625",
+        "DOI": "10.1103/PhysRevLett.66.2625",
+        "volume": "66",
+        "author": "M. Nakazawa",
+        "year": "1991",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc12R1",
+        "doi-asserted-by": "crossref",
+        "first-page": "5973",
+        "DOI": "10.1103/PhysRevA.44.5973",
+        "volume": "44",
+        "author": "M. Nakazawa",
+        "year": "1991",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc13R1",
+        "doi-asserted-by": "crossref",
+        "first-page": "522",
+        "DOI": "10.1063/1.525721",
+        "volume": "24",
+        "author": "J. Weiss",
+        "year": "1983",
+        "journal-title": "J. Math. Phys. (N.Y.)"
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc15R1",
+        "doi-asserted-by": "crossref",
+        "first-page": "1543",
+        "DOI": "10.1103/PhysRevE.50.1543",
+        "volume": "50",
+        "author": "K. Porsezian",
+        "year": "1994",
+        "journal-title": "Phys. Rev. E"
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc16R1",
+        "doi-asserted-by": "crossref",
+        "first-page": "2932",
+        "DOI": "10.1063/1.529086",
+        "volume": "32",
+        "author": "K. Porsezian",
+        "year": "1991",
+        "journal-title": "J. Math. Phys. (N.Y.)"
+      },
+      {
+        "key": "PhysRevLett.74.2941Cc17R1",
+        "doi-asserted-by": "crossref",
+        "DOI": "10.1007/978-3-662-00922-2",
+        "volume-title": "Darboux Transformations and Solitons",
+        "author": "V. B. Matveev",
+        "year": "1991"
+      }
+    ],
+    "container-title": [
+      "Physical Review Letters"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "http://link.aps.org/article/10.1103/PhysRevLett.74.2941",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "syndication"
+      },
+      {
+        "URL": "http://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.74.2941/fulltext",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2025,
+          1,
+          3
+        ]
+      ],
+      "date-time": "2025-01-03T02:31:51Z",
+      "timestamp": 1735871511000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://link.aps.org/doi/10.1103/PhysRevLett.74.2941"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          1995,
+          4,
+          10
+        ]
+      ]
+    },
+    "references-count": 16,
+    "journal-issue": {
+      "issue": "15",
+      "published-print": {
+        "date-parts": [
+          [
+            1995,
+            4
+          ]
+        ]
+      }
+    },
+    "URL": "https://doi.org/10.1103/physrevlett.74.2941",
+    "relation": {},
+    "ISSN": [
+      "0031-9007",
+      "1079-7114"
+    ],
+    "issn-type": [
+      {
+        "value": "0031-9007",
+        "type": "print"
+      },
+      {
+        "value": "1079-7114",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          1995,
+          4,
+          10
+        ]
+      ]
+    }
+  }
+}

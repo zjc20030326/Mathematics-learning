@@ -1,0 +1,244 @@
+\section{相容的平面波与 Bloch 约束}
+设 $Q>0$，$a\ne0$，$\eta_0\ne0$，令
+\begin{equation}\label{eq:background}
+q_0=Qe^{-\ii\Omega z},\quad
+p_0=-\dfrac{\ii\eta_0}{a}q_0,\quad
+\eta=\eta_0,\quad
+\Omega=-\alpha Q^2+\dfrac{2\eta_0}{a}.
+\end{equation}
+\begin{proposition}[平面波背景]\label{prop:bg}
+式 \eqref{eq:background} 对任意实 $\alpha,\beta$ 都是式 \eqref{eq:HMB} 的解。
+\end{proposition}
+\begin{proof}
+三个场不依赖 $x$，故 $q_{0,x}=q_{0,xx}=q_{0,xxx}=p_{0,x}=\eta_{0,x}=0$。第一式右侧为
+\[
+\ii\alpha Q^2q_0+2p_0
+=\ii\left(\alpha Q^2-\dfrac{2\eta_0}{a}\right)q_0
+=-\ii\Omega q_0=q_{0,z}.
+\]
+第二式右侧为
+\[
+2\eta_0q_0-2\ii a\left(-\dfrac{\ii\eta_0}{a}q_0\right)
+=2\eta_0q_0-2\eta_0q_0=0.
+\]
+第三式中的两项分别为 $-\ii\eta_0Q^2/a$ 和 $\ii\eta_0Q^2/a$，相加为零。因此三条方程分别成立。
+\end{proof}
+\begin{proposition}[Bloch 长度]\label{prop:bloch}
+对满足后两条 HMB 方程的经典解，
+\begin{equation}\label{eq:bloch}
+\partial_x(|p|^2+\eta^2)=0.
+\end{equation}
+若满足边界 \eqref{eq:targetboundary}，则
+\begin{equation}\label{eq:C}
+|p|^2+\eta^2=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right).
+\end{equation}
+\end{proposition}
+\begin{proof}
+利用 $a,\eta$ 为实数，计算
+\begin{align*}
+(|p|^2)_x
+&=p_x\conj p+p\conj{p_x}\\
+&=(2\eta q-2\ii ap)\conj p+
+p(2\eta\conj q+2\ii a\conj p)\\
+&=2\eta(q\conj p+\conj q p),\\
+(\eta^2)_x&=2\eta\eta_x=-2\eta(\conj q p+q\conj p).
+\end{align*}
+相加得 \eqref{eq:bloch}。不加端态时积分常数只能写作 $C(z)$；给定端态后取 $x\to+\infty$，才得到 \eqref{eq:C}。
+\end{proof}
+若另取 $C=1$，参数必须满足 $\eta_0^2=a^2/(a^2+Q^2)$。本文数值例不作此归一化。由于 $\eta_0\ne0$，背景极化非零，因而不是 $p=\eta=0$ 的普通 Hirota 退化。
+
+\section{完整 Lax 对及来源转换}
+令
+\[
+A(q)=\begin{pmatrix}0&q\\-\conj q&0\end{pmatrix},\quad
+R=\begin{pmatrix}\eta&-p\\-\conj p&-\eta\end{pmatrix},\quad
+\sg=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+采用文献\cite{LHP2013}第 2 页式 (2.2)--(2.4)，作 $t_{\rm source}=x$、$E=q$、$\omega=-a$ 的转换；$\lambda,\alpha,\beta,z$ 不缩放：
+\begin{equation}\label{eq:lax}
+\Phi_x=U\Phi,\quad U=-\ii\lambda\sg+A(q),\qquad
+\Phi_z=V\Phi,\quad V=\sum\limits_{j=0}^{3}\lambda^jV_j+
+\dfrac{\ii R}{\lambda-a}.
+\end{equation}
+全部系数为
+\begin{align}
+V_3&=4\ii\beta\sg,\qquad
+V_2=-\ii\alpha\sg-4\beta A(q),\label{eq:V32}\\
+V_1&=\begin{pmatrix}
+-2\ii\beta|q|^2&\alpha q-2\ii\beta q_x\\
+-\alpha\conj q-2\ii\beta\conj{q_x}&2\ii\beta|q|^2
+\end{pmatrix},\label{eq:V1}\\
+V_0&=\begin{pmatrix}d&b\\c&-d\end{pmatrix},\label{eq:V0}\\
+d&=\dfrac{\ii\alpha}{2}|q|^2-\beta(q\conj{q_x}-q_x\conj q),\nonumber\\
+b&=2\beta|q|^2q+\dfrac{\ii\alpha}{2}q_x+\beta q_{xx},\nonumber\\
+c&=-2\beta|q|^2\conj q+\dfrac{\ii\alpha}{2}\conj{q_x}
+-\beta\conj{q_{xx}}.\nonumber
+\end{align}
+在实参数约化下
+\begin{equation}\label{eq:antihermitian}
+U(\conj\lambda)^\dagger=-U(\lambda),\qquad
+V(\conj\lambda)^\dagger=-V(\lambda).
+\end{equation}
+这里 $R^\dagger=R$，有理项的反 Hermitian 性来自系数 $\ii/(\lambda-a)$。
+
+\begin{proposition}[零曲率检验]\label{prop:zc}
+式 \eqref{eq:lax} 的相容条件
+\begin{equation}\label{eq:zc}
+U_z-V_x+[U,V]=0
+\end{equation}
+等价于 \eqref{eq:HMB} 及其复共轭方程。
+\end{proposition}
+\begin{proof}
+写 $V_{\rm poly}=\displaystyle\sum\limits_{j=0}^3\lambda^jV_j$。由
+$U(\lambda)=U(a)-\ii(\lambda-a)\sg$，有理部分为
+\begin{equation}\label{eq:rationalzc}
+-\dfrac{\ii R_x}{\lambda-a}
++\dfrac{\ii[U(\lambda),R]}{\lambda-a}
+=\dfrac{\ii([U(a),R]-R_x)}{\lambda-a}+[\sg,R].
+\end{equation}
+矩阵相乘给出
+\[
+[U(a),R]=
+\begin{pmatrix}
+-(q\conj p+\conj q p)&2\ii ap-2\eta q\\
+-2\ii a\conj p-2\eta\conj q&q\conj p+\conj q p
+\end{pmatrix}.
+\]
+极点留数为零恰好给出两条介质方程及其共轭。
+
+按 $\lambda^4,\lambda^3,\lambda^2,\lambda$ 比较多项式部分，得到
+\begin{align*}
+&[-\ii\sg,V_3]=0,\\
+&[-\ii\sg,V_2]+[A,V_3]=0,\\
+&-(V_2)_x+[-\ii\sg,V_1]+[A,V_2]=0,\\
+&-(V_1)_x+[-\ii\sg,V_0]+[A,V_1]=0.
+\end{align*}
+将上述系数代入，四式恒等成立。例如二次项的 $(1,2)$ 元为
+$4\beta q_x-2\ii(\alpha q-2\ii\beta q_x)+2\ii\alpha q=0$。
+常数项 $(1,2)$ 元为 $q_z-b_x-2dq-2p$。展开
+\begin{align*}
+b_x+2dq
+&=\beta q_{xxx}+\dfrac{\ii\alpha}{2}q_{xx}
+ +2\beta(|q|^2q)_x+\ii\alpha|q|^2q
+ -2\beta q(q\conj{q_x}-q_x\conj q)\\
+&=\beta q_{xxx}+\dfrac{\ii\alpha}{2}q_{xx}
+ +6\beta|q|^2q_x+\ii\alpha|q|^2q.
+\end{align*}
+这给出光场方程。常数对角元为 $-d_x+qc+b\conj q=0$，$(2,1)$ 元为光场方程的负共轭。附录脚本还以独立变量表示 $q$ 与 $\conj q$，逐元验证整个有理恒等式。
+\end{proof}
+
+\section{背景规范变换与传播色散}
+令
+\begin{equation}\label{eq:gauge}
+G(z)=e^{-\frac{\ii\Omega z}{2}\sg},\quad
+\Phi=G\Psi,\quad u=e^{\ii\Omega z}q,\quad v=e^{\ii\Omega z}p.
+\end{equation}
+则
+\begin{equation}\label{eq:gaugelax}
+\Psi_x=\widehat U\Psi,\quad
+\Psi_z=\widehat V\Psi,\quad
+\widehat U=G^{-1}UG,\quad
+\widehat V=G^{-1}VG+\dfrac{\ii\Omega}{2}\sg.
+\end{equation}
+边界化为 $(u,v,\eta)\to(Q,-\ii\eta_0Q/a,\eta_0)$。新光场方程是
+\[
+u_z=\ii\alpha\left(\dfrac{1}{2}u_{xx}+|u|^2u\right)
++\beta(u_{xxx}+6|u|^2u_x)+2v+\ii\Omega u.
+\]
+因此回到原方程时不能漏掉传播相位。以下带帽介质矩阵由 $v,\eta$ 构成；在不引起歧义时将其仍记为 $R$。
+
+记 $U_\infty=-\ii\lambda\sg+A(Q)$。背景介质矩阵满足
+\begin{equation}\label{eq:Rbg}
+R_\infty=
+\begin{pmatrix}\eta_0&\ii\eta_0Q/a\\-\ii\eta_0Q/a&-\eta_0\end{pmatrix}
+=\dfrac{\ii\eta_0}{a}U_\infty(a).
+\end{equation}
+背景时间矩阵的非对角元为
+\[
+(\widehat V_\infty)_{12}
+=Q\left(-4\beta\lambda^2+\alpha\lambda+2\beta Q^2
+-\dfrac{\eta_0}{a(\lambda-a)}\right).
+\]
+其 $(1,1)$ 元为
+\begin{align*}
+(\widehat V_\infty)_{11}
+&=\ii\left(4\beta\lambda^3-\alpha\lambda^2-2\beta Q^2\lambda
++\dfrac{\alpha Q^2}{2}+\dfrac{\eta_0}{\lambda-a}
++\dfrac{\Omega}{2}\right)\\
+&=\ii\lambda\left(4\beta\lambda^2-\alpha\lambda-2\beta Q^2+
+\dfrac{\eta_0}{a(\lambda-a)}\right),
+\end{align*}
+最后一步用了 $\alpha Q^2/2+\Omega/2=\eta_0/a$。因此
+\begin{equation}\label{eq:F}
+\widehat V_\infty=-F(\lambda)U_\infty,\qquad
+F(\lambda)=4\beta\lambda^2-\alpha\lambda-2\beta Q^2+
+\dfrac{\eta_0}{a(\lambda-a)}.
+\end{equation}
+这与任务书候选式一致，但此处已从完整系数重新推导。空间背景与 NLS 相同并不会消除 $F$ 的有理项。
+
+\section{谱曲线、连续谱与单值化}
+\begin{proposition}[背景谱曲线]\label{prop:curve}
+$U_\infty^2=-(\lambda^2+Q^2)I$。背景空间谱轮廓为
+\begin{equation}\label{eq:lambda-spectrum}
+\Sigma_\lambda=\mathbb R\cup\ii\lbrack-Q,Q\rbrack.
+\end{equation}
+端点 $\pm\ii Q$ 是阈值分支点。
+\end{proposition}
+\begin{proof}
+矩阵平方的非对角元相消，对角元均为 $-\lambda^2-Q^2$。特征值为 $\pm\ii\rho$，其中 $\rho^2=\lambda^2+Q^2$。两指数模式无指数增长要求 $\rho\in\mathbb R$。写 $\lambda=\xi+\ii\nu$，则
+$\rho^2=\xi^2-\nu^2+Q^2+2\ii\xi\nu$。条件为 $\xi\nu=0$ 及 $\xi^2-\nu^2+Q^2\ge0$，给出实轴和 $|\nu|\le Q$ 的虚线段。在端点 $\rho=0$，矩阵一般为非零幂零矩阵，基本解可能线性增长，故不能说那里仍有两个独立振荡特征向量。
+\end{proof}
+这是背景连续谱及衰减扰动的散射轮廓，不是对非自伴算子所有谱型的完整分类。
+
+引入
+\begin{equation}\label{eq:uniform}
+w=\lambda+\rho,\quad
+\lambda(w)=\dfrac{1}{2}\left(w-\dfrac{Q^2}{w}\right),\quad
+\rho(w)=\dfrac{1}{2}\left(w+\dfrac{Q^2}{w}\right).
+\end{equation}
+因 $(\rho-\lambda)(\rho+\lambda)=Q^2$，逆变换成立。满足 $\rho\sim\lambda$ 的无穷远邻域称为第一叶，其像靠近 $w=\infty$；另一无穷远点映到 $w=0$。换叶映射为
+\begin{equation}\label{eq:sheet}
+h(w)=-\dfrac{Q^2}{w},\qquad
+\lambda(h(w))=\lambda(w),\quad \rho(h(w))=-\rho(w).
+\end{equation}
+分支缝在 $w$ 平面成为圆 $|w|=Q$，两个分支点为 $w=\pm\ii Q$；不是整个圆都为分支点。
+
+\begin{proposition}[解析区域及轮廓]\label{prop:domains}
+单值化连续谱与解析区域为
+\begin{align}
+\Sigma&=\mathbb R\cup\{w:|w|=Q\},\label{eq:Sigma}\\
+D_\pm&=\left\{w:\ \pm\operatorname{Im}w
+\left(1-\dfrac{Q^2}{|w|^2}\right)>0\right\}.\label{eq:domains}
+\end{align}
+\end{proposition}
+\begin{proof}
+写 $w=re^{\ii\varphi}$，则
+$\operatorname{Im}\rho=(r-Q^2/r)\sin\varphi/2$。零集为实轴与半径 $Q$ 的圆，正负号给出 \eqref{eq:domains}。外部上半平面和内部下半圆盘同属 $D_+$，其余两块属于 $D_-$。
+\end{proof}
+约定各段轮廓以 $D_+$ 在左侧为正向：实轴外段朝右，内段朝左；上半圆顺时针，下半圆逆时针。交点 $\pm Q$ 的各弧分别定向，不能将整条实轴一律从左向右后仍把“加侧”认作 $D_+$。
+
+背景特征向量矩阵选为
+\begin{equation}\label{eq:E}
+E(w)=I-\dfrac{\ii Q}{w}\sigma_1
+=\begin{pmatrix}1&-\ii Q/w\\-\ii Q/w&1\end{pmatrix},
+\quad \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+\end{equation}
+直接相乘得到
+\begin{equation}\label{eq:diagE}
+U_\infty E=-\ii\rho E\sg,\quad
+\gamma(w):=\det E=1+\dfrac{Q^2}{w^2},\quad
+E^{-1}=\dfrac{I+\ii Q\sigma_1/w}{\gamma(w)}.
+\end{equation}
+背景同时 Lax 解为
+\begin{equation}\label{eq:theta}
+\Psi_0=E(w)e^{-\ii\theta(w;x,z)\sg},\qquad
+\theta=\rho(w)[x-F(\lambda(w))z].
+\end{equation}
+$E^{-1}$ 在 $\pm\ii Q$ 失效，构成后文分支点问题的具体来源。
+
+\section{共振原像}
+由 $\lambda(w)=a$ 得
+\begin{equation}\label{eq:resonance-w}
+w_a^\pm=a\pm\sqrt{a^2+Q^2}.
+\end{equation}
+两点非零、互异、均在实轴，且 $w_a^+w_a^-=-Q^2$，恰为换叶的一对。它们不是离散谱点，单值化也未消除时间极点。$F$ 在此有简单极点，而 $e^{\pm2\ii\theta}$ 一般有本性振荡。固定 $z$ 的空间 Jost 解可以在 $\lambda=a$ 定义；同时归一化的时间相位则不能直接在那里取值。

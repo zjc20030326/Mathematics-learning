@@ -1,0 +1,1183 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          6,
+          4
+        ]
+      ],
+      "date-time": "2026-06-04T06:49:41Z",
+      "timestamp": 1780555781850,
+      "version": "3.54.1"
+    },
+    "reference-count": 92,
+    "publisher": "AIP Publishing",
+    "issue": "7",
+    "funder": [
+      {
+        "name": "National Science Foundation",
+        "award": [
+          "DMS-1615524"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "DMS-1615524"
+            ]
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/100000001",
+        "name": "National Science Foundation",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "DMS-1615859"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "DMS-1615859"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/100000001",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "pubs.aip.org"
+      ],
+      "crossmark-restriction": true
+    },
+    "short-container-title": [],
+    "published-print": {
+      "date-parts": [
+        [
+          2019,
+          7,
+          1
+        ]
+      ]
+    },
+    "abstract": "<jats:p>We formulate the inverse scattering transform for the scalar Maxwell-Bloch system of equations describing the resonant interaction of light and active optical media in the case when the light intensity does not vanish at infinity. We show that pure background states in general do not exist with a nonzero background field. We then use the formalism to compute explicitly the soliton solutions of this system. We discuss the initial population of atoms and show that the pure soliton solutions do not correspond to a pure state initially. We obtain a representation for the soliton solutions in determinant form and explicitly write down the one-soliton solutions. We next derive periodic solutions and rational solutions from the one-soliton solutions. We then analyze the properties of these solutions, including discussion of the sharp-line and small-amplitude limits, and thereafter show that the two limits do not commute. Finally, we investigate the behavior of general solutions, showing that solutions are stable (i.e., the radiative parts of solutions decay) only when initially atoms in the ground state dominate, i.e., initial population inversion is negative.</jats:p>",
+    "DOI": "10.1063/1.5084720",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2019,
+          7,
+          24
+        ]
+      ],
+      "date-time": "2019-07-24T14:31:46Z",
+      "timestamp": 1563978706000
+    },
+    "update-policy": "https://doi.org/10.1063/aip-crossmark-policy-page",
+    "source": "Crossref",
+    "is-referenced-by-count": 12,
+    "title": [
+      "Inverse scattering transform for two-level systems with nonzero background"
+    ],
+    "prefix": "10.1063",
+    "volume": "60",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0003-3835-1343",
+        "authenticated-orcid": false,
+        "given": "Gino",
+        "family": "Biondini",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Mathematics, State University of New York at Buffalo 1 , Buffalo, New York 14260, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ildar",
+        "family": "Gabitov",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Mathematics, University of Arizona 2 , Tucson, Arizona 85721, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-8845-9128",
+        "authenticated-orcid": false,
+        "given": "Gregor",
+        "family": "Kovačič",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Mathematical Sciences, Rensselaer Polytechnic Institute 3 , Troy, New York 12180, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-6078-8069",
+        "authenticated-orcid": false,
+        "given": "Sitai",
+        "family": "Li",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Mathematics, University of Michigan 4 , Ann Arbor, Michigan 48109, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "317",
+    "published-online": {
+      "date-parts": [
+        [
+          2019,
+          7,
+          24
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "issue": "4736",
+        "key": "2023070118133537300_c1",
+        "doi-asserted-by": "publisher",
+        "first-page": "493",
+        "DOI": "10.1038/187493a0",
+        "article-title": "Stimulated optical radiation in ruby",
+        "volume": "187",
+        "year": "1960",
+        "journal-title": "Nature"
+      },
+      {
+        "issue": "21",
+        "key": "2023070118133537300_c2",
+        "doi-asserted-by": "publisher",
+        "first-page": "908",
+        "DOI": "10.1103/physrevlett.18.908",
+        "article-title": "Self-induced transparency by pulsed coherent light",
+        "volume": "18",
+        "year": "1967",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "key": "2023070118133537300_c3",
+        "volume-title": "Optical Resonance and Two-Level Atoms",
+        "year": "1987"
+      },
+      {
+        "key": "2023070118133537300_c4",
+        "doi-asserted-by": "publisher",
+        "first-page": "1",
+        "DOI": "10.1016/0370-1573(90)90142-o",
+        "article-title": "Present state of self-induced transparency theory",
+        "volume": "191",
+        "year": "1990",
+        "journal-title": "Phys. Rep."
+      },
+      {
+        "key": "2023070118133537300_c5",
+        "doi-asserted-by": "publisher",
+        "first-page": "594",
+        "DOI": "10.1038/17561",
+        "article-title": "Light speed reduction to 17 metres per second in an ultracold atomic gas",
+        "volume": "397",
+        "year": "1999",
+        "journal-title": "Nature"
+      },
+      {
+        "issue": "2",
+        "key": "2023070118133537300_c6",
+        "doi-asserted-by": "publisher",
+        "first-page": "457",
+        "DOI": "10.1103/physrev.183.457",
+        "article-title": "Self-induced transparency",
+        "volume": "183",
+        "year": "1969",
+        "journal-title": "Phys. Rev."
+      },
+      {
+        "key": "2023070118133537300_c7",
+        "doi-asserted-by": "publisher",
+        "first-page": "1634",
+        "DOI": "10.1103/physreva.5.1634",
+        "article-title": "Self-induced transparency in atomic rubidium",
+        "volume": "5",
+        "year": "1972",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "issue": "18",
+        "key": "2023070118133537300_c8",
+        "doi-asserted-by": "publisher",
+        "first-page": "1211",
+        "DOI": "10.1103/physrevlett.29.1211",
+        "article-title": "Two-photon self-induced transparency of different-frequency optical short pulses in potassium",
+        "volume": "29",
+        "year": "1972",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "key": "2023070118133537300_c9",
+        "doi-asserted-by": "publisher",
+        "first-page": "99",
+        "DOI": "10.1103/revmodphys.43.99",
+        "article-title": "Analytical descriptions of ultrashort optical pulse propagation in a resonant medium",
+        "volume": "43",
+        "year": "1971",
+        "journal-title": "Rev. Mod. Phys."
+      },
+      {
+        "key": "2023070118133537300_c10",
+        "doi-asserted-by": "publisher",
+        "first-page": "422",
+        "DOI": "10.1103/physreva.9.422",
+        "article-title": "Coherent-optical-pulse propagation as an inverse problem",
+        "volume": "9",
+        "year": "1974",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "key": "2023070118133537300_c11",
+        "doi-asserted-by": "publisher",
+        "first-page": "2047",
+        "DOI": "10.1103/physreva.20.2047",
+        "article-title": "Fluctuations in superfluorescence",
+        "volume": "20",
+        "year": "1979",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "key": "2023070118133537300_c12",
+        "doi-asserted-by": "publisher",
+        "first-page": "99",
+        "DOI": "10.1103/physrev.93.99",
+        "article-title": "Coherence in spontaneous radiation processes",
+        "volume": "93",
+        "year": "1954",
+        "journal-title": "Phys. Rev."
+      },
+      {
+        "issue": "8",
+        "key": "2023070118133537300_c13",
+        "doi-asserted-by": "publisher",
+        "first-page": "309",
+        "DOI": "10.1103/physrevlett.30.309",
+        "article-title": "Observation of dicke superradiance in optically pumped hf gas",
+        "volume": "30",
+        "year": "1973",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "key": "2023070118133537300_c14",
+        "doi-asserted-by": "publisher",
+        "first-page": "1507",
+        "DOI": "10.1103/physreva.11.1507",
+        "article-title": "Cooperative radiation processes in two-level systems: Superfluorescence",
+        "volume": "11",
+        "year": "1975",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "key": "2023070118133537300_c15",
+        "doi-asserted-by": "publisher",
+        "first-page": "587",
+        "DOI": "10.1103/physreva.12.587",
+        "article-title": "Cooperative radiation processes in two-level systems: Superfluorescence. II",
+        "volume": "12",
+        "year": "1975",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "issue": "3",
+        "key": "2023070118133537300_c16",
+        "doi-asserted-by": "publisher",
+        "first-page": "1192",
+        "DOI": "10.1103/physreva.19.1192",
+        "article-title": "Superfluorescence: Quantum-mechanical derivation of Maxwell-Bloch description with fluctuating field source",
+        "volume": "19",
+        "year": "1979",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "issue": "4",
+        "key": "2023070118133537300_c17",
+        "first-page": "703",
+        "article-title": "Nonlinear theory of superflourescence",
+        "volume": "59",
+        "year": "1984",
+        "journal-title": "Sov. Phys. JETP"
+      },
+      {
+        "issue": "17",
+        "key": "2023070118133537300_c18",
+        "doi-asserted-by": "publisher",
+        "first-page": "1035",
+        "DOI": "10.1103/physrevlett.36.1035",
+        "article-title": "Observation of near-infrared Dicke superradiance on cascading transitions in atomic sodium",
+        "volume": "36",
+        "year": "1976",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "issue": "9",
+        "key": "2023070118133537300_c19",
+        "doi-asserted-by": "publisher",
+        "first-page": "547",
+        "DOI": "10.1103/physrevlett.39.547",
+        "article-title": "Single-pulse superfluorescence in cesium",
+        "volume": "39",
+        "year": "1977",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "issue": "19",
+        "key": "2023070118133537300_c20",
+        "doi-asserted-by": "publisher",
+        "first-page": "567",
+        "DOI": "10.1103/physrevlett.13.567",
+        "article-title": "Observation of a photon echo",
+        "volume": "13",
+        "year": "1964",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "issue": "8",
+        "key": "2023070118133537300_c21",
+        "doi-asserted-by": "publisher",
+        "first-page": "548",
+        "DOI": "10.1016/0375-9601(69)90098-x",
+        "article-title": "Optical pulse propagation in an inhomogeneously broadened medium",
+        "volume": "28",
+        "year": "1969",
+        "journal-title": "Phys. Lett. A"
+      },
+      {
+        "issue": "20",
+        "key": "2023070118133537300_c22",
+        "doi-asserted-by": "publisher",
+        "first-page": "1087",
+        "DOI": "10.1103/physrevlett.20.1087",
+        "article-title": "Photon echoes in gases",
+        "volume": "20",
+        "year": "1968",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "issue": "2",
+        "key": "2023070118133537300_c23",
+        "doi-asserted-by": "publisher",
+        "first-page": "294",
+        "DOI": "10.1103/physrev.179.294",
+        "article-title": "Photon echoes in gases",
+        "volume": "179",
+        "year": "1969",
+        "journal-title": "Phys. Rev."
+      },
+      {
+        "key": "2023070118133537300_c24",
+        "doi-asserted-by": "publisher",
+        "first-page": "49",
+        "DOI": "10.1063/1.1722572",
+        "article-title": "Geometrical representation of the Schrödinger equation for solving maser problems",
+        "volume": "28",
+        "year": "1957",
+        "journal-title": "J. Appl. Phys."
+      },
+      {
+        "key": "2023070118133537300_c25",
+        "doi-asserted-by": "publisher",
+        "first-page": "89",
+        "DOI": "10.1109/proc.1963.1664",
+        "article-title": "Comparison of quantum and semiclassical radiation theories with application to beam maser",
+        "volume": "51",
+        "year": "1963",
+        "journal-title": "Proc. IEEE"
+      },
+      {
+        "key": "2023070118133537300_c26",
+        "doi-asserted-by": "publisher",
+        "first-page": "76",
+        "DOI": "10.1109/proc.1963.1662",
+        "article-title": "Semiclassical treatment of the optical maser",
+        "volume": "51",
+        "year": "1963",
+        "journal-title": "Proc. IEEE"
+      },
+      {
+        "issue": "10",
+        "key": "2023070118133537300_c27",
+        "doi-asserted-by": "publisher",
+        "first-page": "4662",
+        "DOI": "10.1063/1.1655817",
+        "article-title": "Self-pulsing in lasers",
+        "volume": "39",
+        "year": "1968",
+        "journal-title": "J. Appl. Phys."
+      },
+      {
+        "key": "2023070118133537300_c28",
+        "volume-title": "Perturbation Methods in Applied Mathematics",
+        "year": "1981"
+      },
+      {
+        "issue": "7",
+        "key": "2023070118133537300_c29",
+        "doi-asserted-by": "publisher",
+        "first-page": "3826",
+        "DOI": "10.1103/physreva.41.3826",
+        "article-title": "Detuned lasers and the complex Lorenz equations: Subcritical and supercritical Hopf bifurcations",
+        "volume": "41",
+        "year": "1990",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "issue": "3",
+        "key": "2023070118133537300_c30",
+        "doi-asserted-by": "publisher",
+        "first-page": "1842",
+        "DOI": "10.1103/physreva.33.1842",
+        "article-title": "Mode-mode competition and unstable behavior in a homogeneously broadened ring laser",
+        "volume": "33",
+        "year": "1986",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "issue": "3",
+        "key": "2023070118133537300_c31",
+        "doi-asserted-by": "publisher",
+        "first-page": "1563",
+        "DOI": "10.1103/physreva.32.1563",
+        "article-title": "Multimode instabilities in a homogeneously broadened ring laser",
+        "volume": "32",
+        "year": "1985",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "issue": "1-2",
+        "key": "2023070118133537300_c32",
+        "first-page": "57",
+        "article-title": "Order and chaos in quantum optics",
+        "volume": "56",
+        "year": "1984",
+        "journal-title": "Acta Phys. Austriaca"
+      },
+      {
+        "issue": "2",
+        "key": "2023070118133537300_c33",
+        "first-page": "119",
+        "article-title": "Stable self-pulsation and chaos in laser with injected signal",
+        "volume": "57",
+        "year": "1985",
+        "journal-title": "Acta Phys. Austriaca"
+      },
+      {
+        "issue": "1",
+        "key": "2023070118133537300_c34",
+        "doi-asserted-by": "publisher",
+        "first-page": "77",
+        "DOI": "10.1016/0375-9601(75)90353-9",
+        "article-title": "Analogy between higher instabilities in fluids and lasers",
+        "volume": "53",
+        "year": "1975",
+        "journal-title": "Phys. Lett. A"
+      },
+      {
+        "issue": "22",
+        "key": "2023070118133537300_c35",
+        "doi-asserted-by": "publisher",
+        "first-page": "2804",
+        "DOI": "10.1103/physrevlett.57.2804",
+        "article-title": "Evidence for Lorenz-type chaos in a laser",
+        "volume": "57",
+        "year": "1986",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "issue": "1",
+        "key": "2023070118133537300_c36",
+        "doi-asserted-by": "publisher",
+        "first-page": "751",
+        "DOI": "10.1103/physreva.55.751",
+        "article-title": "Soft turbulence in multimode lasers",
+        "volume": "55",
+        "year": "1997",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "key": "2023070118133537300_c37",
+        "doi-asserted-by": "publisher",
+        "first-page": "295",
+        "DOI": "10.1143/ptps.99.295",
+        "article-title": "Maxwell-Bloch turbulence",
+        "volume": "99",
+        "year": "1989",
+        "journal-title": "Prog. Theor. Phys. Suppl."
+      },
+      {
+        "issue": "9",
+        "key": "2023070118133537300_c38",
+        "doi-asserted-by": "publisher",
+        "first-page": "1894",
+        "DOI": "10.1103/physrevlett.84.1894",
+        "article-title": "Finite flux solutions of the quantum Boltzmann equation and semiconductor lasers",
+        "volume": "84",
+        "year": "2000",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "issue": "3-4",
+        "key": "2023070118133537300_c39",
+        "doi-asserted-by": "publisher",
+        "first-page": "317",
+        "DOI": "10.1016/s0167-2789(98)00015-3",
+        "article-title": "Quantum weak turbulence with applications to semiconductor lasers",
+        "volume": "121",
+        "year": "1998",
+        "journal-title": "Physica D"
+      },
+      {
+        "issue": "2",
+        "key": "2023070118133537300_c40",
+        "doi-asserted-by": "publisher",
+        "first-page": "241",
+        "DOI": "10.1088/0951-7715/2/2/003",
+        "article-title": "Finite-dimensional attractor for the laser equations",
+        "volume": "2",
+        "year": "1989",
+        "journal-title": "Nonlinearity"
+      },
+      {
+        "issue": "3",
+        "key": "2023070118133537300_c41",
+        "doi-asserted-by": "publisher",
+        "first-page": "501",
+        "DOI": "10.1088/0951-7715/11/3/006",
+        "article-title": "Global solutions and attractors of a Maxwell-Bloch Raman laser system in two transverse dimensions",
+        "volume": "11",
+        "year": "1998",
+        "journal-title": "Nonlinearity"
+      },
+      {
+        "issue": "6",
+        "key": "2023070118133537300_c42",
+        "doi-asserted-by": "publisher",
+        "first-page": "1505",
+        "DOI": "10.1088/0951-7715/12/6/304",
+        "article-title": "Gevrey class regularity for the attractor of the laser equations",
+        "volume": "12",
+        "year": "1999",
+        "journal-title": "Nonlinearity"
+      },
+      {
+        "issue": "21",
+        "key": "2023070118133537300_c43",
+        "doi-asserted-by": "publisher",
+        "first-page": "2205",
+        "DOI": "10.1103/physrevlett.58.2205",
+        "article-title": "Laser dynamics with competing instabilities",
+        "volume": "58",
+        "year": "1987",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "issue": "2",
+        "key": "2023070118133537300_c44",
+        "doi-asserted-by": "publisher",
+        "first-page": "315",
+        "DOI": "10.1137/s0036141000360458",
+        "article-title": "Infinite dimensional geometric singular perturbation theory for the Maxwell–Bloch equations",
+        "volume": "33",
+        "year": "2001",
+        "journal-title": "SIAM J. Math. Anal."
+      },
+      {
+        "key": "2023070118133537300_c45",
+        "doi-asserted-by": "publisher",
+        "first-page": "1852",
+        "DOI": "10.1063/1.1666551",
+        "article-title": "Coherent pulse propagation, a dispersive irreversible phenomenon",
+        "volume": "15",
+        "year": "1974",
+        "journal-title": "J. Math. Phys."
+      },
+      {
+        "key": "2023070118133537300_c46",
+        "doi-asserted-by": "publisher",
+        "first-page": "704",
+        "DOI": "10.1103/physreva.16.704",
+        "article-title": "Coherent pulse propagation: A comparison of the complete solution with the McCall-Hahn theory and others",
+        "volume": "16",
+        "year": "1977",
+        "journal-title": "Phys. Rev. A"
+      },
+      {
+        "key": "2023070118133537300_c47",
+        "first-page": "589",
+        "article-title": "Propagation of an amplifying pulse in a two-level medium",
+        "volume": "32",
+        "year": "1980",
+        "journal-title": "JETP Lett."
+      },
+      {
+        "issue": "2",
+        "key": "2023070118133537300_c48",
+        "first-page": "227",
+        "article-title": "The inverse scattering formalism in the theory of photon (light) echo",
+        "volume": "55",
+        "year": "1982",
+        "journal-title": "Sov. Phys. JETP"
+      },
+      {
+        "issue": "1",
+        "key": "2023070118133537300_c49",
+        "first-page": "37",
+        "article-title": "Propagation of ultrashort optical pulse in two level laser amplifier",
+        "volume": "56",
+        "year": "1982",
+        "journal-title": "Sov. Phys. JETP"
+      },
+      {
+        "issue": "1",
+        "key": "2023070118133537300_c50",
+        "doi-asserted-by": "publisher",
+        "first-page": "987",
+        "DOI": "10.1007/bf01037673",
+        "article-title": "Complete asymptotic representation of an electromagnetic pulse in a long two-level amplifier",
+        "volume": "69",
+        "year": "1986",
+        "journal-title": "Theor. Math. Phys."
+      },
+      {
+        "issue": "5",
+        "key": "2023070118133537300_c51",
+        "first-page": "279",
+        "article-title": "Superfluorescence pulse shape",
+        "volume": "37",
+        "year": "1983",
+        "journal-title": "JETP Lett."
+      },
+      {
+        "issue": "1",
+        "key": "2023070118133537300_c52",
+        "doi-asserted-by": "publisher",
+        "first-page": "328",
+        "DOI": "10.1007/bf01017833",
+        "article-title": "Maxwell-Bloch equation and the inverse scattering method",
+        "volume": "63",
+        "year": "1985",
+        "journal-title": "Theor. Math. Phys."
+      },
+      {
+        "key": "2023070118133537300_c53",
+        "volume-title": "Solitons and the Inverse Scattering Transform",
+        "year": "1981"
+      },
+      {
+        "key": "2023070118133537300_c54",
+        "volume-title": "Theory of Solitons: The Inverse Scattering Method",
+        "year": "1984"
+      },
+      {
+        "key": "2023070118133537300_c55",
+        "first-page": "62",
+        "article-title": "Exact theory of two-dimensional self-focusing and one-dimensional self-modulation of waves in nonlinear media",
+        "volume": "34",
+        "year": "1972",
+        "journal-title": "Sov. Phys. JETP"
+      },
+      {
+        "key": "2023070118133537300_c56",
+        "doi-asserted-by": "publisher",
+        "first-page": "249",
+        "DOI": "10.1002/sapm1974534249",
+        "article-title": "The inverse scattering transform-Fourier analysis for nonlinear problems",
+        "volume": "53",
+        "year": "1974",
+        "journal-title": "Stud. Appl. Math."
+      },
+      {
+        "key": "2023070118133537300_c57",
+        "volume-title": "Solitons in Optical Communications",
+        "year": "1995"
+      },
+      {
+        "key": "2023070118133537300_c58",
+        "doi-asserted-by": "crossref",
+        "first-page": "195",
+        "DOI": "10.1007/3-540-46629-0",
+        "article-title": "Nonlinear fiber optics",
+        "volume-title": "Nonlinear Science at the Dawn of the 21st Century",
+        "author": "Christiansen",
+        "year": "2000"
+      },
+      {
+        "key": "2023070118133537300_c59",
+        "doi-asserted-by": "publisher",
+        "first-page": "173",
+        "DOI": "10.1088/0266-5611/4/1/015",
+        "article-title": "Darboux transformations and coherent interaction of the light pulse with two-level media",
+        "volume": "4",
+        "year": "1988",
+        "journal-title": "Inverse Probl."
+      },
+      {
+        "key": "2023070118133537300_c60",
+        "doi-asserted-by": "publisher",
+        "first-page": "2774",
+        "DOI": "10.1103/physrevlett.86.2774",
+        "article-title": "Modification of self-induced transparency by a coherent control field",
+        "volume": "86",
+        "year": "2001",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "key": "2023070118133537300_c61",
+        "first-page": "316",
+        "article-title": "Multi-optical rogue waves of the Maxwell-Bloch equations",
+        "volume": "68",
+        "year": "2016",
+        "journal-title": "Rom. Rep. Phys."
+      },
+      {
+        "key": "2023070118133537300_c62",
+        "doi-asserted-by": "publisher",
+        "first-page": "062201",
+        "DOI": "10.1103/physreve.93.062201",
+        "article-title": "Rogue wave triggered at a critical frequency of a nonlinear resonant medium",
+        "volume": "93",
+        "year": "2016",
+        "journal-title": "Phys. Rev. E"
+      },
+      {
+        "key": "2023070118133537300_c63",
+        "doi-asserted-by": "publisher",
+        "first-page": "L177",
+        "DOI": "10.1088/0305-4470/38/9/l04",
+        "article-title": "Stopping a slow-light soliton: An exact solution",
+        "volume": "38",
+        "year": "2005",
+        "journal-title": "J. Phys. A: Math. Gen."
+      },
+      {
+        "key": "2023070118133537300_c64",
+        "doi-asserted-by": "publisher",
+        "first-page": "L357",
+        "DOI": "10.1088/0305-4470/38/20/l04",
+        "article-title": "Driving slow-light solitons by a controlling laser field",
+        "volume": "38",
+        "year": "2005",
+        "journal-title": "J. Phys. A: Math. Gen."
+      },
+      {
+        "key": "2023070118133537300_c65",
+        "doi-asserted-by": "publisher",
+        "first-page": "066603",
+        "DOI": "10.1103/physreve.86.066603",
+        "article-title": "n-order bright and dark rogue waves in a resonant erbium-doped fiber system",
+        "volume": "86",
+        "year": "2012",
+        "journal-title": "Phys. Rev. E"
+      },
+      {
+        "key": "2023070118133537300_c66",
+        "doi-asserted-by": "publisher",
+        "first-page": "97",
+        "DOI": "10.1016/j.aop.2015.04.025",
+        "article-title": "Breather interactions and higher-order nonautonomous rogue waves for the inhomogeneous nonlinear Schrödinger Maxwell-Bloch equations",
+        "volume": "359",
+        "year": "2015",
+        "journal-title": "Ann. Phys."
+      },
+      {
+        "key": "2023070118133537300_c67",
+        "doi-asserted-by": "publisher",
+        "first-page": "033002",
+        "DOI": "10.1143/jpsj.81.033002",
+        "article-title": "New types of rogue wave in an erbium-doped fibre system",
+        "volume": "81",
+        "year": "2012",
+        "journal-title": "J. Phys. Soc. Jpn."
+      },
+      {
+        "key": "2023070118133537300_c68",
+        "doi-asserted-by": "publisher",
+        "first-page": "012913",
+        "DOI": "10.1103/physreve.87.012913",
+        "article-title": "Rogue waves of the Hirota and the Maxwell-Bloch equations",
+        "volume": "87",
+        "year": "2013",
+        "journal-title": "Phys. Rev. E"
+      },
+      {
+        "key": "2023070118133537300_c69",
+        "doi-asserted-by": "publisher",
+        "first-page": "031506",
+        "DOI": "10.1063/1.4868483",
+        "article-title": "Inverse scattering transform for the focusing nonlinear Schrödinger equation with nonzero boundary conditions",
+        "volume": "55",
+        "year": "2014",
+        "journal-title": "J. Math. Phys."
+      },
+      {
+        "key": "2023070118133537300_c70",
+        "doi-asserted-by": "publisher",
+        "first-page": "540",
+        "DOI": "10.1016/j.physd.2008.12.002",
+        "article-title": "Modulation instability: The beginning",
+        "volume": "238",
+        "year": "2009",
+        "journal-title": "Physica D"
+      },
+      {
+        "key": "2023070118133537300_c71",
+        "doi-asserted-by": "publisher",
+        "first-page": "790",
+        "DOI": "10.1038/nphys1740",
+        "article-title": "The peregrine soliton in nonlinear fibre optics",
+        "volume": "6",
+        "year": "2010",
+        "journal-title": "Nat. Phys."
+      },
+      {
+        "key": "2023070118133537300_c72",
+        "doi-asserted-by": "publisher",
+        "first-page": "1054",
+        "DOI": "10.1038/nature06402",
+        "article-title": "Optical rogue waves",
+        "volume": "450",
+        "year": "2007",
+        "journal-title": "Nature"
+      },
+      {
+        "key": "2023070118133537300_c73",
+        "doi-asserted-by": "publisher",
+        "first-page": "014503",
+        "DOI": "10.1103/physrevlett.96.014503",
+        "article-title": "Modulational instability in crossing sea states: A possible mechanism for the formation of freak waves",
+        "volume": "96",
+        "year": "2006",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "issue": "3",
+        "key": "2023070118133537300_c74",
+        "doi-asserted-by": "publisher",
+        "first-page": "219",
+        "DOI": "10.1111/j.1467-9590.2009.00430.x",
+        "article-title": "Turbulence in integrable systems",
+        "volume": "122",
+        "year": "2009",
+        "journal-title": "Stud. Appl. Math."
+      },
+      {
+        "issue": "8",
+        "key": "2023070118133537300_c75",
+        "doi-asserted-by": "publisher",
+        "first-page": "2791",
+        "DOI": "10.1088/0951-7715/28/8/2791",
+        "article-title": "Integrable turbulence and formation of rogue waves",
+        "volume": "28",
+        "year": "2015",
+        "journal-title": "Nonlinearity"
+      },
+      {
+        "key": "2023070118133537300_c76",
+        "doi-asserted-by": "publisher",
+        "first-page": "043902",
+        "DOI": "10.1103/physrevlett.116.043902",
+        "article-title": "Universal nature of the nonlinear stage of modulational instability",
+        "volume": "116",
+        "year": "2016",
+        "journal-title": "Phys. Rev. Lett."
+      },
+      {
+        "key": "2023070118133537300_c77",
+        "doi-asserted-by": "publisher",
+        "first-page": "2300",
+        "DOI": "10.1002/cpa.21701",
+        "article-title": "Long-time asymptotics for the focusing nonlinear Schrödinger equation with nonzero boundary conditions at infinity and asymptotic stage of modulational instability",
+        "volume": "70",
+        "year": "2017",
+        "journal-title": "Commun. Pure Appl. Math."
+      },
+      {
+        "key": "2023070118133537300_c78",
+        "doi-asserted-by": "publisher",
+        "first-page": "060201R",
+        "DOI": "10.1103/physreve.94.060201",
+        "article-title": "Oscillation structure of localized perturbations of modulationally unstable media",
+        "volume": "94",
+        "year": "2016",
+        "journal-title": "Phys. Rev. E"
+      },
+      {
+        "key": "2023070118133537300_c79",
+        "doi-asserted-by": "publisher",
+        "first-page": "888",
+        "DOI": "10.1137/17M1112765",
+        "article-title": "Universal behavior of modulationally unstable media",
+        "volume": "60",
+        "year": "2018",
+        "journal-title": "SIAM Rev."
+      },
+      {
+        "key": "2023070118133537300_c80",
+        "doi-asserted-by": "publisher",
+        "first-page": "20001",
+        "DOI": "10.1209/0295-5075/121/20001",
+        "article-title": "Resonant optical pulses on a continuous wave background in two-level active media",
+        "volume": "121",
+        "year": "2018",
+        "journal-title": "Europhys. Lett."
+      },
+      {
+        "key": "2023070118133537300_c81",
+        "first-page": "823",
+        "article-title": "Interaction between solitons in a stable medium",
+        "volume": "37",
+        "year": "1973",
+        "journal-title": "Sov. Phys. JETP"
+      },
+      {
+        "key": "2023070118133537300_c82",
+        "volume-title": "Hamiltonian Methods in the Theory of Solitons",
+        "year": "1987"
+      },
+      {
+        "key": "2023070118133537300_c83",
+        "volume-title": "Discrete and Continuous Nonlinear Schrödinger Systems",
+        "year": "2004"
+      },
+      {
+        "key": "2023070118133537300_c84",
+        "doi-asserted-by": "publisher",
+        "first-page": "1722",
+        "DOI": "10.1002/cpa.21819",
+        "article-title": "A robust inverse scattering transform for the focusing nonlinear Schrödinger equation",
+        "volume": "72",
+        "year": "2019",
+        "journal-title": "Comm. Pure Appl. Math."
+      },
+      {
+        "key": "2023070118133537300_c85",
+        "first-page": "575",
+        "article-title": "Solitons in a parametrically unstable plasma",
+        "volume": "236",
+        "year": "1977",
+        "journal-title": "Akad. Nauk SSSR Dokl."
+      },
+      {
+        "key": "2023070118133537300_c86",
+        "doi-asserted-by": "publisher",
+        "first-page": "43",
+        "DOI": "10.1002/sapm197960143",
+        "article-title": "The perturbed plane-wave solutions of the cubic Schrödinger equation",
+        "volume": "60",
+        "year": "1979",
+        "journal-title": "Stud. Appl. Math."
+      },
+      {
+        "key": "2023070118133537300_c87",
+        "doi-asserted-by": "publisher",
+        "first-page": "3510",
+        "DOI": "10.1103/physreve.57.3510",
+        "article-title": "Breather solutions to the focusing nonlinear Schrödinger equation",
+        "volume": "57",
+        "year": "1998",
+        "journal-title": "Phys. Rev. E"
+      },
+      {
+        "key": "2023070118133537300_c88",
+        "doi-asserted-by": "publisher",
+        "first-page": "69",
+        "DOI": "10.1016/s0167-2789(03)00245-8",
+        "article-title": "Polarization switching of light interacting with a degenerate two-level optical medium",
+        "volume": "186",
+        "year": "2003",
+        "journal-title": "Physica D"
+      },
+      {
+        "issue": "2",
+        "key": "2023070118133537300_c89",
+        "doi-asserted-by": "publisher",
+        "first-page": "1089",
+        "DOI": "10.1007/bf01037866",
+        "article-title": "Modulation instability and periodic solutions of the nonlinear Schrödinger equation",
+        "volume": "69",
+        "year": "1986",
+        "journal-title": "Theor. Math. Phys."
+      },
+      {
+        "issue": "1",
+        "key": "2023070118133537300_c90",
+        "doi-asserted-by": "publisher",
+        "first-page": "16",
+        "DOI": "10.1017/s0334270000003891",
+        "article-title": "Water waves, nonlinear Schrödinger equations and their solutions",
+        "volume": "25",
+        "year": "1983",
+        "journal-title": "J. Aust. Math. Soc., Ser. B.: Appl. Math."
+      },
+      {
+        "key": "2023070118133537300_c91",
+        "doi-asserted-by": "publisher",
+        "first-page": "3101",
+        "DOI": "10.1088/0951-7715/28/9/3101",
+        "article-title": "The focusing Manakov system with non-zero boundary conditions",
+        "volume": "28",
+        "year": "2015",
+        "journal-title": "Nonlinearity"
+      },
+      {
+        "key": "2023070118133537300_c92",
+        "doi-asserted-by": "publisher",
+        "first-page": "58",
+        "DOI": "10.1016/j.physd.2014.04.003",
+        "article-title": "Inverse scattering transform for 3-level coupled Maxwell–Bloch equations with inhomogeneous broadening",
+        "volume": "278-279",
+        "year": "2014",
+        "journal-title": "Physica D"
+      }
+    ],
+    "container-title": [
+      "Journal of Mathematical Physics"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "http://aip.scitation.org/doi/am-pdf/10.1063/1.5084720",
+        "content-type": "application/pdf",
+        "content-version": "am",
+        "intended-application": "syndication"
+      },
+      {
+        "URL": "https://pubs.aip.org/aip/jmp/article-pdf/doi/10.1063/1.5084720/16063055/073510_1_online.pdf",
+        "content-type": "application/pdf",
+        "content-version": "vor",
+        "intended-application": "syndication"
+      },
+      {
+        "URL": "https://pubs.aip.org/aip/jmp/article-pdf/doi/10.1063/1.5084720/16063055/073510_1_online.pdf",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2023,
+          7,
+          1
+        ]
+      ],
+      "date-time": "2023-07-01T18:13:50Z",
+      "timestamp": 1688235230000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://pubs.aip.org/jmp/article/60/7/073510/319911/Inverse-scattering-transform-for-two-level-systems"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2019,
+          7,
+          1
+        ]
+      ]
+    },
+    "references-count": 92,
+    "journal-issue": {
+      "issue": "7",
+      "published-print": {
+        "date-parts": [
+          [
+            2019,
+            7,
+            1
+          ]
+        ]
+      }
+    },
+    "URL": "https://doi.org/10.1063/1.5084720",
+    "relation": {},
+    "ISSN": [
+      "0022-2488",
+      "1089-7658"
+    ],
+    "issn-type": [
+      {
+        "value": "0022-2488",
+        "type": "print"
+      },
+      {
+        "value": "1089-7658",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published-other": {
+      "date-parts": [
+        [
+          2019,
+          7
+        ]
+      ]
+    },
+    "published": {
+      "date-parts": [
+        [
+          2019,
+          7,
+          1
+        ]
+      ]
+    },
+    "article-number": "073510"
+  }
+}

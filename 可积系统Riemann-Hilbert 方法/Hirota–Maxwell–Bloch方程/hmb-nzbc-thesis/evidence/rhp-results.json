@@ -1,0 +1,25 @@
+{
+  "precision_digits": 60,
+  "point_x_z": [
+    "0.37",
+    "0.21"
+  ],
+  "checks": {
+    "residue_outer": "7.29259602874e-62",
+    "residue_inner": "3.88938454866e-62",
+    "determinant_0": "2.26996491317e-61",
+    "sheet_0": "3.47877129658e-61",
+    "conjugation_0": "1.1000840756e-61",
+    "spatial_lax_0": "3.18508300084e-61",
+    "determinant_1": "6.22301527786e-61",
+    "sheet_1": "8.01817165639e-62",
+    "conjugation_1": "1.55575381947e-61",
+    "spatial_lax_1": "6.95754259316e-61",
+    "determinant_2": "1.58998283588e-61",
+    "sheet_2": "1.60363433128e-61",
+    "conjugation_2": "0.0",
+    "spatial_lax_2": "1.60363433128e-61",
+    "medium_reconstruction_0": "2.18777880862e-62",
+    "medium_reconstruction_1": "2.33381247326e-61"
+  }
+}

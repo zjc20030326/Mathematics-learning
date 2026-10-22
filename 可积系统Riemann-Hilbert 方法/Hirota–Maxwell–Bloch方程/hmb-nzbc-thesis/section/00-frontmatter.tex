@@ -1,0 +1,38 @@
+\begin{abstract}
+本文研究 Hirota–Maxwell–Bloch 方程在光场真正非零、介质端态相容的平面波边界下的谱问题与反问题。首先以原始文献的一般参数 Lax 对为出发点，逐项检验零曲率方程、平面波背景及 Bloch 长度守恒，并从时间规范变换推导包含实轴共振极点的背景相位。随后在双叶黎曼曲面的单值化平面上，建立远离分支点的 Jost 列解的 Volterra 构造，给出散射矩阵的约化、四点离散谱轨道、跳跃矩阵、简单极点留数及零点和无穷远两处的归一化。
+
+对纯虚简单谱参数，本文把一次 Darboux 变换的端态矩阵显式对角化，得到一组完整四点轨道的无反射亚纯 Riemann–Hilbert 解。其光场由无穷远展开重构，极化与粒子数反转由实共振点处的酉共轭重构；经过恒定相位旋转，三个场满足预先指定的相同左右平面波背景。文中给出这一解的可计算表达式、分母无零点与端态证明，并实现多次 dressing 的递推。对一重与二重示例独立计算原方程的三条残差及 Bloch 约束，辅以三场图像。
+
+此外，对一个非平凡有理参数例，利用辅助指数变量把三个场写成有理函数，精确计算得到三条原方程残差及 Bloch 偏差均为零。
+
+本文是一份带有明确研究状态的硕士论文初稿。一般含反射数据的共振点正则性、分支点统一函数空间以及任意多孤子数据的标准散射 RHP 对应尚未完成。共振点反射为零的结论仅在所列 Jost 正则性和介质端态假设下证明；不据此宣称一般逆散射变换的全局存在性，也不将已知 Darboux 波形称为新的孤子。
+\end{abstract}
+\begin{abstract*}
+This draft studies the Hirota--Maxwell--Bloch system with a genuinely nonzero optical background and compatible medium end states. Starting from a general-parameter Lax pair, we verify the zero-curvature equations, the plane wave and the Bloch invariant. The background time phase is derived after a gauge transformation and retains a real resonant pole. A uniformizing variable converts the two-sheeted spectral surface into a plane. Volterra equations establish the appropriate analytic Jost columns away from the branch points; the scattering reductions, discrete spectral quartets, jump matrix, simple-pole residues and normalizations at zero and infinity are then derived.
+
+For a purely imaginary simple spectral parameter, explicit diagonalization of the Darboux end-state matrices connects a one-fold dressing to a reflectionless meromorphic Riemann--Hilbert problem with a full spectral quartet. The optical field is recovered at infinity, while the medium variables are reconstructed by unitary conjugation at resonance. A constant phase rotation restores the prescribed common background. Explicit formulas, nonvanishing denominators, endpoint limits and an iterative dressing procedure are provided. Independent high-precision differentiation checks all three original equations for one- and two-fold examples.
+
+For a nontrivial rational parameter example, auxiliary exponential variables reduce all three fields to rational expressions. Exact symbolic substitution gives zero for the three PDE residuals and the Bloch defect.
+
+The mathematical scope is deliberately limited. A general inverse theorem with reflection, a unified branch-point function space, and a complete arbitrary multi-soliton scattering correspondence remain open in this draft. Reflection vanishes at resonance only under the stated regularity and endpoint assumptions. No general global solvability result or novelty of the known Darboux waveforms is claimed.
+\end{abstract*}
+\tableofcontents
+\chapter*{阅读说明与符号}
+\addcontentsline{toc}{chapter}{阅读说明与符号}
+本稿日期基准为 2026 年 10 月 21 日，属于研究初稿，不是送审稿。封面个人信息均为占位信息。“已证”指给定假设下列出可核验的推导；“条件命题”不表示其假设已对任意初值得到验证。数值残差不能替代解析证明。状态、来源及构建记录见工程中的 \texttt{RESEARCH\_STATUS.md}、\texttt{REFERENCES.md} 与 \texttt{BUILD.md}。
+\begin{longtable}{p{0.19\textwidth}p{0.73\textwidth}}
+\toprule 符号 & 含义\\\midrule
+$x,z$ & 推迟时间与传播变量，均为实数\\
+$q,p,\eta$ & 复光场、复极化及实粒子数反转\\
+$Q,a,\eta_0$ & $Q>0$，实共振参数 $a\ne0$，非零介质端态 $\eta_0$\\
+$u,v$ & 去除背景传播相位后的光场与极化\\
+$A(u),R$ & 空间非对角势矩阵与介质矩阵\\
+$\lambda,\rho,w$ & 原谱参数、双值根及单值化参数\\
+$h(w)$ & 换叶映射 $-Q^2/w$\\
+$D_+,D_-$ & 分别满足 $\operatorname{Im}\rho>0$ 与 $\operatorname{Im}\rho<0$ 的区域\\
+$\Sigma,\gamma$ & 连续谱轮廓及背景特征向量矩阵行列式\\
+$S,r,\widetilde r$ & 散射矩阵及两个反射系数\\
+$M$ & 按解析列拼接的 RHP 未知矩阵\\
+$P,D,H$ & Hermitian 投影、dressing 因子及恒定旋转矩阵\\
+\bottomrule
+\end{longtable}

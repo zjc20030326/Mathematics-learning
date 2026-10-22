@@ -1,0 +1,46 @@
+% 本工程的局部设置；不修改父目录中的共享文档类和导言。
+\hypersetup{hypertexnames=false,
+  pdftitle={Hirota--Satsuma coupled KdV system：全文双语详解笔记},
+  pdfauthor={学习笔记}}
+\renewcommand{\proofname}{Proof／证明}
+\renewcommand{\notename}{Note／注}
+% 沿用当前 Windows 模板的楷体、仿宋；为其局部标题启用合成粗体，避免缺字形替代。
+\IfFontExistsTF{KaiTi}{%
+  \setCJKfamilyfont{hsnoteKai}[AutoFakeBold=2]{KaiTi}%
+  \renewcommand{\citshape}{\CJKfamily{hsnoteKai}}}{}
+\IfFontExistsTF{FangSong}{%
+  \setCJKfamilyfont{hsnoteFangSong}[AutoFakeBold=2]{FangSong}%
+  \renewcommand{\cfs}{\CJKfamily{hsnoteFangSong}}}{}
+% 沿用 ElegantBook 的原生 thmstyle；独立计数以免触发本地自定义接口的空计数器问题。
+\theoremstyle{thmstyle}
+\newtheorem{paperlemmaen}{Lemma}[chapter]
+\renewcommand{\thepaperlemmaen}{\thechapter.\arabic{paperlemmaen}}
+% 中文陈述使用无编号环境，显示英文环境刚刚取得的同一个编号。
+\newtheorem*{paperlemmacn*}{引理 \thepaperlemmaen}
+\newtheorem{papertheoremen}{Theorem}[chapter]
+\newtheorem*{papertheoremcn*}{定理 \thepapertheoremen}
+\newtheorem{papercorollaryen}{Corollary}[chapter]
+\newtheorem*{papercorollarycn*}{推论 \thepapercorollaryen}
+\newtheorem{paperassumptionen}{Assumption}[chapter]
+\newtheorem*{paperassumptioncn*}{假设 \thepaperassumptionen}
+\theoremstyle{prostyle}
+\newtheorem{paperpropositionen}{Proposition}[chapter]
+\newtheorem*{paperpropositioncn*}{命题 \thepaperpropositionen}
+\theoremstyle{defstyle}
+\newtheorem{paperdefinitionen}{Definition}[chapter]
+\newtheorem*{paperdefinitioncn*}{定义 \thepaperdefinitionen}
+\newcommand{\EN}[1]{\par\noindent{\small\sffamily\color{black!50}EN}\enspace #1\par}
+\newcommand{\CN}[1]{\par\noindent{\small\sffamily\color{black!50}中}\enspace #1\par}
+\newcommand{\proofstep}[1]{\par\medskip\Needspace{3\baselineskip}\noindent\textbf{#1}\quad}
+\newcommand{\originaleq}[1]{\tag{#1}\label{eq:#1}}
+\newcounter{supplementeq}[chapter]
+\newcommand{\supplementeq}[1]{\refstepcounter{supplementeq}\tag{S\thechapter.\arabic{supplementeq}}\label{#1}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\Id}{I_4}
+\newcommand{\Zero}{0_{2\times2}}
+\newcommand{\OrigNine}{\hyperref[ref:original9]{[9]}}
+\setlength{\jot}{5pt}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+\renewcommand{\thefigure}{\arabic{figure}}

@@ -1,0 +1,549 @@
+\section{Jost Solutions／Jost 解}
+\EN{Since the time dependence of the potentials do not play any role in the direct problem, we fix $t=0$ until Section 3.}
+\CN{由于直接问题中暂不需要位势的时间演化，在第 3 节之前固定 $t=0$。}
+\EN{We abbreviate $U_2(x,0,k)$ as $U_2(x,k)$.}
+\CN{把 $U_2(x,0,k)$ 写作 $U_2(x,k)$。}
+\EN{Now the $x$-part of (2.10) is rewritten as}
+\CN{于是 (2.10) 的空间部分写为}
+\begin{equation}
+\originaleq{2.13}
+\mu_x(x,k)-[L(k),\mu(x,k)]=U_2(x,k)\mu(x,k).
+\end{equation}
+\EN{The Jost solutions $\mu_\pm(x,k)$ are defined as the solutions of the above equation satisfying boundary conditions}
+\CN{Jost 解定义为上式满足下列边界条件的解：}
+\begin{equation}
+\originaleq{2.14}
+\mu_\pm(x,k)=I+o(1),\qquad x\to\pm\infty,
+\end{equation}
+\EN{or equivalently they can be defined by the following integral equations:}
+\CN{等价地，可用下列积分方程定义：}
+\begin{equation}
+\originaleq{2.15}
+\mu_\pm(x,k)=I+\int_{\pm\infty}^{x}
+e^{(x-y)\widehat L(k)}(U_2\mu_\pm)(y,k)\dd y.
+\end{equation}
+\EN{where $e^{(x-y)\widehat L(k)}(\cdot)=e^{(x-y)L(k)}(\cdot)e^{-(x-y)L(k)}$.}
+\CN{这里的帽号表示共轭作用，而非另一个普通矩阵：}
+\[
+e^{(x-y)\widehat L(k)}X=e^{(x-y)L(k)}Xe^{-(x-y)L(k)}.
+\]
+\begin{proof}
+\textbf{微分方程与积分方程的对应。}
+直接计算
+\[
+\partial_x\bigl(e^{-xL}\mu e^{xL}\bigr)
+=e^{-xL}\bigl(\mu_x-[L,\mu]\bigr)e^{xL}
+=e^{-xL}U_2\mu e^{xL}.
+\]
+在有限端点之间积分，再把满足相应指数有界条件的归一化端点趋于 $\pm\infty$，得到 (2.15)。
+端点项趋于 $I$ 所需的区域条件将在下面逐列检查，不能在任意复数 $k$ 上不加条件地使用 (2.14)。
+反过来，(2.15) 中的积分在相应区域绝对收敛；对 $x$ 求导，端点项为 $U_2(x,k)\mu(x,k)$，
+核的导数产生 $[L,\mu-I]=[L,\mu]$，故恢复 (2.13)。
+归一化也由积分尾部的衰减得到。
+\end{proof}
+
+\EN{In order to describe the properties of Jost solutions $\mu_\pm(x,k)$, we need to introduce some notations.}
+\CN{为描述 Jost 解的性质，先引入一些记号。}
+\EN{We decompose the complex $k$-plane into the eight open subsets $\{D_n\}_{n=1}^8$ (see Figure 1) defined by}
+\CN{按照图 1，将复谱平面划分为以下八个开区域：}
+\[
+\begin{aligned}
+D_1&=\{k:\operatorname{Re}l_4>\operatorname{Re}l_3>\operatorname{Re}l_1>\operatorname{Re}l_2\},\\
+D_2&=\{k:\operatorname{Re}l_3>\operatorname{Re}l_4>\operatorname{Re}l_2>\operatorname{Re}l_1\},\\
+D_3&=\{k:\operatorname{Re}l_3>\operatorname{Re}l_2>\operatorname{Re}l_4>\operatorname{Re}l_1\},\\
+D_4&=\{k:\operatorname{Re}l_2>\operatorname{Re}l_3>\operatorname{Re}l_1>\operatorname{Re}l_4\},\\
+D_5&=\{k:\operatorname{Re}l_2>\operatorname{Re}l_1>\operatorname{Re}l_3>\operatorname{Re}l_4\},\\
+D_6&=\{k:\operatorname{Re}l_1>\operatorname{Re}l_2>\operatorname{Re}l_4>\operatorname{Re}l_3\},\\
+D_7&=\{k:\operatorname{Re}l_1>\operatorname{Re}l_4>\operatorname{Re}l_2>\operatorname{Re}l_3\},\\
+D_8&=\{k:\operatorname{Re}l_4>\operatorname{Re}l_1>\operatorname{Re}l_3>\operatorname{Re}l_2\}.
+\end{aligned}
+\]
+\EN{Let $\Gamma=\displaystyle\bigcup\limits_{j=1}^8\Gamma_j$ represent the boundary of regions $\{D_n\}_{n=1}^8$, which is composed of eight rays intersecting at the origin, and the direction of $\Gamma$ is shown in the Figure 1.}
+\CN{以 $\Gamma$ 表示这些区域的边界，它由原点出发的八条射线组成，方向见图 1。}
+\EN{And $S$ denotes the interior of $\overline D_4\cup\overline D_5$, $\ii S$ denotes the region obtained by rotating $S$ $90^\circ$ degrees counterclockwise.}
+\CN{$S$ 表示 $\overline D_4\cup\overline D_5$ 的内部；$\ii S$ 是将 $S$ 逆时针旋转 90 度得到的区域。}
+\EN{Similarly, one can define $-S$ and $-\ii S$.}
+\CN{类似地定义 $-S$ 与 $-\ii S$。}
+\begin{proof}
+\textbf{区域与图形的核验。}
+由 $L=k\diag(\ii,-1,-\ii,1)$，直接有
+\[
+\operatorname{Re}l_1=-\operatorname{Im}k,\quad
+\operatorname{Re}l_2=-\operatorname{Re}k,\quad
+\operatorname{Re}l_3=\operatorname{Im}k,\quad
+\operatorname{Re}l_4=\operatorname{Re}k.
+\]
+例如 $D_1$ 的条件就是 $\operatorname{Re}k>\operatorname{Im}k>0$，
+故 $0<\arg k<\pi/4$；其余顺序按图 1 连续排列。
+两两实部相等的位置为实轴、虚轴和两条对角线，因此恰有八条射线。
+特别地 $S=\{k:\operatorname{Re}k<-|\operatorname{Im}k|\}$，
+于是 $-S$ 为右侧扇区，$\ii S$ 为下方扇区，$-\ii S$ 为上方扇区。
+\end{proof}
+
+\EN{By analyzing the Neumann series of integral equations (2.15), we obtain the basic properties of the Jost solutions $\mu_\pm(x,k)$.}
+\CN{分析积分方程 (2.15) 的 Neumann 级数，可得到 Jost 解的基本性质。}
+\EN{Since these techniques are rather standard by now, we omit the proofs and give the following proposition directly.}
+\CN{由于这些方法已较标准，原文省略证明，直接给出下列命题。}
+\begin{note}
+原文的 $k\in(G_1,G_2,G_3,G_4)$ 表示第 $j$ 列在 $G_j$ 中定义或解析，
+不是要求同一个 $k$ 同时属于四个区域。以下保留这种逐列域记法。
+对一般 Schwartz 位势，四列不必在同一个开区域同时定义；紧支撑情形才有后述的整体延拓。
+\end{note}
+\begin{paperpropositionen}\label{prop:2.1}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$, then $\mu_\pm(x,k)$ defined by (2.15) have the following properties:
+\begin{enumerate}[label=\alph*.]
+\item For each $x\in\mathbb R$, the function $\mu_+(x,k)$ is well-defined and continuous for $k\in(-\ii\overline S,-\overline S,\ii\overline S,\overline S)\setminus\{0\}$. In addition, $\mu_+(x,k)$ is analytic for $k\in(-\ii S,-S,\ii S,S)\setminus\{0\}$.
+\item For each $x\in\mathbb R$, the function $\mu_-(x,k)$ is well-defined and continuous for $k\in(\ii\overline S,\overline S,-\ii\overline S,-\overline S)\setminus\{0\}$. In addition, $\mu_-(x,k)$ is analytic for $k\in(\ii S,S,-\ii S,-S)\setminus\{0\}$.
+\item For each $x\in\mathbb R$ and positive integer $j$, the partial derivative $\partial_k^j\mu_+(x,k)$ is well-defined and analytic for $k\in(-\ii S,-S,\ii S,S)\setminus\{0\}$, and it can be continuously extended to the boundary of its analytic region except the origin.
+\item For each $x\in\mathbb R$ and positive integer $j$, the partial derivative $\partial_k^j\mu_-(x,k)$ is well-defined and analytic for $k\in(\ii S,S,-\ii S,-S)\setminus\{0\}$, and it can be continuously extended to the boundary of its analytic region except the origin.
+\item $\mu_\pm(x,t,k)$ satisfies these two symmetries (2.16), where $A,B$ are given by (2.12).
+\item When $u_0$ and $v_0$ has compact support, then $\mu_\pm(x,k)$ are analytic for $k\in\mathbb C\setminus\{0\}$ and $\det\mu_\pm(x,k)=1$.
+\end{enumerate}
+\end{paperpropositionen}
+\begin{paperpropositioncn*}
+设 $u_0,v_0\in\mathcal S(\mathbb R)$。由 (2.15) 定义的 Jost 解满足：
+\begin{enumerate}[label=\alph*.]
+\item 对固定 $x$，$\mu_+$ 的四列分别在 $(-\ii\overline S,-\overline S,\ii\overline S,\overline S)\setminus\{0\}$ 上存在且连续，并在对应开域内解析。
+\item $\mu_-$ 的四列分别在 $(\ii\overline S,\overline S,-\ii\overline S,-\overline S)\setminus\{0\}$ 上存在且连续，并在对应开域内解析。
+\item $\mu_+$ 的任意正整数阶谱导数在各自开域解析，且可连续延拓到除原点外的边界。
+\item $\mu_-$ 的谱导数有相应性质。
+\item 满足下列谱旋转和共轭对称性。
+\item 位势紧支撑时，四列均解析延拓到 $\mathbb C\setminus\{0\}$，行列式恒为 1。
+\end{enumerate}
+\end{paperpropositioncn*}
+\begin{equation}
+\originaleq{2.16}
+\mu_\pm(x,k)=A\mu_\pm(x,\ii k)A^{-1},\qquad
+\mu_\pm(x,k)=B\mu_\pm^*(x,k^*)B.
+\end{equation}
+\begin{proof}
+\textbf{原文省略部分的补充证明。}
+\proofstep{第一步：逐列确定指数的符号。}
+第 $j$ 列第 $i$ 行的核含 $e^{(l_i-l_j)(x-y)}$。
+对 $\mu_+$，积分变量满足 $y\ge x$，故要求 $\operatorname{Re}l_i\ge\operatorname{Re}l_j$ 对所有 $i$ 成立，
+也就是第 $j$ 列对应实部最小的特征值。
+例如第一列要求 $\operatorname{Im}k\ge|\operatorname{Re}k|$，得到上方闭扇区 $-\ii\overline S$。
+依次对 $j=2,3,4$ 使用 $-\operatorname{Re}k$、$\operatorname{Im}k$、$\operatorname{Re}k$ 的最小条件，
+就得到 $-\overline S,\ii\overline S,\overline S$。
+对 $\mu_-$，$y\le x$，条件反向，需第 $j$ 列对应实部最大值，正好得到 b 中四个区域。
+在这些区域内，所有相应标量指数的模均不超过 1。
+
+\proofstep{第二步：Neumann 级数的存在与唯一性。}
+从单位矩阵开始，把 (2.15) 的积分项反复代入。
+固定一个避开原点的谱紧集，$U_2$ 满足
+$\|U_2(y,k)\|\le C(|u_0(y)|+|v_0(y)|)$，其中 $C$ 对该紧集一致。
+第 $r$ 次迭代的 $\mu_+$ 列受到下列有序积分控制：
+\begin{align*}
+&C^r\int_x^\infty\int_{y_1}^\infty\cdots\int_{y_{r-1}}^\infty
+\prod\limits_{a=1}^r\bigl(|u_0(y_a)|+|v_0(y_a)|\bigr)
+\dd y_r\cdots\dd y_2\dd y_1\\
+&\hspace{2cm}=\dfrac{C^r}{r!}
+\left(\int_x^\infty(|u_0(y)|+|v_0(y)|)\dd y\right)^r.
+\end{align*}
+等号来自对称被积函数在全直积积分域的 $r!$ 个有序单纯形上积分相同；
+绝对可积性保证 Fubini 换序合法。
+右端对 $r$ 求和收敛，因此级数在谱紧集与固定空间半轴上绝对一致收敛，代回积分方程合法。
+$\mu_-$ 使用 $-\infty<y_r<\cdots<y_1<x$ 的有序积分，证明相同。
+两个满足归一化的解相减后没有单位矩阵项；再迭代 $r$ 次，用相同的阶乘界，令 $r\to\infty$，差恒为零。
+所需半轴上的有界性由端点归一化和有限区间上的连续性保证。
+
+\proofstep{第三步：解析性、边界连续性与谱导数。}
+每个迭代项在开谱域内解析。
+对 $k$ 微分会产生 $x-y$ 的幂和 $U_2$ 的谱导数；对固定阶数和空间紧集，
+这些项由 $u_0,v_0$ 的有限多个加权 $L^1$ 矩控制。
+Schwartz 条件使所有所需矩都有限，阶乘界仍保证导数级数局部一致收敛。
+因此可逐项微分，并由解析函数局部一致极限定理得 a--d 的解析性。
+在谱边界指数的模仍不超过 1，同一控制函数允许用控制收敛定理把 $k$ 趋向边界，故得到连续延拓。
+
+\proofstep{第四步：对称性。}
+根据引理 2.1，将 $A\mu_\pm(x,\ii k)A^{-1}$ 代入 (2.13)，它满足相同方程，
+其端点归一化为 $AI_4A^{-1}=I_4$。
+$A$ 的列置换也正好把对应解析域带回原来的列。
+由刚才的逐列唯一性，得到 (2.16) 第一式。
+对 $B\overline{\mu_\pm(x,\overline k)}B$ 作同一检查，归一化仍为 $I_4$，得到第二式。
+
+\proofstep{第五步：紧支撑与行列式。}
+紧支撑时，端点可取在支撑之外，所有积分都只跨越有限区间。
+在任意避开零点的谱紧集中，指数即使增长也有一致的有限上界，有序积分证明仍成立，
+所以四列都能解析延拓到整个穿孔平面。
+令 $\phi=\mu_\pm e^{xL}$，则 $\phi_x=(L+U_2)\phi$。
+由 (2.7)、(2.9) 可直接读出 $\operatorname{tr}(L+U_2)=0$。
+Liouville 行列式公式给 $\partial_x\det\phi=0$，而 $\det e^{xL}=e^{x\operatorname{tr}L}=1$。
+在归一化端点 $\mu_\pm=I_4$，故 $\det\mu_\pm=1$。
+\end{proof}
+
+\EN{Now let us characterize the asymptotic behavior of the Jost solutions when $k$ tends to infinity.}
+\CN{下面刻画 Jost 解在谱无穷远处的渐近行为。}
+\EN{Consider the formal power series}
+\CN{考虑形式级数}
+\begin{equation}
+\originaleq{2.17}
+\mu_\pm(x,k)=I+\dfrac{\mu_\pm^{[1]}}{k}+\dfrac{\mu_\pm^{[2]}}{k^2}+\cdots,
+\end{equation}
+\EN{with the following normalization condition:}
+\CN{并施加下列归一化条件：}
+\begin{equation}
+\originaleq{2.18}
+\lim\limits_{x\to\pm\infty}\mu_\pm^{[n]}=0,\qquad n\ge1.
+\end{equation}
+\EN{Denote the diagonal part of a matrix $A$ as $[A]_d$ and the nondiagonal part as $[A]_o$.}
+\CN{以 $[A]_d$、$[A]_o$ 分别表示矩阵的对角部分和非对角部分。}
+\EN{Substituting the above series into (2.13) and comparing the coefficients of the same powers, we arrive at the recurrence relation:}
+\CN{将级数代入 (2.13)，比较相同幂次的系数，得到递推式}
+\begin{equation}
+\originaleq{2.19}
+\begin{cases}
+[J,\mu_\pm^{[j+1]}]=[\partial_x\mu_\pm^{[j]}]_o-[\widetilde U_2\mu_\pm^{[j-1]}]_o,\\
+\partial_x[\mu_\pm^{[j+1]}]_d=[\widetilde U_2\mu_\pm^{[j]}]_d,
+\end{cases}\qquad j\ge0,
+\end{equation}
+\EN{where $\widetilde U_2=kU_2$.}
+\CN{其中 $\widetilde U_2=kU_2$。}
+\EN{In addition, we need to make the initial assignments $\mu_\pm^{[-1]}=0_{4\times4}$ and $\mu_\pm^{[0]}=I$.}
+\CN{初始规定为 $\mu_\pm^{[-1]}=0$、$\mu_\pm^{[0]}=I$。}
+\EN{Combining the above with condition (2.18), we find that the formal power series (2.17) can be fully determined by the recurrence relation (2.19).}
+\CN{结合端点条件 (2.18)，递推式可以唯一确定全部形式系数。}
+\EN{The first few coefficients are given by}
+\CN{最初几个系数为}
+\begin{equation}
+\originaleq{2.20}
+\begin{aligned}
+[\mu_\pm^{[1]}]_d
+&=\dfrac{\displaystyle\int_{\pm\infty}^x u_0(y)\dd y}{2}
+\diag(-\ii,-1,\ii,1),\qquad [\mu_\pm^{[1]}]_o=0,\\
+[\mu_\pm^{[2]}]_d
+&=\dfrac{\displaystyle\int_{\pm\infty}^x u_0(y)
+\int_{\pm\infty}^{y}u_0(\xi)\dd\xi\dd y}{4}
+\diag(-1,1,-1,1),\\
+[\mu_\pm^{[2]}]_o
+&=\dfrac{1}{4}\begin{pmatrix}
+0&(1+\ii)v_0&u_0&(1-\ii)v_0\\
+(\ii-1)v_0&0&-(1+\ii)v_0&-u_0\\
+u_0&(1-\ii)v_0&0&(1+\ii)v_0\\
+-(1+\ii)v_0&-u_0&(\ii-1)v_0&0
+\end{pmatrix}.
+\end{aligned}
+\end{equation}
+\begin{proof}
+\textbf{递推及前两阶系数的补充推导。}
+把 $U_2=\widetilde U_2/k$ 代入 (2.13)，比较 $k^{-j}$ 的系数，得到
+\[
+\partial_x\mu_\pm^{[j]}-[J,\mu_\pm^{[j+1]}]
+=\widetilde U_2\mu_\pm^{[j-1]}.
+\]
+交换子的对角部分恒为零，因此其非对角部分给 (2.19) 第一式；
+把对角部分的指标改写为 $j+1$，得到第二式。
+由于 $J$ 的四个对角元互异，对 $i\ne a$ 有
+\[
+(J_{ii}-J_{aa})(\mu_\pm^{[j+1]})_{ia}
+=(\partial_x\mu_\pm^{[j]}-\widetilde U_2\mu_\pm^{[j-1]})_{ia},
+\]
+故非对角条目由除以非零常数唯一确定；对角条目再从端点积分唯一确定。
+取 $j=0$，得到 $[J,\mu_\pm^{[1]}]=0$，于是第一阶非对角部分为零。
+第一阶对角部分满足
+\[
+\partial_x[\mu_\pm^{[1]}]_d
+=[\widetilde U_2]_d=\dfrac{u_0}{2}\diag(-\ii,-1,\ii,1),
+\]
+从 $\pm\infty$ 到 $x$ 积分即得 (2.20) 第一行。
+第二阶非对角部分由 $[J,\mu_\pm^{[2]}]=-[\widetilde U_2]_o$ 给出；例如
+\[
+(\mu_\pm^{[2]})_{12}
+=\dfrac{\ii v_0}{2(1+\ii)}=\dfrac{1+\ii}{4}v_0,
+\qquad
+(\mu_\pm^{[2]})_{23}
+=\dfrac{v_0}{2(-1+\ii)}=-\dfrac{1+\ii}{4}v_0.
+\]
+对其余非对角条目按同一除法得到所列矩阵。
+最后，因为 $\mu_\pm^{[1]}$ 为对角矩阵，
+\[
+\partial_x[\mu_\pm^{[2]}]_d
+=[\widetilde U_2\mu_\pm^{[1]}]_d
+=\dfrac{u_0(x)}{4}\int_{\pm\infty}^x u_0(y)\dd y\,
+\diag(-1,1,-1,1).
+\]
+再从端点积分一次，保留内外积分的完整范围，就得到 (2.20) 的二重迭代积分。
+\end{proof}
+
+\EN{The following proposition shows that (2.17) are good approximations of $\mu_\pm(x,k)$ as $k\to\infty$.}
+\CN{下列命题说明形式级数在谱无穷远处确实给出 Jost 解的渐近近似。}
+\EN{The proof is similar to the proof of [30, Theorem 3.3] and is omitted.}
+\CN{原文指出证明与文献 [30] 定理 3.3 相似，故省略。}
+\begin{paperpropositionen}\label{prop:2.2}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$, then the formal power series (2.17) are exactly the asymptotic expansion of $\mu_\pm(x,t)$ as $k\to\infty$.
+More precisely, let $p$ be a positive integer, then the estimates (2.21a), (2.21b) hold for each integer $j\ge0$, where $f_+(x)$ and $f_-(x)$ are bounded smooth positive functions of $x\in\mathbb R$ with rapid decay as $x\to\pm\infty$, respectively.
+\end{paperpropositionen}
+\begin{paperpropositioncn*}
+设初值为 Schwartz 函数。原文声称形式级数 (2.17) 是 Jost 解的渐近展开，且对正整数 $p$、非负整数 $j$ 有下列估计；
+其中 $f_\pm$ 在整个实轴上光滑有界，并分别在对应归一化端点迅速衰减。
+\end{paperpropositioncn*}
+\begin{equation}
+\originaleq{2.21a}
+\left\|\partial_k^j\left(\mu_+-I-\sum\limits_{l=1}^{p}\dfrac{\mu_+^{[l]}}{k^l}\right)\right\|
+\le\dfrac{f_+(x)}{|k|^{p+1}},\quad
+k\in(-\ii\overline S,-\overline S,\ii\overline S,\overline S),\ |k|\ge2,
+\end{equation}
+\begin{equation}
+\originaleq{2.21b}
+\left\|\partial_k^j\left(\mu_--I-\sum\limits_{l=1}^{p}\dfrac{\mu_-^{[l]}}{k^l}\right)\right\|
+\le\dfrac{f_-(x)}{|k|^{p+1}},\quad
+k\in(\ii\overline S,\overline S,-\ii\overline S,-\overline S),\ |k|\ge2.
+\end{equation}
+\begin{note}
+\textbf{量词校核：谱导数的全空间有界性。}
+原文把 $f_\pm$ 写为整个实轴上有界，且未标明它们对 $p,j$ 的依赖。
+对 $j\ge1$，反向空间无穷远处的振荡项可能产生 $x$ 的幂，因此这个全空间有界断言不能直接沿用。
+可靠的结论是：对每个固定 $p,j$，在任意空间紧集上一致成立；在归一化半轴上仍具有快速衰减的控制，
+反方向则允许相应的多项式增长。下面证明这个实际用于固定位置重构的版本，并说明原文过强处。
+\end{note}
+\begin{proof}
+\textbf{渐近余项的补充证明与适用范围。}
+取形式展开到 $p+1$ 阶，代入 (2.13)。
+由 (2.19)，从 $k^0$ 到 $k^{-p}$ 的系数全部抵消；剩下的源项为
+\[
+\dfrac{\partial_x\mu_\pm^{[p+1]}-\widetilde U_2\mu_\pm^{[p]}}{k^{p+1}}
+-\dfrac{\widetilde U_2\mu_\pm^{[p+1]}}{k^{p+2}}.
+\]
+所有分子都由 Schwartz 位势、其导数及有界的端点积分组成，因此本身及所需加权矩都可积。
+将真解与此截断式相减，差满足与 (2.15) 同一核的非齐次 Volterra 方程，非齐次项是上述源项的积分。
+在合适的列区域内指数模不超过 1，Neumann 阶乘估计遂给出
+\[
+\begin{aligned}
+&\left\|\mu_+-I-\sum\limits_{l=1}^{p+1}\dfrac{\mu_+^{[l]}}{k^l}\right\|\\
+&\quad\le C|k|^{-p-1}\int_x^{+\infty}\bigl(
+\|\partial_y\mu_+^{[p+1]}\|+
+\|\widetilde U_2\mu_+^{[p]}\|+
+\|\widetilde U_2\mu_+^{[p+1]}\|\bigr)\dd y.
+\end{aligned}
+\]
+负端归一化的估计完全相同，积分限改为 $-\infty$ 到 $x$，所有加号下标相应改为负号。
+这里的常数含 Volterra 迭代产生的有限指数因子；它对 $|k|\ge2$ 一致。
+把 $(p+1)$ 阶项放回余项后，仍为 $O(|k|^{-p-1})$。
+对 $k$ 求 $j$ 阶导数时，积分核额外产生至多 $j$ 次的 $(x-y)$ 幂。
+在空间紧集上，$|x-y|^j\le C(1+|y|)^j$，Schwartz 加权矩保证同样估计，且所有换序由绝对可积性与控制收敛保证。
+在归一化端点，半轴尾积分及其加权版本迅速趋零，得到所需尾部衰减。
+
+至于原文全空间有界的加强：紧支撑位势之外有 $U_2=0$，故非对角条目形如
+$\mu_{ia}(x,k)=c_{ia}(k)e^{(l_i-l_a)x}$。
+若在相应谱边界上 $\operatorname{Re}(l_i-l_a)=0$ 且 $c_{ia}\ne0$，则
+\[
+\partial_k\mu_{ia}
+=\bigl(c_{ia}'(k)+x(l_i'-l_a')c_{ia}(k)\bigr)e^{(l_i-l_a)x}.
+\]
+它在反向空间端点通常线性增长；更高谱导数会产生更高幂。
+该处形式展开的非对角系数全为零，因此这些项本身就是余项，不能用一个在整个实轴有界的 $f_\pm$ 统一控制。
+除非另加消去相应反射项等条件，否则不把这个加强当作已证结论。
+\end{proof}
+
+
+\EN{Next, we study the properties of the Jost solutions when $k$ tends to 0.}
+\CN{接着研究 Jost 解在谱原点附近的性质。}
+\EN{The fact that $U_2(x,k)$ has a simple pole at the origin suggests that the origin may be a singularity of the Jost solutions $\mu_\pm(x,k)$.}
+\CN{$U_2$ 在原点含一阶极点，因此原点可能成为 Jost 解的奇点。}
+\EN{The following proposition accurately characterizes asymptotic behavior of $\mu_\pm(x,k)$ in a sufficiently small neighborhoods of the origin.}
+\CN{下列命题刻画它们在原点附近的渐近行为。}
+\begin{paperpropositionen}\label{prop:2.3}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$, and let $p\ge0$ be an integer, then there exist fourth-order matrix-valued functions $C_\pm^{(l)}(x)$, $l=-1,0,1,\ldots,p$, with the following properties: The estimates
+\begin{equation}
+\originaleq{2.22a}
+\left\|\mu_+-I-\sum\limits_{l=-1}^p C_+^{(l)}k^l\right\|
+\le g_+(x)|k|^{p+1-j},\quad
+k\in(-\ii\overline S,-\overline S,\ii\overline S,\overline S),\quad |k|\le\dfrac{1}{2},
+\end{equation}
+\begin{equation}
+\originaleq{2.22b}
+\left\|\mu_--I-\sum\limits_{l=-1}^p C_-^{(l)}k^l\right\|
+\le g_-(x)|k|^{p+1-j},\quad
+k\in(\ii\overline S,\overline S,-\ii\overline S,-\overline S),\quad |k|\le\dfrac{1}{2}
+\end{equation}
+hold, where $g_+(x)$ and $g_-(x)$ are bounded smooth positive functions of $x\in\mathbb R$ with rapid decay as $x\to\pm\infty$, respectively.
+For any integer $l\ge-1$, $C_\pm^{(l)}(x)$ vanish rapidly as $x\to\pm\infty$, respectively.
+The coefficients $C_\pm^{(-1)}(x)$ and $C_\pm^{(0)}(x)$ have the form
+\begin{equation}
+\originaleq{2.23}
+\begin{aligned}
+C_\pm^{(-1)}
+&=\alpha_\pm\begin{pmatrix}
+0&-\ii&0&-\ii\\-1&0&-1&0\\0&\ii&0&\ii\\1&0&1&0
+\end{pmatrix}\\
+&\quad+\beta_\pm\begin{pmatrix}
+-\ii&0&-\ii&0\\0&-1&0&-1\\\ii&0&\ii&0\\0&1&0&1
+\end{pmatrix},
+\end{aligned}
+\end{equation}
+\begin{equation}
+\originaleq{2.24}
+\begin{aligned}
+C_\pm^{(0)}
+&=b_{2\pm}\begin{pmatrix}1&0&1&0\\0&1&0&1\\1&0&1&0\\0&1&0&1\end{pmatrix}
+b_{1\pm}\begin{pmatrix}1&0&-1&0\\0&1&0&-1\\-1&0&1&0\\0&-1&0&1\end{pmatrix}\\
+&\quad+a_{2\pm}\begin{pmatrix}0&1&0&1\\1&0&1&0\\0&1&0&1\\1&0&1&0\end{pmatrix}
+a_{1\pm}\begin{pmatrix}0&1&0&-1\\-1&0&1&0\\0&-1&0&1\\1&0&-1&0\end{pmatrix}-I.
+\end{aligned}
+\end{equation}
+Here $\alpha_\pm,\beta_\pm,a_{2\pm},b_{2\pm},b_{1\pm}$ are real-valued functions of $x\in\mathbb R$, and $a_{1\pm}$ are pure imaginary functions.
+When $x\to+\infty$, $\alpha_+,\beta_+,a_{2+},a_{1+}$ decay to 0 rapidly, while $b_{2+},b_{1+}$ converge rapidly to $1/2$.
+Correspondingly, when $x\to-\infty$, $\alpha_-,\beta_-,a_{2-},a_{1-}$ decay to 0 rapidly, while $b_{2-},b_{1-}$ converge rapidly to $1/2$.
+\end{paperpropositionen}
+\begin{paperpropositioncn*}
+设初值为 Schwartz 函数，$p\ge0$。
+存在上述系数，使 Jost 解具有以 $k^{-1}$ 为首项的有限阶展开，原文估计为 (2.22a)、(2.22b)。
+各系数在归一化空间端点迅速趋零，前两项具有 (2.23)、(2.24) 的矩阵结构。
+其中 $\alpha_\pm,\beta_\pm,a_{2\pm},b_{2\pm},b_{1\pm}$ 为实值，$a_{1\pm}$ 为纯虚值。
+在各自归一化端点，$\alpha_\pm,\beta_\pm,a_{2\pm},a_{1\pm}$ 迅速趋零，$b_{2\pm},b_{1\pm}$ 迅速趋于 $1/2$。
+\end{paperpropositioncn*}
+\begin{note}
+\textbf{式 (2.22) 的导数记号与范围。}
+原文左侧未写谱导数，右侧却含 $j$；对 $j=0$ 它是普通余项界。
+与后续推导一致的谱导数版本，应在左侧加 $\partial_k^j$。
+对每个固定 $j,p$ 和空间紧集，正确形式为
+\[
+\left\|\partial_k^j\left(\mu_\pm-I-\sum\limits_{l=-1}^p C_\pm^{(l)}k^l\right)\right\|
+\le C_{p,j}|k|^{p+1-j}.
+\]
+归一化半轴上还可用迅速衰减的空间函数控制；反向空间端点的一致有界性仍需另外核验，不能从局部 Taylor 展开直接推出。
+下面保留原文证明，并补上它实际使用的核估计及系数约束。
+\end{note}
+\begin{proof}
+\EN{Let us consider the function $\chi(x,k):=P(k)\mu_+(x,k)$.}
+\CN{考虑原文定义的 $\chi(x,k)=P(k)\mu_+(x,k)$。}
+\EN{It is easy to check that $\chi(x,k)$ satisfies the integral equation}
+\CN{它满足积分方程}
+\begin{equation}
+\originaleq{2.25}
+\chi(x,k)=P(k)-\int_x^{+\infty}
+P(k)e^{(x-y)\widehat L(k)}
+\bigl(P^{-1}(k)U_1(y,k)\chi(y,k)\bigr)\dd y,
+\end{equation}
+\EN{where}
+\CN{其中}
+\begin{equation}
+\originaleq{2.26}
+U_1=\begin{pmatrix}
+0&0&0&0\\0&0&0&0\\u_0&v_0&0&0\\v_0&u_0&0&0
+\end{pmatrix}
+\end{equation}
+\EN{is independent of $k$.}
+\CN{与 $k$ 无关。}
+\proofstep{补充：为什么乘上 $P$ 能消掉核的表面奇性。}
+把 $\mu_+=P^{-1}\chi$ 代入 (2.15)，左乘 $P$，直接得到 (2.25)。
+对任意实数 $x-y$，由背景对角化与矩阵指数级数，
+\[
+P e^{(x-y)L}P^{-1}=e^{(x-y)U^\infty}.
+\]
+右端可直接算为
+\[
+\begin{pmatrix}
+\cosh(k(x-y))&0&\dfrac{\sinh(k(x-y))}{k}&0\\
+0&\cos(k(x-y))&0&\dfrac{\sin(k(x-y))}{k}\\
+k\sinh(k(x-y))&0&\cosh(k(x-y))&0\\
+0&-k\sin(k(x-y))&0&\cos(k(x-y))
+\end{pmatrix}.
+\]
+两个商在 $k=0$ 的极限都是 $x-y$，所以只是可去奇点。
+该矩阵在 $x=y$ 处为 $I_4$，对 $x$ 求导等于 $U^\infty$ 左乘本身，也直接验证了矩阵指数公式。
+\EN{For simplicity, we define $\mathcal P(x,y,k)=P(k)e^{(x-y)L(k)}P^{-1}(k)$.}
+\CN{原文记此矩阵为 $\mathcal P(x,y,k)$。}
+\EN{Through direct calculation, we find that $\mathcal P(x,y,k)$ is analytic at the origin.}
+\CN{由上述显式计算，它在原点解析。}
+\EN{Then by analyzing the Voterra integral equation (2.25), we know that $\chi(x,k)$ is analytic in $(-\ii S,-S,\ii S,S)$, and that $\chi(x,k)$ and all its $k$-derivative can be continuously extended to $(-\ii\overline S,-\overline S,\ii\overline S,\overline S)$.}
+\CN{分析 Volterra 方程后，$\chi$ 在相应列开域解析，且它与各阶谱导数可连续延拓到闭扇区。}
+\proofstep{补充：从核到解的可微性。}
+这里右侧还有 $e^{-(x-y)L}$，必须连同它一起估计。
+例如 $\sinh(k(x-y))/k$ 可写成
+\[
+\dfrac{x-y}{2}\int_{-1}^{1}e^{\theta k(x-y)}\dd\theta.
+\]
+乘上对应列的自由指数后，扇区的极值排序使指数模受控；每求一阶谱导数最多再增加一个 $|x-y|$ 因子。
+因此原点附近的各阶核导数由有限次多项式空间权控制。
+Schwartz 条件提供所需全部矩，Neumann 阶乘估计和控制收敛允许逐项求导并取边界极限。
+对于非紧支撑位势，这只保证扇区内解析及到原点的光滑渐近展开，不应据此断言解在整个跨扇区圆盘内解析。
+\EN{Therefore, $\chi(x,k)$ has the following asymptotic expansion near the origin:}
+\CN{因此在原点附近有扇区渐近展开}
+\begin{equation}
+\originaleq{2.27}
+\chi(x,k)=\chi(x,0)+\partial_k\chi(x,0)k+\cdots,
+\quad k\to0,\quad k\in(-\ii\overline S,-\overline S,\ii\overline S,\overline S),
+\end{equation}
+\EN{where the coefficients are smooth functions of $x\in\mathbb R$.}
+\CN{系数是关于 $x$ 的光滑函数。}
+\EN{On the other hand, it is easy to see that $P^{-1}(k)$ has a simple pole at $k=0$ and can be written as}
+\CN{另一方面，原文的逆变换矩阵恰可写成}
+\begin{equation}
+\originaleq{2.28}
+P^{-1}(k)=\dfrac{P^{(-1)}}{k}+P^{(0)},
+\end{equation}
+\EN{where}
+\CN{其中}
+\begin{equation}
+\originaleq{2.29}
+P^{(-1)}=\dfrac{1}{2}\begin{pmatrix}0&0&0&-\ii\\0&0&-1&0\\0&0&0&\ii\\0&0&1&0\end{pmatrix},\qquad
+P^{(0)}=\dfrac{1}{2}\begin{pmatrix}0&1&0&0\\1&0&0&0\\0&1&0&0\\1&0&0&0\end{pmatrix}.
+\end{equation}
+\EN{Therefore, $\mu_+(x,k)=P^{-1}(k)\chi(x,k)$ has at most a simple pole at the origin.}
+\CN{所以 $\mu_+$ 在原点至多具有一阶极点型渐近行为。}
+\EN{Then, we infer that $\mu_+(x,k)$ has the asymptotic expansion of the following form:}
+\CN{将两个展开直接相乘，得到}
+\begin{equation}
+\originaleq{2.30}
+\mu_+(x,k)=\dfrac{C_+^{(-1)}(x)}{k}+(I+C_+^{(0)}(x))+C_+^{(1)}(x)k+\cdots,
+\quad k\to0,
+\end{equation}
+\EN{with}
+\CN{其中}
+\begin{equation}
+\originaleq{2.31}
+\begin{aligned}
+C_+^{(-1)}(x)&=P^{(-1)}\chi(x,0),\\
+C_+^{(0)}(x)&=P^{(-1)}\partial_k\chi(x,0)+P^{(0)}\chi(x,0)-I.
+\end{aligned}
+\end{equation}
+\EN{Using that $\partial_k^j\chi(x,k)\to\partial_k^jP(k)$ rapidly as $x\to+\infty$ and equating powers of $k$ in the identity}
+\CN{利用 $\chi$ 的谱导数在归一化端点迅速趋于 $P$ 的相应导数，并比较恒等式}
+\[
+I=P^{-1}P=\left(\dfrac{P^{(-1)}}{k}+P^{(0)}\right)(P(0)+P'(0)k)
+\]
+\EN{we obtain that $C_+^{(l)}(x)$, $l\ge-1$, vanish rapidly as $x\to+\infty$.}
+\CN{的各阶系数，得到所有 $C_+^{(l)}$ 在 $+\infty$ 迅速趋零。}
+\EN{Now let us derive the exact form of $C_+^{(l)}(x)$.}
+\CN{接着确定系数的具体结构。}
+\EN{According to (2.31), there exist functions $a(x),b(x),c(x),d(x),e(x),f(x),g(x)$, and $h(x)$ such that}
+\CN{根据 (2.31)，原文用八个分量函数将首项写为}
+\begin{equation}
+\originaleq{2.32}
+C_+^{(-1)}=\dfrac{1}{2}\begin{pmatrix}
+-\ii e&-\ii f&-\ii g&-\ii h\\
+-a&-b&-c&-d\\
+\ii e&\ii f&\ii g&\ii h\\
+a&b&c&d
+\end{pmatrix}.
+\end{equation}
+\EN{Combining symmetries $\mu_+(x,k)=A\mu_+(x,\ii k)A^{-1}$ and $\mu_+(x,k)=B\mu_+^*(x,k^*)B$, we get}
+\CN{将两种对称性作用于 $k^{-1}$ 系数，得到}
+\[
+ a=c=h=f,\qquad b=d=g=e,\qquad a=a^*,\quad b=b^*.
+\]
+\EN{Since $C_+^{(-1)}(x)$ decays rapidly to 0 as $x\to+\infty$, so do $a(x)$ and $b(x)$.}
+\CN{首项矩阵迅速衰减，所以 $a,b$ 也迅速衰减。}
+\EN{Let $\alpha_+(x)=a(x)/2$, $\beta_+(x)=b(x)/2$, we complete the proof of (2.23).}
+\CN{取 $\alpha_+=\dfrac{a}{2}$、$\beta_+=\dfrac{b}{2}$，便得到 (2.23)。}
+\EN{The proofs for $C_+^{(0)}$ and for $\mu_-(x,k)$ are similar.}
+\CN{原文指出零次项及负端归一化解的证明类似。}
+\proofstep{补充：把零次项的“类似”写清。}
+比较对称性中的常数项，有
+\[
+AC_+^{(0)}A^{-1}=C_+^{(0)},\qquad
+B\overline{C_+^{(0)}}B=C_+^{(0)}.
+\]
+第一个条件使 $I+C_+^{(0)}$ 为循环矩阵，即每行是上一行的循环移位。
+第二个条件使对角条目与对置条目实值，并使第一行第 2、4 个条目互为共轭。
+将这两个实条目的半和、半差分别记为原文的 $b_{2+},b_{1+}$，
+将这两个共轭条目的半和、半差分别记为原文的 $a_{2+},a_{1+}$，就得到 (2.24)。
+因此 $a_{2+}$ 实值、$a_{1+}$ 纯虚；由 $C_+^{(0)}\to0$，立刻有 $b_{2+},b_{1+}\to1/2$ 及另外两项趋零。
+负端归一化只改变积分端点，所有矩阵约束相同，故得到负号版本。
+
+最后，对 $\chi$ 用带积分余项的有限阶 Taylor 公式，再乘上 (2.28)。
+为估计 $\mu$ 到 $p$ 阶的余项，需先将 $\chi$ 展开到 $p+1$ 阶，因为 $P^{-1}$ 含 $k^{-1}$。
+其余项与 $j$ 阶谱导数由上面的核矩估计控制，恰为 $O(|k|^{p+1-j})$。
+这证明校注中的谱导数版本及其局部一致范围。
+\end{proof}

@@ -1,0 +1,152 @@
+\EN{In the previous section, we have constructed the solution $M(x,k)$ of the fundamental meromorphic function of Equation (2.13) from initial data $u_0,v_0\in\mathcal S(\mathbb R)$.}
+\CN{前章已从 Schwartz 初值构造了空间谱方程 (2.13) 的基本亚纯函数解 $M(x,k)$。}
+\EN{In this section, we consider the effect of time evolution and define a fundamental meromorphic function solution $M(x,t,k)$ of Lax pair (2.10).}
+\CN{本章考虑时间演化的影响，定义完整 Lax 对 (2.10) 的基本亚纯函数解 $M(x,t,k)$。}
+\EN{We derive the RH problem that $M(x,t,k)$ satisfies, and we will show how to reconstruct the potentials $\{u,v\}$ according to the solution of the RH problem.}
+\CN{推导 $M(x,t,k)$ 满足的 RH 问题，并展示如何从该问题的解重构位势。}
+\EN{First introduce $\Theta(x,t,k)=xL(k)+tZ(k)$. Define reflection coefficients by}
+\CN{定义对角相位矩阵 $\Theta=xL+tZ$，以及三个反射系数（reflection coefficients）：}
+\begin{equation}\originaleq{3.1}
+\rho(k)=\dfrac{\Lambda(k)}{\Delta(k)},\quad k\in\mathbb R_+;\qquad
+r_1(k)=\dfrac{s_{12}(k)}{s_{11}(k)},\quad r_2(k)=\dfrac{s_{34}^A(k)}{s_{33}^A(k)},\quad k\in e^{\frac{\pi\ii}{4}}\mathbb R_+.
+\end{equation}
+\EN{It easy to verify that the reflection coefficients $r_1$ and $r_2$ satisfy $r_2(k)=-\ii r_1(k)$ by using the symmetries of the scattering matrix.}
+\CN{利用散射矩阵的对称性，可验证 $r_2(k)=-\ii r_1(k)$。}
+\EN{Moreover, for $k\in\Gamma$ we define the matrix $v(k)$ as follows, where $v_j(k)$ denotes the restriction of $v(k)$ to $\Gamma_j$. Then we have the following lemma.}
+\CN{对轮廓上的 $k$，定义下列矩阵；$v_j$ 是它在第 $j$ 条射线上的限制。由此得到后面的引理。}
+\[
+v_1=\begin{pmatrix}1&0&\rho(k)&0\\0&1&0&0\\-\rho^*(k)&0&1-|\rho(k)|^2&0\\0&0&0&1\end{pmatrix},\quad
+v_2=\begin{pmatrix}1&-r_1(k)&0&0\\r_1^*(k)&1-|r_1(k)|^2&0&0\\0&0&1-|r_2(k)|^2&-r_2^*(k)\\0&0&r_2(k)&1\end{pmatrix}.
+\]
+\[
+v_3=\begin{pmatrix}1&0&0&0\\0&1-|\rho(-\ii k)|^2&0&-\rho^*(-\ii k)\\0&0&1&0\\0&\rho(-\ii k)&0&1\end{pmatrix},
+\]
+\[
+v_4=\begin{pmatrix}1-|r_1(-\ii k)|^2&0&0&r_1^*(-\ii k)\\0&1-|r_2(-\ii k)|^2&-r_2^*(-\ii k)&0\\0&r_2(-\ii k)&1&0\\-r_1(-\ii k)&0&0&1\end{pmatrix},
+\]
+\[
+v_5=\begin{pmatrix}1-|\rho(-k)|^2&0&-\rho^*(-k)&0\\0&1&0&0\\\rho(-k)&0&1&0\\0&0&0&1\end{pmatrix},
+\]
+\[
+v_6=\begin{pmatrix}1-|r_2(-k)|^2&-r_2^*(-k)&0&0\\r_2(-k)&1&0&0\\0&0&1&-r_1(-k)\\0&0&r_1^*(-k)&1-|r_1(-k)|^2\end{pmatrix},
+\]
+\[
+v_7=\begin{pmatrix}1&0&0&0\\0&1&0&\rho(\ii k)\\0&0&1&0\\0&-\rho^*(\ii k)&0&1-|\rho(\ii k)|^2\end{pmatrix},
+\]
+\[
+v_8=\begin{pmatrix}1&0&0&r_2(\ii k)\\0&1&-r_1(\ii k)&0\\0&r_1^*(\ii k)&1-|r_1(\ii k)|^2&0\\-r_2^*(\ii k)&0&0&1-|r_2(\ii k)|^2\end{pmatrix}.
+\]
+\begin{note}
+这里 $v(k)$ 是\textbf{跳跃矩阵}，$v(x,t)$ 是位势的第二分量，须按自变量区别。
+星号用于标量复共轭；例如 $r_1^*(k)=\overline{r_1(k)}$，不是取函数值 $r_1(k^*)$。
+每个非平凡二阶块的行列式均为一，所以所有 $\det v_j=1$。这一结论以后用于行列式与唯一性证明。
+\end{note}
+\begin{paperlemmaen}
+Assume $u_0,v_0\in\mathcal S(\mathbb R)$. For each $x$, the left and right limits of $M$ on $\Gamma$ exist, denoted $M_+,M_-$. They satisfy (3.2).
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+各有向射线左、右侧的边界值分别记为 $M_+,M_-$，满足如下跳跃关系。
+\end{paperlemmacn*}
+\begin{equation}\originaleq{3.2}
+M_+(x,k)=M_-(x,k)e^{xL(k)}v(k)e^{-xL(k)},\quad k\in\Gamma\setminus\mathcal Q.
+\end{equation}
+\begin{proof}
+\EN{We will show that (3.3) holds. The proof of the remaining part is similar. As in the proof to Lemma 2.11, we only need to prove that the above jump relation holds for the compact supported potentials.}
+\CN{只证明正实射线上的 (3.3)，其余同理。和引理 2.11 一样，先对紧支撑位势证明，再取截断极限；两侧分别是区域 1、8。}
+\begin{equation}\originaleq{3.3}
+M_1=M_8e^{xL}v_1e^{-xL},\qquad k\in\mathbb R_+\setminus\mathcal Q.
+\end{equation}
+\EN{Both $M_1e^{xL}$ and $M_8e^{xL}$ solve $\phi_x=F\phi$. Hence an $x$-independent $K$ gives}
+\CN{两个基本解之比不随空间变化，因此}
+\begin{equation}\originaleq{3.4}
+M_1=M_8e^{xL}Ke^{-xL}.
+\end{equation}
+\EN{For compact support, Lemma 2.9 gives the following for $x<-b_0$, where $b_0$ is sufficiently large:}
+\CN{在支撑左侧，$\mu_-=I$，故}
+\begin{equation}\originaleq{3.5}
+M_n=e^{xL}S_ne^{-xL},\qquad x<-b_0.
+\end{equation}
+\EN{Thus $K=S_8^{-1}S_1$. Straightforward calculation gives (3.3).}
+\CN{由此 $K=S_8^{-1}S_1$。第二、四列相同，所以 $K$ 第二、四列为标准基列；第一、三列的差只在相应二维子空间中。
+用 (2.112)、(2.113) 相乘，$(1,3)$ 项为 $s\left(\begin{smallmatrix}1,2\\2,3\end{smallmatrix}\right)/s(1,2)=\Lambda/\Delta=\rho$，$(3,1)$ 项由共轭对称为 $-\rho^*$。
+左上非平凡块的行列式为一，故 $(3,3)=1-|\rho|^2$，得到 $v_1$。
+截断极限保留该关系；另一条基本射线的二阶消元产生 $v_2$，其余矩阵由 $A,B$ 对称旋转得到。边界值存在来自命题 2.10(b)。}
+\end{proof}
+\EN{Next, we consider the evolution of scattering data over time. Assume that $\{u(x,t),v(x,t)\}$ is a Schwartz class solution of system (1.1) with existence time $T\in(0,+\infty]$ and initial data $\{u_0,v_0\}\in\mathcal S(\mathbb R)$.}
+\CN{接下来考虑散射数据的时间演化。假设 $u,v$ 是存在时间为 $T$、初值属于 Schwartz 空间的方程组解。}
+\EN{We replace $\{u_0,v_0\}$ with $\{u(x,t),v(x,t)\}$ in all equations containing $u_0(x)$ and $v_0(x)$ in the previous sections. For example, we can define $\mu_\pm(x,t,k)$, $\mu_\pm^A(x,t,k)$, $s(t,k)$, $s^A(t,k)$, $f_n(x,t,k)$, $g_n(x,t,k)$, and $M(x,t,k)$ by doing this in Equations (2.13), (2.39), (2.33), (2.46), (2.56), (2.57), and (2.88).}
+\CN{把前章所有含初值的方程中的 $u_0,v_0$ 换成演化位势，即可在所列七个方程中分别定义时间依赖的原、伴随 Jost 解，散射矩阵，基本张量与基本亚纯解。}
+\EN{From our definition of $M(x,t,k)$, it is easy to see that $M(x,k)=M(x,0,k)$. Since $M(x,k)$ satisfies Equation (2.13), one is not surprised that $M(x,t,k)$ satisfies Lax pair (2.10). We give the following lemma, the proof of which can be found in [22, Lemma 5.1].}
+\CN{由定义，零时刻恢复前章的 $M(x,k)$。它满足空间方程，而时间依赖的矩阵应满足整个 Lax 对。原文引用 [22] 引理 5.1 作为下述引理的证明；这里补足时间方程的论证。}
+\begin{paperlemmaen}
+Let $n\in\{1,\ldots,8\}$. For $k\in\overline D_n\setminus\{0\}$ and $(x,t)\in\mathbb R\times(0,T]$, $M_n(x,t,k)$ satisfies (2.10).
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+在解存在且矩阵定义的时空及谱点上，$M_n$ 同时满足空间和时间方程。
+\end{paperlemmacn*}
+\begin{note}
+原陈述遗漏异常集，且存在时间前文定义为 $[0,T)$。准确使用范围为 $0\leq t<T$、$k\in\overline D_n\setminus\mathcal Q(t)$；在极点处按亚纯恒等式理解。
+\end{note}
+\begin{proof}
+空间方程已证。令 $\phi=M_ne^{xL}$，直接计算时间残差 $\phi_t-G\phi+\phi Z$ 的空间导数：
+\[
+\partial_x(\phi_t-G\phi+\phi Z)
+=F(\phi_t-G\phi+\phi Z)+(F_t-G_x+[F,G])\phi.
+\]
+零曲率使最后一项消失。将残差右乘 $e^{-xL}$，得到与 $M_n$ 相同的齐次空间谱方程；在所选积分端点，时间归一化的常数项为零，因为 $G\to Z$ 且 $M_n$ 的规定常数与时间无关。
+逐分量积分得到 (2.88) 的齐次混合积分方程。非异常点上 Fredholm 唯一性使残差为零，于是 $M_t-[Z,M]=V_2M$。
+对时空微分及积分换序，在任意 $0\leq t\leq T_0<T$ 上使用定义 1.1 的共同 Schwartz 界即可；不需要对整个无限时间区间施加一致权重界。
+\end{proof}
+\begin{paperlemmaen}
+Assume $u_0,v_0\in\mathcal S(\mathbb R)$. The boundary values of $M(x,t,k)$ satisfy (3.6).
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+时间演化把初始跳跃矩阵共轭为全相位跳跃矩阵。
+\end{paperlemmacn*}
+\begin{equation}\originaleq{3.6}
+M_+(x,t,k)=M_-(x,t,k)e^{\Theta(x,t,k)}v(k)e^{-\Theta(x,t,k)}.
+\end{equation}
+\begin{proof}
+\EN{Only the positive real ray is shown. Since $M_1e^\Theta,M_8e^\Theta$ satisfy both equations (2.4), their ratio is independent of $x,t$, giving}
+\CN{基本解之比对两个变量都恒定，故}
+\begin{equation}\originaleq{3.7}
+M_1(x,t,k)=M_8(x,t,k)e^\Theta\bigl(M_8(0,0,k)^{-1}M_1(0,0,k)\bigr)e^{-\Theta}.
+\end{equation}
+\EN{Lemma 3.1 gives $M_8(0,0,k)^{-1}M_1(0,0,k)=v_1(k)$.}
+\CN{在初始原点处由引理 3.1 确定常矩阵为 $v_1$。其余射线同理。}
+\end{proof}
+\EN{Let us next show the time evolution of the scattering matrix.}
+\CN{现在求散射矩阵自身的时间演化。}
+\begin{paperlemmaen}
+Let $u,v$ be a Schwartz class solution of (1.1) with initial data $u_0,v_0$. If $s(k,t)$ and $s(k)$ are their scattering matrices, then (3.8) holds.
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+散射矩阵只经历已知对角指数的共轭变化。
+\end{paperlemmacn*}
+\begin{equation}\originaleq{3.8}
+s(k,t)=e^{tZ(k)}s(k)e^{-tZ(k)}.
+\end{equation}
+\begin{proof}
+\EN{The original proof first treats compact support. The matrices $\mu_\pm e^\Theta$ solve the compatible linear problems, so}
+\CN{和引理 3.2 一样，由空间归一化与零曲率可证 Jost 解也满足时间方程；因此在共同定义的列或散射量上，}
+\begin{equation}\originaleq{3.9}
+\mu_+e^\Theta=\mu_-e^\Theta\bigl(\mu_-(0,0,k)^{-1}\mu_+(0,0,k)\bigr)=\mu_-e^\Theta s(k).
+\end{equation}
+\EN{The defining integrals give $\mu_+e^{xL}=\mu_-e^{xL}s(k,t)$. Combining this with (3.9) proves (3.8).}
+\CN{固定时刻的空间连接关系为 $\mu_+e^{xL}=\mu_-e^{xL}s(k,t)$；两式比较得到结论。}
+\proofstep{无需假定演化后仍有紧支撑的证明。}
+一般色散方程不保持紧支撑，不能把空间截断位势直接当作同一 PDE 的演化解。
+可直接对定义积分求时间导数：用 $U_{2,t}-V_{2,x}+[L+U_2,Z+V_2]=0$，把含 $V_{2,x}$ 的项分部积分；Schwartz 衰减使端点项为零，得到 $s_t=Zs-sZ$。
+逐元素为 $\partial_ts_{ab}=(z_a-z_b)s_{ab}$，解此标量常系数 ODE 即得 (3.8)。部分定义域中的散射量以合法列或张量积分操作，不要求不存在的全矩阵。
+\end{proof}
+\begin{note}
+\EN{Remark 8. The associated reflection coefficients evolve according to (3.10), where $\theta_{ij}=x(l_i-l_j)+t(z_i-z_j)$.}
+\CN{注 8：反射系数的分母是主子式，其时间相位相消，故}
+\begin{equation}\originaleq{3.10}
+\rho(k,t)=\rho(k)e^{\theta_{13}(0,t,k)},\quad r_1(k,t)=r_1(k)e^{\theta_{12}(0,t,k)},\quad r_2(k,t)=r_2(k)e^{\theta_{43}(0,t,k)}.
+\end{equation}
+\EN{Remark 9. Similarly, $s^A(k,t)=e^{-tZ(k)}s^A(k)e^{tZ(k)}$.}
+\CN{注 9：伴随散射矩阵的相位符号相反。这也可由紧支撑恒等式 $s^A=s^{-\mathsf T}$ 取逆转置后再用逐域延拓得到。}
+\end{note}
+\EN{The large-$k$ expansion (2.108) remains valid with the time-dependent coefficients $\mu_+^{[l]}(x,t)$. At zero the situation is more complicated. Lemma 2.11 relates $M$ to Jost quantities whose asymptotics are known, so it provides a way to determine the behavior of $M$ at zero. We consider two special cases, soliton-free and pure soliton, with additional simplifying assumptions in each.}
+\CN{时间参数不会改变固定时刻的大谱递推。原点则要结合 Jost 展开与散射分母，分别处理无孤子和纯孤子两种情形。}

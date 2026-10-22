@@ -1,0 +1,763 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          7,
+          7
+        ]
+      ],
+      "date-time": "2026-07-07T12:23:16Z",
+      "timestamp": 1783426996095,
+      "version": "3.54.6"
+    },
+    "reference-count": 45,
+    "publisher": "Springer Science and Business Media LLC",
+    "issue": "12",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              1
+            ]
+          ],
+          "date-time": "2026-06-01T00:00:00Z",
+          "timestamp": 1780272000000
+        },
+        "content-version": "tdm",
+        "delay-in-days": 0,
+        "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              1
+            ]
+          ],
+          "date-time": "2026-06-01T00:00:00Z",
+          "timestamp": 1780272000000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "link.springer.com"
+      ],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "Nonlinear Dyn"
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          2026,
+          6
+        ]
+      ]
+    },
+    "DOI": "10.1007/s11071-026-12724-0",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2026,
+          6,
+          14
+        ]
+      ],
+      "date-time": "2026-06-14T21:05:52Z",
+      "timestamp": 1781471152000
+    },
+    "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+    "source": "Crossref",
+    "is-referenced-by-count": 0,
+    "title": [
+      "Inverse scattering transform and soliton solutions for the coupled Hirota-Maxwell-Bloch system with nonzero background"
+    ],
+    "prefix": "10.1007",
+    "volume": "114",
+    "author": [
+      {
+        "given": "Shuai",
+        "family": "Liu",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yaqing",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "297",
+    "published-online": {
+      "date-parts": [
+        [
+          2026,
+          6,
+          14
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "key": "12724_CR1",
+        "doi-asserted-by": "publisher",
+        "first-page": "3655",
+        "DOI": "10.1007/s11071-024-10397-1",
+        "volume": "113",
+        "author": "HD Liu",
+        "year": "2024",
+        "unstructured": "Liu, H.D., Tian, B., Chen, Y.Q., Cheng, C.D., Gao, X.T.: $$N$$-soliton, $$H$$th-order breather, hybrid and multi-pole solutions for a generalized variable-coefficient Gardner equation with an external force in a plasma or fluid. Nonlinear Dyn. 113, 3655–3672 (2024)",
+        "journal-title": "Nonlinear Dyn."
+      },
+      {
+        "key": "12724_CR2",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1002/zamm.202200417",
+        "volume": "104",
+        "author": "SS Chen",
+        "year": "2024",
+        "unstructured": "Chen, S.S., Tian, B., Tian, H.Y., Hu, C.C.: Riemann-Hilbert approach, dark solitons and double-pole solutions for Lakshmanan–Porsezian–Daniel equation in an optical fiber, a ferromagnetic spin or a protein. Z. Angew. Math. Mech. 104, e202200417 (2024)",
+        "journal-title": "Z. Angew. Math. Mech."
+      },
+      {
+        "key": "12724_CR3",
+        "doi-asserted-by": "publisher",
+        "first-page": "1355",
+        "DOI": "10.1143/PTP.51.1355",
+        "volume": "51",
+        "author": "K Sawada",
+        "year": "1974",
+        "unstructured": "Sawada, K., Kotera, T.: A method for finding $$N$$-soliton solutions of the KdV equation and KdV-like equation. Prog. Theor. Phys. 51, 1355–1367 (1974)",
+        "journal-title": "Prog. Theor. Phys."
+      },
+      {
+        "key": "12724_CR4",
+        "doi-asserted-by": "publisher",
+        "first-page": "343",
+        "DOI": "10.1007/BF01038218",
+        "volume": "23",
+        "author": "AR Its",
+        "year": "1975",
+        "unstructured": "Its, A.R., Matveev, V.B.: Schrödinger operators with finite-gap spectrum and $$N$$-soliton solutions of the Korteweg-de Vries equation. Theor. Math. Phys. 23, 343–355 (1975)",
+        "journal-title": "Theor. Math. Phys."
+      },
+      {
+        "key": "12724_CR5",
+        "doi-asserted-by": "publisher",
+        "first-page": "12021",
+        "DOI": "10.1007/s11071-024-10696-7",
+        "volume": "113",
+        "author": "WG Zheng",
+        "year": "2025",
+        "unstructured": "Zheng, W.G., Liu, Y.Q.: Hierarchical structure and $$N$$-soliton solutions of the generalized Gerdjikov–Ivanov equation via Riemann–Hilbert problem. Nonlinear Dyn. 113, 12021–12035 (2025)",
+        "journal-title": "Nonlinear Dyn."
+      },
+      {
+        "key": "12724_CR6",
+        "doi-asserted-by": "publisher",
+        "first-page": "26171",
+        "DOI": "10.1038/s41598-024-74333-4",
+        "volume": "14",
+        "author": "Y Guo",
+        "year": "2024",
+        "unstructured": "Guo, Y., Chen, Y., Manafian, J., Malmir, S., Mahmoud, K.H., Alsubaie, A.S.A.: $$N$$-soliton solutions, multiple rogue wave and the linear superposition principle to the generalized Hirota Satsuma-Ito equation. Sci. Rep. 14, 26171–26178 (2024)",
+        "journal-title": "Sci. Rep."
+      },
+      {
+        "key": "12724_CR7",
+        "doi-asserted-by": "publisher",
+        "first-page": "103329",
+        "DOI": "10.1016/j.rinp.2020.103329",
+        "volume": "19",
+        "author": "HJF Ismael",
+        "year": "2020",
+        "unstructured": "Ismael, H.J.F., Bulut, H.S., Park, C., Osman, M.S.: M-lump, $$N$$-soliton solutions, and the collision phenomena for the (2+1)-dimensional Date-Jimbo–Kashiwara–Miwa equation. Results Phys. 19, 103329–103335 (2020)",
+        "journal-title": "Results Phys."
+      },
+      {
+        "key": "12724_CR8",
+        "volume": "24",
+        "author": "CH Feng",
+        "year": "2025",
+        "unstructured": "Feng, C.H., Tian, B., Gao, X.T.: Bilinear Bäcklund transformations, as well as $$N$$-soliton, breather, fission fusion and hybrid solutions for a (3+1)-dimensional integrable wave equation in a fluid. Qual. Theory Dyn. Syst. 24, 103329 (2025)",
+        "journal-title": "Qual. Theory Dyn. Syst."
+      },
+      {
+        "key": "12724_CR9",
+        "doi-asserted-by": "publisher",
+        "first-page": "7309",
+        "DOI": "10.1007/s11071-024-09356-7",
+        "volume": "112",
+        "author": "KJ Wang",
+        "year": "2024",
+        "unstructured": "Wang, K.J.: The generalized (3+1)-dimensional B-type Kadomtsev–Petviashvili equation: resonant multiple soliton, $$N$$-soliton, soliton molecules and the interaction solutions. Nonlinear Dyn. 112, 7309–7324 (2024)",
+        "journal-title": "Nonlinear Dyn."
+      },
+      {
+        "key": "12724_CR10",
+        "doi-asserted-by": "publisher",
+        "first-page": "2550060",
+        "DOI": "10.1142/S0217984925500605",
+        "volume": "39",
+        "author": "JY Chu",
+        "year": "2025",
+        "unstructured": "Chu, J.Y., Liu, Y.Q., Ma, W.X.: Integrability and multiple-rogue and multi-soliton wave solutions of the (3+1)-dimensional Hirota–Satsuma-Ito equation. Mod. Phys. Lett. B 39, 2550060 (2025)",
+        "journal-title": "Mod. Phys. Lett. B"
+      },
+      {
+        "key": "12724_CR11",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Deift, P.: Orthogonal polynomials and random matrices: A Riemann–Hilbert approach. Courant Lect, Notes Math (2000)",
+        "DOI": "10.1090/cln/003"
+      },
+      {
+        "key": "12724_CR12",
+        "doi-asserted-by": "publisher",
+        "first-page": "149",
+        "DOI": "10.2307/2951834",
+        "volume": "146",
+        "author": "PA Deift",
+        "year": "1997",
+        "unstructured": "Deift, P.A., Its, A.R., Zhou, X.: A Riemann-Hilbert approach to asymptotic problems arising in the theory of random matrix models, and also in the theory of integrable statistical mechanics. Ann. Math. 146, 149–235 (1997)",
+        "journal-title": "Ann. Math."
+      },
+      {
+        "key": "12724_CR13",
+        "first-page": "1",
+        "volume": "55",
+        "author": "B Deng",
+        "year": "2025",
+        "unstructured": "Deng, B., Guo, R., Zhang, J.: The Riemann-Hilbert approach and $$N$$-soliton solutions for the semi-discrete complex modified Korteweg-de Vries equation with non-zero boundary. Sci. Sin. Math. 55, 1–20 (2025)",
+        "journal-title": "Sci. Sin. Math."
+      },
+      {
+        "key": "12724_CR14",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.nuclphysb.2024.116742",
+        "volume": "1009",
+        "author": "XY Liu",
+        "year": "2024",
+        "unstructured": "Liu, X.Y., Guo, R.: Mixed single, double, and triple poles solutions for the space-time shifted nonlocal DNLS equation with nonzero boundary conditions via Riemann-Hilbert approach. Nucl. Phys. B 1009, 116742 (2024)",
+        "journal-title": "Nucl. Phys. B"
+      },
+      {
+        "key": "12724_CR15",
+        "doi-asserted-by": "publisher",
+        "first-page": "334",
+        "DOI": "10.1016/j.nonrwa.2017.10.014",
+        "volume": "41",
+        "author": "DS Wang",
+        "year": "2017",
+        "unstructured": "Wang, D.S., Wang, X.L.: Long-time asymptotics and the bright $$N$$-soliton solutions of the Kundu–Eckhaus equation via the Riemann-Hilbert approach. Nonlinear Anal. Real World Appl. 41, 334–361 (2017)",
+        "journal-title": "Nonlinear Anal. Real World Appl."
+      },
+      {
+        "key": "12724_CR16",
+        "doi-asserted-by": "publisher",
+        "first-page": "2150194",
+        "DOI": "10.1142/S0217984921501943",
+        "volume": "35",
+        "author": "ZQ Wang",
+        "year": "2021",
+        "unstructured": "Wang, Z.Q., Tian, S.F., Zhang, T.T., Yang, J.J.: Riemann–Hilbert approach and multi-soliton solutions of a variable-coefficient fifth-order nonlinear Schrödinger equation with $$N$$ distinct arbitrary-order poles. Mod. Phys. Lett. B 35, 2150194 (2021)",
+        "journal-title": "Mod. Phys. Lett. B"
+      },
+      {
+        "key": "12724_CR17",
+        "doi-asserted-by": "publisher",
+        "first-page": "2773",
+        "DOI": "10.1007/s11071-021-07135-2",
+        "volume": "107",
+        "author": "BB Hu",
+        "year": "2022",
+        "unstructured": "Hu, B.B., Lin, J., Zhang, L.: Dynamic behaviors of soliton solutions for a three-coupled Lakshmanan–Porsezian–Daniel model. Nonlinear Dyn. 107, 2773–2785 (2022)",
+        "journal-title": "Nonlinear Dyn."
+      },
+      {
+        "key": "12724_CR18",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1063/5.0213183",
+        "volume": "65",
+        "author": "BB Hu",
+        "year": "2024",
+        "unstructured": "Hu, B.B., Zhang, L., Shen, Z.Y.: Nonlocal combined nonlinear Schrödinger–Gerdjikov–Ivanov model: Integrability, Riemann–Hilbert problem with simple and double poles, Cauchy problem with step-like initial data. J. Math. Phys. 65, 103501 (2024)",
+        "journal-title": "J. Math. Phys."
+      },
+      {
+        "key": "12724_CR19",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1088/1572-9494/ad806e",
+        "volume": "77",
+        "author": "BB Hu",
+        "year": "2025",
+        "unstructured": "Hu, B.B., Zhang, L., Shen, Z.Y., Lin, J.: On the Riemann-Hilbert problem for the reverse space-time nonlocal Hirota equation with step-like initial data. Commun. Thero. Phys. 77, 025004 (2025)",
+        "journal-title": "Commun. Thero. Phys."
+      },
+      {
+        "key": "12724_CR20",
+        "doi-asserted-by": "publisher",
+        "first-page": "433",
+        "DOI": "10.1002/cpa.10065",
+        "volume": "56",
+        "author": "PM Bleher",
+        "year": "2003",
+        "unstructured": "Bleher, P.M., Its, A.R.: Double scaling limit in the random matrix model: The Riemann–Hilbert approach. Commun. Pure Appl. Math. 56, 433–516 (2003)",
+        "journal-title": "Commun. Pure Appl. Math."
+      },
+      {
+        "key": "12724_CR21",
+        "doi-asserted-by": "publisher",
+        "first-page": "337",
+        "DOI": "10.1016/j.aim.2003.08.015",
+        "volume": "188",
+        "author": "ABJ Kuijlaars",
+        "year": "2004",
+        "unstructured": "Kuijlaars, A.B.J., McLaughlin, K.T.-R., Assche, W.V., Vanlessen, M.: The Riemann–Hilbert approach to strong asymptotics for orthogonal polynomials on $$[-1,1]$$. Adv. Math. 188, 337–398 (2004)",
+        "journal-title": "Adv. Math."
+      },
+      {
+        "key": "12724_CR22",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1088/1572-9494/ada00a",
+        "volume": "77",
+        "author": "Y Li",
+        "year": "2024",
+        "unstructured": "Li, Y., Li, M., Xu, T., Huang, Y.H., Xu, C.X.: $$N$$-soliton solutions and asymptotic analysis for the massive Thirring model in laboratory coordinates via the Riemann-Hilbert approach. Commun. Theor. Phys. 77, 065003 (2024)",
+        "journal-title": "Commun. Theor. Phys."
+      },
+      {
+        "key": "12724_CR23",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1088/1402-4896/ab05f9",
+        "volume": "94",
+        "author": "X Ma",
+        "year": "2019",
+        "unstructured": "Ma, X., Xia, T.C.: Riemann–Hilbert approach and $$N$$-soliton solutions for the generalized nonlinear Schrödinger equation. Phys. Scr. 94, 095203 (2019)",
+        "journal-title": "Phys. Scr."
+      },
+      {
+        "key": "12724_CR24",
+        "doi-asserted-by": "publisher",
+        "first-page": "113",
+        "DOI": "10.1007/s10473-020-0108-x",
+        "volume": "40",
+        "author": "LL Wen",
+        "year": "2019",
+        "unstructured": "Wen, L.L., Zhang, N., Fan, E.G.: $$N$$-soliton solution of the Kundu-type equation via Riemann-Hilbert approach. Acta Math. Sci. 40, 113–126 (2019)",
+        "journal-title": "Acta Math. Sci."
+      },
+      {
+        "key": "12724_CR25",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.wavemoti.2024.103293",
+        "volume": "127",
+        "author": "YP Chen",
+        "year": "2024",
+        "unstructured": "Chen, Y.P., Li, B.A.: $$N$$-soliton solutions for the novel Kundu-nonlinear Schrödinger equation and Riemann–Hilbert approach. Wave Motion 127, 103293 (2024)",
+        "journal-title": "Wave Motion"
+      },
+      {
+        "key": "12724_CR26",
+        "doi-asserted-by": "publisher",
+        "first-page": "62",
+        "DOI": "10.1016/j.wavemoti.2015.09.003",
+        "volume": "60",
+        "author": "XG Geng",
+        "year": "2015",
+        "unstructured": "Geng, X.G., Wu, J.P.: Riemann-Hilbert approach and $$N$$-soliton solutions for a generalized Sasa–Satsuma equation. Wave Motion 60, 62–72 (2015)",
+        "journal-title": "Wave Motion"
+      },
+      {
+        "key": "12724_CR27",
+        "doi-asserted-by": "publisher",
+        "first-page": "3617",
+        "DOI": "10.1007/s11071-022-07774-z",
+        "volume": "110",
+        "author": "F Wu",
+        "year": "2022",
+        "unstructured": "Wu, F., Huang, L.: Riemann–Hilbert approach and $$N$$-soliton solutions of the coupled generalized Sasa–Satsuma equation. Nonlinear Dyn. 110, 3617–3627 (2022)",
+        "journal-title": "Nonlinear Dyn."
+      },
+      {
+        "key": "12724_CR28",
+        "doi-asserted-by": "publisher",
+        "first-page": "597",
+        "DOI": "10.1007/s11071-020-05772-7",
+        "volume": "101",
+        "author": "J Wang",
+        "year": "2020",
+        "unstructured": "Wang, J., Su, T., Geng, X.G., Li, R.M.: Riemann–Hilbert approach and $$N$$-soliton solutions for a new two-component Sasa–Satsuma equation. Nonlinear Dyn. 101, 597–609 (2020)",
+        "journal-title": "Nonlinear Dyn."
+      },
+      {
+        "key": "12724_CR29",
+        "doi-asserted-by": "publisher",
+        "first-page": "287",
+        "DOI": "10.5506/APhysPolB.56.6-A1",
+        "volume": "56",
+        "author": "Y Zhao",
+        "year": "2025",
+        "unstructured": "Zhao, Y., Nie, H.: Application of the Riemann-Hilbert approach and $$N$$-soliton solutions for the generalized Fokas–Lenells equation. Acta Phys. Pol., B 56, 287–303 (2025)",
+        "journal-title": "Acta Phys. Pol., B"
+      },
+      {
+        "key": "12724_CR30",
+        "doi-asserted-by": "publisher",
+        "first-page": "1950002",
+        "DOI": "10.1140/epjp/s13360-021-01830-0",
+        "volume": "136",
+        "author": "DQ Qiu",
+        "year": "2021",
+        "unstructured": "Qiu, D.Q.: Riemann-Hilbert approach and $$N$$-soliton solution for the Chen–Lee–Liu equation. Eur. Phys. J. Plus. 136, 1950002 (2021)",
+        "journal-title": "Eur. Phys. J. Plus."
+      },
+      {
+        "key": "12724_CR31",
+        "doi-asserted-by": "publisher",
+        "first-page": "1950002",
+        "DOI": "10.1142/S0217984919500027",
+        "volume": "33",
+        "author": "MJ Xu",
+        "year": "2019",
+        "unstructured": "Xu, M.J., Xia, T.C., Hu, B.B.: Riemann–Hilbert approach and $$N$$-soliton solutions for the Chen–Lee–Liu equation. Mod. Phys. Lett. B 33, 1950002 (2019)",
+        "journal-title": "Mod. Phys. Lett. B"
+      },
+      {
+        "key": "12724_CR32",
+        "doi-asserted-by": "publisher",
+        "first-page": "188",
+        "DOI": "10.1186/s13662-019-2121-5",
+        "volume": "2019",
+        "author": "ZZ Kang",
+        "year": "2019",
+        "unstructured": "Kang, Z.Z., Xia, T.C., Ma, W.X.: Riemann–Hilbert approach and $$N$$-soliton solution for an eighth-order nonlinear Schrödinger equation in an optical fiber. Adv. Differ. Equ. 2019, 188–202 (2019)",
+        "journal-title": "Adv. Differ. Equ."
+      },
+      {
+        "key": "12724_CR33",
+        "doi-asserted-by": "publisher",
+        "first-page": "109005",
+        "DOI": "10.1016/j.aml.2024.109005",
+        "volume": "151",
+        "author": "YX Wang",
+        "year": "2024",
+        "unstructured": "Wang, Y.X., Huang, L., Yu, J.: $$N$$-soliton solutions for the three-component Dirac–Manakov system via Riemann–Hilbert approach. Appl. Math. Lett. 151, 109005–109011 (2024)",
+        "journal-title": "Appl. Math. Lett."
+      },
+      {
+        "key": "12724_CR34",
+        "doi-asserted-by": "publisher",
+        "first-page": "1765",
+        "DOI": "10.1007/s11071-021-06706-7",
+        "volume": "105",
+        "author": "Y Li",
+        "year": "2021",
+        "unstructured": "Li, Y., Li, J., Wang, R.Q.: Multi-soliton solutions of the $$N$$-component nonlinear Schrödinger equations via Riemann–Hilbert approach. Nonlinear Dyn. 105, 1765–1772 (2021)",
+        "journal-title": "Nonlinear Dyn."
+      },
+      {
+        "key": "12724_CR35",
+        "doi-asserted-by": "publisher",
+        "first-page": "717",
+        "DOI": "10.4208/eajam.170120.080420",
+        "volume": "10",
+        "author": "X Wu",
+        "year": "2020",
+        "unstructured": "Wu, X., Tian, S.F., Yang, J.J.: Riemann–Hilbert approach and $$N$$-soliton solutions for three-component coupled Hirota equations. East Asian J. Appl. Math. 10, 717–731 (2020)",
+        "journal-title": "East Asian J. Appl. Math."
+      },
+      {
+        "key": "12724_CR36",
+        "first-page": "16641",
+        "volume": "24",
+        "author": "JP Wu",
+        "year": "2024",
+        "unstructured": "Wu, J.P.: Riemann–Hilbert approach and $$N$$-soliton solutions of a novel $$n$$-component shifted nonlocal reverse-time NLS equation. Qual. Theory Dyn. Syst. 24, 16641–16659 (2024)",
+        "journal-title": "Qual. Theory Dyn. Syst."
+      },
+      {
+        "key": "12724_CR37",
+        "doi-asserted-by": "publisher",
+        "first-page": "574",
+        "DOI": "10.1140/epjp/s13360-020-00575-6",
+        "volume": "135",
+        "author": "XT Chen",
+        "year": "2020",
+        "unstructured": "Chen, X.T., Zhang, Y., Liang, J.L., Wang, R.: The $$N$$-soliton solutions for the matrix modified Korteweg-de Vries equation via the Riemann–Hilbert approach. Eur. Phys. J. Plus. 135, 574–593 (2020)",
+        "journal-title": "Eur. Phys. J. Plus."
+      },
+      {
+        "key": "12724_CR38",
+        "doi-asserted-by": "publisher",
+        "first-page": "108390",
+        "DOI": "10.1016/j.aml.2022.108390",
+        "volume": "134",
+        "author": "F Wu",
+        "year": "2022",
+        "unstructured": "Wu, F., Huang, L.: $$N$$-soliton solutions for the coupled extended modified KdV equations via Riemann–Hilbert approach. Appl. Math. Lett. 134, 108390–108397 (2022)",
+        "journal-title": "Appl. Math. Lett."
+      },
+      {
+        "key": "12724_CR39",
+        "doi-asserted-by": "publisher",
+        "first-page": "2081",
+        "DOI": "10.1088/0951-7715/26/7/2081",
+        "volume": "26",
+        "author": "A Monvel",
+        "year": "2013",
+        "unstructured": "Monvel, A., Shepelsky, D.: A Riemann–Hilbert approach for the Degasperis–Procesi equation. Nonlinearity 26, 2081–2107 (2013)",
+        "journal-title": "Nonlinearity"
+      },
+      {
+        "key": "12724_CR40",
+        "doi-asserted-by": "publisher",
+        "first-page": "1345",
+        "DOI": "10.1007/s11005-017-0945-z",
+        "volume": "107",
+        "author": "ABD Monvel",
+        "year": "2017",
+        "unstructured": "Monvel, A.B.D., Shepelsky, D.: The short pulse equation by a Riemann–Hilbert approach. Lett. Math. Phys. 107, 1345–1373 (2017)",
+        "journal-title": "Lett. Math. Phys."
+      },
+      {
+        "key": "12724_CR41",
+        "doi-asserted-by": "publisher",
+        "first-page": "95",
+        "DOI": "10.1016/j.cjph.2023.01.006",
+        "volume": "82",
+        "author": "XQ Cui",
+        "year": "2023",
+        "unstructured": "Cui, X.Q., Zhang, B.J., Wen, X.Y.: Bright-dark soliton solutions and their elastic interaction analysis for a reduced integrable spin Hirota–Maxwell–Bloch equation. Chin. J. Phys. 82, 95–104 (2023)",
+        "journal-title": "Chin. J. Phys."
+      },
+      {
+        "key": "12724_CR42",
+        "doi-asserted-by": "publisher",
+        "first-page": "2150153",
+        "DOI": "10.1142/S0217979221501538",
+        "volume": "35",
+        "author": "J Li",
+        "year": "2021",
+        "unstructured": "Li, J., Xia, T.C.: The $$N$$-soliton solutions to the Hirota and Maxwell-Bloch equation via the Riemann–Hilbert approach. Int. J. Mod. Phys. B 35, 2150153 (2021)",
+        "journal-title": "Int. J. Mod. Phys. B"
+      },
+      {
+        "key": "12724_CR43",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Ablowitz, M.J., Kaup, D.J., Newell, A.C., Segur, H.: Nonlinear-evolution equations of physical significance. Phys. Rev. Lett. 31, 125–127 (1973)",
+        "DOI": "10.1103/PhysRevLett.31.125"
+      },
+      {
+        "key": "12724_CR44",
+        "doi-asserted-by": "publisher",
+        "first-page": "166",
+        "DOI": "10.1007/BF01077483",
+        "volume": "13",
+        "author": "VE Zakharov",
+        "year": "1979",
+        "unstructured": "Zakharov, V.E., Shabat, A.B.: Integration of nonlinear equations of mathematical physics by the method of inverse scattering. II. Funct. Anal. Appl. 13, 166–174 (1979)",
+        "journal-title": "II. Funct. Anal. Appl."
+      },
+      {
+        "key": "12724_CR45",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1063/5.0076361",
+        "volume": "63",
+        "author": "YL Guo",
+        "year": "2022",
+        "unstructured": "Guo, Y.L., Zhang, W.G., Liu, L.L.: The $$N$$-soliton solution to the higer-order nonlinear Schrödinger–Maxwell–Bloch system via the Riemann–Hilbert approach. J. Math. Phys. 63, 051505 (2022)",
+        "journal-title": "J. Math. Phys."
+      }
+    ],
+    "container-title": [
+      "Nonlinear Dynamics"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "https://link.springer.com/content/pdf/10.1007/s11071-026-12724-0.pdf",
+        "content-type": "application/pdf",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://link.springer.com/article/10.1007/s11071-026-12724-0",
+        "content-type": "text/html",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://link.springer.com/content/pdf/10.1007/s11071-026-12724-0.pdf",
+        "content-type": "application/pdf",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2026,
+          7,
+          7
+        ]
+      ],
+      "date-time": "2026-07-07T12:10:42Z",
+      "timestamp": 1783426242000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://link.springer.com/10.1007/s11071-026-12724-0"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2026,
+          6
+        ]
+      ]
+    },
+    "references-count": 45,
+    "journal-issue": {
+      "issue": "12",
+      "published-print": {
+        "date-parts": [
+          [
+            2026,
+            6
+          ]
+        ]
+      }
+    },
+    "alternative-id": [
+      "12724"
+    ],
+    "URL": "https://doi.org/10.1007/s11071-026-12724-0",
+    "relation": {},
+    "ISSN": [
+      "0924-090X",
+      "1573-269X"
+    ],
+    "issn-type": [
+      {
+        "value": "0924-090X",
+        "type": "print"
+      },
+      {
+        "value": "1573-269X",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          6
+        ]
+      ]
+    },
+    "assertion": [
+      {
+        "value": "8 April 2026",
+        "order": 1,
+        "name": "received",
+        "label": "Received",
+        "group": {
+          "name": "ArticleHistory",
+          "label": "Article History"
+        }
+      },
+      {
+        "value": "21 May 2026",
+        "order": 2,
+        "name": "revised",
+        "label": "Revised",
+        "group": {
+          "name": "ArticleHistory",
+          "label": "Article History"
+        }
+      },
+      {
+        "value": "1 June 2026",
+        "order": 3,
+        "name": "accepted",
+        "label": "Accepted",
+        "group": {
+          "name": "ArticleHistory",
+          "label": "Article History"
+        }
+      },
+      {
+        "value": "14 June 2026",
+        "order": 4,
+        "name": "first_online",
+        "label": "First Online",
+        "group": {
+          "name": "ArticleHistory",
+          "label": "Article History"
+        }
+      },
+      {
+        "order": 1,
+        "name": "Ethics",
+        "group": {
+          "name": "EthicsHeading",
+          "label": "Declarations"
+        }
+      },
+      {
+        "value": "The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.",
+        "order": 2,
+        "name": "Ethics",
+        "group": {
+          "name": "EthicsHeading",
+          "label": "Conflict of interest"
+        }
+      },
+      {
+        "value": "The authors declare no conflict of interest.",
+        "order": 3,
+        "name": "Ethics",
+        "group": {
+          "name": "EthicsHeading",
+          "label": "Conflict of interest"
+        }
+      }
+    ],
+    "article-number": "821"
+  }
+}

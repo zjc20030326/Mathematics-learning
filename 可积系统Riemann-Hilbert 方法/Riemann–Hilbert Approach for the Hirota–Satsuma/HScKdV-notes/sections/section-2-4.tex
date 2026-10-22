@@ -1,0 +1,303 @@
+\section{The Adjoint Spectral Problem／伴随谱问题}
+\EN{Consider the adjoint Lax pair of Lax pair (2.4)}
+\CN{考虑 (2.4) 的伴随 Lax 对：}
+\begin{equation}
+\originaleq{2.38}
+\begin{cases}
+\phi_x^A=-F^{\mathsf T}\phi^A,\\
+\phi_t^A=-G^{\mathsf T}\phi^A.
+\end{cases}
+\end{equation}
+\EN{where $F$ and $G$ are given by (2.5) and (2.6).}
+\CN{$F,G$ 仍由 (2.5)、(2.6) 给出。}
+\EN{We fix $t=0$, and perform spectral analysis on the adjoint Lax pair, then we can get the properties of the adjoint scattering quantities.}
+\CN{固定 $t=0$，对伴随 Lax 对作谱分析，得到相应伴随散射量的性质。}
+\EN{Next let us describe these results more accurately.}
+\CN{下面准确陈述这些结果。}
+\EN{First, we define the adjoint Jost solutions $\mu_\pm^A(x,k)$ as the solutions of the following integral equations:}
+\CN{首先，用下列积分方程定义伴随 Jost 解：}
+\begin{equation}
+\originaleq{2.39}
+\mu_\pm^A(x,k)=I-\int_{\pm\infty}^x
+e^{-(x-y)\widehat L(k)}\bigl(U_2^{\mathsf T}\mu_\pm^A\bigr)(y,k)\dd y.
+\end{equation}
+\EN{By direct calculation, we find that if $\phi(x,k)$ is invertible and satisfies Lax pair (2.4), then $(\phi^{-1})^{\mathsf T}$ satisfies (2.38).}
+\CN{直接计算表明，可逆的原 Lax 解的逆转置满足伴随 Lax 对。}
+\EN{So we are not surprised that $\mu_\pm^A(x,k)=(\mu_\pm^{-1})^{\mathsf T}(x,k)$.}
+\CN{于是，在整矩阵可逆且有共同定义域的地方，伴随 Jost 解就是原解的逆转置。}
+\EN{The following proposition is completely similar to Proposition 2.1, which characterizes the properties of the adjoint Jost solutions.}
+\CN{下列命题与命题 2.1 对应，刻画伴随 Jost 解的性质。}
+\begin{note}
+上标 $A$ 在 $\mu^A$ 中是伴随对象的标签，与前文置换矩阵 $A$ 不同。
+本节的“伴随”使用负转置，不是复共轭转置。
+一般 Schwartz 位势时，整矩阵逆只在共同定义域或紧支撑延拓中有直接意义；
+各列的伴随解应先用 (2.39) 定义，不能对四列分别定义的符号直接作全矩阵逆。
+\end{note}
+\begin{proof}
+\textbf{伴随方程和归一化的补充计算。}
+由 $\partial_x\phi^{-1}=-\phi^{-1}\phi_x\phi^{-1}$，有
+\[
+\partial_x(\phi^{-1})^{\mathsf T}
+=-(\phi^{-1})^{\mathsf T}\phi_x^{\mathsf T}(\phi^{-1})^{\mathsf T}
+=-F^{\mathsf T}(\phi^{-1})^{\mathsf T}.
+\]
+对 $t$ 同理，得到第二式。
+若 $\phi=\mu e^{xL}$，则
+$(\phi^{-1})^{\mathsf T}=(\mu^{-1})^{\mathsf T}e^{-xL}$。
+因此去掉伴随自由指数后，
+\[
+\mu_x^A+[L,\mu^A]=-U_2^{\mathsf T}\mu^A.
+\]
+从对应无穷端点积分就得到 (2.39)，与原方程相比，交换子和位势项的符号都改变。
+\end{proof}
+
+\begin{paperpropositionen}\label{prop:2.5}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$, then adjoint Jost solutions $\mu_\pm^A(x,k)$ defined by (2.39) has the following properties:
+\begin{enumerate}[label=\alph*.]
+\item For each $x\in\mathbb R$, $\mu_+^A(x,k)$ is well-defined and continuous for $k\in(\ii\overline S,\overline S,-\ii\overline S,-\overline S)\setminus\{0\}$, and is analytic for $k\in(\ii S,S,-\ii S,-S)\setminus\{0\}$.
+\item For each $x\in\mathbb R$, $\mu_-^A(x,k)$ is well-defined and continuous for $k\in(-\ii\overline S,-\overline S,\ii\overline S,\overline S)\setminus\{0\}$, and is analytic for $k\in(-\ii S,-S,\ii S,S)\setminus\{0\}$.
+\item For each positive integer $j$, the partial derivative $\partial_k^j\mu_+^A(x,k)$ is well-defined and analytic for $k\in(\ii S,S,-\ii S,-S)\setminus\{0\}$, and it can be continuously extended to the boundary of its analytic region except the origin.
+\item For each positive integer $j$, the partial derivative $\partial_k^j\mu_-^A(x,k)$ is well-defined and analytic for $k\in(-\ii S,-S,\ii S,S)\setminus\{0\}$, and it can be continuously extended to the boundary of its analytic region except the origin.
+\item For any $n\ge1$ and $\varepsilon>0$, there exist bounded smooth positive functions $\widetilde f_\pm(x)$ with rapid decay as $x\to\pm\infty$, such that
+\[
+\|\partial_k^j(\mu_+^A-I)\|\le\widetilde f_+(x),\quad
+k\in(\ii\overline S,\overline S,-\ii\overline S,-\overline S),\ |k|>\varepsilon,
+\]
+\[
+\|\partial_k^j(\mu_-^A-I)\|\le\widetilde f_-(x),\quad
+k\in(-\ii\overline S,-\overline S,\ii\overline S,\overline S),\ |k|>\varepsilon.
+\]
+\item $\mu_\pm^A$ satisfy the two symmetries (2.40), where $A,B$ are given by (2.12).
+\item When $u_0,v_0$ have compact support, $\mu_\pm^A$ are analytic for $k\in\mathbb C\setminus\{0\}$ and $\det\mu_\pm^A=1$.
+\item There are the relations (2.41), where $J=\diag(\ii,-1,-\ii,1)$.
+\end{enumerate}
+\end{paperpropositionen}
+\begin{paperpropositioncn*}
+设 $u_0,v_0\in\mathcal S(\mathbb R)$。由 (2.39) 定义的伴随 Jost 解满足：
+\begin{enumerate}[label=\alph*.]
+\item 固定 $x\in\mathbb R$，$\mu_+^A$ 在 $(\ii\overline S,\overline S,-\ii\overline S,-\overline S)\setminus\{0\}$ 逐列定义且连续，在 $(\ii S,S,-\ii S,-S)$ 内逐列解析。
+\item 固定 $x\in\mathbb R$，$\mu_-^A$ 在 $(-\ii\overline S,-\overline S,\ii\overline S,\overline S)\setminus\{0\}$ 逐列定义且连续，在 $(-\ii S,-S,\ii S,S)$ 内逐列解析。
+\item 对每个正整数 $j$，$\partial_k^j\mu_+^A$ 在 a 所列开域解析，连续延拓到除原点外的边界。
+\item 对每个正整数 $j$，$\partial_k^j\mu_-^A$ 在 b 所列开域解析，连续延拓到除原点外的边界。
+\item 对任意 $n\geq1$、$\varepsilon>0$，原文声称存在全实轴光滑、有界且为正的 $\widetilde f_\pm$，分别在 $x\to\pm\infty$ 快速下降，满足英文块内所列谱导数估计。
+\item 两种谱对称性为 (2.40)，其中 $A,B$ 见 (2.12)。
+\item 初值紧支撑时，$\mu_\pm^A$ 在 $\mathbb C\setminus\{0\}$ 解析，且 $\det\mu_\pm^A=1$。
+\item 原、伴随 Jost 解之间满足 (2.41)，$J=\operatorname{diag}(\ii,-1,-\ii,1)$。
+\end{enumerate}
+\end{paperpropositioncn*}
+\begin{equation}
+\originaleq{2.40}
+\mu_\pm^A(x,k)=A\mu_\pm^A(x,\ii k)A^{-1},\qquad
+\mu_\pm^A(x,k)=B\mu_\pm^{A*}(x,k^*)B,
+\end{equation}
+\begin{equation}
+\originaleq{2.41}
+J\mu_\pm(x,-k)J^{-1}=\mu_\pm^A(x,k).
+\end{equation}
+\begin{note}
+e 中的 $n$ 未在估计中明确使用，应按固定最高谱导数阶理解，例如 $0\le j\le n$，常数依赖该阶数与 $\varepsilon$。
+与命题 2.2 相同，谱导数在反向空间端点可能多项式增长；此处“整个实轴有界”的加强也需要额外条件。
+后续采用空间紧集上一致、归一化半轴尾部衰减的版本。
+\end{note}
+\begin{proof}
+\EN{We only prove the assertion (h).}
+\CN{原文只证明 h。}
+\EN{Note that $U_2(x,k)$ satisfies the symmetry $JU_2(x,k)J^{-1}=U_2(x,k)^{\mathsf T}$, and $\mu_\pm(x,k)$ satisfy the integral equation (2.15).}
+\CN{注意 $U_2$ 满足上述转置关系，原解满足 (2.15)。}
+\EN{It is not difficult to verify that $J\mu_\pm(x,-k)J^{-1}$ satisfy the integral equation (2.39).}
+\CN{可验证变换后的函数满足伴随积分方程 (2.39)。}
+\EN{By uniqueness, we immediately get (2.41).}
+\CN{由唯一性得到 (2.41)。}
+\proofstep{补充：把转置关系和两个负号写清。}
+(2.7) 中的两个常矩阵直接满足 $J(\cdot)J^{-1}=(\cdot)^{\mathsf T}$；
+且 $U_2(x,-k)=-U_2(x,k)$、$L(-k)=-L(k)$。
+将 $-k$ 代入 (2.15)，左右分别乘 $J,J^{-1}$，利用 $J$ 与 $L$ 可交换，得到
+\[
+J\mu_\pm(x,-k)J^{-1}
+=I-\int_{\pm\infty}^x e^{-(x-y)\widehat L(k)}
+U_2^{\mathsf T}(y,k)J\mu_\pm(y,-k)J^{-1}\dd y.
+\]
+这就是 (2.39)，且归一化仍为 $I$，所以唯一性确实适用。
+a--d 的列区域由反号指数直接得到，Neumann 阶乘证明与命题 2.1 相同；
+f 的对称性也由归一化唯一性得到。
+紧支撑时用有限区间积分延拓，$\operatorname{tr}(-F^{\mathsf T})=0$，得到 g。
+e 的正确范围由含空间矩的同一迭代估计给出；这里不重复八个扇区的相同积分计算。
+\end{proof}
+
+\EN{Similarly, we need to study the asymptotic behavior of $\mu_\pm^A(x,k)$ when $k$ tends to infinity and tends to 0.}
+\CN{类似地，需要研究伴随解在谱无穷远与原点的渐近行为。}
+\EN{Because of the symmetry (2.41), we arrive at the following two propositions without much effort.}
+\CN{由 (2.41)，这两类展开可以直接从原解的展开推出。}
+\begin{paperpropositionen}\label{prop:2.6}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$. Let $p\ge1$ be an integer, and define
+\[
+X^{(p)}=I+\sum\limits_{l=1}^p\dfrac{\mu_+^{[l]}}{k^l},\qquad
+Y^{(p)}=I+\sum\limits_{l=1}^p\dfrac{\mu_-^{[l]}}{k^l}.
+\]
+Then there exist smooth positive functions $\widetilde g_\pm(x)$ with rapid decay as $x\to\pm\infty$ such that for each integer $j\ge0$ the estimates (2.42a), (2.42b) hold, where
+\[
+X_A^{(p)}(x,k)=JX^{(p)}(x,-k)J^{-1},\quad
+Y_A^{(p)}(x,k)=JY^{(p)}(x,-k)J^{-1}.
+\]
+\end{paperpropositionen}
+\begin{paperpropositioncn*}
+将原文截断式 $X^{(p)},Y^{(p)}$ 作谱反射与 $J$ 共轭，即得伴随解的截断展开与下列余项估计。
+空间一致性的适用范围与命题 2.2 的校注相同。
+\end{paperpropositioncn*}
+\begin{equation}
+\originaleq{2.42a}
+\|\partial_k^j(\mu_+^A-X_A^{(p)})\|
+\le\dfrac{\widetilde g_+(x)}{|k|^{p+1}},\quad
+k\in(\ii\overline S,\overline S,-\ii\overline S,-\overline S),\quad |k|\ge2,
+\end{equation}
+\begin{equation}
+\originaleq{2.42b}
+\|\partial_k^j(\mu_-^A-Y_A^{(p)})\|
+\le\dfrac{\widetilde g_-(x)}{|k|^{p+1}},\quad
+k\in(-\ii\overline S,-\overline S,\ii\overline S,\overline S),\quad |k|\ge2.
+\end{equation}
+\begin{proof}
+由 (2.41)，例如
+\[
+\partial_k^j(\mu_+^A-X_A^{(p)})(x,k)
+=(-1)^jJ\,\partial_k^j(\mu_+-X^{(p)})(x,-k)J^{-1}.
+\]
+取范数，$J,J^{-1}$ 为固定有界矩阵，$|-k|=|k|$，故 (2.21a) 在其有效范围上立即给 (2.42a)；
+负端同理得到 (2.42b)。这也解释为什么无需另造一套展开系数。
+\end{proof}
+
+\begin{paperpropositionen}\label{prop:2.7}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$, and let $p\ge0$ be an integer, then there are fourth-order matrix-valued functions $D_\pm^{(l)}(x)$, $l=-1,0,1,\ldots,p$, with the following properties:
+the estimates (2.43a), (2.43b) hold for each integer $j\ge0$, where $\widehat g_\pm(x)$ are bounded smooth positive functions with rapid decay as $x\to\pm\infty$.
+For any $l\ge-1$, $D_\pm^{(l)}(x)$ vanish rapidly as $x\to\pm\infty$.
+The coefficients $D_\pm^{(-1)},D_\pm^{(0)}$ have the forms (2.44), (2.45), where $\alpha_\pm,\beta_\pm,a_{2\pm},b_{2\pm},b_{1\pm},a_{1\pm}$ are consistent with Proposition 2.3.
+\end{paperpropositionen}
+\begin{paperpropositioncn*}
+伴随解在原点的系数记为原文的 $D_\pm^{(l)}$。
+其展开、端点衰减和前两项结构如下，使用的六类系数函数与命题 2.3 完全相同。
+原文估计左侧同样遗漏了与右侧 $j$ 对应的谱导数；正确的谱导数版及空间范围与前述校注一致。
+\end{paperpropositioncn*}
+\begin{equation}
+\originaleq{2.43a}
+\left\|\mu_+^A-I-\sum\limits_{l=-1}^pD_+^{(l)}k^l\right\|
+\le\widehat g_+(x)|k|^{p+1-j},\quad
+k\in(\ii\overline S,\overline S,-\ii\overline S,-\overline S),\quad |k|\le\dfrac{1}{2},
+\end{equation}
+\begin{equation}
+\originaleq{2.43b}
+\left\|\mu_-^A-I-\sum\limits_{l=-1}^pD_-^{(l)}k^l\right\|
+\le\widehat g_-(x)|k|^{p+1-j},\quad
+k\in(-\ii\overline S,-\overline S,\ii\overline S,\overline S),\quad |k|\le\dfrac{1}{2},
+\end{equation}
+\begin{equation}
+\originaleq{2.44}
+\begin{aligned}
+D_\pm^{(-1)}
+&=-\alpha_\pm\begin{pmatrix}0&-1&0&1\\-\ii&0&\ii&0\\0&-1&0&1\\-\ii&0&\ii&0\end{pmatrix}\\
+&\quad-\beta_\pm\begin{pmatrix}-\ii&0&\ii&0\\0&-1&0&1\\-\ii&0&\ii&0\\0&-1&0&1\end{pmatrix},
+\end{aligned}
+\end{equation}
+\begin{equation}
+\originaleq{2.45}
+\begin{aligned}
+D_\pm^{(0)}
+&=b_{2\pm}\begin{pmatrix}1&0&-1&0\\0&1&0&-1\\-1&0&1&0\\0&-1&0&1\end{pmatrix}
++b_{1\pm}\begin{pmatrix}1&0&1&0\\0&1&0&1\\1&0&1&0\\0&1&0&1\end{pmatrix}\\
+&\quad+a_{2\pm}\begin{pmatrix}0&-\ii&0&\ii\\\ii&0&-\ii&0\\0&\ii&0&-\ii\\-\ii&0&\ii&0\end{pmatrix}
++a_{1\pm}\begin{pmatrix}0&-\ii&0&-\ii\\-\ii&0&-\ii&0\\0&-\ii&0&-\ii\\-\ii&0&-\ii&0\end{pmatrix}-I.
+\end{aligned}
+\end{equation}
+\begin{proof}
+将原点展开代入 (2.41)，直接比较 $k^l$，有
+\[
+D_\pm^{(l)}=(-1)^lJC_\pm^{(l)}J^{-1}.
+\]
+这里 $l=-1$ 时符号为负，$l=0$ 时为正；逐项乘上对角矩阵 $J,J^{-1}$，就得到 (2.44)、(2.45)。
+例如第 $(1,2)$ 个条目在共轭下乘 $\ii/(-1)=-\ii$，
+因此 (2.23) 中的 $-\ii\alpha_\pm$ 先变为 $-\alpha_\pm$，再由 $l=-1$ 的负号变为 $\alpha_\pm$，与 (2.44) 一致。
+余项及谱导数的估计同样只多出常矩阵因子和 $(-1)^j$，故沿用命题 2.3 已证明的版本。
+端点衰减由这些常矩阵不依赖 $x$ 直接保持。
+\end{proof}
+
+\EN{At the end of this subsection, we define the adjoint scattering matrix $s^A(k)$ as}
+\CN{最后定义伴随散射矩阵：}
+\begin{equation}
+\originaleq{2.46}
+s^A(k)=I+\int_{-\infty}^{+\infty}
+e^{x\widehat L(k)}\bigl(U_2^{\mathsf T}\mu_+^A\bigr)(x,k)\dd x.
+\end{equation}
+\EN{Then we have the following proposition.}
+\CN{有下列命题。}
+\begin{paperpropositionen}\label{prop:2.8}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$, then $s^A(k)$ defined by (2.46) satisfies the following:
+\begin{enumerate}[label=\alph*.]
+\item The domain of $s^A(k)$ is (2.47), where $\varnothing$ denotes an empty element domain.
+\item $s^A(k)$ is continuous there, and diagonal elements are analytic in the interior of their domains.
+\item For any positive integer $j$, $\partial_k^j s^A(k)$ is well-defined and continuous there.
+\item $s(k)$ has the following symmetries (2.48), where $A,B$ are given by (2.12).
+\item There is the relation (2.49) between $s(k)$ and $s^A(k)$.
+\item There are diagonal matrices $\{s_j^A\}_{j=1}^\infty$ such that (2.50) holds uniformly on (2.47) for $j=0,1,\ldots,N$. In particular, off-diagonal elements vanish rapidly as $k\to\infty$.
+\item For $k$ in (2.47), (2.51) holds, where $s^{A(-1)}=-Js^{(-1)}J^{-1}$.
+\item If $u_0,v_0$ are compactly supported, then $s^A$ is analytic in $\mathbb C\setminus\{0\}$ and satisfies $\mu_+^A=\mu_-^Ae^{-x\widehat L}(s^A)$. Moreover, $\det s^A=1$.
+\end{enumerate}
+\end{paperpropositionen}
+\begin{paperpropositioncn*}
+设初值属于 Schwartz 空间，则：
+\begin{enumerate}[label=\alph*.]
+\item 伴随散射矩阵的逐条目定义域为 (2.47)，空集表示对应条目未定义。
+\item 它在此域连续，对角条目在各自域内部解析。
+\item 对每个正整数 $j$，$\partial_k^j s^A$ 在该域存在且连续。
+\item 满足 (2.48) 的循环、共轭对称，$A,B$ 见 (2.12)；原文此项把 $s^A$ 印成 $s$。
+\item 与原散射矩阵满足 (2.49)，$J=\operatorname{diag}(\ii,-1,-\ii,1)$。
+\item 存在对角矩阵序列 $s_l^A$，使 (2.50) 对域 (2.47) 及 $j=0,\ldots,N$ 一致成立；特别地非对角条目在无穷远快速消失。
+\item 原点满足 (2.51)，其中首项系数为 $-Js^{(-1)}J^{-1}$。
+\item 紧支撑时，$s^A$ 在穿孔平面解析，满足伴随连接式 $\mu_+^A=\mu_-^Ae^{-x\widehat L}(s^A)$，且行列式为一。
+\end{enumerate}
+\end{paperpropositioncn*}
+\begin{equation}
+\originaleq{2.47}
+\begin{pmatrix}
+\ii\overline S&\mathbb R_+e^{-\frac{3\ii\pi}{4}}&\varnothing&\mathbb R_+e^{-\frac{\ii\pi}{4}}\\
+\mathbb R_+e^{-\frac{3\ii\pi}{4}}&\overline S&\mathbb R_+e^{\frac{3\ii\pi}{4}}&\varnothing\\
+\varnothing&\mathbb R_+e^{\frac{3\ii\pi}{4}}&-\ii\overline S&\mathbb R_+e^{\frac{\ii\pi}{4}}\\
+\mathbb R_+e^{-\frac{\ii\pi}{4}}&\varnothing&\mathbb R_+e^{\frac{\ii\pi}{4}}&-\overline S
+\end{pmatrix}\setminus\{0\},
+\end{equation}
+\begin{equation}
+\originaleq{2.48}
+s^A(k)=As^A(\ii k)A^{-1},\qquad s^A(k)=Bs^{A*}(k^*)B,
+\end{equation}
+\begin{equation}
+\originaleq{2.49}
+Js(-k)J^{-1}=s^A(k),
+\end{equation}
+\begin{equation}
+\originaleq{2.50}
+\left\|\partial_k^j\left(s^A(k)-I-\sum\limits_{l=1}^N\dfrac{s_l^A}{k^l}\right)\right\|
+=O(k^{-N-1}),\qquad k\to\infty,
+\end{equation}
+\begin{equation}
+\originaleq{2.51}
+s^A(k)=\dfrac{s^{A(-1)}}{k}+O(1),\quad k\to0,\qquad
+s^{A(-1)}=-Js^{(-1)}J^{-1}.
+\end{equation}
+\begin{note}
+\EN{Remark 2. The proof for assertion (e) is completely similar to the proof for assertion (h) in Proposition 2.5. The assertions (f) and (g) are the results of combining (2.36), (2.37), and (2.49).}
+\CN{注 2：e 的证明与命题 2.5 的 h 相同；f、g 来自 (2.36)、(2.37) 和 (2.49)。}
+\end{note}
+\begin{proof}
+将 (2.41) 代入 (2.46)，并利用 $U_2(-k)=-U_2(k)$、$JU_2J^{-1}=U_2^{\mathsf T}$，
+逐项把共轭矩阵移出积分，得到 (2.49)。
+它把 (2.34) 的各条目域旋转半周，正好得到 (2.47)；
+例如正向 $\pi/4$ 射线变为 $-3\pi/4$ 射线，对角的 $-\ii S$ 变为 $\ii S$。
+因此连续性、谱导数、对角解析性和两种对称性全部由命题 2.4 继承。
+在无穷远，系数为 $s_l^A=(-1)^lJs_lJ^{-1}$，仍是对角矩阵；
+在原点，$1/(-k)=-1/k$，所以首项系数是 (2.51) 所列的负共轭。
+紧支撑时，对原连接式取逆转置，
+\[
+\phi_+^A=\phi_-^A(s^{-1})^{\mathsf T},\qquad
+s^A=(s^{-1})^{\mathsf T}.
+\]
+这给出伴随连接关系，并由 $\det s=1$ 得 $\det s^A=1$。
+后一逆矩阵恒等式仍只在整矩阵定义成立的情形使用；一般条目关系通过相应可定义域或紧支撑逼近理解。
+\end{proof}

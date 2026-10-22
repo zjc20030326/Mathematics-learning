@@ -1,0 +1,543 @@
+\section{Fundamental Tensors／基本张量}
+\EN{In this subsection, we introduce some results in Ref. [16], which will be used in Section 2.6.}
+\CN{本节介绍文献 [16] 中的一些结果，供第 2.6 节使用。}
+\EN{To facilitate the following analysis, we arbitrarily fix an integer $j$ from $\{1,2,\ldots,7,8\}$.}
+\CN{固定一个谱区域编号 $j$。}
+\EN{Suppose $k\in D_j$, we now rearrange the order of $l_1(k),\ldots,l_4(k)$ such that}
+\CN{对 $k\in D_j$，按实部大小将四个背景特征值排序为}
+\begin{equation}
+\originaleq{2.52}
+\operatorname{Re}l_{j_1}>\operatorname{Re}l_{j_2}>
+\operatorname{Re}l_{j_3}>\operatorname{Re}l_{j_4}.
+\end{equation}
+\EN{Obviously, this order depends on the position of $k$, that is, when $k$ is in different $D_j$, the order of $l_i(k)$, $i=1,\ldots,4$ is also different.}
+\CN{排序依赖 $k$ 所在的区域，不能在全谱平面固定同一顺序。}
+\begin{note}
+\textbf{外积的最低限度背景。}
+$\bigwedge^n\mathbb C^4$ 是 $n$ 阶反对称张量空间，其基为
+$e_{i_1}\wedge\cdots\wedge e_{i_n}$，$i_1<\cdots<i_n$，维数为 $C_4^n$。
+交换相邻因子产生负号，重复因子的外积为零。
+例如两个向量的外积各分量是它们组成的二阶子式，因此可刻画二维子空间，而不是普通逐项乘法。
+以下排序、外积和扩张算子均沿用原文记号，不再为它们另设简记。
+\end{note}
+\begin{paperdefinitionen}\label{def:2.1}
+For $n=1,\ldots,4$, we define the totally antisymmetric fundamental tensors $f_n(x,k)$ and $g_n(x,k)$ for $k\in D_j$:
+\end{paperdefinitionen}
+\begin{paperdefinitioncn*}
+对 $n=1,\ldots,4$，定义下列全反对称基本张量，其中列编号按 (2.52) 排列：
+\end{paperdefinitioncn*}
+\begin{equation}
+\originaleq{2.53}
+\begin{aligned}
+f_n(x,k)&=\mu_{-j_1}\wedge\mu_{-j_2}\wedge\cdots\wedge\mu_{-j_n},\\
+g_n(x,k)&=\mu_{+j_n}\wedge\mu_{+j_{n+1}}\wedge\cdots\wedge\mu_{+j_4}.
+\end{aligned}
+\end{equation}
+\EN{where $\mu_{\pm j_i}(x,k)$ is the $j_i$th column of $\mu_\pm(x,k)$ and $\{j_1,\ldots,j_n\}$ is consistent with (2.52).}
+\CN{这里 $\mu_{\pm j_i}$ 表示对应的第 $j_i$ 列，指标与实部排序一致。}
+\begin{note}
+\textbf{一般 Schwartz 位势时必须整体构造外积。}
+在给定扇区内，中间的 Jost 列通常没有单独的解析定义，因此 (2.53) 不能总被理解为先算出每一列再相乘。
+严格做法是：紧支撑时按列外积定义；一般位势时，先用下面的外幂 Volterra 方程构造整个张量，
+再通过紧支撑逼近识别为这些外积的整体延拓。
+这正是张量方法能够补足缺失解析列的原因，而不是假定原先缺失的列已经存在。
+\end{note}
+\EN{The following lemma is proved in [16].}
+\CN{文献 [16] 证明了下列引理；这里补出证明。}
+\begin{paperlemmaen}\label{lem:2.2}
+Let $1\le n\le4$ be an integer. Assume that $\mathbf A$ is a linear transformation on $\mathbb C^4$.
+Then there exists a unique linear transformation $\mathbf A^{(n)}:\bigwedge^n\mathbb C^4\to\bigwedge^n\mathbb C^4$ such that for all $u_1,\ldots,u_n\in\mathbb C^4$,
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+每个线性算子 $\mathbf A$ 唯一诱导下列外幂空间上的线性算子：
+\end{paperlemmacn*}
+\begin{equation}
+\originaleq{2.54}
+\mathbf A^{(n)}(u_1\wedge\cdots\wedge u_n)
+=\sum\limits_{a=1}^n u_1\wedge\cdots\wedge u_{a-1}
+\wedge\mathbf A u_a\wedge u_{a+1}\wedge\cdots\wedge u_n.
+\end{equation}
+\begin{proof}
+右端对各变量多线性；交换相邻两个变量后，所有求和项整体变号，因此是交替多线性映射。
+由外积的定义，它唯一下降为外幂空间上的线性映射，故存在。
+可分解外积张成整个空间，任何满足该公式的线性映射都在一组生成元上相同，故唯一。
+注意这不是把每个因子同时作用 $\mathbf A$ 的乘法外幂；它是对各位置分别作用再求和的加法扩张。
+乘积求导法则恰好产生这种扩张。
+\end{proof}
+\EN{Recall that $\mu_{\pm j_i}(x,k)$ satisfy equation}
+\CN{由 (2.13)，各列满足}
+\begin{equation}
+\originaleq{2.55}
+\partial_x\mu_{\pm j_i}=(kJ-l_{j_i}I+U_2)\mu_{\pm j_i}.
+\end{equation}
+\EN{then $f_n(x,k)$ and $g_n(x,k)$ must satisfy the extended differential equations}
+\CN{所以外积满足扩张微分方程}
+\begin{equation}
+\originaleq{2.56}
+\begin{cases}
+\partial_x f_n=(kJ^{(n)}-(l_{j_1}+\cdots+l_{j_n})I+U_2^{(n)})f_n,\\
+\displaystyle\lim\limits_{x\to-\infty}f_n=e_{j_1}\wedge\cdots\wedge e_{j_n},
+\end{cases}
+\end{equation}
+\EN{and}
+\CN{以及}
+\begin{equation}
+\originaleq{2.57}
+\begin{cases}
+\partial_x g_n=(kJ^{(5-n)}-(l_{j_n}+\cdots+l_{j_4})I+U_2^{(5-n)})g_n,\\
+\displaystyle\lim\limits_{x\to+\infty}g_n=e_{j_n}\wedge\cdots\wedge e_{j_4},
+\end{cases}
+\end{equation}
+\EN{respectively, where $J^{(n)}$ and $U_2^{(n)}$ denote the $n$th order extensions (2.54) of $J$ and $U_2$ to $\bigwedge^n\mathbb C^4$, and $\{e_1,\ldots,e_4\}$ represents the standard basis in $\mathbb C^4$.}
+\CN{上标 $(n)$ 是 (2.54) 的加法扩张，$e_1,\ldots,e_4$ 为标准基。}
+\begin{proof}
+先在所有列都定义的紧支撑情形，对 (2.53) 使用外积的乘积求导法则。
+每个因子的 $kJ+U_2$ 项合起来是 $kJ^{(n)}+U_2^{(n)}$，
+每个 $-l_{j_i}$ 是标量，只贡献一次，而不是在整个外积上再乘 $n$ 次。
+端点归一化给出标准基的外积。
+一般 Schwartz 位势则以这些方程为构造式，下面证明它们可解并且与紧支撑逼近一致。
+\end{proof}
+\EN{The following proposition gives the analytic properties of $f_n(x,k)$ and $g_n(x,k)$.}
+\CN{下列命题给出基本张量的解析性质。}
+\begin{paperpropositionen}\label{prop:2.9}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$. For each $k\in D_j$, we can define a family of fundamental tensors $f_n(x,k)$ and $g_n(x,k)$ according to (2.53) for $n=1,2,3,4$.
+Moreover, for each integer $l\ge0$, $\partial_k^l f_n(x,k)$ and $\partial_k^l g_n(x,k)$ are analytic in $D_j$ and can be continuously extended to $\overline D_j\setminus\{0\}$.
+\end{paperpropositionen}
+\begin{paperpropositioncn*}
+各扇区内的基本张量及任意阶谱导数解析，并连续延拓到除原点外的闭扇区；
+一般位势时 (2.53) 采用前述整体外积延拓的含义。
+\end{paperpropositioncn*}
+\begin{proof}
+\EN{$f_n(x,k)$ and $g_n(x,k)$ are obviously well-defined by (2.53), we prove their analytic properties below.}
+\CN{原文先由 (2.53) 认定它们已定义，再证明解析性；一般位势的严格构造按上面的校注进行。}
+\EN{First, for a given integer $n$, $1\le n\le4$, we define the normal operators appearing in differential equations (2.56) and (2.57) by}
+\CN{先定义原文使用的两个正规算子：}
+\begin{equation}
+\originaleq{2.58}
+\begin{aligned}
+A_n&=kJ^{(n)}-(l_{j_1}+\cdots+l_{j_n})I,\\
+B_n&=kJ^{(5-n)}-(l_{j_n}+\cdots+l_{j_4})I.
+\end{aligned}
+\end{equation}
+\EN{It is not difficult to verify that the standard basis tensors $e_{i_1}\wedge\cdots\wedge e_{i_n}$, $1\le i_1<\cdots<i_n\le4$, of $\bigwedge^n\mathbb C^4$ are exactly the eigenvectors of operators $A_n$ and $B_n$.}
+\CN{标准外积基是相应扩张算子的特征向量。对于 $B_n$，基的阶数应相应为 $5-n$。}
+\EN{Then, the spectrum of operators $A_n$ and $B_n$ is}
+\CN{于是谱分别为}
+\[
+\operatorname{spec}(A_n)=
+\left\{\sum\limits_{a=1}^n l_{i_a}-\sum\limits_{a=1}^n l_{j_a}:
+1\le i_1<\cdots<i_n\le4\right\},
+\]
+\[
+\operatorname{spec}(B_n)=
+\left\{\sum\limits_{a=n}^4 l_{i_a}-\sum\limits_{a=n}^4 l_{j_a}:
+1\le i_n<\cdots<i_4\le4\right\}.
+\]
+\EN{Therefore, the real part of the spectrum of operator $A_n$ is always nonpositive, and the real part of the spectrum of operator $B_n$ is always nonnegative.}
+\CN{因为第一项选择最大的 $n$ 个实部，$A_n$ 的谱实部非正；第二项选择最小的 $5-n$ 个实部，$B_n$ 的谱实部非负。}
+\EN{As before, we hope to analyze the integral equations satisfied by $f_n(x,k)$ and $g_n(x,k)$ to obtain their analytical properties.}
+\CN{和前面一样，通过积分方程研究它们的解析性。}
+\EN{Note that $f_n(x,k)$ and $g_n(x,k)$ satisfy differential equations (2.56) and (2.57).}
+\CN{它们满足 (2.56)、(2.57)。}
+\EN{For convenience, we reduce these eight differential equations to an abstract model.}
+\CN{原文将这些微分方程归入一个抽象模型。}
+\EN{Let $V$ be a finite-dimensional Hermitian vector space with norm $\|\cdot\|$, $\mathbf A$ be a normal operator on the vector space, playing the role of $A_n$.}
+\CN{取有限维 Hermitian 空间 $V$ 与正规算子 $\mathbf A$，后者对应上面的 $A_n$。}
+\EN{Therefore, we assume that the real part of the spectrum of operator $\mathbf A$ is always nonpositive.}
+\CN{假设其谱实部非正。}
+\EN{And let $\mathbf q(x,k)$ is a linear operator of the form}
+\CN{取原文的位势算子}
+\begin{equation}
+\originaleq{2.59}
+\mathbf q(x,k)=\dfrac{\mathbf q_1(x)}{k},\qquad
+\mathbf q_1\in\mathcal S(\mathbb R;\mathcal L(V)),
+\end{equation}
+\EN{on $V$, playing the role of $U_2^{(n)}$.}
+\CN{它对应 $U_2^{(n)}$。}
+\EN{Then, for fixed $k\in D_j$ and fixed $\mathbf u_0\in\ker\mathbf A$, we consider the following ``model problem'':}
+\CN{固定 $k$ 和核空间中的归一化向量，考虑模型问题}
+\begin{equation}
+\originaleq{2.60}
+\partial_x\mathbf u=\mathbf A(k)\mathbf u+\mathbf q(x,k)\mathbf u,
+\qquad \lim\limits_{x\to-\infty}\mathbf u(x)=\mathbf u_0.
+\end{equation}
+\EN{The problem for $g_n(x,k)$ can be brought to this form by simply changing $x$ to $-x$.}
+\CN{$g_n$ 的问题通过反转空间方向变为同型问题。}
+\EN{Therefore, we only need to analyze the model problem (2.60).}
+\CN{所以只需证明模型问题的结论。}
+\EN{For any real $s$ and $t$, we deduce from (2.60) that $\mathbf u$ must satisfy the integral equation}
+\CN{常数变易公式给出}
+\begin{equation}
+\originaleq{2.61}
+\mathbf u(x)=e^{(x-s)\mathbf A(k)}\mathbf u(s)
++\int_s^x e^{(x-y)\mathbf A(k)}\mathbf q(y,k)\mathbf u(y)\dd y.
+\end{equation}
+\EN{Note that the real part of the normal operator $\mathbf A$ is nonpositive, so the norm of $e^{t\mathbf A}$ is $\le1$ when $t\ge0$.}
+\CN{正规性允许酉对角化，故 $t\ge0$ 时指数范数是各谱指数模的最大值，至多为 1。}
+\EN{By taking $s\to-\infty$ and applying the boundary conditions in (2.60), we can get the desired Volterra integral equation}
+\CN{因 $\mathbf A\mathbf u_0=0$，(2.61) 中第一项趋于 $\mathbf u_0$；令 $s\to-\infty$ 得}
+\begin{equation}
+\originaleq{2.62}
+\mathbf u(x)=\mathbf u_0+\int_{-\infty}^x
+e^{(x-y)\mathbf A(k)}\mathbf q(y,k)\mathbf u(y)\dd y.
+\end{equation}
+\EN{The Picard iteration series associated with (2.62) is defined by}
+\CN{相应 Picard 迭代为}
+\begin{equation}
+\originaleq{2.63}
+\begin{cases}
+\mathbf u^{(0)}(x)\equiv\mathbf u_0,\\
+\mathbf u^{(\nu+1)}(x)=\mathbf u_0+displaystyle\int_{-\infty}^x
+e^{(x-y)\mathbf A(k)}\mathbf q(y,k)\mathbf u^{(\nu)}(y)\dd y.
+\end{cases}
+\end{equation}
+\EN{Next, we only need to follow the proof steps of [16, Theorem 3.7] to analyze the Picard iterates series, and then we can get the conclusion of the proposition.}
+\CN{原文将其余步骤归于文献 [16] 定理 3.7；这里补出所需收敛论证。}
+\proofstep{补充：迭代确实收敛并给出谱解析性。}
+对相邻两次迭代的差反复代入，得到
+\[
+\|\mathbf u^{(\nu+1)}(x)-\mathbf u^{(\nu)}(x)\|
+\le\dfrac{\|\mathbf u_0\|}{(\nu+1)!}
+\left(\int_{-\infty}^x\|\mathbf q(y,k)\|\dd y\right)^{\nu+1}.
+\]
+这一阶乘来自有序积分域，与命题 2.1 的计算相同。
+级数绝对一致收敛，得到解和估计
+$\displaystyle \|\mathbf u(x)\|\le\|\mathbf u_0\|\exp(\int_{-\infty}^x\|\mathbf q\|)$。
+差解的同一迭代界趋零，给出唯一性。
+各项在 $k$ 上解析，谱紧集避开零点后 $1/k$ 有界；
+各阶谱导数只增加空间多项式权，Schwartz 条件与阶乘估计保证导数级数局部一致收敛，
+所以可逐项微分、取谱边界极限。
+将 $V=\bigwedge^n\mathbb C^4$、$\mathbf A=A_n$ 代回，得到 $f_n$；
+对 $g_n$ 反转积分方向即可。紧支撑时由乘积求导与唯一性识别为 (2.53)，
+一般情形由引理 2.5 的极限识别。这样也补齐了前述整体外积构造的逻辑。
+\end{proof}
+\begin{note}
+\EN{Remark 3. In fact, Proposition 2.9 contains the assertions (a)--(d) in Proposition 2.1.}
+\CN{注 3：取一阶外积时，就恢复实部最大列与最小列的 Jost 存在、解析及谱导数性质。}
+\end{note}
+\EN{As a direct result of Proposition 2.9, we have}
+\CN{直接得到下列推论。}
+\begin{papercorollaryen}\label{cor:2.1}
+Assume $u_0,v_0\in\mathcal S(\mathbb R)$. Then,
+\begin{itemize}
+\item $\mu_{+1}\wedge\mu_{+2}$ and $\mu_{-3}\wedge\mu_{-4}$ are well-defined and continuous for $k\in(\overline D_1\cup\overline D_2)\setminus\{0\}$, and analytic in the interior of $\overline D_1\cup\overline D_2$.
+\item $\mu_{+2}\wedge\mu_{+3}$ and $\mu_{-1}\wedge\mu_{-4}$ are well-defined and continuous for $k\in(\overline D_7\cup\overline D_8)\setminus\{0\}$, and analytic in the interior of $\overline D_7\cup\overline D_8$.
+\end{itemize}
+\end{papercorollaryen}
+\begin{papercorollarycn*}
+上面两对二阶张量分别在右上两个扇区、右下两个扇区的并中整体解析，并连续到除原点外的边界。
+\end{papercorollarycn*}
+\begin{proof}
+右上方的两扇区中，实部最大的两个指标始终是 $3,4$，最小的两个始终是 $1,2$；
+右下方的最大指标对为 $1,4$，最小指标对为 $2,3$。
+内部次序互换只改变外积的符号，按所列的固定列次序选定符号后，使用的是同一个 Volterra 问题和同一个初值。
+因此跨公共射线的两侧边界值相同。
+连续拼接后，用 Morera 定理证明跨射线解析：把任意小三角形沿射线分割，两侧内部线积分各为零，公共边因方向相反抵消；
+逼近边界的误差由连续性趋零。
+于是不仅逐个扇区内部解析，而且在闭扇区并的内部解析。
+\end{proof}
+
+\begin{paperlemmaen}\label{lem:2.3}
+Let $\mathbf A$ be a linear transformation on $\mathbb C^N$, and $\mathbf A^{(N)}$ denote the $N$-order extension (2.54) of $\mathbf A$ on $\bigwedge^N\mathbb C^N$.
+Then for any $C\in\bigwedge^N\mathbb C^N$, we have
+$\mathbf A^{(N)}C=\operatorname{trace}(\mathbf A)C$, where trace represents the trace of the matrix.
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+在最高阶外幂上，加法扩张等于乘以原矩阵的迹。
+\end{paperlemmacn*}
+\begin{proof}
+\EN{Suppose that $C$ can be written as $C_1\wedge\cdots\wedge C_N$, where $C_j\in\mathbb C^N$, $j=1,\ldots,N$. Then obviously we have}
+\CN{最高阶外幂只有一维，任意元素可如此表示；零元素的结论也直接成立。按原文计算：}
+\begin{align*}
+\mathbf A^{(N)}C
+&=\left.\dfrac{\mathrm d}{\mathrm dt}
+\bigl((I+t\mathbf A)C_1\wedge\cdots\wedge(I+t\mathbf A)C_N\bigr)\right|_{t=0}\\
+&=\left.\dfrac{\mathrm d}{\mathrm dt}\det(I+t\mathbf A)\right|_{t=0}
+\det(C_1,\ldots,C_N)e_1\wedge\cdots\wedge e_N\\
+&=\operatorname{tr}(\mathbf A)C.
+\end{align*}
+最后一步的依据是行列式的多线性：$\det(I+t\mathbf A)$ 的一次项只能由一个对角条目贡献，系数为各对角元之和；
+非恒等置换至少贡献两次 $t$，所以 $\det(I+t\mathbf A)=1+t\operatorname{tr}\mathbf A+O(t^2)$。
+\end{proof}
+\EN{Define $\phi_{\pm j}(x,k)=\mu_{\pm j}(x,k)e^{xl_j}$.}
+\CN{按原文，给各列乘回对应自由指数。}
+\EN{Now we are ready to introduce some spectral functions, which are very important in our inverse scattering analysis.}
+\CN{下面引入在逆散射中重要的谱函数。}
+\begin{paperlemmaen}\label{lem:2.4}
+Assume $u_0,v_0\in\mathcal S(\mathbb R)$. Then, there exist functions $\Delta(k),\Xi(k),\Lambda(k)$ such that (2.64)--(2.66) hold.
+Moreover, $\Delta$ is well-defined and continuous in $(\overline D_1\cup\overline D_2)\setminus\{0\}$ and analytic in its interior;
+$\Xi$ has the corresponding property in $(\overline D_7\cup\overline D_8)\setminus\{0\}$;
+$\Lambda$ is well-defined and smooth on $(0,+\infty)$.
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+下列四阶外积分别确定与 $x$ 无关的谱函数 $\Delta,\Xi,\Lambda$；其定义域与解析性如英文陈述。
+\end{paperlemmacn*}
+\begin{equation}
+\originaleq{2.64}
+\mu_{+1}\wedge\mu_{+2}\wedge\mu_{-3}\wedge\mu_{-4}
+=\Delta(k)e_1\wedge e_2\wedge e_3\wedge e_4,
+\end{equation}
+\begin{equation}
+\originaleq{2.65}
+\mu_{+2}\wedge\mu_{+3}\wedge\mu_{-1}\wedge\mu_{-4}
+=\Xi(k)e_1\wedge e_2\wedge e_3\wedge e_4,
+\end{equation}
+\begin{equation}
+\originaleq{2.66}
+\phi_{+2}\wedge\phi_{+3}\wedge\phi_{-3}\wedge\phi_{-4}
+=\Lambda(k)e_1\wedge e_2\wedge e_3\wedge e_4.
+\end{equation}
+\begin{proof}
+\EN{Since $e_1\wedge e_2\wedge e_3\wedge e_4$ is the basis of the linear space $\bigwedge^4\mathbb C^4$, we obtain the existence of functions $\Delta(k),\Xi(k)$, and $\Lambda(k)$.}
+\CN{最高阶外幂是一维空间，故三个四阶外积均唯一给出一个标量系数。}
+\EN{Obviously, their analytic properties are the direct result of Corollary 2.1.}
+\CN{它们的解析性质来自推论 2.1。}
+\EN{Now it remains to show that these functions are independent of $x$.}
+\CN{尚需证明系数与 $x$ 无关。}
+\EN{In fact, one can easily verify that the tensors in (2.64) and (2.65) satisfy the following extended differential equation:}
+\CN{前两个张量满足}
+\begin{equation}
+\originaleq{2.67}
+\partial_x f=U_2^{(4)}f.
+\end{equation}
+\EN{Similarly, the tensor in (2.66) satisfies differential equation}
+\CN{第三个张量满足}
+\begin{equation}
+\originaleq{2.68}
+\partial_x f=F^{(4)}f.
+\end{equation}
+\EN{From (2.5) and (2.7), we know that $\operatorname{trace}(F)=0$, $\operatorname{trace}(U_2)=0$.}
+\CN{由前面的显式矩阵，两者的迹都是零。}
+\EN{Then as a result of Lemma 2.3, we obtain that the derivative of each tensor with respect to $x$ is 0.}
+\CN{故引理 2.3 使三个张量的空间导数均为零。}
+\EN{So we have completed the proof of the lemma.}
+\CN{引理得证。}
+\proofstep{补充：为什么第三式必须使用 $\phi$。}
+前两个外积的列指标恰好各取 $1,2,3,4$ 一次，列方程中的标量项之和为 $-\displaystyle\sum\limits l_j=0$，
+最高阶的 $kJ$ 项也因迹为零消失，故得到 (2.67)。
+第三式重复使用指标 3，不能把四个 $\mu$ 列当成相同的无指数外积；
+实际上
+\[
+\Lambda(k)=e^{-2\ii kx}\det(\mu_{+2},\mu_{+3},\mu_{-3},\mu_{-4}),
+\]
+因为 $l_2+2l_3+l_4=-2\ii k$。
+使用 $\phi$ 后所有列都满足同一个 $F$ 方程，才可用迹为零得出常数性。
+一般位势的这些式子按二阶张量的整体延拓解释，必要时先对紧支撑位势验证，再由引理 2.5 取极限。
+\end{proof}
+\begin{note}
+\EN{Remark 4. We note that $f_4$ and $g_1$ also satisfy (2.67), so we know that neither $f_4$ nor $g_1$ depends on $x$. Moreover, we have $f_4=g_1=e_1\wedge e_2\wedge e_3\wedge e_4$ by combining the boundary conditions.}
+\CN{注 4：原文指出 $f_4,g_1$ 均为常数，并将它们写为自然次序的标准体积外积。}
+\textbf{次序校勘。} 由 (2.53) 的定义，准确的端点值是
+$e_{j_1}\wedge e_{j_2}\wedge e_{j_3}\wedge e_{j_4}$，
+它与自然次序相差该排列的符号。例如 $D_1$ 的顺序为 $(4,3,1,2)$，有五次逆序，因此为负号。
+常数性结论不受影响，但改换排序时不能忽略外积方向的符号。
+\end{note}
+\EN{In fact, all the analysis in this section so far can be applied to the adjoint Lax pair (2.38).}
+\CN{本节以上分析也适用于伴随 Lax 对。}
+\EN{For the convenience of later use, we give several results of adjoint scattering quantities:}
+\CN{为后文使用，列出相应伴随结果：}
+\EN{$\mu_{-1}^A\wedge\mu_{-2}^A$ and $\mu_{+3}^A\wedge\mu_{+4}^A$ are well-defined and continuous for $k\in(\overline D_1\cup\overline D_2)\setminus\{0\}$, and analytic in its interior.}
+\CN{这两对伴随二阶张量在右上区域整体解析，并连续到除原点外的边界。}
+\EN{$\mu_{-2}^A\wedge\mu_{-3}^A$ and $\mu_{+1}^A\wedge\mu_{+4}^A$ are well-defined and continuous for $k\in(\overline D_7\cup\overline D_8)\setminus\{0\}$, and analytic in its interior.}
+\CN{另外两对在右下区域有相应性质。}
+\EN{There exist a function $\Upsilon(k)$ independent of $x$ such that $\mu_{-1}^A\wedge\mu_{-2}^A\wedge\mu_{+3}^A\wedge\mu_{+4}^A=\Upsilon(k)e_1\wedge e_2\wedge e_3\wedge e_4$. $\Upsilon(k)$ is well-defined and continuous for $k\in(\overline D_1\cup\overline D_2)\setminus\{0\}$, and analytic in its interior.}
+\CN{该四阶伴随外积定义空间常数 $\Upsilon$，其解析域为右上区域。}
+\begin{proof}
+将前面的扩张算子换成 $-L^{(n)}$ 与 $-(U_2^{\mathsf T})^{(n)}$，其谱实部的符号反转；
+与伴随列的归一化方向配合后，Volterra 核仍收缩。
+同一 Neumann 证明给出二阶张量的解析性；最高阶扩张的迹仍为零，故 $\Upsilon$ 与 $x$ 无关。
+\end{proof}
+\EN{Next, we construct a series of compactly supported initial data from the initial data $\{u_0,v_0\}$, and we show the relationship between their scattering quantities.}
+\CN{接下来用紧支撑初值逼近原初值，并比较相应散射量。}
+\EN{Let $\eta\in C_c^\infty(\mathbb R)$ be a cutoff function which equals one for $|x|\leq1$ and vanishes for $|x|\geq2$. For any positive integer $i$, let $\eta_i(x)=\eta(x/i)$. We define}
+\CN{取光滑截断函数，在单位区间上等于一，在二倍区间外等于零，定义}
+\begin{equation}\originaleq{2.69}
+u_0^{(i)}=u_0\eta_i,\qquad v_0^{(i)}=v_0\eta_i.
+\end{equation}
+\EN{Note that $u_0^{(i)}$ and $v_0^{(i)}$ also belong to $\mathcal S(\mathbb R)$, and they are smooth and compactly supported. All previous analyses remain valid after this replacement. We use the superscript $(i)$ to represent the associated scattering quantities, for example $f_n^{(i)}$ and $g_n^{(i)}$.}
+\CN{截断后的初值仍属 Schwartz 空间且有紧支撑。前面的构造仍然适用；上标 $(i)$ 表示相应截断位势的散射量。}
+\begin{note}
+\EN{Remark 5. The superscript $(i)$ here is easily confused with the $n$th order extensions (2.54) of a matrix. One can distinguish them according to the context.}
+\CN{注 5：截断序号与外幂扩张的上标容易混淆，须按对象区分。以下可且将取实值 $0\leq\eta\leq1$，从而截断不会放大位势的绝对值。}
+\end{note}
+\begin{paperlemmaen}
+Assume $u_0,v_0\in\mathcal S(\mathbb R)$. With the initial data and tensors defined above, for $n=1,2,3,4$ we have (2.70) and (2.71).
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+对上述 Schwartz 初值及截断初值，各阶基本张量逐点收敛如下。
+\end{paperlemmacn*}
+\begin{align}
+\lim\limits_{i\to\infty}f_n^{(i)}(x,k)&=f_n(x,k),&&x\in\mathbb R,\ k\in\overline D_j\setminus\{0\},\originaleq{2.70}\\
+\lim\limits_{i\to\infty}g_n^{(i)}(x,k)&=g_n(x,k),&&x\in\mathbb R,\ k\in\overline D_j\setminus\{0\}.\originaleq{2.71}
+\end{align}
+\begin{proof}
+\EN{First, define $\Lambda_1,\Lambda_2$ to be the coefficient matrices of $u_0/(2k),v_0/(2k)$ in $U_2$, respectively, and let $\widetilde\Delta(x,k)=|u_0|\|\Lambda_1^{(n)}\|/(2|k|)+|v_0|\|\Lambda_2^{(n)}\|/(2|k|)$. It belongs to $L^1(\mathbb R)$ for each nonzero $k$.}
+\CN{这里沿用原证明的两个系数矩阵：}
+\[
+\Lambda_1=\begin{pmatrix}-\ii&0&-\ii&0\\0&-1&0&-1\\\ii&0&\ii&0\\0&1&0&1\end{pmatrix},\quad
+\Lambda_2=\begin{pmatrix}0&-\ii&0&-\ii\\-1&0&-1&0\\0&\ii&0&\ii\\1&0&1&0\end{pmatrix},
+\quad
+\widetilde\Delta=\dfrac{|u_0|}{2|k|}\|\Lambda_1^{(n)}\|+\dfrac{|v_0|}{2|k|}\|\Lambda_2^{(n)}\|.
+\]
+\EN{Let $U_2^{(i)}$ denote the matrix obtained by replacing the potentials with their cutoffs. It is easy to see that}
+\CN{利用扩张算子的线性性及 $0\leq\eta_i\leq1$，有}
+\begin{equation}\originaleq{2.72}
+\|U_2^{(n)}(x,k)\|\leq\widetilde\Delta(x,k),\qquad
+\|(U_2^{(i)})^{(n)}(x,k)\|\leq\widetilde\Delta(x,k).
+\end{equation}
+\EN{Recalling (2.62), the two tensors satisfy the following integral equations, respectively.}
+\CN{回忆 (2.62)，令原证明的 $\mathbf u_0=e_{j_1}\wedge\cdots\wedge e_{j_n}$、$\mathbf A=kJ^{(n)}-(l_{j_1}+\cdots+l_{j_n})I$，则}
+\begin{align}
+f_n(x,k)&=\mathbf u_0+\int_{-\infty}^xe^{(x-y)\mathbf A}U_2^{(n)}(y,k)f_n(y,k)\dd y,\originaleq{2.73}\\
+f_n^{(i)}(x,k)&=\mathbf u_0+\int_{-\infty}^xe^{(x-y)\mathbf A}(U_2^{(i)})^{(n)}(y,k)f_n^{(i)}(y,k)\dd y.\originaleq{2.74}
+\end{align}
+\EN{Hence for each $x\in\mathbb R$, $k\in\overline D_j\setminus\{0\}$ we have}
+\CN{两式相减，把乘积差写成两项，并用半群范数不超过一，得到}
+\begin{equation}\originaleq{2.75}
+\begin{aligned}
+\|f_n-f_n^{(i)}\|(x,k)
+&\leq\int_{-\infty}^x\|U_2^{(n)}-(U_2^{(i)})^{(n)}\|(y,k)\|f_n(y,k)\|\dd y\\
+&\quad+\int_{-\infty}^x\|f_n-f_n^{(i)}\|(y,k)\|(U_2^{(i)})^{(n)}(y,k)\|\dd y.
+\end{aligned}
+\end{equation}
+\EN{On the other hand, analyzing the Picard iteration series (2.63) gives the estimates}
+\CN{另一方面，迭代级数按阶乘估计求和给出}
+\begin{equation}\originaleq{2.76}
+\|f_n(x,k)\|\leq\|\mathbf u_0\|e^{Q(x,k)},\qquad
+\|f_n^{(i)}(x,k)\|\leq\|\mathbf u_0\|e^{Q^{(i)}(x,k)},
+\end{equation}
+\EN{Here $\displaystyle Q=\int_{-\infty}^x\|U_2^{(n)}\|\dd y$ and $\displaystyle Q^{(i)}=\int_{-\infty}^x\|(U_2^{(i)})^{(n)}\|\dd y$. By (2.72), both tensors are bounded by $\|\mathbf u_0\|e^{\|\widetilde\Delta\|_1}$. Thus the integrands in (2.75) have an integrable majorant. Take the upper limit and apply the inverse Fatou lemma to obtain}
+\CN{这里两个 $Q$ 是对应位势范数的积分，均不超过 $\|\widetilde\Delta\|_1$。原文随后定义差的极限 $\xi$，再取上极限；为避免预先假定极限存在，应在这一步定义 $\xi=\limsup_{i\to\infty}\|f_n-f_n^{(i)}\|$。可积控制函数允许使用反向 Fatou 不等式，得到}
+\begin{equation}\originaleq{2.77}
+\xi(x,k)\leq\int_{-\infty}^x\|U_2^{(n)}(y,k)\|\xi(y,k)\dd y.
+\end{equation}
+\EN{Gronwall's inequality yields $\xi\equiv0$, which implies (2.70). Equation (2.71) can be verified similarly.}
+\CN{Gronwall 不等式使上极限为零，于是收敛成立。$g_n$ 的右端归一化证明同理。}
+\proofstep{补充可直接核验的定量估计。}
+扩张线性性给出 $(U_2^{(i)})^{(n)}=\eta_iU_2^{(n)}$，故由控制收敛定理，
+\[
+\int_{\mathbb R}\|U_2^{(n)}-(U_2^{(i)})^{(n)}\|\dd y
+\leq\int_{\mathbb R}|1-\eta_i(y)|\widetilde\Delta(y,k)\dd y\longrightarrow0.
+\]
+将 (2.75) 第一项用此全空间积分控制，第二项迭代：第 $r$ 次积分的上界为
+$\|\widetilde\Delta\|_1^r/r!$。求和便得到
+\[
+\sup_{x\in\mathbb R}\|f_n-f_n^{(i)}\|(x,k)
+\leq\|\mathbf u_0\|e^{2\|\widetilde\Delta\|_1}
+\int_{\mathbb R}\|U_2^{(n)}-(U_2^{(i)})^{(n)}\|\dd y\longrightarrow0.
+\]
+这也给出远离 $k=0$ 的闭有界谱集上的一致收敛。对谱导数使用带 $|y|^m$ 的同一估计，Schwartz 衰减使控制积分仍有限。
+\end{proof}
+\begin{papercorollaryen}
+Assume $u_0,v_0\in\mathcal S(\mathbb R)$. Let $\mu_\pm,\mu_\pm^A$ and $\mu_\pm^{(i)},(\mu_\pm^A)^{(i)}$ be the Jost and adjoint Jost solutions associated with the original and cutoff potentials. Then (2.78)--(2.81) hold.
+\end{papercorollaryen}
+\begin{papercorollarycn*}
+原位势及截断位势的 Jost 解、伴随 Jost 解在各自列定义域内收敛。
+\end{papercorollarycn*}
+\begin{align}
+\lim\limits_{i\to\infty}\mu_+^{(i)}&=\mu_+,&&k\in(-\ii\overline S,-\overline S,\ii\overline S,\overline S)\setminus\{0\},\originaleq{2.78}\\
+\lim\limits_{i\to\infty}\mu_-^{(i)}&=\mu_-,&&k\in(\ii\overline S,\overline S,-\ii\overline S,-\overline S)\setminus\{0\},\originaleq{2.79}\\
+\lim\limits_{i\to\infty}(\mu_+^A)^{(i)}&=\mu_+^A,&&k\in(\ii\overline S,\overline S,-\ii\overline S,-\overline S)\setminus\{0\},\originaleq{2.80}\\
+\lim\limits_{i\to\infty}(\mu_-^A)^{(i)}&=\mu_-^A,&&k\in(-\ii\overline S,-\overline S,\ii\overline S,\overline S)\setminus\{0\}.\originaleq{2.81}
+\end{align}
+\begin{proof}
+\EN{Equations (2.78) and (2.79) are direct results of Lemma 2.5; then (2.80) and (2.81) follow by symmetry (2.41).}
+\CN{取一阶张量即为单列 Volterra 解；逐列应用引理 2.5 得前两式，再用 $J\mu_\pm(-k)J^{-1}=\mu_\pm^A(k)$ 得后两式。四元组仍表示四列分别所在的域，$x\in\mathbb R$ 固定。}
+\end{proof}
+\begin{papercorollaryen}
+Let $s^{(i)},s^{A(i)}$ denote the scattering matrices associated with $u_0^{(i)},v_0^{(i)}$. Then (2.82)--(2.85) hold.
+\end{papercorollaryen}
+\begin{papercorollarycn*}
+张量散射函数等于紧支撑散射矩阵的相应二阶子式之极限。
+\end{papercorollarycn*}
+\begin{align}
+\Delta(k)&=\lim\limits_{i\to\infty}\det\begin{pmatrix}s_{11}^{(i)}&s_{12}^{(i)}\\s_{21}^{(i)}&s_{22}^{(i)}\end{pmatrix},&&k\in(\overline D_1\cup\overline D_2)\setminus\{0\},\originaleq{2.82}\\
+\Xi(k)&=\lim\limits_{i\to\infty}\det\begin{pmatrix}s_{22}^{(i)}&s_{23}^{(i)}\\s_{32}^{(i)}&s_{33}^{(i)}\end{pmatrix},&&k\in(\overline D_7\cup\overline D_8)\setminus\{0\},\originaleq{2.83}\\
+\Upsilon(k)&=\lim\limits_{i\to\infty}\det\begin{pmatrix}s_{33}^{A(i)}&s_{34}^{A(i)}\\s_{43}^{A(i)}&s_{44}^{A(i)}\end{pmatrix},&&k\in(\overline D_1\cup\overline D_2)\setminus\{0\},\originaleq{2.84}\\
+\Lambda(k)&=\lim\limits_{i\to\infty}\det\begin{pmatrix}s_{12}^{(i)}&s_{13}^{(i)}\\s_{22}^{(i)}&s_{23}^{(i)}\end{pmatrix},&&k\in\mathbb R_+.\originaleq{2.85}
+\end{align}
+\begin{proof}
+\EN{The result follows by Lemmas 2.4, 2.5 and $\mu_+^{(i)}e^{xL}=\mu_-^{(i)}e^{xL}s^{(i)}$ for $k\ne0$.}
+\CN{先在紧支撑情形展开。由 $\phi_+^{(i)}=\phi_-^{(i)}s^{(i)}$，前两列的外积为}
+\[
+\phi_{+1}^{(i)}\wedge\phi_{+2}^{(i)}
+=\sum\limits_{a<b}(s_{a1}^{(i)}s_{b2}^{(i)}-s_{b1}^{(i)}s_{a2}^{(i)})
+\phi_{-a}^{(i)}\wedge\phi_{-b}^{(i)}.
+\]
+再外乘 $\phi_{-3}^{(i)}\wedge\phi_{-4}^{(i)}$，含重复列的项全为零，只剩 $(a,b)=(1,2)$；$\det\phi_-^{(i)}=1$，得到 (2.82) 的截断版本。
+对列 $(2,3)$ 外乘 $\phi_{-1}^{(i)},\phi_{-4}^{(i)}$，排列 $(2,3,1,4)$ 为偶排列，得到 (2.83)。
+伴随问题相同展开得到 (2.84)。将 $\phi_{+2}^{(i)},\phi_{+3}^{(i)}$ 外乘 $\phi_{-3}^{(i)},\phi_{-4}^{(i)}$ 得 (2.85)；此处不能去掉 (2.66) 中的 $\phi$ 指数。
+最后用引理 2.5 的张量收敛取极限。
+\end{proof}
+\begin{note}
+一般 Schwartz 位势下，子式作为\textbf{整体}由张量延拓定义；域内部某些单个 $s_{ab}$ 并无定义，不能先分别取它们的极限，再宣称子式处处是两个乘积之差。
+\EN{Remark 6. In fact, one can verify $\Delta(k)=\Upsilon(k)$ by direct calculation.}
+\CN{注 6：两个看似来自不同散射问题的函数实际相等。}
+\end{note}
+\begin{proof}
+紧支撑情形 $s^A=s^{-\mathsf T}$ 且 $\det s=1$。互补子式恒等式给出
+\[
+\det(s^{-\mathsf T})_{\{3,4\},\{3,4\}}
+=\dfrac{\det s_{\{1,2\},\{1,2\}}}{\det s}
+=\det s_{\{1,2\},\{1,2\}}.
+\]
+为核验这一恒等式，将 $s$ 写成二乘二分块；左上块可逆时，消去左下块，$\det s=\det s_{11}\det(s_{22}-s_{21}s_{11}^{-1}s_{12})$，逆矩阵右下块正是括号内矩阵的逆，因此上式成立。
+左上块奇异时，先作任意小扰动使其可逆，再连续取极限。对每个截断位势应用该式，再用 (2.82)、(2.84)，便得 $\Delta=\Upsilon$。
+\end{proof}
+\EN{Now we introduce the definition of generalized cross product [18,31].}
+\CN{现在引入四维广义叉积（generalized cross product）。}
+\begin{paperdefinitionen}[Generalized cross product]
+For all $\mathbf u,\mathbf v,\mathbf w\in\mathbb C^4$, define (2.86), where $u_i,v_i,w_i$ are their components and $e_1,\ldots,e_4$ are the standard basis vectors.
+\end{paperdefinitionen}
+\begin{paperdefinitioncn*}[广义叉积]
+对任意三个四维复向量，用末行为标准基向量的形式行列式定义向量值叉积。
+\end{paperdefinitioncn*}
+\begin{equation}\originaleq{2.86}
+L(\mathbf u,\mathbf v,\mathbf w)=\det\begin{pmatrix}u_1&u_2&u_3&u_4\\v_1&v_2&v_3&v_4\\w_1&w_2&w_3&w_4\\e_1&e_2&e_3&e_4\end{pmatrix}.
+\end{equation}
+\EN{Similar to the usual three-dimensional crossed product, $L(\cdot)$ is multilinear and totally antisymmetric. Its analytic properties agree with those of $\mathbf u\wedge\mathbf v\wedge\mathbf w$, but $L(\mathbf u,\mathbf v,\mathbf w)\in\mathbb C^4$, allowing us to express $M$ in Lemma 2.11. This observation also leads to the following lemma.}
+\CN{与三维叉积类似，它是多重线性且全反对称的。它与三阶外积有相同解析性，但输出是四维列向量，便于表示后面的 $M$。}
+\begin{proof}
+沿末行展开，分量是三个输入分量的三阶行列式，故多重线性与反对称性直接来自行列式。
+三阶外幂的基 $e_a\wedge e_b\wedge e_c$ 在此映射下分别变成带符号的剩余基向量，因而这是固定的可逆线性映射，保持解析性与连续性。
+对任意列向量 $z$，有
+\[
+z^{\mathsf T}L(\mathbf u,\mathbf v,\mathbf w)=\det(\mathbf u,\mathbf v,\mathbf w,z).
+\]
+这里用双线性转置配对，\textbf{没有复共轭}。特别地 $L(e_2,e_3,e_4)=-e_1$，$L(e_1,e_2,e_3)=e_4$。
+此记号与对角谱矩阵 $L(k)$ 重名，按三个向量自变量与单个谱自变量区分。
+\end{proof}
+\begin{paperlemmaen}
+If $u_0,v_0\in\mathcal S(\mathbb R)$ and $L$ is defined by (2.86), then the following four cross products in each line are well-defined and continuous in the indicated closed sector without zero, and analytic in its interior:
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+下列每行的四个叉积在对应闭扇区去原点连续，在开扇区解析。
+\end{paperlemmacn*}
+\[
+\begin{array}{c|l}
+D_1&L(\mu_{-2}^A,\mu_{+3}^A,\mu_{+4}^A),\quad L(\mu_{-1}^A,\mu_{-2}^A,\mu_{+4}^A),\\
+&L(\mu_{+2},\mu_{-3},\mu_{-4}),\quad L(\mu_{+1},\mu_{+2},\mu_{-4})\\[2pt]
+D_8&L(\mu_{-2}^A,\mu_{-3}^A,\mu_{+4}^A),\quad L(\mu_{+1}^A,\mu_{-2}^A,\mu_{+4}^A),\\
+&L(\mu_{+2},\mu_{+3},\mu_{-4}),\quad L(\mu_{-1},\mu_{+2},\mu_{-4})
+\end{array}
+\]
+\begin{proof}
+在 $D_1$，第一项是合法伴随单列 $\mu_{-2}^A$ 与解析二阶张量 $\mu_{+3}^A\wedge\mu_{+4}^A$ 的外积经固定线性映射所得；第二项使用解析二阶张量 $\mu_{-1}^A\wedge\mu_{-2}^A$ 与单列 $\mu_{+4}^A$。
+第三项使用 $\mu_{+2}$ 与 $\mu_{-3}\wedge\mu_{-4}$，第四项使用 $\mu_{+1}\wedge\mu_{+2}$ 与 $\mu_{-4}$。
+推论 2.1 及其伴随版本给出这些因子的域，乘法保持解析性。$D_8$ 使用另一组二阶张量，四项按同样次序核对即可。边界连续性由相同构造得到。
+\end{proof}
+\EN{Next, we give a lemma that will be used later.}
+\CN{最后给出后文要用到的逆矩阵公式。}
+\begin{paperlemmaen}
+Suppose $a_1,\ldots,a_4\in\mathbb C^4$, and let $A=(a_1,a_2,a_3,a_4)$. If $A$ is invertible, then (2.87) holds.
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+可逆四阶矩阵的逆转置可由其列向量的三重叉积表示。
+\end{paperlemmacn*}
+\begin{equation}\originaleq{2.87}
+A^{-\mathsf T}=\dfrac{1}{\det A}\bigl(-L(a_2,a_3,a_4),L(a_1,a_3,a_4),-L(a_1,a_2,a_4),L(a_1,a_2,a_3)\bigr).
+\end{equation}
+\begin{proof}
+将右侧左乘 $A^{\mathsf T}$。第一列第一项为 $-\det(a_2,a_3,a_4,a_1)/\det A=1$，其余项因行列式含重复列而为零。
+第二、三、四列的非零对角项依次为 $\det(a_1,a_3,a_4,a_2)$、$-\det(a_1,a_2,a_4,a_3)$、$\det(a_1,a_2,a_3,a_4)$，各除以 $\det A$ 后均为一；非对角项仍为零。因此乘积为单位矩阵。
+\end{proof}

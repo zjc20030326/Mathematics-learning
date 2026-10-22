@@ -1,0 +1,299 @@
+\section{Soliton-Free Case／无孤子情形}
+\EN{Here discrete scattering data do not contribute to the potentials: the set $\mathcal Z$ of Section 2.6 is empty. We require the following assumption.}
+\CN{无孤子情形排除原点以外的离散谱，并要求谱函数没有零点。}
+\begin{paperassumptionen}
+Assume $s_{22}(k),s_{44}^A(k),\Delta(k)$ have no zeros for $k\in\overline D_1\setminus\{0\}$.
+\end{paperassumptionen}
+\begin{paperassumptioncn*}
+在闭区域 1 去掉原点后，上述三个分母均无零点。
+\end{paperassumptioncn*}
+\begin{note}
+为何只在一个区域提出无零点条件？共轭对称给出 $\Xi(k)=\overline{\Delta(k^*)}$，将 $D_1$ 的二阶子式映到 $D_8$；单列分母也按同样对称对应。
+再使用循环矩阵 $A$ 旋转谱参数，即覆盖其余六个区域。因此这组条件能够排除全局非零离散极点，而不是只排除 $D_1$ 内的极点。
+\end{note}
+\EN{We further impose an assumption on their behavior as $k\to0$, restricting to the generic case for simplicity.}
+\CN{再规定原点处主导项不退化；这是一类非退化情形，而非所有 Schwartz 位势的自动性质。}
+\begin{paperassumptionen}
+Assume $\displaystyle\lim\limits_{k\to0}ks_{22}(k)\ne0$, $\displaystyle\lim\limits_{k\to0}ks_{44}^A(k)\ne0$, and $\displaystyle\lim\limits_{k\to0}k^2\Delta(k)\ne0$.
+\end{paperassumptionen}
+\begin{paperassumptioncn*}
+两个单列分母在原点恰为一阶极点，张量分母恰为二阶极点，三个相应首项系数均非零。
+\end{paperassumptioncn*}
+\begin{note}
+\EN{Remark 10. Symmetries (2.49), (2.35) imply $s_{22}=s_{44}^A$. Thus it suffices to require $s_{22}$ to satisfy Assumptions 3.1 and 3.2.}
+\CN{注 10：原文用对称关系去掉重复的 $s_{44}^A$ 条件。此处“只要求 $s_{22}$”须限定为\textbf{这两个相等的散射元素之间}；不能据此删去独立的 $\Delta$ 无零点及非退化条件。}
+\end{note}
+\EN{We can now describe the behavior of $M(x,t,k)$ at zero.}
+\CN{现在研究 $M$ 的原点展开。}
+\begin{paperlemmaen}
+Let $u,v$ be Schwartz class solutions of (1.1), and let their initial data satisfy Assumption 3.2. For any integer $p\geq1$ there are matrices $\mathcal M_n^{(l)}(x,t)$, $-1\leq l\leq p$, satisfying (3.11). In particular $\mathcal M_1^{(-1)}$ has the displayed form.
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+在假设 3.2 下，每个扇区有至多一阶的原点渐近奇性；区域 1 的留数只有前两列可能非零，且受固定行结构限制。
+\end{paperlemmacn*}
+\begin{equation}\originaleq{3.11}
+\left|M_n(x,t,k)-\sum\limits_{l=-1}^p\mathcal M_n^{(l)}(x,t)k^l\right|\leq C|k|^{p+1},
+\quad |k|\leq2,\quad k\in\overline D_n\setminus\{0\}.
+\end{equation}
+\[
+\mathcal M_1^{(-1)}=\begin{pmatrix}-\ii\delta_1&-\ii\alpha_+&0&0\\\delta_2&-\beta_+&0&0\\\ii\delta_1&\ii\alpha_+&0&0\\-\delta_2&\beta_+&0&0\end{pmatrix}.
+\]
+\begin{proof}
+\EN{It suffices to compute $M_1$; symmetry (2.91) determines all other sectors. Lemma 3.4, Remark 9 and (2.82) give $s_{22}(k,t)=s_{22}(k)$, $s_{44}^A(k,t)=s_{44}^A(k)$, $\Delta(k,t)=\Delta(k)$. The argument of Lemma 2.11 yields}
+\CN{主子式的时间指数逐行逐列相消，所以分母与时间无关，且}
+\begin{equation}\originaleq{3.12}
+M_1=\left(-\dfrac{L(\mu_{-2}^A,\mu_{+3}^A,\mu_{+4}^A)}{s_{22}},\ \mu_{+2},\ -\dfrac{L(\mu_{-1}^A,\mu_{-2}^A,\mu_{+4}^A)}{\Delta},\ \dfrac{\mu_{-4}}{s_{44}^A}\right)(x,t,k).
+\end{equation}
+\EN{The asymptotic expansions of all these Jost and scattering quantities were computed in Propositions 2.3, 2.6, 2.4, 2.8. The time-dependent quantities have the same form. Substitution into (3.12), together with Assumption 3.2, completes the proof.}
+\CN{补足阶数核对：各 Jost 列至多 $k^{-1}$，其首项的像包含在同一二维空间中，故三个首项的叉积为零，叉积最高只可能为 $k^{-2}$。
+第一列除以一阶极点分母，至多为 $k^{-1}$；第三列除以二阶极点分母，至多有界；第四列是两个一阶量的商，也有界。
+第二列直接使用 (2.23)，其留数为 $(-\ii\alpha_+,-\beta_+,\ii\alpha_+,\beta_+)^{\mathsf T}$。
+把第一列的 $k^{-2}$ 叉积系数展开为“两列留数加一列常数”的三项和，代入 (2.44)、(2.45)，第 3、4 行分别是第 1、2 行的相反数；命名两独立系数为 $-\ii\delta_1,\delta_2$ 即得所列结构。
+非零首项使标量倒数具有任意有限阶渐近展开，逐项相乘给出任意 $p$ 的余项估计。其余扇区由对称关系得到。}
+\end{proof}
+\begin{note}
+“$|k|\leq2$”应理解为有足够小邻域后按常数扩展；若这一圆盘内还有其他分母零点，(3.11) 只能在排除这些点的邻域成立。无孤子假设 3.1 下不存在该额外问题。
+这里是扇区边界的光滑渐近展开，一般 Schwartz 数据不保证整圆盘内有收敛 Laurent 级数。
+\end{note}
+\EN{We now study the properties of the reflection coefficients.}
+\CN{接下来证明反射系数的正则性、衰减与模的界。}
+\begin{papertheoremen}
+Suppose $u_0,v_0\in\mathcal S(\mathbb R)$ satisfy Assumptions 3.1, 3.2. Let $\mathbb R_+=(0,+\infty)$. The coefficients (3.1) are well-defined and have these properties:
+\begin{enumerate}[label=(\alph*)]
+\item $r_1,r_2\in C^\infty(e^{\frac{\pi\ii}{4}}\mathbb R_+)$ and $\rho\in C^\infty(\mathbb R_+)$.
+\item All three are rapidly decreasing as $|k|\to\infty$.
+\item All three have continuous boundary values at zero.
+\item $|r_1(k)|<1$, $|r_2(k)|<1$ on $e^{\frac{\pi\ii}{4}}\mathbb R_+$, and $|\rho(k)|<1$ on $\mathbb R_+$.
+\end{enumerate}
+\end{papertheoremen}
+\begin{papertheoremcn*}
+反射系数在各自开射线上光滑，在无穷远快速下降，原点有连续极限；在非零射线上其模严格小于一。
+\end{papertheoremcn*}
+\begin{proof}
+\EN{Part (a) follows from the scattering and tensor regularity results. By Lemma 2.8, the boundary values and all spectral derivatives of $M_\pm(0,k)$ have the same expansion at infinity. Combining this with (3.2) gives (b).}
+\CN{(a) 是光滑分子除以无零点的光滑分母。(b) 中固定 $x=0$，两侧具有任意阶相同展开，故 $v-I=M_-^{-1}(M_+-M_-)$ 小于任意负幂；其导数同理。取 $v_1,v_2$ 的非对角元素就得到三个反射系数的快速衰减。}
+\EN{For (c),(d), use compactly supported cutoffs. Corollary 2.3 and Lemma 2.10 give the following limits.}
+\CN{对截断位势有}
+\begin{equation}\originaleq{3.13}
+\begin{gathered}
+\Delta=\lim\limits_{i\to\infty}\Delta^{(i)},\quad\Lambda=\lim\limits_{i\to\infty}\Lambda^{(i)}\quad(k\in\mathbb R_+),\\
+s_{12}=\lim\limits_{i\to\infty}s_{12}^{(i)},\quad s_{11}=\lim\limits_{i\to\infty}s_{11}^{(i)},\quad
+s_{34}^A=\lim\limits_{i\to\infty}s_{34}^{A(i)},\quad s_{33}^A=\lim\limits_{i\to\infty}s_{33}^{A(i)}
+\quad(k\in e^{\frac{\pi\ii}{4}}\mathbb R_+).
+\end{gathered}
+\end{equation}
+\EN{Here $\Delta^{(i)}=s^{(i)}(1,2)$ and $\Lambda^{(i)}=s^{(i)}\left(\begin{smallmatrix}1,2\\2,3\end{smallmatrix}\right)$. The original proof asserts that the cutoffs satisfy both assumptions for sufficiently large $i$. By the scattering symmetries their expansion has the form}
+\CN{截断散射矩阵的原点留数受对称关系约束为}
+\begin{equation}\originaleq{3.14}
+s^{(i)}(k)=\dfrac{s_{-1}^{(i)}}{k}+O(1),\qquad
+s_{-1}^{(i)}=\begin{pmatrix}
+\mathfrak s_1^{(i)}&\mathfrak s_2^{(i)}&\mathfrak s_3^{(i)}&-\mathfrak s_2^{*(i)}\\
+\ii\mathfrak s_2^{*(i)}&-\ii\mathfrak s_1^{(i)}&-\ii\mathfrak s_2^{(i)}&-\ii\mathfrak s_3^{(i)}\\
+-\mathfrak s_3^{(i)}&\mathfrak s_2^{*(i)}&-\mathfrak s_1^{(i)}&-\mathfrak s_2^{(i)}\\
+\ii\mathfrak s_2^{(i)}&\ii\mathfrak s_3^{(i)}&-\ii\mathfrak s_2^{*(i)}&\ii\mathfrak s_1^{(i)}
+\end{pmatrix}.
+\end{equation}
+\EN{The quantities $\mathfrak s_1^{(i)}\ne0$ and $\mathfrak s_3^{(i)}$ are purely imaginary; $\mathfrak s_2^{(i)}$ is not specified. Moreover,}
+\CN{第一、三个参数纯虚，第二个参数一般为复数；在固定非零谱点，}
+\begin{equation}\originaleq{3.15}
+\rho=\lim\limits_{i\to\infty}\rho^{(i)},\qquad r_1=\lim\limits_{i\to\infty}r_1^{(i)},\qquad r_2=\lim\limits_{i\to\infty}r_2^{(i)}.
+\end{equation}
+\EN{The original proof uses the well-defined limits of these cutoff coefficients at zero and dominated convergence to infer (c).}
+\CN{此处需补充：单有逐点收敛不能交换 $i\to\infty$ 与 $k\to0$，也不能推出截断后的整个闭域无零点。应使用前章\textbf{带权}截断估计，使散射的有限阶原点系数局部一致收敛。
+直接以一般数据的渐近式相除也可避免交换：$s_{12},s_{11}$ 至多一阶极点且分母首项非零，$r_1$ 因而有有限极限；伴随同理；$\Lambda$ 至多二阶极点，$\Delta$ 恰为二阶极点，故 $\rho$ 也有有限极限。这严格证明 (c)，但不必要求这些极限全部非零。}
+\EN{For (d), the symmetries give on $e^{\frac{\pi\ii}{4}}\mathbb R_+$:}
+\CN{在对角射线上，旋转共轭把元素化为}
+\begin{equation}\originaleq{3.16}
+s_{12}^{(i)}(k)=s_{32}^{*(i)}(k^*)=s_{21}^{*(i)}(\ii k^*)=s_{21}^{*(i)}(k),\quad
+s_{11}^{(i)}(k)=s_{33}^{*(i)}(k^*)=s_{22}^{*(i)}(k).
+\end{equation}
+\EN{Therefore (3.17) holds; taking the cutoff limit gives (3.18).}
+\CN{于是}
+\begin{align}
+1-|r_1^{(i)}|^2&=1-\dfrac{s_{12}^{(i)}s_{21}^{(i)}}{s_{11}^{(i)}s_{22}^{(i)}}
+=\dfrac{\Delta^{(i)}}{|s_{22}^{(i)}|^2},\originaleq{3.17}\\
+1-|r_1(k)|^2&=\dfrac{\Delta(k)}{|s_{22}(k)|^2},\qquad k\in e^{\frac{\pi\ii}{4}}\mathbb R_+.\originaleq{3.18}
+\end{align}
+\EN{The left side is real and tends to one at infinity; the right side never vanishes by Assumption 3.1. Hence it is positive on the whole connected ray. The argument for $r_2$ is analogous.}
+\CN{连续实函数若从正值变成非正值，必先经过零；无零点假设排除这种情况。因此 $1-|r_1|^2>0$，且 $r_2=-\ii r_1$ 给出第二个严格界。}
+\EN{To prove $|\rho|<1$, the symmetries give (3.19), and direct calculation gives (3.20).}
+\CN{正实轴上有}
+\begin{equation}\originaleq{3.19}
+(\Delta^{(i)})^*=\det\begin{pmatrix}s_{33}^{(i)}&s_{32}^{(i)}\\s_{23}^{(i)}&s_{22}^{(i)}\end{pmatrix},\qquad
+(\Lambda^{(i)})^*=\det\begin{pmatrix}s_{32}^{(i)}&s_{31}^{(i)}\\s_{22}^{(i)}&s_{21}^{(i)}\end{pmatrix}.
+\end{equation}
+\begin{equation}\originaleq{3.20}
+1-|\rho^{(i)}|^2=\dfrac{\Delta^{(i)}(\Delta^{(i)})^*-\Lambda^{(i)}(\Lambda^{(i)})^*}{|\Delta^{(i)}|^2}
+=\dfrac{s_{22}^{(i)}s_{44}^{A(i)}}{|\Delta^{(i)}|^2}.
+\end{equation}
+\proofstep{二阶子式恒等式的展开。}
+对左上三阶块展开：
+\[
+\begin{aligned}
+&(s_{11}s_{22}-s_{12}s_{21})(s_{33}s_{22}-s_{32}s_{23})
+-(s_{12}s_{23}-s_{13}s_{22})(s_{32}s_{21}-s_{31}s_{22})\\
+&=s_{22}\bigl(s_{11}s_{22}s_{33}-s_{11}s_{23}s_{32}-s_{12}s_{21}s_{33}
++s_{12}s_{23}s_{31}+s_{13}s_{21}s_{32}-s_{13}s_{22}s_{31}\bigr)\\
+&=s_{22}s(1,2,3)=s_{22}s_{44}^A.
+\end{aligned}
+\]
+截断上标在这段纯代数中省写，公式对每个 $i$ 分别成立。取极限得
+\begin{equation}\originaleq{3.21}
+1-|\rho(k)|^2=\dfrac{s_{22}(k)s_{44}^A(k)}{|\Delta(k)|^2},\qquad k\in\mathbb R_+.
+\end{equation}
+\EN{The same continuity and nonvanishing argument using Assumption 3.1 proves $|\rho(k)|<1$ for $k>0$.}
+\CN{右侧非零而左侧无穷远趋一，再用连通性即得严格正性，定理证毕。}
+\end{proof}
+\begin{note}
+\EN{Remark 11. By (2.49), (2.35), $r_2=-\ii r_1$, so the bound on $r_2$ follows immediately.}
+\CN{注 11：两个斜射线反射系数不是独立数据。}
+\EN{Remark 12. Letting $k\to0$ in (3.21) gives $|\rho(0)|=1$.}
+\CN{注 12：分子为 $O(k^{-2})$，分母为非零首项的 $O(k^{-4})$，其比为 $O(k^2)\to0$，故原点模等于一。这与只在开射线上严格小于一完全相容。}
+\end{note}
+\subsection{The RH Problem for \texorpdfstring{$M(x,t,k)$}{M(x,t,k)}: Soliton-Free Case／无孤子 RH 问题}
+\EN{We now define an appropriate RH problem and show that the fundamental meromorphic eigenfunction satisfies it under the assumptions.}
+\CN{将前面的解析、跳跃、对称和渐近信息组合成逆问题。}
+\begin{note}[RH Problem 1／RH 问题 1]
+\EN{Seek a $4\times4$ matrix-valued function $M(x,t,k)$ satisfying the following conditions.}
+\CN{寻找四阶矩阵函数，满足以下全部条件。}
+\EN{It is analytic for $k\in\mathbb C\setminus\Gamma$, with left and right limits on the rays related by (3.22).}
+\CN{射线外解析，左、右边界值满足}
+\begin{equation}\originaleq{3.22}
+M_+=M_-e^\Theta v e^{-\Theta},\qquad k\in\Gamma\setminus\{0\}.
+\end{equation}
+\EN{It has the two symmetries (3.23), where $A,B$ are given by (2.12).}
+\CN{满足循环与共轭对称}
+\begin{equation}\originaleq{3.23}
+M(x,t,k)=AM(x,t,\ii k)A^{-1}=BM^*(x,t,k^*)B.
+\end{equation}
+\EN{At infinity it has expansion (3.24), whose coefficients satisfy (3.25).}
+\CN{无穷远归一化及两个消失条件为}
+\begin{align}
+M&=I+\dfrac{M^{(1)}}{k}+\dfrac{M^{(2)}}{k^2}+O(k^{-3}),\originaleq{3.24}\\
+M_{12}^{(1)}&=M_{13}^{(1)}=0.\originaleq{3.25}
+\end{align}
+\EN{Near zero, for every integer $N\geq-1$, there exist matrices giving (3.26), with the specified leading coefficient.}
+\CN{在区域 1 原点，任意有限阶展开为}
+\begin{equation}\originaleq{3.26}
+M_1(x,t,k)=\sum\limits_{l=-1}^N\mathcal M_1^{(l)}(x,t)k^l+O(k^{N+1}),\quad
+\mathcal M_1^{(-1)}=\begin{pmatrix}-\ii\delta_1&-\ii\alpha_+&0&0\\\delta_2&-\beta_+&0&0\\\ii\delta_1&\ii\alpha_+&0&0\\-\delta_2&\beta_+&0&0\end{pmatrix}.
+\end{equation}
+\EN{Finally, $M$ and $M^A=(M^{-1})^{\mathsf T}$ satisfy (3.27).}
+\CN{还需逆转置约束}
+\begin{equation}\originaleq{3.27}
+JM(x,t,-k)J^{-1}=M^A(x,t,k),\qquad k\in\mathbb C\setminus\Gamma.
+\end{equation}
+\end{note}
+\EN{We prove uniqueness, beginning with the unit determinant of any solution.}
+\CN{唯一性不能单靠 $M\to I$：原点允许奇性，需要同时利用特殊留数结构及对称关系。}
+\begin{paperlemmaen}
+If $M$ solves RH problem 1, then $\det M(x,t,k)=1$.
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+RH 问题 1 的任一解具有单位行列式。
+\end{paperlemmacn*}
+\begin{proof}
+\EN{Since the jump has determinant one, $\det M$ has no jump away from zero and is analytic on the punctured plane. Its zero expansion gives at most a double pole, so}
+\CN{跨射线可用 Morera 定理粘合解析性；原点留数只有两列非零，行列式至多二阶极点。因此由无穷远有界性与 Liouville 定理，}
+\begin{equation}\originaleq{3.28}
+\det M=\widetilde g_0+\dfrac{\widetilde g_1}{k}+\dfrac{\widetilde g_2}{k^2}.
+\end{equation}
+\EN{The symmetries force the two large-$k$ coefficients to have the forms (3.29), (3.30).}
+\CN{比较 $k^{-1},k^{-2}$ 系数：$M^{(r)}=\ii^{-r}AM^{(r)}A^{-1}=BM^{*(r)}B$。逐个元素沿置换轨道求解得到}
+\begin{equation}\originaleq{3.29}
+M^{(1)}=\begin{pmatrix}
+M_{11}^{(1)}&M_{12}^{(1)}&M_{13}^{(1)}&-M_{12}^{*(1)}\\
+\ii M_{12}^{*(1)}&-\ii M_{11}^{(1)}&-\ii M_{12}^{(1)}&-\ii M_{13}^{(1)}\\
+-M_{13}^{(1)}&M_{12}^{*(1)}&-M_{11}^{(1)}&-M_{12}^{(1)}\\
+\ii M_{12}^{(1)}&\ii M_{13}^{(1)}&-\ii M_{12}^{*(1)}&\ii M_{11}^{(1)}
+\end{pmatrix}.
+\end{equation}
+\begin{equation}\originaleq{3.30}
+M^{(2)}=\begin{pmatrix}
+M_{11}^{(2)}&M_{12}^{(2)}&M_{13}^{(2)}&M_{12}^{*(2)}\\
+-M_{12}^{*(2)}&-M_{11}^{(2)}&-M_{12}^{(2)}&-M_{13}^{(2)}\\
+M_{13}^{(2)}&M_{12}^{*(2)}&M_{11}^{(2)}&M_{12}^{(2)}\\
+-M_{12}^{(2)}&-M_{13}^{(2)}&-M_{12}^{*(2)}&-M_{11}^{(2)}
+\end{pmatrix}.
+\end{equation}
+\EN{Here $M_{11}^{*(1)}=-M_{11}^{(1)}$, $M_{13}^{*(1)}=-M_{13}^{(1)}$, $M_{11}^{(2)}=M_{11}^{*(2)}$, and $M_{13}^{*(2)}=-M_{13}^{(2)}$. Condition (3.25) reduces the expansion to (3.31).}
+\CN{上述实虚约束照原文列出；其中 $M_{13}^{(2)}$ 的约束有印刷问题，见下方注。代入 (3.25) 后，一阶矩阵完全对角化，}
+\begin{equation}\originaleq{3.31}
+M=I+\dfrac{M_{11}^{(1)}}{k}\operatorname{diag}(1,-\ii,-1,\ii)+\dfrac{M^{(2)}}{k^2}+O(k^{-3}).
+\end{equation}
+\EN{It follows that $\det M=1+O(k^{-3})$. Comparing with (3.28) gives $\widetilde g_0=1$, $\widetilde g_1=\widetilde g_2=0$.}
+\CN{补足行列式二阶展开：}
+\[
+\det(I+\varepsilon C+\varepsilon^2D)
+=1+\varepsilon\operatorname{tr}C+\varepsilon^2\left(\operatorname{tr}D+\dfrac{(\operatorname{tr}C)^2-\operatorname{tr}(C^2)}{2}\right)+O(\varepsilon^3).
+\]
+该式由多重线性展开，二阶项分别来自一列取 $D$，或两列取 $C$。
+这里两个迹都为零，且 $\operatorname{tr}(\operatorname{diag}(1,-\ii,-1,\ii)^2)=0$，故前两阶消失，比较即得结论。
+\end{proof}
+\begin{note}
+原文在 (3.30) 后称 $M_{13}^{(2)}$ 纯虚，但共轭对称与该矩阵的 $(1,3),(3,1)$ 相等实际上要求它为实数；(3.38) 也要求它等于实位势 $u/4$。应将该处负号改为正号。上面的行列式证明不依赖这一误印。
+\end{note}
+\begin{paperlemmaen}
+If RH problem 1 has a solution, it is unique.
+\end{paperlemmaen}
+\begin{paperlemmacn*}
+RH 问题 1 至多有一个解。
+\end{paperlemmacn*}
+\begin{proof}
+\EN{Let $M,N$ be two solutions. Both have determinant one. Equation (3.27) and the cyclic symmetry give $N^A=JA^2NA^2J^{-1}$, hence the inverse has the following behavior at zero.}
+\CN{设 $M,N$ 为两解。对 $N$ 的原点留数使用逆转置关系，得到}
+\begin{equation}\originaleq{3.32}
+N^{-1}=\dfrac{1}{k}\begin{pmatrix}0&0&0&0\\0&0&0&0\\-\ii\delta_1&\ii\delta_2&-\ii\delta_1&\ii\delta_2\\-\alpha_+&-\beta_+&-\alpha_+&-\beta_+\end{pmatrix}+O(1),\quad k\to0,\ k\in D_1.
+\end{equation}
+\EN{Direct calculation then gives (3.33). The quotient has no jump and is analytic off zero, hence it has the form (3.34).}
+\CN{$M$ 留数只有前两列，$N^{-1}$ 留数只有后两行，所以二阶极点乘积为零。因此}
+\begin{align}
+MN^{-1}&=O(k^{-1}),\originaleq{3.33}\\
+MN^{-1}&=G_1+\dfrac{G_2}{k}.\originaleq{3.34}
+\end{align}
+\EN{At infinity, (3.31) and the inverse relation imply (3.35), so the product is (3.36). Comparing with (3.34) gives (3.37).}
+\CN{在无穷远直接相乘：}
+\begin{align}
+M&=I+\dfrac{M_{11}^{(1)}}{k}\operatorname{diag}(1,-\ii,-1,\ii)+O(k^{-2}),\quad
+N^{-1}=I-\dfrac{N_{11}^{(1)}}{k}\operatorname{diag}(1,-\ii,-1,\ii)+O(k^{-2}),\originaleq{3.35}\\
+MN^{-1}&=I+\dfrac{M_{11}^{(1)}-N_{11}^{(1)}}{k}\operatorname{diag}(1,-\ii,-1,\ii)+O(k^{-2}),\originaleq{3.36}\\
+MN^{-1}&=I+\dfrac{M_{11}^{(1)}-N_{11}^{(1)}}{k}\operatorname{diag}(1,-\ii,-1,\ii).\originaleq{3.37}
+\end{align}
+\EN{Since $\det(MN^{-1})=1$, we must have $M_{11}^{(1)}-N_{11}^{(1)}=0$. Thus $M=N$.}
+\CN{确切地，最后矩阵的行列式为 $1-(M_{11}^{(1)}-N_{11}^{(1)})^4/k^4$；恒等于一强迫系数差为零，故两解相同。}
+\end{proof}
+\EN{Combining Section 2.6 with the present results yields the following theorem.}
+\CN{把正散射存在性、上述唯一性与渐近系数合在一起，得到重构定理。}
+\begin{papertheoremen}
+Suppose $u,v$ are a Schwartz class solution of (1.1), with existence time $T\in(0,\infty]$ and initial data satisfying Assumptions 3.1,3.2. Then RH problem 1 has a unique solution for each $(x,t)\in\mathbb R\times[0,T)$. The corresponding potentials are reconstructed by (3.38)--(3.40).
+\end{papertheoremen}
+\begin{papertheoremcn*}
+若已存在满足假设的 Schwartz 演化解，则相应 RH 问题存在唯一解，并由以下公式恢复原位势。
+\end{papertheoremcn*}
+\begin{align}
+u(x,t)&=2\partial_x\lim\limits_{k\to\infty}k(M_{44}-1)=4\lim\limits_{k\to\infty}k^2M_{13},\originaleq{3.38}\\
+v(x,t)&=4\operatorname{Im}\left(\lim\limits_{k\to\infty}k^2M_{12}\right),\originaleq{3.39}\\
+3v^2(x,t)&=2\partial_t\lim\limits_{k\to\infty}k(M_{44}-1)-\dfrac{u_{xx}}{2}+\dfrac{3u^2}{2}.\originaleq{3.40}
+\end{align}
+\begin{proof}
+\EN{The fundamental meromorphic eigenfunction exists and satisfies RH problem 1. Lemma 3.7 gives uniqueness. Equations (3.38),(3.39) follow from the expansion at infinity, and substituting the reconstruction of $u$ into (1.1) gives (3.40).}
+\CN{存在性来自正散射，唯一性已证。补足系数读取：由 (2.20)，}
+\[
+M_{44}^{(1)}=-\dfrac{1}{2}\int_x^{+\infty}u(y,t)\dd y,\qquad
+M_{13}^{(2)}=\dfrac{u}{4},\qquad M_{12}^{(2)}=\dfrac{1+\ii}{4}v.
+\]
+空间导数及虚部立刻给出前两式。对第一个系数求时间导数，直接使用第一条 PDE：
+\[
+\begin{aligned}
+2\partial_t M_{44}^{(1)}
+&=-\int_x^{+\infty}\left(\dfrac{1}{2}u_{yyy}-3uu_y+6vv_y\right)\dd y\\
+&=-\left[\dfrac{1}{2}u_{yy}-\dfrac{3}{2}u^2+3v^2\right]_{y=x}^{y=+\infty}
+=\dfrac{1}{2}u_{xx}-\dfrac{3}{2}u^2+3v^2.
+\end{aligned}
+\]
+无穷远边界项由 Schwartz 衰减消失，移项即得 (3.40)。
+\end{proof}
+\begin{note}
+这一定理的存在性前提是\textbf{PDE 解已经存在}，不是证明任意指定反射数据都可解 RH 问题，也不是全局 PDE 适定性定理。
+平方重构式只确定 $v^2$；恢复 $v$ 的符号仍应使用 (3.39) 或后面的行向量二阶系数。
+\end{note}

@@ -1,0 +1,153 @@
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+(./fduthesis.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(./fduthesis.cls
+(d:/Software/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-xetex.def))
+Document Class: fduthesis 2019/04/03 v0.7d Thesis template for Fudan University
+
+(d:/Software/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.s
+ty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+) (./fduthesis.def)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/ctex/ctexbook.cls
+(d:/Software/texlive/2026/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg)
+Document Class: ctexbook 2022/07/14 v2.5.10 Chinese adapter for class book (CTE
+X)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/ctex/ctexhook.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/ctex/ctexpatch.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/base/fix-cm.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/base/ts1enc.def))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/ctex/config/ctexopts.cfg)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(d:/Software/texlive/2026/texmf-dist/tex/latex/base/bk12.clo))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.de
+f (d:/Software/texlive/2026/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(d:/Software/texlive/2026/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg)))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/zhnumber/zhnumber.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese-
+book.def
+(d:/Software/texlive/2026/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg))
+ (d:/Software/texlive/2026/texmf-dist/tex/latex/ctex/ctex-cs4size.clo))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/ctex/config/ctex.cfg)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(d:/Software/texlive/2026/texmf-dist/tex/latex/amsmath/amstext.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/unicode-math/unicode-math.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.
+sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/unicode-math/unicode-math-table.
+tex))) (d:/Software/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
+(d:/Software/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty)))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/footmisc/footmisc.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/bigfoot/perpage.sty))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/ntheorem/ntheorem.sty
+Style `ntheorem', Version 1.33 <2011/08/15>
+(d:/Software/texlive/2026/texmf-dist/tex/latex/base/ifthen.sty))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/graphics-def/xetex.def)))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/tools/longtable.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/caption/caption.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/caption/caption3.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/caption/ltcaption.sty))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/xcolor/xcolor.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/graphics/mathcolor.ltx)))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/tools/array.sty)
+
+Package xeCJK Warning: It seems that you have not declare a CJKfamily.
+(xeCJK)                If you want to use xeCJK in the right way, you should
+(xeCJK)                use
+(xeCJK)                
+(xeCJK)                `\setCJKmainfont[<...>]{<...>}'
+(xeCJK)                
+(xeCJK)                in the preamble to declare the default CJKfamily.
+(xeCJK)                
+
+(d:/Software/texlive/2026/texmf-dist/tex/latex/natbib/natbib.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/hyperref/hyperref.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+ (d:/Software/texlive/2026/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(d:/Software/texlive/2026/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(d:/Software/texlive/2026/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/hyperref/nameref.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/refcount/refcount.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/generic/gettitlestring/gettitlestring.
+sty (d:/Software/texlive/2026/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(d:/Software/texlive/2026/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(d:/Software/texlive/2026/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/hyperref/puenc.def)
+(d:/Software/texlive/2026/texmf-dist/tex/latex/url/url.sty)
+(d:/Software/texlive/2026/texmf-dist/tex/generic/bitset/bitset.sty
+(d:/Software/texlive/2026/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/hyperref/hxetex.def
+(d:/Software/texlive/2026/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.st
+y
+(d:/Software/texlive/2026/texmf-dist/tex/generic/uniquecounter/uniquecounter.st
+y))) (d:/Software/texlive/2026/texmf-dist/tex/latex/hyperref/psdextra.def)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 30.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 30.
+
+(C:\Users\m1881\AppData\Local\Temp\hmb-nzbc-thesis-build/fduthesis.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+[1] [2] (C:\Users\m1881\AppData\Local\Temp\hmb-nzbc-thesis-build/fduthesis.out)
+ (C:\Users\m1881\AppData\Local\Temp\hmb-nzbc-thesis-build/fduthesis.out)
+(./section/00-frontmatter.tex [1] [2]
+(C:\Users\m1881\AppData\Local\Temp\hmb-nzbc-thesis-build/fduthesis.toc [3])
+[4]) [5]
+第一章
+(./section/01-introduction.tex [1] [2]) [3]
+第二章
+(./section/02-model.tex [4] [5] [6] [7]) [8]
+第三章
+(./section/03-scattering.tex [9] [10] [11] [12]) [13]
+第四章
+(./section/04-rhp.tex [14] [15] [16]) [17]
+第五章
+(./section/05-solitons.tex [18] [19] [20] [21]
+Underfull \hbox (badness 3646) in paragraph at lines 220--221
+[][]\TU/KaiTi(0)/m/n/12.045 在 指 定 留 数、|  两 处 归 一 化、|  换 叶 对 称、|
+[22] [23] [24]) [25]
+第六章
+(./section/06-conclusion.tex [26]) [27]
+附录 A
+(./section/07-appendix.tex [28]) [29]
+(C:\Users\m1881\AppData\Local\Temp\hmb-nzbc-thesis-build/fduthesis.bbl [30])
+[31] [32] [33]
+(C:\Users\m1881\AppData\Local\Temp\hmb-nzbc-thesis-build/fduthesis.aux) )
+(see the transcript file for additional information)
+Output written on C:\Users\m1881\AppData\Local\Temp\hmb-nzbc-thesis-build/fduth
+esis.pdf (40 pages).
+Transcript written on C:\Users\m1881\AppData\Local\Temp\hmb-nzbc-thesis-build/f
+duthesis.log.

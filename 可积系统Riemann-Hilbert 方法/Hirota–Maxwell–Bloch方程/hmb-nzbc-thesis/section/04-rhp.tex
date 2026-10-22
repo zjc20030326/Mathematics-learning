@@ -1,0 +1,149 @@
+\section{由直接散射到矩阵拼接}
+沿用第 \ref{ch:direct} 章假设，暂时排除分支点、轮廓交点、$0$ 和共振原像。设 $s_{11},s_{22}$ 在普通连续谱上没有零点，离散零点有限且均为简单零点。定义
+\begin{equation}\label{eq:Mdef}
+M(w)=
+\begin{cases}
+M_+(w)=\bigl(\mu_{-,1}/s_{11},\ \mu_{+,2}\bigr),&w\in D_+,\\
+M_-(w)=\bigl(\mu_{+,1},\ \mu_{-,2}/s_{22}\bigr),&w\in D_-.
+\end{cases}
+\end{equation}
+下标 $\pm$ 指定义域及第 \ref{ch:model} 章规定的轮廓侧，不表示每个位置的几何上下方。
+
+\begin{proposition}[跳跃矩阵]\label{prop:jump}
+在连续谱普通点上，
+\begin{equation}\label{eq:jump}
+M_+=M_-J,\qquad
+J=\begin{pmatrix}
+1-r\widetilde r&-\widetilde r\,e^{-2\ii\theta}\\
+r\,e^{2\ii\theta}&1
+\end{pmatrix},\qquad \det J=1.
+\end{equation}
+\end{proposition}
+\begin{proof}
+把 $\Psi_-=\Psi_+S$ 写成去振荡形式：
+\begin{align*}
+\mu_{-,1}&=s_{11}\mu_{+,1}+s_{21}e^{2\ii\theta}\mu_{+,2},\\
+\mu_{-,2}&=s_{12}e^{-2\ii\theta}\mu_{+,1}+s_{22}\mu_{+,2}.
+\end{align*}
+第二式除以 $s_{22}$ 后给出
+$\mu_{+,2}=M_{-,2}-\widetilde r e^{-2\ii\theta}M_{-,1}$。
+将此代入第一式并除以 $s_{11}$，得到
+\[
+M_{+,1}=(1-r\widetilde r)M_{-,1}
++r e^{2\ii\theta}M_{-,2}.
+\]
+两列合并即为 \eqref{eq:jump}。行列式由两个交叉项相消得到 1。由于本稿散射矩阵方向与部分文献相反，不能用文献的跳跃矩阵替换此计算。
+\end{proof}
+
+由 Wronskian 表达及高能展开，
+\begin{align}
+\det M(w)&=\gamma(w),\label{eq:detM}\\
+M(w)&=I+\dfrac{M^{(1)}}{w}+O(w^{-2}),\quad w\to\infty,\label{eq:Minfty}\\
+M(w)&=-\dfrac{\ii Q}{w}\sigma_1+O(1),\quad w\to0.\label{eq:Mzero}
+\end{align}
+特别地 $\det M$ 不是恒等于 1；它在两个分支点为零。若想改成单位行列式，必须额外改变背景归一化及分支点条件，本稿不作这种转换。
+
+\section{矩阵约化与简单极点留数}
+由 Jost 对称和散射关系可得
+\begin{equation}\label{eq:Msym}
+M(w)=K\conj{M(\conj w)}K^{-1},\qquad
+M(h(w))=M(w)\dfrac{\ii w}{Q}\sigma_1.
+\end{equation}
+例如换叶后第一列由 $\mu_{-,2}/s_{22}$ 变来，第二列由 $\mu_{+,1}$ 变来；正好对应另一解析区域两列的交换。此关系同时解释式 \eqref{eq:Mzero}。
+
+取 $D_+$ 的全部零点 $\{\zeta_j\}_{j=1}^{m}$，其中 $m=2N$，每对由 $\zeta$ 与 $h(\conj\zeta)$ 构成。定义线性相关常数
+\[
+\Psi_{-,1}(\zeta_j)=b_j\Psi_{+,2}(\zeta_j),\qquad
+c_j=\dfrac{b_j}{s_{11}'(\zeta_j)},\qquad
+C_j=c_j e^{2\ii\theta(\zeta_j)}.
+\]
+简单性使分母不为零，$b_j$ 与 $x,z$ 无关。留数为
+\begin{align}
+\Res_{w=\zeta_j}M_1(w)&=C_jM_2(\zeta_j),&
+\Res_{w=\zeta_j}M_2(w)&=0,\label{eq:resplus}\\
+\Res_{w=\conj{\zeta_j}}M_2(w)&=-\conj{C_j}M_1(\conj{\zeta_j}),&
+\Res_{w=\conj{\zeta_j}}M_1(w)&=0.\label{eq:resminus}
+\end{align}
+第二式使用实 $x,z$ 时的 $\theta(\conj w)=\conj{\theta(w)}$。它也可写为矩阵形式
+\[
+\Res_{w=\zeta_j}M
+=\lim_{w\to\zeta_j}M
+\begin{pmatrix}0&0\\C_j&0\end{pmatrix}.
+\]
+右侧因第一列乘零，只用到正则的第二列。
+
+\begin{proposition}[换叶后的留数系数]\label{prop:respair}
+若 $\widehat\zeta=h(\conj\zeta)$，相同实背景 $Q$ 下
+\begin{equation}\label{eq:cpair}
+c_{\widehat\zeta}=-\dfrac{Q^2}{\conj\zeta^{\,2}}\conj{c_\zeta}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+先在 $\conj\zeta$ 使用共轭留数
+$-\conj{c_\zeta}e^{-2\ii\theta(\conj\zeta)}$，再由
+$M_1(h(w))=(\ii w/Q)M_2(w)$ 与
+$M_2(h(w))=(\ii w/Q)M_1(w)$ 换叶。留数在坐标变换下乘
+$h'(\conj\zeta)=Q^2/\conj\zeta^{\,2}$；同时
+$\theta(\widehat\zeta)=-\theta(\conj\zeta)$，得到 \eqref{eq:cpair}。如果背景有非零相位，需把 $Q\sigma_1$ 改成相应 $B_\pm$，不能继续无条件使用本式。
+\end{proof}
+
+\section{一般 RHP 的范围与特殊点}
+式 \eqref{eq:Mdef}--\eqref{eq:resminus} 构成由直接散射导出的局部亚纯跳跃问题。其条件包括：在 $D_\pm$ 内除指定简单极点外解析；满足跳跃 \eqref{eq:jump}；满足两个归一化；满足共轭、换叶约化；满足留数条件；在特殊点具有与 Jost 解相容的边界行为。
+
+最后一项对一般含反射情形还不能删去。$\pm Q$ 是四弧交点，需要匹配各弧侧值；$\pm\ii Q$ 是背景行列式的零点，散射系数可能有不同阈值行为；$w_a^\pm$ 则关联时间相位的本性振荡。第 \ref{ch:direct} 章只证明远离阈值的 Volterra 理论，不足以直接给出全轮廓上的 Fredholm 或消失引理。
+
+\status{本章一般跳跃和留数公式由直接散射推导；任意抽象反射数据的存在性、全局唯一性及由 RHP 回到完整 HMB 的一般逆定理尚未证明。第 \ref{ch:soliton} 章无反射显式矩阵则会逐一核对这些特殊点。}
+
+\section{无反射有限维方程}
+若 $r=\widetilde r=0$，跳跃矩阵为 $I$。在额外假设分支点和交点可去、没有其他极点时，Liouville 定理给出
+\begin{equation}\label{eq:partialfraction}
+M(w)=I-\dfrac{\ii Q}{w}\sigma_1
++\sum\limits_{j=1}^{m}
+\left(\dfrac{C_jv_je_1^{\mathsf T}}{w-\zeta_j}
+-\dfrac{\conj{C_j}u_je_2^{\mathsf T}}{w-\conj{\zeta_j}}\right),
+\end{equation}
+其中 $e_1=(1,0)^{\mathsf T}$、$e_2=(0,1)^{\mathsf T}$，
+$v_j=M_2(\zeta_j)$、$u_j=M_1(\conj{\zeta_j})$。在正则列取值，得到
+\begin{align}
+v_j&=e_2-\dfrac{\ii Q}{\zeta_j}e_1
+-\sum\limits_{k=1}^{m}\dfrac{\conj{C_k}u_k}{\zeta_j-\conj{\zeta_k}},
+\label{eq:finite1}\\
+u_j&=e_1-\dfrac{\ii Q}{\conj{\zeta_j}}e_2
++\sum\limits_{k=1}^{m}\dfrac{C_kv_k}{\conj{\zeta_j}-\zeta_k}.
+\label{eq:finite2}
+\end{align}
+这是 $2m$ 个二维向量的有限线性系统，可逐个分量求解。若系数矩阵可逆，它唯一决定具有该部分分式形式的矩阵。随后必须检查换叶约化、行列式、端态相位及分支点条件；“线性系统有解”本身还不是任意数据的 HMB 多孤子定理。
+
+由无穷远系数可计算
+\begin{equation}\label{eq:qfinite}
+u=Q-\ii\sum\limits_{j=1}^{m}\conj{C_j}(u_j)_1.
+\end{equation}
+这里 $u$ 是去相位光场，而 $u_j$ 是向量值未知量；下标区分二者。原光场为 $q=e^{-\ii\Omega z}u$。
+
+\section{无反射迹公式与相位约束}
+\begin{proposition}[条件性的无反射相位约束]\label{prop:theta}
+设反射为零，只有上述有限简单零点，且 $s_{11}$ 与 $1/s_{22}$ 沿轮廓可拼接，所有未列出的有限奇点可去。则
+\begin{equation}\label{eq:trace}
+s_{11}(w)=\prod_{j=1}^{m}\dfrac{w-\zeta_j}{w-\conj{\zeta_j}},
+\qquad w\in D_+.
+\end{equation}
+相同左右背景的必要条件为
+\begin{equation}\label{eq:theta-condition}
+\prod_{j=1}^{m}\dfrac{\zeta_j}{\conj{\zeta_j}}=1.
+\end{equation}
+\end{proposition}
+\begin{proof}
+由 $\det S=1$ 和无反射，在轮廓上 $s_{11}s_{22}=1$。把 $D_+$ 的 $s_{11}$ 与 $D_-$ 的 $1/s_{22}$ 拼接；由假设它是只有 $\zeta_j$ 处零点和 $\conj{\zeta_j}$ 处极点的有理函数。除去所列乘积后得到整个球面上的无零无极点函数，其无穷远极限为 1，故恒等于 1。相同背景下 $S(0)=I$，在 $w=0$ 代入得到 \eqref{eq:theta-condition}。
+\end{proof}
+对每个完整轨道取外部上半平面代表 $\zeta_k$，则每对 $D_+$ 点贡献 $(\zeta_k/\conj{\zeta_k})^2$。相位条件等价于
+$\displaystyle 4\sum\limits_{k=1}^{N}\arg\zeta_k=0\pmod{2\pi}$。对于纯虚代表 $\arg\zeta_k=\pi/2$，该条件自动满足，但一般复谱点并不自动满足。不同端相位时零点处的透射值变成 $u_+/u_-$，应相应修改条件。本稿未给出一般含反射的对数迹公式，因为其共振点与交叉轮廓的对数分支条件尚需单独处理。
+
+\section{共振点处的三场重构}
+一般光场由 \eqref{eq:reconq} 得到，介质不能只靠这个无穷远系数恢复。固定 $z$、在命题 \ref{prop:resonance} 的假设下，共振点处两列拼接都等于 $\mu_+$。由该命题证明中的常数矩阵，
+\begin{equation}\label{eq:RfromM}
+R(x,z)=M(x,z,w_a)\,
+\dfrac{\eta_0\rho(w_a)}{a}\sg\,M(x,z,w_a)^{-1}.
+\end{equation}
+其 $(1,1)$ 元是 $\eta$，负的 $(1,2)$ 元是 $v$，最后 $p=e^{-\ii\Omega z}v$。对两个共振原像，$\rho$ 变号且 $C\sg C^{-1}=-\sg$，所以重构值相同。
+
+该公式首先是直接散射所得解必须满足的恒等式。对于抽象 RHP 数据，还需证明 $M$ 在共振点可取逆、具有足够的 $z$ 正则性，才能将其提升为一般逆重构定理。无反射显式解中不存在共振时间跳跃，这些条件可以直接验证。
