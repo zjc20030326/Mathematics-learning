@@ -54,7 +54,7 @@ A(q)=\begin{pmatrix}0&q\\-\conj q&0\end{pmatrix},\quad
 R=\begin{pmatrix}\eta&-p\\-\conj p&-\eta\end{pmatrix},\quad
 \sg=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
 \]
-采用文献\cite{LHP2013}第 2 页式 (2.2)--(2.4)，作 $t_{\rm source}=x$、$E=q$、$\omega=-a$ 的转换；$\lambda,\alpha,\beta,z$ 不缩放：
+采用文献\cite{LHP2013}式 (2.2)--(2.4)，作 $t_{\rm source}=x$、$E=q$、$\omega=-a$ 的转换；$\lambda,\alpha,\beta,z$ 不缩放：
 \begin{equation}\label{eq:lax}
 \Phi_x=U\Phi,\quad U=-\ii\lambda\sg+A(q),\qquad
 \Phi_z=V\Phi,\quad V=\sum\limits_{j=0}^{3}\lambda^jV_j+
@@ -115,6 +115,21 @@ $U(\lambda)=U(a)-\ii(\lambda-a)\sg$，有理部分为
 \end{align*}
 将上述系数代入，四式恒等成立。例如二次项的 $(1,2)$ 元为
 $4\beta q_x-2\ii(\alpha q-2\ii\beta q_x)+2\ii\alpha q=0$。
+为说明导数项的相消，继续写出一次项的两个独立分量。其 $(1,1)$ 元为
+\[
+2\ii\beta(|q|^2)_x
++q(-\alpha\conj q-2\ii\beta\conj{q_x})
++(\alpha q-2\ii\beta q_x)\conj q=0,
+\]
+而 $(1,2)$ 元为
+\begin{align*}
+&-\alpha q_x+2\ii\beta q_{xx}-2\ii b+4\ii\beta|q|^2q\\
+&\quad=-\alpha q_x+2\ii\beta q_{xx}
+-2\ii\left(2\beta|q|^2q+\dfrac{\ii\alpha}{2}q_x+\beta q_{xx}\right)
++4\ii\beta|q|^2q=0.
+\end{align*}
+四次项是对角矩阵的交换子，故为零；三次项为
+$4\ii\beta[\sg,A]+4\ii\beta[A,\sg]=0$。其余分量由迹零与反 Hermitian 约化确定。
 常数项 $(1,2)$ 元为 $q_z-b_x-2dq-2p$。展开
 \begin{align*}
 b_x+2dq
@@ -124,7 +139,15 @@ b_x+2dq
 &=\beta q_{xxx}+\dfrac{\ii\alpha}{2}q_{xx}
  +6\beta|q|^2q_x+\ii\alpha|q|^2q.
 \end{align*}
-这给出光场方程。常数对角元为 $-d_x+qc+b\conj q=0$，$(2,1)$ 元为光场方程的负共轭。附录脚本还以独立变量表示 $q$ 与 $\conj q$，逐元验证整个有理恒等式。
+这给出光场方程。对常数对角元，展开得
+\begin{align*}
+qc+b\conj q
+&=\dfrac{\ii\alpha}{2}(q\conj{q_x}+q_x\conj q)
++\beta(q_{xx}\conj q-q\conj{q_{xx}})\\
+&=\partial_x\left(\dfrac{\ii\alpha}{2}|q|^2
+-\beta(q\conj{q_x}-q_x\conj q)\right)=d_x.
+\end{align*}
+因此该分量恒等为零。$(2,2)$ 元是其负值，$(2,1)$ 元由反 Hermitian 约化给出光场方程的负共轭。所有有理留数与多项式系数均已分别确定，故零曲率条件与三条场方程等价。
 \end{proof}
 
 \section{背景规范变换与传播色散}
@@ -140,12 +163,24 @@ G(z)=e^{-\frac{\ii\Omega z}{2}\sg},\quad
 \widehat U=G^{-1}UG,\quad
 \widehat V=G^{-1}VG+\dfrac{\ii\Omega}{2}\sg.
 \end{equation}
-边界化为 $(u,v,\eta)\to(Q,-\ii\eta_0Q/a,\eta_0)$。新光场方程是
+边界化为 $(u,v,\eta)\to(Q,-\ii\eta_0Q/a,\eta_0)$。
+由 $\Phi_z=G_z\Psi+G\Psi_z=VG\Psi$，时间矩阵的变换具体为
+\[
+\Psi_z=(G^{-1}VG-G^{-1}G_z)\Psi,\qquad
+G^{-1}G_z=-\dfrac{\ii\Omega}{2}\sg.
+\]
+$G$ 与 $x$ 无关，因此空间矩阵没有相应的导数项。对非对角势，
+\[
+G^{-1}A(q)G=
+\begin{pmatrix}0&e^{\ii\Omega z}q\\-e^{-\ii\Omega z}\conj q&0\end{pmatrix}
+=A(u),
+\]
+同一共轭将 $p$ 替换为 $v$，保持 $\eta$ 不变。由 $u_z=e^{\ii\Omega z}q_z+\ii\Omega u$，新光场方程为
 \[
 u_z=\ii\alpha\left(\dfrac{1}{2}u_{xx}+|u|^2u\right)
 +\beta(u_{xxx}+6|u|^2u_x)+2v+\ii\Omega u.
 \]
-因此回到原方程时不能漏掉传播相位。以下带帽介质矩阵由 $v,\eta$ 构成；在不引起歧义时将其仍记为 $R$。
+项 $\ii\Omega u$ 由去除背景相位产生，恢复原变量时应与 $q_z=e^{-\ii\Omega z}(u_z-\ii\Omega u)$ 配对。以下带帽介质矩阵由 $v,\eta$ 构成；在不引起歧义时将其仍记为 $R$。
 
 记 $U_\infty=-\ii\lambda\sg+A(Q)$。背景介质矩阵满足
 \begin{equation}\label{eq:Rbg}
@@ -174,7 +209,7 @@ R_\infty=
 F(\lambda)=4\beta\lambda^2-\alpha\lambda-2\beta Q^2+
 \dfrac{\eta_0}{a(\lambda-a)}.
 \end{equation}
-这与任务书候选式一致，但此处已从完整系数重新推导。空间背景与 NLS 相同并不会消除 $F$ 的有理项。
+式 \eqref{eq:F} 中的有理项保留了介质的实共振。空间背景矩阵与聚焦 NLS 的相似性不延伸到这一传播因子。
 
 \section{谱曲线、连续谱与单值化}
 \begin{proposition}[背景谱曲线]\label{prop:curve}
@@ -186,7 +221,7 @@ $U_\infty^2=-(\lambda^2+Q^2)I$。背景空间谱轮廓为
 \end{proposition}
 \begin{proof}
 矩阵平方的非对角元相消，对角元均为 $-\lambda^2-Q^2$。特征值为 $\pm\ii\rho$，其中 $\rho^2=\lambda^2+Q^2$。两指数模式无指数增长要求 $\rho\in\mathbb R$。写 $\lambda=\xi+\ii\nu$，则
-$\rho^2=\xi^2-\nu^2+Q^2+2\ii\xi\nu$。条件为 $\xi\nu=0$ 及 $\xi^2-\nu^2+Q^2\ge0$，给出实轴和 $|\nu|\le Q$ 的虚线段。在端点 $\rho=0$，矩阵一般为非零幂零矩阵，基本解可能线性增长，故不能说那里仍有两个独立振荡特征向量。
+$\rho^2=\xi^2-\nu^2+Q^2+2\ii\xi\nu$。条件为 $\xi\nu=0$ 及 $\xi^2-\nu^2+Q^2\ge0$，给出实轴和 $|\nu|\le Q$ 的虚线段。在端点 $\rho=0$，矩阵一般为非零幂零矩阵，基本解包含线性项，此时不存在两个线性无关的振荡特征向量。
 \end{proof}
 这是背景连续谱及衰减扰动的散射轮廓，不是对非自伴算子所有谱型的完整分类。
 
@@ -215,7 +250,7 @@ D_\pm&=\left\{w:\ \pm\operatorname{Im}w
 写 $w=re^{\ii\varphi}$，则
 $\operatorname{Im}\rho=(r-Q^2/r)\sin\varphi/2$。零集为实轴与半径 $Q$ 的圆，正负号给出 \eqref{eq:domains}。外部上半平面和内部下半圆盘同属 $D_+$，其余两块属于 $D_-$。
 \end{proof}
-约定各段轮廓以 $D_+$ 在左侧为正向：实轴外段朝右，内段朝左；上半圆顺时针，下半圆逆时针。交点 $\pm Q$ 的各弧分别定向，不能将整条实轴一律从左向右后仍把“加侧”认作 $D_+$。
+约定各段轮廓以 $D_+$ 在左侧为正向：实轴外段朝右，内段朝左；上半圆顺时针，下半圆逆时针。交点 $\pm Q$ 的各弧分别定向；这里的正负侧由区域 $D_\pm$ 决定，而非由几何上的上、下半平面统一决定。
 
 背景特征向量矩阵选为
 \begin{equation}\label{eq:E}
@@ -223,7 +258,13 @@ E(w)=I-\dfrac{\ii Q}{w}\sigma_1
 =\begin{pmatrix}1&-\ii Q/w\\-\ii Q/w&1\end{pmatrix},
 \quad \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
 \end{equation}
-直接相乘得到
+这一特征向量选择可由特征方程推得。将特征值 $-\ii\rho$ 的向量第一分量归一化为 1，设第二分量为 $c$，则
+\[
+-\ii\lambda+Qc=-\ii\rho
+\quad\Longrightarrow\quad
+c=-\dfrac{\ii(\rho-\lambda)}{Q}=-\dfrac{\ii Q}{w}.
+\]
+对特征值 $+\ii\rho$，将第二分量归一化为 1，同样得到第一分量 $-\ii Q/w$。这两个向量依次构成 $E$ 的两列。因此
 \begin{equation}\label{eq:diagE}
 U_\infty E=-\ii\rho E\sg,\quad
 \gamma(w):=\det E=1+\dfrac{Q^2}{w^2},\quad
@@ -235,6 +276,14 @@ E^{-1}=\dfrac{I+\ii Q\sigma_1/w}{\gamma(w)}.
 \theta=\rho(w)[x-F(\lambda(w))z].
 \end{equation}
 $E^{-1}$ 在 $\pm\ii Q$ 失效，构成后文分支点问题的具体来源。
+由 $\theta_x=\rho$ 及 $\theta_z=-\rho F$，
+\[
+(\Psi_0)_x=-\ii\rho E\sg e^{-\ii\theta\sg}
+=U_\infty\Psi_0,\qquad
+(\Psi_0)_z=\ii\rho F E\sg e^{-\ii\theta\sg}
+=\widehat V_\infty\Psi_0.
+\]
+因此同一个背景指数同时满足空间和传播两部分方程。
 
 \section{共振原像}
 由 $\lambda(w)=a$ 得

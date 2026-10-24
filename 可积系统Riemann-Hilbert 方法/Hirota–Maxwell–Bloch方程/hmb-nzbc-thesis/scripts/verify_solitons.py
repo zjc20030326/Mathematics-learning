@@ -62,6 +62,6 @@ if __name__=='__main__':
             'points':points,'max_residual_q_p_eta_bloch':[m.nstr(v,12) for v in maxima],
             'boundary_errors_x_minus_plus_30':errors})
         assert max(maxima)<m.mpf('1e-45')
-    out=Path(__file__).resolve().parents[1]/'evidence'/'soliton-results.json'
+    out=Path(__file__).resolve().parents[1]/'calculations'/'soliton-results.json'
     out.write_text(json.dumps(report,indent=2),encoding='utf-8')
     print(json.dumps(report,indent=2))

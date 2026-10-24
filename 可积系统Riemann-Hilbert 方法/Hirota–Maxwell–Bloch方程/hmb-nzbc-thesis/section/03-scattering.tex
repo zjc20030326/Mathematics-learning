@@ -3,20 +3,29 @@
 \[
 \Psi_x=(-\ii\lambda\sg+A(u))\Psi,\qquad u(x,z)\to Q.
 \]
-记 $\Delta A=A(u)-A(Q)$。基础假设为 $u-Q\in L^1(\mathbb R)\cap L^\infty(\mathbb R)$。高能展开时另假设扰动属于 Schwartz 类；传播演化时还假设这些衰减估计在紧 $z$ 区间上一致，$u_z$ 亦可积且连续，三个场是 HMB 的经典解。介质端态及进入时间矩阵的空间导数均应按相同方式收敛。这些额外假设不是本章对任意初值证明的结论。第 \ref{ch:soliton} 章的显式解满足这些光滑和指数衰减条件。
+记 $\Delta A=A(u)-A(Q)$。基础假设为 $u-Q\in L^1(\mathbb R)\cap L^\infty(\mathbb R)$。高能展开时另假设 $u-Q\in W^{2,1}(\mathbb R)$；传播演化时还假设这些衰减估计在紧 $z$ 区间上一致，$u_z$ 亦可积且连续，三个场是 HMB 的经典解。介质端态及进入时间矩阵的空间导数均应按相同方式收敛。传播公式在这些经典解假设下成立。第 \ref{ch:soliton} 章的显式解满足这些光滑和指数衰减条件。
 
 在连续谱的普通点上，空间归一化的 Jost 解 $\chi_\pm$ 满足
 \[
 \chi_\pm(x,w)e^{\ii\rho x\sg}\longrightarrow E(w),
 \qquad x\longrightarrow\pm\infty.
 \]
-写 $\mu_\pm=\chi_\pm e^{\ii\rho x\sg}$，变分常数法给出
+写 $\mu_\pm=\chi_\pm e^{\ii\rho x\sg}$。为推导其积分方程，令 $W_\pm=E^{-1}\chi_\pm$，则
+\[
+(W_\pm)_x=-\ii\rho\sg W_\pm+E^{-1}\Delta A E\,W_\pm.
+\]
+在有限起点 $x_0$ 上应用变分常数公式：
+\[
+W_\pm(x)=e^{-\ii\rho(x-x_0)\sg}W_\pm(x_0)
++\int_{x_0}^{x}e^{-\ii\rho(x-y)\sg}E^{-1}\Delta A(y)\chi_\pm(y)\,\dd y.
+\]
+左乘 $E$、右乘 $e^{\ii\rho x\sg}$，再令 $x_0$ 趋于相应归一化端点，得到
 \begin{equation}\label{eq:volterra}
 \mu_\pm(x,w)=E(w)+\int_{\pm\infty}^{x}
 E(w)e^{-\ii\rho(x-y)\sg}E(w)^{-1}
 \Delta A(y)\mu_\pm(y,w)e^{\ii\rho(x-y)\sg}\,\dd y.
 \end{equation}
-积分上限为 $x$；对 $+\infty$ 的积分定义为负的 $\displaystyle\int_x^{+\infty}$，不能丢掉这个方向。以完整积分式代替仅写“满足 Volterra 方程”，有助于准确确定解析列。
+积分上限为 $x$；对 $+\infty$ 的积分定义为负的 $\displaystyle\int_x^{+\infty}$。积分方向决定了指数核在哪个谱区域衰减，因而决定左右 Jost 解的解析列。
 
 \begin{theorem}[远离阈值的解析列]\label{thm:jost}
 在上述固定 $z$ 假设下，远离 $0,\pm\ii Q$ 的连续谱点存在唯一有界的 $\mu_\pm$。列 $\mu_{-,1},\mu_{+,2}$ 向 $D_+$ 解析延拓；列 $\mu_{+,1},\mu_{-,2}$ 向 $D_-$ 解析延拓。上述列在各自闭域远离特殊点的紧子集上连续。
@@ -41,7 +50,7 @@ $\diag(e^{-2\ii\rho(x-y)},1)$；当 $y\ge x$ 且 $\operatorname{Im}\rho>0$ 时�
 \end{proof}
 
 \begin{remark}
-这里没有断言四列在同一非实谱域同时解析，也没有将端点可逆性偷放进假设。$\gamma(\pm\ii Q)=0$，上述核估计在那里失效。若使用矩阵指数 $e^{U_\infty(x-y)}$ 的极限，可在阈值得到线性核 $I+(x-y)U_\infty$；至少需要一阶矩条件。该局部解如何与散射系数的可能零点一起进入统一的 RHP 函数空间，本稿尚未完成。
+四列的解析域由各自的积分方向决定。由于 $\gamma(\pm\ii Q)=0$，上述含 $E^{-1}$ 的估计不适用于两个阈值点。在阈值处，$U_\infty^2=0$，故 $e^{U_\infty(x-y)}=I+(x-y)U_\infty$；线性因子要求相应的加权可积控制。阈值处的 Jost 行为与透射系数零点须作专门的局部分析。
 \end{remark}
 
 \section{散射矩阵与 Wronskian 表达}
@@ -53,7 +62,7 @@ $\diag(e^{-2\ii\rho(x-y)},1)$；当 $y\ge x$ 且 $\operatorname{Im}\rho>0$ 时�
 \begin{equation}\label{eq:Sdef}
 \chi_-=\chi_+S_{\rm sp},\qquad \det S_{\rm sp}=1.
 \end{equation}
-这个方向是本稿全部公式的约定；若选 $\chi_+=\chi_-S$，跳跃矩阵和散射系数的排列都必须相应改变。
+以下固定采用这一散射方向；若选 $\chi_+=\chi_-S$，跳跃矩阵和散射系数的排列都必须相应改变。
 
 在需要传播演化时，取满足两部分 Lax 对的
 \[
@@ -96,7 +105,7 @@ s_{22}(w)=\conj{s_{11}(\conj w)},\qquad
 s_{12}(w)=-\conj{s_{21}(\conj w)}.
 \end{equation}
 在实 $w$ 上，$U$ 反 Hermitian，且 $E^\dagger E=\gamma I$，从端态归一化可得 $S^\dagger S=I$，于是
-$|s_{11}|^2+|s_{21}|^2=1$。在圆周的非实点，不应无条件使用这一实轴酉性等式；应使用 \eqref{eq:conjugation} 与换叶关系。
+$|s_{11}|^2+|s_{21}|^2=1$。这一酉性使用了实谱参数。在圆周的非实点，约化关系由 \eqref{eq:conjugation} 与换叶关系共同确定。
 
 由式 \eqref{eq:E} 直接计算
 \begin{equation}\label{eq:Esheet}
@@ -108,7 +117,7 @@ E(h(w))=E(w)C(w),\qquad C(w)=\dfrac{\ii w}{Q}\sigma_1.
 \mu_\pm(h(w))=\mu_\pm(w)C(w),\quad
 S(h(w))=\sigma_1S(w)\sigma_1.
 \end{equation}
-这些是从特征向量归一化推得的关系，不是凭记忆添加的谱点配对。
+式 \eqref{eq:musheet} 同时控制解析域的交换与离散谱的配对。
 
 \begin{proposition}[简单离散谱的轨道]\label{prop:quartet}
 设 $\zeta\in D_+$ 为 $s_{11}$ 的简单零点，且远离连续谱、$0$ 和共振点。在上述约化下，
@@ -122,29 +131,141 @@ S(h(w))=\sigma_1S(w)\sigma_1.
 共轭改变 $\operatorname{Im}\rho$ 的符号，换叶也改变其符号，二者复合保留区域。由 \eqref{eq:sconj}，$s_{22}(\conj\zeta)=0$；由 \eqref{eq:musheet}，$s_{22}(h(\zeta))=0$，$s_{11}(h(\conj\zeta))=0$。因 $h'(w)=Q^2/w^2\ne0$，简单性保持。离开实轴和圆周保证四点互异。Wronskian 为零说明 $\Psi_{-,1}$ 与 $\Psi_{+,2}$ 线性相关；两列分别在左、右端衰减，其相同向量给出平方可积本征函数。
 \end{proof}
 
+
 \section{高能展开及两种无穷远}
-\status{本节给出强衰减假设下的展开机制及系数比较。一致余项的完整估计尚未写成独立引理；后续一般 RHP 暂将所列渐近作为额外条件。第 \ref{ch:soliton} 章的显式无反射矩阵可直接展开，不依赖这一待补的一般估计。}
-在本节额外假设 $u-Q$ 及足够阶空间导数衰减可积。Volterra 核在闭子扇区内可作一次分部积分，振荡项获得 $O(1/w)$ 因子，非振荡项的非对角性再给出同阶估计，得到
+半轴可积性给出了 Jost 解的存在性，但重构公式还需要谱参数趋于无穷远时的渐近展开。为控制一次分部积分中的边界项与余项，本节增加条件
+\begin{equation}\label{eq:highenergy-assumption}
+u-Q\in W^{2,1}(\mathbb R).
+\end{equation}
+即 $u-Q$ 及其前两阶弱导数可积；取其连续代表后，$u$ 有界，$u_x$ 连续且在无穷远趋于零。后文显式解具有指数衰减，满足这一条件。
+
+\begin{proposition}[一致高能展开]\label{prop:highenergy}
+在式 \eqref{eq:highenergy-assumption} 下，令
 \[
-\mu_\pm=I+O(w^{-1}),\qquad S=I+O(w^{-1}),\qquad w\to\infty.
+B(u)=\begin{pmatrix}0&u\\\conj u&0\end{pmatrix},\qquad
+J_\pm(x)=\int_{\pm\infty}^{x}(Q^2-|u(y)|^2)\,\dd y.
 \]
-这里的估计应在相应解析列的区域中解释。为展示展开系数，把任意这样的归一化解 $M=I+M^{(1)}/w+O(w^{-2})$ 代入
+各 Jost 解析列在其相应闭域中满足
+\begin{equation}\label{eq:mu-highenergy}
+\mu_\pm(x,w)
+=I+\dfrac{-\ii B(u(x))+\ii J_\pm(x)\sg}{w}
++O(w^{-2}),\qquad w\to\infty.
+\end{equation}
+矩阵式应按解析列理解，余项对实 $x$ 一致。透射系数满足
+\begin{equation}\label{eq:transmission-highenergy}
+s_{11}(w)=1+\dfrac{\ii J_{\rm tot}}{w}+O(w^{-2}),
+\qquad
+J_{\rm tot}=\int_{-\infty}^{+\infty}(Q^2-|u|^2)\,\dd x,
+\end{equation}
+其中 $s_{11}$ 的展开位于 $D_+$；$s_{22}$ 的展开由共轭得到。
+\end{proposition}
+\begin{proof}
+直接在原 Volterra 核中反复估计会混合背景与扰动。为保留背景的精确相位，先作局部矩阵变换
+\[
+T(x,w)=I-\dfrac{\ii B(u(x))}{w},\qquad
+\mu_\pm=Tn_\pm.
+\]
+注意 $A(u)=\sg B(u)$、$B(u)\sg=-\sg B(u)$、$B(u)^2=|u|^2I$。因而
+\[
+\det T=1+\dfrac{|u|^2}{w^2},\qquad
+T^{-1}=\dfrac{I+\ii B(u)/w}{1+|u|^2/w^2}.
+\]
+当 $|w|$ 足够大时，$T,T^{-1}$ 对所有实 $x$ 一致有界。并且 $x\to\pm\infty$ 时 $T\to E$，所以变换后 $n_\pm\to I$。
+
+由 $\mu_x=U\mu+\ii\rho\mu\sg$ 以及 $\lambda+\rho=w$、$\rho-\lambda=Q^2/w$，逐项计算
+\begin{align*}
+UT+\ii\rho T\sg-T_x
+&=\ii(\rho-\lambda)\sg+A
+-\dfrac{\lambda+\rho}{w}\sg B
+-\dfrac{\ii}{w}AB+\dfrac{\ii}{w}B_x\\
+&=\dfrac{\ii}{w}\bigl((Q^2-|u|^2)\sg+B_x\bigr).
+\end{align*}
+于是
+\begin{equation}\label{eq:n-volterra-system}
+(n_\pm)_x=-\ii\rho[\sg,n_\pm]+\mathcal C(x,w)n_\pm,
+\qquad
+\mathcal C=\dfrac{1}{w}T^{-1}\mathcal C_1,
+\quad
+\mathcal C_1=\ii\bigl((Q^2-|u|^2)\sg+B_x\bigr).
+\end{equation}
+由式 \eqref{eq:highenergy-assumption} 及 $u$ 有界，$Q^2-|u|^2$、$u_x$ 均可积。$T^{-1}=I+O(w^{-1})$ 一致成立，所以
+\[
+\|\mathcal C(\cdot,w)\|_{L^1}\le\dfrac{C}{|w|},\qquad
+\left\|\mathcal C(\cdot,w)-\dfrac{\mathcal C_1}{w}\right\|_{L^1}
+\le\dfrac{C}{|w|^2}.
+\]
+这里和下文的 $C$ 与 $x,w$ 无关，但可依赖势的范数。对 $n_\pm$ 的第 $j$ 列，积分核不再含 $E$，而是
+\[
+\exp\bigl(-\ii\rho(x-y)(\sg-s_jI)\bigr).
+\]
+在相应解析域及积分方向中，它的模有一致界。由与定理 \ref{thm:jost} 相同的有序积分估计，第 $l$ 次迭代项不超过
+$C^l/(l!|w|^l)$。因此 $n_\pm-I=O(w^{-1})$，且二次及以上迭代的总和为 $O(w^{-2})$，对 $x$ 一致。
+
+只需计算第一次迭代。以负端第一列为例，其对角分量为
+\[
+\dfrac{1}{w}\int_{-\infty}^{x}(\mathcal C_1)_{11}(y)\,\dd y
+=\dfrac{\ii J_-(x)}{w},
+\]
+而非对角分量为
+\[
+\dfrac{\ii}{w}\int_{-\infty}^{x}
+e^{2\ii\rho(x-y)}\conj{u_y(y)}\,\dd y.
+\]
+对后一积分分部积分，得到
+\begin{align*}
+\int_{-\infty}^{x}e^{2\ii\rho(x-y)}\conj{u_y(y)}\,\dd y
+&=-\dfrac{\conj{u_x(x)}}{2\ii\rho}
++\dfrac{1}{2\ii\rho}\int_{-\infty}^{x}
+e^{2\ii\rho(x-y)}\conj{u_{yy}(y)}\,\dd y.
+\end{align*}
+无穷远边界项因 $u_x\to0$ 消失。由于指数模不超过 1，$u_x$ 有界、$u_{xx}$ 可积，且 $|\rho|\ge c|w|$，上式为 $O(w^{-1})$。再乘前面的 $w^{-1}$，非对角分量就是 $O(w^{-2})$。正端积分和第二列只改变积分方向或指数符号，同样给出
+\[
+n_\pm=I+\dfrac{\ii J_\pm\sg}{w}+O(w^{-2}).
+\]
+与 $T=I-\ii B/w$ 相乘即得式 \eqref{eq:mu-highenergy}。
+
+最后，由去振荡 Wronskian
+$s_{11}=\det(\mu_{-,1},\mu_{+,2})/\gamma$，其分子为
+$1+\ii(J_--J_+)/w+O(w^{-2})$。而
+\[
+J_-(x)-J_+(x)=J_{\rm tot},\qquad
+\gamma=1+O(w^{-2}),
+\]
+故得到式 \eqref{eq:transmission-highenergy}。
+\end{proof}
+
+将展开用于 RHP 的列归一化，第一列除以 $s_{11}$ 后，其对角系数由 $J_-$ 变成 $J_--J_{\rm tot}=J_+$。因此两区域中均有
+\[
+M=I+\dfrac{M^{(1)}}{w}+O(w^{-2}),\qquad
+M^{(1)}=-\ii B(u)+\ii J_+\sg.
+\]
+也可从空间方程独立确定非对角系数。归一化矩阵满足
 \begin{equation}\label{eq:Mspace}
 M_x=-\ii\lambda\sg M+A(u)M+\ii\rho M\sg.
 \end{equation}
-利用 $\lambda=w/2-Q^2/(2w)$、$\rho=w/2+Q^2/(2w)$，比较常数项得
+由证明中 $n_\pm$ 的非对角分量为 $O(w^{-2})$，式 \eqref{eq:n-volterra-system} 给出 $(n_\pm)_x=O(w^{-1})$；再用 $T_x=O(w^{-1})$，得到 $M_x=O(w^{-1})$。因此不需要对余项作形式微分，即可在式 \eqref{eq:Mspace} 中代入 $\lambda=w/2-Q^2/(2w)$、$\rho=w/2+Q^2/(2w)$ 并比较常数项：
+\[
+0=-\dfrac{\ii}{2}\sg M^{(1)}
++A(u)+\dfrac{\ii}{2}M^{(1)}\sg.
+\]
+从而
 \begin{equation}\label{eq:reconq}
-A(u)=\dfrac{\ii}{2}[\sg,M^{(1)}],
-\qquad u=\ii M^{(1)}_{12}.
+A(u)=\dfrac{\ii}{2}[\sg,M^{(1)}],\qquad
+u=\ii M^{(1)}_{12}.
 \end{equation}
-系数 $1/2$ 来自 $\lambda\sim w/2$。若直接沿用原谱参数展开中的系数，会造成因子 2 错误。
+这里因子 $1/2$ 来自 $\lambda\sim w/2$；它与原谱参数 $\lambda$ 下的展开系数不同。
 
-换叶把上述展开转为
+在连续谱靠近无穷远的实轴上，两组 $\mu_\pm$ 的展开还给出 $S=I+O(w^{-1})$。通过换叶关系
+$\mu_\pm(h(w))=\mu_\pm(w)\ii w\sigma_1/Q$，令 $w\to\infty$，有
+\[
+\mu_\pm(h(w))=\dfrac{\ii w}{Q}\sigma_1+O(1).
+\]
+再以 $v=h(w)=-Q^2/w$ 改写，便得到第二个无穷远点的行为
 \begin{equation}\label{eq:smallmu}
-\mu_\pm(w)=-\dfrac{\ii Q}{w}\sigma_1+O(1),\qquad
-S(w)=I+O(w),\qquad w\to0.
+\mu_\pm(v)=-\dfrac{\ii Q}{v}\sigma_1+O(1),\qquad
+S(v)=I+O(v),\qquad v\to0.
 \end{equation}
-证明只需在 \eqref{eq:musheet} 中令原变量趋于无穷远，并用 $h(w)=-Q^2/w$。这也解释了为何不能同时要求 $M(0)=I$ 与 $M(\infty)=I$。
+因此 $w=0$ 与 $w=\infty$ 对应双叶曲面上的两个不同无穷远点；同一物理背景在两处分别表现为指定的简单极点和单位矩阵归一化。
 
 \section{散射数据的传播演化}
 固定 $z$ 的空间散射矩阵与同时归一化的 $S$ 关系为
@@ -156,7 +277,7 @@ S_{\rm sp}(w,z)=e^{\ii\rho Fz\sg}S(w)e^{-\ii\rho Fz\sg}.
 r_{\rm sp}(w,z)=e^{-2\ii\rho Fz}r_{\rm sp}(w,0),\qquad
 \widetilde r_{\rm sp}(w,z)=e^{2\ii\rho Fz}\widetilde r_{\rm sp}(w,0).
 \end{equation}
-透射系数与离散谱点不变。对于同时归一化的线性相关常数 $b_j$，其 $z$ 导数为零；若使用纯空间相位，则相应常数携带相同的指数传播因子。两种约定不能混用。
+透射系数与离散谱点不变。对于同时归一化的线性相关常数 $b_j$，其 $z$ 导数为零；若使用纯空间相位，则相应常数携带相同的指数传播因子。式 \eqref{eq:timeS} 给出了两种归一化之间的转换。
 
 \section{共振点的必要相容条件}
 \begin{proposition}[固定传播截面的共振反射条件]\label{prop:resonance}
@@ -195,4 +316,4 @@ B_\pm=\begin{pmatrix}0&u_\pm\\\conj{u_\pm}&0\end{pmatrix},
 
 最后，$r_{\rm sp}(a)=0$ 不足以控制传播正则性。实变量模型
 $f(s)=s e^{\ii c/s}$（$s\ne0$，$c\ne0$）延拓为 $f(0)=0$ 后连续，但
-$f'(s)=e^{\ii c/s}(1-\ii c/s)$ 无界。式 \eqref{eq:timer} 在共振点附近具有这种机制。故本稿不从点值为零推出一般含反射 IST 的全局可解性。
+$f'(s)=e^{\ii c/s}(1-\ii c/s)$ 无界。式 \eqref{eq:timer} 在共振点附近具有这种机制。共振点的消失阶与传播后的可微性之间的关系将在第 \ref{ch:conclusion} 章进一步讨论。

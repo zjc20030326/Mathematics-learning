@@ -1,7 +1,7 @@
-\section{问题的来源与研究对象}
-在掺铒光纤等模型中，色散和光场的非线性自作用与介质极化的反馈同时出现。高阶色散下的光孤子模型已有较早的研究\cite{PN1995}。Hirota–Maxwell–Bloch（下称 HMB）系统把 Hirota 演化与两能级介质方程耦合起来。空间谱问题仍为二阶 AKNS 系统，但传播方向的 Lax 矩阵具有一个实谱参数极点。因此，空间谱与普通聚焦非线性 Schrödinger 方程相近，并不意味着传播演化及逆散射问题可以逐字照搬。
+\section{研究背景与问题表述}
+Hirota–Maxwell–Bloch（HMB）系统描述光场的色散、非线性自作用与两能级介质响应之间的耦合。高阶色散下的掺铒光纤孤子模型见文献\cite{PN1995}。相对于普通 Hirota 方程，HMB 系统增加了介质极化与粒子数反转两个变量；相对于基本的 Maxwell–Bloch 系统，光场方程又包含二阶和三阶色散。在可积情形下，这些作用由同一组 Lax 方程联系起来。
 
-本文固定如下约定：
+本文采用下列变量与系数约定：
 \begin{equation}\label{eq:HMB}
 \begin{cases}
 q_z=\ii\alpha\left(\dfrac{1}{2}q_{xx}+|q|^2q\right)
@@ -10,48 +10,69 @@ p_x=2\eta q-2\ii ap,\\
 \eta_x=-(\conj q p+q\conj p).
 \end{cases}
 \end{equation}
-其中 $\alpha,\beta,a$ 为实数，$q,p$ 为复值函数而 $\eta$ 为实值函数。变量 $x$ 是推迟时间，$z$ 是传播变量。所有推导在这一约定下展开，不把其他文献中的 $t$ 同时用作传播变量与推迟时间。
+其中 $x\in\mathbb R$ 为推迟时间，$z\in\mathbb R$ 为传播变量；$q(x,z),p(x,z)$ 分别表示复光场与复极化，$\eta(x,z)$ 为实值粒子数反转；$\alpha,\beta,a$ 为实参数。下标表示偏导数，横线表示复共轭。术语“空间谱问题”沿用逆散射中的命名，指以 $x$ 为微分变量的谱方程，并不改变 $x$ 在物理模型中作为推迟时间的含义。
 
-本文的“非零边界”要求
+研究的边界条件为
 \begin{equation}\label{eq:targetboundary}
 (q,p,\eta)\longrightarrow
 \left(Qe^{-\ii\Omega z},-\dfrac{\ii\eta_0Q}{a}e^{-\ii\Omega z},\eta_0\right),
-\qquad x\longrightarrow\pm\infty.
+\qquad x\longrightarrow\pm\infty,
 \end{equation}
-因此 $Q>0$ 是核心条件。若仅要求 $\eta\to\eta_0\ne0$，同时 $q,p\to0$，则背景空间矩阵的谱根为 $\lambda$，不存在本文由 $Q$ 引出的两个分支点。两种问题不能通过题名中的“nonzero background”直接认定等同。
+其中
+\[
+Q>0,\qquad a\ne0,\qquad \eta_0\ne0,\qquad
+\Omega=-\alpha Q^2+\dfrac{2\eta_0}{a}.
+\]
+这里的非零边界指光场本身具有非零模 $Q$。极化与反转的端态不是可以任意指定的附加常数：将常幅光场代入后两条方程，就要求极化与光场保持式 \eqref{eq:targetboundary} 中的相位关系。第 \ref{ch:model} 章将逐项验证这一相容性。
 
-\section{原始文献的边界条件与方法比较}
-Li、He 与 Porsezian\cite{LHP2013}给出了与式 \eqref{eq:HMB} 对应的一般参数 Lax 对及多重 Darboux 变换。本地全文为 arXiv:1205.1191v3，其第 2 页式 (2.2)--(2.4) 是本文核对完整 Lax 矩阵的主要来源；第 3 页式 (3.16)--(3.20) 给出光场变换与介质在共振点的共轭变换。该刊另有出版者更正\cite{LHPnote2013}。本轮已核实更正的书目信息，但未取得更正正文，故不猜测其具体内容。本文对所使用的 Lax 矩阵另行做逐项零曲率检验。
+若只要求 $\eta\to\eta_0\ne0$，而令 $q,p\to0$，则背景空间谱矩阵仍是对角矩阵，其谱根为原谱参数 $\lambda$。条件 $Q>0$ 则使谱根变为 $\rho=\sqrt{\lambda^2+Q^2}$，引入两个分支点及双叶谱曲面。因而两类边界条件对应不同的散射几何。
 
-Li、Xia 与 Wei\cite{LXW2021}使用 Riemann–Hilbert 方法讨论 HMB 的无反射多孤子。其第 3 页式 (2.6)、(2.8)、(2.9) 采用趋向单位矩阵的空间散射归一化，对应零光场背景，不能承担本稿的非零背景谱曲线。尤其在使用特化参数版本的 Lax 对前，须核对每个系数与所采用 PDE 是否一致；本稿不以特化版本替代一般参数原始表示。
+\section{相关研究与方法}
+Li、He 与 Porsezian\cite{LHP2013}给出了 HMB 系统的一般参数 Lax 对和多重 Darboux 变换。本文采用其式 (2.2)--(2.4) 的矩阵表示，并作变量替换 $t=x$、$E=q$、$\omega=-a$。Darboux 变换中光场由谱参数无穷远处的展开系数确定，而介质变量由共振点处的矩阵共轭确定。这两种重构机制分别对应时间 Lax 矩阵的多项式部分与有理部分。
 
-Liu 与 Liu\cite{LL2026}的正文和摘要明确指出，非零背景只施加于 $\eta$，光场及极化趋于零。本稿引用这一工作是为了定位研究边界，而不是宣称其已经建立真正非零光场的 HMB RHP。Zhao 与 Zhaqilao\cite{ZZ2026}研究平面波及周期背景上的呼吸子与怪波，其第 2 页式 (1)--(3) 可与本文方程及 Lax 对逐项对照，第 3 页式 (12) 可用于比较一次光场 Darboux 公式。
+Li、Xia 与 Wei\cite{LXW2021}用 Riemann–Hilbert 方法研究零光场背景下的 HMB 多孤子。Liu 与 Liu\cite{LL2026}讨论的非零背景施加于粒子数反转，而光场和极化在无穷远趋于零。Zhao 与 Zhaqilao\cite{ZZ2026}则利用 Darboux 变换研究平面波和周期背景上的呼吸子与怪波。上述结果分别涉及反问题构造和非零背景精确解，但所用边界条件与谱归一化需要分别辨明。
 
-普通 Hirota 方程的真正非零边界 IST 已由 Zhang、Chen 与 Yan\cite{ZCY2020}讨论，包括单值化、简单及双重极点和相位约束。其空间谱分析提供方法参照，但文中没有本稿的介质变量和实共振点。Biondini 等\cite{BGKL2019}研究真正非零光场的 Maxwell–Bloch 逆散射，强调介质端态的相容性；其模型含频率相关的介质与展宽机制，不能不经尖线极限分析直接等同于本稿单一共振参数的系统。本地文件为 63 页预印本，首页排版日期与期刊发表年份不同，本文的原文页码指这一实际 PDF。
+对于不含介质耦合的 Hirota 方程，Zhang、Chen 与 Yan\cite{ZCY2020}建立了非零边界逆散射框架，讨论单值化、离散谱对称和相位约束。Biondini 等\cite{BGKL2019}研究非零光场背景下的两能级系统，揭示了光场边界与介质端态相容性的重要作用。后者包含频率相关介质与展宽机制，与本文的单一实共振参数模型存在区别。
 
 \begin{table}[htbp]
 \centering\small
-\caption{六篇核心文献的用途与不能直接移用的部分}
-\begin{tabular}{p{0.23\textwidth}p{0.30\textwidth}p{0.34\textwidth}}
-\toprule 文献 & 本稿使用的内容 & 不能据此声称已完成的内容\\\midrule
-Li--He--Porsezian & 一般 Lax 对、Darboux 与三场变换 & 标准 NZBC 散射 RHP 的一一对应\\
-Li--Xia--Wei & 零光场 RHP 的组织方式 & 非零光场的谱曲线和相位\\
-Liu--Liu & 非零介质端态的研究边界 & 真正非零光场的 IST\\
-Zhao--Zhaqilao & 非零背景的特殊解与比较 & 一般非零边界的反问题定理\\
-Zhang--Chen--Yan & 普通 Hirota 的 NZBC 空间谱方法 & Maxwell--Bloch 共振点的演化\\
-Biondini 等 & 非零光场与介质末态相容性 & 单一实极点模型的一般可解性\\
+\caption{相关模型的边界条件与主要方法}
+\begin{tabular}{p{0.28\textwidth}p{0.33\textwidth}p{0.26\textwidth}}
+\toprule 文献 & 模型或边界特征 & 主要方法\\\midrule
+Li--He--Porsezian\cite{LHP2013} & HMB，包含平面波种子 & Darboux 变换\\
+Li--Xia--Wei\cite{LXW2021} & HMB，零光场端态 & RHP 与无反射重构\\
+Liu--Liu\cite{LL2026} & HMB，非零反转、零光场 & 逆散射变换\\
+Zhao--Zhaqilao\cite{ZZ2026} & HMB，平面波及周期背景 & Darboux 变换\\
+Zhang--Chen--Yan\cite{ZCY2020} & Hirota，非零光场端态 & 非零边界 IST\\
+Biondini 等\cite{BGKL2019} & 两能级系统，非零光场 & 逆散射与介质相容性\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\section{本稿的成果层次与研究方法}
-范恩贵的本地二校稿\cite{FanProof}第 5、6 章分别以零边界与非零边界聚焦 NLS 为例组织 RH 方法。本轮核对的实际 PDF 第 84 页（书内页 70）含式 (5.1.5)--(5.1.10) 的去振荡与无穷远展开；PDF 第 103 页（书内页 89）解释单值化参数的作用。本稿借用这种“直接谱分析—矩阵拼接—反问题”的结构，但重新推导 HMB 相位与介质重构。该文件版权页含占位 ISBN，故不将其印刷年月当成已核实的正式版本信息。
+\section{分析路线与基本记号}
+Riemann–Hilbert 方法将微分方程转化为复谱平面上的矩阵解析问题。其基本过程是：由给定场构造具有指定无穷远行为的 Jost 解；比较左右两组 Jost 基底，定义散射矩阵；按解析区域选取不同列，构成具有跳跃与极点的矩阵；最后从该矩阵的局部展开恢复原场。这一组织方式可参见文献\cite{Fan2022}。
 
-本文采取三个层次的论证。第一层是直接代数事实：平面波、Bloch 约束、Lax 对、谱曲线和谱对称。这些结论不依赖数值实验。第二层是带有明确假设的直接散射构造：在半轴可积扰动及必要的光滑性下构造 Jost 解，从拼接导出跳跃和留数。“导出一个 RHP”不等同于证明任意抽象数据都产生 PDE 解。第三层是可闭合的无反射例子：对纯虚简单谱参数显式写出满足全部局部条件的矩阵，证明它对应非平凡三场解。
+本文的空间谱矩阵与聚焦 AKNS 系统具有相同结构，但时间矩阵含有实极点 $\lambda=a$。因此，空间谱的单值化与 HMB 的传播规律必须分开推导。光场的重构依赖谱参数无穷远处的系数；介质的重构还需要在共振点确定一个与端态匹配的常数矩阵。只有这两部分同时满足，才能得到完整的三场解。
 
-在最后一层中，本文将原谱参数上的投影 dressing 与单值化平面的四点轨道联系起来，计算左右端态的 Jost 归一化因子。这避免了把原谱平面上的一个有理矩阵误称为“只有一个极点的非零背景 RHP”。对于多次 dressing，本文提供可执行递推和二重示例的独立检验；一般多孤子散射常数及任意参数的端态相位配对尚未全部整理成定理。
+\begin{longtable}{p{0.20\textwidth}p{0.71\textwidth}}
+\toprule 记号 & 含义\\\midrule
+$u,v$ & 去除共同背景相位后的光场和极化\\
+$A(u),R$ & 空间非对角势矩阵及介质矩阵\\
+$\lambda,\rho,w$ & 原谱参数、背景谱根及单值化参数\\
+$h(w)$ & 换叶映射 $-Q^2/w$\\
+$D_+,D_-$ & 分别满足 $\operatorname{Im}\rho>0$ 和 $\operatorname{Im}\rho<0$ 的区域\\
+$\Sigma$ & 单值化平面上的连续谱轮廓\\
+$E,\gamma$ & 背景特征向量矩阵及其行列式\\
+$\chi_\pm,\Psi_\pm$ & 空间归一化和同时满足两部分 Lax 对的 Jost 矩阵\\
+$\mu_\pm$ & 除去背景振荡后的 Jost 矩阵\\
+$S,r,\widetilde r$ & 散射矩阵及两反射系数\\
+$M$ & 按解析列拼接的 RHP 矩阵\\
+$P,D,H$ & Hermitian 投影、Darboux 因子和恒定相位旋转矩阵\\
+\bottomrule
+\end{longtable}
+矩阵上标 $\dagger$ 表示共轭转置，$\mathsf T$ 表示转置。$M_j$ 表示矩阵的第 $j$ 列，$M^{(1)}$ 表示无穷远展开中 $w^{-1}$ 的系数；两者含义不同。谱导数以撇号表示，例如 $s_{11}'(w)=\dd s_{11}/\dd w$。
 
-本文不主张首次发现所画出的呼吸子波形。一次及多次 Darboux 变换已有文献基础；本稿着重统一符号，把特定完整谱轨道与散射 RHP 连接，识别实共振点带来的分析障碍。是否形成可发表的独立理论贡献，仍需进一步文献检索与完整函数空间论证。
+\section{内容组织与结果范围}
+第 \ref{ch:model} 章从模型出发，推导相容背景、Bloch 守恒量、Lax 对和单值化几何。第 \ref{ch:direct} 章用 Volterra 方程建立 Jost 解析列，推导高能展开、散射对称及共振点的必要条件。第 \ref{ch:rhp} 章构造矩阵跳跃与留数条件，并将无反射问题化为有限线性系统。第 \ref{ch:soliton} 章对一组纯虚简单谱参数显式完成左右 Jost 归一化、四点谱轨道与三场重构，并给出多次 Darboux 递推及计算检验。第 \ref{ch:conclusion} 章分析解的幅值、传播尺度和共振振荡对散射数据正则性的影响。
 
-\section{章节安排}
-第 \ref{ch:model} 章固定模型和背景，给出完整 Lax 对及单值化几何。第 \ref{ch:direct} 章证明远离分支点的 Jost 解构造，讨论散射对称、时间演化与共振点条件。第 \ref{ch:rhp} 章推导 RHP 和无反射有限维系统，列明一般逆问题尚缺的环节。第 \ref{ch:soliton} 章给出四点轨道的显式 RHP 解、三场重构与递推计算。最后总结研究边界，附录记录符号与数值核验。
+一般含反射数据的逆问题还涉及分支点、交叉轮廓与共振点的联合局部分析。本文的一般跳跃公式由满足所列假设的直接散射数据导出；存在性与唯一性的完整证明限定于后文明确规定的无反射类。所用 Darboux 变换及其波形属于文献\cite{LHP2013,ZZ2026}的已有构造，本文着重说明其与指定非零背景散射归一化之间的关系。

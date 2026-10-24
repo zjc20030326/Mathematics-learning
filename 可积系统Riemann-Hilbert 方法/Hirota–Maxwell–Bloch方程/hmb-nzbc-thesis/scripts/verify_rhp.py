@@ -50,5 +50,5 @@ for idx,wa in enumerate([a+m.sqrt(a*a+Q*Q),a-m.sqrt(a*a+Q*Q)]):
 assert max(checks.values())<m.mpf('1e-45')
 result={'precision_digits':60,'point_x_z':['0.37','0.21'],
         'checks':{name:m.nstr(value,12) for name,value in checks.items()}}
-(Path(__file__).resolve().parents[1]/'evidence'/'rhp-results.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+(Path(__file__).resolve().parents[1]/'calculations'/'rhp-results.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
 print(json.dumps(result,indent=2))

@@ -44,6 +44,6 @@ result={'zero_curvature':str(Z),'resonance_commutator':str(RX),
         'background_diagonalization':str(diagonal),
         'uniformization':str(s.simplify(rho**2-lam**2-Q**2))}
 assert Z==s.zeros(2) and RX==s.zeros(2) and bloch==0 and tc==s.zeros(2) and diagonal==s.zeros(2)
-out=Path(__file__).resolve().parents[1]/'evidence'/'symbolic-results.json'
+out=Path(__file__).resolve().parents[1]/'calculations'/'symbolic-results.json'
 out.write_text(json.dumps(result,indent=2),encoding='utf-8')
 print(json.dumps(result,indent=2))

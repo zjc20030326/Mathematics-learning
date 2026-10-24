@@ -35,6 +35,6 @@ report={'parameters':{'Q':'1','b':'5/4','kappa':'3/4','a':'2','eta0':'3/5','alph
         'F':str(F),'variables':'T=exp(2 Re(s)), C=exp(2 i Im(s)), s=kappa*(x-F*z)',
         'exact_residuals_q_p_eta_bloch':list(map(str,[r1,r2,r3,rb])),
         'elapsed_seconds':round(time.time()-start,3)}
-out=Path(__file__).resolve().parents[1]/'evidence'/'exact-example-results.json'
+out=Path(__file__).resolve().parents[1]/'calculations'/'exact-example-results.json'
 out.write_text(json.dumps(report,indent=2),encoding='utf-8')
 print(json.dumps(report,indent=2))

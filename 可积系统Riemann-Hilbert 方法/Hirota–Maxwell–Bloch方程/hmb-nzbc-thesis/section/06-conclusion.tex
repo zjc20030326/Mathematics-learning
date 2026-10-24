@@ -1,23 +1,152 @@
-\section{已经闭合的论证}
-本文在同一套 HMB 约定下完成了模型、背景、空间谱和一个明确无反射逆问题的连接。逐项代回验证了平面波，并独立证明 Bloch 长度守恒。一般参数 Lax 对经原文核对与符号零曲率计算确认，背景时间相位的有理项来自真实的共振极点，不能省略。连续谱的实轴与虚线段、单值化后的实轴与圆周、两个解析域及换叶映射都由背景矩阵直接推得。
+\section{一轨道解的幅值与介质约束}
+第五章给出的显式解包含共同的平面波因子和由投影矩阵决定的局部结构。为分析其幅值，先去除模为 1 的因子 $e^{-\ii\Omega z}$。记最终去相位光场为
+\[
+u=-Q-4bP_{12},\qquad b>Q.
+\]
+由于 $P$ 是秩为 1 的正交投影，设 $P_{11}=t$，则 $P_{22}=1-t$，$0\le t\le1$，并由 $\det P=0$ 得
+\[
+|P_{12}|^2=t(1-t)
+=\dfrac{1}{4}-\left(t-\dfrac{1}{2}\right)^2\le\dfrac{1}{4}.
+\]
+从而
+\begin{equation}\label{eq:amplitude-bound}
+|q(x,z)|=|u(x,z)|\le Q+4b|P_{12}|\le Q+2b.
+\end{equation}
+这一界对式 \eqref{eq:explicit-y} 的种子是可达到的。取 $x=z=0$，则 $s=0$，$y=(1-h_0)(1,1)^{\mathsf T}$，所以 $P_{12}=1/2$，由此
+\[
+q(0,0)=-(Q+2b),\qquad |q(0,0)|=Q+2b.
+\]
+因此光场最大模为 $Q+2b$。该结论使用了特定种子常向量 $(1,1)^{\mathsf T}$；改变常向量会改变峰值出现的时空位置和相位参数。
 
-在半轴可积扰动下，本文证明远离阈值点的 Jost 解析列，并按确定的散射方向推导了跳跃、四点谱轨道与留数。共振反射条件在明确的正则性和相容端态假设下成立。对于纯虚简单谱点，左右 Jost 归一化因子可显式计算，得到一个满足全部四点留数、两处归一化、分支点有界条件和相位约束的 RHP 矩阵。其介质可由任一共振原像重构，并与 Darboux 酉共轭一致。
+介质变量则受不同的约束。由式 \eqref{eq:C}，
+\begin{equation}\label{eq:medium-bound}
+|p(x,z)|\le C_0^{1/2},\qquad
+|\eta(x,z)|\le C_0^{1/2},\qquad
+C_0=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right).
+\end{equation}
+这些界与孤子重数无关，因为每一次 Darboux 变换在 $\lambda=a$ 都以酉共轭作用于 $R$。也就是说，多次变换可以改变极化与反转之间的分配，却不改变矩阵 $R$ 的两个特征值 $\pm C_0^{1/2}$。光场峰值的增长因而不要求极化峰值按同一比例增长。
 
-计算证据包括一般参数的零曲率符号检验、一个非平凡有理参数例子的精确 PDE 残差、一重与二重递推的 60 位残差以及 RHP 矩阵的独立检查。精确代回和浮点残差的逻辑层级在正文中作了区分。所有图像只作解的展示，不承担证明功能。
+\section{传播速度、局部尺度与内部周期}
+将 $F(\ii b)$ 分解为实部和虚部。利用
+\[
+\dfrac{\eta_0}{a(\ii b-a)}
+=-\dfrac{\eta_0}{a^2+b^2}
+-\ii\dfrac{\eta_0b}{a(a^2+b^2)},
+\]
+得到
+\begin{align}
+A_b:=\operatorname{Re}F(\ii b)
+&=-4\beta b^2-2\beta Q^2-\dfrac{\eta_0}{a^2+b^2},\label{eq:velocity}\\
+B_b:=\operatorname{Im}F(\ii b)
+&=-\alpha b-\dfrac{\eta_0b}{a(a^2+b^2)}.\label{eq:frequency}
+\end{align}
+引入随动坐标 $X=x-A_bz$，则
+\[
+s=\kappa X-\ii\kappa B_bz,\qquad
+\kappa=\sqrt{b^2-Q^2}.
+\]
+把种子列的公共因子 $e^{-s}$ 除去，不改变投影矩阵，故可改用
+\[
+\widetilde y=\begin{pmatrix}e^{2s}-h_0\\1-h_0e^{2s}\end{pmatrix},
+\qquad
+e^{2s}=e^{2\kappa X}e^{-2\ii\kappa B_bz}.
+\]
+这个表达把两个作用分开：$e^{2\kappa X}$ 决定空间局部化，$e^{-2\ii\kappa B_bz}$ 决定内部振荡。端态修正以 $e^{-2\kappa|X|}$ 的量级衰减，因而其指数衰减长度为 $(2\kappa)^{-1}$。该长度不是半高全宽；后者还依赖内部相位与所观察的具体场。
 
-\section{尚未完成的核心分析}
-第一，一般反射数据在实共振点的正则性仍有障碍。反射在一点为零只消除了点值，不一定消除传播指数引入的高频振荡。应研究初始反射在共振点的消失阶、加权 Sobolev 条件以及这些条件对传播的稳定性，才能确定正确的散射数据空间。
+若 $B_b\ne0$，在固定 $X$ 的条件下，投影及三个去相位场具有周期
+\begin{equation}\label{eq:internal-period}
+T_z=\dfrac{\pi}{\kappa|B_b|}.
+\end{equation}
+事实上，$z$ 增加 $T_z$ 时 $e^{-2\ii\kappa B_bz}$ 增加一个整周相位，因此 $P$ 不变。原变量 $q,p$ 还含载波因子 $e^{-\ii\Omega z}$，所以这里直接得到的是 $|q|,|p|,\eta$ 的随动周期；原复场是否具有相同周期还取决于 $\Omega T_z$。
 
-第二，当前 Volterra 理论在紧谱集上避开两个分支点。需要把一阶矩条件下的阈值 Jost 解、透射系数的可能零点及 RHP 列矩阵的秩结构放入统一论证。本稿显式无反射解在分支点有界，不能据此认定一般势也有完全相同的行为。
+若
+\[
+\alpha=-\dfrac{\eta_0}{a(a^2+b^2)},
+\]
+则 $B_b=0$，去相位三场仅依赖 $X$，退化为保持形状的行波。对于纯虚离散参数，$\beta$ 进入速度 $A_b$，$\alpha$ 进入内部频率 $B_b$，介质耦合 $\eta_0$ 则同时改变二者。作为具体例子，当 $Q=1,a=2,\eta_0=0.6,\alpha=1,\beta=0.1,b=1.5$ 时，
+\[
+A_b=-1.196,\qquad B_b=-1.572,\qquad
+\kappa=\dfrac{\sqrt5}{2},\qquad
+T_z=\dfrac{\pi}{1.572\,\kappa}.
+\]
+因此图 \ref{fig:one} 中的局部结构沿 $x=A_bz$ 移动，且在随动坐标中仍发生振荡。
 
-第三，任意复谱点、多次 dressing 与标准无反射散射数据之间的全部对应仍需整理。纯虚一轨道已明确闭合；二次递推的 PDE 和端态得到计算支持。然而一般复谱点导致左右不同相位，必须同时配对范数常数、theta condition 和有限线性系统的可逆性。不能把“有一个 Darboux 乘积”替代“已对任意合规谱数据证明唯一反问题解”。
+\section{共振振荡与有限阶正则性}
+命题 \ref{prop:resonance} 给出了相容端态下反射系数在共振点为零的必要条件。为了判断这一点值条件能否在传播中保持所需的光滑性，需要进一步分析指数中的极点。
 
-\section{最值得推进的三个具体问题}
-\begin{enumerate}
-\item 在本稿固定的散射方向下，建立包含 $w_a^\pm$ 的反射数据函数空间，给出传播前后正则性的必要或充分条件。首先检验高阶消失能否维持所需阶数的导数，而不是直接宣称 $r(a)=0$ 已足够。
-\item 对有一阶矩的光场扰动，逐点证明 $w=\pm\ii Q$ 的 Jost 展开，并据此明确一般 RHP 在阈值和四弧交点的局部条件。该工作是任何一般唯一性或 Fredholm 论证的前提。
-\item 将两轨道的递推表达与 \eqref{eq:finite1}--\eqref{eq:finite2} 完整对应，计算全部范数常数及其换叶关系；再推广到任意满足相位约束的简单谱集合，讨论线性系统可逆性的可检验条件。
-\end{enumerate}
+先给出一个实变量结论。以下 $C^k$ 均指零点的一个双侧实邻域上的连续可微性。
+\begin{proposition}[有限阶零点与奇异相位]\label{prop:oscillatory-regularity}
+设 $m,k$ 为非负整数，$c\in\mathbb R\setminus\{0\}$，$g$ 在零点邻域光滑，且 $g(0)\ne0$。对 $s\ne0$ 定义
+\[
+f(s)=s^m g(s)e^{\ii c/s}.
+\]
+则 $f$ 能在 $s=0$ 延拓为 $C^k$ 函数，当且仅当 $m\ge2k+1$。满足此条件时，延拓的各阶导数 $f^{(j)}(0)=0$，$0\le j\le k$。
+\end{proposition}
+\begin{proof}
+先考虑 $k=0$。当 $m\ge1$ 时，$|f(s)|\le |s|^m\sup|g|$ 趋于零，故连续延拓为 $f(0)=0$。当 $m=0$ 时，$g(s)\to g(0)\ne0$，而 $e^{\ii c/s}$ 沿趋于零的不同序列有不同极限，所以不存在连续延拓。
 
-\section{研究诚实性与稿件性质}
-本文不承诺一般含反射的全局 IST 可解性，不包含长时间渐近、双重极点或怪波极限定理。已有 Darboux 变换和既有波形均明确注明来源。对未取得全文的出版者更正，只记录已核实元数据，不推测其修正内容。研究初稿可用于结构预览、与导师讨论和检验路线，但还不能作为已经完成全部核心研究问题的送审稿。
+对一般 $j\ge0$，在去心邻域逐次求导可写成
+\begin{equation}\label{eq:oscillatory-derivatives}
+f^{(j)}(s)=e^{\ii c/s}s^{m-2j}G_j(s),
+\qquad G_j(0)=(-\ii c)^j g(0),
+\end{equation}
+其中 $G_j$ 光滑。对 $j=0$ 取 $G_0=g$。若式 \eqref{eq:oscillatory-derivatives} 对 $j$ 成立，由
+\[
+\dfrac{\dd}{\dd s}e^{\ii c/s}
+=-\dfrac{\ii c}{s^2}e^{\ii c/s}
+\]
+可得
+\[
+G_{j+1}(s)
+=-\ii cG_j(s)+(m-2j)sG_j(s)+s^2G_j'(s).
+\]
+这一递推同时证明光滑性及零点处的取值公式。
+
+若 $m\ge2k+1$，对 $0\le j\le k$ 有 $m-2j\ge1$，故各个去心导数都趋于零。还需确认这些极限确实是延拓函数的导数。对 $j<k$，假定第 $j$ 阶延拓已定义，则
+\[
+\dfrac{f^{(j)}(s)-f^{(j)}(0)}{s}
+=e^{\ii c/s}s^{m-2j-1}G_j(s)\longrightarrow0,
+\]
+因为 $m-2j-1\ge2$。从 $j=0$ 起逐阶应用此式，即得 $C^k$ 延拓且各阶导数在零点为零。
+
+反之，若 $m<2k$，式 \eqref{eq:oscillatory-derivatives} 的 $j=k$ 项因 $G_k(0)\ne0$ 而在模上无界；若 $m=2k$，该项包含振幅趋于非零常数的 $e^{\ii c/s}$，没有极限。两种情形均不可能为 $C^k$。
+\end{proof}
+
+把这一结论用于 HMB 的传播相位。固定 $\lambda=a$ 附近的一张实谱叶，令
+\[
+s=\lambda-a,\qquad
+\rho_a=\rho(a)=\pm\sqrt{a^2+Q^2},\qquad
+F_{\rm pol}(\lambda)=4\beta\lambda^2-\alpha\lambda-2\beta Q^2.
+\]
+$\rho(\lambda)$ 在该邻域实解析，因而
+\[
+L(s)=\rho(a+s)F_{\rm pol}(a+s)
++\dfrac{\eta_0}{a}\dfrac{\rho(a+s)-\rho_a}{s}
+\]
+在 $s=0$ 的奇点可去。于是
+\begin{equation}\label{eq:local-resonant-phase}
+-2z\rho(\lambda)F(\lambda)=\dfrac{c_z}{s}-2zL(s),
+\qquad c_z=-\dfrac{2z\eta_0\rho_a}{a}.
+\end{equation}
+若初始反射在该点恰有 $m$ 阶零点，即
+$r_{\rm sp}(a+s,0)=s^m g_0(s)$、$g_0(0)\ne0$，则式 \eqref{eq:timer} 成为
+\[
+r_{\rm sp}(a+s,z)
+=s^m g_z(s)e^{\ii c_z/s},\qquad
+g_z(s)=g_0(s)e^{-2\ii zL(s)}.
+\]
+对每个固定 $z\ne0$，$c_z\ne0$ 且 $g_z(0)\ne0$。因此，局部 $C^k$ 正则性恰要求 $m\ge2k+1$。特别地，一个简单零点可以保持连续性，却不能保持一阶连续可微性；三阶零点可保持 $C^1$，但一般不能保持 $C^2$。
+
+这是一条关于传播乘子的局部结论，并不保证任意给定的 $s^m g_0$ 都是某个势的散射数据。完整散射数据还必须满足共轭、换叶、端态相容及全局谱约束。在单值化坐标中
+\[
+\lambda'(w_a^\pm)=\dfrac{1}{2}
+\left(1+\dfrac{Q^2}{(w_a^\pm)^2}\right)>0,
+\]
+故 $\lambda-a$ 与 $w-w_a^\pm$ 是等价的局部光滑坐标，上述有限阶零点判据在两个共振原像均适用。
+
+\section{反问题的适用范围}
+本文的直接散射构造在可积扰动下给出远离阈值的 Jost 解析列；高能展开进一步使用空间导数的可积性。无反射显式矩阵则在分支点、实轴交点及共振原像具有可直接检验的局部行为。指定行列式和换叶约化后，这一类矩阵的唯一性可由可去奇点与 Liouville 定理证明。
+
+一般含反射问题不能只由相同的代数拼接获得存在性。其分析需要同时控制分支点处的退化特征向量、交叉轮廓侧值以及式 \eqref{eq:local-resonant-phase} 的振荡。命题 \ref{prop:oscillatory-regularity} 表明，传播中要求的谱正则性越高，对反射在共振点的消失条件也越强。
+
+对于一般复离散谱，多次 Darboux 递推仍提供显式解，但左右背景通常发生不同相位变化。将其纳入给定同相端态的标准 RHP，须同时满足相位约束、范数常数的换叶关系和有限代数系统的可解性。本文完整处理的是第五章的一组纯虚四点谱轨道；一般多轨道情形应在这些条件下另行建立对应关系。

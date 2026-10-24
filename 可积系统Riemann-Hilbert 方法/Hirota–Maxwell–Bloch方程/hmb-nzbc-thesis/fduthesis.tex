@@ -1,18 +1,12 @@
-% Original entry point preserved in evidence/template-fduthesis.tex.
 \documentclass[type=master,oneside]{fduthesis}
 \fdusetup{
  style={font=times,cjk-font=windows,font-size=-4,fullwidth-stop=false,
- hyperlink=color,bib-backend=bibtex,bib-style=numerical,bib-resource={citelist.bib}},
- info={
- title={Hirota–Maxwell–Bloch 方程\\在非零边界条件下的\\Riemann–Hilbert 问题及孤子解},
- title*={Riemann–Hilbert Problem and Soliton Solutions for the Hirota–Maxwell–Bloch System with Nonzero Boundary Conditions},
- author={待填写},supervisor={待填写},major={待填写},department={待填写},
- degree=academic,student-id={待填写},date={2026 年 10 月 21 日（研究初稿）},
- instructors={{待填写}},
- keywords={Hirota–Maxwell–Bloch 方程,非零光场边界,Riemann–Hilbert 问题,共振点,Darboux 变换},
- keywords*={Hirota–Maxwell–Bloch system,nonzero optical background,Riemann–Hilbert problem,resonance,Darboux transformation},
- clc={待填写}}}
+ auto-make-cover=false,hyperlink=color,bib-backend=bibtex,
+ bib-style=numerical,bib-resource={citelist.bib}},
+ info={title={Hirota–Maxwell–Bloch 方程的非零边界谱分析与孤子解},
+ title*={Spectral Analysis and Soliton Solutions of the Hirota–Maxwell–Bloch System with Nonzero Boundary Conditions}}}
 \usepackage{booktabs,longtable,graphicx,array}
+\hypersetup{allcolors=black}
 \newtheorem{proposition}{命题}
 \newtheorem{remark}{注}
 \newcommand{\ii}{\mathrm{i}}
@@ -24,13 +18,11 @@
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\sech}{sech}
-\newcommand{\status}[1]{\par\noindent\textbf{数学状态：}#1\par}
 \allowdisplaybreaks[2]
 \setlength{\emergencystretch}{2em}
 \begin{document}
 \raggedbottom
-\frontmatter
-\input{section/00-frontmatter}
+\fancyhead[R]{}
 \mainmatter
 \chapter{绪论}\label{ch:intro}
 \input{section/01-introduction}
@@ -42,13 +34,8 @@
 \input{section/04-rhp}
 \chapter{无反射解与三场重构}\label{ch:soliton}
 \input{section/05-solitons}
-\chapter{总结与进一步研究}\label{ch:conclusion}
+\chapter{解的性质与共振传播}\label{ch:conclusion}
 \input{section/06-conclusion}
-\appendix
-\chapter{矩阵验算与复现实验}\label{app:checks}
-\input{section/07-appendix}
 \backmatter
 \bibliography{citelist}
-\chapter{致谢}
-待填写。本研究初稿使用计算机代数与高精度计算作为核验工具；数学论断的适用范围和未完成事项已在正文及研究状态报告中列出。
 \end{document}

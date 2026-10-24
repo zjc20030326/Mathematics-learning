@@ -1,0 +1,33 @@
+{
+  "high_energy_gauge_residual": "Matrix([[0, 0], [0, 0]])",
+  "phase_decomposition_residual": "0",
+  "rational_denominator_residual": "0",
+  "exact_Darboux_factor_residual": "0",
+  "oscillatory_derivative_checks": [
+    {
+      "zero_order": 0,
+      "derivatives_checked": 4,
+      "residual": "0"
+    },
+    {
+      "zero_order": 1,
+      "derivatives_checked": 4,
+      "residual": "0"
+    },
+    {
+      "zero_order": 3,
+      "derivatives_checked": 4,
+      "residual": "0"
+    },
+    {
+      "zero_order": 5,
+      "derivatives_checked": 4,
+      "residual": "0"
+    },
+    {
+      "zero_order": 9,
+      "derivatives_checked": 4,
+      "residual": "0"
+    }
+  ]
+}

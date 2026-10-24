@@ -38,7 +38,6 @@ for n,name in [(1,'one'),(2,'two')]:
         ax.set(xlabel=r'$x$',ylabel=r'$z$',title=title)
         fig.colorbar(im,ax=ax,shrink=.88)
     fig.savefig(out/f'{name}-soliton-fields.pdf')
-    fig.savefig(out/f'{name}-soliton-fields.png',dpi=180)
     plt.close(fig)
     err=np.max(abs(abs(p)**2+e**2-eta0**2*(1+Q**2/a**2)))
     print(f'{name}: grid {X.shape}, Bloch error {err:.3e}')
