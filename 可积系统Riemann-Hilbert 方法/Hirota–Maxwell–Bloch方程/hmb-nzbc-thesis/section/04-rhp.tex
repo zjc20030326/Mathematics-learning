@@ -1,5 +1,16 @@
-\section{由直接散射到矩阵拼接}
-沿用第 \ref{ch:direct} 章假设，暂时排除分支点、轮廓交点、$0$ 和共振原像。设 $s_{11},s_{22}$ 在普通连续谱上没有零点，离散零点有限且均为简单零点。定义
+本章将直接散射数据组织为矩阵 RHP。光场的无穷远重构与介质的共振重构将由同一个矩阵给出；无反射时，矩阵问题进一步化为有限维线性系统。
+
+\section{直接散射导出的矩阵 RHP}
+设三场满足第三章的经典解条件，且 $u-Q\in W^{2,1}(\mathbb R)$。假设普通连续谱上 $s_{11},s_{22}$ 无零点，离散零点有限且均简单。令 $\{\zeta_j\}_{j=1}^m$ 为 $D_+$ 中的全部零点，其中 $m=2N$，并定义
+\[
+\Psi_{-,1}(\zeta_j)=b_j\Psi_{+,2}(\zeta_j),\qquad
+c_j=\dfrac{b_j}{s_{11}'(\zeta_j)},\qquad
+C_j=c_j e^{2\ii\theta(\zeta_j)}.
+\]
+由命题 \ref{prop:evolution}，$b_j,c_j$ 与 $x,z$ 无关。以下普通轮廓指去掉 $0,\pm Q,\pm\ii Q,w_a^\pm$ 后的各弧，侧值按 $D_\pm$ 取定。
+
+\begin{theorem}[非零背景的矩阵散射问题]\label{thm:RHP}\label{prop:respair}\label{prop:jump}
+由解析列定义
 \begin{equation}\label{eq:Mdef}
 M(w)=
 \begin{cases}
@@ -7,10 +18,7 @@ M_+(w)=\bigl(\mu_{-,1}/s_{11},\ \mu_{+,2}\bigr),&w\in D_+,\\
 M_-(w)=\bigl(\mu_{+,1},\ \mu_{-,2}/s_{22}\bigr),&w\in D_-.
 \end{cases}
 \end{equation}
-下标 $\pm$ 指定义域及第 \ref{ch:model} 章规定的轮廓侧，不表示每个位置的几何上下方。
-
-\begin{proposition}[跳跃矩阵]\label{prop:jump}
-在连续谱普通点上，
+则 $M$ 在 $D_\pm$ 内除所列简单列极点外解析，在普通轮廓上满足
 \begin{equation}\label{eq:jump}
 M_+=M_-J,\qquad
 J=\begin{pmatrix}
@@ -18,108 +26,85 @@ J=\begin{pmatrix}
 r\,e^{2\ii\theta}&1
 \end{pmatrix},\qquad \det J=1.
 \end{equation}
-\end{proposition}
-\begin{proof}
-把 $\Psi_-=\Psi_+S$ 写成去振荡形式：
-\begin{align*}
-\mu_{-,1}&=s_{11}\mu_{+,1}+s_{21}e^{2\ii\theta}\mu_{+,2},\\
-\mu_{-,2}&=s_{12}e^{-2\ii\theta}\mu_{+,1}+s_{22}\mu_{+,2}.
-\end{align*}
-第二式除以 $s_{22}$ 后给出
-$\mu_{+,2}=M_{-,2}-\widetilde r e^{-2\ii\theta}M_{-,1}$。
-将此代入第一式并除以 $s_{11}$，得到
-\[
-M_{+,1}=(1-r\widetilde r)M_{-,1}
-+r e^{2\ii\theta}M_{-,2}.
-\]
-两列合并即为 \eqref{eq:jump}。行列式由两个交叉项相消得到 1。跳跃矩阵的符号与排列由式 \eqref{eq:Sdef} 的散射方向唯一确定。
-\end{proof}
-
-由 Wronskian 表达及命题 \ref{prop:highenergy} 的高能展开，
+其行列式及两处归一化为
 \begin{align}
 \det M(w)&=\gamma(w),\label{eq:detM}\\
 M(w)&=I+\dfrac{M^{(1)}}{w}+O(w^{-2}),\quad w\to\infty,\label{eq:Minfty}\\
 M(w)&=-\dfrac{\ii Q}{w}\sigma_1+O(1),\quad w\to0.\label{eq:Mzero}
 \end{align}
-行列式 $\gamma(w)$ 保留了背景特征向量的退化：它在两个分支点具有简单零点。本文采用这一背景归一化，后文的唯一性证明将显式处理这些零点。
-
-\section{矩阵约化与简单极点留数}
-由 Jost 对称和散射关系可得
+矩阵约化为
 \begin{equation}\label{eq:Msym}
 M(w)=K\conj{M(\conj w)}K^{-1},\qquad
 M(h(w))=M(w)\dfrac{\ii w}{Q}\sigma_1.
 \end{equation}
-例如换叶后第一列由 $\mu_{-,2}/s_{22}$ 变来，第二列由 $\mu_{+,1}$ 变来；正好对应另一解析区域两列的交换。此关系同时解释式 \eqref{eq:Mzero}。
-
-取 $D_+$ 的全部零点 $\{\zeta_j\}_{j=1}^{m}$，其中 $m=2N$，每对由 $\zeta$ 与 $h(\conj\zeta)$ 构成。定义线性相关常数
-\[
-\Psi_{-,1}(\zeta_j)=b_j\Psi_{+,2}(\zeta_j),\qquad
-c_j=\dfrac{b_j}{s_{11}'(\zeta_j)},\qquad
-C_j=c_j e^{2\ii\theta(\zeta_j)}.
-\]
-简单性使分母不为零，$b_j$ 与 $x,z$ 无关。留数为
+在 $D_+$ 的极点及其共轭点处，留数满足
 \begin{align}
 \Res_{w=\zeta_j}M_1(w)&=C_jM_2(\zeta_j),&
 \Res_{w=\zeta_j}M_2(w)&=0,\label{eq:resplus}\\
 \Res_{w=\conj{\zeta_j}}M_2(w)&=-\conj{C_j}M_1(\conj{\zeta_j}),&
 \Res_{w=\conj{\zeta_j}}M_1(w)&=0.\label{eq:resminus}
 \end{align}
-第二式使用实 $x,z$ 时的 $\theta(\conj w)=\conj{\theta(w)}$。它也可写为矩阵形式
-\[
-\Res_{w=\zeta_j}M
-=\lim\limits_{w\to\zeta_j}M
-\begin{pmatrix}0&0\\C_j&0\end{pmatrix}.
-\]
-右侧因第一列乘零，只用到正则的第二列。
-
-\begin{proposition}[换叶后的留数系数]\label{prop:respair}
-若 $\widehat\zeta=h(\conj\zeta)$，相同实背景 $Q$ 下
+其中两个换叶配对点 $\widehat\zeta=h(\conj\zeta)$ 的常数满足
 \begin{equation}\label{eq:cpair}
 c_{\widehat\zeta}=-\dfrac{Q^2}{\conj\zeta^{\,2}}\conj{c_\zeta}.
 \end{equation}
-\end{proposition}
+\end{theorem}
 \begin{proof}
-先在 $\conj\zeta$ 使用共轭留数
-$-\conj{c_\zeta}e^{-2\ii\theta(\conj\zeta)}$，再由
-$M_1(h(w))=(\ii w/Q)M_2(w)$ 与
-$M_2(h(w))=(\ii w/Q)M_1(w)$ 换叶。留数在坐标变换下乘
-$h'(\conj\zeta)=Q^2/\conj\zeta^{\,2}$；同时
-$\theta(\widehat\zeta)=-\theta(\conj\zeta)$，得到 \eqref{eq:cpair}。对于不同左右相位，背景矩阵应改为相应的 $B_\pm$，留数配对还会包含相位因子。
-具体地，令 $v=h(w)$，则
+解析性与极点位置由 Jost 解析列和简单透射零点给出。将散射关系去振荡，得到
+\begin{align*}
+\mu_{-,1}&=s_{11}\mu_{+,1}+s_{21}e^{2\ii\theta}\mu_{+,2},\\
+\mu_{-,2}&=s_{12}e^{-2\ii\theta}\mu_{+,1}+s_{22}\mu_{+,2}.
+\end{align*}
+第二式给出 $\mu_{+,2}=M_{-,2}-\widetilde r e^{-2\ii\theta}M_{-,1}$；代回第一式得
 \[
-v-\widehat\zeta=h'(\conj\zeta)(w-\conj\zeta)+O((w-\conj\zeta)^2).
+M_{+,1}=(1-r\widetilde r)M_{-,1}+r e^{2\ii\theta}M_{-,2}.
 \]
-所以
+合并两列即为跳跃式，且 $\det J=1$。由 Wronskian 表达，
+\[
+\det M_+=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{s_{11}}=\gamma,
+\]
+$D_-$ 中同理。高能展开给出无穷远归一化；结合 $s_{11},s_{22}\to1$ 及 \eqref{eq:smallmu}，得到 $w=0$ 处的主项。
+
+共轭约化来自命题 \ref{prop:scattering}。换叶交换两解析域，并把 $\mu_{-,1}/s_{11}$ 与 $\mu_{-,2}/s_{22}$ 配对、$\mu_{+,2}$ 与 $\mu_{+,1}$ 配对，因而得到 \eqref{eq:Msym}。
+
+在 $\zeta_j$ 处，$M_2$ 正则，而
+\[
+\Res_{w=\zeta_j}M_1
+=\dfrac{\mu_{-,1}(\zeta_j)}{s_{11}'(\zeta_j)}
+=c_j e^{2\ii\theta(\zeta_j)}\mu_{+,2}(\zeta_j)
+=C_jM_2(\zeta_j).
+\]
+共轭约化给出负号留数 \eqref{eq:resminus}。最后令 $v=h(w)$；在 $w=\conj\zeta$ 附近有
+\[
+v-\widehat\zeta=h'(\conj\zeta)(w-\conj\zeta)+O((w-\conj\zeta)^2),
+\qquad h'(\conj\zeta)=\dfrac{Q^2}{\conj\zeta^{\,2}}.
+\]
+利用 $M_1(h(w))=(\ii w/Q)M_2(w)$，
 \begin{align*}
 \Res_{v=\widehat\zeta}M_1(v)
-&=h'(\conj\zeta)\dfrac{\ii\conj\zeta}{Q}
- \Res_{w=\conj\zeta}M_2(w)\\
 &=-h'(\conj\zeta)\conj{c_\zeta}
- e^{-2\ii\theta(\conj\zeta)}
- \dfrac{\ii\conj\zeta}{Q}M_1(\conj\zeta)\\
+e^{-2\ii\theta(\conj\zeta)}\dfrac{\ii\conj\zeta}{Q}M_1(\conj\zeta)\\
 &=-h'(\conj\zeta)\conj{c_\zeta}
- e^{2\ii\theta(\widehat\zeta)}M_2(\widehat\zeta).
+e^{2\ii\theta(\widehat\zeta)}M_2(\widehat\zeta).
 \end{align*}
-与式 \eqref{eq:resplus} 比较，恰得所述系数。
+与正域留数比较即得 \eqref{eq:cpair}。
 \end{proof}
 
-\section{一般 RHP 的范围与特殊点}
-式 \eqref{eq:Mdef}--\eqref{eq:resminus} 构成由直接散射导出的局部亚纯跳跃问题。其条件包括：在 $D_\pm$ 内除指定简单极点外解析；满足跳跃 \eqref{eq:jump}；满足两个归一化；满足共轭、换叶约化；满足留数条件；在特殊点具有与 Jost 解相容的边界行为。
+定理 \ref{thm:RHP} 刻画的是由给定场导出的矩阵问题。若以抽象散射数据为起点，还须指定特殊点的局部条件：$\pm Q$ 处各弧侧值匹配，$\pm\ii Q$ 处允许的阈值行为，以及 $w_a^\pm$ 处的振荡正则性。以下无反射问题要求这些非极点处可去；第五章将显式验证这一条件。一般含反射数据的全局可解性不由上述拼接定理推出。
 
-最后一项对一般含反射情形还不能删去。$\pm Q$ 是四弧交点，需要匹配各弧侧值；$\pm\ii Q$ 是背景行列式的零点，散射系数可能有不同阈值行为；$w_a^\pm$ 则关联时间相位的本性振荡。第 \ref{ch:direct} 章只证明远离阈值的 Volterra 理论，不足以直接给出全轮廓上的 Fredholm 或消失引理。
+\section{无反射问题的有限维化}
+当 $r=\widetilde r=0$ 时，跳跃矩阵为 $I$。记 $e_1,e_2$ 为标准基，令
+$v_j=M_2(\zeta_j)$、$u_j=M_1(\conj{\zeta_j})$。这里 $u_j,v_j$ 是二维列向量，下标将其与场变量 $u,v$ 区分。
 
-上述条件首先刻画直接散射所得的矩阵问题。对任意抽象反射数据建立逆映射，还需要指定特殊点处的函数空间并证明可解性。第 \ref{ch:soliton} 章将对一组无反射数据逐点验证局部行为，并证明其唯一性。
-
-\section{无反射有限维方程}
-若 $r=\widetilde r=0$，跳跃矩阵为 $I$。在额外假设分支点和交点可去、没有其他极点时，Liouville 定理给出
+\begin{proposition}[部分分式表示与可解条件]\label{prop:finite}
+设无反射 RHP 的非极点轮廓处可去，且无其他有限奇点。则其矩阵解必有表示
 \begin{equation}\label{eq:partialfraction}
 M(w)=I-\dfrac{\ii Q}{w}\sigma_1
 +\sum\limits_{j=1}^{m}
 \left(\dfrac{C_jv_je_1^{\mathsf T}}{w-\zeta_j}
 -\dfrac{\conj{C_j}u_je_2^{\mathsf T}}{w-\conj{\zeta_j}}\right),
 \end{equation}
-其中 $e_1=(1,0)^{\mathsf T}$、$e_2=(0,1)^{\mathsf T}$，
-$v_j=M_2(\zeta_j)$、$u_j=M_1(\conj{\zeta_j})$。在正则列取值，得到
+其中正则列取值满足
 \begin{align}
 v_j&=e_2-\dfrac{\ii Q}{\zeta_j}e_1
 -\sum\limits_{k=1}^{m}\dfrac{\conj{C_k}u_k}{\zeta_j-\conj{\zeta_k}},
@@ -128,44 +113,37 @@ u_j&=e_1-\dfrac{\ii Q}{\conj{\zeta_j}}e_2
 +\sum\limits_{k=1}^{m}\dfrac{C_kv_k}{\conj{\zeta_j}-\zeta_k}.
 \label{eq:finite2}
 \end{align}
-这是 $2m$ 个二维向量的有限线性系统，可逐个分量求解。若系数矩阵可逆，它唯一决定具有该部分分式形式的矩阵。随后必须检查换叶约化、行列式、端态相位及分支点条件；这些约束共同决定代数解是否对应给定边界的 HMB 解。
-为给出可直接求解的矩阵形式，定义两个 $m\times m$ 标量矩阵
+反之，该线性系统的任一解均通过 \eqref{eq:partialfraction} 给出具有指定留数和两处归一化的亚纯矩阵。定义
 \[
-\mathcal A_{jk}=\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}},
-\qquad
-\mathcal B_{jk}=\dfrac{C_k}{\conj{\zeta_j}-\zeta_k},
-\]
-以及已知二维列向量
-\[
+\mathcal A_{jk}=\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}},\qquad
+\mathcal B_{jk}=\dfrac{C_k}{\conj{\zeta_j}-\zeta_k},\qquad
 f_j=e_2-\dfrac{\ii Q}{\zeta_j}e_1,\qquad
 g_j=e_1-\dfrac{\ii Q}{\conj{\zeta_j}}e_2.
 \]
-将所有 $v_j,u_j,f_j,g_j$ 分别按 $j$ 排列为块列 $\boldsymbol v,\boldsymbol u,\boldsymbol f,\boldsymbol g$，则
-\[
-\boldsymbol v=\boldsymbol f-\mathcal A\boldsymbol u,\qquad
-\boldsymbol u=\boldsymbol g+\mathcal B\boldsymbol v.
-\]
-每个标量矩阵元作用于二维向量的两个分量。将第二式代入第一式，
-\[
-(I_m+\mathcal A\mathcal B)\boldsymbol v
-=\boldsymbol f-\mathcal A\boldsymbol g.
-\]
-因此，当 $I_m+\mathcal A\mathcal B$ 可逆时，
+将各二维向量按 $j$ 排成块列。当 $\det(I_m+\mathcal A\mathcal B)\ne0$ 时，线性系统唯一可解，并且
 \begin{equation}\label{eq:finite-schur}
 \boldsymbol v=(I_m+\mathcal A\mathcal B)^{-1}
 (\boldsymbol f-\mathcal A\boldsymbol g),\qquad
 \boldsymbol u=\boldsymbol g+\mathcal B\boldsymbol v.
 \end{equation}
-这将原来的矩阵亚纯问题转化为对两个右端分量使用同一个 $m\times m$ 系数矩阵求解的问题。
+\end{proposition}
+\begin{proof}
+从 $M$ 减去 $w=0$ 的主项和所有指定极点的主部，得到无穷远趋于 $I$ 的整矩阵。Liouville 定理给出 \eqref{eq:partialfraction}。在其第二列取 $w=\zeta_j$、第一列取 $w=\conj{\zeta_j}$，分别得到 \eqref{eq:finite1} 和 \eqref{eq:finite2}。反过来，这些取值等式保证部分分式的留数系数正是相应的正则列，因此满足所列留数；两处归一化由表示式直接得到。
 
-由无穷远系数可计算
-\begin{equation}\label{eq:qfinite}
-u=Q-\ii\sum\limits_{j=1}^{m}\conj{C_j}(u_j)_1.
-\end{equation}
-这里 $u$ 是去相位光场，而 $u_j$ 是向量值未知量；下标区分二者。原光场为 $q=e^{-\ii\Omega z}u$。
+把线性系统写成
+\[
+\boldsymbol v=\boldsymbol f-\mathcal A\boldsymbol u,\qquad
+\boldsymbol u=\boldsymbol g+\mathcal B\boldsymbol v,
+\]
+消去 $\boldsymbol u$ 得
+$(I_m+\mathcal A\mathcal B)\boldsymbol v=\boldsymbol f-\mathcal A\boldsymbol g$。
+矩阵元分别作用于二维向量的两个分量，故可逆性给出 \eqref{eq:finite-schur} 及唯一性。
+\end{proof}
 
-\section{无反射迹公式与相位约束}
-\begin{proposition}[条件性的无反射相位约束]\label{prop:theta}
+上述可逆条件解决的是留数代数系统。要对应给定背景的 HMB 解，所得矩阵还须满足约化 \eqref{eq:Msym}、行列式 \eqref{eq:detM} 以及端态相位条件。后一条件可由透射系数的迹公式确定。
+
+\section{迹公式与端态相位}
+\begin{proposition}[无反射迹公式与相位约束]\label{prop:theta}
 设反射为零，只有上述有限简单零点，且 $s_{11}$ 与 $1/s_{22}$ 沿轮廓可拼接，所有未列出的有限奇点可去。则
 \begin{equation}\label{eq:trace}
 s_{11}(w)=\prod_{j=1}^{m}\dfrac{w-\zeta_j}{w-\conj{\zeta_j}},
@@ -179,20 +157,57 @@ s_{11}(w)=\prod_{j=1}^{m}\dfrac{w-\zeta_j}{w-\conj{\zeta_j}},
 \begin{proof}
 由 $\det S=1$ 和无反射，在轮廓上 $s_{11}s_{22}=1$。把 $D_+$ 的 $s_{11}$ 与 $D_-$ 的 $1/s_{22}$ 拼接；由假设它是只有 $\zeta_j$ 处零点和 $\conj{\zeta_j}$ 处极点的有理函数。除去所列乘积后得到整个球面上的无零无极点函数，其无穷远极限为 1，故恒等于 1。相同背景下 $S(0)=I$，在 $w=0$ 代入得到 \eqref{eq:theta-condition}。
 \end{proof}
-对每个完整轨道取外部上半平面代表 $\zeta_k$，则每对 $D_+$ 点贡献 $(\zeta_k/\conj{\zeta_k})^2$。相位条件等价于
-$\displaystyle 4\sum\limits_{k=1}^{N}\arg\zeta_k=0\pmod{2\pi}$。对于纯虚代表 $\arg\zeta_k=\pi/2$，该条件自动满足，但一般复谱点并不自动满足。不同端相位时零点处的透射值变成 $u_+/u_-$，应相应修改条件。一般含反射的迹公式还涉及反射数据的对数积分、共振点正则性及交叉轮廓上的分支选择；此处仅采用上述无反射拼接条件。
+对每个完整轨道选取外部上半平面的代表 $\zeta_k$，则该轨道的两个 $D_+$ 点对式 \eqref{eq:theta-condition} 的贡献为 $(\zeta_k/\conj{\zeta_k})^2$。故相位约束亦可写为
+\[
+4\sum\limits_{k=1}^N\arg\zeta_k=0\pmod{2\pi}.
+\]
+纯虚代表自动满足这一条件；一般复谱点则须联合满足它。这正是第五章先取纯虚离散参数的原因。
 
-\section{共振点处的三场重构}
-一般光场由 \eqref{eq:reconq} 得到，介质则由共振点处的额外归一化确定。固定 $z$、在命题 \ref{prop:resonance} 的假设下，共振点处两列拼接都等于 $\mu_+$。由该命题证明中的常数矩阵，
+\section{光场与介质的重构}
+无穷远展开确定非对角势，共振点的归一化则确定介质矩阵。
+
+\begin{proposition}[三场重构恒等式]\label{prop:reconstruction}
+在定理 \ref{thm:RHP} 的条件下，由直接散射得到的 $M$ 满足
+\begin{equation}\label{eq:reconq}
+A(u)=\dfrac{\ii}{2}[\sg,M^{(1)}],\qquad u=\ii M^{(1)}_{12}.
+\end{equation}
+若另满足命题 \ref{prop:resonance} 的共振相容条件，则 $M$ 在两个实共振原像的空间归一化极限可逆，且
 \begin{equation}\label{eq:RfromM}
 R(x,z)=M(x,z,w_a)\,
 \dfrac{\eta_0\rho(w_a)}{a}\sg\,M(x,z,w_a)^{-1}.
 \end{equation}
-其 $(1,1)$ 元是 $\eta$，负的 $(1,2)$ 元是 $v$，最后 $p=e^{-\ii\Omega z}v$。对两个共振原像，$\rho$ 变号且 $C\sg C^{-1}=-\sg$，所以重构值相同。
-这一附加归一化可以从介质方程的通解理解。对任意可逆空间基本解 $\chi(x,a)$，
+两个原像给出同一个 $R$。原三场由
+$q=e^{-\ii\Omega z}u$、$p=-e^{-\ii\Omega z}R_{12}$、$\eta=R_{11}$ 恢复。
+\end{proposition}
+\begin{proof}
+将命题 \ref{prop:highenergy} 的展开代入 \eqref{eq:Mdef}。在 $D_+$ 中，第一列除以 $s_{11}$ 后，其对角系数由 $J_-$ 变为 $J_--J_{\rm tot}=J_+$；$D_-$ 中同理。因此
 \[
-R(x,z)=\chi(x,a)\mathcal R(z)\chi(x,a)^{-1}
+M^{(1)}=-\ii B(u)+\ii J_+\sg,
 \]
-均满足 $R_x=[U(a),R]$，其中 $\mathcal R(z)$ 与 $x$ 无关。Hermitian、迹零及 Bloch 长度约束限制 $\mathcal R$ 的特征值，却没有单独固定其特征向量方向。左右相容端态进一步确定 $\mathcal R=d_a\sg$，从而得到式 \eqref{eq:RfromM}。
+即得光场重构。该系数亦与空间方程
+\begin{equation}\label{eq:Mspace}
+M_x=-\ii\lambda\sg M+A(u)M+\ii\rho M\sg
+\end{equation}
+一致：高能证明中 $n_\pm$ 的非对角分量为 $O(w^{-2})$，式 \eqref{eq:n-volterra-system} 给出 $(n_\pm)_x=O(w^{-1})$，从而 $M_x=O(w^{-1})$。利用 $\lambda\sim w/2$、$\rho\sim w/2$ 比较常数项，得到
+\[
+0=-\dfrac{\ii}{2}\sg M^{(1)}+A(u)+\dfrac{\ii}{2}M^{(1)}\sg.
+\]
 
-该公式首先是直接散射所得解必须满足的恒等式。对于抽象 RHP 数据，还需证明 $M$ 在共振点可取逆、具有足够的 $z$ 正则性，才能将其提升为一般逆重构定理。无反射显式解中不存在共振时间跳跃，这些条件可以直接验证。
+在共振点，命题 \ref{prop:resonance} 给出 $S_{\rm sp}$ 对角。把 \eqref{eq:Mdef} 改写为空间归一化形式，两组拼接均为 $\mu_+$；这里取 $\lambda=a$ 的空间值，无须对奇异传播指数求值。由该命题的证明，
+\[
+\chi_+^{-1}R\chi_+=\dfrac{\eta_0\rho(w_a)}{a}\sg.
+\]
+空间指数与 $\sg$ 对易，故以 $M=\mu_+$ 代入便得 \eqref{eq:RfromM}，且 $\det M(w_a)=\gamma(w_a)>0$。换叶时 $\rho$ 变号，而 $C\sg C^{-1}=-\sg$，两次变号相消，证明两原像重构一致。
+\end{proof}
+
+介质方程的一般表示为
+\[
+R=\chi(x,a)\mathcal R(z)\chi(x,a)^{-1}.
+\]
+Hermitian、迹零与 Bloch 长度只限制 $\mathcal R$ 的特征值，相容端态进一步将其固定为 $\eta_0\rho(w_a)\sg/a$。命题 \ref{prop:reconstruction} 因而是已给定场的重构恒等式；抽象 RHP 的逆重构还需要可解性和传播正则性。
+
+对命题 \ref{prop:finite} 中满足上述条件的无反射矩阵，读取部分分式的 $w^{-1}$ 系数可得
+\begin{equation}\label{eq:qfinite}
+u=Q-\ii\sum\limits_{j=1}^{m}\conj{C_j}(u_j)_1.
+\end{equation}
+下一章将通过显式 Jost 归一化验证一组完整四点数据满足全部条件。
