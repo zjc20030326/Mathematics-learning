@@ -1,7 +1,7 @@
-本章先讨论四点轨道解的幅值与传播性质，再分析共振相位对反射数据正则性的影响。前者由投影表示决定，后者由第三章的散射演化式决定。
+本章先讨论直接 RHP 重构所得四点轨道解的幅值与传播性质，再分析共振相位对反射数据正则性的影响。
 
 \section{幅值与传播性质}
-沿用第五章的 $b,\kappa,h_0$ 和种子向量 $(1,1)^{\mathsf T}$。令
+沿用第五章的 $b,\kappa,h_0$ 及范数常数 \eqref{eq:onec}。令
 \begin{align}
 A_b:=\operatorname{Re}F(\ii b)
 &=-4\beta b^2-2\beta Q^2-\dfrac{\eta_0}{a^2+b^2},\label{eq:velocity}\\
@@ -11,27 +11,27 @@ B_b:=\operatorname{Im}F(\ii b)
 并取随动坐标 $X=x-A_bz$。
 
 \begin{proposition}[一轨道解的幅值与局部化]\label{prop:wave-properties}
-命题 \ref{prop:oneboundary} 的解满足
+定理 \ref{thm:direct-HMB} 的解满足
 \begin{equation}\label{eq:amplitude-bound}
 |q(x,z)|\le Q+2b,\qquad |q(0,0)|=Q+2b,
 \end{equation}
 以及
 \begin{equation}\label{eq:medium-bound}
-|p(x,z)|,\ |\eta(x,z)|\le C_0^{1/2},\qquad
+|p(x,z)|,\ |\eta(x,z)|\le C_0^{\frac{1}{2}},\qquad
 C_0=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right).
 \end{equation}
 去相位三场在随动坐标中的端态修正为 $O(e^{-2\kappa|X|})$。若 $B_b\ne0$，则它们关于 $z$ 具有周期
 \begin{equation}\label{eq:internal-period}
 T_z=\dfrac{\pi}{\kappa|B_b|}.
 \end{equation}
-若 $B_b=0$，即 $\alpha=-\eta_0/[a(a^2+b^2)]$，则去相位三场仅依赖 $X$。
+若 $B_b=0$，即 $\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}$，则去相位三场仅依赖 $X$。
 \end{proposition}
 \begin{proof}
 秩一正交投影满足 $P_{22}=1-P_{11}$ 及
 \[
 |P_{12}|^2=P_{11}(1-P_{11})\le\dfrac{1}{4}.
 \]
-故 $|q|=|-Q-4bP_{12}|\le Q+2b$。在 $x=z=0$，$y=(1-h_0)(1,1)^{\mathsf T}$，于是 $P_{12}=1/2$，达到该界。介质界直接来自 $|p|^2+\eta^2=C_0$。
+故 $|q|=|-Q-4bP_{12}|\le Q+2b$。在 $x=z=0$，$t=1$，由式 \eqref{eq:algebraic-P} 得到 $P_{12}=\dfrac{1}{2}$，达到该界。介质界直接来自 $|p|^2+\eta^2=C_0$。
 
 将
 \[
@@ -40,19 +40,18 @@ T_z=\dfrac{\pi}{\kappa|B_b|}.
 -\ii\dfrac{\eta_0b}{a(a^2+b^2)}
 \]
 代入 $F$，得到 \eqref{eq:velocity}、\eqref{eq:frequency}。于是
-$s=\kappa X-\ii\kappa B_bz$。除去种子列的公共非零因子 $e^{-s}$ 不改变投影，可改用
+$s=\kappa X-\ii\kappa B_bz$。式 \eqref{eq:algebraic-P} 中的变量为
 \[
-\widetilde y=\begin{pmatrix}e^{2s}-h_0\\1-h_0e^{2s}\end{pmatrix},\qquad
-e^{2s}=e^{2\kappa X}e^{-2\ii\kappa B_bz}.
+t=e^{2s}=e^{2\kappa X}e^{-2\ii\kappa B_bz}.
 \]
-在 $X\to+\infty$ 时除以 $e^{2s}$，在 $X\to-\infty$ 时直接取极限，得到 $P-P_\pm=O(e^{-2\kappa|X|})$。因 $h_0\in(0,1)$，极限投影的分母非零，估计可对内部相位一致成立。三个场都是 $P$ 的光滑代数表达式，故具有相同的衰减阶。
+在 $X\to+\infty$ 时将式 \eqref{eq:algebraic-P} 的分子分母同除以 $|t|^2$，在 $X\to-\infty$ 时直接取极限，得到 $P-P_\pm=O(e^{-2\kappa|X|})$。因 $h_0\in(0,1)$，极限投影的分母非零，估计可对内部相位一致成立。三个场都是 $P$ 的光滑代数表达式，故具有相同的衰减阶。
 
 固定 $X$ 时，$z$ 增加 $T_z$ 使 $e^{-2\ii\kappa B_bz}$ 转过整周，投影及去相位三场不变；若 $B_b=0$，则该因子恒为 1，得到行波情形。
 \end{proof}
 
-介质界在任意次 Darboux 变换后仍成立，因为实共振点处的酉共轭保持 $R$ 的特征值 $\pm C_0^{1/2}$。周期 \eqref{eq:internal-period} 也是 $|q|,|p|,\eta$ 的随动周期；复场 $q,p$ 还含载波因子 $e^{-\ii\Omega z}$，具有同一周期需要 $\Omega T_z\in2\pi\mathbb Z$。
+介质界亦适用于式 \eqref{eq:Nmedium} 的已有多重 Darboux 解族，因为实共振点处的酉共轭保持 $R$ 的特征值 $\pm C_0^{\frac{1}{2}}$。周期 \eqref{eq:internal-period} 也是 $|q|,|p|,\eta$ 的随动周期；复场 $q,p$ 还含载波因子 $e^{-\ii\Omega z}$，具有同一周期需要 $\Omega T_z\in2\pi\mathbb Z$。
 
-例如图 \ref{fig:one} 的参数给出 $A_b=-1.196$、$B_b=-1.572$、$\kappa=\sqrt5/2$，对应沿 $x=A_bz$ 传播并伴随内部振荡的局部结构。
+例如图 \ref{fig:one} 的参数给出 $A_b=-1.196$、$B_b=-1.572$、$\kappa=\dfrac{\sqrt{5}}{2}$，对应沿 $x=A_bz$ 传播并伴随内部振荡的局部结构。
 
 \section{共振相位与有限阶正则性}
 命题 \ref{prop:resonance} 要求反射系数在共振点为零。其消失阶还决定了传播后能保持的可微阶数。先记录奇异相位乘子的局部性质。
@@ -60,20 +59,20 @@ e^{2s}=e^{2\kappa X}e^{-2\ii\kappa B_bz}.
 \begin{lemma}[有限阶零点与奇异相位]\label{prop:oscillatory-regularity}
 设 $m,k$ 为非负整数，$c\in\mathbb R\setminus\{0\}$，$g$ 在零点邻域光滑，且 $g(0)\ne0$。对 $s\ne0$ 定义
 \[
-f(s)=s^m g(s)e^{\ii c/s}.
+f(s)=s^m g(s)e^{\frac{\ii c}{s}}.
 \]
 则 $f$ 能在 $s=0$ 延拓为 $C^k$ 函数，当且仅当 $m\ge2k+1$。满足此条件时，延拓的各阶导数 $f^{(j)}(0)=0$，$0\le j\le k$。
 \end{lemma}
 \begin{proof}
 对 $j\ge0$，在去心邻域逐次求导可写成
 \begin{equation}\label{eq:oscillatory-derivatives}
-f^{(j)}(s)=e^{\ii c/s}s^{m-2j}G_j(s),
+f^{(j)}(s)=e^{\frac{\ii c}{s}}s^{m-2j}G_j(s),
 \qquad G_j(0)=(-\ii c)^j g(0),
 \end{equation}
 其中 $G_j$ 光滑。对 $j=0$ 取 $G_0=g$。若式 \eqref{eq:oscillatory-derivatives} 对 $j$ 成立，由
 \[
-\dfrac{\dd}{\dd s}e^{\ii c/s}
-=-\dfrac{\ii c}{s^2}e^{\ii c/s}
+\dfrac{\dd}{\dd s}e^{\frac{\ii c}{s}}
+=-\dfrac{\ii c}{s^2}e^{\frac{\ii c}{s}}
 \]
 可得
 \[
@@ -85,11 +84,11 @@ G_{j+1}(s)
 若 $m\ge2k+1$，对 $0\le j\le k$ 有 $m-2j\ge1$，故各个去心导数都趋于零。还需确认这些极限确实是延拓函数的导数。对 $j<k$，假定第 $j$ 阶延拓已定义，则
 \[
 \dfrac{f^{(j)}(s)-f^{(j)}(0)}{s}
-=e^{\ii c/s}s^{m-2j-1}G_j(s)\longrightarrow0,
+=e^{\frac{\ii c}{s}}s^{m-2j-1}G_j(s)\longrightarrow0,
 \]
 因为 $m-2j-1\ge2$。从 $j=0$ 起逐阶应用此式，即得 $C^k$ 延拓且各阶导数在零点为零。
 
-反之，若 $m<2k$，式 \eqref{eq:oscillatory-derivatives} 的 $j=k$ 项因 $G_k(0)\ne0$ 而在模上无界；若 $m=2k$，该项包含振幅趋于非零常数的 $e^{\ii c/s}$，没有极限。两种情形均不可能为 $C^k$。
+反之，若 $m<2k$，式 \eqref{eq:oscillatory-derivatives} 的 $j=k$ 项因 $G_k(0)\ne0$ 而在模上无界；若 $m=2k$，该项包含振幅趋于非零常数的 $e^{\frac{\ii c}{s}}$，没有极限。两种情形均不可能为 $C^k$。
 \end{proof}
 
 \begin{proposition}[共振传播的局部正则性]\label{prop:resonant-regularity}
@@ -114,7 +113,7 @@ c_z=-\dfrac{2z\eta_0\rho_a}{a}\ne0.
 \end{equation}
 演化后的反射可写为
 \[
-r_{\rm sp}(a+s,z)=s^m g_z(s)e^{\ii c_z/s},\qquad
+r_{\rm sp}(a+s,z)=s^m g_z(s)e^{\frac{\ii c_z}{s}},\qquad
 g_z(s)=g_0(s)e^{-2\ii zL(s)}.
 \]
 $g_z$ 光滑且 $g_z(0)\ne0$，应用引理 \ref{prop:oscillatory-regularity} 即得充要条件。又

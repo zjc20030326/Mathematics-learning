@@ -75,7 +75,7 @@ s_{12}&=\dfrac{\det(\Psi_{-,2},\Psi_{+,2})}{\gamma}.\nonumber
 \end{align}
 其中 $s_{11}$ 在 $D_+$ 解析，$s_{22}$ 在 $D_-$ 解析。令
 $K=\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$、
-$C(w)=\ii w\sigma_1/Q$，则
+$C(w)=\dfrac{\ii w}{Q}\sigma_1$，则
 \begin{equation}\label{eq:conjugation}
 \Psi_\pm(w)=K\conj{\Psi_\pm(\conj w)}K^{-1},\quad
 \mu_\pm(w)=K\conj{\mu_\pm(\conj w)}K^{-1},\quad
@@ -126,8 +126,15 @@ r=\dfrac{s_{21}}{s_{11}},\qquad
 构成完整谱轨道。其中 $\zeta$ 与 $h(\conj\zeta)$ 属于 $D_+$，另外两点属于 $D_-$。
 \end{proposition}
 \begin{proof}
-共轭改变 $\operatorname{Im}\rho$ 的符号，换叶也改变其符号，二者复合保留区域。由 \eqref{eq:sconj}，$s_{22}(\conj\zeta)=0$；由 \eqref{eq:musheet}，$s_{22}(h(\zeta))=0$，$s_{11}(h(\conj\zeta))=0$。因 $h'(w)=Q^2/w^2\ne0$，简单性保持。离开实轴和圆周保证四点互异。Wronskian 为零说明 $\Psi_{-,1}$ 与 $\Psi_{+,2}$ 线性相关；两列分别在左、右端衰减，其相同向量给出平方可积本征函数。
+共轭改变 $\operatorname{Im}\rho$ 的符号，换叶也改变其符号，二者复合保留区域。由 \eqref{eq:sconj}，$s_{22}(\conj\zeta)=0$；由 \eqref{eq:musheet}，$s_{22}(h(\zeta))=0$，$s_{11}(h(\conj\zeta))=0$。因 $h'(w)=\dfrac{Q^2}{w^2}\ne0$，简单性保持。离开实轴和圆周保证四点互异。Wronskian 为零说明 $\Psi_{-,1}$ 与 $\Psi_{+,2}$ 线性相关；两列分别在左、右端衰减，其相同向量给出平方可积本征函数。
 \end{proof}
+
+在每个简单零点定义列相关常数和范数常数
+\[
+\Psi_{-,1}(\zeta_j)=b_j\Psi_{+,2}(\zeta_j),\qquad
+c_j=\dfrac{b_j}{s_{11}'(\zeta_j)}.
+\]
+去振荡后，对应的留数因子为 $C_j=c_j e^{2\ii\theta(\zeta_j)}$。下一节确定 $b_j,c_j$ 的传播性质，第四章再由两种约化推导它们的配对关系。
 
 \section{传播演化与共振相容条件}
 设三场为包含 $z=0$ 的开区间 $I$ 上的经典 HMB 解。以下采用一组保证传播推导成立的充分正则性条件：
@@ -166,7 +173,7 @@ $-\chi_\pm\ii\rho F\sg$ 具有相同渐近行为。Jost 唯一性因此给出
 
 共振处的传播相位不能直接取值，但介质方程可在固定截面上给出散射数据的相容条件。
 \begin{proposition}[固定传播截面的共振反射条件]\label{prop:resonance}
-固定一个 $z$。设去相位后的三个场满足介质方程，并在两端趋向 $(Q,-\ii\eta_0Q/a,\eta_0)$，其中 $a\ne0,\eta_0\ne0$。再设空间 Jost 基底 $\chi_\pm(x,w_a^\pm)$ 正则可逆，具有前述振荡归一化，且 $R-R_\infty\to0$。则在两共振原像处，空间散射矩阵为对角矩阵；特别地 $r_{\rm sp}=0$。
+固定一个 $z$。设去相位后的三个场满足介质方程，并在两端趋向 $(Q,-\dfrac{\ii\eta_0Q}{a},\eta_0)$，其中 $a\ne0,\eta_0\ne0$。再设空间 Jost 基底 $\chi_\pm(x,w_a^\pm)$ 正则可逆，具有前述振荡归一化，且 $R-R_\infty\to0$。则在两共振原像处，空间散射矩阵为对角矩阵；特别地 $r_{\rm sp}=0$。
 \end{proposition}
 \begin{proof}
 由介质方程，
@@ -191,7 +198,7 @@ d_a\sg=S_{\rm sp}^{-1}d_a\sg S_{\rm sp}.
 \]
 $d_a\ne0$，故 $[\sg,S_{\rm sp}]=0$，其两非对角元为零。行列式为 1 保证两个对角元均非零，反射系数因而有定义且等于零。
 \end{proof}
-此结论使用了左右相同的介质端态。若端态不同，只能得到 $C_-=S_{\rm sp}^{-1}C_+S_{\rm sp}$，不再必然有 $[\sg,S_{\rm sp}]=0$。对于不同光场相位但相同模的端态 $u_\pm$，若仍满足 $v_\pm=-\ii\eta_0u_\pm/a$，以相应的 $E_\pm=I-\ii B(u_\pm)/w$ 归一化后，两个常数矩阵仍为同一个 $d_a\sg$。这里 $B(u)=\left(\begin{smallmatrix}0&u\\\conj u&0\end{smallmatrix}\right)$。共振处零点的阶数与传播正则性的关系将在第 \ref{ch:conclusion} 章讨论。
+此结论使用了左右相同的介质端态。若端态不同，只能得到 $C_-=S_{\rm sp}^{-1}C_+S_{\rm sp}$，不再必然有 $[\sg,S_{\rm sp}]=0$。对于不同光场相位但相同模的端态 $u_\pm$，若仍满足 $v_\pm=-\dfrac{\ii\eta_0u_\pm}{a}$，以相应的 $E_\pm=I-\dfrac{\ii B(u_\pm)}{w}$ 归一化后，两个常数矩阵仍为同一个 $d_a\sg$。这里 $B(u)=\left(\begin{smallmatrix}0&u\\\conj u&0\end{smallmatrix}\right)$。共振处零点的阶数与传播正则性的关系将在第 \ref{ch:conclusion} 章讨论。
 
 \section{两处无穷远的渐近行为}
 RHP 的归一化与光场重构需要精确到 $w^{-1}$ 的展开。为此增加条件
@@ -234,11 +241,11 @@ T(x,w)=I-\dfrac{\ii B(u(x))}{w},\qquad
 利用 $A(u)=\sg B(u)$、$B(u)\sg=-\sg B(u)$、$B(u)^2=|u|^2I$。因而
 \[
 \det T=1+\dfrac{|u|^2}{w^2},\qquad
-T^{-1}=\dfrac{I+\ii B(u)/w}{1+|u|^2/w^2}.
+T^{-1}=\dfrac{I+\dfrac{\ii B(u)}{w}}{1+\dfrac{|u|^2}{w^2}}.
 \]
 当 $|w|$ 足够大时，$T,T^{-1}$ 对所有实 $x$ 一致有界。并且 $x\to\pm\infty$ 时 $T\to E$，所以变换后 $n_\pm\to I$。
 
-由 $\mu_x=U\mu+\ii\rho\mu\sg$ 以及 $\lambda+\rho=w$、$\rho-\lambda=Q^2/w$，逐项计算
+由 $\mu_x=U\mu+\ii\rho\mu\sg$ 以及 $\lambda+\rho=w$、$\rho-\lambda=\dfrac{Q^2}{w}$，逐项计算
 \begin{align*}
 UT+\ii\rho T\sg-T_x
 &=\ii(\rho-\lambda)\sg+A
@@ -265,7 +272,7 @@ UT+\ii\rho T\sg-T_x
 \exp\bigl(-\ii\rho(x-y)(\sg-s_jI)\bigr).
 \]
 在相应解析域及积分方向中，它的模有一致界。由与定理 \ref{thm:jost} 相同的有序积分估计，第 $l$ 次迭代项不超过
-$C^l/(l!|w|^l)$。因此 $n_\pm-I=O(w^{-1})$，且二次及以上迭代的总和为 $O(w^{-2})$，对 $x$ 一致。
+$\dfrac{C^l}{l!|w|^l}$。因此 $n_\pm-I=O(w^{-1})$，且二次及以上迭代的总和为 $O(w^{-2})$，对 $x$ 一致。
 
 只需计算第一次迭代。以负端第一列为例，其对角分量为
 \[
@@ -288,11 +295,11 @@ e^{2\ii\rho(x-y)}\conj{u_{yy}(y)}\,\dd y.
 \[
 n_\pm=I+\dfrac{\ii J_\pm\sg}{w}+O(w^{-2}).
 \]
-与 $T=I-\ii B/w$ 相乘即得式 \eqref{eq:mu-highenergy}。
+与 $T=I-\dfrac{\ii B}{w}$ 相乘即得式 \eqref{eq:mu-highenergy}。
 
 最后，由去振荡 Wronskian
-$s_{11}=\det(\mu_{-,1},\mu_{+,2})/\gamma$，其分子为
-$1+\ii(J_--J_+)/w+O(w^{-2})$。而
+$s_{11}=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{\gamma}$，其分子为
+$1+\dfrac{\ii(J_--J_+)}{w}+O(w^{-2})$。而
 \[
 J_-(x)-J_+(x)=J_{\rm tot},\qquad
 \gamma=1+O(w^{-2}),
@@ -300,6 +307,6 @@ J_-(x)-J_+(x)=J_{\rm tot},\qquad
 故得到式 \eqref{eq:transmission-highenergy}。
 
 在实轴的无穷远处，将两组 Jost 展开代入散射关系得 $S=I+O(w^{-1})$；相位因子在实谱上模为 1。再由换叶关系
-$\mu_\pm(h(w))=\mu_\pm(w)\ii w\sigma_1/Q$ 和
+$\mu_\pm(h(w))=\mu_\pm(w)\dfrac{\ii w}{Q}\sigma_1$ 和
 $S(h(w))=\sigma_1S(w)\sigma_1$，得到 \eqref{eq:smallmu}。
 \end{proof}

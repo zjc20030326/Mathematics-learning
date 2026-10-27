@@ -14,8 +14,8 @@ C_j=c_j e^{2\ii\theta(\zeta_j)}.
 \begin{equation}\label{eq:Mdef}
 M(w)=
 \begin{cases}
-M_+(w)=\bigl(\mu_{-,1}/s_{11},\ \mu_{+,2}\bigr),&w\in D_+,\\
-M_-(w)=\bigl(\mu_{+,1},\ \mu_{-,2}/s_{22}\bigr),&w\in D_-.
+M_+(w)=\bigl(\dfrac{\mu_{-,1}}{s_{11}},\ \mu_{+,2}\bigr),&w\in D_+,\\
+M_-(w)=\bigl(\mu_{+,1},\ \dfrac{\mu_{-,2}}{s_{22}}\bigr),&w\in D_-.
 \end{cases}
 \end{equation}
 则 $M$ 在 $D_\pm$ 内除所列简单列极点外解析，在普通轮廓上满足
@@ -65,7 +65,7 @@ M_{+,1}=(1-r\widetilde r)M_{-,1}+r e^{2\ii\theta}M_{-,2}.
 \]
 $D_-$ 中同理。高能展开给出无穷远归一化；结合 $s_{11},s_{22}\to1$ 及 \eqref{eq:smallmu}，得到 $w=0$ 处的主项。
 
-共轭约化来自命题 \ref{prop:scattering}。换叶交换两解析域，并把 $\mu_{-,1}/s_{11}$ 与 $\mu_{-,2}/s_{22}$ 配对、$\mu_{+,2}$ 与 $\mu_{+,1}$ 配对，因而得到 \eqref{eq:Msym}。
+共轭约化来自命题 \ref{prop:scattering}。换叶交换两解析域，并把 $\dfrac{\mu_{-,1}}{s_{11}}$ 与 $\dfrac{\mu_{-,2}}{s_{22}}$ 配对、$\mu_{+,2}$ 与 $\mu_{+,1}$ 配对，因而得到 \eqref{eq:Msym}。
 
 在 $\zeta_j$ 处，$M_2$ 正则，而
 \[
@@ -79,7 +79,7 @@ $D_-$ 中同理。高能展开给出无穷远归一化；结合 $s_{11},s_{22}\t
 v-\widehat\zeta=h'(\conj\zeta)(w-\conj\zeta)+O((w-\conj\zeta)^2),
 \qquad h'(\conj\zeta)=\dfrac{Q^2}{\conj\zeta^{\,2}}.
 \]
-利用 $M_1(h(w))=(\ii w/Q)M_2(w)$，
+利用 $M_1(h(w))=\dfrac{\ii w}{Q}M_2(w)$，
 \begin{align*}
 \Res_{v=\widehat\zeta}M_1(v)
 &=-h'(\conj\zeta)\conj{c_\zeta}
@@ -120,7 +120,7 @@ u_j&=e_1-\dfrac{\ii Q}{\conj{\zeta_j}}e_2
 f_j=e_2-\dfrac{\ii Q}{\zeta_j}e_1,\qquad
 g_j=e_1-\dfrac{\ii Q}{\conj{\zeta_j}}e_2.
 \]
-将各二维向量按 $j$ 排成块列。当 $\det(I_m+\mathcal A\mathcal B)\ne0$ 时，线性系统唯一可解，并且
+将各二维向量按 $j$ 排成块列，标量矩阵元作用于每个二维块；等价地，可将两个向量分量分别视为两个右端项。当 $\det(I_m+\mathcal A\mathcal B)\ne0$ 时，线性系统唯一可解，并且
 \begin{equation}\label{eq:finite-schur}
 \boldsymbol v=(I_m+\mathcal A\mathcal B)^{-1}
 (\boldsymbol f-\mathcal A\boldsymbol g),\qquad
@@ -140,11 +140,11 @@ $(I_m+\mathcal A\mathcal B)\boldsymbol v=\boldsymbol f-\mathcal A\boldsymbol g$�
 矩阵元分别作用于二维向量的两个分量，故可逆性给出 \eqref{eq:finite-schur} 及唯一性。
 \end{proof}
 
-上述可逆条件解决的是留数代数系统。要对应给定背景的 HMB 解，所得矩阵还须满足约化 \eqref{eq:Msym}、行列式 \eqref{eq:detM} 以及端态相位条件。后一条件可由透射系数的迹公式确定。
+上述可逆条件解决的是留数代数系统。要对应给定背景的 HMB 解，还须验证约化 \eqref{eq:Msym}、行列式 \eqref{eq:detM}、端态相位及传播相容性。尤其是分支点处 $M$ 有界而 $M^{-1}$ 可能有极点；逆重构须证明该极点在 Lax 矩阵中消去。第五章对一轨道数据逐项完成这些检验。端态相位的必要条件由下述迹公式给出。
 
 \section{迹公式与端态相位}
 \begin{proposition}[无反射迹公式与相位约束]\label{prop:theta}
-设反射为零，只有上述有限简单零点，且 $s_{11}$ 与 $1/s_{22}$ 沿轮廓可拼接，所有未列出的有限奇点可去。则
+设反射为零，只有上述有限简单零点，且 $s_{11}$ 与 $\dfrac{1}{s_{22}}$ 沿轮廓可拼接，所有未列出的有限奇点可去。则
 \begin{equation}\label{eq:trace}
 s_{11}(w)=\prod_{j=1}^{m}\dfrac{w-\zeta_j}{w-\conj{\zeta_j}},
 \qquad w\in D_+.
@@ -155,9 +155,9 @@ s_{11}(w)=\prod_{j=1}^{m}\dfrac{w-\zeta_j}{w-\conj{\zeta_j}},
 \end{equation}
 \end{proposition}
 \begin{proof}
-由 $\det S=1$ 和无反射，在轮廓上 $s_{11}s_{22}=1$。把 $D_+$ 的 $s_{11}$ 与 $D_-$ 的 $1/s_{22}$ 拼接；由假设它是只有 $\zeta_j$ 处零点和 $\conj{\zeta_j}$ 处极点的有理函数。除去所列乘积后得到整个球面上的无零无极点函数，其无穷远极限为 1，故恒等于 1。相同背景下 $S(0)=I$，在 $w=0$ 代入得到 \eqref{eq:theta-condition}。
+由 $\det S=1$ 和无反射，在轮廓上 $s_{11}s_{22}=1$。把 $D_+$ 的 $s_{11}$ 与 $D_-$ 的 $\dfrac{1}{s_{22}}$ 拼接；由假设它是只有 $\zeta_j$ 处零点和 $\conj{\zeta_j}$ 处极点的有理函数。除去所列乘积后得到整个球面上的无零无极点函数，其无穷远极限为 1，故恒等于 1。相同背景下 $S(0)=I$，在 $w=0$ 代入得到 \eqref{eq:theta-condition}。
 \end{proof}
-对每个完整轨道选取外部上半平面的代表 $\zeta_k$，则该轨道的两个 $D_+$ 点对式 \eqref{eq:theta-condition} 的贡献为 $(\zeta_k/\conj{\zeta_k})^2$。故相位约束亦可写为
+对每个完整轨道选取外部上半平面的代表 $\zeta_k$，则该轨道的两个 $D_+$ 点对式 \eqref{eq:theta-condition} 的贡献为 $\left(\dfrac{\zeta_k}{\conj{\zeta_k}}\right)^2$。故相位约束亦可写为
 \[
 4\sum\limits_{k=1}^N\arg\zeta_k=0\pmod{2\pi}.
 \]
@@ -188,7 +188,7 @@ M^{(1)}=-\ii B(u)+\ii J_+\sg,
 \begin{equation}\label{eq:Mspace}
 M_x=-\ii\lambda\sg M+A(u)M+\ii\rho M\sg
 \end{equation}
-一致：高能证明中 $n_\pm$ 的非对角分量为 $O(w^{-2})$，式 \eqref{eq:n-volterra-system} 给出 $(n_\pm)_x=O(w^{-1})$，从而 $M_x=O(w^{-1})$。利用 $\lambda\sim w/2$、$\rho\sim w/2$ 比较常数项，得到
+一致：高能证明中 $n_\pm$ 的非对角分量为 $O(w^{-2})$，式 \eqref{eq:n-volterra-system} 给出 $(n_\pm)_x=O(w^{-1})$，从而 $M_x=O(w^{-1})$。利用 $\lambda\sim\dfrac{w}{2}$、$\rho\sim\dfrac{w}{2}$ 比较常数项，得到
 \[
 0=-\dfrac{\ii}{2}\sg M^{(1)}+A(u)+\dfrac{\ii}{2}M^{(1)}\sg.
 \]
@@ -204,10 +204,10 @@ M_x=-\ii\lambda\sg M+A(u)M+\ii\rho M\sg
 \[
 R=\chi(x,a)\mathcal R(z)\chi(x,a)^{-1}.
 \]
-Hermitian、迹零与 Bloch 长度只限制 $\mathcal R$ 的特征值，相容端态进一步将其固定为 $\eta_0\rho(w_a)\sg/a$。命题 \ref{prop:reconstruction} 因而是已给定场的重构恒等式；抽象 RHP 的逆重构还需要可解性和传播正则性。
+Hermitian、迹零与 Bloch 长度只限制 $\mathcal R$ 的特征值，相容端态进一步将其固定为 $\dfrac{\eta_0\rho(w_a)}{a}\sg$。命题 \ref{prop:reconstruction} 因而是已给定场的重构恒等式；抽象 RHP 的逆重构还需要可解性和传播正则性。
 
 对命题 \ref{prop:finite} 中满足上述条件的无反射矩阵，读取部分分式的 $w^{-1}$ 系数可得
 \begin{equation}\label{eq:qfinite}
 u=Q-\ii\sum\limits_{j=1}^{m}\conj{C_j}(u_j)_1.
 \end{equation}
-下一章将通过显式 Jost 归一化验证一组完整四点数据满足全部条件。
+下一章直接求解一组完整四点数据的有限维系统，并由所得矩阵的两部分对数导数证明逆重构的方程相容性。
