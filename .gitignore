@@ -15,6 +15,7 @@
 *.synctex(busy)
 *.synctex.gz(busy)
 *.toc
+*.thm
 *.lof
 *.lot
 *.loa

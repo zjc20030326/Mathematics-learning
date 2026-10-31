@@ -1,4 +1,4 @@
-本章确定后续散射问题所需的背景、传播相位与谱坐标。参数始终满足 $Q>0$、$a\ne0$、$\eta_0\ne0$，且 $\alpha,\beta$ 为实数。
+本章确定后续散射问题所需的背景、传播相位与谱坐标. 参数始终满足 $Q>0$、$a\ne0$、$\eta_0\ne0$, 且 $\alpha,\beta$ 为实数.
 
 \section{平面波背景与介质约束}
 \begin{proposition}[相容平面波与 Bloch 长度]\label{prop:bg}\label{prop:bloch}
@@ -13,28 +13,28 @@ p_0=-\dfrac{\ii\eta_0}{a}q_0,\qquad
 \begin{equation}\label{eq:bloch}
 \partial_x(|p|^2+\eta^2)=0.
 \end{equation}
-若其端态为 \eqref{eq:targetboundary}，则
+若其端态为 \eqref{eq:targetboundary}, 则
 \begin{equation}\label{eq:C}
 |p|^2+\eta^2=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right).
 \end{equation}
 \end{proposition}
 \begin{proof}
-对不依赖 $x$ 的场，第二条方程给出 $p_0=-\ii\eta_0q_0/a$，第三条方程随之成立。第一条方程化为
+对不依赖 $x$ 的场, 第二条方程给出 $p_0=-\dfrac{\ii\eta_0q_0}{a}$, 第三条方程随之成立. 第一条方程化为
 \[
 (q_0)_z=\ii\left(\alpha Q^2-\dfrac{2\eta_0}{a}\right)q_0=-\ii\Omega q_0,
 \]
-得到所述平面波。对一般经典解，利用 $a,\eta$ 为实数，
+得到所述平面波. 对一般经典解, 利用 $a,\eta$ 为实数,
 \begin{align*}
 \partial_x(|p|^2+\eta^2)
 &=(2\eta q-2\ii ap)\conj p
  +p(2\eta\conj q+2\ii a\conj p)
  -2\eta(\conj q p+q\conj p)=0.
 \end{align*}
-故该量仅依赖 $z$；在任一空间端点取极限即得 \eqref{eq:C}。
+故该量仅依赖 $z$; 在任一空间端点取极限即得 \eqref{eq:C}.
 \end{proof}
 
 \section{Lax 表示与零曲率条件}
-采用文献\cite{LHP2013}式 (2.2)--(2.4) 的 Lax 对，变量转换为 $t_{\rm source}=x$、$E=q$、$\omega=-a$，其余参数不缩放。
+采用文献\cite{LHP2013}式 (2.2)--(2.4) 的 Lax 对, 变量转换为 $t_{\rm source}=x$、$E=q$、$\omega=-a$, 其余参数不缩放.
 令
 \[
 A(q)=\begin{pmatrix}0&q\\-\conj q&0\end{pmatrix},\quad
@@ -63,20 +63,20 @@ c&=-2\beta|q|^2\conj q+\dfrac{\ii\alpha}{2}\conj{q_x}
 \end{align}
 
 \begin{proposition}[Lax 相容性]\label{prop:zc}
-对足够光滑的 $q,p$ 和实值 $\eta$，式 \eqref{eq:lax} 的零曲率条件
+对足够光滑的 $q,p$ 和实值 $\eta$, 式 \eqref{eq:lax} 的零曲率条件
 \begin{equation}\label{eq:zc}
 U_z-V_x+[U,V]=0
 \end{equation}
-等价于 \eqref{eq:HMB} 及其复共轭方程。其矩阵满足约化
+等价于 \eqref{eq:HMB} 及其复共轭方程. 其矩阵满足约化
 \begin{equation}\label{eq:antihermitian}
 U(\conj\lambda)^\dagger=-U(\lambda),\qquad
 V(\conj\lambda)^\dagger=-V(\lambda).
 \end{equation}
 \end{proposition}
 \begin{proof}
-各多项式系数满足相应的反 Hermitian 约化；$R^\dagger=R$ 则给出有理项的约化。以下比较零曲率表达式的极点与多项式系数。
-写 $V_{\rm poly}=\displaystyle\sum\limits_{j=0}^3\lambda^jV_j$。由
-$U(\lambda)=U(a)-\ii(\lambda-a)\sg$，有理部分为
+各多项式系数满足相应的反 Hermitian 约化; $R^\dagger=R$ 则给出有理项的约化. 以下比较零曲率表达式的极点与多项式系数.
+写 $V_{\rm poly}=\displaystyle\sum\limits_{j=0}^3\lambda^jV_j$. 由
+$U(\lambda)=U(a)-\ii(\lambda-a)\sg$, 有理部分为
 \begin{equation}\label{eq:rationalzc}
 -\dfrac{\ii R_x}{\lambda-a}
 +\dfrac{\ii[U(\lambda),R]}{\lambda-a}
@@ -90,18 +90,18 @@ $U(\lambda)=U(a)-\ii(\lambda-a)\sg$，有理部分为
 -2\ii a\conj p-2\eta\conj q&q\conj p+\conj q p
 \end{pmatrix}.
 \]
-极点留数为零恰好给出两条介质方程及其共轭。
+极点留数为零恰好给出两条介质方程及其共轭.
 
-按 $\lambda^4,\lambda^3,\lambda^2,\lambda$ 比较多项式部分，得到
+按 $\lambda^4,\lambda^3,\lambda^2,\lambda$ 比较多项式部分, 得到
 \begin{align*}
 &[-\ii\sg,V_3]=0,\\
 &[-\ii\sg,V_2]+[A,V_3]=0,\\
 &-(V_2)_x+[-\ii\sg,V_1]+[A,V_2]=0,\\
 &-(V_1)_x+[-\ii\sg,V_0]+[A,V_1]=0.
 \end{align*}
-将上述系数代入，四式恒等成立。例如二次项的 $(1,2)$ 元为
-$4\beta q_x-2\ii(\alpha q-2\ii\beta q_x)+2\ii\alpha q=0$。
-一次项的两个独立分量分别为：其 $(1,1)$ 元为
+将上述系数代入, 四式恒等成立. 例如二次项的 $(1,2)$ 元为
+$4\beta q_x-2\ii(\alpha q-2\ii\beta q_x)+2\ii\alpha q=0$.
+一次项的两个独立分量分别为: 其 $(1,1)$ 元为
 \[
 2\ii\beta(|q|^2)_x
 +q(-\alpha\conj q-2\ii\beta\conj{q_x})
@@ -114,9 +114,9 @@ $4\beta q_x-2\ii(\alpha q-2\ii\beta q_x)+2\ii\alpha q=0$。
 -2\ii\left(2\beta|q|^2q+\dfrac{\ii\alpha}{2}q_x+\beta q_{xx}\right)
 +4\ii\beta|q|^2q=0.
 \end{align*}
-四次项是对角矩阵的交换子，故为零；三次项为
-$4\ii\beta[\sg,A]+4\ii\beta[A,\sg]=0$。其余分量由迹零与反 Hermitian 约化确定。
-常数项 $(1,2)$ 元为 $q_z-b_x-2dq-2p$。展开
+四次项是对角矩阵的交换子, 故为零; 三次项为
+$4\ii\beta[\sg,A]+4\ii\beta[A,\sg]=0$. 其余分量由迹零与反 Hermitian 约化确定.
+常数项 $(1,2)$ 元为 $q_z-b_x-2dq-2p$. 展开
 \begin{align*}
 b_x+2dq
 &=\beta q_{xxx}+\dfrac{\ii\alpha}{2}q_{xx}
@@ -125,7 +125,7 @@ b_x+2dq
 &=\beta q_{xxx}+\dfrac{\ii\alpha}{2}q_{xx}
  +6\beta|q|^2q_x+\ii\alpha|q|^2q.
 \end{align*}
-这给出光场方程。对常数对角元，展开得
+这给出光场方程. 对常数对角元, 展开得
 \begin{align*}
 qc+b\conj q
 &=\dfrac{\ii\alpha}{2}(q\conj{q_x}+q_x\conj q)
@@ -133,18 +133,18 @@ qc+b\conj q
 &=\partial_x\left(\dfrac{\ii\alpha}{2}|q|^2
 -\beta(q\conj{q_x}-q_x\conj q)\right)=d_x.
 \end{align*}
-因此该分量恒等为零。$(2,2)$ 元是其负值，$(2,1)$ 元由反 Hermitian 约化给出光场方程的负共轭。因此零曲率条件与式 \eqref{eq:HMB} 等价。
+因此该分量恒等为零. $(2,2)$ 元是其负值, $(2,1)$ 元由反 Hermitian 约化给出光场方程的负共轭. 因此零曲率条件与式 \eqref{eq:HMB} 等价.
 \end{proof}
 
 \section{常背景规范与传播相位}
-通过去除共同平面波相位，将两端归一化为同一个常矩阵。令
+通过去除共同平面波相位, 将两端归一化为同一个常矩阵. 令
 \begin{equation}\label{eq:gauge}
 G(z)=e^{-\frac{\ii\Omega z}{2}\sg},\quad
 \Phi=G\Psi,\quad u=e^{\ii\Omega z}q,\quad v=e^{\ii\Omega z}p.
 \end{equation}
 以下 $R$ 专指由去相位变量构成的矩阵
-$R=\left(\begin{smallmatrix}\eta&-v\\-\conj v&-\eta\end{smallmatrix}\right)$，并记
-$U_\infty=-\ii\lambda\sg+A(Q)$。
+$R=\left(\begin{smallmatrix}\eta&-v\\-\conj v&-\eta\end{smallmatrix}\right)$, 并记
+$U_\infty=-\ii\lambda\sg+A(Q)$.
 
 \begin{proposition}[背景规范变换]\label{prop:gauge}
 变换 \eqref{eq:gauge} 将 Lax 对化为
@@ -154,10 +154,10 @@ $U_\infty=-\ii\lambda\sg+A(Q)$。
 \widehat U=G^{-1}UG,\quad
 \widehat V=G^{-1}VG+\dfrac{\ii\Omega}{2}\sg.
 \end{equation}
-其中 $\widehat U=-\ii\lambda\sg+A(u)$，且背景矩阵满足
+其中 $\widehat U=-\ii\lambda\sg+A(u)$, 且背景矩阵满足
 \begin{equation}\label{eq:Rbg}
 R_\infty=
-\begin{pmatrix}\eta_0&\ii\eta_0Q/a\\-\ii\eta_0Q/a&-\eta_0\end{pmatrix}
+\begin{pmatrix}\eta_0&\dfrac{\ii\eta_0Q}{a}\\[6pt]-\dfrac{\ii\eta_0Q}{a}&-\eta_0\end{pmatrix}
 =\dfrac{\ii\eta_0}{a}U_\infty(a).
 \end{equation}
 \begin{equation}\label{eq:F}
@@ -167,24 +167,24 @@ F(\lambda)=4\beta\lambda^2-\alpha\lambda-2\beta Q^2+
 \end{equation}
 \end{proposition}
 \begin{proof}
-由 $\Phi_z=G_z\Psi+G\Psi_z=VG\Psi$，时间矩阵的变换具体为
+由 $\Phi_z=G_z\Psi+G\Psi_z=VG\Psi$, 时间矩阵的变换具体为
 \[
 \Psi_z=(G^{-1}VG-G^{-1}G_z)\Psi,\qquad
 G^{-1}G_z=-\dfrac{\ii\Omega}{2}\sg.
 \]
-$G$ 与 $x$ 无关，因此空间矩阵没有相应的导数项。对非对角势，
+$G$ 与 $x$ 无关, 因此空间矩阵没有相应的导数项. 对非对角势,
 \[
 G^{-1}A(q)G=
 \begin{pmatrix}0&e^{\ii\Omega z}q\\-e^{-\ii\Omega z}\conj q&0\end{pmatrix}
 =A(u),
 \]
-同一共轭将 $p$ 替换为 $v$，保持 $\eta$ 不变。由 $u_z=e^{\ii\Omega z}q_z+\ii\Omega u$，新光场方程为
+同一共轭将 $p$ 替换为 $v$, 保持 $\eta$ 不变. 由 $u_z=e^{\ii\Omega z}q_z+\ii\Omega u$, 新光场方程为
 \[
 u_z=\ii\alpha\left(\dfrac{1}{2}u_{xx}+|u|^2u\right)
 +\beta(u_{xxx}+6|u|^2u_x)+2v+\ii\Omega u.
 \]
 
-在常背景上，式 \eqref{eq:Rbg} 由矩阵乘法得到。时间矩阵的两个独立分量为
+在常背景上, 式 \eqref{eq:Rbg} 由矩阵乘法得到. 时间矩阵的两个独立分量为
 \[
 (\widehat V_\infty)_{12}
 =Q\left(-4\beta\lambda^2+\alpha\lambda+2\beta Q^2
@@ -199,10 +199,10 @@ u_z=\ii\alpha\left(\dfrac{1}{2}u_{xx}+|u|^2u\right)
 &=\ii\lambda\left(4\beta\lambda^2-\alpha\lambda-2\beta Q^2+
 \dfrac{\eta_0}{a(\lambda-a)}\right),
 \end{align*}
-最后一步用了 $\alpha Q^2/2+\Omega/2=\eta_0/a$。
-故 $\widehat V_\infty=-F U_\infty$。
+最后一步用了 $\dfrac{\alpha Q^2}{2}+\dfrac{\Omega}{2}=\dfrac{\eta_0}{a}$.
+故 $\widehat V_\infty=-F U_\infty$.
 \end{proof}
-有理项 $\eta_0/[a(\lambda-a)]$ 是背景传播因子中介质响应的贡献，它将在共振点的散射演化与重构中出现。
+有理项 $\dfrac{\eta_0}{a(\lambda-a)}$ 是背景传播因子中介质响应的贡献, 它将在共振点的散射演化与重构中出现.
 
 \section{单值化与背景谱结构}
 引入谱曲面 $\rho^2=\lambda^2+Q^2$ 及单值化坐标
@@ -211,10 +211,10 @@ w=\lambda+\rho,\quad
 \lambda(w)=\dfrac{1}{2}\left(w-\dfrac{Q^2}{w}\right),\quad
 \rho(w)=\dfrac{1}{2}\left(w+\dfrac{Q^2}{w}\right).
 \end{equation}
-第一叶的无穷远由 $\rho\sim\lambda$ 选定，对应 $w=\infty$；另一无穷远对应 $w=0$。
+第一叶的无穷远由 $\rho\sim\lambda$ 选定, 对应 $w=\infty$; 另一无穷远对应 $w=0$.
 
 \begin{proposition}[背景谱与解析区域]\label{prop:curve}\label{prop:domains}
-背景矩阵满足 $U_\infty^2=-(\lambda^2+Q^2)I$。其振荡谱轮廓、单值化后的轮廓及解析区域分别为
+背景矩阵满足 $U_\infty^2=-(\lambda^2+Q^2)I$. 其振荡谱轮廓、单值化后的轮廓及解析区域分别为
 \begin{equation}\label{eq:lambda-spectrum}
 \Sigma_\lambda=\mathbb R\cup\ii\lbrack-Q,Q\rbrack.
 \end{equation}
@@ -223,7 +223,7 @@ w=\lambda+\rho,\quad
 D_\pm&=\left\{w:\ \pm\operatorname{Im}w
 \left(1-\dfrac{Q^2}{|w|^2}\right)>0\right\}.\label{eq:domains}
 \end{align}
-其中 $D_\pm=\{w:\pm\operatorname{Im}\rho(w)>0\}$。换叶映射为
+其中 $D_\pm=\{w:\pm\operatorname{Im}\rho(w)>0\}$. 换叶映射为
 \begin{equation}\label{eq:sheet}
 h(w)=-\dfrac{Q^2}{w},\qquad
 \lambda(h(w))=\lambda(w),\quad \rho(h(w))=-\rho(w).
@@ -231,16 +231,16 @@ h(w)=-\dfrac{Q^2}{w},\qquad
 取背景特征向量矩阵
 \begin{equation}\label{eq:E}
 E(w)=I-\dfrac{\ii Q}{w}\sigma_1
-=\begin{pmatrix}1&-\ii Q/w\\-\ii Q/w&1\end{pmatrix},
+=\begin{pmatrix}1&-\dfrac{\ii Q}{w}\\[6pt]-\dfrac{\ii Q}{w}&1\end{pmatrix},
 \quad \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
 \end{equation}
 则
 \begin{equation}\label{eq:diagE}
 U_\infty E=-\ii\rho E\sg,\quad
 \gamma(w):=\det E=1+\dfrac{Q^2}{w^2},\quad
-E^{-1}=\dfrac{I+\ii Q\sigma_1/w}{\gamma(w)}.
+E^{-1}=\dfrac{I+\dfrac{\ii Q}{w}\sigma_1}{\gamma(w)}.
 \end{equation}
-在 $w\ne0,\pm\ii Q,w_a^\pm$ 上，背景同时 Lax 解为
+在 $w\ne0,\pm\ii Q,w_a^\pm$ 上, 背景同时 Lax 解为
 \begin{equation}\label{eq:theta}
 \Psi_0=E(w)e^{-\ii\theta(w;x,z)\sg},\qquad
 \theta=\rho(w)[x-F(\lambda(w))z].
@@ -251,24 +251,24 @@ w_a^\pm=a\pm\sqrt{a^2+Q^2}.
 \end{equation}
 \end{proposition}
 \begin{proof}
-矩阵平方的非对角元相消，对角元均为 $-\lambda^2-Q^2$。特征值为 $\pm\ii\rho$，其中 $\rho^2=\lambda^2+Q^2$。两指数模式无指数增长要求 $\rho\in\mathbb R$。写 $\lambda=\xi+\ii\nu$，则
-$\rho^2=\xi^2-\nu^2+Q^2+2\ii\xi\nu$。条件为 $\xi\nu=0$ 及 $\xi^2-\nu^2+Q^2\ge0$，给出实轴和 $|\nu|\le Q$ 的虚线段。在端点 $\rho=0$，矩阵一般为非零幂零矩阵，基本解包含线性项，此时不存在两个线性无关的振荡特征向量。
+矩阵平方的非对角元相消, 对角元均为 $-\lambda^2-Q^2$. 特征值为 $\pm\ii\rho$, 其中 $\rho^2=\lambda^2+Q^2$. 两指数模式无指数增长要求 $\rho\in\mathbb R$. 写 $\lambda=\xi+\ii\nu$, 则
+$\rho^2=\xi^2-\nu^2+Q^2+2\ii\xi\nu$. 条件为 $\xi\nu=0$ 及 $\xi^2-\nu^2+Q^2\ge0$, 给出实轴和 $|\nu|\le Q$ 的虚线段. 在端点 $\rho=0$, 矩阵一般为非零幂零矩阵, 基本解包含线性项, 此时不存在两个线性无关的振荡特征向量.
 
-由 $(\rho-\lambda)(\rho+\lambda)=Q^2$ 得到 \eqref{eq:uniform}，交换谱根符号即得 \eqref{eq:sheet}。写 $w=re^{\ii\varphi}$，则
+由 $(\rho-\lambda)(\rho+\lambda)=Q^2$ 得到 \eqref{eq:uniform}, 交换谱根符号即得 \eqref{eq:sheet}. 写 $w=re^{\ii\varphi}$, 则
 \[
 \operatorname{Im}\rho=\dfrac{1}{2}\left(r-\dfrac{Q^2}{r}\right)\sin\varphi,
 \]
-其零集为实轴与圆 $|w|=Q$，正负号给出 $D_\pm$。
+其零集为实轴与圆 $|w|=Q$, 正负号给出 $D_\pm$.
 
-对特征值 $-\ii\rho$，将特征向量第一分量取为 1，第二分量为
-$-\ii(\rho-\lambda)/Q=-\ii Q/w$；对 $+\ii\rho$ 则交换两分量，得到 $E$。其行列式和逆矩阵由二阶矩阵公式给出。再由 $\theta_x=\rho$、$\theta_z=-\rho F$，
+对特征值 $-\ii\rho$, 将特征向量第一分量取为 1, 第二分量为
+$-\dfrac{\ii(\rho-\lambda)}{Q}=-\dfrac{\ii Q}{w}$; 对 $+\ii\rho$ 则交换两分量, 得到 $E$. 其行列式和逆矩阵由二阶矩阵公式给出. 再由 $\theta_x=\rho$、$\theta_z=-\rho F$,
 \[
 (\Psi_0)_x=U_\infty\Psi_0,\qquad
 (\Psi_0)_z=-F U_\infty\Psi_0=\widehat V_\infty\Psi_0.
 \]
-最后，解 $\lambda(w)=a$ 得到两个实根 $w_a^\pm$，且 $w_a^+w_a^-=-Q^2$。
+最后, 解 $\lambda(w)=a$ 得到两个实根 $w_a^\pm$, 且 $w_a^+w_a^-=-Q^2$.
 \end{proof}
 
-轮廓各弧以 $D_+$ 位于左侧为正向：实轴外段朝右，内段朝左；上半圆顺时针，下半圆逆时针。外部上半平面与内部下半圆盘同属 $D_+$。
+轮廓各弧以 $D_+$ 位于左侧为正向: 实轴外段朝右, 内段朝左; 上半圆顺时针, 下半圆逆时针. 外部上半平面与内部下半圆盘同属 $D_+$.
 
-后续构造涉及三类有限特殊点。$\pm\ii Q$ 是 $\gamma$ 的零点，背景特征向量在此退化；$\pm Q$ 是轮廓交点；$w_a^\pm$ 是传播矩阵的共振原像。空间谱问题在 $w_a^\pm$ 正则，但当 $z\ne0$ 时，背景传播指数在这些点具有奇异振荡。因此共振处采用固定 $z$ 的空间归一化。
+后续构造涉及三类有限特殊点. $\pm\ii Q$ 是 $\gamma$ 的零点, 背景特征向量在此退化; $\pm Q$ 是轮廓交点; $w_a^\pm$ 是传播矩阵的共振原像. 空间谱问题在 $w_a^\pm$ 正则, 但当 $z\ne0$ 时, 背景传播指数在这些点具有奇异振荡. 因此共振处采用固定 $z$ 的空间归一化.
