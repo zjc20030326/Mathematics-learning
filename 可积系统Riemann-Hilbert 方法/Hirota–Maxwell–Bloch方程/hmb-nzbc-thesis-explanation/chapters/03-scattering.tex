@@ -18,20 +18,20 @@ HMB 的 x 方程用于定义散射数据，z 方程用于决定散射数据如�
 \widehat U=-\mathrm{i}\lambda\sigma_3+A(u).
 \]
 
-当 x\ensuremath{\to}\ensuremath{\pm}\ensuremath{\infty} 时 u\ensuremath{\to}Q，故 \textbackslash{}widehat U\ensuremath{\to}U\ensuremath{\infty}。把两者之差记为\par
+当 $x\to{}\pm{}\infty{}$ 时 $u\to{}Q$，故 $\widehat U\to{}U_{\infty}$。把两者之差记为\par
 
 \[
 \Delta A(x)=A(u(x))-A(Q)
 =\begin{pmatrix}0&u-Q\\-(\overline u-Q)&0\end{pmatrix}.
 \]
 
-若 u\ensuremath{-}Q\ensuremath{\in}L\textsuperscript{1}\ensuremath{\cap}L\ensuremath{\infty}，这个扰动沿实 x 可积。L\textsuperscript{1} 保证 Volterra 积分的总强度有限；L\ensuremath{\infty} 帮助控制局部乘积和矩阵核。\par
+若 $u-Q\in{}L^{1}\cap{}L\infty{}$，这个扰动沿实 x 可积。$L^{1}$ 保证 Volterra 积分的总强度有限；$L\infty{}$ 帮助控制局部乘积和矩阵核。\par
 
 注意这时\textbf{不是假设 q 本身在无穷远趋零}，而是减掉常数 Q 后的扰动可积。这是非零背景与第五章零背景的根本差别。\par
 
 \section{Jost 归一化为什么要乘一个指数？}
 
-背景常系数系统的基本解为 E(w)e\textasciicircum{}\{\ensuremath{-}i\ensuremath{\rho}x\ensuremath{\sigma}\textsubscript{3}\}。所以自然定义从左、右逼近背景的空间基本解：\par
+背景常系数系统的基本解为 $E(w)e^{-i\rho{}x\sigma{}_{3}}$。所以自然定义从左、右逼近背景的空间基本解：\par
 
 \[
 \chi_\pm(x,w)e^{\mathrm{i}\rho x\sigma_3}
@@ -44,13 +44,13 @@ HMB 的 x 方程用于定义散射数据，z 方程用于决定散射数据如�
 \mu_\pm=\chi_\pm e^{\mathrm{i}\rho x\sigma_3}.
 \]
 
-这样 \ensuremath{\mu}\ensuremath{\pm} 的端态是 E，而不是快速振荡的 E e\textasciicircum{}\{\ensuremath{-}i\ensuremath{\rho}x\ensuremath{\sigma}\textsubscript{3}\}；后续把左右两套解析列拼成 RHP 更方便。\par
+这样 $\mu_{\pm}$ 的端态是 E，而不是快速振荡的 $E e^{-i\rho{}x\sigma{}_{3}}$；后续把左右两套解析列拼成 RHP 更方便。\par
 
-下标 \ensuremath{\pm} 表示归一化端点，不是取复平面的上下边界。\ensuremath{\mu}\_\{+,1\} 是右 Jost 矩阵第一列，\ensuremath{\mu}\_\{-,2\} 是左 Jost 矩阵第二列。\par
+下标 $\pm{}$ 表示归一化端点，不是取复平面的上下边界。$\mu{}_{+,1}$ 是右 Jost 矩阵第一列，$\mu{}_{-,2}$ 是左 Jost 矩阵第二列。\par
 
 \section{thm:jost 和 eq:volterra：完整的变分常数推导}
 
-定义 W\ensuremath{\pm}=E\textsuperscript{-}\textsuperscript{1}\ensuremath{\chi}\ensuremath{\pm}。利用 U\ensuremath{\infty}E=\ensuremath{-}i\ensuremath{\rho}E\ensuremath{\sigma}\textsubscript{3}，原方程给出\par
+定义 $W_{\pm}=E^{-1}\chi_{\pm}$。利用 $U_{\infty}E=-i\rho{}E\sigma{}_{3}$，原方程给出\par
 
 \[
 \begin{aligned}
@@ -62,7 +62,7 @@ HMB 的 x 方程用于定义散射数据，z 方程用于决定散射数据如�
 \end{aligned}
 \]
 
-先在有限起点 x\textsubscript{0} 应用变分常数：\par
+先在有限起点 $x_{0}$ 应用变分常数：\par
 
 \[
 W_\pm(x)
@@ -71,7 +71,7 @@ W_\pm(x)
 E^{-1}\Delta A(y)E W_\pm(y)\,\mathrm{d}y.
 \]
 
-左右乘回 E 和 e\textasciicircum{}\{i\ensuremath{\rho}x\ensuremath{\sigma}\textsubscript{3}\}，再分别令 x\textsubscript{0}\ensuremath{\to}\ensuremath{-}\ensuremath{\infty} 或 +\ensuremath{\infty}。最终得原文 eq:volterra：\par
+左右乘回 E 和 $e^{i\rho{}x\sigma{}_{3}}$，再分别令 $x_{0}\to{}-\infty{}$ 或 $+\infty{}$。最终得原文 eq:volterra：\par
 
 \[
 \boxed{
@@ -84,9 +84,9 @@ e^{\mathrm{i}\rho(x-y)\sigma_3}\,\mathrm{d}y.
 \end{aligned}}
 \]
 
-为什么右侧最后还有一个右乘指数？因为 \ensuremath{\mu}=\ensuremath{\chi} e\textasciicircum{}\{i\ensuremath{\rho}x\ensuremath{\sigma}\textsubscript{3}\}；右侧乘指数不可以与左侧矩阵自由交换。e\textasciicircum{}\{i\ensuremath{\rho}x\ensuremath{\sigma}\textsubscript{3}\} 是对角矩阵，左、右两次指数属于不同乘法位置。\par
+为什么右侧最后还有一个右乘指数？因为 $\mu{}=\chi{} e^{i\rho{}x\sigma{}_{3}}$；右侧乘指数不可以与左侧矩阵自由交换。$e^{i\rho{}x\sigma{}_{3}}$ 是对角矩阵，左、右两次指数属于不同乘法位置。\par
 
-“从 +\ensuremath{\infty} 到 x 的积分”按\par
+“从 $+\infty{}$ 到 x 的积分”按\par
 
 \[
 \int_{+\infty}^{x}f(y)\,\mathrm{d}y
@@ -105,14 +105,14 @@ e^{\mathrm{i}\rho(x-y)\sigma_3}\,\mathrm{d}y.
 s_1=1,\quad s_2=-1.
 \]
 
-观察 \ensuremath{\mu} 的第 j 列：右侧 e\textasciicircum{}\{i\ensuremath{\rho}(x\ensuremath{-}y)\ensuremath{\sigma}\textsubscript{3}\} 作用在 e\_j 上，只给它乘一个标量 e\textasciicircum{}\{i s\_j \ensuremath{\rho}(x\ensuremath{-}y)\}。于是核简化为\par
+观察 $\mu{}$ 的第 j 列：右侧 $e^{i\rho{}(x-y)\sigma{}_{3}}$ 作用在 $e_j$ 上，只给它乘一个标量 $e^{i s_j \rho{}(x-y)}$。于是核简化为\par
 
 \[
 K_j(x-y,w)=e^{\mathrm{i}s_j\rho(x-y)}
 E e^{-\mathrm{i}\rho(x-y)\sigma_3}E^{-1}.
 \]
 
-对 j=1：\par
+对 $j=1$：\par
 
 \[
 e^{\mathrm{i}\rho(x-y)}
@@ -120,7 +120,7 @@ e^{-\mathrm{i}\rho(x-y)\sigma_3}
 =\operatorname{diag}(1,e^{2\mathrm{i}\rho(x-y)}).
 \]
 
-对 j=2：\par
+对 $j=2$：\par
 
 \[
 e^{-\mathrm{i}\rho(x-y)}
@@ -128,14 +128,14 @@ e^{-\mathrm{i}\rho(x-y)\sigma_3}
 =\operatorname{diag}(e^{-2\mathrm{i}\rho(x-y)},1).
 \]
 
-假设 w\ensuremath{\in}D\textsubscript{+}，即 Im\ensuremath{\rho}>0。\par
+假设 $w\in{}D_{+}$，即 $Im\rho{}>0$。\par
 
 \begin{itemize}[leftmargin=2em]
 \item 若选择负端归一化 \ensuremath{\chi}\textsubscript{-}，积分变量 y\ensuremath{\le}x，故 x\ensuremath{-}y\ensuremath{\ge}0；对第一列 |e\textasciicircum{}\{2i\ensuremath{\rho}(x\ensuremath{-}y)\}|\ensuremath{\le}1。\textbf{\ensuremath{\mu}\_\{-,1\} 在 D\textsubscript{+} 解析}。
 \item 若选择正端归一化 \ensuremath{\chi}\textsubscript{+}，积分变量 y\ensuremath{\ge}x，故 x\ensuremath{-}y\ensuremath{\le}0；对第二列 |e\textasciicircum{}\{\ensuremath{-}2i\ensuremath{\rho}(x\ensuremath{-}y)\}|\ensuremath{\le}1。\textbf{\ensuremath{\mu}\_\{+,2\} 在 D\textsubscript{+} 解析}。
 \end{itemize}
 
-如果 Im\ensuremath{\rho}<0，上述指数不再按同一选择有界，需要交换列与端点。结论为\par
+如果 $Im\rho{}<0$，上述指数不再按同一选择有界，需要交换列与端点。结论为\par
 
 \[
 \begin{array}{c|c}
@@ -144,7 +144,7 @@ D_-:\operatorname{Im}\rho<0 & \mu_{+,1},\ \mu_{-,2}
 \end{array}
 \]
 
-这里是帮助理解的二维表，不表示完整矩阵在整个 D\textsubscript{+} 或 D\textsubscript{-} 同时解析。\par
+这里是帮助理解的二维表，不表示完整矩阵在整个 $D_{+}$ 或 $D_{-}$ 同时解析。\par
 
 \section{为何 Neumann 级数收敛？1/n! 从何而来？}
 
@@ -160,7 +160,7 @@ D_-:\operatorname{Im}\rho<0 & \mu_{+,1},\ \mu_{-,2}
 -\infty<y_n<\cdots<y_2<y_1<x.
 \]
 
-若核有界于 C\_K\ensuremath{\parallel}\ensuremath{\Delta}A(y)\ensuremath{\parallel}，由积分对称性得到\par
+若核有界于 $C_K\parallel{}\Delta{}A(y)\parallel{}$，由积分对称性得到\par
 
 \[
 \begin{aligned}
@@ -176,12 +176,12 @@ D_-:\operatorname{Im}\rho<0 & \mu_{+,1},\ \mu_{-,2}
 
 最后一个等号因为对称被积函数在 n! 个变量排列区域上的积分相等。有阶乘分母，级数绝对收敛；同样估计作用于两解之差，说明唯一性。每次迭代项都随 w 解析，紧集一致收敛由 Weierstrass 定理保证解析性。\par
 
-\textbf{关键限制}：E\textsuperscript{-}\textsuperscript{1} 含 1/\ensuremath{\gamma}(w)，在 w=\ensuremath{\pm}iQ 退化，不能直接把此证明延伸到分支点。分支点可能需要带权的空间衰减假设与单独的阈值展开。\par
+\textbf{关键限制}：$E^{-1}$ 含 $1/\gamma{}(w)$，在 $w=\pm{}iQ$ 退化，不能直接把此证明延伸到分支点。分支点可能需要带权的空间衰减假设与单独的阈值展开。\par
 
 \section{散射矩阵究竟表示什么？}
 \noindent{\small\textbf{对应原文：}\texttt{eq:Sdef}}\par
 
-\ensuremath{\chi}\textsubscript{+}、\ensuremath{\chi}\textsubscript{-} 是同一二阶空间系统的两套可逆基本矩阵，所以\par
+$\chi{}_{+}$、$\chi{}_{-}$ 是同一二阶空间系统的两套可逆基本矩阵，所以\par
 
 \[
 S_{\mathrm{sp}}(w,z)=\chi_+(x,w)^{-1}\chi_-(x,w)
@@ -193,7 +193,7 @@ S_{\mathrm{sp}}(w,z)=\chi_+(x,w)^{-1}\chi_-(x,w)
 \chi_-=\chi_+S_{\mathrm{sp}}.
 \]
 
-这是一个重要的方向约定。如果改成 \ensuremath{\chi}\textsubscript{+}=\ensuremath{\chi}\textsubscript{-}S，所有反射系数及 RHP 跳跃符号都要相应改变。\par
+这是一个重要的方向约定。如果改成 $\chi{}_{+}=\chi{}_{-}S$，所有反射系数及 RHP 跳跃符号都要相应改变。\par
 
 为了使用完整传播相位，定义同时归一化的基本矩阵\par
 
@@ -203,19 +203,19 @@ S_{\mathrm{sp}}(w,z)=\chi_+(x,w)^{-1}\chi_-(x,w)
 \Psi_-=\Psi_+S.
 \]
 
-S 与 S\_sp 的区别：S 是两部分 Lax 对同时演化的散射矩阵，在后面证明的正则性条件下与 z 无关；S\_sp 则可随 z 通过对角相位共轭变化。\par
+S 与 $S_sp$ 的区别：S 是两部分 Lax 对同时演化的散射矩阵，在后面证明的正则性条件下与 z 无关；$S_sp$ 则可随 z 通过对角相位共轭变化。\par
 
 \section{为什么散射矩阵行列式为 1？}
 \noindent{\small\textbf{对应原文：}\texttt{eq:detjost}}\par
 
-对基本矩阵 \ensuremath{\chi}\textsubscript{x}=U\ensuremath{\chi}，有 Liouville（Jacobi）行列式公式\par
+对基本矩阵 $\chi{}_{x}=U\chi{}$，有 Liouville（Jacobi）行列式公式\par
 
 \[
 \dfrac{\mathrm{d}}{\mathrm{d}x}\det\chi
 =\operatorname{tr}U\det\chi.
 \]
 
-这里 tr U=0，所以 det\ensuremath{\chi} 与 x 无关；利用两端归一化\par
+这里 $tr U=0$，所以 $det\chi{}$ 与 x 无关；利用两端归一化\par
 
 \[
 \det\chi_\pm=\det E=\gamma(w).
@@ -228,12 +228,12 @@ S 与 S\_sp 的区别：S 是两部分 Lax 对同时演化的散射矩阵，在�
 =\dfrac{\det\chi_-}{\det\chi_+}=1.
 \]
 
-同时归一化右乘的对角指数行列式也为 1，所以 detS=1。这个等式是以后计算跳跃矩阵 detJ=1 的原因之一。\par
+同时归一化右乘的对角指数行列式也为 1，所以 $detS=1$。这个等式是以后计算跳跃矩阵 $detJ=1$ 的原因之一。\par
 
 \section{Cramer 法则逐列推导}
 \noindent{\small\textbf{对应原文：}\texttt{eq:wronskian}}\par
 
-把 \ensuremath{\Psi}\textsubscript{-}=\ensuremath{\Psi}\textsubscript{+}S 写成列：\par
+把 $\Psi{}_{-}=\Psi{}_{+}S$ 写成列：\par
 
 \[
 \begin{aligned}
@@ -242,20 +242,20 @@ S 与 S\_sp 的区别：S 是两部分 Lax 对同时演化的散射矩阵，在�
 \end{aligned}
 \]
 
-对第一式两边与 \ensuremath{\Psi}\textsubscript{+},\textsubscript{2} 构成行列式：\par
+对第一式两边与 $\Psi{}_{+},_{2}$ 构成行列式：\par
 
 \[
 \det(\Psi_{-,1},\Psi_{+,2})
 =s_{11}\det(\Psi_{+,1},\Psi_{+,2}),
 \]
 
-因为包含两列 \ensuremath{\Psi}\textsubscript{+},\textsubscript{2} 的那项为零。分母 det\ensuremath{\Psi}\textsubscript{+}=\ensuremath{\gamma}，得到\par
+因为包含两列 $\Psi{}_{+},_{2}$ 的那项为零。分母 $det\Psi{}_{+}=\gamma{}$，得到\par
 
 \[
 s_{11}=\dfrac{\det(\Psi_{-,1},\Psi_{+,2})}{\gamma}.
 \]
 
-同理，与 \ensuremath{\Psi}\textsubscript{+},\textsubscript{1} 构成适当的行列式，得到\par
+同理，与 $\Psi{}_{+},_{1}$ 构成适当的行列式，得到\par
 
 \[
 \begin{aligned}
@@ -267,7 +267,7 @@ s_{12}&=\dfrac{\det(\Psi_{-,2},\Psi_{+,2})}{\gamma}.
 
 最后一个分子列序不能交换，否则会多一个负号。\par
 
-由于 s\textsubscript{1}\textsubscript{1} 的分子是 D\textsubscript{+} 的两列解析函数的行列式，且 \ensuremath{\gamma} 在普通点非零，s\textsubscript{1}\textsubscript{1} 可以延拓进 D\textsubscript{+}；s\textsubscript{2}\textsubscript{2} 类似在 D\textsubscript{-} 解析。反射相关的 s\textsubscript{1}\textsubscript{2}、s\textsubscript{2}\textsubscript{1} 一般只在连续谱定义，不应无条件宣称它们在某个开域解析。\par
+由于 $s_{11}$ 的分子是 $D_{+}$ 的两列解析函数的行列式，且 $\gamma{}$ 在普通点非零，$s_{11}$ 可以延拓进 $D_{+}$；$s_{22}$ 类似在 $D_{-}$ 解析。反射相关的 $s_{12}$、$s_{21}$ 一般只在连续谱定义，不应无条件宣称它们在某个开域解析。\par
 
 \section{eq:conjugation、eq:sconj：为何存在复共轭对称？}
 
@@ -277,13 +277,13 @@ s_{12}&=\dfrac{\det(\Psi_{-,2},\Psi_{+,2})}{\gamma}.
 K=\begin{pmatrix}0&1\\-1&0\end{pmatrix}.
 \]
 
-空间 Lax 矩阵的实参数约化意味着，如果 \ensuremath{\Psi}(x,z,\textbackslash{}overline w) 是某个基本解，把它逐项共轭后再做 K 共轭，也产生具有相应归一化的基本解。Jost 解唯一，故\par
+空间 Lax 矩阵的实参数约化意味着，如果 $\Psi{}(x,z,\overline w)$ 是某个基本解，把它逐项共轭后再做 K 共轭，也产生具有相应归一化的基本解。Jost 解唯一，故\par
 
 \[
 \Psi_\pm(w)=K\overline{\Psi_\pm(\overline w)}K^{-1}.
 \]
 
-对散射矩阵也有相同形式。若 S=\textbackslash{}begin\{pmatrix\}s\textsubscript{1}\textsubscript{1}\&s\textsubscript{1}\textsubscript{2}\textbackslash{}\textbackslash{}s\textsubscript{2}\textsubscript{1}\&s\textsubscript{2}\textsubscript{2}\textbackslash{}end\{pmatrix\}，直接相乘可得到\par
+对散射矩阵也有相同形式。若 $S=\begin{pmatrix}s_{11}&s_{12}\\s_{21}&s_{22}\end{pmatrix}$，直接相乘可得到\par
 
 \[
 s_{22}(w)=\overline{s_{11}(\overline w)},
@@ -291,7 +291,7 @@ s_{22}(w)=\overline{s_{11}(\overline w)},
 s_{12}(w)=-\overline{s_{21}(\overline w)}.
 \]
 
-这一对称把 D\textsubscript{+} 的透射零点送到 D\textsubscript{-} 的共轭零点。它与换叶对称是两种不同操作，不可以混为一谈。\par
+这一对称把 $D_{+}$ 的透射零点送到 $D_{-}$ 的共轭零点。它与换叶对称是两种不同操作，不可以混为一谈。\par
 
 \section{eq:Esheet、eq:musheet：换叶与共轭不是一回事}
 
@@ -310,21 +310,21 @@ E(h(w))=E(w)C(w),
 C(w)=\dfrac{\mathrm{i}w}{Q}\sigma_1.
 \]
 
-C \ensuremath{\sigma}\textsubscript{3}=\ensuremath{-}\ensuremath{\sigma}\textsubscript{3} C，正好把两种背景指数模式交换。于是\par
+$C \sigma{}_{3}=-\sigma{}_{3} C$，正好把两种背景指数模式交换。于是\par
 
 \[
 \Psi_\pm(h(w))=\Psi_\pm(w)C(w),
 \]
 
-并由 \ensuremath{\Psi}\textsubscript{-}=\ensuremath{\Psi}\textsubscript{+}S 导出\par
+并由 $\Psi{}_{-}=\Psi{}_{+}S$ 导出\par
 
 \[
 S(h(w))=\sigma_1S(w)\sigma_1.
 \]
 
-后者相当于交换透射和反射矩阵的列、行位置。请动手算 \ensuremath{\sigma}\textsubscript{1}S\ensuremath{\sigma}\textsubscript{1}，确认它确实使 s\textsubscript{1}\textsubscript{1}\ensuremath{\leftrightarrow}s\textsubscript{2}\textsubscript{2}、s\textsubscript{1}\textsubscript{2}\ensuremath{\leftrightarrow}s\textsubscript{2}\textsubscript{1}。\par
+后者相当于交换透射和反射矩阵的列、行位置。请动手算 $\sigma{}_{1}S\sigma{}_{1}$，确认它确实使 $s_{11}\leftrightarrow{}s_{22}$、$s_{12}\leftrightarrow{}s_{21}$。\par
 
-\textbf{与共轭区别}：h 保持 \ensuremath{\lambda} 不变但改变 \ensuremath{\rho} 符号；复共轭通常把 \ensuremath{\lambda}、\ensuremath{\rho} 变成共轭值，改变相应解析域。两者共同生成四点轨道。\par
+\textbf{与共轭区别}：h 保持 $\lambda{}$ 不变但改变 $\rho{}$ 符号；复共轭通常把 $\lambda{}$、$\rho{}$ 变成共轭值，改变相应解析域。两者共同生成四点轨道。\par
 
 \section{反射系数只是比例}
 \noindent{\small\textbf{对应原文：}\texttt{eq:reflection}}\par
@@ -337,27 +337,27 @@ r=\dfrac{s_{21}}{s_{11}},
 \widetilde r=\dfrac{s_{12}}{s_{22}}.
 \]
 
-这是散射矩阵两个非对角系数相对于对应透射系数的比值。若 s\textsubscript{1}\textsubscript{1} 或 s\textsubscript{2}\textsubscript{2} 在连续谱为零，比例就可能没有定义，因此论文额外假定普通连续谱无透射零点。\par
+这是散射矩阵两个非对角系数相对于对应透射系数的比值。若 $s_{11}$ 或 $s_{22}$ 在连续谱为零，比例就可能没有定义，因此论文额外假定普通连续谱无透射零点。\par
 
-反射为零时 r=\textbackslash{}widetilde r=0，意味着 S 在普通连续谱是对角矩阵，并不意味着 S=I 或没有离散零点。第五章的 S 恰为一个非平凡的对角矩阵。\par
+反射为零时 $r=\widetilde r=0$，意味着 S 在普通连续谱是对角矩阵，并不意味着 $S=I$ 或没有离散零点。第五章的 S 恰为一个非平凡的对角矩阵。\par
 
 \section{prop:quartet 与 eq:quartet：四点离散谱的来历}
 
-若 \ensuremath{\zeta}\ensuremath{\in}D\textsubscript{+} 且 s\textsubscript{1}\textsubscript{1}(\ensuremath{\zeta})=0，那么由共轭对称得到 s\textsubscript{2}\textsubscript{2}(\textbackslash{}overline \ensuremath{\zeta})=0；由换叶对称得到 s\textsubscript{2}\textsubscript{2}(h(\ensuremath{\zeta}))=0；再组合两种对称得到 s\textsubscript{1}\textsubscript{1}(h(\textbackslash{}overline \ensuremath{\zeta}))=0。四点为\par
+若 $\zeta{}\in{}D_{+}$ 且 $s_{11}(\zeta{})=0$，那么由共轭对称得到 $s_{22}(\overline \zeta{})=0$；由换叶对称得到 $s_{22}(h(\zeta{}))=0$；再组合两种对称得到 $s_{11}(h(\overline \zeta{}))=0$。四点为\par
 
 \[
 \left\{\zeta,\overline\zeta,-\dfrac{Q^2}{\zeta},-\dfrac{Q^2}{\overline\zeta}\right\}.
 \]
 
-其中 \ensuremath{\zeta}、h(\textbackslash{}overline \ensuremath{\zeta}) 在 D\textsubscript{+}，另外两个在 D\textsubscript{-}。一般简单零点的四点互不相同。第五章外部纯虚谱点 iW 的 D\textsubscript{+} 配对点是 \ensuremath{-}iQ\textsuperscript{2}/W。\par
+其中 $\zeta{}$、$h(\overline \zeta{})$ 在 $D_{+}$，另外两个在 $D_{-}$。一般简单零点的四点互不相同。第五章外部纯虚谱点 iW 的 $D_{+}$ 配对点是 $-iQ^{2}/W$。\par
 
-为什么透射零点对应本征函数？在 s\textsubscript{1}\textsubscript{1}(\ensuremath{\zeta})=0 处，\par
+为什么透射零点对应本征函数？在 $s_{11}(\zeta{})=0$ 处，\par
 
 \[
 \det(\Psi_{-,1}(\zeta),\Psi_{+,2}(\zeta))=0.
 \]
 
-两列线性相关，可以形成同一向量解：它向左、右分别由所选的衰减模态控制，因而与局域本征态相联系。线性相关常数 b\_j 是“范数常数”的原始来源。\par
+两列线性相关，可以形成同一向量解：它向左、右分别由所选的衰减模态控制，因而与局域本征态相联系。线性相关常数 $b_j$ 是“范数常数”的原始来源。\par
 
 \section{b\_j、c\_j 与 C\_j 各表示什么？}
 
@@ -369,20 +369,20 @@ r=\dfrac{s_{21}}{s_{11}},
 c_j=\dfrac{b_j}{s_{11}'(\zeta_j)}.
 \]
 
-由于 s\textsubscript{1}\textsubscript{1} 在 \ensuremath{\zeta}\_j 有简单零点，1/s\textsubscript{1}\textsubscript{1} 的留数为 1/s'\textsubscript{1}\textsubscript{1}(\ensuremath{\zeta}\_j)。当第一列被除以 s\textsubscript{1}\textsubscript{1} 后，留数系数就出现 c\_j。去振荡后的列还引入\par
+由于 $s_{11}$ 在 $\zeta{}_j$ 有简单零点，$\dfrac{1}{s}_{11}$ 的留数为 $\dfrac{1}{s}'_{11}(\zeta{}_j)$。当第一列被除以 $s_{11}$ 后，留数系数就出现 $c_j$。去振荡后的列还引入\par
 
 \[
 C_j(x,z)=c_j e^{2\mathrm{i}\theta(\zeta_j;x,z)}.
 \]
 
-请区分：c\_j 是在正确的同时归一化约定下与 x、z 无关的常数；C\_j 由于含 \ensuremath{\theta}，仍然随 x、z 变化。在第五章有限维系统里真正出现的是 C\_j，不是把 c\_j 直接代进去。\par
+请区分：$c_j$ 是在正确的同时归一化约定下与 x、z 无关的常数；$C_j$ 由于含 $\theta{}$，仍然随 x、z 变化。在第五章有限维系统里真正出现的是 $C_j$，不是把 $c_j$ 直接代进去。\par
 
 \section{两种散射矩阵为什么演化方式不同？}
 \noindent{\small\textbf{对应原文：}\texttt{prop:evolution}}\par
 
-背景时间矩阵为 V\ensuremath{\infty}=\ensuremath{-}FU\ensuremath{\infty}，对角模式传播含 e\textasciicircum{}\{i\ensuremath{\rho}Fz\ensuremath{\sigma}\textsubscript{3}\}。定义 \ensuremath{\Psi}\ensuremath{\pm}=\ensuremath{\chi}\ensuremath{\pm}e\textasciicircum{}\{i\ensuremath{\rho}Fz\ensuremath{\sigma}\textsubscript{3}\} 之后，若 \ensuremath{\Psi}\ensuremath{\pm} 同时满足两部分 Lax 方程，比较同一组基本解得到 S 不依赖 x、z。\par
+背景时间矩阵为 $V_{\infty}=-FU_{\infty}$，对角模式传播含 $e^{i\rho{}Fz\sigma{}_{3}}$。定义 $\Psi_{\pm}=\chi_{\pm}e^{i\rho{}Fz\sigma{}_{3}}$ 之后，若 $\Psi_{\pm}$ 同时满足两部分 Lax 方程，比较同一组基本解得到 S 不依赖 x、z。\par
 
-由 \ensuremath{\chi}\textsubscript{-}=\ensuremath{\chi}\textsubscript{+}S\_sp 与 \ensuremath{\Psi}\textsubscript{-}=\ensuremath{\Psi}\textsubscript{+}S，代入 \ensuremath{\chi}=\ensuremath{\Psi}e\textasciicircum{}\{\ensuremath{-}i\ensuremath{\rho}Fz\ensuremath{\sigma}\textsubscript{3}\}，整理：\par
+由 $\chi{}_{-}=\chi{}_{+}S_sp$ 与 $\Psi{}_{-}=\Psi{}_{+}S$，代入 $\chi{}=\Psi{}e^{-i\rho{}Fz\sigma{}_{3}}$，整理：\par
 
 \[
 S_{\mathrm{sp}}(w,z)
@@ -390,7 +390,7 @@ S_{\mathrm{sp}}(w,z)
 e^{-\mathrm{i}\rho Fz\sigma_3}.
 \]
 
-写 E\_z=\textbackslash{}operatorname\{diag\}(e\textasciicircum{}\{i\ensuremath{\rho}Fz\},e\textasciicircum{}\{-i\ensuremath{\rho}Fz\})，则\par
+写 $E_z=\operatorname{diag}(e^{i\rho{}Fz},e^{-i\rho{}Fz})$，则\par
 
 \[
 E_z\begin{pmatrix}s_{11}&s_{12}\\s_{21}&s_{22}\end{pmatrix}E_z^{-1}
@@ -410,7 +410,7 @@ r_{\mathrm{sp}}(w,z)
 =e^{2\mathrm{i}\rho Fz}\widetilde r_{\mathrm{sp}}(w,0).
 \]
 
-对 S 不依赖 z 的证明，用零曲率对 \ensuremath{\chi}\_\{\ensuremath{\pm},z\}\ensuremath{-}V\ensuremath{\chi}\ensuremath{\pm} 求 x 导数，识别其端态，再利用 Jost 唯一性。这一步要求对 z 微分合法，因此论文额外引入 W\textasciicircum{}\{3,1\}、C\textsuperscript{1} 等充分正则性。不能把这些演化公式无条件用于所有粗糙数据。\par
+对 S 不依赖 z 的证明，用零曲率对 $\chi{}_{\pm{},z}-V\chi_{\pm}$ 求 x 导数，识别其端态，再利用 Jost 唯一性。这一步要求对 z 微分合法，因此论文额外引入 $W^{3,1}$、$C^{1}$ 等充分正则性。不能把这些演化公式无条件用于所有粗糙数据。\par
 
 \section{为什么在共振点 r\_sp(a)=0？}
 \noindent{\small\textbf{对应原文：}\texttt{prop:resonance}}\par
@@ -421,7 +421,7 @@ r_{\mathrm{sp}}(w,z)
 R_x=[\widehat U(a),R].
 \]
 
-对共振处可逆的空间基本解 \ensuremath{\chi}，利用 \ensuremath{\chi}\textsubscript{x}=\textbackslash{}widehat U(a)\ensuremath{\chi}：\par
+对共振处可逆的空间基本解 $\chi{}$，利用 $\chi{}_{x}=\widehat U(a)\chi{}$：\par
 
 \[
 \begin{aligned}
@@ -433,21 +433,21 @@ R_x=[\widehat U(a),R].
 \end{aligned}
 \]
 
-所以 \ensuremath{\chi}\textsuperscript{-}\textsuperscript{1}R\ensuremath{\chi} 沿 x 为常数。左右端态及 E(a) 的对角化，确定该常矩阵都是\par
+所以 $\chi{}^{-1}R\chi{}$ 沿 x 为常数。左右端态及 E(a) 的对角化，确定该常矩阵都是\par
 
 \[
 d_a\sigma_3,\qquad
 d_a=\dfrac{\eta_0\rho(w_a)}{a}.
 \]
 
-利用 \ensuremath{\chi}\textsubscript{-}=\ensuremath{\chi}\textsubscript{+}S\_sp：\par
+利用 $\chi{}_{-}=\chi{}_{+}S_sp$：\par
 
 \[
 S_{\mathrm{sp}}^{-1}d_a\sigma_3S_{\mathrm{sp}}
 =d_a\sigma_3.
 \]
 
-因为 d\textsubscript{a}\ensuremath{\ne}0，等价于 [\ensuremath{\sigma}\textsubscript{3},S\_sp]=0。设 S\_sp=\textbackslash{}begin\{pmatrix\}a\&b\textbackslash{}\textbackslash{}c\&d\textbackslash{}end\{pmatrix\}，则\par
+因为 $d_{a}\ne{}0$，等价于 $[\sigma{}_{3},S_sp]=0$。设 $S_sp=\begin{pmatrix}a&b\\c&d\end{pmatrix}$，则\par
 
 \[
 [\sigma_3,S_{\mathrm{sp}}]
@@ -457,14 +457,14 @@ S_{\mathrm{sp}}^{-1}d_a\sigma_3S_{\mathrm{sp}}
 
 所以反射系数在共振点为零。\par
 
-\textbf{所有前提都必须记住}：固定 z，介质方程成立；两端有相容背景；Jost 基在 a 正则可逆；\ensuremath{\eta}\textsubscript{0}\ensuremath{\ne}0；透射分母非零。这不是一般无条件结论，也不是“r(a)=0 足以保证 RHP 一般可解”。\par
+\textbf{所有前提都必须记住}：固定 z，介质方程成立；两端有相容背景；Jost 基在 a 正则可逆；$\eta{}_{0}\ne{}0$；透射分母非零。这不是一般无条件结论，也不是“$r(a)=0$ 足以保证 RHP 一般可解”。\par
 
-对于不同介质端态，左右常矩阵可能不同，得到的是相似关系而非与 \ensuremath{\sigma}\textsubscript{3} 对易。\par
+对于不同介质端态，左右常矩阵可能不同，得到的是相似关系而非与 $\sigma{}_{3}$ 对易。\par
 
 \section{为什么需要做高能展开？}
 \noindent{\small\textbf{对应原文：}\texttt{prop:highenergy}}\par
 
-第四章需要 M(w)=I+M\textsuperscript{(}\textsuperscript{1}\textsuperscript{)}/w+O(w\textsuperscript{-}\textsuperscript{2})，第五章要从 M\textsuperscript{(}\textsuperscript{1}\textsuperscript{)} 读取光场 u。光说“由渐近可得”不足以计算系数，因此本章在额外条件 u\ensuremath{-}Q\ensuremath{\in}W\textasciicircum{}\{2,1\} 下推导高能展开。\par
+第四章需要 $M(w)=I+M^{(1)}/w+O(w^{-2})$，第五章要从 $M^{(1)}$ 读取光场 u。光说“由渐近可得”不足以计算系数，因此本章在额外条件 $u-Q\in{}W^{2,1}$ 下推导高能展开。\par
 
 原文引入与空间势对应的 Hermitian 矩阵\par
 
@@ -479,14 +479,14 @@ B(u)=\begin{pmatrix}0&u\\\overline u&0\end{pmatrix},
 J_\pm(x)=\int_{\pm\infty}^{x}(Q^2-|u(y)|^2)\,\mathrm{d}y.
 \]
 
-为什么这个积分是有限的？因为 u\ensuremath{-}Q 可积而 u 有界，且\par
+为什么这个积分是有限的？因为 u-Q 可积而 u 有界，且\par
 
 \[
 Q^2-|u|^2
 =(Q-u)\overline u+Q(\overline Q-\overline u)
 \]
 
-在 Q 实值时可由 |u\ensuremath{-}Q| 控制，因此可积。注意 J\_\ensuremath{\pm} 端点不同，后面差值变成全实轴积分。\par
+在 Q 实值时可由 |u-Q| 控制，因此可积。注意 $J_\pm{}$ 端点不同，后面差值变成全实轴积分。\par
 
 论文高能结论 eq:mu-highenergy：\par
 
@@ -507,7 +507,7 @@ T(x,w)=I-\dfrac{\mathrm{i}B(u(x))}{w},
 \qquad \mu_\pm=Tn_\pm.
 \]
 
-由于 B\textsuperscript{2}=|u|\textsuperscript{2}I，\par
+由于 $B^{2}=|u|^{2}I$，\par
 
 \[
 \begin{aligned}
@@ -519,7 +519,7 @@ T^{-1}
 \end{aligned}
 \]
 
-原文 n-volterra-system 最关键的一步是将 UT+i\ensuremath{\rho}T\ensuremath{\sigma}\textsubscript{3}\ensuremath{-}T\textsubscript{x} 化简。使用 A=\ensuremath{\sigma}\textsubscript{3}B、B\ensuremath{\sigma}\textsubscript{3}=\ensuremath{-}\ensuremath{\sigma}\textsubscript{3}B、\ensuremath{\lambda}+\ensuremath{\rho}=w 和 \ensuremath{\rho}\ensuremath{-}\ensuremath{\lambda}=Q\textsuperscript{2}/w，得到\par
+原文 n-volterra-system 最关键的一步是将 $UT+i\rho{}T\sigma{}_{3}-T_{x}$ 化简。使用 $A=\sigma{}_{3}B$、$B\sigma{}_{3}=-\sigma{}_{3}B$、$\lambda{}+\rho{}=w$ 和 $\rho{}-\lambda{}=Q^{2}/w$，得到\par
 
 \[
 UT+\mathrm{i}\rho T\sigma_3-T_x
@@ -540,7 +540,7 @@ UT+\mathrm{i}\rho T\sigma_3-T_x
 \,\mathrm{i}\bigl((Q^2-|u|^2)\sigma_3+B_x\bigr).
 \]
 
-由于可积的扰动乘了 1/w，积分迭代自然得到 n\ensuremath{-}I=O(1/w)。\par
+由于可积的扰动乘了 1/w，积分迭代自然得到 $n-I=O(\dfrac{1}{w})$。\par
 
 \section{第一迭代如何抽取 J\_\ensuremath{\pm}，非对角项为什么更小？}
 
@@ -572,11 +572,11 @@ e^{2\mathrm{i}\rho(x-y)}\overline{u_{yy}(y)}\,\mathrm{d}y.
 \end{aligned}
 \]
 
-因为在允许的解析区域指数模\ensuremath{\le}1、u\textsubscript{x} 有界、u\textsubscript{x}\textsubscript{x} 可积，右侧为 O(1/\ensuremath{\rho})=O(1/w)。外面再乘 1/w，得到 O(w\textsuperscript{-}\textsuperscript{2})；这就解释第一阶非对角修正实际上已由 T 中的 \ensuremath{-}iB/w 捕获。\par
+因为在允许的解析区域指数模$\le{}1$、$u_{x}$ 有界、$u_{xx}$ 可积，右侧为 $O(1/\rho{})=O(\dfrac{1}{w})$。外面再乘 1/w，得到 $O(w^{-2})$；这就解释第一阶非对角修正实际上已由 T 中的 -iB/w 捕获。\par
 
 \section{透射高能系数和第二个无穷远}
 
-由 s\textsubscript{1}\textsubscript{1}=det(\ensuremath{\mu}\textsubscript{-},\textsubscript{1},\ensuremath{\mu}\textsubscript{+},\textsubscript{2})/\ensuremath{\gamma}，把两列展开，得到\par
+由 $s_{11}=det(\mu{}_{-},_{1},\mu{}_{+},_{2})/\gamma{}$，把两列展开，得到\par
 
 \[
 s_{11}(w)=1+\dfrac{\mathrm{i}J_{\mathrm{tot}}}{w}
@@ -590,9 +590,9 @@ J_{\mathrm{tot}}=
 \int_{-\infty}^{+\infty}(Q^2-|u|^2)\,\mathrm{d}x.
 \]
 
-理由是 J\textsubscript{-}(x)\ensuremath{-}J\textsubscript{+}(x) 等于整个实轴积分，与 x 无关。由于 \ensuremath{\gamma}=1+O(w\textsuperscript{-}\textsuperscript{2})，不会改变 1/w 的系数。\par
+理由是 $J_{-}(x)-J_{+}(x)$ 等于整个实轴积分，与 x 无关。由于 $\gamma{}=1+O(w^{-2})$，不会改变 1/w 的系数。\par
 
-换叶 h(w)=\ensuremath{-}Q\textsuperscript{2}/w 将大 w 送到小 w。把大 w 的 Jost 展开和换叶对称结合，可得 eq:smallmu：\par
+换叶 $h(w)=-Q^{2}/w$ 将大 w 送到小 w。把大 w 的 Jost 展开和换叶对称结合，可得 eq:smallmu：\par
 
 \[
 \mu_\pm(w)=-\dfrac{\mathrm{i}Q}{w}\sigma_1+O(1),
@@ -600,7 +600,7 @@ J_{\mathrm{tot}}=
 S(w)=I+O(w),\qquad w\to0.
 \]
 
-这说明非零背景 RHP 有\textbf{两种归一化}：w\ensuremath{\to}\ensuremath{\infty} 时趋于 I，w\ensuremath{\to}0 时有指定 1/w 主项。第四章的部分分式式因此必须包含固定的 \ensuremath{-}iQ\ensuremath{\sigma}\textsubscript{1}/w 项。\par
+这说明非零背景 RHP 有\textbf{两种归一化}：$w\to{}\infty{}$ 时趋于 I，$w\to{}0$ 时有指定 1/w 主项。第四章的部分分式式因此必须包含固定的 $-iQ\sigma{}_{1}/w$ 项。\par
 
 \section{自测与阅读关卡}
 
