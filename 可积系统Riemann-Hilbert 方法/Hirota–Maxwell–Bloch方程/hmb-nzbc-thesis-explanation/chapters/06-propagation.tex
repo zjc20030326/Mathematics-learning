@@ -1,0 +1,483 @@
+% Auto-typeset from the previously authored formula-by-formula study manuscript.
+% Based on the thesis main branch f80e5ac903dd, 2026-10-31.
+
+\chapter{第六章：孤子幅值、传播周期与共振点正则性的逐式解析}
+
+对照正文：../hmb-nzbc-thesis/section/06-conclusion.tex  \par
+覆盖 §6.1–§6.2，主要标签：eq:velocity、eq:frequency、prop:wave-properties、eq:amplitude-bound、eq:medium-bound、eq:internal-period、prop:oscillatory-regularity、prop:resonant-regularity。\par
+
+本章不是再求一次孤子，而是回答两个更具体的问题：第五章的一轨道解在时空中怎么变化？如果允许非零反射，共振极点将怎样影响反射数据的光滑性？\par
+
+\section{6.1 首先分清三种运动}
+
+第五章得到的光场具有公共因子 e\textasciicircum{}\{−iΩz\}，另外还有由 s=κ[x−F(ib)z] 控制的局域波形。它们可以产生三种不同的效应：\par
+
+\begin{enumerate}[leftmargin=2em]
+\item 载波相位 e\textasciicircum{}\{−iΩz\}：即使波形模长不变，复光场仍可能旋转。
+\item 局部化包络的整体平移：由 Re F(ib) 控制。
+\item 包络内部的振荡：由 Im F(ib) 控制。
+\end{enumerate}
+
+不先区分这三者，很容易把“模长随动周期”误说成“复场完全周期”。\par
+
+\section{6.2 eq:velocity 与 eq:frequency：把 F(ib) 的实、虚部算出来}
+
+第二章有\par
+
+\[
+F(\lambda)=4\beta\lambda^2-\alpha\lambda-2\beta Q^2+
+\dfrac{\eta_0}{a(\lambda-a)}.
+\]
+
+代入 λ=ib：\par
+
+\[
+F(\mathrm{i}b)
+=-4\beta b^2-\mathrm{i}\alpha b-2\beta Q^2
++\dfrac{\eta_0}{a(\mathrm{i}b-a)}.
+\]
+
+最后一项是唯一稍麻烦的地方。分母有复数，乘共轭化为\par
+
+\[
+\begin{aligned}
+\dfrac{\eta_0}{a(\mathrm{i}b-a)}
+&=\dfrac{\eta_0(-a-\mathrm{i}b)}
+{a(a^2+b^2)}\\
+&=-\dfrac{\eta_0}{a^2+b^2}
+-\mathrm{i}\dfrac{\eta_0b}{a(a^2+b^2)}.
+\end{aligned}
+\]
+
+所以\par
+
+\[
+A_b=\operatorname{Re}F(\mathrm{i}b)
+=-4\beta b^2-2\beta Q^2-\dfrac{\eta_0}{a^2+b^2},
+\]
+
+\[
+B_b=\operatorname{Im}F(\mathrm{i}b)
+=-\alpha b-\dfrac{\eta_0b}{a(a^2+b^2)}.
+\]
+
+现在知道了：β 主要进入这个纯虚谱点的整体传播速度 A\_b；α 进入内部频率 B\_b；介质参数 η₀ 同时改变两者。这是就本特殊纯虚谱点而言，不能无条件推广为任意复谱参数时的参数分工。\par
+
+\section{6.3 为什么引入随动坐标 X=x−A\_bz？}
+
+第五章\par
+
+\[
+s=\kappa[x-F(\mathrm{i}b)z]
+=\kappa(x-A_bz)-\mathrm{i}\kappa B_bz.
+\]
+
+令\par
+
+\[
+X=x-A_bz,
+\]
+
+于是\par
+
+\[
+s=\kappa X-\mathrm{i}\kappa B_bz,\qquad
+t=e^{2s}=e^{2\kappa X}e^{-2\mathrm{i}\kappa B_bz}.
+\]
+
+第一个因子 e\textasciicircum{}\{2κX\} 是正实数，它决定局部化结构中心大致随 X 固定，即沿 x=A\_bz 移动。第二个因子模长为 1，它决定在随动位置上波形内部的周期性。\par
+
+当 z 固定而 X→±∞，前一个因子趋 0 或 +∞；第六章的端态衰减就来自这两个极限。\par
+
+\section{6.4 prop:wave-properties：光场峰值为什么不超过 Q+2b？}
+
+第五章得到\par
+
+\[
+q=-e^{-\mathrm{i}\Omega z}(Q+4bP_{12}).
+\]
+
+复指数模长为 1，所以 |q|=|Q+4bP₁₂|。对于秩一正交投影\par
+
+\[
+P=\begin{pmatrix}p_{11}&p_{12}\\\overline{p_{12}}&p_{22}\end{pmatrix},
+\quad P^\dagger=P,\ P^2=P,\ \operatorname{tr}P=1,
+\]
+
+有 p₁₁+p₂₂=1。秩一意味着 det P=0，所以\par
+
+\[
+|p_{12}|^2=p_{11}p_{22}
+=p_{11}(1-p_{11}).
+\]
+
+因为 P 为正交投影，0≤p₁₁≤1。配方：\par
+
+\[
+p_{11}(1-p_{11})
+=\dfrac{1}{4}-\left(p_{11}-\dfrac{1}{2}\right)^2
+\le\dfrac{1}{4}.
+\]
+
+故 |P₁₂|≤1/2，于是\par
+
+\[
+|q|\le Q+4b|P_{12}|\le Q+2b.
+\]
+
+这只是上界。要证明上界可达到，需找一个具体点。当前选择 t=e\textasciicircum{}\{2s\}，在 x=z=0 有 t=1，因此\par
+
+\[
+y_*=\begin{pmatrix}1-h_0\\1-h_0\end{pmatrix}
+\]
+
+的两个分量相同，故 P₁₂=1/2。于是\par
+
+\[
+q(0,0)=-(Q+2b),\qquad |q(0,0)|=Q+2b.
+\]
+
+所以此特定范数常数选择下，光场最大模恰为 Q+2b。改变范数常数通常会改变峰值所在的时空位置；不能不加条件地把 x=z=0 的结论推广给任意平移相位参数。\par
+
+\section{6.5 eq:medium-bound：介质变量为何有与 b 无关的界？}
+
+第二章及第五章已证明\par
+
+\[
+|p|^2+\eta^2=C_0,\qquad
+C_0=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right).
+\]
+
+两项非负，所以\par
+
+\[
+|p|^2\le C_0,\qquad \eta^2\le C_0.
+\]
+
+取平方根：\par
+
+\[
+|p|,\ |\eta|\le\sqrt{C_0}.
+\]
+
+你可能会疑惑：光场上界 Q+2b 随 b 变大，介质上界却与 b 无关，矛盾吗？不矛盾。光场的振幅由离散谱参数控制；介质向量受酉共轭守恒的 Bloch 长度限制，改变的是极化与反转之间的分配。\par
+
+这是模型的一个直观特点，前提是保持同一个背景 η₀、Q、a。\par
+
+\section{6.6 为什么局部化阶是 O(e\textasciicircum{}\{−2κ|X|\})？}
+
+仍然从第五章的代数投影 P(t) 出发。其分母\par
+
+\[
+\Delta_-=(1+h_0^2)(1+|t|^2)-2h_0(t+\overline t).
+\]
+
+当 X→−∞，|t|=e\textasciicircum{}\{2κX\}→0。P 的每个分量都是 t、\textbackslash{}bar t 的有理式，分母趋于 1+h₀²>0，因此\par
+
+\[
+P-P_-=O(|t|)=O(e^{2\kappa X}).
+\]
+
+当 X→+∞，|t|→∞，分子分母同除以 |t|²，所有非端态余项按 1/|t| 衰减：\par
+
+\[
+P-P_+=O(|t|^{-1})=O(e^{-2\kappa X}).
+\]
+
+合并：\par
+
+\[
+P-P_\pm=O(e^{-2\kappa|X|}).
+\]
+
+q、p、η 都是 P 的光滑有理/矩阵表达式，且相关分母严格正，故局部化的端态误差也具有这一量级。\par
+
+注意这是指数\textbf{衰减率}，并不是半高全宽的直接计算。若需要半高全宽，还应在固定内部相位时求幅值曲线对应的具体方程。\par
+
+\section{6.7 eq:internal-period：周期为什么是 π/(κ|B\_b|)？}
+
+固定 X，随 z 变化的只有 t 中的单位模相位\par
+
+\[
+e^{-2\mathrm{i}\kappa B_bz}.
+\]
+
+它旋转一整圈对应相位角增量 ±2π。因此最小正周期满足\par
+
+\[
+2\kappa|B_b|T_z=2\pi,
+\]
+
+所以\par
+
+\[
+\boxed{
+T_z=\dfrac{\pi}{\kappa|B_b|},
+\qquad B_b\ne0.
+}
+\]
+
+这个周期使 P、去载波的 u、v、η 随动重复，尤其 |q|、|p|、η 具有随动周期。\par
+
+但原 q=e\textasciicircum{}\{−iΩz\}u、p=e\textasciicircum{}\{−iΩz\}v 还包含载波相位。若要求\textbf{整个复场}重复，还需\par
+
+\[
+e^{-\mathrm{i}\Omega T_z}=1
+\quad\Longleftrightarrow\quad
+\Omega T_z\in2\pi\mathbb Z.
+\]
+
+若 B\_b=0，内部相位不再随 z 变化，去载波场只依赖 X，属于保持形状的行波型。由 B\_b 的公式和 b>0 得\par
+
+\[
+\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}.
+\]
+
+本章“内部周期”不要与复杂呼吸子在原时空中的全部周期性质混淆。\par
+
+\section{6.8 数值例：核对 A\_b 和 B\_b}
+
+取论文图一的参数\par
+
+\[
+Q=1,\quad a=2,\quad\eta_0=0.6,\quad
+\alpha=1,\quad\beta=0.1,\quad b=1.5.
+\]
+
+有 κ=\textbackslash{}sqrt\{b²−Q²\}=\textbackslash{}sqrt5/2。于是\par
+
+\[
+A_b=-4(0.1)(1.5)^2-2(0.1)(1)^2
+-\dfrac{0.6}{2^2+1.5^2}
+=-1.196,
+\]
+
+\[
+B_b=-1(1.5)-\dfrac{0.6(1.5)}{2(2^2+1.5^2)}
+=-1.572.
+\]
+
+所以中心沿 x=−1.196z 移动，内部角频率是 2κ|B\_b|，相应随动周期按上述公式计算。图像是直观展示，不是证明方程成立的依据。\par
+
+\section{6.9 §6.2 为什么要研究“零点的消失阶”？}
+
+第三章的共振命题在明确假设下得到 r\_sp(a)=0。可是由于传播相位 F 在 λ=a 有极点，传播后的反射系数含有快速振荡：\par
+
+\[
+r_{\mathrm{sp}}(\lambda,z)
+=e^{-2\mathrm{i}\rho(\lambda)F(\lambda)z}
+r_{\mathrm{sp}}(\lambda,0).
+\]
+
+即使初始反射在 λ=a 恰等于零，靠近 a 时它仍可能被 e\textasciicircum{}\{ic/(\textbackslash{}lambda-a)\} 这种无限快速旋转的因子破坏可微性。\par
+
+因此“点值为 0”与“作为函数平滑”是两件不同的事情。第六章要精确回答：初始反射零点至少几阶，传播后才能在共振点保留 k 阶连续导数？\par
+
+\section{6.10 prop:oscillatory-regularity：基础模型 f(s)=s\textasciicircum{}m g(s)e\textasciicircum{}\{ic/s\}}
+
+先研究纯实变量局部函数：\par
+
+\[
+f(s)=s^m g(s)e^{\frac{\mathrm{i}c}{s}},
+\qquad s\ne0,\quad c\in\mathbb R\setminus\{0\},
+\]
+
+其中 m 为非负整数，g 光滑且 g(0)≠0。\par
+
+因为 |e\textasciicircum{}\{ic/s\}|=1，零阶连续性主要看 s\textasciicircum{}m 是否趋 0。m≥1 时 f(s)→0，可以定义 f(0)=0；m=0 且 g(0)≠0 时，函数不断快速旋转，没有极限。\par
+
+但一求导，指数因子产生 1/s²：\par
+
+\[
+\dfrac{\mathrm{d}}{\mathrm{d}s}e^{\frac{\mathrm{i}c}{s}}
+=-\dfrac{\mathrm{i}c}{s^2}e^{\frac{\mathrm{i}c}{s}}.
+\]
+
+所以每求导一次，最严重的幂次会减少 2，而不是减少 1。这是 m≥2k+1 的根本原因。\par
+
+\section{6.11 eq:oscillatory-derivatives：归纳推导每阶导数}
+
+声明\par
+
+\[
+f^{(j)}(s)
+=e^{\frac{\mathrm{i}c}{s}}s^{m-2j}G_j(s),
+\]
+
+且 G\_j(0)=(−ic)\textasciicircum{}j g(0)≠0。\par
+
+j=0 时取 G₀=g，显然成立。假定 j 阶成立，对乘积求导：\par
+
+\[
+\begin{aligned}
+f^{(j+1)}
+={}&e^{\frac{\mathrm{i}c}{s}}
+\left(
+-\dfrac{\mathrm{i}c}{s^2}s^{m-2j}G_j
++(m-2j)s^{m-2j-1}G_j
++s^{m-2j}G_j'
+\right)\\
+={}&e^{\frac{\mathrm{i}c}{s}}s^{m-2(j+1)}
+\left(
+-\mathrm{i}cG_j
++(m-2j)sG_j
++s^2G_j'
+\right).
+\end{aligned}
+\]
+
+定义\par
+
+\[
+G_{j+1}(s)
+=-\mathrm{i}cG_j(s)+(m-2j)sG_j(s)+s^2G_j'(s).
+\]
+
+在 s=0 取值，只有第一项保留：\par
+
+\[
+G_{j+1}(0)=-\mathrm{i}cG_j(0)
+=(-\mathrm{i}c)^{j+1}g(0).
+\]
+
+归纳完成。这个递推保证主导振荡项的系数不为 0，所以我们不能指望高阶导数里的剧烈振荡被偶然抵消。\par
+
+\section{6.12 为什么连续延拓到 C\textasciicircum{}k 当且仅当 m≥2k+1？}
+
+\textbf{充分性}：若 m≥2k+1，那么对 0≤j≤k，\par
+
+\[
+m-2j\ge1,
+\]
+
+所以去心邻域中的 f⁽ʲ⁾(s) 都趋于 0。\par
+
+但是要证明“连续延拓后的函数确实可导”，还要用差商，而不仅是看去心导数极限。假设较低阶导数在 0 已定义为 0，则\par
+
+\[
+\dfrac{f^{(j)}(s)-f^{(j)}(0)}{s}
+=e^{\frac{\mathrm{i}c}{s}}s^{m-2j-1}G_j(s).
+\]
+
+对于 j<k，由 m≥2k+1 得 m−2j−1≥2，因此差商→0。逐层归纳，所有 j≤k 的延拓导数都存在并在 0 为 0，故 f∈C\textasciicircum{}k。\par
+
+\textbf{必要性}：若 m<2k，则 k 阶去心导数的模因 s\textasciicircum{}\{m−2k\} 而发散（G\_k(0)≠0）；若 m=2k，它的模趋向非零常数但相位 e\textasciicircum{}\{ic/s\} 无极限。两种情况都不能连续延拓为 C\textasciicircum{}k。\par
+
+因此\par
+
+\[
+\boxed{
+f\text{ 可延拓为 }C^k
+\quad\Longleftrightarrow\quad m\ge2k+1.
+}
+\]
+
+特别地：m=1 或 2 只保证 C⁰，不保证 C¹；m=3 或 4 保证 C¹，但不保证 C²；m=5 或 6 保证 C²。\par
+
+\section{6.13 prop:resonant-regularity：把模型应用于 HMB 传播相位}
+
+在共振点附近令 λ=a+s。写\par
+
+\[
+F(\lambda)=F_{\mathrm{pol}}(\lambda)
++\dfrac{\eta_0}{a(\lambda-a)},
+\]
+
+其中\par
+
+\[
+F_{\mathrm{pol}}(\lambda)=4\beta\lambda^2-\alpha\lambda-2\beta Q^2.
+\]
+
+固定一张实谱叶，ρ 在 a 附近解析，记 ρ\_a=ρ(a)=±\textbackslash{}sqrt\{a²+Q²\}。拆分乘积：\par
+
+\[
+\begin{aligned}
+\rho(a+s)F(a+s)
+&=\rho(a+s)F_{\mathrm{pol}}(a+s)
++\dfrac{\eta_0}{a}\dfrac{\rho(a+s)}{s}\\
+&=\dfrac{\eta_0\rho_a}{as}
++\left[
+\rho(a+s)F_{\mathrm{pol}}(a+s)
++\dfrac{\eta_0}{a}\dfrac{\rho(a+s)-\rho_a}{s}
+\right].
+\end{aligned}
+\]
+
+方括号中的函数记为 L(s)。因为\par
+
+\[
+\dfrac{\rho(a+s)-\rho_a}{s}\longrightarrow\rho'(a),
+\]
+
+L 在 s=0 可去且光滑。因此\par
+
+\[
+-2z\rho(\lambda)F(\lambda)
+=\dfrac{c_z}{s}-2zL(s),
+\qquad
+c_z=-\dfrac{2z\eta_0\rho_a}{a}.
+\]
+
+当 z≠0、a≠0、η₀≠0、ρ\_a≠0，c\_z 为非零实数。\par
+
+若初始反射满足\par
+
+\[
+r_{\mathrm{sp}}(a+s,0)=s^m g_0(s),
+\qquad g_0(0)\ne0,
+\]
+
+则传播后\par
+
+\[
+r_{\mathrm{sp}}(a+s,z)
+=s^m g_z(s)e^{\frac{\mathrm{i}c_z}{s}},
+\qquad
+g_z(s)=g_0(s)e^{-2\mathrm{i}zL(s)}.
+\]
+
+g\_z 仍光滑且在 0 非零，完全符合前面的引理，所以其 C\textasciicircum{}k 延拓条件就是 m≥2k+1。\par
+
+\section{6.14 两个共振原像为何有相同的消失阶判断？}
+
+λ(w)=\textbackslash{}dfrac\{1\}\{2\}(w−Q²/w)。求导：\par
+
+\[
+\lambda'(w)
+=\dfrac{1}{2}\left(1+\dfrac{Q^2}{w^2}\right).
+\]
+
+在两个实非零共振原像 wₐ±，这个导数严格正。因此 w−wₐ 与 λ−a 在局部相差一个非零可逆的光滑坐标变换：\par
+
+\[
+\lambda(w)-a
+=\lambda'(w_a)(w-w_a)+O((w-w_a)^2).
+\]
+
+两种坐标中的函数零点具有相同阶数，C\textasciicircum{}k 延拓性质也保持，所以刚才的结果对 wₐ⁺、wₐ⁻ 两个原像都成立。\par
+
+\textbf{这是局部正则性的定理，不是一般 IST 全局存在性定理。} 它只分析了一个假定已存在的反射函数在传播乘子作用下的局部性质，并未证明每个满足消失阶条件的函数都能由某个 HMB 势产生。\par
+
+\section{6.15 为什么这章与你的论文创新点有关？}
+
+主线创新内容是非零 q 的 RHP 与一轨道无反射解；这一章的共振正则性分析则告诉你：若日后从反射为零进一步推广到含反射数据，实共振点可能不是只需要一个点值条件 r(a)=0。\par
+
+若目标是在共振点保留 C¹，初始反射至少需三阶零点；若要求 C²，至少需五阶零点（在本章有限阶非平凡零点的假设下）。它为构造一般逆问题的数据空间提供线索。\par
+
+但目前不应把这一局部分析误认为已经解决了分支点、轮廓交点和一般反射 RHP 的全局存在唯一性。\par
+
+\section{6.16 本章自测}
+
+\begin{enumerate}[leftmargin=2em]
+\item 将 λ=ib 代入 F，手算实部和虚部。
+\item 写出 t=e\textasciicircum{}\{2κX\}e\textasciicircum{}\{−2iκB\_bz\}，分别指出局域和振荡的来源。
+\item 证明秩一投影的 |P₁₂|≤1/2；说明当前参数为什么在原点取等。
+\item 用 |p|²+η²=C₀ 解释介质与光场幅值为何不同。
+\item 从相位旋转角 2κ|B\_b|z 推出随动周期。
+\item 对 e\textasciicircum{}\{ic/s\} 求一、二阶导数，观察每次出现 s⁻²。
+\item 用差商证明 m≥2k+1 不仅能使去心导数收敛，还能实现真正的 C\textasciicircum{}k 延拓。
+\item 在 λ=a+s 附近，把 ρF 拆成 1/s 奇异主部加可去部分。
+\item 清楚说出“共振点必要零反射”和“共振点任意高阶光滑”的区别。
+\end{enumerate}
+
