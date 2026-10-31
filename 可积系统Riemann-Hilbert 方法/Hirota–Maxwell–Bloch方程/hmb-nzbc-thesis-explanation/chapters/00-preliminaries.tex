@@ -1,11 +1,12 @@
 % Auto-typeset from the previously authored formula-by-formula study manuscript.
 % Based on the thesis main branch f80e5ac903dd, 2026-10-31.
 
-\chapter{零、读懂论文之前需要的数学工具}
+\chapter*{数学预备知识}
+\addcontentsline{toc}{chapter}{数学预备知识}
 
 关联原文：第二至第五章。建议第一次学习时先掌握前七节，再随着正文返回查阅。\par
 
-\section{0.1 变量、复数与矩阵的记号}
+\section{变量、复数与矩阵的记号}
 
 本研究的空间谱问题以 x 为微分变量，以 z 为演化变量；物理上 x 是推迟时间，但在 IST 中习惯称 x 方程为空间 Lax 方程。谱参数 \ensuremath{\lambda} 是额外引入的\textbf{复变量}，不是 x 或 z 的函数。\par
 
@@ -34,7 +35,7 @@
 
 所以与 \ensuremath{\sigma}\textsubscript{3} 做交换子，恰能抽取势矩阵的非对角分量；这就是第四章无穷远重构公式的来源。\par
 
-\section{0.2 Lax 对、相容性和零曲率是怎么来的}
+\section{Lax 对、相容性和零曲率是怎么来的}
 
 假设一个两分量辅助向量或基本解矩阵满足\par
 
@@ -69,7 +70,7 @@ U_z-V_x+[U,V]=0.
 
 \textbf{理解要点}：Lax 对不是另一个无关物理模型，而是把非线性 PDE 的三个未知场编码到两个线性谱方程里。我们要通过谱问题“换一条路”求出非线性方程解。\par
 
-\section{0.3 什么是背景谱与 Jost 解}
+\section{什么是背景谱与 Jost 解}
 
 从方程的背景 u\ensuremath{\to}Q 得到常系数矩阵 U\ensuremath{\infty}(\ensuremath{\lambda})。常系数 ODE\par
 
@@ -85,7 +86,7 @@ U_z-V_x+[U,V]=0.
 
 不要误认为 Jost 解与 RHP 矩阵 M 相同：M 是按照解析性，把左右 Jost 的合适列重新拼接、必要时除以透射系数后得到的对象。\par
 
-\section{0.4 变分常数如何形成 Volterra 方程}
+\section{变分常数如何形成 Volterra 方程}
 
 先从标量\par
 
@@ -110,7 +111,7 @@ y=y_0+\mathcal K y_0+\mathcal K^2 y_0+\cdots.
 
 第 n 次迭代是有序 n 重积分，产生 1/n! 因子。这通常使 Volterra 方程比任意 Fredholm 方程更容易证明唯一可解。\par
 
-\section{0.5 为什么矩阵解只有部分列解析}
+\section{为什么矩阵解只有部分列解析}
 
 形式上含 e\textasciicircum{}\{\textbackslash{}pm 2\textbackslash{}mathrm\{i\}\textbackslash{}rho(x-y)\} 的积分核，\ensuremath{\rho} 为复数。写 \ensuremath{\rho}=a+\textbackslash{}mathrm\{i\}b，则\par
 
@@ -123,7 +124,7 @@ y=y_0+\mathcal K y_0+\mathcal K^2 y_0+\cdots.
 
 所以论文第三章的结论并不是“整个 \ensuremath{\chi}\textsubscript{-} 在 D\textsubscript{+} 解析”；实际是“\ensuremath{\chi}\textsubscript{-} 的某一列及 \ensuremath{\chi}\textsubscript{+} 的另一列在 D\textsubscript{+} 解析”。理解这种选列规则，后面 RHP 的两侧矩阵定义就不再是死记。\par
 
-\section{0.6 双叶谱曲面为何出现}
+\section{双叶谱曲面为何出现}
 
 对非零常背景，谱根是\par
 
@@ -153,7 +154,7 @@ h(w)=-\dfrac{Q^2}{w},
 
 背景连续谱变成实轴和圆 |w|=Q。\textbf{反射与离散谱的“成对、四点”对称，都与这个换叶映射密切相关。}\par
 
-\section{0.7 什么是 RHP？为什么有跳跃和留数？}
+\section{什么是 RHP？为什么有跳跃和留数？}
 
 最简单的矩阵 Riemann–Hilbert 问题是：在复平面一条定向轮廓 \ensuremath{\Sigma} 的两侧寻找分片解析矩阵 M\textsubscript{+}、M\textsubscript{-}，满足\par
 
@@ -176,7 +177,7 @@ M_+(w)=M_-(w)J(w),\qquad w\in\Sigma,
 
 \textbf{无反射}是指反射系数在整个连续谱上为零，而不是 q=0，也不是没有离散谱。此时 J=I；若轮廓上没有不可去奇性，M 可以表示为背景项加有限个简单极点项。求解 RHP 就变成有限维线性代数。\par
 
-\section{0.8 留数条件与部分分式如何产生线性系统}
+\section{留数条件与部分分式如何产生线性系统}
 
 以一个列为例，设\par
 
@@ -195,7 +196,7 @@ M_+(w)=M_-(w)J(w),\qquad w\in\Sigma,
 
 未知量不是任意函数，而是有限个正则列值 M\textsubscript{2}(\ensuremath{\zeta}\textsubscript{j}) 等。将部分分式在这些点取值，就得到有限个线性方程；这便是第四、五章的重要计算思路。\par
 
-\section{0.9 无穷远展开、Liouville 定理和重构}
+\section{无穷远展开、Liouville 定理和重构}
 
 假设\par
 
@@ -207,7 +208,7 @@ M(w)=I+\dfrac{M^{(1)}}{w}+O(w^{-2}),\qquad w\to\infty.
 
 Liouville 定理的用法：一个在整个复平面解析、且无穷远趋于零的矩阵函数，其每个分量都是有界整函数，因此恒为零。无反射部分分式推导和第五章恢复 Lax 对都在使用这种“排除了所有极点后只剩下多项式/常数”的论证。\par
 
-\section{0.10 为什么 Maxwell–Bloch 变量需要另一种重构？}
+\section{为什么 Maxwell–Bloch 变量需要另一种重构？}
 
 HMB 比普通 NLS 多了 p、\ensuremath{\eta}。它们被放入传播矩阵的有理项\par
 
@@ -233,7 +234,7 @@ R_x=[U(a),R].
 
 因此 R=\ensuremath{\chi} C \ensuremath{\chi}\textsuperscript{-}\textsuperscript{1}，C 为不依赖 x 的矩阵。由适当的背景与共振点正则性可确定 C。这个机制\textbf{不需要预先用 Darboux 构造孤子}，但必须处理好共振极点处的相容条件。\par
 
-\section{0.11 易误解的逻辑关系}
+\section{易误解的逻辑关系}
 
 \begin{itemize}[leftmargin=2em]
 \item 零曲率给出 PDE：前提是 Lax 对与所需正则性已经建立。
@@ -243,7 +244,7 @@ R_x=[U(a),R].
 \item 一个四点轨道的 RHP 解存在：不自动推广为任意 N 个轨道、任意复谱参数都可解。
 \end{itemize}
 
-\section{0.12 学习自检}
+\section{学习自检}
 
 \begin{enumerate}[leftmargin=2em]
 \item 用矩阵乘法亲自证明 U\_z\ensuremath{-}V\_x+[U,V]=0 的来源。

@@ -1,14 +1,14 @@
 % Auto-typeset from the previously authored formula-by-formula study manuscript.
 % Based on the thesis main branch f80e5ac903dd, 2026-10-31.
 
-\chapter{第四章：矩阵 RHP、留数、无反射有限维化与三场重构}
+\chapter{矩阵 RHP、留数、无反射有限维化与三场重构}
 
 对照正文：../hmb-nzbc-thesis/section/04-rhp.tex  \par
 核心标签：thm:RHP，eq:Mdef，eq:jump，eq:resplus，eq:resminus，eq:cpair，prop:finite，eq:finite-schur，prop:theta，prop:reconstruction。\par
 
 本章真正的核心问题：\textbf{已经知道哪些 Jost 列解析，怎样把它们拼成一个可求解的矩阵函数 M？} 若反射为零，为什么这种复分析问题最终只剩下有限维线性方程组？\par
 
-\section{4.1 为什么不直接取 M=μ\textsubscript{-} 或 M=μ\textsubscript{+}？}
+\section{为什么不直接取 M=\ensuremath{\mu}\textsubscript{-} 或 M=\ensuremath{\mu}\textsubscript{+}？}
 
 上一章只证明\par
 
@@ -17,7 +17,7 @@
 \mu_{+,1},\ \mu_{-,2}\text{ 在 }D_-\text{ 解析}.
 \]
 
-因此，如果希望 M 在 D\textsubscript{+} 作为整个矩阵解析，第一列必须从 μ\textsubscript{-} 第一列选，第二列必须从 μ\textsubscript{+} 第二列选；D\textsubscript{-} 则反过来。\par
+因此，如果希望 M 在 D\textsubscript{+} 作为整个矩阵解析，第一列必须从 \ensuremath{\mu}\textsubscript{-} 第一列选，第二列必须从 \ensuremath{\mu}\textsubscript{+} 第二列选；D\textsubscript{-} 则反过来。\par
 
 另一方面，透射系数 s\textsubscript{1}\textsubscript{1}、s\textsubscript{2}\textsubscript{2} 的零点会产生离散谱。在 RHP 中通常将透射系数作为适当的归一化因子；这样一来，离散零点处自然出现简单极点，正好能够作为留数条件处理。\par
 
@@ -37,7 +37,8 @@ M_-(w)=\left(\mu_{+,1},\ \dfrac{\mu_{-,2}}{s_{22}}\right),
 
 为何要除以 s\textsubscript{1}\textsubscript{1}、s\textsubscript{2}\textsubscript{2}？这一选择既使 M 在无穷远具有统一归一化，也让两个域的行列式恰好都等于背景 \ensuremath{\gamma}；下面立即验证。\par
 
-\section{4.2 eq:jump：自己从两条散射列关系推出来}
+\section{自己从两条散射列关系推出来}
+\noindent{\small\textbf{对应原文：}\texttt{eq:jump}}\par
 
 上一章的同时归一化散射关系 \ensuremath{\Psi}\textsubscript{-}=\ensuremath{\Psi}\textsubscript{+}S 经过去相位后是\par
 
@@ -81,7 +82,7 @@ M_{+,1}
 =\mu_{+,1}+r e^{2\mathrm{i}\theta}\mu_{+,2}.
 \]
 
-代入上一步的 μ\textsubscript{+},\textsubscript{2}=M\textsubscript{+},\textsubscript{2}：\par
+代入上一步的 \ensuremath{\mu}\textsubscript{+},\textsubscript{2}=M\textsubscript{+},\textsubscript{2}：\par
 
 \[
 \begin{aligned}
@@ -116,7 +117,8 @@ r e^{2\mathrm{i}\theta}&1
 
 这就是完整的跳跃矩阵来源；没有必要机械记忆其四个元素。\textbf{先计算两列，再读出每列在旧基下的系数}，是所有此类 2\ensuremath{\times}2 RHP 的通用方法。\par
 
-\section{4.3 eq:detM：为什么 det M=\ensuremath{\gamma} 而不是 1？}
+\section{为什么 det M=\ensuremath{\gamma} 而不是 1？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:detM}}\par
 
 对 D\textsubscript{+}：\par
 
@@ -129,7 +131,7 @@ r e^{2\mathrm{i}\theta}&1
 \end{aligned}
 \]
 
-因为上一章 s\textsubscript{1}\textsubscript{1}=det(μ\textsubscript{-},\textsubscript{1},μ\textsubscript{+},\textsubscript{2})/\ensuremath{\gamma}。D\textsubscript{-} 也同样成立。因此\par
+因为上一章 s\textsubscript{1}\textsubscript{1}=det(\ensuremath{\mu}\textsubscript{-},\textsubscript{1},\ensuremath{\mu}\textsubscript{+},\textsubscript{2})/\ensuremath{\gamma}。D\textsubscript{-} 也同样成立。因此\par
 
 \[
 \det M(w)=\gamma(w)=1+\dfrac{Q^2}{w^2}.
@@ -137,7 +139,7 @@ r e^{2\mathrm{i}\theta}&1
 
 特别重要：在 w=\ensuremath{\pm}iQ，\ensuremath{\gamma}=0，因此 M 在这些点可能\textbf{解析但不满秩}。不能像普通单位行列式 RHP 那样直接说 M\textsuperscript{-}\textsuperscript{1} 在所有非极点都解析。第五章需要仔细证明 Lax 对数导数在分支点的表观奇性可去。\par
 
-\section{4.4 eq:Minfty 与 eq:Mzero：为什么有两个不同的无穷远？}
+\section{eq:Minfty 与 eq:Mzero：为什么有两个不同的无穷远？}
 
 上一章高能展开给出\par
 
@@ -157,7 +159,8 @@ M(w)=-\dfrac{\mathrm{i}Q}{w}\sigma_1+O(1),
 
 这两个归一化也解释了无反射部分分式表示中为何一开始就有 I\ensuremath{-}iQ\ensuremath{\sigma}\textsubscript{1}/w，而不是简单 I 加若干孤子极点。\par
 
-\section{4.5 eq:Msym：两种约化如何限制 M？}
+\section{两种约化如何限制 M？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:Msym}}\par
 
 上一章得到两种基本变换：\par
 
@@ -184,7 +187,8 @@ M(h(w))=M(w)\dfrac{\mathrm{i}w}{Q}\sigma_1.
 \item 决定无反射矩阵 M 的构造是否与真实 HMB 谱问题相容。
 \end{itemize}
 
-\section{4.6 eq:resplus：一个透射零点如何产生第一列极点？}
+\section{一个透射零点如何产生第一列极点？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:resplus}}\par
 
 设 \ensuremath{\zeta}\ensuremath{\in}D\textsubscript{+}，s\textsubscript{1}\textsubscript{1}(\ensuremath{\zeta})=0、s'\textsubscript{1}\textsubscript{1}(\ensuremath{\zeta})\ensuremath{\ne}0。Taylor 展开为\par
 
@@ -192,7 +196,7 @@ M(h(w))=M(w)\dfrac{\mathrm{i}w}{Q}\sigma_1.
 s_{11}(w)=s_{11}'(\zeta)(w-\zeta)+O((w-\zeta)^2).
 \]
 
-M 第一列是 μ\textsubscript{-},\textsubscript{1}/s\textsubscript{1}\textsubscript{1}，因此\par
+M 第一列是 \ensuremath{\mu}\textsubscript{-},\textsubscript{1}/s\textsubscript{1}\textsubscript{1}，因此\par
 
 \[
 \operatorname*{Res}_{w=\zeta}M_1(w)
@@ -220,7 +224,8 @@ M 第一列是 μ\textsubscript{-},\textsubscript{1}/s\textsubscript{1}\textsubs
 
 此点 M\textsubscript{2} 正则，所以其留数为 0。这说明极点只出现在矩阵的第一列，而系数由第二列的值决定。\par
 
-\section{4.7 eq:resminus：为什么共轭点有负号？}
+\section{为什么共轭点有负号？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:resminus}}\par
 
 在共轭点 \textbackslash{}overline \ensuremath{\zeta}，透射零点位于 D\textsubscript{-}，极点改在 M 的第二列。由 K 共轭约化，RHP 的对应留数为\par
 
@@ -243,7 +248,8 @@ M 第一列是 μ\textsubscript{-},\textsubscript{1}/s\textsubscript{1}\textsubs
 
 右侧的极点矩阵为幂零矩阵 A，满足 A\textsuperscript{2}=0。虽然 M 本身有极点，但 MA 中只保留 M 的正则第二列，因此极限有意义。这种结构是第五章证明对数导数中离散极点可去的关键。\par
 
-\section{4.8 eq:cpair：换叶留数常数的因子怎样来的？}
+\section{换叶留数常数的因子怎样来的？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:cpair}}\par
 
 取同一 D\textsubscript{+} 中的另一个配对点\par
 
@@ -273,15 +279,16 @@ c_{\widehat\zeta}
 
 请注意，不仅有共轭，还有导数因子 Q\textsuperscript{2}/\textbackslash{}overline\ensuremath{\zeta}\textsuperscript{2}；直接把 c\_\{\textbackslash{}hat \ensuremath{\zeta}\} 写成 \ensuremath{-}\textbackslash{}bar c\_\ensuremath{\zeta} 是错误的。第五章选择 c\textsubscript{1} 后，c\textsubscript{2} 就被这一关系锁定。\par
 
-\section{4.9 RHP 的局部条件为何不能略掉？}
+\section{RHP 的局部条件为何不能略掉？}
 
-第二章的谱曲线在 w=\ensuremath{\pm}Q 交叉，w=\ensuremath{\pm}iQ 为背景特征向量退化点，w=wₐ\ensuremath{\pm} 为共振原像。Jost 解只在普通点上有前文的解析结论。若研究一般含反射 RHP，就必须另外说明这几类点的局部行为。\par
+第二章的谱曲线在 w=\ensuremath{\pm}Q 交叉，w=\ensuremath{\pm}iQ 为背景特征向量退化点，w=w\textsubscript{a}\ensuremath{\pm} 为共振原像。Jost 解只在普通点上有前文的解析结论。若研究一般含反射 RHP，就必须另外说明这几类点的局部行为。\par
 
 因此原文定理 thm:RHP \textbf{主要由已知场的直接散射导出}。它并不等同于对任意给定的 r、c\textsubscript{j} 都有唯一解的逆散射定理。\par
 
 第五章的一轨道无反射显式矩阵，会直接核查这些特殊点，没有理由把一般含反射情形的困难自动抹掉。\par
 
-\section{4.10 prop:finite：无反射时为什么可以做部分分式？}
+\section{无反射时为什么可以做部分分式？}
+\noindent{\small\textbf{对应原文：}\texttt{prop:finite}}\par
 
 当 r=\textbackslash{}widetilde r=0，刚才得到的 J 变成单位矩阵。若轮廓非极点上的侧值能解析拼接，M 就成为除指定孤子极点和固定 w=0 主项外的亚纯函数。\par
 
@@ -309,7 +316,8 @@ u_j=M_1(\overline{\zeta_j}).
 
 为什么正域和共轭点有不同符号？正域留数是 +C\textsubscript{j}v\textsubscript{j}，负域共轭留数是 \ensuremath{-}\textbackslash{}overline C\textsubscript{j}u\textsubscript{j}，因此两种主部本来就带不同符号。\par
 
-\section{4.11 eq:finite1：在 \ensuremath{\zeta}\_j 取第二列为何得到第一组方程？}
+\section{在 \ensuremath{\zeta}\_j 取第二列为何得到第一组方程？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:finite1}}\par
 
 观察部分分式的第二列：\par
 
@@ -332,7 +340,8 @@ v_j=e_2-\dfrac{\mathrm{i}Q}{\zeta_j}e_1
 
 这是 eq:finite1。分母不为零，因为 \ensuremath{\zeta}\_j 属于 D\textsubscript{+}、\textbackslash{}overline\ensuremath{\zeta}\_k 属于 D\textsubscript{-} 且不重合。\par
 
-\section{4.12 eq:finite2：在共轭点取第一列为何得到第二组方程？}
+\section{在共轭点取第一列为何得到第二组方程？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:finite2}}\par
 
 同样，部分分式第一列为\par
 
@@ -353,7 +362,8 @@ u_j=e_1-\dfrac{\mathrm{i}Q}{\overline{\zeta_j}}e_2
 
 这就是 eq:finite2。\textbf{到这里，未知的解析函数 M 已经转化为有限个未知二维向量 u\_j、v\_j}。接下来只需线性代数。\par
 
-\section{4.13 eq:finite-schur：Schur 补怎么得到？}
+\section{Schur 补怎么得到？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:finite-schur}}\par
 
 定义标量系数矩阵\par
 
@@ -418,7 +428,8 @@ g_j=e_1-\dfrac{\mathrm{i}Q}{\overline{\zeta_j}}e_2.
 
 \textbf{这是代数系统的可逆性条件，不等价于完整 RHP 的全部条件}。解出的矩阵还必须检查谱约化、行列式、阈值行为与端态相容性。第五章正是用一个特殊四点轨道把这些条件逐一补齐。\par
 
-\section{4.14 prop:theta：为什么会有迹公式？}
+\section{为什么会有迹公式？}
+\noindent{\small\textbf{对应原文：}\texttt{prop:theta}}\par
 
 无反射时在普通轮廓上 s\textsubscript{1}\textsubscript{1}s\textsubscript{2}\textsubscript{2}=1。把 D\textsubscript{+} 的 s\textsubscript{1}\textsubscript{1} 与 D\textsubscript{-} 的 1/s\textsubscript{2}\textsubscript{2} 拼接，若没有其他奇异点，所得函数可由有限零点和极点表示。\par
 
@@ -433,7 +444,8 @@ s_{11}(w)
 
 这是条件性无反射迹公式 eq:trace。它本质上是“利用零点、极点与无穷远归一化确定有理函数”。如果有一般反射，迹公式通常还会包含轮廓上的对数积分，不能直接沿用这个纯乘积。\par
 
-\section{4.15 eq:theta-condition：同相端态怎样限制离散谱？}
+\section{同相端态怎样限制离散谱？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:theta-condition}}\par
 
 对本文两端\textbf{完全相同}的背景，空间散射在 w=0 的对应归一化为单位。由上面乘积在 w=0 代入：\par
 
@@ -460,7 +472,7 @@ s_{11}(0)
 =\left(\dfrac{\zeta}{\overline\zeta}\right)^2.
 \]
 
-因为 h(\textbackslash{}overline\ensuremath{\zeta})=\ensuremath{-}Q\textsuperscript{2}/\textbackslash{}overline\ensuremath{\zeta}，且 \textbackslash{}overline\{h(\textbackslash{}overline\ensuremath{\zeta})\}=\ensuremath{-}Q\textsuperscript{2}/\ensuremath{\zeta}。令 \ensuremath{\zeta}=|\textbackslash{}zeta|e\textasciicircum{}\{iφ\}，则 \ensuremath{\zeta}/\textbackslash{}bar\ensuremath{\zeta}=e\textasciicircum{}\{2iφ\}。于是 N 条轨道合起来是\par
+因为 h(\textbackslash{}overline\ensuremath{\zeta})=\ensuremath{-}Q\textsuperscript{2}/\textbackslash{}overline\ensuremath{\zeta}，且 \textbackslash{}overline\{h(\textbackslash{}overline\ensuremath{\zeta})\}=\ensuremath{-}Q\textsuperscript{2}/\ensuremath{\zeta}。令 \ensuremath{\zeta}=|\textbackslash{}zeta|e\textasciicircum{}\{i\ensuremath{\varphi}\}，则 \ensuremath{\zeta}/\textbackslash{}bar\ensuremath{\zeta}=e\textasciicircum{}\{2i\ensuremath{\varphi}\}。于是 N 条轨道合起来是\par
 
 \[
 e^{4\mathrm{i}\sum\limits_{k=1}^{N}\arg\zeta_k}=1,
@@ -475,7 +487,8 @@ e^{4\mathrm{i}\sum\limits_{k=1}^{N}\arg\zeta_k}=1,
 
 纯虚外部上半平面代表的相角是 \ensuremath{\pi}/2，因此其每条轨道贡献 e\textasciicircum{}\{2\ensuremath{\pi}i\}=1，自动满足。这解释第五章为什么选纯虚谱点：它能自然保持两端同相，而一般复谱点需要额外约束。\par
 
-\section{4.16 prop:reconstruction：光场为何从 w\ensuremath{\to}\ensuremath{\infty} 的系数读出？}
+\section{光场为何从 w\ensuremath{\to}\ensuremath{\infty} 的系数读出？}
+\noindent{\small\textbf{对应原文：}\texttt{prop:reconstruction}}\par
 
 已有\par
 
@@ -513,7 +526,8 @@ A(u)=\dfrac{\mathrm{i}}{2}
 
 请记住 M\textsuperscript{(}\textsuperscript{1}\textsuperscript{)} 是整个矩阵展开系数，不是 M 的第一列。第三章高能展开负责保证这个比较不是随意的形式运算。\par
 
-\section{4.17 eq:RfromM：介质矩阵为什么要在共振点求值？}
+\section{介质矩阵为什么要在共振点求值？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:RfromM}}\par
 
 HMB 时间 Lax 对含有 iR/(\ensuremath{\lambda}\ensuremath{-}a)，所以介质变量不是只看 w\ensuremath{\to}\ensuremath{\infty} 就能恢复。\par
 
@@ -542,7 +556,7 @@ M(x,z,w_a)^{-1}.
 }
 \]
 
-为何两个 wₐ 原像给出同一 R？换叶使 \ensuremath{\rho} 变号，同时中间 \ensuremath{\sigma}\textsubscript{3} 被交换列的 C 共轭也变号：\par
+为何两个 w\textsubscript{a} 原像给出同一 R？换叶使 \ensuremath{\rho} 变号，同时中间 \ensuremath{\sigma}\textsubscript{3} 被交换列的 C 共轭也变号：\par
 
 \[
 C\sigma_3 C^{-1}=-\sigma_3.
@@ -558,7 +572,8 @@ p=-e^{-\mathrm{i}\Omega z}R_{12},\qquad
 
 \textbf{切记：此式在第四章首先是直接散射重构恒等式。} 若从一组抽象数据直接求得 M，还需要第五章证明 M 确实恢复完整 Lax 对，并满足共振处正则性；不能只看形式相同就断言原 PDE 成立。\par
 
-\section{4.18 eq:qfinite：怎样直接从留数获得光场？}
+\section{怎样直接从留数获得光场？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:qfinite}}\par
 
 部分分式展开中\par
 
@@ -584,7 +599,7 @@ u=Q-\mathrm{i}\sum\limits_{j=1}^{m}\overline{C_j}(u_j)_1.
 
 这就是 eq:qfinite。它意味着：一旦完成有限维向量系统，光场已经能直接写出来；下一章还将同时完成介质重构和方程验证。\par
 
-\section{4.19 本章检查清单}
+\section{本章检查清单}
 
 \begin{enumerate}[leftmargin=2em]
 \item 不看公式，从两条散射列关系重新推导 J 的四个元素。

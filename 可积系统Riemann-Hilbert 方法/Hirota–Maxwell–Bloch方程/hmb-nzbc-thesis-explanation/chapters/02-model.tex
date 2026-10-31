@@ -1,12 +1,12 @@
 % Auto-typeset from the previously authored formula-by-formula study manuscript.
 % Based on the thesis main branch f80e5ac903dd, 2026-10-31.
 
-\chapter{第二章：模型、零曲率、去相位与非零背景谱结构}
+\chapter{模型、零曲率、去相位与非零背景谱结构}
 
 对照正文：../hmb-nzbc-thesis/section/02-model.tex  \par
 正文位置：§2.1–§2.4；命题 prop:bg、prop:zc、prop:gauge、prop:curve。该章是第三章所有 Jost 解定义的前提。\par
 
-\section{2.0 本章先回答四个问题}
+\section{本章先回答四个问题}
 
 \begin{enumerate}[leftmargin=2em]
 \item 指定的非零端态是否真的满足 HMB？
@@ -15,7 +15,7 @@
 \item 为什么要用双叶曲面与 w 坐标，哪些点是连续谱、哪些点是特殊点？
 \end{enumerate}
 
-\section{2.1 命题 prop:bg：平面波与 Bloch 长度}
+\section{命题 prop:bg：平面波与 Bloch 长度}
 
 原文 eq:background 为\par
 
@@ -88,7 +88,7 @@ eq:bloch 说\par
 
 请检查：|p\textsubscript{0}|\textsuperscript{2}=\ensuremath{\eta}\textsubscript{0}\textsuperscript{2}Q\textsuperscript{2}/a\textsuperscript{2}。第五章证明重构介质合法、保持实值性时会反复利用这个不变量。\par
 
-\section{2.2 为什么构造 A(q)、R、\ensuremath{\sigma}\textsubscript{3}？}
+\section{为什么构造 A(q)、R、\ensuremath{\sigma}\textsubscript{3}？}
 
 论文定义\par
 
@@ -116,7 +116,7 @@ R^2=(|p|^2+\eta^2)I,
 
 因此 R 的特征值为 \ensuremath{\pm}\textbackslash{}sqrt\{|p|\textsuperscript{2}+\ensuremath{\eta}\textsuperscript{2}\}；这解释为何“共振点的酉共轭”可以保持 Bloch 长度。\par
 
-\section{2.3 公式 eq:lax：两部分 Lax 对}
+\section{公式 eq:lax：两部分 Lax 对}
 
 论文写作\par
 
@@ -168,7 +168,7 @@ c_0&=-2\beta|q|^2\overline q
 
 不要死背四个矩阵。认识它们各自扮演的角色：\ensuremath{\lambda}\textsuperscript{3}、\ensuremath{\lambda}\textsuperscript{2} 负责高次项抵消；\ensuremath{\lambda}\textsuperscript{1} 中出现 q、q\textsubscript{x}、|q|\textsuperscript{2}；\ensuremath{\lambda}\textsuperscript{0} 中出现 q\textsubscript{x}\textsubscript{x}，最终对 x 求导生成 q\textsubscript{x}\textsubscript{x}\textsubscript{x}。记住这一结构，下面比较零曲率就知道每项从何而来。\par
 
-\section{2.4 命题 prop:zc：零曲率等价于 HMB}
+\section{命题 prop:zc：零曲率等价于 HMB}
 
 原文 eq:zc：\par
 
@@ -294,7 +294,7 @@ q_z-(b_0)_x-2dq-2p=0.
 
 把它放回 q\_z\ensuremath{-}(b\textsubscript{0})\textsubscript{x}\ensuremath{-}2dq\ensuremath{-}2p=0，就得到 HMB 的第一条方程。对角项还有一项恒等式可检验 d\textsubscript{x}=[A,V\textsubscript{0}] 的相应分量；它不额外带来独立 PDE。其他项由迹零与反 Hermitian 对称确定。\par
 
-\section{2.5 eq:antihermitian 的意义}
+\section{eq:antihermitian 的意义}
 
 原文写\par
 
@@ -312,7 +312,8 @@ U(\overline\lambda)^\dagger=-U(\lambda),
 
 因此实连续谱上的基本解长度保持。这是第三章推导散射矩阵酉性、共轭约化的重要原因。注意这个等式在非实 \ensuremath{\lambda} 上必须把谱参数一起共轭，不能直接写 U(\ensuremath{\lambda})†=\ensuremath{-}U(\ensuremath{\lambda})。\par
 
-\section{2.6 eq:gauge：为什么去掉平面波相位？}
+\section{为什么去掉平面波相位？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:gauge}}\par
 
 如果 q\textsubscript{0}=Qe\textasciicircum{}\{\ensuremath{-}i\ensuremath{\Omega}z\}，背景的空间矩阵仍依赖 z，散射归一化会很繁琐。取\par
 
@@ -349,7 +350,7 @@ G(z)=e^{-\frac{\mathrm{i}\Omega z}{2}\sigma_3}
 
 多出的 +i\ensuremath{\Omega}\ensuremath{\sigma}\textsubscript{3}/2 非常重要；漏掉它会使背景时间相位 F 的常数项错误。\par
 
-\section{2.7 eq:Rbg 和 eq:F：介质为何改变传播色散？}
+\section{eq:Rbg 和 eq:F：介质为何改变传播色散？}
 
 常背景的介质矩阵为\par
 
@@ -384,7 +385,8 @@ e^{-\mathrm{i}\rho[x-F(\lambda)z]\sigma_3}.
 
 要核对 F，不必独立计算整个 V\ensuremath{\infty} 的四个元：利用迹零与对称性，核对其 (1,2) 元为 \ensuremath{-}QF、(1,1) 元为 i\ensuremath{\lambda}F，再对照 \ensuremath{-}FU\ensuremath{\infty} 即可。原文命题 prop:gauge 的证明正采用这个思路。\par
 
-\section{2.8 eq:uniform：为什么单值化恰好这样选？}
+\section{为什么单值化恰好这样选？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:uniform}}\par
 
 我们知道\par
 
@@ -414,9 +416,9 @@ e^{-\mathrm{i}\rho[x-F(\lambda)z]\sigma_3}.
 
 这不是特殊技巧的神秘猜测，而是利用平方差恒等式把代数曲线有理参数化。原谱曲面上的“两张叶”在 w 平面变成不同区域。\par
 
-\section{2.9 eq:lambda-spectrum、eq:Sigma、eq:domains}
+\section{eq:lambda-spectrum、eq:Sigma、eq:domains}
 
-背景的 x 指数为 e\textasciicircum{}\{\ensuremath{\pm}i\ensuremath{\rho}x\}。它们纯振荡而不在某端指数增长，需要 \ensuremath{\rho} 实值。设 \ensuremath{\lambda}=ξ+iν，\par
+背景的 x 指数为 e\textasciicircum{}\{\ensuremath{\pm}i\ensuremath{\rho}x\}。它们纯振荡而不在某端指数增长，需要 \ensuremath{\rho} 实值。设 \ensuremath{\lambda}=\ensuremath{\xi}+i\ensuremath{\nu}，\par
 
 \[
 \rho^2=\xi^2-\nu^2+Q^2+2\mathrm{i}\xi\nu.
@@ -432,8 +434,8 @@ e^{-\mathrm{i}\rho[x-F(\lambda)z]\sigma_3}.
 两类情形：\par
 
 \begin{itemize}[leftmargin=2em]
-\item ν=0，即整个实轴；
-\item ξ=0 且 |ν|\ensuremath{\le}Q，即虚轴线段从 \ensuremath{-}iQ 到 iQ。
+\item \ensuremath{\nu}=0，即整个实轴；
+\item \ensuremath{\xi}=0 且 |\ensuremath{\nu}|\ensuremath{\le}Q，即虚轴线段从 \ensuremath{-}iQ 到 iQ。
 \end{itemize}
 
 于是\par
@@ -442,7 +444,7 @@ e^{-\mathrm{i}\rho[x-F(\lambda)z]\sigma_3}.
 \Sigma_\lambda=\mathbb R\cup\mathrm{i}\lbrack-Q,Q\rbrack.
 \]
 
-在 w 平面，写 w=re\textasciicircum{}\{iφ\}，直接由 \ensuremath{\rho}(w) 得\par
+在 w 平面，写 w=re\textasciicircum{}\{i\ensuremath{\varphi}\}，直接由 \ensuremath{\rho}(w) 得\par
 
 \[
 \operatorname{Im}\rho(w)
@@ -464,7 +466,8 @@ D_\pm=\left\{w:\ \pm\operatorname{Im}w
 
 不要把 D\textsubscript{+} 误读为“整个上半平面”：\textbf{外部上半平面与内部下半圆盘都可能属于 D\textsubscript{+}}。看图或自己画坐标时，用 Im\ensuremath{\rho} 的符号检查最可靠。\par
 
-\section{2.10 eq:sheet：同一 \ensuremath{\lambda} 为何对应两个 w？}
+\section{同一 \ensuremath{\lambda} 为何对应两个 w？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:sheet}}\par
 
 令\par
 
@@ -489,7 +492,7 @@ h(w)=-\dfrac{Q^2}{w}.
 
 所以 h 保持 \ensuremath{\lambda} 不变、交换谱根的符号：这就是“换叶”。继续算 h(h(w))=w，表明换叶两次返回原点。第五章的一组简单谱点会与 h 及复共轭共同组成四点轨道。\par
 
-\section{2.11 eq:E、eq:diagE：背景特征向量矩阵如何求得？}
+\section{eq:E、eq:diagE：背景特征向量矩阵如何求得？}
 
 取\par
 
@@ -525,7 +528,8 @@ E^{-1}(w)=\dfrac{I+\mathrm{i}Q\sigma_1/w}{\gamma(w)}.
 
 因此 E 只在 \ensuremath{\gamma}\ensuremath{\ne}0 时可逆。\ensuremath{\gamma}=0 给出 w=\ensuremath{\pm}iQ；这恰是分支点，它们并非普通谱点。后面任何使用 E\textsuperscript{-}\textsuperscript{1} 的证明都必须排除这些点或补充阈值分析。\par
 
-\section{2.12 eq:theta：背景同时满足两部分 Lax 方程}
+\section{背景同时满足两部分 Lax 方程}
+\noindent{\small\textbf{对应原文：}\texttt{eq:theta}}\par
 
 由 U\ensuremath{\infty}E=\ensuremath{-}i\ensuremath{\rho}E\ensuremath{\sigma}\textsubscript{3} 与 V\ensuremath{\infty}=\ensuremath{-}FU\ensuremath{\infty}，取\par
 
@@ -553,7 +557,8 @@ E^{-1}(w)=\dfrac{I+\mathrm{i}Q\sigma_1/w}{\gamma(w)}.
 
 这是“同时背景解”的含义：不是只解空间方程，也解传播方程。下一章的散射常数演化必须使用同一个 \ensuremath{\theta}，不能随意改变指数符号。\par
 
-\section{2.13 eq:resonance-w：\ensuremath{\lambda}=a 为什么有两原像？}
+\section{\ensuremath{\lambda}=a 为什么有两原像？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:resonance-w}}\par
 
 解\par
 
@@ -567,9 +572,9 @@ a=\dfrac{1}{2}\left(w-\dfrac{Q^2}{w}\right)
 w_a^\pm=a\pm\sqrt{a^2+Q^2}.
 \]
 
-两根实且非零，乘积 \ensuremath{-}Q\textsuperscript{2}。因此它们在 w 平面不同位置，对应 \ensuremath{\lambda} 平面的同一个共振参数。这里 \ensuremath{\rho}(wₐ⁺) 与 \ensuremath{\rho}(wₐ\textsuperscript{-}) 正负相反；第五章介质重构必须证明在这两个原像上结果一致。\par
+两根实且非零，乘积 \ensuremath{-}Q\textsuperscript{2}。因此它们在 w 平面不同位置，对应 \ensuremath{\lambda} 平面的同一个共振参数。这里 \ensuremath{\rho}(w\textsubscript{a}\textsuperscript{+}) 与 \ensuremath{\rho}(w\textsubscript{a}\textsuperscript{-}) 正负相反；第五章介质重构必须证明在这两个原像上结果一致。\par
 
-\section{2.14 轮廓方向与特别点的意义}
+\section{轮廓方向与特别点的意义}
 
 论文将实轴外段朝右、内段朝左；上半圆顺时针，下半圆逆时针，统一采用 D\textsubscript{+} 位于行进方向左侧的取向。这样“+ 侧”和“\ensuremath{-} 侧”由区域定义，不是固定的上下方。\par
 
@@ -578,12 +583,12 @@ w_a^\pm=a\pm\sqrt{a^2+Q^2}.
 \begin{enumerate}[leftmargin=2em]
 \item w=\ensuremath{\pm}iQ：E 行列式为 0 的\textbf{分支点/阈值}；求逆可能有表观极点。
 \item w=\ensuremath{\pm}Q：实轴与圆的\textbf{交叉点}；需要不同轮廓弧段匹配。
-\item w=wₐ\ensuremath{\pm}：\textbf{共振原像}；空间 Lax 方程正则，但传播因子 F 含极点。
+\item w=w\textsubscript{a}\ensuremath{\pm}：\textbf{共振原像}；空间 Lax 方程正则，但传播因子 F 含极点。
 \end{enumerate}
 
 第四、五章为什么需要单独检查它们，原因全部在这里。\par
 
-\section{2.15 自己动笔完成的练习}
+\section{自己动笔完成的练习}
 
 \begin{enumerate}[leftmargin=2em]
 \item 逐元计算 R\textsuperscript{2}，并解释 \ensuremath{\eta} 实值的必要性。
@@ -591,8 +596,8 @@ w_a^\pm=a\pm\sqrt{a^2+Q^2}.
 \item 复算零曲率常数 (1,2) 元中为何恰出现 6\ensuremath{\beta}|q|\textsuperscript{2}q\textsubscript{x}。
 \item 把 G 的 z 导数一步不漏地代入规范变换。
 \item 用矩阵乘法验证 E 的两列是 \ensuremath{\pm}i\ensuremath{\rho} 模态。
-\item 计算 h(h(w)) 和 wₐ⁺wₐ\textsuperscript{-}。
-\item 画一幅 w 平面，标出实轴、圆、D\textsubscript{+}、D\textsubscript{-}、\ensuremath{\pm}iQ、\ensuremath{\pm}Q、wₐ\ensuremath{\pm}。
+\item 计算 h(h(w)) 和 w\textsubscript{a}\textsuperscript{+}w\textsubscript{a}\textsuperscript{-}。
+\item 画一幅 w 平面，标出实轴、圆、D\textsubscript{+}、D\textsubscript{-}、\ensuremath{\pm}iQ、\ensuremath{\pm}Q、w\textsubscript{a}\ensuremath{\pm}。
 \end{enumerate}
 
 掌握这些后，第三章的 Jost 解并不是引入另一套无联系的符号，而是在这个已知常背景上处理局部扰动。\par

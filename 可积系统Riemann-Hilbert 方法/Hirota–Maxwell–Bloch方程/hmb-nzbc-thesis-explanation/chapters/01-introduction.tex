@@ -1,14 +1,14 @@
 % Auto-typeset from the previously authored formula-by-formula study manuscript.
 % Based on the thesis main branch f80e5ac903dd, 2026-10-31.
 
-\chapter{第一章：绪论逐句与逐公式讲解}
+\chapter{绪论逐句与逐公式讲解}
 
 \textbf{原文}：../hmb-nzbc-thesis/section/01-introduction.tex  \par
 \textbf{范围}：§1.1「模型与研究问题」、§1.2「相关研究」、§1.3「主要内容与记号」。\par
 
 这一章虽然文字较少，但每一段都在限定后文究竟研究哪个方程、哪类边界、哪种方法。先读出“问题是什么”，不要一开始纠结一孤子表达式。\par
 
-\section{1.1 第一句：HMB 描述什么耦合？}
+\section{第一句：HMB 描述什么耦合？}
 
 原文说 HMB 描述“高阶色散光场与两能级介质的耦合”。这里的光场不是孤立地按一个 NLS 方程演化，它与介质变量发生反馈：\par
 
@@ -20,7 +20,7 @@
 
 “高阶色散”来自 q\_\{xxx\}；“非线性自作用”包含 |q|\textsuperscript{2}q 和 |q|\textsuperscript{2}q\_x；“介质耦合”包含 2p 及后两条方程。这个背景陈述只说明物理来源，不能替代严格的可积性证明。\par
 
-\section{1.2 公式 eq:HMB：逐项识别三个方程}
+\section{公式 eq:HMB：逐项识别三个方程}
 
 原系统是\par
 
@@ -54,7 +54,7 @@ p_x=2\eta q-2\mathrm{i}ap,\\
 
 三个方程的导数方向不同：q\_z 被指定，但 p\_x、\ensuremath{\eta}\_x 被指定。这解释了为什么不能“只从 q 的无穷远系数”就恢复全部三个场；介质变量还需要端态信息。\par
 
-\section{1.3 为什么说“关于 x 的 Lax 方程是空间谱问题”？}
+\section{为什么说“关于 x 的 Lax 方程是空间谱问题”？}
 
 物理上 x 被称为推迟时间，数学上仍将\par
 
@@ -64,7 +64,7 @@ p_x=2\eta q-2\mathrm{i}ap,\\
 
 作为直接散射的空间微分方程。因为散射数据由 x\ensuremath{\to}\ensuremath{\pm}\ensuremath{\infty} 的比较定义，而 z 负责它们随传播变化。这里“空间”是方法中的角色名，不要求 x 必须是真实空间坐标。\par
 
-\section{1.4 公式 eq:targetboundary：非零光场与相容介质}
+\section{公式 eq:targetboundary：非零光场与相容介质}
 
 研究的两端边界为\par
 
@@ -109,7 +109,7 @@ q\textsubscript{0} 非零，除去公共因子 \ensuremath{-}\textbackslash{}mat
 
 这就是正文频率公式的来源，第二章会正式把它作为命题证明。\par
 
-\section{1.5 为什么背景有平方根与双叶曲面？}
+\section{为什么背景有平方根与双叶曲面？}
 
 对去掉公共相位后的常背景 u=Q，空间矩阵是\par
 
@@ -138,7 +138,7 @@ U_\infty(\lambda)=
 
 平方根的两个分支在 \ensuremath{\lambda}=\ensuremath{\pm}iQ 相遇。第二章通过 w=\ensuremath{\lambda}+\ensuremath{\rho} 消除多值性。因此绪论说“Q>0 引入双叶谱曲面”，是一个具体的特征值计算结果，不是比喻。\par
 
-\section{1.6 为什么还有共振极点 \ensuremath{\lambda}=a？}
+\section{为什么还有共振极点 \ensuremath{\lambda}=a？}
 
 在完整 HMB 传播 Lax 矩阵中，介质变量通过\par
 
@@ -150,7 +150,7 @@ U_\infty(\lambda)=
 
 这引发两个独立任务：（1）反射系数在共振点必须满足什么相容条件；（2）介质矩阵能否利用此点的\textbf{空间归一化}基本解恢复。第三、四、六章分别回答其中的条件性问题。\par
 
-\section{1.7 §1.2 的每篇文献到底用来做什么？}
+\section{§1.2 的每篇文献到底用来做什么？}
 
 \begin{itemize}[leftmargin=2em]
 \item Li–He–Porsezian（2013）：完整 HMB 的 Lax 对与多重 Darboux，提供已有精确解和对照。不能把其 Darboux 公式宣称为本文新发明。
@@ -163,7 +163,7 @@ U_\infty(\lambda)=
 
 这里的“相关研究”并不是要求你读完六篇才能开始第三章；实际学习可先以范恩贵老师第六章和 Zhang–Chen–Yan（2020）为非零背景谱论的参考。\par
 
-\section{1.8 §1.3 整篇论文结构究竟是什么？}
+\section{§1.3 整篇论文结构究竟是什么？}
 
 第二章：确定背景及对应两部分 Lax 对，算出 w 平面和相位 \ensuremath{\theta}。\par
 
@@ -179,7 +179,7 @@ U_\infty(\lambda)=
 
 \textbf{第三、四章的“从已知场推导 RHP”不自动等价于“对任意散射数据都有解”；第五章确实对一组明确散射数据补上了后者。} 不应把一轨道的结果无限推广。\par
 
-\section{1.9 符号说明为何只需要记住几个？}
+\section{符号说明为何只需要记住几个？}
 
 正文说横线表示复共轭，† 表示共轭转置，M\_j 表示第 j 列，M\textsuperscript{(}\textsuperscript{1}\textsuperscript{)} 是 1/w 展开系数，撇号通常是 w 导数。这些不是可有可无的细节：\par
 
@@ -189,7 +189,7 @@ U_\infty(\lambda)=
 \item M\textsuperscript{(}\textsuperscript{1}\textsuperscript{)} 是矩阵系数，不是某个时刻的 M，也不是 M 的第一列。
 \end{itemize}
 
-\section{1.10 本章自测}
+\section{本章自测}
 
 \begin{enumerate}[leftmargin=2em]
 \item 在 q\textsubscript{0} 非零的条件下，亲自从 p\_x=0 求出 p\textsubscript{0}。

@@ -1,14 +1,14 @@
 % Auto-typeset from the previously authored formula-by-formula study manuscript.
 % Based on the thesis main branch f80e5ac903dd, 2026-10-31.
 
-\chapter{第六章：孤子幅值、传播周期与共振点正则性的逐式解析}
+\chapter{孤子幅值、传播周期与共振点正则性的逐式解析}
 
 对照正文：../hmb-nzbc-thesis/section/06-conclusion.tex  \par
 覆盖 §6.1–§6.2，主要标签：eq:velocity、eq:frequency、prop:wave-properties、eq:amplitude-bound、eq:medium-bound、eq:internal-period、prop:oscillatory-regularity、prop:resonant-regularity。\par
 
 本章不是再求一次孤子，而是回答两个更具体的问题：第五章的一轨道解在时空中怎么变化？如果允许非零反射，共振极点将怎样影响反射数据的光滑性？\par
 
-\section{6.1 首先分清三种运动}
+\section{首先分清三种运动}
 
 第五章得到的光场具有公共因子 e\textasciicircum{}\{\ensuremath{-}i\ensuremath{\Omega}z\}，另外还有由 s=\ensuremath{\kappa}[x\ensuremath{-}F(ib)z] 控制的局域波形。它们可以产生三种不同的效应：\par
 
@@ -20,7 +20,7 @@
 
 不先区分这三者，很容易把“模长随动周期”误说成“复场完全周期”。\par
 
-\section{6.2 eq:velocity 与 eq:frequency：把 F(ib) 的实、虚部算出来}
+\section{eq:velocity 与 eq:frequency：把 F(ib) 的实、虚部算出来}
 
 第二章有\par
 
@@ -63,7 +63,7 @@ B_b=\operatorname{Im}F(\mathrm{i}b)
 
 现在知道了：\ensuremath{\beta} 主要进入这个纯虚谱点的整体传播速度 A\_b；\ensuremath{\alpha} 进入内部频率 B\_b；介质参数 \ensuremath{\eta}\textsubscript{0} 同时改变两者。这是就本特殊纯虚谱点而言，不能无条件推广为任意复谱参数时的参数分工。\par
 
-\section{6.3 为什么引入随动坐标 X=x\ensuremath{-}A\_bz？}
+\section{为什么引入随动坐标 X=x\ensuremath{-}A\_bz？}
 
 第五章\par
 
@@ -89,7 +89,8 @@ t=e^{2s}=e^{2\kappa X}e^{-2\mathrm{i}\kappa B_bz}.
 
 当 z 固定而 X\ensuremath{\to}\ensuremath{\pm}\ensuremath{\infty}，前一个因子趋 0 或 +\ensuremath{\infty}；第六章的端态衰减就来自这两个极限。\par
 
-\section{6.4 prop:wave-properties：光场峰值为什么不超过 Q+2b？}
+\section{光场峰值为什么不超过 Q+2b？}
+\noindent{\small\textbf{对应原文：}\texttt{prop:wave-properties}}\par
 
 第五章得到\par
 
@@ -139,7 +140,8 @@ q(0,0)=-(Q+2b),\qquad |q(0,0)|=Q+2b.
 
 所以此特定范数常数选择下，光场最大模恰为 Q+2b。改变范数常数通常会改变峰值所在的时空位置；不能不加条件地把 x=z=0 的结论推广给任意平移相位参数。\par
 
-\section{6.5 eq:medium-bound：介质变量为何有与 b 无关的界？}
+\section{介质变量为何有与 b 无关的界？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:medium-bound}}\par
 
 第二章及第五章已证明\par
 
@@ -164,7 +166,7 @@ C_0=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right).
 
 这是模型的一个直观特点，前提是保持同一个背景 \ensuremath{\eta}\textsubscript{0}、Q、a。\par
 
-\section{6.6 为什么局部化阶是 O(e\textasciicircum{}\{\ensuremath{-}2\ensuremath{\kappa}|X|\})？}
+\section{为什么局部化阶是 O(e\textasciicircum{}\{\ensuremath{-}2\ensuremath{\kappa}|X|\})？}
 
 仍然从第五章的代数投影 P(t) 出发。其分母\par
 
@@ -194,7 +196,8 @@ q、p、\ensuremath{\eta} 都是 P 的光滑有理/矩阵表达式，且相关�
 
 注意这是指数\textbf{衰减率}，并不是半高全宽的直接计算。若需要半高全宽，还应在固定内部相位时求幅值曲线对应的具体方程。\par
 
-\section{6.7 eq:internal-period：周期为什么是 \ensuremath{\pi}/(\ensuremath{\kappa}|B\_b|)？}
+\section{周期为什么是 \ensuremath{\pi}/(\ensuremath{\kappa}|B\_b|)？}
+\noindent{\small\textbf{对应原文：}\texttt{eq:internal-period}}\par
 
 固定 X，随 z 变化的只有 t 中的单位模相位\par
 
@@ -235,7 +238,7 @@ e^{-\mathrm{i}\Omega T_z}=1
 
 本章“内部周期”不要与复杂呼吸子在原时空中的全部周期性质混淆。\par
 
-\section{6.8 数值例：核对 A\_b 和 B\_b}
+\section{数值例：核对 A\_b 和 B\_b}
 
 取论文图一的参数\par
 
@@ -259,7 +262,7 @@ B_b=-1(1.5)-\dfrac{0.6(1.5)}{2(2^2+1.5^2)}
 
 所以中心沿 x=\ensuremath{-}1.196z 移动，内部角频率是 2\ensuremath{\kappa}|B\_b|，相应随动周期按上述公式计算。图像是直观展示，不是证明方程成立的依据。\par
 
-\section{6.9 §6.2 为什么要研究“零点的消失阶”？}
+\section{§6.2 为什么要研究“零点的消失阶”？}
 
 第三章的共振命题在明确假设下得到 r\_sp(a)=0。可是由于传播相位 F 在 \ensuremath{\lambda}=a 有极点，传播后的反射系数含有快速振荡：\par
 
@@ -273,7 +276,8 @@ r_{\mathrm{sp}}(\lambda,0).
 
 因此“点值为 0”与“作为函数平滑”是两件不同的事情。第六章要精确回答：初始反射零点至少几阶，传播后才能在共振点保留 k 阶连续导数？\par
 
-\section{6.10 prop:oscillatory-regularity：基础模型 f(s)=s\textasciicircum{}m g(s)e\textasciicircum{}\{ic/s\}}
+\section{基础模型 f(s)=s\textasciicircum{}m g(s)e\textasciicircum{}\{ic/s\}}
+\noindent{\small\textbf{对应原文：}\texttt{prop:oscillatory-regularity}}\par
 
 先研究纯实变量局部函数：\par
 
@@ -295,7 +299,8 @@ f(s)=s^m g(s)e^{\frac{\mathrm{i}c}{s}},
 
 所以每求导一次，最严重的幂次会减少 2，而不是减少 1。这是 m\ensuremath{\ge}2k+1 的根本原因。\par
 
-\section{6.11 eq:oscillatory-derivatives：归纳推导每阶导数}
+\section{归纳推导每阶导数}
+\noindent{\small\textbf{对应原文：}\texttt{eq:oscillatory-derivatives}}\par
 
 声明\par
 
@@ -342,7 +347,7 @@ G_{j+1}(0)=-\mathrm{i}cG_j(0)
 
 归纳完成。这个递推保证主导振荡项的系数不为 0，所以我们不能指望高阶导数里的剧烈振荡被偶然抵消。\par
 
-\section{6.12 为什么连续延拓到 C\textasciicircum{}k 当且仅当 m\ensuremath{\ge}2k+1？}
+\section{为什么连续延拓到 C\textasciicircum{}k 当且仅当 m\ensuremath{\ge}2k+1？}
 
 \textbf{充分性}：若 m\ensuremath{\ge}2k+1，那么对 0\ensuremath{\le}j\ensuremath{\le}k，\par
 
@@ -350,7 +355,7 @@ G_{j+1}(0)=-\mathrm{i}cG_j(0)
 m-2j\ge1,
 \]
 
-所以去心邻域中的 f\textsuperscript{(}ʲ\textsuperscript{)}(s) 都趋于 0。\par
+所以去心邻域中的 f\textsuperscript{(}\textsuperscript{j}\textsuperscript{)}(s) 都趋于 0。\par
 
 但是要证明“连续延拓后的函数确实可导”，还要用差商，而不仅是看去心导数极限。假设较低阶导数在 0 已定义为 0，则\par
 
@@ -374,7 +379,8 @@ f\text{ 可延拓为 }C^k
 
 特别地：m=1 或 2 只保证 C\textsuperscript{0}，不保证 C\textsuperscript{1}；m=3 或 4 保证 C\textsuperscript{1}，但不保证 C\textsuperscript{2}；m=5 或 6 保证 C\textsuperscript{2}。\par
 
-\section{6.13 prop:resonant-regularity：把模型应用于 HMB 传播相位}
+\section{把模型应用于 HMB 传播相位}
+\noindent{\small\textbf{对应原文：}\texttt{prop:resonant-regularity}}\par
 
 在共振点附近令 \ensuremath{\lambda}=a+s。写\par
 
@@ -439,7 +445,7 @@ g_z(s)=g_0(s)e^{-2\mathrm{i}zL(s)}.
 
 g\_z 仍光滑且在 0 非零，完全符合前面的引理，所以其 C\textasciicircum{}k 延拓条件就是 m\ensuremath{\ge}2k+1。\par
 
-\section{6.14 两个共振原像为何有相同的消失阶判断？}
+\section{两个共振原像为何有相同的消失阶判断？}
 
 \ensuremath{\lambda}(w)=\textbackslash{}dfrac\{1\}\{2\}(w\ensuremath{-}Q\textsuperscript{2}/w)。求导：\par
 
@@ -448,18 +454,18 @@ g\_z 仍光滑且在 0 非零，完全符合前面的引理，所以其 C\textas
 =\dfrac{1}{2}\left(1+\dfrac{Q^2}{w^2}\right).
 \]
 
-在两个实非零共振原像 wₐ\ensuremath{\pm}，这个导数严格正。因此 w\ensuremath{-}wₐ 与 \ensuremath{\lambda}\ensuremath{-}a 在局部相差一个非零可逆的光滑坐标变换：\par
+在两个实非零共振原像 w\textsubscript{a}\ensuremath{\pm}，这个导数严格正。因此 w\ensuremath{-}w\textsubscript{a} 与 \ensuremath{\lambda}\ensuremath{-}a 在局部相差一个非零可逆的光滑坐标变换：\par
 
 \[
 \lambda(w)-a
 =\lambda'(w_a)(w-w_a)+O((w-w_a)^2).
 \]
 
-两种坐标中的函数零点具有相同阶数，C\textasciicircum{}k 延拓性质也保持，所以刚才的结果对 wₐ⁺、wₐ\textsuperscript{-} 两个原像都成立。\par
+两种坐标中的函数零点具有相同阶数，C\textasciicircum{}k 延拓性质也保持，所以刚才的结果对 w\textsubscript{a}\textsuperscript{+}、w\textsubscript{a}\textsuperscript{-} 两个原像都成立。\par
 
 \textbf{这是局部正则性的定理，不是一般 IST 全局存在性定理。} 它只分析了一个假定已存在的反射函数在传播乘子作用下的局部性质，并未证明每个满足消失阶条件的函数都能由某个 HMB 势产生。\par
 
-\section{6.15 为什么这章与你的论文创新点有关？}
+\section{为什么这章与你的论文创新点有关？}
 
 主线创新内容是非零 q 的 RHP 与一轨道无反射解；这一章的共振正则性分析则告诉你：若日后从反射为零进一步推广到含反射数据，实共振点可能不是只需要一个点值条件 r(a)=0。\par
 
@@ -467,7 +473,7 @@ g\_z 仍光滑且在 0 非零，完全符合前面的引理，所以其 C\textas
 
 但目前不应把这一局部分析误认为已经解决了分支点、轮廓交点和一般反射 RHP 的全局存在唯一性。\par
 
-\section{6.16 本章自测}
+\section{本章自测}
 
 \begin{enumerate}[leftmargin=2em]
 \item 将 \ensuremath{\lambda}=ib 代入 F，手算实部和虚部。
