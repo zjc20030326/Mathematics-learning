@@ -230,7 +230,7 @@ $$
 
 $$
 \operatorname*{Res}_{w=\zeta}M(w)
-=\lim_{w\to\zeta}M(w)
+=\lim\limits_{w\to\zeta}M(w)
 \begin{pmatrix}0&0\\C&0\end{pmatrix}.
 $$
 
@@ -284,7 +284,7 @@ $$
 \boxed{
 \begin{aligned}
 M(w)=I-\dfrac{\mathrm{i}Q}{w}\sigma_1
-+\sum_{j=1}^{m}\left(
++\sum\lim\limitsits_{j=1}^{m}\left(
 \dfrac{C_jv_je_1^{\mathsf T}}{w-\zeta_j}
 -\dfrac{\overline{C_j}u_je_2^{\mathsf T}}{w-\overline{\zeta_j}}
 \right).
@@ -316,7 +316,7 @@ $$
 $$
 \boxed{
 v_j=e_2-\dfrac{\mathrm{i}Q}{\zeta_j}e_1
--\sum_{k=1}^{m}
+-\sum\lim\limitsits_{k=1}^{m}
 \dfrac{\overline{C_k}u_k}{\zeta_j-\overline{\zeta_k}}.
 }
 $$
@@ -329,7 +329,7 @@ $$
 
 $$
 M_1(w)=e_1-\dfrac{\mathrm{i}Q}{w}e_2
-+\sum_{k=1}^{m}\dfrac{C_kv_k}{w-\zeta_k}.
++\sum\lim\limitsits_{k=1}^{m}\dfrac{C_kv_k}{w-\zeta_k}.
 $$
 
 在 w=\overlineζ_j 取值：
@@ -337,7 +337,7 @@ $$
 $$
 \boxed{
 u_j=e_1-\dfrac{\mathrm{i}Q}{\overline{\zeta_j}}e_2
-+\sum_{k=1}^{m}
++\sum\lim\limitsits_{k=1}^{m}
 \dfrac{C_kv_k}{\overline{\zeta_j}-\zeta_k}.
 }
 $$
@@ -417,7 +417,7 @@ $$
 
 $$
 s_{11}(w)
-=\prod_{j=1}^{m}
+=\prod\lim\limitsits_{j=1}^{m}
 \dfrac{w-\zeta_j}{w-\overline{\zeta_j}},
 \qquad w\in D_+.
 $$
@@ -430,16 +430,16 @@ $$
 
 $$
 s_{11}(0)
-=\prod_{j=1}^{m}
+=\prod\lim\limitsits_{j=1}^{m}
 \dfrac{-\zeta_j}{-\overline{\zeta_j}}
-=\prod_{j=1}^{m}\dfrac{\zeta_j}{\overline{\zeta_j}}.
+=\prod\lim\limitsits_{j=1}^{m}\dfrac{\zeta_j}{\overline{\zeta_j}}.
 $$
 
 所以同相背景要求
 
 $$
 \boxed{
-\prod_{j=1}^{m}\dfrac{\zeta_j}{\overline{\zeta_j}}=1.
+\prod\lim\limitsits_{j=1}^{m}\dfrac{\zeta_j}{\overline{\zeta_j}}=1.
 }
 $$
 
@@ -454,13 +454,13 @@ $$
 因为 h(\overlineζ)=−Q²/\overlineζ，且 \overline{h(\overlineζ)}=−Q²/ζ。令 ζ=|\zeta|e^{iφ}，则 ζ/\barζ=e^{2iφ}。于是 N 条轨道合起来是
 
 $$
-e^{4\mathrm{i}\sum_{k=1}^{N}\arg\zeta_k}=1,
+e^{4\mathrm{i}\sum\lim\limitsits_{k=1}^{N}\arg\zeta_k}=1,
 $$
 
 即
 
 $$
-4\sum_{k=1}^{N}\arg\zeta_k
+4\sum\lim\limitsits_{k=1}^{N}\arg\zeta_k
 \equiv0\pmod{2\pi}.
 $$
 
@@ -562,14 +562,14 @@ $$
 
 $$
 M^{(1)}_{12}
-=-\mathrm{i}Q-\sum_{j=1}^{m}\overline{C_j}(u_j)_1.
+=-\mathrm{i}Q-\sum\lim\limitsits_{j=1}^{m}\overline{C_j}(u_j)_1.
 $$
 
 代入 u=iM⁽¹⁾₁₂：
 
 $$
 \boxed{
-u=Q-\mathrm{i}\sum_{j=1}^{m}\overline{C_j}(u_j)_1.
+u=Q-\mathrm{i}\sum\lim\limitsits_{j=1}^{m}\overline{C_j}(u_j)_1.
 }
 $$
 

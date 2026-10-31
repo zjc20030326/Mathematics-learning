@@ -160,8 +160,8 @@ $$
 \begin{aligned}
 \|(K^nE_1)(x)\|
 &\le\|E_1\|C_K^n
-\int_{y_n<\cdots<y_1<x}
-\prod_{\ell=1}^{n}\|\Delta A(y_\ell)\|
+\int\limits_{y_n<\cdots<y_1<x}
+\prod\lim\limitsits_{\ell=1}^{n}\|\Delta A(y_\ell)\|
 \,\mathrm{d}y_1\cdots\mathrm{d}y_n\\
 &=\dfrac{\|E_1\|C_K^n}{n!}
 \left(\int_{-\infty}^{x}\|\Delta A(y)\|\,\mathrm{d}y\right)^n.
