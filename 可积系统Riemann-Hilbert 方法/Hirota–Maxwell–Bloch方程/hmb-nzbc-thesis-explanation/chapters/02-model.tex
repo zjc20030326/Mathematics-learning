@@ -26,11 +26,11 @@ p_0=-\dfrac{\mathrm{i}\eta_0}{a}q_0,\qquad
 \Omega=-\alpha Q^2+\dfrac{2\eta_0}{a}.
 \]
 
-\textbf{为什么选这个形式？} 希望光场在 x 方向不变化，只有沿 z 的载波相位；于是 qₓ、qₓₓ、qₓₓₓ 全为 0。介质必须与这种平面波兼容，不能随便令 p₀=0，因为当 η₀Q≠0 时，第二条 HMB 方程将产生非零右端。\par
+\textbf{为什么选这个形式？} 希望光场在 x 方向不变化，只有沿 z 的载波相位；于是 q\textsubscript{x}、q\textsubscript{x}\textsubscript{x}、q\textsubscript{x}\textsubscript{x}\textsubscript{x} 全为 0。介质必须与这种平面波兼容，不能随便令 p\textsubscript{0}=0，因为当 \ensuremath{\eta}\textsubscript{0}Q\ensuremath{\ne}0 时，第二条 HMB 方程将产生非零右端。\par
 
 逐式验证：\par
 
-由 pₓ=0，\par
+由 p\textsubscript{x}=0，\par
 
 \[
 0=2\eta_0q_0-2\mathrm{i}ap_0
@@ -49,7 +49,7 @@ p_0=\dfrac{\eta_0q_0}{\mathrm{i}a}
 \end{aligned}
 \]
 
-恰好与 ηₓ=0 相容。第一式由于 q₀,z=−iΩq₀，得到\par
+恰好与 \ensuremath{\eta}\textsubscript{x}=0 相容。第一式由于 q\textsubscript{0},z=\ensuremath{-}i\ensuremath{\Omega}q\textsubscript{0}，得到\par
 
 \[
 -\mathrm{i}\Omega q_0
@@ -57,7 +57,7 @@ p_0=\dfrac{\eta_0q_0}{\mathrm{i}a}
 =\mathrm{i}\left(\alpha Q^2-\dfrac{2\eta_0}{a}\right)q_0.
 \]
 
-因为 q₀≠0，所以得到 Ω 的表达。注意 β 项不是“被忽略”，而是由于所有 x 导数为零，在这个特定背景上恰为零。\par
+因为 q\textsubscript{0}\ensuremath{\ne}0，所以得到 \ensuremath{\Omega} 的表达。注意 \ensuremath{\beta} 项不是“被忽略”，而是由于所有 x 导数为零，在这个特定背景上恰为零。\par
 
 eq:bloch 说\par
 
@@ -86,9 +86,9 @@ eq:bloch 说\par
 =\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right).
 \]
 
-请检查：|p₀|²=η₀²Q²/a²。第五章证明重构介质合法、保持实值性时会反复利用这个不变量。\par
+请检查：|p\textsubscript{0}|\textsuperscript{2}=\ensuremath{\eta}\textsubscript{0}\textsuperscript{2}Q\textsuperscript{2}/a\textsuperscript{2}。第五章证明重构介质合法、保持实值性时会反复利用这个不变量。\par
 
-\section{2.2 为什么构造 A(q)、R、σ₃？}
+\section{2.2 为什么构造 A(q)、R、\ensuremath{\sigma}\textsubscript{3}？}
 
 论文定义\par
 
@@ -103,9 +103,9 @@ R=\begin{pmatrix}\eta&-p\\-\overline p&-\eta\end{pmatrix},
 这些矩阵并非任意设定：\par
 
 \begin{itemize}[leftmargin=2em]
-\item A(q) 负责光场的空间谱耦合，是反 Hermitian 矩阵：A(q)\textasciicircum{}\textbackslash{}dagger=−A(q)。
-\item R 负责介质变量，因 η 实值而满足 R\textasciicircum{}\textbackslash{}dagger=R、tr R=0。
-\item σ₃ 为对角矩阵，其与非对角势的交换子可分离正、负频率分量。
+\item A(q) 负责光场的空间谱耦合，是反 Hermitian 矩阵：A(q)\textasciicircum{}\textbackslash{}dagger=\ensuremath{-}A(q)。
+\item R 负责介质变量，因 \ensuremath{\eta} 实值而满足 R\textasciicircum{}\textbackslash{}dagger=R、tr R=0。
+\item \ensuremath{\sigma}\textsubscript{3} 为对角矩阵，其与非对角势的交换子可分离正、负频率分量。
 \end{itemize}
 
 直接算\par
@@ -114,7 +114,7 @@ R=\begin{pmatrix}\eta&-p\\-\overline p&-\eta\end{pmatrix},
 R^2=(|p|^2+\eta^2)I,
 \]
 
-因此 R 的特征值为 ±\textbackslash{}sqrt\{|p|²+η²\}；这解释为何“共振点的酉共轭”可以保持 Bloch 长度。\par
+因此 R 的特征值为 \ensuremath{\pm}\textbackslash{}sqrt\{|p|\textsuperscript{2}+\ensuremath{\eta}\textsuperscript{2}\}；这解释为何“共振点的酉共轭”可以保持 Bloch 长度。\par
 
 \section{2.3 公式 eq:lax：两部分 Lax 对}
 
@@ -127,10 +127,10 @@ U=-\mathrm{i}\lambda\sigma_3+A(q);
 
 \[
 \Phi_z=V\Phi,\qquad
-V=\sum\lim\limitsits_{j=0}^{3}\lambda^jV_j+\dfrac{\mathrm{i}R}{\lambda-a}.
+V=\sum\limits_{j=0}^{3}\lambda^jV_j+\dfrac{\mathrm{i}R}{\lambda-a}.
 \]
 
-对角项 −iλσ₃ 决定自由振荡；A(q) 是非对角扰动。V 的三次多项式部分体现 Hirota 的高阶色散；最后的实极点 λ=a 项代表介质。若去掉有理项，零曲率便不能恢复 2p 的耦合和完整介质方程。\par
+对角项 \ensuremath{-}i\ensuremath{\lambda}\ensuremath{\sigma}\textsubscript{3} 决定自由振荡；A(q) 是非对角扰动。V 的三次多项式部分体现 Hirota 的高阶色散；最后的实极点 \ensuremath{\lambda}=a 项代表介质。若去掉有理项，零曲率便不能恢复 2p 的耦合和完整介质方程。\par
 
 原文 eq:V32 中的\par
 
@@ -139,7 +139,7 @@ V_3=4\mathrm{i}\beta\sigma_3,\qquad
 V_2=-\mathrm{i}\alpha\sigma_3-4\beta A(q)
 \]
 
-分别控制 λ³、λ² 项。最高阶矩阵需与 σ₃ 对易，否则零曲率会出现无法抵消的 λ⁴ 项。\par
+分别控制 \ensuremath{\lambda}\textsuperscript{3}、\ensuremath{\lambda}\textsuperscript{2} 项。最高阶矩阵需与 \ensuremath{\sigma}\textsubscript{3} 对易，否则零曲率会出现无法抵消的 \ensuremath{\lambda}⁴ 项。\par
 
 eq:V1、eq:V0 的完整系数为\par
 
@@ -154,7 +154,7 @@ V_1=\begin{pmatrix}
 V_0=\begin{pmatrix}d&b_0\\c_0&-d\end{pmatrix},
 \]
 
-其中本资料把原文的 b、c 暂记 b₀、c₀，以免和第五章的谱参数 b 混淆：\par
+其中本资料把原文的 b、c 暂记 b\textsubscript{0}、c\textsubscript{0}，以免和第五章的谱参数 b 混淆：\par
 
 \[
 \begin{aligned}
@@ -166,7 +166,7 @@ c_0&=-2\beta|q|^2\overline q
 \end{aligned}
 \]
 
-不要死背四个矩阵。认识它们各自扮演的角色：λ³、λ² 负责高次项抵消；λ¹ 中出现 q、qₓ、|q|²；λ⁰ 中出现 qₓₓ，最终对 x 求导生成 qₓₓₓ。记住这一结构，下面比较零曲率就知道每项从何而来。\par
+不要死背四个矩阵。认识它们各自扮演的角色：\ensuremath{\lambda}\textsuperscript{3}、\ensuremath{\lambda}\textsuperscript{2} 负责高次项抵消；\ensuremath{\lambda}\textsuperscript{1} 中出现 q、q\textsubscript{x}、|q|\textsuperscript{2}；\ensuremath{\lambda}\textsuperscript{0} 中出现 q\textsubscript{x}\textsubscript{x}，最终对 x 求导生成 q\textsubscript{x}\textsubscript{x}\textsubscript{x}。记住这一结构，下面比较零曲率就知道每项从何而来。\par
 
 \section{2.4 命题 prop:zc：零曲率等价于 HMB}
 
@@ -176,7 +176,7 @@ c_0&=-2\beta|q|^2\overline q
 U_z-V_x+[U,V]=0.
 \]
 
-由 Φₓ=UΦ、Φ\_z=VΦ 的混合偏导可交换而来，详细见预备知识 0.2。\par
+由 \ensuremath{\Phi}\textsubscript{x}=U\ensuremath{\Phi}、\ensuremath{\Phi}\_z=V\ensuremath{\Phi} 的混合偏导可交换而来，详细见预备知识 0.2。\par
 
 \textbf{首先比较共振极点。} 由\par
 
@@ -195,7 +195,7 @@ U(\lambda)=U(a)-\mathrm{i}(\lambda-a)\sigma_3
 \end{aligned}
 \]
 
-为什么最后是正的 [σ₃,R]？因为 i×(−i)=1。这一项是\textbf{常数项}，会与光场方程的介质耦合一起出现；不能只取留数而丢掉它。\par
+为什么最后是正的 [\ensuremath{\sigma}\textsubscript{3},R]？因为 i\ensuremath{\times}(\ensuremath{-}i)=1。这一项是\textbf{常数项}，会与光场方程的介质耦合一起出现；不能只取留数而丢掉它。\par
 
 直接算交换子：\par
 
@@ -206,7 +206,7 @@ U(\lambda)=U(a)-\mathrm{i}(\lambda-a)\sigma_3
 \end{pmatrix}.
 \]
 
-检查其中的 (1,2) 项：先算 U(a)R 的 (1,2) 元为 (−ia)(−p)+q(−η)=iap−ηq；再算 RU(a) 的 (1,2) 元为 ηq+(−p)(ia)=ηq−iap；相减等于 2iap−2ηq。\par
+检查其中的 (1,2) 项：先算 U(a)R 的 (1,2) 元为 (\ensuremath{-}ia)(\ensuremath{-}p)+q(\ensuremath{-}\ensuremath{\eta})=iap\ensuremath{-}\ensuremath{\eta}q；再算 RU(a) 的 (1,2) 元为 \ensuremath{\eta}q+(\ensuremath{-}p)(ia)=\ensuremath{\eta}q\ensuremath{-}iap；相减等于 2iap\ensuremath{-}2\ensuremath{\eta}q。\par
 
 留数零意味着\par
 
@@ -214,41 +214,41 @@ U(\lambda)=U(a)-\mathrm{i}(\lambda-a)\sigma_3
 R_x=[U(a),R].
 \]
 
-其 (1,1) 元为 ηₓ=−(q\textbackslash{}overline p+\textbackslash{}overline qp)；其 (1,2) 元为 −pₓ=2iap−2ηq，整理为 pₓ=2ηq−2iap。后两条 HMB 方程由此得到。\par
+其 (1,1) 元为 \ensuremath{\eta}\textsubscript{x}=\ensuremath{-}(q\textbackslash{}overline p+\textbackslash{}overline qp)；其 (1,2) 元为 \ensuremath{-}p\textsubscript{x}=2iap\ensuremath{-}2\ensuremath{\eta}q，整理为 p\textsubscript{x}=2\ensuremath{\eta}q\ensuremath{-}2iap。后两条 HMB 方程由此得到。\par
 
-\textbf{再比较多项式幂次。} 因 U 中有 λ¹，V 中有 λ³，最高可能是 λ⁴；将零曲率按 λ\textasciicircum{}4、λ³、λ²、λ¹、λ⁰ 排列。\par
+\textbf{再比较多项式幂次。} 因 U 中有 \ensuremath{\lambda}\textsuperscript{1}，V 中有 \ensuremath{\lambda}\textsuperscript{3}，最高可能是 \ensuremath{\lambda}⁴；将零曲率按 \ensuremath{\lambda}\textasciicircum{}4、\ensuremath{\lambda}\textsuperscript{3}、\ensuremath{\lambda}\textsuperscript{2}、\ensuremath{\lambda}\textsuperscript{1}、\ensuremath{\lambda}\textsuperscript{0} 排列。\par
 
-λ⁴ 项：[−iσ₃,V₃]=0，因为 V₃ 与 σ₃ 对角且对易。\par
+\ensuremath{\lambda}⁴ 项：[\ensuremath{-}i\ensuremath{\sigma}\textsubscript{3},V\textsubscript{3}]=0，因为 V\textsubscript{3} 与 \ensuremath{\sigma}\textsubscript{3} 对角且对易。\par
 
-λ³ 项：\par
+\ensuremath{\lambda}\textsuperscript{3} 项：\par
 
 \[
 [-\mathrm{i}\sigma_3,V_2]+[A,V_3]=0.
 \]
 
-把 V₂ 代入，第一项是 4iβ[σ₃,A]，第二项是 4iβ[A,σ₃]，相反故相消。\par
+把 V\textsubscript{2} 代入，第一项是 4i\ensuremath{\beta}[\ensuremath{\sigma}\textsubscript{3},A]，第二项是 4i\ensuremath{\beta}[A,\ensuremath{\sigma}\textsubscript{3}]，相反故相消。\par
 
-λ² 项：\par
+\ensuremath{\lambda}\textsuperscript{2} 项：\par
 
 \[
 -(V_2)_x+[-\mathrm{i}\sigma_3,V_1]+[A,V_2]=0.
 \]
 
-以 (1,2) 分量验证：−(V₂)ₓ 给出 +4βqₓ；[−iσ₃,V₁] 的 (1,2) 元为 −2i(αq−2iβqₓ)；[A,V₂] 的贡献为 +2iαq。合并为\par
+以 (1,2) 分量验证：\ensuremath{-}(V\textsubscript{2})\textsubscript{x} 给出 +4\ensuremath{\beta}q\textsubscript{x}；[\ensuremath{-}i\ensuremath{\sigma}\textsubscript{3},V\textsubscript{1}] 的 (1,2) 元为 \ensuremath{-}2i(\ensuremath{\alpha}q\ensuremath{-}2i\ensuremath{\beta}q\textsubscript{x})；[A,V\textsubscript{2}] 的贡献为 +2i\ensuremath{\alpha}q。合并为\par
 
 \[
 4\beta q_x-2\mathrm{i}\alpha q-4\beta q_x+2\mathrm{i}\alpha q=0.
 \]
 
-λ¹ 项：\par
+\ensuremath{\lambda}\textsuperscript{1} 项：\par
 
 \[
 -(V_1)_x+[-\mathrm{i}\sigma_3,V_0]+[A,V_1]=0.
 \]
 
-本式 (1,2) 元中 −2i b₀ 对应 V₀ 的非对角系数；代入 b₀ 后 qₓₓ、qₓ、|q|²q 的系数逐一抵消。对角元则用 (|q|²)ₓ=qₓ\textbackslash{}overline q+q\textbackslash{}overline\{qₓ\} 消去。\par
+本式 (1,2) 元中 \ensuremath{-}2i b\textsubscript{0} 对应 V\textsubscript{0} 的非对角系数；代入 b\textsubscript{0} 后 q\textsubscript{x}\textsubscript{x}、q\textsubscript{x}、|q|\textsuperscript{2}q 的系数逐一抵消。对角元则用 (|q|\textsuperscript{2})\textsubscript{x}=q\textsubscript{x}\textbackslash{}overline q+q\textbackslash{}overline\{q\textsubscript{x}\} 消去。\par
 
-\textbf{最后看 λ⁰ 的 (1,2) 元。} 这一步真正生成 q 的演化 PDE。原文写成\par
+\textbf{最后看 \ensuremath{\lambda}\textsuperscript{0} 的 (1,2) 元。} 这一步真正生成 q 的演化 PDE。原文写成\par
 
 \[
 q_z-(b_0)_x-2dq-2p=0.
@@ -265,7 +265,7 @@ q_z-(b_0)_x-2dq-2p=0.
 \end{aligned}
 \]
 
-将 (|q|²q)ₓ 展开：\par
+将 (|q|\textsuperscript{2}q)\textsubscript{x} 展开：\par
 
 \[
 (|q|^2q)_x
@@ -273,7 +273,7 @@ q_z-(b_0)_x-2dq-2p=0.
 =2|q|^2q_x+q^2\overline{q_x}.
 \]
 
-于是 β 相关的立方导数项合并为\par
+于是 \ensuremath{\beta} 相关的立方导数项合并为\par
 
 \[
 \begin{aligned}
@@ -292,7 +292,7 @@ q_z-(b_0)_x-2dq-2p=0.
 +\mathrm{i}\alpha\left(\dfrac{1}{2}q_{xx}+|q|^2q\right).
 \]
 
-把它放回 q\_z−(b₀)ₓ−2dq−2p=0，就得到 HMB 的第一条方程。对角项还有一项恒等式可检验 dₓ=[A,V₀] 的相应分量；它不额外带来独立 PDE。其他项由迹零与反 Hermitian 对称确定。\par
+把它放回 q\_z\ensuremath{-}(b\textsubscript{0})\textsubscript{x}\ensuremath{-}2dq\ensuremath{-}2p=0，就得到 HMB 的第一条方程。对角项还有一项恒等式可检验 d\textsubscript{x}=[A,V\textsubscript{0}] 的相应分量；它不额外带来独立 PDE。其他项由迹零与反 Hermitian 对称确定。\par
 
 \section{2.5 eq:antihermitian 的意义}
 
@@ -303,25 +303,25 @@ U(\overline\lambda)^\dagger=-U(\lambda),
 \qquad V(\overline\lambda)^\dagger=-V(\lambda).
 \]
 
-对于实 λ，它们是反 Hermitian 矩阵。若 Ψₓ=UΨ，则\par
+对于实 \ensuremath{\lambda}，它们是反 Hermitian 矩阵。若 \ensuremath{\Psi}\textsubscript{x}=U\ensuremath{\Psi}，则\par
 
 \[
 (\Psi^\dagger\Psi)_x
 =\Psi^\dagger(U^\dagger+U)\Psi=0.
 \]
 
-因此实连续谱上的基本解长度保持。这是第三章推导散射矩阵酉性、共轭约化的重要原因。注意这个等式在非实 λ 上必须把谱参数一起共轭，不能直接写 U(λ)†=−U(λ)。\par
+因此实连续谱上的基本解长度保持。这是第三章推导散射矩阵酉性、共轭约化的重要原因。注意这个等式在非实 \ensuremath{\lambda} 上必须把谱参数一起共轭，不能直接写 U(\ensuremath{\lambda})†=\ensuremath{-}U(\ensuremath{\lambda})。\par
 
 \section{2.6 eq:gauge：为什么去掉平面波相位？}
 
-如果 q₀=Qe\textasciicircum{}\{−iΩz\}，背景的空间矩阵仍依赖 z，散射归一化会很繁琐。取\par
+如果 q\textsubscript{0}=Qe\textasciicircum{}\{\ensuremath{-}i\ensuremath{\Omega}z\}，背景的空间矩阵仍依赖 z，散射归一化会很繁琐。取\par
 
 \[
 G(z)=e^{-\frac{\mathrm{i}\Omega z}{2}\sigma_3}
 =\begin{pmatrix}e^{-\frac{\mathrm{i}\Omega z}{2}}&0\\0&e^{\frac{\mathrm{i}\Omega z}{2}}\end{pmatrix},
 \]
 
-令 Φ=GΨ，u=e\textasciicircum{}\{iΩz\}q，v=e\textasciicircum{}\{iΩz\}p。于是 u₀=Q，v₀=−iη₀Q/a，都成为常数。\par
+令 \ensuremath{\Phi}=G\ensuremath{\Psi}，u=e\textasciicircum{}\{i\ensuremath{\Omega}z\}q，v=e\textasciicircum{}\{i\ensuremath{\Omega}z\}p。于是 u\textsubscript{0}=Q，v\textsubscript{0}=\ensuremath{-}i\ensuremath{\eta}\textsubscript{0}Q/a，都成为常数。\par
 
 注意指数里的分式用小样式 \textbackslash{}frac，这是上下标场景。\par
 
@@ -340,14 +340,14 @@ G(z)=e^{-\frac{\mathrm{i}\Omega z}{2}\sigma_3}
 \end{aligned}
 \]
 
-由 G\_z=−iΩσ₃G/2，得到 eq:gaugelax：\par
+由 G\_z=\ensuremath{-}i\ensuremath{\Omega}\ensuremath{\sigma}\textsubscript{3}G/2，得到 eq:gaugelax：\par
 
 \[
 \widehat U=G^{-1}UG,\qquad
 \widehat V=G^{-1}VG+\dfrac{\mathrm{i}\Omega}{2}\sigma_3.
 \]
 
-多出的 +iΩσ₃/2 非常重要；漏掉它会使背景时间相位 F 的常数项错误。\par
+多出的 +i\ensuremath{\Omega}\ensuremath{\sigma}\textsubscript{3}/2 非常重要；漏掉它会使背景时间相位 F 的常数项错误。\par
 
 \section{2.7 eq:Rbg 和 eq:F：介质为何改变传播色散？}
 
@@ -361,7 +361,7 @@ R_\infty=\begin{pmatrix}
 =\dfrac{\mathrm{i}\eta_0}{a}U_\infty(a).
 \]
 
-最后等号自己核对一下：U∞(a)=\textbackslash{}begin\{pmatrix\}−ia\&Q\textbackslash{}\textbackslash{}−Q\&ia\textbackslash{}end\{pmatrix\}；乘 iη₀/a 后 (1,1) 为 η₀，(1,2) 为 iη₀Q/a。\par
+最后等号自己核对一下：U\ensuremath{\infty}(a)=\textbackslash{}begin\{pmatrix\}\ensuremath{-}ia\&Q\textbackslash{}\textbackslash{}\ensuremath{-}Q\&ia\textbackslash{}end\{pmatrix\}；乘 i\ensuremath{\eta}\textsubscript{0}/a 后 (1,1) 为 \ensuremath{\eta}\textsubscript{0}，(1,2) 为 i\ensuremath{\eta}\textsubscript{0}Q/a。\par
 
 原文 eq:F：\par
 
@@ -374,15 +374,15 @@ F(\lambda)
 +\dfrac{\eta_0}{a(\lambda-a)}.
 \]
 
-它为何重要？如果空间背景解沿 x 有因子 e\textasciicircum{}\{−iρxσ₃\}，时间矩阵只是 U∞ 的标量倍，那么背景传播指数也能同时对角化，合并为\par
+它为何重要？如果空间背景解沿 x 有因子 e\textasciicircum{}\{\ensuremath{-}i\ensuremath{\rho}x\ensuremath{\sigma}\textsubscript{3}\}，时间矩阵只是 U\ensuremath{\infty} 的标量倍，那么背景传播指数也能同时对角化，合并为\par
 
 \[
 e^{-\mathrm{i}\rho[x-F(\lambda)z]\sigma_3}.
 \]
 
-这为第三、五章所有范数常数提供时空相位。普通 Hirota 的 F 只有多项式；HMB 多了 \textbackslash{}eta₀/[a(λ−a)]，因此 λ=a 是传播上的特殊共振点。\par
+这为第三、五章所有范数常数提供时空相位。普通 Hirota 的 F 只有多项式；HMB 多了 \textbackslash{}eta\textsubscript{0}/[a(\ensuremath{\lambda}\ensuremath{-}a)]，因此 \ensuremath{\lambda}=a 是传播上的特殊共振点。\par
 
-要核对 F，不必独立计算整个 V∞ 的四个元：利用迹零与对称性，核对其 (1,2) 元为 −QF、(1,1) 元为 iλF，再对照 −FU∞ 即可。原文命题 prop:gauge 的证明正采用这个思路。\par
+要核对 F，不必独立计算整个 V\ensuremath{\infty} 的四个元：利用迹零与对称性，核对其 (1,2) 元为 \ensuremath{-}QF、(1,1) 元为 i\ensuremath{\lambda}F，再对照 \ensuremath{-}FU\ensuremath{\infty} 即可。原文命题 prop:gauge 的证明正采用这个思路。\par
 
 \section{2.8 eq:uniform：为什么单值化恰好这样选？}
 
@@ -398,7 +398,7 @@ e^{-\mathrm{i}\rho[x-F(\lambda)z]\sigma_3}.
 (\rho-\lambda)(\rho+\lambda)=Q^2.
 \]
 
-令 w=ρ+λ，则 ρ−λ=Q²/w。联立相加、相减：\par
+令 w=\ensuremath{\rho}+\ensuremath{\lambda}，则 \ensuremath{\rho}\ensuremath{-}\ensuremath{\lambda}=Q\textsuperscript{2}/w。联立相加、相减：\par
 
 \[
 2\rho=w+\dfrac{Q^2}{w},\qquad
@@ -416,13 +416,13 @@ e^{-\mathrm{i}\rho[x-F(\lambda)z]\sigma_3}.
 
 \section{2.9 eq:lambda-spectrum、eq:Sigma、eq:domains}
 
-背景的 x 指数为 e\textasciicircum{}\{±iρx\}。它们纯振荡而不在某端指数增长，需要 ρ 实值。设 λ=ξ+iν，\par
+背景的 x 指数为 e\textasciicircum{}\{\ensuremath{\pm}i\ensuremath{\rho}x\}。它们纯振荡而不在某端指数增长，需要 \ensuremath{\rho} 实值。设 \ensuremath{\lambda}=ξ+iν，\par
 
 \[
 \rho^2=\xi^2-\nu^2+Q^2+2\mathrm{i}\xi\nu.
 \]
 
-要使 ρ 为实，需要虚部为 0 且实部非负：\par
+要使 \ensuremath{\rho} 为实，需要虚部为 0 且实部非负：\par
 
 \[
 \xi\nu=0,\qquad
@@ -433,7 +433,7 @@ e^{-\mathrm{i}\rho[x-F(\lambda)z]\sigma_3}.
 
 \begin{itemize}[leftmargin=2em]
 \item ν=0，即整个实轴；
-\item ξ=0 且 |ν|≤Q，即虚轴线段从 −iQ 到 iQ。
+\item ξ=0 且 |ν|\ensuremath{\le}Q，即虚轴线段从 \ensuremath{-}iQ 到 iQ。
 \end{itemize}
 
 于是\par
@@ -442,14 +442,14 @@ e^{-\mathrm{i}\rho[x-F(\lambda)z]\sigma_3}.
 \Sigma_\lambda=\mathbb R\cup\mathrm{i}\lbrack-Q,Q\rbrack.
 \]
 
-在 w 平面，写 w=re\textasciicircum{}\{iφ\}，直接由 ρ(w) 得\par
+在 w 平面，写 w=re\textasciicircum{}\{iφ\}，直接由 \ensuremath{\rho}(w) 得\par
 
 \[
 \operatorname{Im}\rho(w)
 =\dfrac{1}{2}\left(r-\dfrac{Q^2}{r}\right)\sin\varphi.
 \]
 
-因此 Imρ=0 的集合恰好是实轴和圆 r=Q：\par
+因此 Im\ensuremath{\rho}=0 的集合恰好是实轴和圆 r=Q：\par
 
 \[
 \Sigma=\mathbb R\cup\{w:|w|=Q\}.
@@ -462,9 +462,9 @@ D_\pm=\left\{w:\ \pm\operatorname{Im}w
 \left(1-\dfrac{Q^2}{|w|^2}\right)>0\right\}.
 \]
 
-不要把 D₊ 误读为“整个上半平面”：\textbf{外部上半平面与内部下半圆盘都可能属于 D₊}。看图或自己画坐标时，用 Imρ 的符号检查最可靠。\par
+不要把 D\textsubscript{+} 误读为“整个上半平面”：\textbf{外部上半平面与内部下半圆盘都可能属于 D\textsubscript{+}}。看图或自己画坐标时，用 Im\ensuremath{\rho} 的符号检查最可靠。\par
 
-\section{2.10 eq:sheet：同一 λ 为何对应两个 w？}
+\section{2.10 eq:sheet：同一 \ensuremath{\lambda} 为何对应两个 w？}
 
 令\par
 
@@ -487,7 +487,7 @@ h(w)=-\dfrac{Q^2}{w}.
 \end{aligned}
 \]
 
-所以 h 保持 λ 不变、交换谱根的符号：这就是“换叶”。继续算 h(h(w))=w，表明换叶两次返回原点。第五章的一组简单谱点会与 h 及复共轭共同组成四点轨道。\par
+所以 h 保持 \ensuremath{\lambda} 不变、交换谱根的符号：这就是“换叶”。继续算 h(h(w))=w，表明换叶两次返回原点。第五章的一组简单谱点会与 h 及复共轭共同组成四点轨道。\par
 
 \section{2.11 eq:E、eq:diagE：背景特征向量矩阵如何求得？}
 
@@ -498,14 +498,14 @@ E(w)=I-\dfrac{\mathrm{i}Q}{w}\sigma_1
 =\begin{pmatrix}1&-\mathrm{i}Q/w\\-\mathrm{i}Q/w&1\end{pmatrix}.
 \]
 
-检查第一列 e₁=(1,−iQ/w)ᵀ：\par
+检查第一列 e\textsubscript{1}=(1,\ensuremath{-}iQ/w)\textsuperscript{T}：\par
 
 \[
 U_\infty e_1
 =\begin{pmatrix}-\mathrm{i}\lambda-\mathrm{i}Q^2/w\\-Q+\lambda Q/w\end{pmatrix}.
 \]
 
-因为 λ+Q²/w=ρ，第一分量为 −iρ；第二分量也等于 (−iρ)(−iQ/w)=−ρQ/w。第二列可类似验证。合起来是\par
+因为 \ensuremath{\lambda}+Q\textsuperscript{2}/w=\ensuremath{\rho}，第一分量为 \ensuremath{-}i\ensuremath{\rho}；第二分量也等于 (\ensuremath{-}i\ensuremath{\rho})(\ensuremath{-}iQ/w)=\ensuremath{-}\ensuremath{\rho}Q/w。第二列可类似验证。合起来是\par
 
 \[
 U_\infty E=-\mathrm{i}\rho E\sigma_3.
@@ -523,11 +523,11 @@ U_\infty E=-\mathrm{i}\rho E\sigma_3.
 E^{-1}(w)=\dfrac{I+\mathrm{i}Q\sigma_1/w}{\gamma(w)}.
 \]
 
-因此 E 只在 γ≠0 时可逆。γ=0 给出 w=±iQ；这恰是分支点，它们并非普通谱点。后面任何使用 E⁻¹ 的证明都必须排除这些点或补充阈值分析。\par
+因此 E 只在 \ensuremath{\gamma}\ensuremath{\ne}0 时可逆。\ensuremath{\gamma}=0 给出 w=\ensuremath{\pm}iQ；这恰是分支点，它们并非普通谱点。后面任何使用 E\textsuperscript{-}\textsuperscript{1} 的证明都必须排除这些点或补充阈值分析。\par
 
 \section{2.12 eq:theta：背景同时满足两部分 Lax 方程}
 
-由 U∞E=−iρEσ₃ 与 V∞=−FU∞，取\par
+由 U\ensuremath{\infty}E=\ensuremath{-}i\ensuremath{\rho}E\ensuremath{\sigma}\textsubscript{3} 与 V\ensuremath{\infty}=\ensuremath{-}FU\ensuremath{\infty}，取\par
 
 \[
 \theta(w;x,z)=\rho(w)\left[x-F(\lambda(w))z\right],
@@ -544,16 +544,16 @@ E^{-1}(w)=\dfrac{I+\mathrm{i}Q\sigma_1/w}{\gamma(w)}.
 =U_\infty\Psi_0.
 \]
 
-对 z 求导，由 θ\_z=−ρF：\par
+对 z 求导，由 \ensuremath{\theta}\_z=\ensuremath{-}\ensuremath{\rho}F：\par
 
 \[
 (\Psi_0)_z=E(\mathrm{i}\rho F\sigma_3)e^{-\mathrm{i}\theta\sigma_3}
 =-FU_\infty\Psi_0=\widehat V_\infty\Psi_0.
 \]
 
-这是“同时背景解”的含义：不是只解空间方程，也解传播方程。下一章的散射常数演化必须使用同一个 θ，不能随意改变指数符号。\par
+这是“同时背景解”的含义：不是只解空间方程，也解传播方程。下一章的散射常数演化必须使用同一个 \ensuremath{\theta}，不能随意改变指数符号。\par
 
-\section{2.13 eq:resonance-w：λ=a 为什么有两原像？}
+\section{2.13 eq:resonance-w：\ensuremath{\lambda}=a 为什么有两原像？}
 
 解\par
 
@@ -561,24 +561,24 @@ E^{-1}(w)=\dfrac{I+\mathrm{i}Q\sigma_1/w}{\gamma(w)}.
 a=\dfrac{1}{2}\left(w-\dfrac{Q^2}{w}\right)
 \]
 
-等价于 w²−2aw−Q²=0，故\par
+等价于 w\textsuperscript{2}\ensuremath{-}2aw\ensuremath{-}Q\textsuperscript{2}=0，故\par
 
 \[
 w_a^\pm=a\pm\sqrt{a^2+Q^2}.
 \]
 
-两根实且非零，乘积 −Q²。因此它们在 w 平面不同位置，对应 λ 平面的同一个共振参数。这里 ρ(wₐ⁺) 与 ρ(wₐ⁻) 正负相反；第五章介质重构必须证明在这两个原像上结果一致。\par
+两根实且非零，乘积 \ensuremath{-}Q\textsuperscript{2}。因此它们在 w 平面不同位置，对应 \ensuremath{\lambda} 平面的同一个共振参数。这里 \ensuremath{\rho}(wₐ⁺) 与 \ensuremath{\rho}(wₐ\textsuperscript{-}) 正负相反；第五章介质重构必须证明在这两个原像上结果一致。\par
 
 \section{2.14 轮廓方向与特别点的意义}
 
-论文将实轴外段朝右、内段朝左；上半圆顺时针，下半圆逆时针，统一采用 D₊ 位于行进方向左侧的取向。这样“+ 侧”和“− 侧”由区域定义，不是固定的上下方。\par
+论文将实轴外段朝右、内段朝左；上半圆顺时针，下半圆逆时针，统一采用 D\textsubscript{+} 位于行进方向左侧的取向。这样“+ 侧”和“\ensuremath{-} 侧”由区域定义，不是固定的上下方。\par
 
 三类特殊有限点不可混同：\par
 
 \begin{enumerate}[leftmargin=2em]
-\item w=±iQ：E 行列式为 0 的\textbf{分支点/阈值}；求逆可能有表观极点。
-\item w=±Q：实轴与圆的\textbf{交叉点}；需要不同轮廓弧段匹配。
-\item w=wₐ±：\textbf{共振原像}；空间 Lax 方程正则，但传播因子 F 含极点。
+\item w=\ensuremath{\pm}iQ：E 行列式为 0 的\textbf{分支点/阈值}；求逆可能有表观极点。
+\item w=\ensuremath{\pm}Q：实轴与圆的\textbf{交叉点}；需要不同轮廓弧段匹配。
+\item w=wₐ\ensuremath{\pm}：\textbf{共振原像}；空间 Lax 方程正则，但传播因子 F 含极点。
 \end{enumerate}
 
 第四、五章为什么需要单独检查它们，原因全部在这里。\par
@@ -586,13 +586,13 @@ w_a^\pm=a\pm\sqrt{a^2+Q^2}.
 \section{2.15 自己动笔完成的练习}
 
 \begin{enumerate}[leftmargin=2em]
-\item 逐元计算 R²，并解释 η 实值的必要性。
-\item 把 U(λ)R−RU(λ) 的四个分量完整写出。
-\item 复算零曲率常数 (1,2) 元中为何恰出现 6β|q|²qₓ。
+\item 逐元计算 R\textsuperscript{2}，并解释 \ensuremath{\eta} 实值的必要性。
+\item 把 U(\ensuremath{\lambda})R\ensuremath{-}RU(\ensuremath{\lambda}) 的四个分量完整写出。
+\item 复算零曲率常数 (1,2) 元中为何恰出现 6\ensuremath{\beta}|q|\textsuperscript{2}q\textsubscript{x}。
 \item 把 G 的 z 导数一步不漏地代入规范变换。
-\item 用矩阵乘法验证 E 的两列是 ±iρ 模态。
-\item 计算 h(h(w)) 和 wₐ⁺wₐ⁻。
-\item 画一幅 w 平面，标出实轴、圆、D₊、D₋、±iQ、±Q、wₐ±。
+\item 用矩阵乘法验证 E 的两列是 \ensuremath{\pm}i\ensuremath{\rho} 模态。
+\item 计算 h(h(w)) 和 wₐ⁺wₐ\textsuperscript{-}。
+\item 画一幅 w 平面，标出实轴、圆、D\textsubscript{+}、D\textsubscript{-}、\ensuremath{\pm}iQ、\ensuremath{\pm}Q、wₐ\ensuremath{\pm}。
 \end{enumerate}
 
 掌握这些后，第三章的 Jost 解并不是引入另一套无联系的符号，而是在这个已知常背景上处理局部扰动。\par

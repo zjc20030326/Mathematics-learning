@@ -7,9 +7,9 @@
 
 \section{0.1 变量、复数与矩阵的记号}
 
-本研究的空间谱问题以 x 为微分变量，以 z 为演化变量；物理上 x 是推迟时间，但在 IST 中习惯称 x 方程为空间 Lax 方程。谱参数 λ 是额外引入的\textbf{复变量}，不是 x 或 z 的函数。\par
+本研究的空间谱问题以 x 为微分变量，以 z 为演化变量；物理上 x 是推迟时间，但在 IST 中习惯称 x 方程为空间 Lax 方程。谱参数 \ensuremath{\lambda} 是额外引入的\textbf{复变量}，不是 x 或 z 的函数。\par
 
-如果 f 是复数，\textbackslash{}overline f 是共轭，|f|²=f\textbackslash{}overline f；矩阵 B 的共轭转置为 B\textasciicircum{}\textbackslash{}dagger=\textbackslash{}overline B\textasciicircum{}\{\textbackslash{}mathsf T\}。常用 Pauli 矩阵：\par
+如果 f 是复数，\textbackslash{}overline f 是共轭，|f|\textsuperscript{2}=f\textbackslash{}overline f；矩阵 B 的共轭转置为 B\textasciicircum{}\textbackslash{}dagger=\textbackslash{}overline B\textasciicircum{}\{\textbackslash{}mathsf T\}。常用 Pauli 矩阵：\par
 
 \[
 \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix},
@@ -32,7 +32,7 @@
 [\sigma_3,X]=\begin{pmatrix}0&2a\\-2b&0\end{pmatrix}.
 \]
 
-所以与 σ₃ 做交换子，恰能抽取势矩阵的非对角分量；这就是第四章无穷远重构公式的来源。\par
+所以与 \ensuremath{\sigma}\textsubscript{3} 做交换子，恰能抽取势矩阵的非对角分量；这就是第四章无穷远重构公式的来源。\par
 
 \section{0.2 Lax 对、相容性和零曲率是怎么来的}
 
@@ -59,19 +59,19 @@
 (U_z-V_x+UV-VU)\Phi=0.
 \]
 
-若 Φ 是可逆基本解，就得到\par
+若 \ensuremath{\Phi} 是可逆基本解，就得到\par
 
 \[
 U_z-V_x+[U,V]=0.
 \]
 
-这个矩阵恒等式对所有允许 λ 成立。若 U、V 是 λ 的多项式或有理式，则可把同次幂、同一极点处的留数逐一比较。所得多个矩阵分量方程，正是 HMB 的非线性方程。\par
+这个矩阵恒等式对所有允许 \ensuremath{\lambda} 成立。若 U、V 是 \ensuremath{\lambda} 的多项式或有理式，则可把同次幂、同一极点处的留数逐一比较。所得多个矩阵分量方程，正是 HMB 的非线性方程。\par
 
 \textbf{理解要点}：Lax 对不是另一个无关物理模型，而是把非线性 PDE 的三个未知场编码到两个线性谱方程里。我们要通过谱问题“换一条路”求出非线性方程解。\par
 
 \section{0.3 什么是背景谱与 Jost 解}
 
-从方程的背景 u→Q 得到常系数矩阵 U∞(λ)。常系数 ODE\par
+从方程的背景 u\ensuremath{\to}Q 得到常系数矩阵 U\ensuremath{\infty}(\ensuremath{\lambda})。常系数 ODE\par
 
 \[
 \psi_x=U_\infty(\lambda)\psi
@@ -79,7 +79,7 @@ U_z-V_x+[U,V]=0.
 
 可以通过求特征值和特征向量精确求解。非零背景的常系数解一般是两种振荡模式的线性组合。\par
 
-真实场 u(x,z) 只要求 x→±∞ 时趋于 Q，中间允许有局域扰动。因此从左、右两个无穷远分别构造“看起来像背景振荡模式”的解 χ₋、χ₊，称为 Jost 解。它们解的是\textbf{同一个}空间 ODE，只是归一化端点不同。\par
+真实场 u(x,z) 只要求 x\ensuremath{\to}\ensuremath{\pm}\ensuremath{\infty} 时趋于 Q，中间允许有局域扰动。因此从左、右两个无穷远分别构造“看起来像背景振荡模式”的解 \ensuremath{\chi}\textsubscript{-}、\ensuremath{\chi}\textsubscript{+}，称为 Jost 解。它们解的是\textbf{同一个}空间 ODE，只是归一化端点不同。\par
 
 把它类比常微分方程的两套基本解：同一个解空间的两套基之间存在一个可逆常矩阵 S。这个矩阵在谱问题中叫散射矩阵。S 的非对角元衡量模式之间的混合，透射与反射系数便从它的分量定义。\par
 
@@ -100,7 +100,7 @@ y(x)=e^{a(x-x_0)}y(x_0)+
 \int_{x_0}^{x}e^{a(x-s)}f(s)\,\mathrm{d}s.
 \]
 
-对于矩阵 A，指数变成 e\textasciicircum{}\{A(x-s)\}，公式结构不变。若我们知道 y 在 x→-∞ 与背景解一致，就令 x₀→-∞；若在 +∞ 一致，积分方向从 +∞ 到 x。积分方程中未知函数只在积分号内以一次形式出现，属于 Volterra 型。\par
+对于矩阵 A，指数变成 e\textasciicircum{}\{A(x-s)\}，公式结构不变。若我们知道 y 在 x\ensuremath{\to}-\ensuremath{\infty} 与背景解一致，就令 x\textsubscript{0}\ensuremath{\to}-\ensuremath{\infty}；若在 +\ensuremath{\infty} 一致，积分方向从 +\ensuremath{\infty} 到 x。积分方程中未知函数只在积分号内以一次形式出现，属于 Volterra 型。\par
 
 它为何有用？在适合的谱区域中，指数核有界，连续迭代得到\par
 
@@ -112,16 +112,16 @@ y=y_0+\mathcal K y_0+\mathcal K^2 y_0+\cdots.
 
 \section{0.5 为什么矩阵解只有部分列解析}
 
-形式上含 e\textasciicircum{}\{\textbackslash{}pm 2\textbackslash{}mathrm\{i\}\textbackslash{}rho(x-y)\} 的积分核，ρ 为复数。写 ρ=a+\textbackslash{}mathrm\{i\}b，则\par
+形式上含 e\textasciicircum{}\{\textbackslash{}pm 2\textbackslash{}mathrm\{i\}\textbackslash{}rho(x-y)\} 的积分核，\ensuremath{\rho} 为复数。写 \ensuremath{\rho}=a+\textbackslash{}mathrm\{i\}b，则\par
 
 \[
 \left|e^{2\mathrm{i}\rho(x-y)}\right|
 =e^{-2b(x-y)}.
 \]
 
-当 x-y≥0 且 b>0，指数不会增长；如果积分方向相反，就需要另一种符号。不同的端点（±∞）和不同的列，产生四种搭配。\par
+当 x-y\ensuremath{\ge}0 且 b>0，指数不会增长；如果积分方向相反，就需要另一种符号。不同的端点（\ensuremath{\pm}\ensuremath{\infty}）和不同的列，产生四种搭配。\par
 
-所以论文第三章的结论并不是“整个 χ₋ 在 D₊ 解析”；实际是“χ₋ 的某一列及 χ₊ 的另一列在 D₊ 解析”。理解这种选列规则，后面 RHP 的两侧矩阵定义就不再是死记。\par
+所以论文第三章的结论并不是“整个 \ensuremath{\chi}\textsubscript{-} 在 D\textsubscript{+} 解析”；实际是“\ensuremath{\chi}\textsubscript{-} 的某一列及 \ensuremath{\chi}\textsubscript{+} 的另一列在 D\textsubscript{+} 解析”。理解这种选列规则，后面 RHP 的两侧矩阵定义就不再是死记。\par
 
 \section{0.6 双叶谱曲面为何出现}
 
@@ -131,7 +131,7 @@ y=y_0+\mathcal K y_0+\mathcal K^2 y_0+\cdots.
 \rho^2=\lambda^2+Q^2.
 \]
 
-在 λ=±\textbackslash{}mathrm\{i\}Q 处平方根为零。固定 λ 时通常有两个可能值 ρ、−ρ，因而无法在整个 λ 平面选一个无歧义的解析分支；这导致双叶黎曼曲面。\par
+在 \ensuremath{\lambda}=\ensuremath{\pm}\textbackslash{}mathrm\{i\}Q 处平方根为零。固定 \ensuremath{\lambda} 时通常有两个可能值 \ensuremath{\rho}、\ensuremath{-}\ensuremath{\rho}，因而无法在整个 \ensuremath{\lambda} 平面选一个无歧义的解析分支；这导致双叶黎曼曲面。\par
 
 令\par
 
@@ -143,7 +143,7 @@ w=\lambda+\rho,
 \rho=\dfrac{1}{2}\left(w+\dfrac{Q^2}{w}\right).
 \]
 
-现在 λ、ρ 都成为 w 的单值有理函数，整个双叶问题被改写为 w 平面的问题。换叶对应\par
+现在 \ensuremath{\lambda}、\ensuremath{\rho} 都成为 w 的单值有理函数，整个双叶问题被改写为 w 平面的问题。换叶对应\par
 
 \[
 h(w)=-\dfrac{Q^2}{w},
@@ -155,7 +155,7 @@ h(w)=-\dfrac{Q^2}{w},
 
 \section{0.7 什么是 RHP？为什么有跳跃和留数？}
 
-最简单的矩阵 Riemann–Hilbert 问题是：在复平面一条定向轮廓 Σ 的两侧寻找分片解析矩阵 M₊、M₋，满足\par
+最简单的矩阵 Riemann–Hilbert 问题是：在复平面一条定向轮廓 \ensuremath{\Sigma} 的两侧寻找分片解析矩阵 M\textsubscript{+}、M\textsubscript{-}，满足\par
 
 \[
 M_+(w)=M_-(w)J(w),\qquad w\in\Sigma,
@@ -165,7 +165,7 @@ M_+(w)=M_-(w)J(w),\qquad w\in\Sigma,
 
 散射关系能够告诉你“某条曲线两侧的两套解析列之间差什么”，所以从 Jost 解自然得到 J。\par
 
-如果透射系数 s₁₁(ζ)=0 且为简单零点，除法 1/s₁₁ 会产生极点。复分析给出\par
+如果透射系数 s\textsubscript{1}\textsubscript{1}(\ensuremath{\zeta})=0 且为简单零点，除法 1/s\textsubscript{1}\textsubscript{1} 会产生极点。复分析给出\par
 
 \[
 \operatorname*{Res}_{w=\zeta}\dfrac{f(w)}{s_{11}(w)}
@@ -191,9 +191,9 @@ M_+(w)=M_-(w)J(w),\qquad w\in\Sigma,
 \dfrac{C M_2(\zeta)e_1^{\mathsf T}}{w-\zeta}.
 \]
 
-这里 e₁ᵀ 是行向量 (1,0)，右乘的效果是“只把这一极点项放入第一列”。如果有多个离散点，就把主部逐个求和。\par
+这里 e\textsubscript{1}\textsuperscript{T} 是行向量 (1,0)，右乘的效果是“只把这一极点项放入第一列”。如果有多个离散点，就把主部逐个求和。\par
 
-未知量不是任意函数，而是有限个正则列值 M₂(ζⱼ) 等。将部分分式在这些点取值，就得到有限个线性方程；这便是第四、五章的重要计算思路。\par
+未知量不是任意函数，而是有限个正则列值 M\textsubscript{2}(\ensuremath{\zeta}\textsubscript{j}) 等。将部分分式在这些点取值，就得到有限个线性方程；这便是第四、五章的重要计算思路。\par
 
 \section{0.9 无穷远展开、Liouville 定理和重构}
 
@@ -203,20 +203,20 @@ M_+(w)=M_-(w)J(w),\qquad w\in\Sigma,
 M(w)=I+\dfrac{M^{(1)}}{w}+O(w^{-2}),\qquad w\to\infty.
 \]
 
-把它放入空间 Lax 关系，对比 w⁰ 或 λ⁰ 的系数，会得到势矩阵 A(u) 与 [σ₃,M⁽¹⁾] 的关系。这叫“无穷远重构”。\par
+把它放入空间 Lax 关系，对比 w\textsuperscript{0} 或 \ensuremath{\lambda}\textsuperscript{0} 的系数，会得到势矩阵 A(u) 与 [\ensuremath{\sigma}\textsubscript{3},M\textsuperscript{(}\textsuperscript{1}\textsuperscript{)}] 的关系。这叫“无穷远重构”。\par
 
 Liouville 定理的用法：一个在整个复平面解析、且无穷远趋于零的矩阵函数，其每个分量都是有界整函数，因此恒为零。无反射部分分式推导和第五章恢复 Lax 对都在使用这种“排除了所有极点后只剩下多项式/常数”的论证。\par
 
 \section{0.10 为什么 Maxwell–Bloch 变量需要另一种重构？}
 
-HMB 比普通 NLS 多了 p、η。它们被放入传播矩阵的有理项\par
+HMB 比普通 NLS 多了 p、\ensuremath{\eta}。它们被放入传播矩阵的有理项\par
 
 \[
 \dfrac{\mathrm{i}R}{\lambda-a},
 \qquad R=\begin{pmatrix}\eta&-p\\-\overline p&-\eta\end{pmatrix}.
 \]
 
-光场对应空间 Lax 矩阵在谱无穷远的非对角系数；介质矩阵却对应传播 Lax 矩阵在 λ=a 的\textbf{留数}。\par
+光场对应空间 Lax 矩阵在谱无穷远的非对角系数；介质矩阵却对应传播 Lax 矩阵在 \ensuremath{\lambda}=a 的\textbf{留数}。\par
 
 介质方程还可以等价写成\par
 
@@ -224,14 +224,14 @@ HMB 比普通 NLS 多了 p、η。它们被放入传播矩阵的有理项\par
 R_x=[U(a),R].
 \]
 
-如果 χ(x,a) 是可逆空间基本解，则\par
+如果 \ensuremath{\chi}(x,a) 是可逆空间基本解，则\par
 
 \[
 \dfrac{\mathrm{d}}{\mathrm{d}x}
 \bigl(\chi^{-1}R\chi\bigr)=0.
 \]
 
-因此 R=χ C χ⁻¹，C 为不依赖 x 的矩阵。由适当的背景与共振点正则性可确定 C。这个机制\textbf{不需要预先用 Darboux 构造孤子}，但必须处理好共振极点处的相容条件。\par
+因此 R=\ensuremath{\chi} C \ensuremath{\chi}\textsuperscript{-}\textsuperscript{1}，C 为不依赖 x 的矩阵。由适当的背景与共振点正则性可确定 C。这个机制\textbf{不需要预先用 Darboux 构造孤子}，但必须处理好共振极点处的相容条件。\par
 
 \section{0.11 易误解的逻辑关系}
 
@@ -246,12 +246,12 @@ R_x=[U(a),R].
 \section{0.12 学习自检}
 
 \begin{enumerate}[leftmargin=2em]
-\item 用矩阵乘法亲自证明 U\_z−V\_x+[U,V]=0 的来源。
-\item 用 ρ²=λ²+Q² 推出 λ(w) 与 ρ(w)。
-\item 对 x−y 的两个符号分别判断 |e\textasciicircum{}\{2\textbackslash{}mathrm\{i\}ρ(x−y)\}| 是否有界。
+\item 用矩阵乘法亲自证明 U\_z\ensuremath{-}V\_x+[U,V]=0 的来源。
+\item 用 \ensuremath{\rho}\textsuperscript{2}=\ensuremath{\lambda}\textsuperscript{2}+Q\textsuperscript{2} 推出 \ensuremath{\lambda}(w) 与 \ensuremath{\rho}(w)。
+\item 对 x\ensuremath{-}y 的两个符号分别判断 |e\textasciicircum{}\{2\textbackslash{}mathrm\{i\}\ensuremath{\rho}(x\ensuremath{-}y)\}| 是否有界。
 \item 用一次 Taylor 展开证明简单零点的留数公式。
-\item 解释为什么 r≡0 仍可有非平凡孤子。
-\item 证明 χ⁻¹Rχ 在 x 方向常数的公式，不跳过求导。
+\item 解释为什么 r\ensuremath{\equiv}0 仍可有非平凡孤子。
+\item 证明 \ensuremath{\chi}\textsuperscript{-}\textsuperscript{1}R\ensuremath{\chi} 在 x 方向常数的公式，不跳过求导。
 \item 用一句话区别本论文的“直接 RHP 求解”与“先 Darboux 后核对 RHP”。
 \end{enumerate}
 

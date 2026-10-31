@@ -21,29 +21,29 @@
 
 \begin{description}
 \item[对象] 作用； 首次重要位置
-\item[q、p、η] 光场、介质极化、反转； eq:HMB（第一章）
+\item[q、p、\ensuremath{\eta}] 光场、介质极化、反转； eq:HMB（第一章）
 \item[Q>0] 光场背景模长； eq:targetboundary
-\item[η₀、a、Ω] 介质端态、共振参数、载波频率； eq:background（第二章）
-\item[A(q)、R、σ₃] 空间势、介质矩阵、对角约化矩阵； eq:lax 前
+\item[\ensuremath{\eta}\textsubscript{0}、a、\ensuremath{\Omega}] 介质端态、共振参数、载波频率； eq:background（第二章）
+\item[A(q)、R、\ensuremath{\sigma}\textsubscript{3}] 空间势、介质矩阵、对角约化矩阵； eq:lax 前
 \item[U、V] 两部分 Lax 矩阵； eq:lax
 \item[G、u、v] 去相位规范及新场变量； eq:gauge
-\item[F(λ)] 时间背景相位函数，含 λ=a 共振； eq:F
-\item[ρ(λ)] 背景谱根，ρ²=λ²+Q²； eq:uniform
+\item[F(\ensuremath{\lambda})] 时间背景相位函数，含 \ensuremath{\lambda}=a 共振； eq:F
+\item[\ensuremath{\rho}(\ensuremath{\lambda})] 背景谱根，\ensuremath{\rho}\textsuperscript{2}=\ensuremath{\lambda}\textsuperscript{2}+Q\textsuperscript{2}； eq:uniform
 \item[w] 双叶曲面单值化坐标； eq:uniform
-\item[h(w)] 换叶映射 −Q²/w； eq:sheet
-\item[D₊、D₋] 按 Imρ 正负划分的解析区域； eq:domains
-\item[E、γ] 背景特征向量矩阵及其行列式； eq:E、eq:diagE
-\item[θ] 背景同时 Lax 相位 ρ[x−Fz]； eq:theta
-\item[χ±、μ±、Ψ±] 空间、去振荡、同时归一化 Jost 解； 第三章
+\item[h(w)] 换叶映射 \ensuremath{-}Q\textsuperscript{2}/w； eq:sheet
+\item[D\textsubscript{+}、D\textsubscript{-}] 按 Im\ensuremath{\rho} 正负划分的解析区域； eq:domains
+\item[E、\ensuremath{\gamma}] 背景特征向量矩阵及其行列式； eq:E、eq:diagE
+\item[\ensuremath{\theta}] 背景同时 Lax 相位 \ensuremath{\rho}[x\ensuremath{-}Fz]； eq:theta
+\item[\ensuremath{\chi}\ensuremath{\pm}、μ\ensuremath{\pm}、\ensuremath{\Psi}\ensuremath{\pm}] 空间、去振荡、同时归一化 Jost 解； 第三章
 \item[S\_sp、S] 空间/同时归一化散射矩阵； eq:Sdef
-\item[s₁₁、s₂₂] 解析透射系数，零点给离散谱； eq:wronskian
+\item[s\textsubscript{1}\textsubscript{1}、s\textsubscript{2}\textsubscript{2}] 解析透射系数，零点给离散谱； eq:wronskian
 \item[r、\textbackslash{}widetilde r] 反射系数； eq:reflection
-\item[ζ\_j、b\_j、c\_j、C\_j] 离散点、列相关常数、范数常数与带时空指数的系数； 第三章末
+\item[\ensuremath{\zeta}\_j、b\_j、c\_j、C\_j] 离散点、列相关常数、范数常数与带时空指数的系数； 第三章末
 \item[M(w)] RHP 待求矩阵，由解析列拼接； eq:Mdef
 \item[\textbackslash{}mathcal A、\textbackslash{}mathcal B] 有限维留数系统的系数矩阵； eq:finite-schur
-\item[b、κ、W、h₀、t] 第五章一轨道的计算参数； eq:imaginarypoint、eq:orbit-phase
+\item[b、\ensuremath{\kappa}、W、h\textsubscript{0}、t] 第五章一轨道的计算参数； eq:imaginarypoint、eq:orbit-phase
 \item[P、N、H] 直接解得到的投影缩写、分子矩阵、相位矩阵； eq:algebraic-P、eq:Nfactor
-\item[\textbackslash{}mathcal U、\textbackslash{}mathcal V] 逆构造中 Ψ 的对数导数； eq:inverse-log-lax
+\item[\textbackslash{}mathcal U、\textbackslash{}mathcal V] 逆构造中 \ensuremath{\Psi} 的对数导数； eq:inverse-log-lax
 \item[A\_b、B\_b] 局域波速度与内部频率； eq:velocity、eq:frequency
 \end{description}
 
@@ -117,31 +117,31 @@
 
 \textbf{主线 A：构造 Jost 解}\par
 
-eq:background → eq:gauge → eq:F → eq:uniform → eq:E → eq:theta → eq:volterra → thm:jost。\par
+eq:background \ensuremath{\to} eq:gauge \ensuremath{\to} eq:F \ensuremath{\to} eq:uniform \ensuremath{\to} eq:E \ensuremath{\to} eq:theta \ensuremath{\to} eq:volterra \ensuremath{\to} thm:jost。\par
 
 \textbf{主线 B：构造 RHP}\par
 
-thm:jost → eq:Sdef → eq:wronskian → eq:conjugation 与 eq:musheet → prop:quartet → eq:Mdef → eq:jump → eq:resplus、eq:resminus、eq:cpair。\par
+thm:jost \ensuremath{\to} eq:Sdef \ensuremath{\to} eq:wronskian \ensuremath{\to} eq:conjugation 与 eq:musheet \ensuremath{\to} prop:quartet \ensuremath{\to} eq:Mdef \ensuremath{\to} eq:jump \ensuremath{\to} eq:resplus、eq:resminus、eq:cpair。\par
 
 \textbf{主线 C：直接求一轨道}\par
 
-eq:partialfraction → eq:finite1、eq:finite2 → eq:finite-schur → eq:onezeros、eq:onec → eq:one-AB → eq:one-schur-det → eq:direct-vu1、eq:direct-vu2 → eq:explicitM。\par
+eq:partialfraction \ensuremath{\to} eq:finite1、eq:finite2 \ensuremath{\to} eq:finite-schur \ensuremath{\to} eq:onezeros、eq:onec \ensuremath{\to} eq:one-AB \ensuremath{\to} eq:one-schur-det \ensuremath{\to} eq:direct-vu1、eq:direct-vu2 \ensuremath{\to} eq:explicitM。\par
 
 \textbf{主线 D：恢复 HMB}\par
 
-eq:explicitM → eq:reconq 与 eq:RfromM → eq:finalfields → eq:inverse-log-lax → eq:inverse-V-form → eq:zc → eq:HMB。\par
+eq:explicitM \ensuremath{\to} eq:reconq 与 eq:RfromM \ensuremath{\to} eq:finalfields \ensuremath{\to} eq:inverse-log-lax \ensuremath{\to} eq:inverse-V-form \ensuremath{\to} eq:zc \ensuremath{\to} eq:HMB。\par
 
 \textbf{主线 E：共振正则性}\par
 
-eq:Rbg → prop:resonance → eq:timer → prop:oscillatory-regularity → prop:resonant-regularity。\par
+eq:Rbg \ensuremath{\to} prop:resonance \ensuremath{\to} eq:timer \ensuremath{\to} prop:oscillatory-regularity \ensuremath{\to} prop:resonant-regularity。\par
 
 \section{五、学习时应该特别回避的概念混淆}
 
 \begin{enumerate}[leftmargin=2em]
 \item \textbf{空间谱函数}与\textbf{传播演化矩阵}属于两个 Lax 方向；共振点 a 使后者奇异，但前者在 a 可以正则。
 \item \textbf{整个 Jost 矩阵有定义}与\textbf{两列在某复域解析}是不同表述。
-\item \textbf{r≡0} 与 \textbf{r(a)=0} 不同；前者是整条连续谱上的无反射问题，后者仅是一个点的必要相容条件。
-\item \textbf{一轨道}含完整四点，m=2 是 D₊ 的点数，并不等于两个完全自由的孤子。
+\item \textbf{r\ensuremath{\equiv}0} 与 \textbf{r(a)=0} 不同；前者是整条连续谱上的无反射问题，后者仅是一个点的必要相容条件。
+\item \textbf{一轨道}含完整四点，m=2 是 D\textsubscript{+} 的点数，并不等于两个完全自由的孤子。
 \item \textbf{Schur 系统有解} 与 \textbf{RHP 及其逆 Lax 全部条件验证成功}不同。
 \item \textbf{与 Darboux 解代数一致} 不等于 \textbf{本论文从 Darboux 起步}；当前第五章已经先求直接 RHP，后做 Darboux 比较。
 \item \textbf{局部 C\textasciicircum{}k 判据} 不等于 \textbf{一般含反射数据的全局 IST 可解性}。

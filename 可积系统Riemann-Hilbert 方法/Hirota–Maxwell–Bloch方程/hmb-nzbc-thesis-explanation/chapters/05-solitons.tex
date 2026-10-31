@@ -19,12 +19,12 @@
 \item 把参数代入 Schur 补，直接求出四个未知二维向量。
 \item 将它们代回部分分式，得到显式的 RHP 矩阵 M。
 \item 检查全部谱约束和矩阵的唯一性。
-\item 分别在无穷远与共振点读出 q、p、η。
+\item 分别在无穷远与共振点读出 q、p、\ensuremath{\eta}。
 \item 从矩阵对数导数重建两部分 Lax 对，进而推得非线性 HMB。
 \item 最后证明该结果与已有一次 Darboux 解一致。
 \end{enumerate}
 
-\section{5.1 eq:imaginarypoint：为什么选 λ₁=ib、b>Q？}
+\section{5.1 eq:imaginarypoint：为什么选 \ensuremath{\lambda}\textsubscript{1}=ib、b>Q？}
 
 取\par
 
@@ -39,16 +39,16 @@
 W=b+\kappa,\qquad h_0=\dfrac{Q}{W}.
 \]
 
-为什么 0<h₀<1？因为 W=b+κ>b>Q>0，因此 Q/W∈(0,1)。\par
+为什么 0<h\textsubscript{0}<1？因为 W=b+\ensuremath{\kappa}>b>Q>0，因此 Q/W\ensuremath{\in}(0,1)。\par
 
-由 ρ²=λ²+Q²，在 λ=ib 处\par
+由 \ensuremath{\rho}\textsuperscript{2}=\ensuremath{\lambda}\textsuperscript{2}+Q\textsuperscript{2}，在 \ensuremath{\lambda}=ib 处\par
 
 \[
 \rho^2=-b^2+Q^2=-\kappa^2,\qquad
 \rho=\mathrm{i}\kappa
 \]
 
-选择对应的谱叶。于是 w=λ+ρ=i(b+κ)=iW。另一个相关谱点由换叶、共轭共同确定。\par
+选择对应的谱叶。于是 w=\ensuremath{\lambda}+\ensuremath{\rho}=i(b+\ensuremath{\kappa})=iW。另一个相关谱点由换叶、共轭共同确定。\par
 
 后面反复使用两个简单恒等式，请现在亲自验证：\par
 
@@ -70,9 +70,9 @@ b-\kappa=\dfrac{Q^2}{W}=Qh_0,
 2\kappa h_0=Q(1-h_0^2).
 \]
 
-例如第一式左边是 2bQ/W，右边 Q(1+Q²/W²)，乘 W²/Q 后都等于 2bW=W²+Q²。\par
+例如第一式左边是 2bQ/W，右边 Q(1+Q\textsuperscript{2}/W\textsuperscript{2})，乘 W\textsuperscript{2}/Q 后都等于 2bW=W\textsuperscript{2}+Q\textsuperscript{2}。\par
 
-\section{5.2 eq:onezeros：一条轨道为什么有两个 D₊ 点？}
+\section{5.2 eq:onezeros：一条轨道为什么有两个 D\textsubscript{+} 点？}
 
 由上一步\par
 
@@ -89,7 +89,7 @@ b-\kappa=\dfrac{Q^2}{W}=Qh_0,
 =-\mathrm{i}Qh_0.
 \]
 
-注意 ζ₁ 位于上半平面圆外，ζ₂ 位于下半平面圆内，它们\textbf{都在 D₊}。另外两个共轭点位于 D₋。所谓“一个孤子对应四点”正是这个意思，不是取了四个独立谱参数。\par
+注意 \ensuremath{\zeta}\textsubscript{1} 位于上半平面圆外，\ensuremath{\zeta}\textsubscript{2} 位于下半平面圆内，它们\textbf{都在 D\textsubscript{+}}。另外两个共轭点位于 D\textsubscript{-}。所谓“一个孤子对应四点”正是这个意思，不是取了四个独立谱参数。\par
 
 论文选取无反射透射函数\par
 
@@ -98,7 +98,7 @@ s_{11}(w)=\dfrac{\rho(w)-\mathrm{i}\kappa}
 {\rho(w)+\mathrm{i}\kappa}.
 \]
 
-为什么它的零点就是 ζ₁、ζ₂？分子为零意味着 ρ(w)=iκ，即\par
+为什么它的零点就是 \ensuremath{\zeta}\textsubscript{1}、\ensuremath{\zeta}\textsubscript{2}？分子为零意味着 \ensuremath{\rho}(w)=i\ensuremath{\kappa}，即\par
 
 \[
 \dfrac{1}{2}\left(w+\dfrac{Q^2}{w}\right)=\mathrm{i}\kappa,
@@ -110,15 +110,15 @@ s_{11}(w)=\dfrac{\rho(w)-\mathrm{i}\kappa}
 w^2-2\mathrm{i}\kappa w+Q^2=0.
 \]
 
-根为 iκ±i\textbackslash{}sqrt\{κ²+Q²\}=i(κ±b)，即 i(b+κ)=ζ₁ 和 −i(b−κ)=ζ₂。它们均为简单根，因为 b>Q、κ>0。\par
+根为 i\ensuremath{\kappa}\ensuremath{\pm}i\textbackslash{}sqrt\{\ensuremath{\kappa}\textsuperscript{2}+Q\textsuperscript{2}\}=i(\ensuremath{\kappa}\ensuremath{\pm}b)，即 i(b+\ensuremath{\kappa})=\ensuremath{\zeta}\textsubscript{1} 和 \ensuremath{-}i(b\ensuremath{-}\ensuremath{\kappa})=\ensuremath{\zeta}\textsubscript{2}。它们均为简单根，因为 b>Q、\ensuremath{\kappa}>0。\par
 
-从 w→∞、w→0 的主项可看出 s₁₁→1；同时两个纯虚 D₊ 点对 theta condition 的乘积为 (−1)×(−1)=1。因此该谱轨道与同相端态相容。\par
+从 w\ensuremath{\to}\ensuremath{\infty}、w\ensuremath{\to}0 的主项可看出 s\textsubscript{1}\textsubscript{1}\ensuremath{\to}1；同时两个纯虚 D\textsubscript{+} 点对 theta condition 的乘积为 (\ensuremath{-}1)\ensuremath{\times}(\ensuremath{-}1)=1。因此该谱轨道与同相端态相容。\par
 
 \section{5.3 eq:onec：为什么范数常数这样选择？}
 
-在外部零点选取列相关常数 b₁=1。这是对一个具体解的参数选择，不意味着所有孤子都必须选 b₁=1。\par
+在外部零点选取列相关常数 b\textsubscript{1}=1。这是对一个具体解的参数选择，不意味着所有孤子都必须选 b\textsubscript{1}=1。\par
 
-由 s₁₁=(ρ−iκ)/(ρ+iκ)，求 w 导数：\par
+由 s\textsubscript{1}\textsubscript{1}=(\ensuremath{\rho}\ensuremath{-}i\ensuremath{\kappa})/(\ensuremath{\rho}+i\ensuremath{\kappa})，求 w 导数：\par
 
 \[
 s_{11}'(w)
@@ -129,7 +129,7 @@ s_{11}'(w)
 {(\rho+\mathrm{i}\kappa)^2}.
 \]
 
-在 ρ(ζ₁)=iκ 处，分母为 (2iκ)²=−4κ²，因此\par
+在 \ensuremath{\rho}(\ensuremath{\zeta}\textsubscript{1})=i\ensuremath{\kappa} 处，分母为 (2i\ensuremath{\kappa})\textsuperscript{2}=\ensuremath{-}4\ensuremath{\kappa}\textsuperscript{2}，因此\par
 
 \[
 s_{11}'(\zeta_1)=\dfrac{\rho'(\zeta_1)}{2\mathrm{i}\kappa},
@@ -144,7 +144,7 @@ c_1=\dfrac{b_1}{s_{11}'(\zeta_1)}
 \rho'(w)=\dfrac{1}{2}\left(1-\dfrac{Q^2}{w^2}\right).
 \]
 
-因为 ζ₁=iW，\par
+因为 \ensuremath{\zeta}\textsubscript{1}=iW，\par
 
 \[
 \rho'(\zeta_1)=\dfrac{1}{2}
@@ -158,19 +158,19 @@ c_1=\dfrac{b_1}{s_{11}'(\zeta_1)}
 \boxed{c_1=\dfrac{4\mathrm{i}\kappa}{1+h_0^2}.}
 \]
 
-第二个 D₊ 点不能自由选。使用第四章的换叶留数配对\par
+第二个 D\textsubscript{+} 点不能自由选。使用第四章的换叶留数配对\par
 
 \[
 c_2=-\dfrac{Q^2}{\overline{\zeta_1}^{\,2}}\overline{c_1}.
 \]
 
-由于 \textbackslash{}overline ζ₁=−iW，平方为 −W²，因此前面系数为 +Q²/W²=h₀²，得到\par
+由于 \textbackslash{}overline \ensuremath{\zeta}\textsubscript{1}=\ensuremath{-}iW，平方为 \ensuremath{-}W\textsuperscript{2}，因此前面系数为 +Q\textsuperscript{2}/W\textsuperscript{2}=h\textsubscript{0}\textsuperscript{2}，得到\par
 
 \[
 c_2=h_0^2\overline{c_1}=-h_0^2c_1.
 \]
 
-最后一个等号用到 c₁ 是纯虚数，故 \textbackslash{}overline c₁=−c₁。\par
+最后一个等号用到 c\textsubscript{1} 是纯虚数，故 \textbackslash{}overline c\textsubscript{1}=\ensuremath{-}c\textsubscript{1}。\par
 
 \section{5.4 eq:orbit-phase：指数时空依赖究竟是什么？}
 
@@ -180,7 +180,7 @@ c_2=h_0^2\overline{c_1}=-h_0^2c_1.
 s=\kappa[x-F(\mathrm{i}b)z],\qquad t=e^{2s}.
 \]
 
-这是针对本轨道的计算简记，\textbf{这里 t 不是物理传播时间}。由于 \textbackslash{}rho(ζ₁)=iκ，背景相位 θ(ζ₁)=iκ[x−F(ib)z]=is，所以\par
+这是针对本轨道的计算简记，\textbf{这里 t 不是物理传播时间}。由于 \textbackslash{}rho(\ensuremath{\zeta}\textsubscript{1})=i\ensuremath{\kappa}，背景相位 \ensuremath{\theta}(\ensuremath{\zeta}\textsubscript{1})=i\ensuremath{\kappa}[x\ensuremath{-}F(ib)z]=is，所以\par
 
 \[
 e^{2\mathrm{i}\theta(\zeta_1)}=e^{-2s}=\dfrac{1}{t}.
@@ -192,7 +192,7 @@ e^{2\mathrm{i}\theta(\zeta_1)}=e^{-2s}=\dfrac{1}{t}.
 C_1=\dfrac{c_1}{t}.
 \]
 
-ζ₂ 对应 λ=−ib，但同样 ρ=iκ；利用 F(−ib)=\textbackslash{}overline\{F(ib)\}（参数都实），得到\par
+\ensuremath{\zeta}\textsubscript{2} 对应 \ensuremath{\lambda}=\ensuremath{-}ib，但同样 \ensuremath{\rho}=i\ensuremath{\kappa}；利用 F(\ensuremath{-}ib)=\textbackslash{}overline\{F(ib)\}（参数都实），得到\par
 
 \[
 C_2=-\dfrac{h_0^2c_1}{\overline t}.
@@ -202,14 +202,14 @@ C_2=-\dfrac{h_0^2c_1}{\overline t}.
 
 \section{5.5 从第四章的系统开始：未知量究竟有几个？}
 
-对于一个四点轨道，D₊ 中 m=2。需要求\par
+对于一个四点轨道，D\textsubscript{+} 中 m=2。需要求\par
 
 \[
 v_j=M_2(\zeta_j),\qquad
 u_j=M_1(\overline{\zeta_j}),\qquad j=1,2.
 \]
 
-每个 v\_j、u\_j 都是 2 维列向量，共有 8 个复标量未知量，但两个分量分别满足结构相同的 4×4 线性系统。\par
+每个 v\_j、u\_j 都是 2 维列向量，共有 8 个复标量未知量，但两个分量分别满足结构相同的 4\ensuremath{\times}4 线性系统。\par
 
 第四章给出的矩阵关系：\par
 
@@ -228,7 +228,7 @@ u_j=M_1(\overline{\zeta_j}),\qquad j=1,2.
 
 这就是本文真正\textbf{直接解 RHP}的出发点；到这一步还没有任何 Darboux 投影、已知孤子波形或猜测出来的 M。\par
 
-\section{5.6 eq:one-AB：为何得到这两个 2×2 矩阵？}
+\section{5.6 eq:one-AB：为何得到这两个 2\ensuremath{\times}2 矩阵？}
 
 原文定义\par
 
@@ -238,7 +238,7 @@ u_j=M_1(\overline{\zeta_j}),\qquad j=1,2.
 \mathcal B_{jk}=\dfrac{C_k}{\overline{\zeta_j}-\zeta_k}.
 \]
 
-将 ζ₁=iW、ζ₂=−iQh₀ 以及 C₁、C₂ 代入，再利用 Q=2bh₀/(1+h₀²)、W=Q/h₀，化简为\par
+将 \ensuremath{\zeta}\textsubscript{1}=iW、\ensuremath{\zeta}\textsubscript{2}=\ensuremath{-}iQh\textsubscript{0} 以及 C\textsubscript{1}、C\textsubscript{2} 代入，再利用 Q=2bh\textsubscript{0}/(1+h\textsubscript{0}\textsuperscript{2})、W=Q/h\textsubscript{0}，化简为\par
 
 \[
 \mathcal A=\dfrac{1}{1+h_0^2}
@@ -256,7 +256,7 @@ u_j=M_1(\overline{\zeta_j}),\qquad j=1,2.
 \end{pmatrix}.
 \]
 
-\textbf{示范计算 A₁₁。} 因 C₁=c₁/t，c₁ 纯虚，所以 \textbackslash{}overline C₁=−c₁/\textbackslash{}bar t；分母 ζ₁−\textbackslash{}barζ₁=2iW。于是\par
+\textbf{示范计算 A\textsubscript{1}\textsubscript{1}。} 因 C\textsubscript{1}=c\textsubscript{1}/t，c\textsubscript{1} 纯虚，所以 \textbackslash{}overline C\textsubscript{1}=\ensuremath{-}c\textsubscript{1}/\textbackslash{}bar t；分母 \ensuremath{\zeta}\textsubscript{1}\ensuremath{-}\textbackslash{}bar\ensuremath{\zeta}\textsubscript{1}=2iW。于是\par
 
 \[
 \mathcal A_{11}
@@ -279,7 +279,7 @@ u_j=M_1(\overline{\zeta_j}),\qquad j=1,2.
 =\dfrac{h_0^2-1}{(1+h_0^2)\overline t},
 \]
 
-与上面矩阵一致。其他三个元素都由同样的代入和谱点差值计算获得，建议手算 A₁₂、B₂₁ 两项以检查复共轭位置。\par
+与上面矩阵一致。其他三个元素都由同样的代入和谱点差值计算获得，建议手算 A\textsubscript{1}\textsubscript{2}、B\textsubscript{2}\textsubscript{1} 两项以检查复共轭位置。\par
 
 右端项也要实际算：\par
 
@@ -288,7 +288,7 @@ f_j=e_2-\dfrac{\mathrm{i}Q}{\zeta_j}e_1,\qquad
 g_j=e_1-\dfrac{\mathrm{i}Q}{\overline{\zeta_j}}e_2.
 \]
 
-例如 ζ₁=iW，因此 −iQ/(iW)=−Q/W=−h₀，所以 f₁=(−h₀,1)ᵀ。最终\par
+例如 \ensuremath{\zeta}\textsubscript{1}=iW，因此 \ensuremath{-}iQ/(iW)=\ensuremath{-}Q/W=\ensuremath{-}h\textsubscript{0}，所以 f\textsubscript{1}=(\ensuremath{-}h\textsubscript{0},1)\textsuperscript{T}。最终\par
 
 \[
 \begin{aligned}
@@ -308,7 +308,7 @@ g_1&=\begin{pmatrix}1\\h_0\end{pmatrix},
 \pm2h_0(t+\overline t).
 \]
 
-对 Schur 补 L=I₂+\textbackslash{}mathcal A\textbackslash{}mathcal B 做普通 2×2 乘法、取行列式，原文得到\par
+对 Schur 补 L=I\textsubscript{2}+\textbackslash{}mathcal A\textbackslash{}mathcal B 做普通 2\ensuremath{\times}2 乘法、取行列式，原文得到\par
 
 \[
 \boxed{
@@ -318,7 +318,7 @@ g_1&=\begin{pmatrix}1\\h_0\end{pmatrix},
 }
 \]
 
-这一式不能只看形式。分母 >0，因为 t=e\textasciicircum{}\{2s\}≠0、h₀∈(0,1)。分子为何 >0？\par
+这一式不能只看形式。分母 >0，因为 t=e\textasciicircum{}\{2s\}\ensuremath{\ne}0、h\textsubscript{0}\ensuremath{\in}(0,1)。分子为何 >0？\par
 
 直接展开两个平方和：\par
 
@@ -333,9 +333,9 @@ g_1&=\begin{pmatrix}1\\h_0\end{pmatrix},
 \end{aligned}
 \]
 
-两项平方和不会同时为零。例如 Δ₋=0 要求 t=h₀ 且 h₀t=1，即 h₀²=1，与 0<h₀<1 矛盾；Δ₊ 同理。\par
+两项平方和不会同时为零。例如 \ensuremath{\Delta}\textsubscript{-}=0 要求 t=h\textsubscript{0} 且 h\textsubscript{0}t=1，即 h\textsubscript{0}\textsuperscript{2}=1，与 0<h\textsubscript{0}<1 矛盾；\ensuremath{\Delta}\textsubscript{+} 同理。\par
 
-更强的下界来自最小奇异值 1−h₀：\par
+更强的下界来自最小奇异值 1\ensuremath{-}h\textsubscript{0}：\par
 
 \[
 \Delta_\pm\ge(1-h_0)^2(1+|t|^2)>0.
@@ -352,7 +352,7 @@ g_1&=\begin{pmatrix}1\\h_0\end{pmatrix},
 =\dfrac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix},
 \]
 
-对 L 计算 L⁻¹(f−Ag)，得到 v₁、v₂；再由 u=g+Bv 算 u₁、u₂。原文最终为\par
+对 L 计算 L\textsuperscript{-}\textsuperscript{1}(f\ensuremath{-}Ag)，得到 v\textsubscript{1}、v\textsubscript{2}；再由 u=g+Bv 算 u\textsubscript{1}、u\textsubscript{2}。原文最终为\par
 
 \[
 v_1=\dfrac{t(1+h_0^2)}{\Delta_-}
@@ -376,13 +376,13 @@ u_2=\dfrac{t(1+h_0^2)}{h_0\Delta_-}
 u_1=h_0v_2,\qquad u_2=-\dfrac{v_1}{h_0}.
 \]
 
-第一个关系直接比较系数：h₀v₂ 与 u₁ 的向量和系数完全相同；第二个关系同理。\par
+第一个关系直接比较系数：h\textsubscript{0}v\textsubscript{2} 与 u\textsubscript{1} 的向量和系数完全相同；第二个关系同理。\par
 
-接着将这些向量代入第一组有限方程 v=f−Au，验证至少一个分量；若有精力再验证 u=g+Bv。这样才能确认“系数矩阵解出的确是留数条件需要的正则列值”，而不是只是某个代数猜想。\par
+接着将这些向量代入第一组有限方程 v=f\ensuremath{-}Au，验证至少一个分量；若有精力再验证 u=g+Bv。这样才能确认“系数矩阵解出的确是留数条件需要的正则列值”，而不是只是某个代数猜想。\par
 
 \section{5.9 eq:algebraic-P：矩阵 P 是怎么出现的？为什么不是先用 Darboux？}
 
-在得到上面的四个向量以后，计算部分分式会出现相同的组合 (t−h₀)、(1−h₀t) 和 Δ₋。因此作者将这些组合整理成\par
+在得到上面的四个向量以后，计算部分分式会出现相同的组合 (t\ensuremath{-}h\textsubscript{0})、(1\ensuremath{-}h\textsubscript{0}t) 和 \ensuremath{\Delta}\textsubscript{-}。因此作者将这些组合整理成\par
 
 \[
 P=\dfrac{1}{\Delta_-}
@@ -405,7 +405,7 @@ y_*=\begin{pmatrix}t-h_0\\1-h_0t\end{pmatrix},
 \qquad P=\dfrac{y_*y_*^\dagger}{y_*^\dagger y_*}.
 \]
 
-于是 P\textasciicircum{}\textbackslash{}dagger=P、P²=P、tr P=1。证明 P²=P 只要做一次：\par
+于是 P\textasciicircum{}\textbackslash{}dagger=P、P\textsuperscript{2}=P、tr P=1。证明 P\textsuperscript{2}=P 只要做一次：\par
 
 \[
 P^2=\dfrac{y_*(y_*^\dagger y_*)y_*^\dagger}
@@ -436,7 +436,7 @@ M(w)=H\,N(\lambda(w))\,E(w)
 }
 \]
 
-为何分母是 ρ±iκ？因为\par
+为何分母是 \ensuremath{\rho}\ensuremath{\pm}i\ensuremath{\kappa}？因为\par
 
 \[
 (w-\zeta_1)(w-\zeta_2)
@@ -444,9 +444,9 @@ M(w)=H\,N(\lambda(w))\,E(w)
 =2w(\rho-\mathrm{i}\kappa).
 \]
 
-另一列的两个共轭点则对应 ρ+iκ。分母先由部分分式合并产生，\textbf{并不是为匹配 Darboux 形式而猜测}。N、P 只是把得到的分子缩写得更清楚。\par
+另一列的两个共轭点则对应 \ensuremath{\rho}+i\ensuremath{\kappa}。分母先由部分分式合并产生，\textbf{并不是为匹配 Darboux 形式而猜测}。N、P 只是把得到的分子缩写得更清楚。\par
 
-\section{5.11 为什么 det M=γ？}
+\section{5.11 为什么 det M=\ensuremath{\gamma}？}
 
 利用 P 为秩一投影：在 Im P 上 P 的特征值为 1，在 ker P 上为 0。因此 N 的两个特征值分别是\par
 
@@ -468,13 +468,13 @@ M(w)=H\,N(\lambda(w))\,E(w)
 \end{aligned}
 \]
 
-M 的行列式把 N 的这一乘积与右边对角分母完全消去，H 与 H⁻¹ 也消去，所以\par
+M 的行列式把 N 的这一乘积与右边对角分母完全消去，H 与 H\textsuperscript{-}\textsuperscript{1} 也消去，所以\par
 
 \[
 \det M=\det E=\gamma=1+\dfrac{Q^2}{w^2}.
 \]
 
-这一步同时表明 M 在非极点的大部分位置可逆；但在 γ=0 的分支点恰为秩一而非可逆，后续逆 Lax 证明必须处理。\par
+这一步同时表明 M 在非极点的大部分位置可逆；但在 \ensuremath{\gamma}=0 的分支点恰为秩一而非可逆，后续逆 Lax 证明必须处理。\par
 
 \section{5.12 其余谱条件与唯一性怎么检查？}
 
@@ -482,13 +482,13 @@ M 的行列式把 N 的这一乘积与右边对角分母完全消去，H 与 H�
 
 \textbf{留数}：因为 M 直接由求得的 v\_j、u\_j 主部构造，带着正确的正则列值，留数条件自动满足；不是只检查一个极点，其余三点还由共轭及换叶关系约束。\par
 
-\textbf{无穷远}：代入 λ∼w/2、ρ∼w/2、E∼I，看 M 的主阶为 I，下一阶给 M⁽¹⁾。w=0 的固定主项由换叶约化决定。\par
+\textbf{无穷远}：代入 \ensuremath{\lambda}∼w/2、\ensuremath{\rho}∼w/2、E∼I，看 M 的主阶为 I，下一阶给 M\textsuperscript{(}\textsuperscript{1}\textsuperscript{)}。w=0 的固定主项由换叶约化决定。\par
 
-\textbf{谱约化}：将共轭或换叶后的矩阵代入同一个有限维系统，得到相同留数和归一化。因为 Schur 系统对该数据唯一可解，两个矩阵一致。此法比直接逐项展开复杂的 2×2 有理式更清楚。\par
+\textbf{谱约化}：将共轭或换叶后的矩阵代入同一个有限维系统，得到相同留数和归一化。因为 Schur 系统对该数据唯一可解，两个矩阵一致。此法比直接逐项展开复杂的 2\ensuremath{\times}2 有理式更清楚。\par
 
-\textbf{分支点}：w=±iQ 时 ρ=0，右侧两个分母为 ±iκ 而不为零；N 在这里由于 detN=κ²>0 可逆，E 恰为秩一，所以 M 解析且秩一。\par
+\textbf{分支点}：w=\ensuremath{\pm}iQ 时 \ensuremath{\rho}=0，右侧两个分母为 \ensuremath{\pm}i\ensuremath{\kappa} 而不为零；N 在这里由于 detN=\ensuremath{\kappa}\textsuperscript{2}>0 可逆，E 恰为秩一，所以 M 解析且秩一。\par
 
-\textbf{共振点}：wₐ± 为实数，ρ(wₐ±) 为实，ρ±iκ 均非零，同时 γ(wₐ±)>0，因此 M 解析且可逆。\par
+\textbf{共振点}：wₐ\ensuremath{\pm} 为实数，\ensuremath{\rho}(wₐ\ensuremath{\pm}) 为实，\ensuremath{\rho}\ensuremath{\pm}i\ensuremath{\kappa} 均非零，同时 \ensuremath{\gamma}(wₐ\ensuremath{\pm})>0，因此 M 解析且可逆。\par
 
 \textbf{唯一性}：任何满足同一留数、规定的有限奇点和两处归一化的候选矩阵，都有第四章的部分分式表示，其正则列必须解同一个 Schur 系统；由 detL>0，它们相等，整个 M 随之相同。\par
 
@@ -496,7 +496,7 @@ M 的行列式把 N 的这一乘积与右边对角分母完全消去，H 与 H�
 
 \section{5.13 thm:direct-HMB：从 M 恢复光场}
 
-从刚得到的 M，展开 w→∞：\par
+从刚得到的 M，展开 w\ensuremath{\to}\ensuremath{\infty}：\par
 
 \[
 M(w)=I+\dfrac{M^{(1)}}{w}+O(w^{-2}).
@@ -510,7 +510,7 @@ M^{(1)}
 -\mathrm{i}Q\sigma_1+2\mathrm{i}\kappa\sigma_3\right)H^{-1}.
 \]
 
-注意 Hσ₁H⁻¹=−σ₁；对非对角矩阵也是变号。因为只有 −4ibP 和 −iQσ₁ 会给 M⁽¹⁾ 的 (1,2) 分量，取出得\par
+注意 H\ensuremath{\sigma}\textsubscript{1}H\textsuperscript{-}\textsuperscript{1}=\ensuremath{-}\ensuremath{\sigma}\textsubscript{1}；对非对角矩阵也是变号。因为只有 \ensuremath{-}4ibP 和 \ensuremath{-}iQ\ensuremath{\sigma}\textsubscript{1} 会给 M\textsuperscript{(}\textsuperscript{1}\textsuperscript{)} 的 (1,2) 分量，取出得\par
 
 \[
 M^{(1)}_{12}=4\mathrm{i}bP_{12}+\mathrm{i}Q.
@@ -530,7 +530,7 @@ u=\mathrm{i}M^{(1)}_{12}=-Q-4bP_{12}.
 
 \textbf{这个负号非常重要}。它与 H 的整体相位旋转及相同左右背景的选取有关。缺少它会使场的端态或介质重构产生符号冲突。\par
 
-\section{5.14 为什么介质要用 N(a)R∞N(a)†？}
+\section{5.14 为什么介质要用 N(a)R\ensuremath{\infty}N(a)†？}
 
 第四章的共振重构：\par
 
@@ -539,7 +539,7 @@ R=M(w_a)\dfrac{\eta_0\rho(w_a)}{a}
 \sigma_3 M(w_a)^{-1}.
 \]
 
-把第五章的显式 M 代入。由于右边的对角分母与 σ₃ 对易，在共轭时它们相消；剩下 E(wₐ) 与 N(a) 的作用。\par
+把第五章的显式 M 代入。由于右边的对角分母与 \ensuremath{\sigma}\textsubscript{3} 对易，在共轭时它们相消；剩下 E(wₐ) 与 N(a) 的作用。\par
 
 背景有恒等式\par
 
@@ -548,7 +548,7 @@ E(w)\rho(w)\sigma_3E(w)^{-1}
 =\mathrm{i}U_\infty(\lambda(w)).
 \]
 
-而第二章 R∞=(iη₀/a)U∞(a)，所以 E 这一部分恰好生成 R∞。\par
+而第二章 R\ensuremath{\infty}=(i\ensuremath{\eta}\textsubscript{0}/a)U\ensuremath{\infty}(a)，所以 E 这一部分恰好生成 R\ensuremath{\infty}。\par
 
 又因为实 a 上的 N(a) 满足\par
 
@@ -562,7 +562,7 @@ N(a)N(a)^\dagger=(a^2+b^2)I,
 N(a)^{-1}=\dfrac{N(a)^\dagger}{a^2+b^2}.
 \]
 
-这可以从 P²=P、P†=P 直接验证：N(a)=(a+ib)I−2ibP；其共轭转置为 (a−ib)I+2ibP；相乘时 P 相关系数全部抵消，余下 (a²+b²)I。\par
+这可以从 P\textsuperscript{2}=P、P†=P 直接验证：N(a)=(a+ib)I\ensuremath{-}2ibP；其共轭转置为 (a\ensuremath{-}ib)I+2ibP；相乘时 P 相关系数全部抵消，余下 (a\textsuperscript{2}+b\textsuperscript{2})I。\par
 
 因此论文 eq:direct-medium 得到\par
 
@@ -573,13 +573,13 @@ R=\dfrac{HN(a)R_\infty N(a)^\dagger H^{-1}}
 }
 \]
 
-此式右端与选择 wₐ⁺ 或 wₐ⁻ 无关，说明\textbf{两个共振原像给出同一个介质矩阵}。这不是额外假设，而是从已求得 RHP 矩阵的代数结构推出的。\par
+此式右端与选择 wₐ⁺ 或 wₐ\textsuperscript{-} 无关，说明\textbf{两个共振原像给出同一个介质矩阵}。这不是额外假设，而是从已求得 RHP 矩阵的代数结构推出的。\par
 
-\section{5.15 eq:finalfields、eq:etacomponent、eq:pcomponent：如何读出 p 和 η？}
+\section{5.15 eq:finalfields、eq:etacomponent、eq:pcomponent：如何读出 p 和 \ensuremath{\eta}？}
 
 令 n\_\{jk\}=N(a)\_\{jk\}。为了方便对照论文，本节保留 n 的矩阵元而不另设多个新参数。\par
 
-从 R=\textbackslash{}begin\{pmatrix\}η\&−v\textbackslash{}\textbackslash{}−\textbackslash{}bar v\&−η\textbackslash{}end\{pmatrix\} 和 p=e\textasciicircum{}\{−iΩz\}v 得\par
+从 R=\textbackslash{}begin\{pmatrix\}\ensuremath{\eta}\&\ensuremath{-}v\textbackslash{}\textbackslash{}\ensuremath{-}\textbackslash{}bar v\&\ensuremath{-}\ensuremath{\eta}\textbackslash{}end\{pmatrix\} 和 p=e\textasciicircum{}\{\ensuremath{-}i\ensuremath{\Omega}z\}v 得\par
 
 \[
 \boxed{
@@ -591,9 +591,9 @@ p&=\dfrac{e^{-\mathrm{i}\Omega z}
 \end{aligned}}
 \]
 
-为何 p 表达式是正的 (1,2) 元？因为 R=H R\textasciicircum{}\{[1]\}H⁻¹，而 H 在两个非对角位置引入负号，最终 v=−R₁₂ 转换回 N(a)R∞N† 时会有两次负号抵消。不能直接套用旧稿中“p=−R\textasciicircum{}\{[1]\}₁₂”而忽略 H。\par
+为何 p 表达式是正的 (1,2) 元？因为 R=H R\textasciicircum{}\{[1]\}H\textsuperscript{-}\textsuperscript{1}，而 H 在两个非对角位置引入负号，最终 v=\ensuremath{-}R\textsubscript{1}\textsubscript{2} 转换回 N(a)R\ensuremath{\infty}N† 时会有两次负号抵消。不能直接套用旧稿中“p=\ensuremath{-}R\textasciicircum{}\{[1]\}\textsubscript{1}\textsubscript{2}”而忽略 H。\par
 
-若要逐项算 η、p，则使用\par
+若要逐项算 \ensuremath{\eta}、p，则使用\par
 
 \[
 R_\infty=
@@ -626,7 +626,7 @@ n_{11}\overline{n_{21}}-n_{12}\overline{n_{22}}
 
 \section{5.16 为什么 Hermitian 性、Bloch 长度自然保持？}
 
-因为 N(a)/\textbackslash{}sqrt\{a²+b²\} 是酉矩阵，H 也是酉矩阵，介质重构是对 R∞ 做酉共轭。于是\par
+因为 N(a)/\textbackslash{}sqrt\{a\textsuperscript{2}+b\textsuperscript{2}\} 是酉矩阵，H 也是酉矩阵，介质重构是对 R\ensuremath{\infty} 做酉共轭。于是\par
 
 \[
 R^\dagger=R,\qquad
@@ -634,7 +634,7 @@ R^\dagger=R,\qquad
 R^2=H N(a)R_\infty^2N(a)^{-1}H^{-1}.
 \]
 
-由第二章 R∞²=η₀²(1+Q²/a²)I 得\par
+由第二章 R\ensuremath{\infty}\textsuperscript{2}=\ensuremath{\eta}\textsubscript{0}\textsuperscript{2}(1+Q\textsuperscript{2}/a\textsuperscript{2})I 得\par
 
 \[
 R^2=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right)I.
@@ -651,13 +651,13 @@ R^2=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right)I.
 
 \section{5.17 eq:Pends、eq:direct-M-ends：两端同相如何严格检查？}
 
-由于 t=e\textasciicircum{}\{2κ[x−F(ib)z]\}，固定 z 时\par
+由于 t=e\textasciicircum{}\{2\ensuremath{\kappa}[x\ensuremath{-}F(ib)z]\}，固定 z 时\par
 
 \[
 |t|=e^{2\kappa[x-\operatorname{Re}F(\mathrm{i}b)z]}.
 \]
 
-当 x→+∞，|t|→∞；当 x→−∞，t→0。分别对 P 的矩阵元取极限，得到\par
+当 x\ensuremath{\to}+\ensuremath{\infty}，|t|\ensuremath{\to}\ensuremath{\infty}；当 x\ensuremath{\to}\ensuremath{-}\ensuremath{\infty}，t\ensuremath{\to}0。分别对 P 的矩阵元取极限，得到\par
 
 \[
 P_+=\dfrac{1}{1+h_0^2}
@@ -667,14 +667,14 @@ P_-=\dfrac{1}{1+h_0^2}
 \begin{pmatrix}h_0^2&-h_0\\-h_0&1\end{pmatrix}.
 \]
 
-两者非对角元都等于 −h₀/(1+h₀²)。代入 u=−Q−4bP₁₂：\par
+两者非对角元都等于 \ensuremath{-}h\textsubscript{0}/(1+h\textsubscript{0}\textsuperscript{2})。代入 u=\ensuremath{-}Q\ensuremath{-}4bP\textsubscript{1}\textsubscript{2}：\par
 
 \[
 u_\pm=-Q+\dfrac{4bh_0}{1+h_0^2}
 =-Q+2Q=Q.
 \]
 
-所以 q 的两端确实是 Qe\textasciicircum{}\{−iΩz\}，而不是只能保证 |q|→Q。\par
+所以 q 的两端确实是 Qe\textasciicircum{}\{\ensuremath{-}i\ensuremath{\Omega}z\}，而不是只能保证 |q|\ensuremath{\to}Q。\par
 
 极化和反转更适合用 M 的端态与共振重构验证。原文 eq:direct-M-ends：\par
 
@@ -687,15 +687,15 @@ M\to E\operatorname{diag}(s_{11}^{-1},s_{11})
 \quad(x\to-\infty).
 \]
 
-在共振点，右侧多出的矩阵是对角的，与 σ₃ 对易，所以在\par
+在共振点，右侧多出的矩阵是对角的，与 \ensuremath{\sigma}\textsubscript{3} 对易，所以在\par
 
 \[
 M(w_a)\left(\dfrac{\eta_0\rho(w_a)}{a}\sigma_3\right)M(w_a)^{-1}
 \]
 
-中自动相消。左右介质均趋于同一个 R∞，完成三场的同相端态检查。\par
+中自动相消。左右介质均趋于同一个 R\ensuremath{\infty}，完成三场的同相端态检查。\par
 
-因为 P 的极限误差是 O(|t|⁻¹) 或 O(|t|)，故固定 z 时有 O(e\textasciicircum{}\{−2κ|x|\}) 的指数衰减；更严格地说，系数可能依赖固定的 z。\par
+因为 P 的极限误差是 O(|t|\textsuperscript{-}\textsuperscript{1}) 或 O(|t|)，故固定 z 时有 O(e\textasciicircum{}\{\ensuremath{-}2\ensuremath{\kappa}|x|\}) 的指数衰减；更严格地说，系数可能依赖固定的 z。\par
 
 \section{5.18 eq:inverse-log-lax：如何从 RHP 矩阵反过来找 Lax 对？}
 
@@ -716,7 +716,7 @@ M(w_a)\left(\dfrac{\eta_0\rho(w_a)}{a}\sigma_3\right)M(w_a)^{-1}
 (M_x-\mathrm{i}\rho M\sigma_3)e^{-\mathrm{i}\theta\sigma_3}.
 \]
 
-右乘 Ψ⁻¹ 得\par
+右乘 \ensuremath{\Psi}\textsuperscript{-}\textsuperscript{1} 得\par
 
 \[
 \boxed{
@@ -725,7 +725,7 @@ M(w_a)\left(\dfrac{\eta_0\rho(w_a)}{a}\sigma_3\right)M(w_a)^{-1}
 }
 \]
 
-对 z 求导，θ\_z=−ρF，所以\par
+对 z 求导，\ensuremath{\theta}\_z=\ensuremath{-}\ensuremath{\rho}F，所以\par
 
 \[
 \boxed{
@@ -736,7 +736,7 @@ M(w_a)\left(\dfrac{\eta_0\rho(w_a)}{a}\sigma_3\right)M(w_a)^{-1}
 
 为什么这样做？如果能证明 \textbackslash{}mathcal U、\textbackslash{}mathcal V 与第二章已有的 \textbackslash{}widehat U、\textbackslash{}widehat V 完全相同，就证明重构场满足正确的线性 Lax 对；再由零曲率，就得到原 HMB 三条方程。\par
 
-\section{5.19 为什么 \textbackslash{}mathcal U、\textbackslash{}mathcal V 必须是 λ 的单值有理函数？}
+\section{5.19 为什么 \textbackslash{}mathcal U、\textbackslash{}mathcal V 必须是 \ensuremath{\lambda} 的单值有理函数？}
 
 M 的换叶约化为 M(h(w))=M(w)C(w)，并有\par
 
@@ -744,15 +744,15 @@ M 的换叶约化为 M(h(w))=M(w)C(w)，并有\par
 C(w)\sigma_3=-\sigma_3 C(w).
 \]
 
-换叶时 ρ→−ρ。把这些关系同时代入上面的两个对数导数，来自 ρ 和 σ₃ 的符号一起抵消。因而 \textbackslash{}mathcal U(h(w))=\textbackslash{}mathcal U(w)、\textbackslash{}mathcal V(h(w))=\textbackslash{}mathcal V(w)。\par
+换叶时 \ensuremath{\rho}\ensuremath{\to}\ensuremath{-}\ensuremath{\rho}。把这些关系同时代入上面的两个对数导数，来自 \ensuremath{\rho} 和 \ensuremath{\sigma}\textsubscript{3} 的符号一起抵消。因而 \textbackslash{}mathcal U(h(w))=\textbackslash{}mathcal U(w)、\textbackslash{}mathcal V(h(w))=\textbackslash{}mathcal V(w)。\par
 
-既然它们在两叶上取同一值，就可视为 λ 的单值函数。由于显式 M 在 w 平面是有理的，且 λ 与 w 由代数关系联系，它们在允许的有限点消除极点后将成为 λ 的有理函数。\par
+既然它们在两叶上取同一值，就可视为 \ensuremath{\lambda} 的单值函数。由于显式 M 在 w 平面是有理的，且 \ensuremath{\lambda} 与 w 由代数关系联系，它们在允许的有限点消除极点后将成为 \ensuremath{\lambda} 的有理函数。\par
 
-这一步是把“w 平面 RHP”转回“原始 λ Lax 对”的桥梁。\textbf{不能只说 M 有理，就立即说 \textbackslash{}mathcal U 是 λ 的多项式}；还须处理所有可能的有限奇点。\par
+这一步是把“w 平面 RHP”转回“原始 \ensuremath{\lambda} Lax 对”的桥梁。\textbf{不能只说 M 有理，就立即说 \textbackslash{}mathcal U 是 \ensuremath{\lambda} 的多项式}；还须处理所有可能的有限奇点。\par
 
 \section{5.20 离散极点处为什么会自动相消？}
 
-设某个离散点 ζ 的留数写成\par
+设某个离散点 \ensuremath{\zeta} 的留数写成\par
 
 \[
 \operatorname*{Res}_{w=\zeta}M
@@ -766,7 +766,7 @@ C(w)\sigma_3=-\sigma_3 C(w).
 \Psi(w)=\mathcal H(w)\left(I+\dfrac{c_j e_2e_1^{\mathsf T}}{w-\zeta}\right),
 \]
 
-其中 \textbackslash{}mathcal H 在 ζ 解析且可逆。因为右边那个极点因子\textbf{与 x、z 无关}，\par
+其中 \textbackslash{}mathcal H 在 \ensuremath{\zeta} 解析且可逆。因为右边那个极点因子\textbf{与 x、z 无关}，\par
 
 \[
 \begin{aligned}
@@ -779,21 +779,21 @@ C(w)\sigma_3=-\sigma_3 C(w).
 \end{aligned}
 \]
 
-z 导数同理。这样 \textbackslash{}mathcal U、\textbackslash{}mathcal V 在 ζ 的表观极点就可去。\par
+z 导数同理。这样 \textbackslash{}mathcal U、\textbackslash{}mathcal V 在 \ensuremath{\zeta} 的表观极点就可去。\par
 
-最值得记住的不是具体展开，而是：\textbf{RHP 留数的时空依赖恰好被 θ 的去振荡因子抵消，剩下的常数极点因子在对数导数中相消。} 如果错误地让 c\_j 随 z 改变，这一步通常失败。\par
+最值得记住的不是具体展开，而是：\textbf{RHP 留数的时空依赖恰好被 \ensuremath{\theta} 的去振荡因子抵消，剩下的常数极点因子在对数导数中相消。} 如果错误地让 c\_j 随 z 改变，这一步通常失败。\par
 
 \section{5.21 分支点处为什么更困难？}
 
-在 w*=±iQ，\par
+在 w*=\ensuremath{\pm}iQ，\par
 
 \[
 \det M(w_*)=\gamma(w_*)=0.
 \]
 
-所以 M(w*) 秩一，M⁻¹ 可能有简单极点。如何保证 \textbackslash{}mathcal U 仍解析？\par
+所以 M(w*) 秩一，M\textsuperscript{-}\textsuperscript{1} 可能有简单极点。如何保证 \textbackslash{}mathcal U 仍解析？\par
 
-由换叶固定点 h(w*)=w*，M 的换叶约化迫使 M(w*) 消灭 C(w*) 的一个固定 −1 特征向量 v*：\par
+由换叶固定点 h(w*)=w*，M 的换叶约化迫使 M(w*) 消灭 C(w*) 的一个固定 \ensuremath{-}1 特征向量 v*：\par
 
 \[
 M(w_*)v_*=0.
@@ -805,21 +805,21 @@ M(w_*)v_*=0.
 M_x(w_*)v_*=0,\qquad M_z(w_*)v_*=0.
 \]
 
-而 ρ(w*)=0，所以 \textbackslash{}mathcal U、\textbackslash{}mathcal V 的分子在该点分别是 M\_x、M\_z（共振参数 a≠±iQ，F 在分支点有限），它们都消灭同一个核。\par
+而 \ensuremath{\rho}(w*)=0，所以 \textbackslash{}mathcal U、\textbackslash{}mathcal V 的分子在该点分别是 M\_x、M\_z（共振参数 a\ensuremath{\ne}\ensuremath{\pm}iQ，F 在分支点有限），它们都消灭同一个核。\par
 
-利用 2×2 线性代数：\par
+利用 2\ensuremath{\times}2 线性代数：\par
 
 \[
 M^{-1}=\dfrac{\operatorname{adj}M}{\det M}.
 \]
 
-当 M(w*) 秩一时，adj M(w*) 的像正是 ker M(w*)，因而分子乘 adj M 在 w* 为零。又 γ 在 w* 是简单零点，零因子与分母抵消，故对数导数在分支点可去。\par
+当 M(w*) 秩一时，adj M(w*) 的像正是 ker M(w*)，因而分子乘 adj M 在 w* 为零。又 \ensuremath{\gamma} 在 w* 是简单零点，零因子与分母抵消，故对数导数在分支点可去。\par
 
-\textbf{这里尤其不能把“分支点处 M 解析”误当成“M⁻¹ 也解析”。} 这个固定核论证正是补上的关键步骤。\par
+\textbf{这里尤其不能把“分支点处 M 解析”误当成“M\textsuperscript{-}\textsuperscript{1} 也解析”。} 这个固定核论证正是补上的关键步骤。\par
 
 \section{5.22 共振点处为什么 \textbackslash{}mathcal V 的留数恰为 iR？}
 
-wₐ± 处 M 解析可逆，\textbackslash{}mathcal U 无谱奇性。但 F 包含\par
+wₐ\ensuremath{\pm} 处 M 解析可逆，\textbackslash{}mathcal U 无谱奇性。但 F 包含\par
 
 \[
 F(\lambda)=F_{\mathrm{pol}}(\lambda)
@@ -842,23 +842,23 @@ M(w_a)\sigma_3M(w_a)^{-1}.
 }
 \]
 
-这说明逆构造得到的传播矩阵不仅具有一个“形式上的极点”，而且极点的留数正好编码重构出的介质 p、η。\par
+这说明逆构造得到的传播矩阵不仅具有一个“形式上的极点”，而且极点的留数正好编码重构出的介质 p、\ensuremath{\eta}。\par
 
 \section{5.23 为什么能重建整个 \textbackslash{}widehat U？}
 
-当全部有限奇点可去后，\textbackslash{}mathcal U 是 λ 的整有理函数；由第一叶无穷远展开得到\par
+当全部有限奇点可去后，\textbackslash{}mathcal U 是 \ensuremath{\lambda} 的整有理函数；由第一叶无穷远展开得到\par
 
 \[
 \mathcal U=-\mathrm{i}\lambda\sigma_3+A(u)+O(\lambda^{-1}).
 \]
 
-扣除 −iλσ₃+A(u) 后，剩余矩阵在整个有限复平面解析且无穷远趋零。由 Liouville 定理恒为零，因此\par
+扣除 \ensuremath{-}i\ensuremath{\lambda}\ensuremath{\sigma}\textsubscript{3}+A(u) 后，剩余矩阵在整个有限复平面解析且无穷远趋零。由 Liouville 定理恒为零，因此\par
 
 \[
 \boxed{\mathcal U=-\mathrm{i}\lambda\sigma_3+A(u)=\widehat U.}
 \]
 
-它说明由 RHP 构造出的 Ψ 确实满足正确的\textbf{空间}谱方程。\par
+它说明由 RHP 构造出的 \ensuremath{\Psi} 确实满足正确的\textbf{空间}谱方程。\par
 
 \section{5.24 eq:inverse-V-form：传播矩阵如何确定？}
 
@@ -868,7 +868,7 @@ M(w_a)\sigma_3M(w_a)^{-1}.
 \mathcal V=-F\mathcal U+(M_z+F M_x)M^{-1}
 \]
 
-来判断大 λ 处的增长。因为 F 的多项式部分是 λ²，\textbackslash{}mathcal U 的首项是 λ，故 \textbackslash{}mathcal V 的最高增长阶为 λ³。又知道 λ=a 有一个留数 iR，因此可先写成\par
+来判断大 \ensuremath{\lambda} 处的增长。因为 F 的多项式部分是 \ensuremath{\lambda}\textsuperscript{2}，\textbackslash{}mathcal U 的首项是 \ensuremath{\lambda}，故 \textbackslash{}mathcal V 的最高增长阶为 \ensuremath{\lambda}\textsuperscript{3}。又知道 \ensuremath{\lambda}=a 有一个留数 iR，因此可先写成\par
 
 \[
 \boxed{
@@ -879,37 +879,37 @@ M(w_a)\sigma_3M(w_a)^{-1}.
 \end{aligned}}
 \]
 
-这里 W₁、W₀ 仍是未知矩阵。\textbf{它们不是任意引入的新场，而是需要通过零曲率比较确定的系数}。\par
+这里 W\textsubscript{1}、W\textsubscript{0} 仍是未知矩阵。\textbf{它们不是任意引入的新场，而是需要通过零曲率比较确定的系数}。\par
 
-因为 \textbackslash{}mathcal U、\textbackslash{}mathcal V 都来自同一个 Ψ 的对数导数，所以自动满足\par
+因为 \textbackslash{}mathcal U、\textbackslash{}mathcal V 都来自同一个 \ensuremath{\Psi} 的对数导数，所以自动满足\par
 
 \[
 \mathcal U_z-\mathcal V_x+[\mathcal U,\mathcal V]=0.
 \]
 
-按 λ 的幂次比较，就和第二章验证已知 Lax 对时的计算反过来：\par
+按 \ensuremath{\lambda} 的幂次比较，就和第二章验证已知 Lax 对时的计算反过来：\par
 
 \begin{itemize}[leftmargin=2em]
-\item λ²、λ¹ 的非对角分量求出 (W₁)₁₂=αu−2iβuₓ。
-\item λ¹ 的对角分量给 ∂ₓ(W₁)₁₁=−2iβ∂ₓ|u|²。
-\item 积分得到 (W₁)₁₁=−2iβ|u|²+χ₁(z)，端态固定 χ₁(z)=0。
-\item 继续比较，得到 (W₀)₁₂=2β|u|²u+iαuₓ/2+βuₓₓ。
-\item (W₀)₁₁ 的 x 导数确定其局部表达，剩余 x 无关的积分常数由背景 \textbackslash{}widehat V∞ 固定为 iΩ/2。
+\item \ensuremath{\lambda}\textsuperscript{2}、\ensuremath{\lambda}\textsuperscript{1} 的非对角分量求出 (W\textsubscript{1})\textsubscript{1}\textsubscript{2}=\ensuremath{\alpha}u\ensuremath{-}2i\ensuremath{\beta}u\textsubscript{x}。
+\item \ensuremath{\lambda}\textsuperscript{1} 的对角分量给 ∂\textsubscript{x}(W\textsubscript{1})\textsubscript{1}\textsubscript{1}=\ensuremath{-}2i\ensuremath{\beta}∂\textsubscript{x}|u|\textsuperscript{2}。
+\item 积分得到 (W\textsubscript{1})\textsubscript{1}\textsubscript{1}=\ensuremath{-}2i\ensuremath{\beta}|u|\textsuperscript{2}+\ensuremath{\chi}\textsubscript{1}(z)，端态固定 \ensuremath{\chi}\textsubscript{1}(z)=0。
+\item 继续比较，得到 (W\textsubscript{0})\textsubscript{1}\textsubscript{2}=2\ensuremath{\beta}|u|\textsuperscript{2}u+i\ensuremath{\alpha}u\textsubscript{x}/2+\ensuremath{\beta}u\textsubscript{x}\textsubscript{x}。
+\item (W\textsubscript{0})\textsubscript{1}\textsubscript{1} 的 x 导数确定其局部表达，剩余 x 无关的积分常数由背景 \textbackslash{}widehat V\ensuremath{\infty} 固定为 i\ensuremath{\Omega}/2。
 \end{itemize}
 
-所以 W₁、W₀ 恰好恢复第二章写出的完整规范 Lax 系数。\par
+所以 W\textsubscript{1}、W\textsubscript{0} 恰好恢复第二章写出的完整规范 Lax 系数。\par
 
-再看零曲率在 λ=a 的留数，得到 Rₓ=[\textbackslash{}widehat U(a),R]，即两条 Maxwell–Bloch 介质方程；常数项的非对角元则恢复去相位光场方程。最后用 q=e\textasciicircum{}\{−iΩz\}u、p=e\textasciicircum{}\{−iΩz\}v，回到原 HMB。\par
+再看零曲率在 \ensuremath{\lambda}=a 的留数，得到 R\textsubscript{x}=[\textbackslash{}widehat U(a),R]，即两条 Maxwell–Bloch 介质方程；常数项的非对角元则恢复去相位光场方程。最后用 q=e\textasciicircum{}\{\ensuremath{-}i\ensuremath{\Omega}z\}u、p=e\textasciicircum{}\{\ensuremath{-}i\ensuremath{\Omega}z\}v，回到原 HMB。\par
 
 这段证明的逻辑顺序要严格记住：\par
 
-\textbf{RHP 已求解 → 对数导数建立 Lax 对 → Lax 零曲率 → HMB。}\par
+\textbf{RHP 已求解 \ensuremath{\to} 对数导数建立 Lax 对 \ensuremath{\to} Lax 零曲率 \ensuremath{\to} HMB。}\par
 
 不是先假设场满足 HMB 再倒推 M；后者就不算完成逆重构证明。\par
 
 \section{5.25 怎样证明输入数据真的可以由重构场产生？}
 
-理论上，自己指定的 c₁、c₂ 可能不对应任何真实势。直接求出 M 还不足以保证其确实来自所说的散射数据。\par
+理论上，自己指定的 c\textsubscript{1}、c\textsubscript{2} 可能不对应任何真实势。直接求出 M 还不足以保证其确实来自所说的散射数据。\par
 
 论文利用已经验证的空间方程和两端归一化，定义\par
 
@@ -922,11 +922,11 @@ M(w_a)\sigma_3M(w_a)^{-1}.
 e^{-\mathrm{i}\rho x\sigma_3}.
 \]
 
-验证 x→+∞、−∞ 的背景归一化后，由第三章 Jost 解唯一性，它们就是真实重构场的两套 Jost 基。比较两式便得到对角散射矩阵，反射为零，透射函数等于原先指定的 s₁₁。\par
+验证 x\ensuremath{\to}+\ensuremath{\infty}、\ensuremath{-}\ensuremath{\infty} 的背景归一化后，由第三章 Jost 解唯一性，它们就是真实重构场的两套 Jost 基。比较两式便得到对角散射矩阵，反射为零，透射函数等于原先指定的 s\textsubscript{1}\textsubscript{1}。\par
 
-在 ζ₁，列相关常数还满足 b₁=c₁s'₁₁(ζ₁)=1。至此“所选数据可实现”有了实质证明，而不再只是任意规定。\par
+在 \ensuremath{\zeta}\textsubscript{1}，列相关常数还满足 b\textsubscript{1}=c\textsubscript{1}s'\textsubscript{1}\textsubscript{1}(\ensuremath{\zeta}\textsubscript{1})=1。至此“所选数据可实现”有了实质证明，而不再只是任意规定。\par
 
-\section{5.26 eq:hyperbolic-projector：把 P₁₂ 化为直观的双曲和三角函数}
+\section{5.26 eq:hyperbolic-projector：把 P\textsubscript{1}\textsubscript{2} 化为直观的双曲和三角函数}
 
 写\par
 
@@ -935,7 +935,7 @@ s=\xi+\mathrm{i}\nu,\qquad
 t=e^{2\xi}e^{2\mathrm{i}\nu}.
 \]
 
-将 P₁₂ 的代数形式中的 t、\textbackslash{}bar t 展开，整理成\par
+将 P\textsubscript{1}\textsubscript{2} 的代数形式中的 t、\textbackslash{}bar t 展开，整理成\par
 
 \[
 P_{12}=
@@ -959,9 +959,9 @@ P_{12}=
 
 \section{5.27 eq:N-cramer：一般 N 轨道已经做到哪一步？}
 
-若有 N 个完整四点轨道，那么 D₊ 有 m=2N 个谱点，Schur 系统变为 m×m 的标量系数矩阵 L=I\_m+AB（分别作用在两个分量）。\par
+若有 N 个完整四点轨道，那么 D\textsubscript{+} 有 m=2N 个谱点，Schur 系统变为 m\ensuremath{\times}m 的标量系数矩阵 L=I\_m+AB（分别作用在两个分量）。\par
 
-若 det L≠0，Cramer 法则给\par
+若 det L\ensuremath{\ne}0，Cramer 法则给\par
 
 \[
 (v_j)_\ell=
@@ -969,9 +969,9 @@ P_{12}=
 \qquad \ell=1,2,
 \]
 
-其中 d⁽ℓ⁾ 是 f−Ag 的第 ℓ 个分量组成的列，L[j←d] 表示用 d 替换 L 的第 j 列。求出 v 后，再由 u=g+Bv 计算其他正则列，恢复 M 及候选三场。\par
+其中 d\textsuperscript{(}ℓ\textsuperscript{)} 是 f\ensuremath{-}Ag 的第 ℓ 个分量组成的列，L[j←d] 表示用 d 替换 L 的第 j 列。求出 v 后，再由 u=g+Bv 计算其他正则列，恢复 M 及候选三场。\par
 
-\textbf{但}一般 N 轨道的 det L 可能有复杂结构。本论文没有对任意合法数据证明全局 detL≠0，也没有证明所有候选矩阵都满足相同左右端态。因此本章的一轨道完整定理\textbf{不能}改名成一般 N 孤子定理。\par
+\textbf{但}一般 N 轨道的 det L 可能有复杂结构。本论文没有对任意合法数据证明全局 detL\ensuremath{\ne}0，也没有证明所有候选矩阵都满足相同左右端态。因此本章的一轨道完整定理\textbf{不能}改名成一般 N 孤子定理。\par
 
 \section{5.28 eq:exactparams：有理参数例的用途}
 
@@ -984,7 +984,7 @@ a=2,\quad\eta_0=\dfrac{3}{5},\quad
 \alpha=1,\quad\beta=\dfrac{1}{10}.
 \]
 
-因为 b²−Q²=25/16−1=9/16，故 κ=3/4，h₀=Q/(b+κ)=1/2。将指数变量\par
+因为 b\textsuperscript{2}\ensuremath{-}Q\textsuperscript{2}=25/16\ensuremath{-}1=9/16，故 \ensuremath{\kappa}=3/4，h\textsubscript{0}=Q/(b+\ensuremath{\kappa})=1/2。将指数变量\par
 
 \[
 T=e^{2\operatorname{Re}s}>0,\qquad
@@ -1019,7 +1019,7 @@ y=
 =e^{-s}\begin{pmatrix}t-h_0\\1-h_0t\end{pmatrix}.
 \]
 
-这与我们从留数系统得到的 y* 只差一个公共非零标量 e\textasciicircum{}\{−s\}，故\par
+这与我们从留数系统得到的 y* 只差一个公共非零标量 e\textasciicircum{}\{\ensuremath{-}s\}，故\par
 
 \[
 \dfrac{yy^\dagger}{y^\dagger y}
@@ -1040,7 +1040,7 @@ u^{[1]}=Q+4bP_{12},\qquad
 R^{[1]}=D(a)R_\infty D(a)^{-1}.
 \]
 
-论文直接 RHP 得到的场与这组场相差指定的整体常相位 π、再恢复载波相位 e\textasciicircum{}\{−iΩz\}；q、p 两个复场同乘 −1，而 η 不变。代入可逐项得到第五章的三个重构式。\par
+论文直接 RHP 得到的场与这组场相差指定的整体常相位 \ensuremath{\pi}、再恢复载波相位 e\textasciicircum{}\{\ensuremath{-}i\ensuremath{\Omega}z\}；q、p 两个复场同乘 \ensuremath{-}1，而 \ensuremath{\eta} 不变。代入可逐项得到第五章的三个重构式。\par
 
 \textbf{这一节是“解与已知 Darboux 解族一致”的数学验证，而不是第五章直接 RHP 方法的逻辑先决条件。} 对 Zhao–Zhaqilao（2026）的特定绘图公式，不能在没有统一其特征向量常数的情况下宣称每个展示公式完全相同。\par
 
@@ -1055,28 +1055,28 @@ R^{[1]}=D(a)R_\infty D(a)^{-1}.
 \textbf{基础级}\par
 
 \begin{enumerate}[leftmargin=2em]
-\item 自己从 λ₁=ib 算出 ζ₁、ζ₂。
-\item 求 s'₁₁(ζ₁)，得到 c₁，再算 c₂。
-\item 从 θ 证明 C₁=c₁/t。
-\item 手算 A₁₁ 与 f₁，确认系数没有共轭位置错误。
+\item 自己从 \ensuremath{\lambda}\textsubscript{1}=ib 算出 \ensuremath{\zeta}\textsubscript{1}、\ensuremath{\zeta}\textsubscript{2}。
+\item 求 s'\textsubscript{1}\textsubscript{1}(\ensuremath{\zeta}\textsubscript{1})，得到 c\textsubscript{1}，再算 c\textsubscript{2}。
+\item 从 \ensuremath{\theta} 证明 C\textsubscript{1}=c\textsubscript{1}/t。
+\item 手算 A\textsubscript{1}\textsubscript{1} 与 f\textsubscript{1}，确认系数没有共轭位置错误。
 \end{enumerate}
 
 \textbf{核心级}\par
 
 \begin{enumerate}[leftmargin=2em]
-\item 展开 Δ± 为两个模方和，证明系统对所有实 x、z 可逆。
-\item 选 v₁ 或 u₂，代回有限方程验证至少一个分量。
-\item 用 P 的投影性质算 detN=ρ²+κ²，再算 detM=γ。
-\item 从 M⁽¹⁾ 正确得到 q 的负号与载波相位。
-\item 把 N(a)N(a)† 算成 (a²+b²)I，再解释介质的两个原像为何一致。
+\item 展开 \ensuremath{\Delta}\ensuremath{\pm} 为两个模方和，证明系统对所有实 x、z 可逆。
+\item 选 v\textsubscript{1} 或 u\textsubscript{2}，代回有限方程验证至少一个分量。
+\item 用 P 的投影性质算 detN=\ensuremath{\rho}\textsuperscript{2}+\ensuremath{\kappa}\textsuperscript{2}，再算 detM=\ensuremath{\gamma}。
+\item 从 M\textsuperscript{(}\textsuperscript{1}\textsuperscript{)} 正确得到 q 的负号与载波相位。
+\item 把 N(a)N(a)† 算成 (a\textsuperscript{2}+b\textsuperscript{2})I，再解释介质的两个原像为何一致。
 \end{enumerate}
 
 \textbf{研究级}\par
 
 \begin{enumerate}[leftmargin=2em]
-\item 用局部因式分解解释离散极点在 ΨₓΨ⁻¹ 中为何可去。
-\item 说明分支点处 M 秩一时，固定核如何抵消 M⁻¹ 的简单极点。
-\item 比较 \textbackslash{}mathcal V 的 λ 次幂系数，自己重建 W₁ 的非对角元。
+\item 用局部因式分解解释离散极点在 \ensuremath{\Psi}\textsubscript{x}\ensuremath{\Psi}\textsuperscript{-}\textsuperscript{1} 中为何可去。
+\item 说明分支点处 M 秩一时，固定核如何抵消 M\textsuperscript{-}\textsuperscript{1} 的简单极点。
+\item 比较 \textbackslash{}mathcal V 的 \ensuremath{\lambda} 次幂系数，自己重建 W\textsubscript{1} 的非对角元。
 \item 说明为什么 RHP 构造出来的 M 与实际 Jost 基对应。
 \item 精确说出一轨道完整定理与一般 N 轨道条件性 Cramer 表示的区别。
 \end{enumerate}
