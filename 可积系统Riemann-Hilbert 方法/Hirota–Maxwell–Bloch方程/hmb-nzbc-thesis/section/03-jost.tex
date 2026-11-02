@@ -1,4 +1,4 @@
-固定 $t$, 考虑空间谱方程 $\phi_x=U\phi$, 其中 $U=-\ii k\sg+Q$. 在 $z\in\Sigma\setminus\{0,\pm\ii q_0,z_a^\pm\}$ 上定义 Jost 解及修正 Jost 解
+固定 $t$, 考虑空间谱方程 $\phi_x=U\phi$, 其中 $U=-\ii k\sg+Q$. 在 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0,z_a^\pm\}$ 上定义 Jost 解及修正 Jost 解
 \begin{equation}\label{eq:jost-normalization}
 \phi_\pm(x,t,z)e^{-\ii\theta(x,t,z)\sg}\longrightarrow Y(z),\qquad x\to\pm\infty,
 \end{equation}
@@ -8,7 +8,7 @@
 记 $\Delta Q=Q-Q_\infty$. 以下先在分支点之外构造解析列, 再讨论分支点的连续延拓.
 
 \begin{theorem}[Jost 解与解析列]\label{thm:jost}
-设 $q-q_0\in L^1(\mathbb R)\cap L^\infty(\mathbb R)$. 对 $z\in\Sigma\setminus\{0,\pm\ii q_0\}$, Volterra 方程
+设 $q-q_0\in L^1(\mathbb R)\cap L^\infty(\mathbb R)$. 对 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$, Volterra 方程
 \begin{equation}\label{eq:volterra}
 \mu_\pm(x,z)=Y(z)+\int_{\pm\infty}^{x}
 Y(z)e^{-\ii\lambda(z)(x-y)\sg}Y(z)^{-1}
@@ -52,7 +52,7 @@ G(r,z)=\diag(1,e^{2\ii\lambda r})Y^{-1}
 \le c(z)|q(y)-q_0|,\qquad
 c(z)=\dfrac{\left(1+\dfrac{q_0}{|z|}\right)^2}{\left|1+\dfrac{q_0^2}{z^2}\right|}.
 \end{equation}
-取 $\mathcal K\subset\overline{D_+}\setminus\{0,\pm\ii q_0\}$ 为紧集, 记
+取 $\mathcal K\subset\overline{D_+}\mathbin{\backslash}\{0,\pm\ii q_0\}$ 为紧集, 记
 \[
 c_{\mathcal K}=\max_{z\in\mathcal K}c(z),\qquad
 M_{\mathcal K}(x)=c_{\mathcal K}\int_{-\infty}^{x}|q(y)-q_0|\,\dd y.
@@ -65,11 +65,10 @@ w^{(n+1)}&=\int_{-\infty}^{x}G(x-y,z)\Delta Q(y)Yw^{(n)}(y,z)\,\dd y.
 \end{aligned}
 \end{equation}
 若 $\|w^{(n)}(y,z)\|_1\le \dfrac{M_{\mathcal K}(y)^n}{n!}$, 则
-\begin{align*}
-\|w^{(n+1)}(x,z)\|_1
-&\le\dfrac{1}{n!}\int_{-\infty}^{x}c_{\mathcal K}|q(y)-q_0|M_{\mathcal K}(y)^n\,\dd y\\
-&=\dfrac{M_{\mathcal K}(x)^{n+1}}{(n+1)!}.
-\end{align*}
+\[
+\|w^{(n+1)}(x,z)\|_1\le\dfrac{1}{n!}\int_{-\infty}^{x}c_{\mathcal K}|q(y)-q_0|M_{\mathcal K}(y)^n\,\dd y
+=\dfrac{M_{\mathcal K}(x)^{n+1}}{(n+1)!}.
+\]
 归纳即得
 \begin{equation}\label{eq:jost-factorial}
 \|w^{(n)}(x,z)\|_1\le\dfrac{M_{\mathcal K}(x)^n}{n!},\qquad
