@@ -1,4 +1,6 @@
 \documentclass[type=master,oneside]{fduthesis}
+% Load the template fonts before xeCJK checks the default CJK family.
+\DeclareHookRule{begindocument/before}{fduthesis}{before}{xeCJK}
 \fdusetup{
  style={font=times,cjk-font=windows,font-size=-4,fullwidth-stop=false,
  auto-make-cover=false,hyperlink=color,bib-backend=bibtex,
