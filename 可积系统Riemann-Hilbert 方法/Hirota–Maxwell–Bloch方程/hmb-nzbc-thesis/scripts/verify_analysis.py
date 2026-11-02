@@ -1,4 +1,4 @@
-"""Exact algebra behind the high-energy transformation and Section 6."""
+"""Exact algebra for the high-energy transformation and resonance regularity."""
 from pathlib import Path
 import json
 import sympy as s

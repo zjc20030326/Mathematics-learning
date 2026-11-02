@@ -1,10 +1,11 @@
-"""Solve the residue system (4. finite1/finite2) before any Darboux comparison.
+"""Solve the residue system (finite1/finite2) and verify reconstruction.
 
 The solver accepts spectral data, builds a 2m by 2m scalar matrix and solves
 two right-hand sides. No projector or preconstructed field enters the solver.
 Run from any directory; mpmath is the only third-party dependency.
 """
 from pathlib import Path
+import argparse
 import json
 import mpmath as mp
 
@@ -184,7 +185,7 @@ def checks_at(x, z):
     return errors
 
 
-def main():
+def main(compare_legacy=False):
     mp.mp.dps = 70
     points = [('-1.2', '-.35'), ('0', '0'), ('.37', '.21'), ('1.4', '-.1'), ('2.3', '.6')]
     results = [checks_at(mp.mpf(x), mp.mpf(z)) for x, z in points]
@@ -201,28 +202,31 @@ def main():
         row = [abs(v-vb) for v, vb in zip(values, (qb, -1j*eta0*qb/a, eta0))]
         assert max(row) < mp.mpf('1e-27')
         boundaries.append([mp.nstr(v, 14) for v in row])
-    # Only now import the separately implemented Darboux construction.
-    from verify_solitons import fields as darboux_fields
-    mp.mp.dps = 70  # the legacy module sets its own default precision
-    comparison = [mp.mpf(0)]*3
-    for x, z in points:
-        xx, zz = mp.mpf(x), mp.mpf(z)
-        direct, other = fields(xx, zz), darboux_fields(xx, zz, 1)
-        comparison = [max(old, abs(v-d)) for old, v, d in zip(comparison, direct, other)]
-    # Legacy constants were created at 60 digits on import.
-    assert max(comparison) < mp.mpf('1e-55')
     report = {
         'precision_digits': 70, 'method': 'LU solve of residue block matrix; no Darboux input',
         'parameters': dict(zip(('Q', 'a', 'eta0', 'alpha', 'beta', 'b'), map(str, parameters()))),
         'points': points, 'max_errors': {k: mp.nstr(v, 14) for k, v in maxima.items()},
         'boundary_errors_x_minus_plus_30': boundaries,
-        'Darboux_comparison_q_p_eta': [mp.nstr(v, 14) for v in comparison],
         'normalization_note': 'scaled remainder divided by large w, or multiplied by small w; 1e15 and 1e-15',
     }
+    if compare_legacy:
+        # Optional historical comparison, after every independent RHP check.
+        from verify_solitons import fields as darboux_fields
+        mp.mp.dps = 70  # the legacy module sets its own default precision
+        comparison = [mp.mpf(0)]*3
+        for x, z in points:
+            xx, zz = mp.mpf(x), mp.mpf(z)
+            direct, other = fields(xx, zz), darboux_fields(xx, zz, 1)
+            comparison = [max(old, abs(v-d)) for old, v, d in zip(comparison, direct, other)]
+        assert max(comparison) < mp.mpf('1e-55')
+        report['legacy_Darboux_comparison_q_p_eta'] = [mp.nstr(v, 14) for v in comparison]
     path = Path(__file__).resolve().parents[1]/'calculations'/'direct-rhp-results.json'
     path.write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--compare-legacy', action='store_true',
+                        help='also compare with the retained historical Darboux implementation')
+    main(parser.parse_args().compare_legacy)

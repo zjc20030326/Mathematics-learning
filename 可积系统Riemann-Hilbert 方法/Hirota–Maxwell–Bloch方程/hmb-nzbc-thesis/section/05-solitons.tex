@@ -1,4 +1,4 @@
-本章从第四章的无反射留数系统出发. 先对一个纯虚离散谱轨道完成线性消元, 再验证所得有理矩阵的全部谱约束, 并由其对数导数恢复 HMB 的两部分 Lax 方程. Darboux 表示仅在最后用于与已有解比较.
+无反射条件使矩阵 RHP 化为留数线性系统. 本章求解一个完整四点轨道, 由同一矩阵重构三个场, 并证明其满足 HMB 方程及同相非零边界.
 
 \section{一轨道散射数据与线性系统}
 取
@@ -20,7 +20,7 @@ c_1=\dfrac{1}{s_{11}'(\zeta_1)}
 =\dfrac{4\ii\kappa}{1+h_0^2},\qquad
 c_2=h_0^2\conj{c_1}=-h_0^2c_1.
 \end{equation}
-这是对范数常数的一个特定选择; 其可实现性将由下面的解证明. 第二个常数由换叶约束确定, 共轭点的留数取式 \eqref{eq:resminus}. 令
+第二个范数常数由换叶约束确定, 共轭点的留数取式 \eqref{eq:resminus}. 令
 \begin{equation}\label{eq:orbit-phase}
 s=\kappa[x-F(\ii b)z],\qquad t=e^{2s}.
 \end{equation}
@@ -28,7 +28,6 @@ s=\kappa[x-F(\ii b)z],\qquad t=e^{2s}.
 \[
 C_1=\dfrac{c_1}{t},\qquad C_2=-\dfrac{h_0^2c_1}{\conj t}.
 \]
-相位中的全部 $x,z$ 依赖来自第三章的散射演化约定.
 
 \begin{lemma}[一轨道留数系统的显式消元]\label{lem:direct-solve}
 对上述数据, 式 \eqref{eq:finite1}--\eqref{eq:finite2} 在任意实 $x,z$ 上唯一可解. 记
@@ -37,13 +36,13 @@ C_1=\dfrac{c_1}{t},\qquad C_2=-\dfrac{h_0^2c_1}{\conj t}.
 \end{equation}
 其解为
 \begin{align}
-v_1&=\dfrac{t(1+h_0^2)}{\Delta_-}
+\mathbf v_1&=\dfrac{t(1+h_0^2)}{\Delta_-}
 \begin{pmatrix}1-h_0\conj t\\\conj t-h_0\end{pmatrix},&
-u_1&=\dfrac{\conj t(1+h_0^2)}{\Delta_-}
+\mathbf u_1&=\dfrac{\conj t(1+h_0^2)}{\Delta_-}
 \begin{pmatrix}t-h_0\\h_0t-1\end{pmatrix},\label{eq:direct-vu1}\\
-v_2&=\dfrac{\conj t(1+h_0^2)}{h_0\Delta_-}
+\mathbf v_2&=\dfrac{\conj t(1+h_0^2)}{h_0\Delta_-}
 \begin{pmatrix}t-h_0\\h_0t-1\end{pmatrix},&
-u_2&=\dfrac{t(1+h_0^2)}{h_0\Delta_-}
+\mathbf u_2&=\dfrac{t(1+h_0^2)}{h_0\Delta_-}
 \begin{pmatrix}h_0\conj t-1\\h_0-\conj t\end{pmatrix}.\label{eq:direct-vu2}
 \end{align}
 \end{lemma}
@@ -74,7 +73,7 @@ g_2=\begin{pmatrix}1\\-h_0^{-1}\end{pmatrix}.
 \begin{pmatrix}\boldsymbol v\\\boldsymbol u\end{pmatrix}
 =\begin{pmatrix}\boldsymbol f\\\boldsymbol g\end{pmatrix};
 \]
-每个向量分量各有同一个四阶线性系统. 计算二阶 Schur 补的行列式得
+两个向量分量分别满足同一个四阶线性系统. 计算二阶 Schur 补的行列式得
 \begin{equation}\label{eq:one-schur-det}
 \det(I_2+\mathcal A\mathcal B)
 =\dfrac{\Delta_-\Delta_+}{|t|^4(1+h_0^2)^2}>0.
@@ -88,7 +87,7 @@ g_2=\begin{pmatrix}1\\-h_0^{-1}\end{pmatrix}.
 $\left(\begin{smallmatrix}1&\pm h_0\\\pm h_0&1\end{smallmatrix}\right)$ 的最小奇异值 $1-h_0$ 得到, 且 $t\ne0$.
 
 对 $L=I_2+\mathcal A\mathcal B$ 使用
-$L^{-1}=(\det L)^{-1}\left(\begin{smallmatrix}L_{22}&-L_{12}\\-L_{21}&L_{11}\end{smallmatrix}\right)$, 代入 $L^{-1}(\boldsymbol f-\mathcal A\boldsymbol g)$, 约去公因子 $\Delta_+$, 得到式 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2} 中的 $v_1,v_2$. 再用 $\boldsymbol u=\boldsymbol g+\mathcal B\boldsymbol v$ 得到 $u_1,u_2$. 这也直接给出 $u_1=h_0v_2$、$u_2=-\dfrac{v_1}{h_0}$, 可逐列代回原系统核对.
+$L^{-1}=(\det L)^{-1}\left(\begin{smallmatrix}L_{22}&-L_{12}\\-L_{21}&L_{11}\end{smallmatrix}\right)$, 代入 $L^{-1}(\boldsymbol f-\mathcal A\boldsymbol g)$, 约去公因子 $\Delta_+$, 得到式 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2} 中的 $\mathbf v_1,\mathbf v_2$. 再用 $\boldsymbol u=\boldsymbol g+\mathcal B\boldsymbol v$ 得到 $\mathbf u_1,\mathbf u_2$. 这也直接给出 $\mathbf u_1=h_0\mathbf v_2$、$\mathbf u_2=-\dfrac{\mathbf v_1}{h_0}$, 可逐列代回原系统核对.
 \end{proof}
 
 \section{完整四点轨道的矩阵解}
@@ -100,7 +99,7 @@ P=\dfrac{1}{\Delta_-}
 (1-h_0t)(\conj t-h_0)&|1-h_0t|^2
 \end{pmatrix},\qquad H=\diag(\ii,-\ii).
 \end{equation}
-它满足 $P^\dagger=P$、$P^2=P$、$\tr P=1$. 这里 $P$ 是留数系统解的代数缩写, 而非预先施加的变换.
+它满足 $P^\dagger=P$、$P^2=P$、$\tr P=1$.
 
 \begin{theorem}[直接求解的一轨道无反射 RHP]\label{thm:oneRHP}\label{prop:unique-reflectionless}
 设背景参数满足第二章的条件, $b>Q$, 散射数据由 \eqref{eq:onezeros}、\eqref{eq:onec} 给定. 则
@@ -129,11 +128,11 @@ N(\lambda)=(\lambda+\ii b)I-2\ii bP.
 \]
 它与式 \eqref{eq:explicitM} 中两个列分母的乘积相消, 故 $\det M=\det E=\gamma$. 四个极点外, 显式表达式只有 $w=0$ 的规定主项. 分支点 $w=\pm\ii Q$ 处 $\rho=0$, 而 $\kappa>0$, 故 $M$ 解析; $N$ 在此可逆, $E$ 秩为 1, 所以 $M$ 恰为秩一矩阵. $\pm Q$ 及 $w_a^\pm$ 上 $\rho$ 为实数, 列分母不为零, 故它们也都是普通解析点. 共振点处 $\gamma=1+\dfrac{Q^2}{(w_a^\pm)^2}>0$, 给出可逆性.
 
-任意属于所述函数类的另一解均由命题 \ref{prop:finite} 化为相同的有限维系统. 式 \eqref{eq:one-schur-det} 保证四个列向量相同, 部分分式表示随之相同. 这一论证同时排除了在分支点额外加入奇异项的可能.
+任意属于所述函数类的另一解均由命题 \ref{prop:finite} 化为相同的有限维系统. 式 \eqref{eq:one-schur-det} 保证四个列向量相同, 部分分式表示随之相同.
 \end{proof}
 
 \section{三场重构与 HMB 方程}
-先给出可直接求值的三个场, 再证明该重构确实满足原方程. 记 $n_{jk}=N(a)_{jk}$, 则这些矩阵元由式 \eqref{eq:algebraic-P}、\eqref{eq:Nfactor} 明确给出.
+记 $n_{jk}=N(a)_{jk}$, 则这些矩阵元由式 \eqref{eq:algebraic-P}、\eqref{eq:Nfactor} 明确给出.
 
 \begin{theorem}[一轨道逆重构与方程相容性]\label{thm:direct-HMB}\label{prop:oneboundary}
 定理 \ref{thm:oneRHP} 的矩阵按式 \eqref{eq:reconq}、\eqref{eq:RfromM} 重构出
@@ -184,7 +183,7 @@ M\longrightarrow E\diag(s_{11}^{-1},s_{11})\quad(x\to-\infty).
 \end{equation}
 两个对角因子都与 $\sg$ 对易, 故式 \eqref{eq:direct-medium} 在两端都趋于 $R_\infty$. 这证明极化及反转的端态与光场完全同相. 由于 $|t|=e^{2\kappa[x-\operatorname{Re}F(\ii b)z]}$, 收敛阶为所述指数阶, 任意固定阶的 $x,z$ 导数也具有相同的局部一致衰减. 分母 $\Delta_->0$ 和 $a^2+b^2>0$ 保证全局光滑.
 
-下面独立证明两部分 Lax 方程. 对避开特殊点的 $w$, 定义
+为恢复 Lax 对, 对避开特殊点的 $w$ 定义
 \begin{equation}\label{eq:inverse-log-lax}
 \mathcal U=(M_x-\ii\rho M\sg)M^{-1},\qquad
 \mathcal V=(M_z+\ii\rho F M\sg)M^{-1}.
@@ -197,7 +196,7 @@ $\Res\Psi_1=c_j\Psi_2(\zeta_j)$, 共轭点同理; 常数 $c_j$ 与 $x,z$ 无关.
 \Psi=\mathcal H_j(w)\left(I+\dfrac{c_j e_2e_1^{\mathsf T}}{w-\zeta_j}\right),
 \qquad \det\mathcal H_j(\zeta_j)=\gamma(\zeta_j)\ne0.
 \]
-右因子与 $x,z$ 无关, 故 $\Psi_x\Psi^{-1}$、$\Psi_z\Psi^{-1}$ 在该点解析. 这一步同时使用了范数常数的两个演化因子, 不能仅由固定截面的留数条件替代.
+右因子与 $x,z$ 无关, 故 $\Psi_x\Psi^{-1}$、$\Psi_z\Psi^{-1}$ 在该点解析.
 
 在 $w_*=\pm\ii Q$, 换叶约化使 $M(w_*)$ 消灭 $C(w_*)$ 的固定 $-1$ 特征空间. 其核不随 $x,z$ 改变, 故 $M_x(w_*)$、$M_z(w_*)$ 也消灭该核. 又 $\rho(w_*)=0$, $F$ 在此有限, 式 \eqref{eq:inverse-log-lax} 的两个分子均消灭同一个核. 由于 $\det M=\gamma$ 在 $w_*$ 为简单零, $\operatorname{adj}M(w_*)$ 的像等于该核, 两个商的分子遂抵消行列式的简单零. 这证明分支点可去. 交点处 $\gamma\ne0$, 无需另作消去. $\mathcal U$ 在共振点解析, 而 $\mathcal V$ 在 $\lambda=a$ 只有留数为 $\ii R$ 的简单极点, 因为
 \[
@@ -243,14 +242,14 @@ R_x=[-\ii a\sg+A(u),R],\qquad
 u_z=\ii\alpha\left(\dfrac{u_{xx}}{2}+|u|^2u\right)
 +\beta(u_{xxx}+6|u|^2u_x)+2v+\ii\Omega u.
 \]
-它们给出两条介质方程和光场演化. 恢复 $q=e^{-\ii\Omega z}u$、$p=e^{-\ii\Omega z}v$ 即得原系统. 整个逆重构论证只使用已求得的 RHP 矩阵、留数的时空依赖及谱约化.
+它们给出两条介质方程和光场演化. 恢复 $q=e^{-\ii\Omega z}u$、$p=e^{-\ii\Omega z}v$ 即得原系统.
 
 还可验证输入数据确为重构场的散射数据. 在普通连续谱上令
 \[
 \chi_+=M e^{-\ii\rho x\sg},\qquad
 \chi_-=M\diag(s_{11},s_{11}^{-1})e^{-\ii\rho x\sg}.
 \]
-已证明的空间方程及式 \eqref{eq:direct-M-ends} 表明, 它们分别具有正、负端 Jost 归一化, 故由定理 \ref{thm:jost} 的唯一性即为相应 Jost 矩阵. 于是反射为零, 透射函数正是 \eqref{eq:onezeros}; 解析列的留数又给出 $b_1=c_1s_{11}'(\zeta_1)=1$. 这完成了所选数据的可实现性验证.
+已证明的空间方程及式 \eqref{eq:direct-M-ends} 表明, 它们分别具有正、负端 Jost 归一化, 故由定理 \ref{thm:jost} 的唯一性即为相应 Jost 矩阵. 于是反射为零, 透射函数正是 \eqref{eq:onezeros}; 解析列的留数又给出 $b_1=c_1s_{11}'(\zeta_1)=1$.
 \end{proof}
 
 将 $s=\xi+\ii\nu$ 代入式 \eqref{eq:algebraic-P}, 也可写为
@@ -259,89 +258,69 @@ P_{12}=\dfrac{-2h_0\cosh(2\xi)+(1+h_0^2)\cos(2\nu)
 +\ii(1-h_0^2)\sin(2\nu)}
 {2(1+h_0^2)\cosh(2\xi)-4h_0\cos(2\nu)}.
 \end{equation}
-分母至少为 $2(1-h_0)^2$. 这一表达式用于第六章的幅值与传播分析.
+分母至少为 $2(1-h_0)^2$.
 
-\section{多轨道系统与一个精确参数例}
-对 $N$ 个互不相交的简单轨道, 第四章中的 $m=2N$. 谱点及范数常数必须满足 \eqref{eq:cpair}、\eqref{eq:theta-condition}, 而反问题首先归结为同一个 $2N$ 阶 Schur 补. 若其行列式非零, 令 $L=I_m+\mathcal A\mathcal B$, 将 $\boldsymbol f-\mathcal A\boldsymbol g$ 的第 $\ell$ 个向量分量记为列 $d^{(\ell)}$, 则
-\begin{equation}\label{eq:N-cramer}
-(v_j)_\ell=\dfrac{\det L[j\leftarrow d^{(\ell)}]}{\det L},\qquad
-\boldsymbol u=\boldsymbol g+\mathcal B\boldsymbol v,\qquad \ell=1,2.
-\end{equation}
-其中方括号表示用指定列替换第 $j$ 列. 结合 \eqref{eq:partialfraction}、\eqref{eq:qfinite} 和 \eqref{eq:RfromM}, 这给出有限维候选矩阵与候选三场. 一般 $N$ 下, $\det L$ 的全局非零性及候选场的指定端态仍需证明; 一轨道的正因子分解 \eqref{eq:one-schur-det} 不直接推广到该情形.
+\section{幅值与传播性质}
+对上述一轨道数据, 令
+\begin{align}
+A_b:=\operatorname{Re}F(\ii b)
+&=-4\beta b^2-2\beta Q^2-\dfrac{\eta_0}{a^2+b^2},\label{eq:velocity}\\
+B_b:=\operatorname{Im}F(\ii b)
+&=-\alpha b-\dfrac{\eta_0b}{a(a^2+b^2)}.\label{eq:frequency}
+\end{align}
+并取随动坐标 $X=x-A_bz$.
 
-作为一轨道公式的精确代数例, 取
-\begin{equation}\label{eq:exactparams}
-Q=1,\quad b=\dfrac{5}{4},\quad\kappa=\dfrac{3}{4},\quad
-a=2,\quad\eta_0=\dfrac{3}{5},\quad\alpha=1,\quad\beta=\dfrac{1}{10}.
+\begin{proposition}[一轨道解的幅值与局部化]\label{prop:wave-properties}
+定理 \ref{thm:direct-HMB} 的解满足
+\begin{equation}\label{eq:amplitude-bound}
+|q(x,z)|\le Q+2b,\qquad |q(0,0)|=Q+2b,
 \end{equation}
-此时 $h_0=\dfrac{1}{2}$, $F(\ii b)=-\dfrac{3321}{3560}-\dfrac{469\ii}{356}$. 令
-$T=e^{2\operatorname{Re}s}>0$、$C=e^{2\ii\operatorname{Im}s}$, 则 $t=TC$、$\conj t=\dfrac{T}{C}$, 且
-\[
-\Delta_-=\dfrac{5}{4}(T^2+1)-T(C+C^{-1}).
-\]
-式 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2} 因而都是 $T,C$ 的有理式, 原方程可按
-\[
-\partial_x=2\kappa T\partial_T,\qquad
-\partial_z=-2\kappa\operatorname{Re}F\,T\partial_T
--2\ii\kappa\operatorname{Im}F\,C\partial_C
-\]
-作精确检验. 代入式 \eqref{eq:finalfields} 后, 三条 PDE 的有理残差均为零, 且 $|p|^2+\eta^2=\dfrac{9}{20}$. 在 $T>0,|C|=1$ 上分母严格正, 清分母不引入额外解. 这一具体计算与定理 \ref{thm:direct-HMB} 的一般参数证明相互独立.
-
-对于 $Q=1,a=2,\eta_0=0.6,\alpha=1,\beta=0.1,b=1.5$, 图 \ref{fig:one} 给出同一一轨道解的三场分布. 按留数系统直接数值求解, 在五个时空点以 70 位精度求导所得三条 PDE 最大绝对残差分别小于 $1.87\times10^{-69}$、$8.26\times10^{-71}$、$1.50\times10^{-70}$; 此项计算只用于核对公式.
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{figures/one-soliton-fields.pdf}
-\caption{定理 \ref{thm:direct-HMB} 的一轨道三场解. $Q=1,a=2,\eta_0=0.6,\alpha=1,\beta=0.1,b=1.5$; 颜色分别表示 $|q|,|p|,\eta$. 纵轴为 $z$, 横轴为 $x$. }
-\label{fig:one}
-\end{figure}
-
-\section{与 Darboux 变换的关系}
-上述解也具有已有 Darboux 公式的表示. 以下比较同时包含光场与介质, 并不参与前面的存在性及方程证明.
-
-\begin{proposition}[与平面波 Darboux 解的恒等关系]\label{prop:darboux}
-令
-\begin{equation}\label{eq:explicit-y}
-y=\begin{pmatrix}e^s-h_0e^{-s}\\-h_0e^s+e^{-s}\end{pmatrix}
-=\Psi_0(\zeta_1)\begin{pmatrix}1\\1\end{pmatrix}.
+以及
+\begin{equation}\label{eq:medium-bound}
+|p(x,z)|,\ |\eta(x,z)|\le C_0^{\frac{1}{2}},\qquad
+C_0=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right).
 \end{equation}
-则式 \eqref{eq:algebraic-P} 的 $P$ 及式 \eqref{eq:Nfactor} 的 $N$ 满足
-\begin{equation}\label{eq:projector}
-P=\dfrac{yy^\dagger}{y^\dagger y},\qquad
-D(\lambda):=\dfrac{N(\lambda)}{\lambda+\ii b}
-=I-\dfrac{2\ii b}{\lambda+\ii b}P.
+去相位三场在随动坐标中的端态修正为 $O(e^{-2\kappa|X|})$. 若 $B_b\ne0$, 则它们关于 $z$ 具有周期
+\begin{equation}\label{eq:internal-period}
+T_z=\dfrac{\pi}{\kappa|B_b|}.
 \end{equation}
-文献\cite{LHP2013}式 (3.16)--(3.20) 的一次变换在该背景和该列解上给出
-\begin{equation}\label{eq:darbouxfields}
-u^{[1]}=Q+4bP_{12},\qquad R^{[1]}=D(a)R_\infty D(a)^{-1}.
-\end{equation}
-定理 \ref{thm:direct-HMB} 的三个场与这一变换后再取共同相位 $\pi$ 的三个场逐项相等.
+若 $B_b=0$, 即 $\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}$, 则去相位三场仅依赖 $X$.
 \end{proposition}
 \begin{proof}
-因 $y=e^{-s}(t-h_0,1-h_0t)^{\mathsf T}$, 公共非零因子在 $\dfrac{yy^\dagger}{y^\dagger y}$ 中相消, 得到 \eqref{eq:algebraic-P}. 第二个等式是 $N$ 的直接分解. 文献中的 $T=\lambda I-S$ 在 $S=-\ii bI+2\ii bP$ 时恰等于 $N$; 它与 $D$ 相差不依赖 $x,z$ 的标量. 该文的变量取 $t_{\rm source}=x$、$z_{\rm source}=z$、$E=q$、$\omega=-a$, 参数 $\alpha,\beta$ 不缩放. 空间背景与传播矩阵分别为 $U_\infty$ 和 $-FU_\infty$, 所以谱点 $\ii b$、谱根 $\ii\kappa$ 及相位 $s$ 均一致.
-
-在实 $a$ 上, $D(a)^{-1}=D(a)^\dagger$, 于是
+秩一正交投影满足 $P_{22}=1-P_{11}$ 及
 \[
-R^{[1]}=\dfrac{N(a)R_\infty N(a)^\dagger}{a^2+b^2}.
+|P_{12}|^2=P_{11}(1-P_{11})\le\dfrac{1}{4}.
 \]
-由式 \eqref{eq:finalfields}, $q=-e^{-\ii\Omega z}u^{[1]}$, $p=e^{-\ii\Omega z}(R^{[1]})_{12}$, $\eta=(R^{[1]})_{11}$. 中间极化为 $-(R^{[1]})_{12}$, 故光场、极化同时变号而反转保持; 这正是常相位矩阵 $H$ 的共轭, 证明三场恒等.
+故 $|q|=|-Q-4bP_{12}|\le Q+2b$. 在 $x=z=0$, $t=1$, 由式 \eqref{eq:algebraic-P} 得到 $P_{12}=\dfrac{1}{2}$, 达到该界. 介质界直接来自 $|p|^2+\eta^2=C_0$.
+
+将
+\[
+\dfrac{\eta_0}{a(\ii b-a)}
+=-\dfrac{\eta_0}{a^2+b^2}
+-\ii\dfrac{\eta_0b}{a(a^2+b^2)}
+\]
+代入 $F$, 得到 \eqref{eq:velocity}、\eqref{eq:frequency}. 于是
+$s=\kappa X-\ii\kappa B_bz$. 式 \eqref{eq:algebraic-P} 中的变量为
+\[
+t=e^{2s}=e^{2\kappa X}e^{-2\ii\kappa B_bz}.
+\]
+在 $X\to+\infty$ 时将式 \eqref{eq:algebraic-P} 的分子分母同除以 $|t|^2$, 在 $X\to-\infty$ 时直接取极限, 得到 $P-P_\pm=O(e^{-2\kappa|X|})$. 因 $h_0\in(0,1)$, 极限投影的分母非零, 估计可对内部相位一致成立. 三个场都是 $P$ 的光滑代数表达式, 故具有相同的衰减阶.
+
+固定 $X$ 时, $z$ 增加 $T_z$ 使 $e^{-2\ii\kappa B_bz}$ 转过整周, 投影及去相位三场不变; 若 $B_b=0$, 则该因子恒为 1, 得到行波情形.
 \end{proof}
 
-Zhao--Zhaqilao\cite{ZZ2026}的方程 (1) 在 $t_{\rm source}=z$、$x_{\rm source}=x$、$\omega=-a$ 下与本文相同, 其式 (12) 的一次光场变换也化为 \eqref{eq:darbouxfields}. 在其平面波参数与 $q_0=Q$、载波频率 $\kappa_0=-\Omega$ 以及 $\eta_0=\dfrac{a}{2}(\alpha Q^2-\kappa_0)$ 一致的范围内, 同时 Lax 列均是 $E e^{-\ii\theta\sg}$ 的常系数组合, 故相同列选择产生相同的三场 Darboux 变换. 该文式 (34) 使用另一组特征向量归一化及常数, 不能把其中的 $c_1=c_2=1$ 直接等同于本文的列选择; 这里的恒等比较以 \eqref{eq:explicit-y} 及共同背景为准, 不将其特定绘图参数下的全部展开式逐项视为同一公式.
+周期 \eqref{eq:internal-period} 也是 $|q|,|p|,\eta$ 的随动周期. 复场 $q,p$ 具有相同周期的条件为 $\Omega T_z\in2\pi\mathbb Z$.
 
-已有多重 Darboux 构造仍提供独立的多轨道解族. 对互异 $\lambda_j\in\mathbb C^+$、离开背景连续谱的参数, 取非零常向量 $c_j^{(0)}$, 令 $y_j^{(0)}=\Psi_0(\lambda_j)c_j^{(0)}$, 并递推
-\begin{align}
-y_j^{(j-1)}&=D_{j-1}(\lambda_j)\cdots D_1(\lambda_j)y_j^{(0)},\label{eq:Nrecursion}\\
-P_j&=\dfrac{y_j^{(j-1)}(y_j^{(j-1)})^\dagger}{(y_j^{(j-1)})^\dagger y_j^{(j-1)}},\qquad
-D_j(\lambda)=I-\dfrac{\lambda_j-\conj{\lambda_j}}{\lambda-\conj{\lambda_j}}P_j,\nonumber\\
-u^{[j]}&=u^{[j-1]}-2\ii(\lambda_j-\conj{\lambda_j})(P_j)_{12},\qquad
-R^{[j]}=D_j(a)R^{[j-1]}D_j(a)^\dagger.\label{eq:Nmedium}
-\end{align}
-这些公式使用文献\cite{LHP2013}的多重 Darboux 定理. 各 $D_k(\lambda_j)$ 可逆, 故输入列非零、投影分母为正; 实共振处的酉性保持 Bloch 长度. 对互异 $\lambda_j=\ii b_j$、$b_j>Q$ 且各种子常向量取 $(1,1)^{\mathsf T}$, 端态交织关系把主导背景特征向量送到下一背景的对应特征向量, 每一步的两端同时变号. 故将最终光场和极化乘 $(-1)^N$ 可恢复指定背景.
-
-图 \ref{fig:two} 保留这一已知递推构造的二重例子. 它与一般数据的直接 RHP 公式 \eqref{eq:N-cramer} 是不同层次的结论; 尚不能由该图或递推式推出一般 $N$ 轨道留数系统的全局可逆性.
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{figures/two-soliton-fields.pdf}
-\caption{用于比较的二重 Darboux 解, 谱点为 $1.5\ii,1.9\ii$, 其余参数同图 \ref{fig:one}. 两个种子常向量均为 $(1,1)^{\mathsf T}$, 由式 \eqref{eq:Nrecursion}--\eqref{eq:Nmedium} 得到. }
-\label{fig:two}
-\end{figure}
+\section{多轨道的有限维表示}
+\begin{proposition}[多轨道留数系统的行列式表示]\label{prop:N-algebra}
+设 $m=2N$ 个简单零点组成互不相交的完整轨道, 范数常数满足 \eqref{eq:cpair}, 且谱点满足 \eqref{eq:theta-condition}. 若 $L=I_m+\mathcal A\mathcal B$ 在所考察的 $(x,z)$ 上满足 $\det L\ne0$, 则留数系统有唯一解. 将 $\boldsymbol f-\mathcal A\boldsymbol g$ 的第 $\ell$ 个向量分量记为列 $d^{(\ell)}$, 有
+\begin{equation}\label{eq:N-cramer}
+(\mathbf v_j)_\ell=\dfrac{\det L[j\leftarrow d^{(\ell)}]}{\det L},\qquad
+\boldsymbol u=\boldsymbol g+\mathcal B\boldsymbol v,\qquad \ell=1,2.
+\end{equation}
+其中方括号表示用指定列替换第 $j$ 列.
+\end{proposition}
+\begin{proof}
+命题 \ref{prop:finite} 将留数系统化为 $L\boldsymbol v=\boldsymbol f-\mathcal A\boldsymbol g$. 对两个分量分别应用 Cramer 法则, 即得 \eqref{eq:N-cramer}; $\boldsymbol u$ 再由第二组方程确定.
+\end{proof}
+这一表示在 $\det L\ne0$ 的数据和时空区域上确定部分分式矩阵 \eqref{eq:partialfraction}. 一轨道数据的全局可逆性及三场相容性由定理 \ref{thm:oneRHP}、\ref{thm:direct-HMB} 给出.

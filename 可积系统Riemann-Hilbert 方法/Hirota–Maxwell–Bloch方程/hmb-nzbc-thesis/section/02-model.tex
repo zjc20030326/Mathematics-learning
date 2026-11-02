@@ -1,4 +1,4 @@
-本章确定后续散射问题所需的背景、传播相位与谱坐标. 参数始终满足 $Q>0$、$a\ne0$、$\eta_0\ne0$, 且 $\alpha,\beta$ 为实数.
+设 $Q>0$、$a\ne0$、$\eta_0\ne0$, $\alpha,\beta\in\mathbb R$. 平面波端态决定背景 Lax 矩阵, 其同时对角化给出直接散射所需的谱坐标与传播相位.
 
 \section{平面波背景与介质约束}
 \begin{proposition}[相容平面波与 Bloch 长度]\label{prop:bg}\label{prop:bloch}
@@ -19,18 +19,18 @@ p_0=-\dfrac{\ii\eta_0}{a}q_0,\qquad
 \end{equation}
 \end{proposition}
 \begin{proof}
-对不依赖 $x$ 的场, 第二条方程给出 $p_0=-\dfrac{\ii\eta_0q_0}{a}$, 第三条方程随之成立. 第一条方程化为
+将不依赖 $x$ 的端态代入介质方程, 得到 $p_0=-\dfrac{\ii\eta_0q_0}{a}$ 及 $\eta=\eta_0$. 光场方程随之化为
 \[
 (q_0)_z=\ii\left(\alpha Q^2-\dfrac{2\eta_0}{a}\right)q_0=-\ii\Omega q_0,
 \]
-得到所述平面波. 对一般经典解, 利用 $a,\eta$ 为实数,
+这给出 \eqref{eq:background}. 对一般经典解,
 \begin{align*}
 \partial_x(|p|^2+\eta^2)
 &=(2\eta q-2\ii ap)\conj p
  +p(2\eta\conj q+2\ii a\conj p)
  -2\eta(\conj q p+q\conj p)=0.
 \end{align*}
-故该量仅依赖 $z$; 在任一空间端点取极限即得 \eqref{eq:C}.
+故 Bloch 长度与 $x$ 无关, 在空间端点取极限即得 \eqref{eq:C}.
 \end{proof}
 
 \section{Lax 表示与零曲率条件}
@@ -47,7 +47,7 @@ R=\begin{pmatrix}\eta&-p\\-\conj p&-\eta\end{pmatrix},\quad
 \Phi_z=V\Phi,\quad V=\sum\limits_{j=0}^{3}\lambda^jV_j+
 \dfrac{\ii R}{\lambda-a}.
 \end{equation}
-全部系数为
+其多项式系数为
 \begin{align}
 V_3&=4\ii\beta\sg,\qquad
 V_2=-\ii\alpha\sg-4\beta A(q),\label{eq:V32}\\
@@ -55,11 +55,10 @@ V_1&=\begin{pmatrix}
 -2\ii\beta|q|^2&\alpha q-2\ii\beta q_x\\
 -\alpha\conj q-2\ii\beta\conj{q_x}&2\ii\beta|q|^2
 \end{pmatrix},\label{eq:V1}\\
-V_0&=\begin{pmatrix}d&b\\c&-d\end{pmatrix},\label{eq:V0}\\
-d&=\dfrac{\ii\alpha}{2}|q|^2-\beta(q\conj{q_x}-q_x\conj q),\nonumber\\
-b&=2\beta|q|^2q+\dfrac{\ii\alpha}{2}q_x+\beta q_{xx},\nonumber\\
-c&=-2\beta|q|^2\conj q+\dfrac{\ii\alpha}{2}\conj{q_x}
--\beta\conj{q_{xx}}.\nonumber
+(V_0)_{11}&=\dfrac{\ii\alpha}{2}|q|^2-\beta(q\conj{q_x}-q_x\conj q),\label{eq:V0}\\
+(V_0)_{12}&=2\beta|q|^2q+\dfrac{\ii\alpha}{2}q_x+\beta q_{xx},\nonumber\\
+(V_0)_{21}&=-\conj{(V_0)_{12}},\qquad
+(V_0)_{22}=-(V_0)_{11}.\nonumber
 \end{align}
 
 \begin{proposition}[Lax 相容性]\label{prop:zc}
@@ -74,7 +73,7 @@ V(\conj\lambda)^\dagger=-V(\lambda).
 \end{equation}
 \end{proposition}
 \begin{proof}
-各多项式系数满足相应的反 Hermitian 约化; $R^\dagger=R$ 则给出有理项的约化. 以下比较零曲率表达式的极点与多项式系数.
+由 $R^\dagger=R$ 和各多项式系数得到 \eqref{eq:antihermitian}. 零曲率表达式的极点与多项式系数可分别计算.
 写 $V_{\rm poly}=\displaystyle\sum\limits_{j=0}^3\lambda^jV_j$. 由
 $U(\lambda)=U(a)-\ii(\lambda-a)\sg$, 有理部分为
 \begin{equation}\label{eq:rationalzc}
@@ -99,45 +98,47 @@ $U(\lambda)=U(a)-\ii(\lambda-a)\sg$, 有理部分为
 &-(V_2)_x+[-\ii\sg,V_1]+[A,V_2]=0,\\
 &-(V_1)_x+[-\ii\sg,V_0]+[A,V_1]=0.
 \end{align*}
-将上述系数代入, 四式恒等成立. 例如二次项的 $(1,2)$ 元为
-$4\beta q_x-2\ii(\alpha q-2\ii\beta q_x)+2\ii\alpha q=0$.
-一次项的两个独立分量分别为: 其 $(1,1)$ 元为
+四次项和三次项分别为零交换子与
+$4\ii\beta[\sg,A]+4\ii\beta[A,\sg]=0$. 二次项的非对角元为
+\[
+4\beta q_x-2\ii(\alpha q-2\ii\beta q_x)+2\ii\alpha q=0.
+\]
+一次项的两个独立分量为
 \[
 2\ii\beta(|q|^2)_x
 +q(-\alpha\conj q-2\ii\beta\conj{q_x})
 +(\alpha q-2\ii\beta q_x)\conj q=0,
 \]
-而 $(1,2)$ 元为
+以及
 \begin{align*}
-&-\alpha q_x+2\ii\beta q_{xx}-2\ii b+4\ii\beta|q|^2q\\
+&-\alpha q_x+2\ii\beta q_{xx}-2\ii(V_0)_{12}+4\ii\beta|q|^2q\\
 &\quad=-\alpha q_x+2\ii\beta q_{xx}
 -2\ii\left(2\beta|q|^2q+\dfrac{\ii\alpha}{2}q_x+\beta q_{xx}\right)
 +4\ii\beta|q|^2q=0.
 \end{align*}
-四次项是对角矩阵的交换子, 故为零; 三次项为
-$4\ii\beta[\sg,A]+4\ii\beta[A,\sg]=0$. 其余分量由迹零与反 Hermitian 约化确定.
-常数项 $(1,2)$ 元为 $q_z-b_x-2dq-2p$. 展开
+其余分量由迹零与反 Hermitian 约化确定. 常数项的 $(1,2)$ 元为
+$q_z-\partial_x(V_0)_{12}-2(V_0)_{11}q-2p$. 其中
 \begin{align*}
-b_x+2dq
+\partial_x(V_0)_{12}+2(V_0)_{11}q
 &=\beta q_{xxx}+\dfrac{\ii\alpha}{2}q_{xx}
  +2\beta(|q|^2q)_x+\ii\alpha|q|^2q
  -2\beta q(q\conj{q_x}-q_x\conj q)\\
 &=\beta q_{xxx}+\dfrac{\ii\alpha}{2}q_{xx}
  +6\beta|q|^2q_x+\ii\alpha|q|^2q.
 \end{align*}
-这给出光场方程. 对常数对角元, 展开得
+所以该分量为零等价于光场方程. 常数项的对角分量满足
 \begin{align*}
-qc+b\conj q
+q(V_0)_{21}+(V_0)_{12}\conj q
 &=\dfrac{\ii\alpha}{2}(q\conj{q_x}+q_x\conj q)
 +\beta(q_{xx}\conj q-q\conj{q_{xx}})\\
 &=\partial_x\left(\dfrac{\ii\alpha}{2}|q|^2
--\beta(q\conj{q_x}-q_x\conj q)\right)=d_x.
+-\beta(q\conj{q_x}-q_x\conj q)\right)=\partial_x(V_0)_{11}.
 \end{align*}
-因此该分量恒等为零. $(2,2)$ 元是其负值, $(2,1)$ 元由反 Hermitian 约化给出光场方程的负共轭. 因此零曲率条件与式 \eqref{eq:HMB} 等价.
+其余两元由迹零和约化确定. 结合共振留数, 即得所述等价性.
 \end{proof}
 
 \section{常背景规范与传播相位}
-通过去除共同平面波相位, 将两端归一化为同一个常矩阵. 令
+令
 \begin{equation}\label{eq:gauge}
 G(z)=e^{-\frac{\ii\Omega z}{2}\sg},\quad
 \Phi=G\Psi,\quad u=e^{\ii\Omega z}q,\quad v=e^{\ii\Omega z}p.
@@ -172,19 +173,19 @@ F(\lambda)=4\beta\lambda^2-\alpha\lambda-2\beta Q^2+
 \Psi_z=(G^{-1}VG-G^{-1}G_z)\Psi,\qquad
 G^{-1}G_z=-\dfrac{\ii\Omega}{2}\sg.
 \]
-$G$ 与 $x$ 无关, 因此空间矩阵没有相应的导数项. 对非对角势,
+$G_x=0$, 且非对角势满足
 \[
 G^{-1}A(q)G=
 \begin{pmatrix}0&e^{\ii\Omega z}q\\-e^{-\ii\Omega z}\conj q&0\end{pmatrix}
 =A(u),
 \]
-同一共轭将 $p$ 替换为 $v$, 保持 $\eta$ 不变. 由 $u_z=e^{\ii\Omega z}q_z+\ii\Omega u$, 新光场方程为
+同一共轭将 $p$ 替换为 $v$, 因而去相位光场满足
 \[
 u_z=\ii\alpha\left(\dfrac{1}{2}u_{xx}+|u|^2u\right)
 +\beta(u_{xxx}+6|u|^2u_x)+2v+\ii\Omega u.
 \]
 
-在常背景上, 式 \eqref{eq:Rbg} 由矩阵乘法得到. 时间矩阵的两个独立分量为
+背景介质矩阵由 $v=-\dfrac{\ii\eta_0Q}{a}$ 给出 \eqref{eq:Rbg}. 传播矩阵的两个独立分量为
 \[
 (\widehat V_\infty)_{12}
 =Q\left(-4\beta\lambda^2+\alpha\lambda+2\beta Q^2
@@ -199,10 +200,8 @@ u_z=\ii\alpha\left(\dfrac{1}{2}u_{xx}+|u|^2u\right)
 &=\ii\lambda\left(4\beta\lambda^2-\alpha\lambda-2\beta Q^2+
 \dfrac{\eta_0}{a(\lambda-a)}\right),
 \end{align*}
-最后一步用了 $\dfrac{\alpha Q^2}{2}+\dfrac{\Omega}{2}=\dfrac{\eta_0}{a}$.
-故 $\widehat V_\infty=-F U_\infty$.
+其中 $\dfrac{\alpha Q^2}{2}+\dfrac{\Omega}{2}=\dfrac{\eta_0}{a}$, 故 $\widehat V_\infty=-F U_\infty$.
 \end{proof}
-有理项 $\dfrac{\eta_0}{a(\lambda-a)}$ 是背景传播因子中介质响应的贡献, 它将在共振点的散射演化与重构中出现.
 
 \section{单值化与背景谱结构}
 引入谱曲面 $\rho^2=\lambda^2+Q^2$ 及单值化坐标
@@ -271,4 +270,4 @@ $-\dfrac{\ii(\rho-\lambda)}{Q}=-\dfrac{\ii Q}{w}$; 对 $+\ii\rho$ 则交换两�
 
 轮廓各弧以 $D_+$ 位于左侧为正向: 实轴外段朝右, 内段朝左; 上半圆顺时针, 下半圆逆时针. 外部上半平面与内部下半圆盘同属 $D_+$.
 
-后续构造涉及三类有限特殊点. $\pm\ii Q$ 是 $\gamma$ 的零点, 背景特征向量在此退化; $\pm Q$ 是轮廓交点; $w_a^\pm$ 是传播矩阵的共振原像. 空间谱问题在 $w_a^\pm$ 正则, 但当 $z\ne0$ 时, 背景传播指数在这些点具有奇异振荡. 因此共振处采用固定 $z$ 的空间归一化.
+$\pm\ii Q$ 是背景特征向量退化的分支点, $\pm Q$ 是轮廓交点. 共振原像 $w_a^\pm$ 处的空间谱问题正则, 传播相位却含有 $\lambda=a$ 的简单极点; 共振处的 Jost 值由固定 $z$ 的空间归一化确定.

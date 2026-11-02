@@ -1,0 +1,107 @@
+{
+  "method": "NumPy solution of equilibrated 4x4 residue block system; infinity/resonance reconstruction",
+  "parameters": {
+    "Q": 1.0,
+    "a": 2.0,
+    "eta0": 0.6,
+    "alpha": 1.0,
+    "beta": 0.1,
+    "b": 1.5
+  },
+  "grid": {
+    "x_min": -6,
+    "x_max": 6,
+    "x_count": 401,
+    "z_min": -1.5,
+    "z_max": 1.5,
+    "z_count": 251
+  },
+  "base_errors": {
+    "scaled_linear_residual": 8.371286939232045e-16,
+    "Bloch_error": 7.7755606928916195e-16,
+    "eta_imaginary": 5.208507236620363e-16
+  },
+  "high_precision_comparison_points": [
+    [
+      "-1.2",
+      "-.35"
+    ],
+    [
+      "0",
+      "0"
+    ],
+    [
+      ".37",
+      ".21"
+    ],
+    [
+      "1.4",
+      "-.1"
+    ],
+    [
+      "2.3",
+      ".6"
+    ]
+  ],
+  "high_precision_comparison_q_p_eta": [
+    6.004449063730082e-16,
+    1.982448181609094e-16,
+    2.220513810852149e-16
+  ],
+  "dynamics": {
+    "profile_z_over_T": [
+      0,
+      0.25,
+      0.5
+    ],
+    "alpha_cases": [
+      {
+        "alpha": -0.048,
+        "A_b": -1.1960000000000002,
+        "B_b": 1.3877787807814457e-17,
+        "T_z": null
+      },
+      {
+        "alpha": 0.5,
+        "A_b": -1.1960000000000002,
+        "B_b": -0.822,
+        "T_z": 3.4184013289735895
+      },
+      {
+        "alpha": 1.0,
+        "A_b": -1.1960000000000002,
+        "B_b": -1.572,
+        "T_z": 1.787484664386953
+      }
+    ],
+    "beta_cases": [
+      {
+        "beta": 0.0,
+        "A_b": -0.096,
+        "B_b": -1.572,
+        "T_z": 1.787484664386953,
+        "errors": {
+          "scaled_linear_residual": 9.65405288049483e-16,
+          "Bloch_error": 7.774955209629869e-16,
+          "eta_imaginary": 4.718447854656915e-16
+        }
+      },
+      {
+        "beta": 0.15,
+        "A_b": -1.746,
+        "B_b": -1.572,
+        "T_z": 1.787484664386953,
+        "errors": {
+          "scaled_linear_residual": 9.414204371965973e-16,
+          "Bloch_error": 8.354198274069938e-16,
+          "eta_imaginary": 4.3021142204224816e-16
+        }
+      }
+    ]
+  },
+  "files": [
+    "one-soliton-fields.pdf",
+    "one-soliton-dynamics.pdf",
+    "one-soliton-velocity.pdf"
+  ]
+}

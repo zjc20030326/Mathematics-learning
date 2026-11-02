@@ -1,126 +1,99 @@
-本章先讨论直接 RHP 重构所得四点轨道解的幅值与传播性质, 再分析共振相位对反射数据正则性的影响.
+本章对定理 \ref{thm:direct-HMB} 的一轨道解进行数值求值, 展示三个场的空间分布及传播特征. 所用场值均由无反射留数系统求出, 光场和介质分别按 \eqref{eq:qfinite}、\eqref{eq:RfromM} 重构.
 
-\section{幅值与传播性质}
-沿用第五章的 $b,\kappa,h_0$ 及范数常数 \eqref{eq:onec}. 令
-\begin{align}
-A_b:=\operatorname{Re}F(\ii b)
-&=-4\beta b^2-2\beta Q^2-\dfrac{\eta_0}{a^2+b^2},\label{eq:velocity}\\
-B_b:=\operatorname{Im}F(\ii b)
-&=-\alpha b-\dfrac{\eta_0b}{a(a^2+b^2)}.\label{eq:frequency}
-\end{align}
-并取随动坐标 $X=x-A_bz$.
-
-\begin{proposition}[一轨道解的幅值与局部化]\label{prop:wave-properties}
-定理 \ref{thm:direct-HMB} 的解满足
-\begin{equation}\label{eq:amplitude-bound}
-|q(x,z)|\le Q+2b,\qquad |q(0,0)|=Q+2b,
+\section{散射数据与三场分布}
+取背景和离散参数
+\begin{equation}\label{eq:numerical-parameters}
+Q=1,\quad a=2,\quad\eta_0=0.6,\quad
+\alpha=1,\quad\beta=0.1,\quad b=1.5,
 \end{equation}
-以及
-\begin{equation}\label{eq:medium-bound}
-|p(x,z)|,\ |\eta(x,z)|\le C_0^{\frac{1}{2}},\qquad
-C_0=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right).
+范数常数按式 \eqref{eq:onec} 确定. 对每个 $(x,z)$, 直接组装式 \eqref{eq:one-AB} 对应的四阶块系统, 用两个右端项求出两组正则列, 再由部分分式表示计算 $M$. 绘图采用双精度线性代数, 各行先作尺度平衡; 介质保留复数计算结果, 并在求值后检查 $\eta$ 的虚部.
+
+图 \ref{fig:one} 在 $x\in\lbrack-6,6\rbrack$、$z\in\lbrack-1.5,1.5\rbrack$ 上使用 $401\times251$ 网格. 光场在非零背景上形成局域振荡结构, 极化与粒子数反转在相同区域发生变化. 参数 \eqref{eq:numerical-parameters} 下 Bloch 长度平方为 $0.45$, 网格最大偏差小于 $7.78\times10^{-16}$, $\eta$ 虚部的最大绝对值小于 $5.21\times10^{-16}$.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/one-soliton-fields.pdf}
+\caption{由一轨道无反射留数系统重构的 $|q|,|p|,\eta$. 参数见 \eqref{eq:numerical-parameters}; 横轴为 $x$, 纵轴为 $z$.}
+\label{fig:one}
+\end{figure}
+
+\section{传播速度与内部振荡}
+由式 \eqref{eq:velocity}、\eqref{eq:frequency}, 上述参数给出
+\[
+A_b=-1.196,\qquad B_b=-1.572,\qquad
+\kappa=\dfrac{\sqrt{5}}{2},\qquad T_z\approx1.78748466439.
+\]
+图 \ref{fig:dynamics} 左图比较 $z=0,\dfrac{T_z}{4},\dfrac{T_z}{2}$ 时的随动截面. 它们的差异来自式 \eqref{eq:hyperbolic-projector} 中的内部相位, 而局域化尺度由 $\kappa$ 决定. 右图在 $X=0$ 上改变 $\alpha$, 其余参数固定. 对应的解析频率和周期列于表 \ref{tab:periods}. 当 $\alpha=-0.048=-\dfrac{\eta_0}{a(a^2+b^2)}$ 时 $B_b=0$, 去相位三场为行波; 当 $B_b\ne0$ 时, 中心光场模随传播变量周期变化.
+\begin{table}[htbp]
+\centering
+\caption{改变 $\alpha$ 时的随动内部频率与周期, 其余参数同 \eqref{eq:numerical-parameters}}
+\label{tab:periods}
+\begin{tabular}{cccc}
+\toprule
+$\alpha$ & $A_b$ & $B_b$ & $T_z$\\
+\midrule
+$-0.048$ & $-1.196$ & $0$ & 行波\\
+$0.5$ & $-1.196$ & $-0.822$ & $3.41840132897$\\
+$1$ & $-1.196$ & $-1.572$ & $1.78748466439$\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/one-soliton-dynamics.pdf}
+\caption{一轨道光场的随动截面与内部振荡. 左图为基础参数下的三个截面, 右图为不同 $\alpha$ 下 $|q(A_bz,z)|$ 的变化.}
+\label{fig:dynamics}
+\end{figure}
+
+参数 $\beta$ 出现在 $A_b$ 中, 不出现在 $B_b$ 中. 图 \ref{fig:velocity} 取 $\beta=0,0.15$, 对应速度分别为 $-0.096,-1.746$, 而两者均有 $B_b=-1.572$ 和相同的随动周期. 图中的虚线 $x=A_bz$ 给出随动坐标的中心轨迹. 这与命题 \ref{prop:wave-properties} 对传播平移和内部相位的分离一致.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/one-soliton-velocity.pdf}
+\caption{$\beta$ 对光场传播速度的影响. 两图分别取 $\beta=0,0.15$, 其余参数同 \eqref{eq:numerical-parameters}; 白色虚线为 $x=A_bz$.}
+\label{fig:velocity}
+\end{figure}
+
+\section{精确参数例的代数检验}
+作为一轨道公式的精确代数例, 取
+\begin{equation}\label{eq:exactparams}
+Q=1,\quad b=\dfrac{5}{4},\quad\kappa=\dfrac{3}{4},\quad
+a=2,\quad\eta_0=\dfrac{3}{5},\quad\alpha=1,\quad\beta=\dfrac{1}{10}.
 \end{equation}
-去相位三场在随动坐标中的端态修正为 $O(e^{-2\kappa|X|})$. 若 $B_b\ne0$, 则它们关于 $z$ 具有周期
-\begin{equation}\label{eq:internal-period}
-T_z=\dfrac{\pi}{\kappa|B_b|}.
-\end{equation}
-若 $B_b=0$, 即 $\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}$, 则去相位三场仅依赖 $X$.
-\end{proposition}
-\begin{proof}
-秩一正交投影满足 $P_{22}=1-P_{11}$ 及
+此时 $h_0=\dfrac{1}{2}$, $F(\ii b)=-\dfrac{3321}{3560}-\dfrac{469\ii}{356}$. 令
+$T=e^{2\operatorname{Re}s}>0$、$C=e^{2\ii\operatorname{Im}s}$, 则 $t=TC$、$\conj t=\dfrac{T}{C}$, 且
 \[
-|P_{12}|^2=P_{11}(1-P_{11})\le\dfrac{1}{4}.
+\Delta_-=\dfrac{5}{4}(T^2+1)-T(C+C^{-1}).
 \]
-故 $|q|=|-Q-4bP_{12}|\le Q+2b$. 在 $x=z=0$, $t=1$, 由式 \eqref{eq:algebraic-P} 得到 $P_{12}=\dfrac{1}{2}$, 达到该界. 介质界直接来自 $|p|^2+\eta^2=C_0$.
+式 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2} 因而都是 $T,C$ 的有理式, 原方程可按
+\[
+\partial_x=2\kappa T\partial_T,\qquad
+\partial_z=-2\kappa\operatorname{Re}F\,T\partial_T
+-2\ii\kappa\operatorname{Im}F\,C\partial_C
+\]
+作精确检验. 代入式 \eqref{eq:finalfields} 后, 三条 PDE 的有理残差均为零, 且 $|p|^2+\eta^2=\dfrac{9}{20}$. 在 $T>0,|C|=1$ 上分母严格正, 清分母不引入额外解.
 
-将
-\[
-\dfrac{\eta_0}{a(\ii b-a)}
-=-\dfrac{\eta_0}{a^2+b^2}
--\ii\dfrac{\eta_0b}{a(a^2+b^2)}
-\]
-代入 $F$, 得到 \eqref{eq:velocity}、\eqref{eq:frequency}. 于是
-$s=\kappa X-\ii\kappa B_bz$. 式 \eqref{eq:algebraic-P} 中的变量为
-\[
-t=e^{2s}=e^{2\kappa X}e^{-2\ii\kappa B_bz}.
-\]
-在 $X\to+\infty$ 时将式 \eqref{eq:algebraic-P} 的分子分母同除以 $|t|^2$, 在 $X\to-\infty$ 时直接取极限, 得到 $P-P_\pm=O(e^{-2\kappa|X|})$. 因 $h_0\in(0,1)$, 极限投影的分母非零, 估计可对内部相位一致成立. 三个场都是 $P$ 的光滑代数表达式, 故具有相同的衰减阶.
 
-固定 $X$ 时, $z$ 增加 $T_z$ 使 $e^{-2\ii\kappa B_bz}$ 转过整周, 投影及去相位三场不变; 若 $B_b=0$, 则该因子恒为 1, 得到行波情形.
-\end{proof}
-
-介质界亦适用于式 \eqref{eq:Nmedium} 的已有多重 Darboux 解族, 因为实共振点处的酉共轭保持 $R$ 的特征值 $\pm C_0^{\frac{1}{2}}$. 周期 \eqref{eq:internal-period} 也是 $|q|,|p|,\eta$ 的随动周期; 复场 $q,p$ 还含载波因子 $e^{-\ii\Omega z}$, 具有同一周期需要 $\Omega T_z\in2\pi\mathbb Z$.
-
-例如图 \ref{fig:one} 的参数给出 $A_b=-1.196$、$B_b=-1.572$、$\kappa=\dfrac{\sqrt{5}}{2}$, 对应沿 $x=A_bz$ 传播并伴随内部振荡的局部结构.
-
-\section{共振相位与有限阶正则性}
-命题 \ref{prop:resonance} 要求反射系数在共振点为零. 其消失阶还决定了传播后能保持的可微阶数. 先记录奇异相位乘子的局部性质.
-
-\begin{lemma}[有限阶零点与奇异相位]\label{prop:oscillatory-regularity}
-设 $m,k$ 为非负整数, $c\in\mathbb R\setminus\{0\}$, $g$ 在零点邻域光滑, 且 $g(0)\ne0$. 对 $s\ne0$ 定义
+\section{高精度重构与方程残差}
+对参数 \eqref{eq:numerical-parameters}, 采用 70 位十进制精度直接求解留数系统. 在五个时空点
 \[
-f(s)=s^m g(s)e^{\frac{\ii c}{s}}.
+(-1.2,-0.35),\quad(0,0),\quad(0.37,0.21),\quad
+(1.4,-0.1),\quad(2.3,0.6)
 \]
-则 $f$ 能在 $s=0$ 延拓为 $C^k$ 函数, 当且仅当 $m\ge2k+1$. 满足此条件时, 延拓的各阶导数 $f^{(j)}(0)=0$, $0\le j\le k$.
-\end{lemma}
-\begin{proof}
-对 $j\ge0$, 在去心邻域逐次求导可写成
-\begin{equation}\label{eq:oscillatory-derivatives}
-f^{(j)}(s)=e^{\frac{\ii c}{s}}s^{m-2j}G_j(s),
-\qquad G_j(0)=(-\ii c)^j g(0),
-\end{equation}
-其中 $G_j$ 光滑. 对 $j=0$ 取 $G_0=g$. 若式 \eqref{eq:oscillatory-derivatives} 对 $j$ 成立, 由
-\[
-\dfrac{\dd}{\dd s}e^{\frac{\ii c}{s}}
-=-\dfrac{\ii c}{s^2}e^{\frac{\ii c}{s}}
-\]
-可得
-\[
-G_{j+1}(s)
-=-\ii cG_j(s)+(m-2j)sG_j(s)+s^2G_j'(s).
-\]
-这一递推同时证明光滑性及零点处的取值公式.
+对重构表达式作高精度微分, 得到表 \ref{tab:direct-residuals} 的最大绝对残差. 微分作用于线性系统的解及重构式, 三条 PDE 的右端用于计算残差. 矩阵检验另取三个普通谱点 $w=2.1+0.7\ii$、$0.3-0.2\ii$ 和 $1.2$.
+\begin{table}[htbp]
+\centering
+\caption{五点采样下的独立重构检验, 数值均向上舍入}
+\label{tab:direct-residuals}
+\begin{tabular}{lc}
+\toprule 检验对象 & 最大绝对误差\\\midrule
+光场方程 & $1.87\times10^{-69}$\\
+极化方程 & $8.26\times10^{-71}$\\
+粒子数反转方程 & $1.50\times10^{-70}$\\
+空间 Lax 方程 & $4.82\times10^{-70}$\\
+传播 Lax 方程 & $1.95\times10^{-69}$\\
+两个共振原像的介质重构 & $9.71\times10^{-72}$\\
+Bloch 长度平方 & $9.07\times10^{-72}$\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-若 $m\ge2k+1$, 对 $0\le j\le k$ 有 $m-2j\ge1$, 故各个去心导数都趋于零. 还需确认这些极限确实是延拓函数的导数. 对 $j<k$, 假定第 $j$ 阶延拓已定义, 则
-\[
-\dfrac{f^{(j)}(s)-f^{(j)}(0)}{s}
-=e^{\frac{\ii c}{s}}s^{m-2j-1}G_j(s)\longrightarrow0,
-\]
-因为 $m-2j-1\ge2$. 从 $j=0$ 起逐阶应用此式, 即得 $C^k$ 延拓且各阶导数在零点为零.
-
-反之, 若 $m<2k$, 式 \eqref{eq:oscillatory-derivatives} 的 $j=k$ 项因 $G_k(0)\ne0$ 而在模上无界; 若 $m=2k$, 该项包含振幅趋于非零常数的 $e^{\frac{\ii c}{s}}$, 没有极限. 两种情形均不可能为 $C^k$.
-\end{proof}
-
-\begin{proposition}[共振传播的局部正则性]\label{prop:resonant-regularity}
-在 $\lambda=a$ 附近固定一张实谱叶, 设初始反射系数有有限阶零点
-\[
-r_{\rm sp}(a+s,0)=s^m g_0(s),\qquad g_0\in C^\infty,\quad g_0(0)\ne0,
-\]
-其中 $m$ 为非负整数. 对任意固定 $z\ne0$ 和非负整数 $k$, 演化式 \eqref{eq:timer} 给出的反射系数可在 $s=0$ 延拓为 $C^k$ 函数, 当且仅当 $m\ge2k+1$. 该判据在两个单值化共振原像均成立.
-\end{proposition}
-\begin{proof}
-记 $\rho_a=\rho(a)=\pm\sqrt{a^2+Q^2}$, 并写
-$F_{\rm pol}(\lambda)=4\beta\lambda^2-\alpha\lambda-2\beta Q^2$.
-由于 $\rho$ 在所选实谱叶上解析, 函数
-\[
-L(s)=\rho(a+s)F_{\rm pol}(a+s)
-+\dfrac{\eta_0}{a}\dfrac{\rho(a+s)-\rho_a}{s}
-\]
-在 $s=0$ 可去. 因此
-\begin{equation}\label{eq:local-resonant-phase}
--2z\rho(\lambda)F(\lambda)=\dfrac{c_z}{s}-2zL(s),\qquad
-c_z=-\dfrac{2z\eta_0\rho_a}{a}\ne0.
-\end{equation}
-演化后的反射可写为
-\[
-r_{\rm sp}(a+s,z)=s^m g_z(s)e^{\frac{\ii c_z}{s}},\qquad
-g_z(s)=g_0(s)e^{-2\ii zL(s)}.
-\]
-$g_z$ 光滑且 $g_z(0)\ne0$, 应用引理 \ref{prop:oscillatory-regularity} 即得充要条件. 又
-\[
-\lambda'(w_a^\pm)=\dfrac{1}{2}\left(1+\dfrac{Q^2}{(w_a^\pm)^2}\right)>0,
-\]
-故 $\lambda-a$ 与 $w-w_a^\pm$ 为等价的局部光滑坐标, 消失阶和 $C^k$ 性质不变.
-\end{proof}
-
-因此, 一个简单零点可保持连续性, 却不能保持 $C^1$; 三阶零点可保持 $C^1$, 但不能保持 $C^2$. 此结论刻画传播乘子在有限阶零点上的作用, 并不保证任意局部函数都是某个势的散射数据. 结合第四章的谱约化与相位约束, 它给出一般含反射逆问题在共振处必须满足的局部条件; 分支点及交叉轮廓的全局可解性仍需另行分析.
+同一组采样点上, 绘图实现与高精度实现的三个场最大差分别小于 $6.01\times10^{-16}$、$1.99\times10^{-16}$、$2.23\times10^{-16}$. 固定 $z=0.21$, 在 $x=\pm30$ 处检查式 \eqref{eq:targetboundary} 的三个端态, 最大误差小于 $5.02\times10^{-29}$. 留数、两种谱约化、行列式、归一化及分支点固定核也由同一矩阵逐项检验.

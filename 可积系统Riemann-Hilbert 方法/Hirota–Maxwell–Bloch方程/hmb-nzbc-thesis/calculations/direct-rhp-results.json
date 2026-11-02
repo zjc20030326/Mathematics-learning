@@ -84,10 +84,5 @@
       "1.6705017301997e-30"
     ]
   ],
-  "Darboux_comparison_q_p_eta": [
-    "2.8392260915684e-62",
-    "1.7113292002889e-62",
-    "1.6968528225028e-62"
-  ],
   "normalization_note": "scaled remainder divided by large w, or multiplied by small w; 1e15 and 1e-15"
 }

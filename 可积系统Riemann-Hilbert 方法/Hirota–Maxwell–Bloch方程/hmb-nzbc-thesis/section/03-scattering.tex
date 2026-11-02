@@ -1,4 +1,4 @@
-固定传播截面上的空间谱问题决定 Jost 解析列及透射系数; 沿 $z$ 的演化则由背景传播因子 $F$ 确定. 本章先建立前者, 再在经典 HMB 解的条件下讨论后者.
+本章在常背景规范下建立 Jost 解析列和散射数据, 并由传播 Lax 方程确定其演化及共振相容条件.
 
 \section{Volterra 方程与 Jost 解析性}
 固定 $z$, 记 $\Delta A=A(u)-A(Q)$. 空间 Jost 矩阵按
@@ -15,7 +15,7 @@
 E(w)e^{-\ii\rho(x-y)\sg}E(w)^{-1}
 \Delta A(y)\mu_\pm(y,w)e^{\ii\rho(x-y)\sg}\,\dd y.
 \end{equation}
-其中从 $+\infty$ 到 $x$ 的积分取通常的反向积分意义. 列 $\mu_{-,1},\mu_{+,2}$ 在 $D_+$ 解析, 列 $\mu_{+,1},\mu_{-,2}$ 在 $D_-$ 解析; 各列在相应闭域避开 $0,\pm\ii Q$ 的紧子集上连续.
+列 $\mu_{-,1},\mu_{+,2}$ 在 $D_+$ 解析, 列 $\mu_{+,1},\mu_{-,2}$ 在 $D_-$ 解析; 各列在相应闭域避开 $0,\pm\ii Q$ 的紧子集上连续.
 \end{theorem}
 \begin{proof}
 令 $W_\pm=E^{-1}\chi_\pm$, 则
@@ -27,7 +27,7 @@ E(w)e^{-\ii\rho(x-y)\sg}E(w)^{-1}
 \chi_\pm(x)=E e^{-\ii\rho x\sg}
 +\int_{\pm\infty}^{x}E e^{-\ii\rho(x-y)\sg}E^{-1}\Delta A(y)\chi_\pm(y)\,\dd y.
 \]
-右乘 $e^{\ii\rho x\sg}$ 即为 \eqref{eq:volterra}. 反过来, 下面的收敛估计保证该积分方程的解满足空间方程与归一化.
+右乘 $e^{\ii\rho x\sg}$ 即为 \eqref{eq:volterra}.
 
 令 $s_1=1,s_2=-1$, 取式 \eqref{eq:volterra} 第 $j$ 列, 核为
 \begin{equation}\label{eq:columnkernel}
@@ -46,8 +46,7 @@ $\diag(e^{-2\ii\rho(x-y)},1)$; 当 $y\ge x$ 且 $\operatorname{Im}\rho>0$ 时也
 \]
 阶乘来自有序积分域 $y_n<\cdots<y_1<x$. 因此 Neumann 级数绝对、局部一致收敛; 两个解之差同样迭代后由阶乘控制趋于零, 得到唯一性. 每项对 $w$ 解析, 紧集一致收敛给出解析性; 在闭域利用同一控制函数及支配收敛得到连续性. 正端积分改用反向有序域, 估计相同.
 \end{proof}
-在阈值 $w=\pm\ii Q$, $E^{-1}$ 退化, 背景传播子为
-$e^{U_\infty(x-y)}=I+(x-y)U_\infty$. 其线性增长需要加权可积条件, 因而不包含在定理 \ref{thm:jost} 的结论中.
+在阈值 $w=\pm\ii Q$, 背景传播子为 $I+(x-y)U_\infty$, 具有线性增长. 以下解析性和散射关系均在非阈值谱上讨论.
 
 \section{散射矩阵及谱对称}
 两组空间基本解在普通连续谱上定义散射矩阵
@@ -59,7 +58,7 @@ $e^{U_\infty(x-y)}=I+(x-y)U_\infty$. 其线性增长需要加权可积条件, �
 \Psi_\pm=\chi_\pm e^{\ii\rho Fz\sg},\qquad
 \Psi_-=\Psi_+S,\qquad \mu_\pm=\Psi_\pm e^{\ii\theta\sg}.
 \]
-此处先固定 $z$; $\Psi_\pm$ 的传播方程将在下一节证明. 以下 $S=(s_{jk})$.
+这里 $S=(s_{jk})$; $\Psi_\pm$ 的传播方程由命题 \ref{prop:evolution} 给出.
 
 \begin{proposition}[散射系数与约化]\label{prop:scattering}
 在定理 \ref{thm:jost} 的条件下,
@@ -115,93 +114,10 @@ E(h(w))=E(w)C(w),\qquad C\sg=-\sg C.
 r=\dfrac{s_{21}}{s_{11}},\qquad
 \widetilde r=\dfrac{s_{12}}{s_{22}},
 \end{equation}
-下文构造 RHP 时, 另外假设普通连续谱上无透射零点. 非对角系数 $s_{12},s_{21}$ 只需在连续谱上定义.
+透射系数按相应解析域延拓, 非对角散射系数在连续谱上取值.
 
-\begin{proposition}[简单离散谱的轨道]\label{prop:quartet}
-设 $\zeta\in D_+$ 为 $s_{11}$ 的简单零点, 且远离连续谱、$0$ 和共振点. 在上述约化下,
-\begin{equation}\label{eq:quartet}
-\left\{\zeta,\conj\zeta,-\dfrac{Q^2}{\zeta},
--\dfrac{Q^2}{\conj\zeta}\right\}
-\end{equation}
-构成完整谱轨道. 其中 $\zeta$ 与 $h(\conj\zeta)$ 属于 $D_+$, 另外两点属于 $D_-$.
-\end{proposition}
-\begin{proof}
-共轭改变 $\operatorname{Im}\rho$ 的符号, 换叶也改变其符号, 二者复合保留区域. 由 \eqref{eq:sconj}, $s_{22}(\conj\zeta)=0$; 由 \eqref{eq:musheet}, $s_{22}(h(\zeta))=0$, $s_{11}(h(\conj\zeta))=0$. 因 $h'(w)=\dfrac{Q^2}{w^2}\ne0$, 简单性保持. 离开实轴和圆周保证四点互异. Wronskian 为零说明 $\Psi_{-,1}$ 与 $\Psi_{+,2}$ 线性相关; 两列分别在左、右端衰减, 其相同向量给出平方可积本征函数.
-\end{proof}
-
-在每个简单零点定义列相关常数和范数常数
-\[
-\Psi_{-,1}(\zeta_j)=b_j\Psi_{+,2}(\zeta_j),\qquad
-c_j=\dfrac{b_j}{s_{11}'(\zeta_j)}.
-\]
-去振荡后, 对应的留数因子为 $C_j=c_j e^{2\ii\theta(\zeta_j)}$. 下一节确定 $b_j,c_j$ 的传播性质, 第四章再由两种约化推导它们的配对关系.
-
-\section{传播演化与共振相容条件}
-设三场为包含 $z=0$ 的开区间 $I$ 上的经典 HMB 解. 以下采用一组保证传播推导成立的充分正则性条件:
-\[
-\begin{gathered}
-u-Q\in C(I;W^{3,1}(\mathbb R))\cap C^1(I;L^1(\mathbb R)),\\
-v+\dfrac{\ii\eta_0Q}{a},\ \eta-\eta_0\in C(I;W^{1,1}(\mathbb R)).
-\end{gathered}
-\]
-它们保证可对 Jost 积分方程求 $z$ 导数, 且 $\widehat V-\widehat V_\infty$ 在两端趋于零; 第五章的显式解满足这些条件.
-
-\begin{proposition}[散射数据的演化]\label{prop:evolution}
-在上述条件下, 对共振点之外的谱参数, $\Psi_\pm$ 同时满足两部分 Lax 方程, $S$ 与 $x,z$ 均无关, 且
-\begin{equation}\label{eq:timeS}
-S_{\rm sp}(w,z)=e^{\ii\rho Fz\sg}S(w)e^{-\ii\rho Fz\sg}.
-\end{equation}
-\begin{equation}\label{eq:timer}
-r_{\rm sp}(w,z)=e^{-2\ii\rho Fz}r_{\rm sp}(w,0),\qquad
-\widetilde r_{\rm sp}(w,z)=e^{2\ii\rho Fz}\widetilde r_{\rm sp}(w,0).
-\end{equation}
-透射系数及其离散零点不随 $z$ 改变, 同时归一化的离散列相关常数也不随 $z$ 改变.
-\end{proposition}
-\begin{proof}
-零曲率条件给出
-\[
-\partial_x(\chi_{\pm,z}-\widehat V\chi_\pm)
-=\widehat U(\chi_{\pm,z}-\widehat V\chi_\pm).
-\]
-在普通连续谱上, 由 $\widehat V_\infty E=\ii\rho F E\sg$, 左侧括号内的空间解在归一化端与
-$-\chi_\pm\ii\rho F\sg$ 具有相同渐近行为. Jost 唯一性因此给出
-\[
-\chi_{\pm,z}=\widehat V\chi_\pm-\chi_\pm\ii\rho F\sg.
-\]
-右乘 $e^{\ii\rho Fz\sg}$ 即得 $\Psi_{\pm,z}=\widehat V\Psi_\pm$, 相应列恒等式延拓至各自解析域. 对散射关系求导得 $S_x=S_z=0$, 对离散点处的列相关关系求导同样得到相关常数不变. 将 $\Psi_\pm$ 的定义代回 \eqref{eq:Sdef} 得 \eqref{eq:timeS}, 其对角元不变, 非对角元分别乘 $e^{\mp2\ii\rho Fz}$, 从而得到 \eqref{eq:timer}.
-\end{proof}
-
-共振处的传播相位不能直接取值, 但介质方程可在固定截面上给出散射数据的相容条件.
-\begin{proposition}[固定传播截面的共振反射条件]\label{prop:resonance}
-固定一个 $z$. 设去相位后的三个场满足介质方程, 并在两端趋向 $(Q,-\dfrac{\ii\eta_0Q}{a},\eta_0)$, 其中 $a\ne0,\eta_0\ne0$. 再设空间 Jost 基底 $\chi_\pm(x,w_a^\pm)$ 正则可逆, 具有前述振荡归一化, 且 $R-R_\infty\to0$. 则在两共振原像处, 空间散射矩阵为对角矩阵; 特别地 $r_{\rm sp}=0$.
-\end{proposition}
-\begin{proof}
-由介质方程,
-\[
-R_x=[\widehat U(a),R].
-\]
-对任一可逆空间基本解 $\chi$,
-\begin{align*}
-\partial_x(\chi^{-1}R\chi)
-&=-\chi^{-1}\widehat U(a)R\chi
-+\chi^{-1}R_x\chi+\chi^{-1}R\widehat U(a)\chi\\
-&=\chi^{-1}(R_x-[\widehat U(a),R])\chi=0.
-\end{align*}
-故 $C_\pm=\chi_\pm^{-1}R\chi_\pm$ 与 $x$ 无关. 由 \eqref{eq:Rbg} 和 \eqref{eq:diagE},
-\[
-E(w_a)^{-1}R_\infty E(w_a)=
-\dfrac{\eta_0\rho(w_a)}{a}\sg=:d_a\sg.
-\]
-在实轴 $\rho(w_a)$ 为非零实数, 振荡对角矩阵有界. 对 $C_\pm$ 分别取其归一化端点的极限, 得 $C_+=C_-=d_a\sg$. 再由 $\chi_-=\chi_+S_{\rm sp}$,
-\[
-d_a\sg=S_{\rm sp}^{-1}d_a\sg S_{\rm sp}.
-\]
-$d_a\ne0$, 故 $[\sg,S_{\rm sp}]=0$, 其两非对角元为零. 行列式为 1 保证两个对角元均非零, 反射系数因而有定义且等于零.
-\end{proof}
-此结论使用了左右相同的介质端态. 若端态不同, 只能得到 $C_-=S_{\rm sp}^{-1}C_+S_{\rm sp}$, 不再必然有 $[\sg,S_{\rm sp}]=0$. 对于不同光场相位但相同模的端态 $u_\pm$, 若仍满足 $v_\pm=-\dfrac{\ii\eta_0u_\pm}{a}$, 以相应的 $E_\pm=I-\dfrac{\ii B(u_\pm)}{w}$ 归一化后, 两个常数矩阵仍为同一个 $d_a\sg$. 这里 $B(u)=\left(\begin{smallmatrix}0&u\\\conj u&0\end{smallmatrix}\right)$. 共振处零点的阶数与传播正则性的关系将在第 \ref{ch:conclusion} 章讨论.
-
-\section{两处无穷远的渐近行为}
-RHP 的归一化与光场重构需要精确到 $w^{-1}$ 的展开. 为此增加条件
+\section{渐近归一化与离散谱}
+RHP 的两处归一化由 Jost 解析列的高能展开确定. 设
 \begin{equation}\label{eq:highenergy-assumption}
 u-Q\in W^{2,1}(\mathbb R).
 \end{equation}
@@ -245,9 +161,9 @@ T^{-1}=\dfrac{I+\dfrac{\ii B(u)}{w}}{1+\dfrac{|u|^2}{w^2}}.
 \]
 当 $|w|$ 足够大时, $T,T^{-1}$ 对所有实 $x$ 一致有界. 并且 $x\to\pm\infty$ 时 $T\to E$, 所以变换后 $n_\pm\to I$.
 
-由 $\mu_x=U\mu+\ii\rho\mu\sg$ 以及 $\lambda+\rho=w$、$\rho-\lambda=\dfrac{Q^2}{w}$, 逐项计算
+由 $\mu_x=\widehat U\mu+\ii\rho\mu\sg$ 以及 $\lambda+\rho=w$、$\rho-\lambda=\dfrac{Q^2}{w}$, 逐项计算
 \begin{align*}
-UT+\ii\rho T\sg-T_x
+\widehat UT+\ii\rho T\sg-T_x
 &=\ii(\rho-\lambda)\sg+A
 -\dfrac{\lambda+\rho}{w}\sg B
 -\dfrac{\ii}{w}AB+\dfrac{\ii}{w}B_x\\
@@ -309,4 +225,156 @@ J_-(x)-J_+(x)=J_{\rm tot},\qquad
 在实轴的无穷远处, 将两组 Jost 展开代入散射关系得 $S=I+O(w^{-1})$; 相位因子在实谱上模为 1. 再由换叶关系
 $\mu_\pm(h(w))=\mu_\pm(w)\dfrac{\ii w}{Q}\sigma_1$ 和
 $S(h(w))=\sigma_1S(w)\sigma_1$, 得到 \eqref{eq:smallmu}.
+\end{proof}
+
+\begin{proposition}[简单离散谱的轨道]\label{prop:quartet}
+设 $\zeta\in D_+$ 为 $s_{11}$ 的简单零点, 且远离连续谱、$0$ 和共振点. 在上述约化下,
+\begin{equation}\label{eq:quartet}
+\left\{\zeta,\conj\zeta,-\dfrac{Q^2}{\zeta},
+-\dfrac{Q^2}{\conj\zeta}\right\}
+\end{equation}
+构成完整谱轨道. 其中 $\zeta$ 与 $h(\conj\zeta)$ 属于 $D_+$, 另外两点属于 $D_-$.
+\end{proposition}
+\begin{proof}
+共轭改变 $\operatorname{Im}\rho$ 的符号, 换叶也改变其符号, 二者复合保留区域. 由 \eqref{eq:sconj}, $s_{22}(\conj\zeta)=0$; 由 \eqref{eq:musheet}, $s_{22}(h(\zeta))=0$, $s_{11}(h(\conj\zeta))=0$. 因 $h'(w)=\dfrac{Q^2}{w^2}\ne0$, 简单性保持. 离开实轴和圆周保证四点互异. Wronskian 为零说明 $\Psi_{-,1}$ 与 $\Psi_{+,2}$ 线性相关; 两列分别在左、右端衰减, 其相同向量给出平方可积本征函数.
+\end{proof}
+
+在每个简单零点定义列相关常数和范数常数
+\[
+\Psi_{-,1}(\zeta_j)=b_j\Psi_{+,2}(\zeta_j),\qquad
+c_j=\dfrac{b_j}{s_{11}'(\zeta_j)}.
+\]
+去振荡后, 对应的留数因子为 $C_j=c_j e^{2\ii\theta(\zeta_j)}$. 其传播性质及配对关系分别由命题 \ref{prop:evolution} 和定理 \ref{thm:RHP} 确定.
+
+\section{散射数据的传播演化}
+设三场为包含 $z=0$ 的开区间 $I$ 上的经典 HMB 解. 假设
+\[
+\begin{gathered}
+u-Q\in C(I;W^{3,1}(\mathbb R))\cap C^1(I;L^1(\mathbb R)),\\
+v+\dfrac{\ii\eta_0Q}{a},\ \eta-\eta_0\in C(I;W^{1,1}(\mathbb R)).
+\end{gathered}
+\]
+于是 Jost 积分方程可对 $z$ 求导, 且 $\widehat V-\widehat V_\infty$ 在两端趋于零.
+
+\begin{proposition}[散射数据的演化]\label{prop:evolution}
+在上述条件下, 对共振点之外的谱参数, $\Psi_\pm$ 同时满足两部分 Lax 方程, $S$ 与 $x,z$ 均无关, 且
+\begin{equation}\label{eq:timeS}
+S_{\rm sp}(w,z)=e^{\ii\rho Fz\sg}S(w)e^{-\ii\rho Fz\sg}.
+\end{equation}
+\begin{equation}\label{eq:timer}
+r_{\rm sp}(w,z)=e^{-2\ii\rho Fz}r_{\rm sp}(w,0),\qquad
+\widetilde r_{\rm sp}(w,z)=e^{2\ii\rho Fz}\widetilde r_{\rm sp}(w,0).
+\end{equation}
+透射系数及其离散零点不随 $z$ 改变, 同时归一化的离散列相关常数也不随 $z$ 改变.
+\end{proposition}
+\begin{proof}
+零曲率条件给出
+\[
+\partial_x(\chi_{\pm,z}-\widehat V\chi_\pm)
+=\widehat U(\chi_{\pm,z}-\widehat V\chi_\pm).
+\]
+在普通连续谱上, 由 $\widehat V_\infty E=\ii\rho F E\sg$, 左侧括号内的空间解在归一化端与
+$-\chi_\pm\ii\rho F\sg$ 具有相同渐近行为. Jost 唯一性因此给出
+\[
+\chi_{\pm,z}=\widehat V\chi_\pm-\chi_\pm\ii\rho F\sg.
+\]
+右乘 $e^{\ii\rho Fz\sg}$ 即得 $\Psi_{\pm,z}=\widehat V\Psi_\pm$, 相应列恒等式延拓至各自解析域. 对散射关系求导得 $S_x=S_z=0$, 对离散点处的列相关关系求导同样得到相关常数不变. 将 $\Psi_\pm$ 的定义代回 \eqref{eq:Sdef} 得 \eqref{eq:timeS}, 其对角元不变, 非对角元分别乘 $e^{\mp2\ii\rho Fz}$, 从而得到 \eqref{eq:timer}.
+\end{proof}
+
+\section{共振点的相容性与正则性}
+空间谱问题在 $\lambda=a$ 正则. 介质方程将此处的散射数据与两端背景联系起来.
+\begin{proposition}[固定传播截面的共振反射条件]\label{prop:resonance}
+固定一个 $z$. 设去相位后的三个场满足介质方程, 并在两端趋向 $(Q,-\dfrac{\ii\eta_0Q}{a},\eta_0)$, 其中 $a\ne0,\eta_0\ne0$. 再设空间 Jost 基底 $\chi_\pm(x,w_a^\pm)$ 正则可逆, 具有前述振荡归一化, 且 $R-R_\infty\to0$. 则在两共振原像处, 空间散射矩阵为对角矩阵; 特别地 $r_{\rm sp}=0$.
+\end{proposition}
+\begin{proof}
+由介质方程,
+\[
+R_x=[\widehat U(a),R].
+\]
+对任一可逆空间基本解 $\chi$,
+\begin{align*}
+\partial_x(\chi^{-1}R\chi)
+&=-\chi^{-1}\widehat U(a)R\chi
++\chi^{-1}R_x\chi+\chi^{-1}R\widehat U(a)\chi\\
+&=\chi^{-1}(R_x-[\widehat U(a),R])\chi=0.
+\end{align*}
+故 $C_\pm=\chi_\pm^{-1}R\chi_\pm$ 与 $x$ 无关. 由 \eqref{eq:Rbg} 和 \eqref{eq:diagE},
+\[
+E(w_a)^{-1}R_\infty E(w_a)=
+\dfrac{\eta_0\rho(w_a)}{a}\sg=:d_a\sg.
+\]
+在实轴 $\rho(w_a)$ 为非零实数, 振荡对角矩阵有界. 对 $C_\pm$ 分别取其归一化端点的极限, 得 $C_+=C_-=d_a\sg$. 再由 $\chi_-=\chi_+S_{\rm sp}$,
+\[
+d_a\sg=S_{\rm sp}^{-1}d_a\sg S_{\rm sp}.
+\]
+$d_a\ne0$, 故 $[\sg,S_{\rm sp}]=0$, 其两非对角元为零. 行列式为 1 保证两个对角元均非零, 反射系数因而有定义且等于零.
+\end{proof}
+
+反射系数在共振点的消失阶决定传播后的局部正则性. 对式 \eqref{eq:timer} 中的奇异相位, 有如下判据.
+
+\begin{lemma}[有限阶零点与奇异相位]\label{prop:oscillatory-regularity}
+设 $m,k$ 为非负整数, $c\in\mathbb R\setminus\{0\}$, $g$ 在零点邻域光滑, 且 $g(0)\ne0$. 对 $s\ne0$ 定义
+\[
+f(s)=s^m g(s)e^{\frac{\ii c}{s}}.
+\]
+则 $f$ 能在 $s=0$ 延拓为 $C^k$ 函数, 当且仅当 $m\ge2k+1$. 满足此条件时, 延拓的各阶导数 $f^{(j)}(0)=0$, $0\le j\le k$.
+\end{lemma}
+\begin{proof}
+对 $j\ge0$, 在去心邻域逐次求导可写成
+\begin{equation}\label{eq:oscillatory-derivatives}
+f^{(j)}(s)=e^{\frac{\ii c}{s}}s^{m-2j}G_j(s),
+\qquad G_j(0)=(-\ii c)^j g(0),
+\end{equation}
+其中 $G_j$ 光滑. 对 $j=0$ 取 $G_0=g$. 若式 \eqref{eq:oscillatory-derivatives} 对 $j$ 成立, 由
+\[
+\dfrac{\dd}{\dd s}e^{\frac{\ii c}{s}}
+=-\dfrac{\ii c}{s^2}e^{\frac{\ii c}{s}}
+\]
+可得
+\[
+G_{j+1}(s)
+=-\ii cG_j(s)+(m-2j)sG_j(s)+s^2G_j'(s).
+\]
+这一递推同时证明光滑性及零点处的取值公式.
+
+若 $m\ge2k+1$, 对 $0\le j\le k$ 有 $m-2j\ge1$, 故各个去心导数都趋于零. 还需确认这些极限确实是延拓函数的导数. 对 $j<k$, 假定第 $j$ 阶延拓已定义, 则
+\[
+\dfrac{f^{(j)}(s)-f^{(j)}(0)}{s}
+=e^{\frac{\ii c}{s}}s^{m-2j-1}G_j(s)\longrightarrow0,
+\]
+因为 $m-2j-1\ge2$. 从 $j=0$ 起逐阶应用此式, 即得 $C^k$ 延拓且各阶导数在零点为零.
+
+反之, 若 $m<2k$, 式 \eqref{eq:oscillatory-derivatives} 的 $j=k$ 项因 $G_k(0)\ne0$ 而在模上无界; 若 $m=2k$, 该项包含振幅趋于非零常数的 $e^{\frac{\ii c}{s}}$, 没有极限. 两种情形均不可能为 $C^k$.
+\end{proof}
+
+\begin{proposition}[共振传播的局部正则性]\label{prop:resonant-regularity}
+在 $\lambda=a$ 附近固定一张实谱叶, 以 $\lambda$ 为局部坐标表示 $r_{\rm sp}$, 并设其初值具有有限阶零点
+\[
+r_{\rm sp}(a+s,0)=s^m g_0(s),\qquad g_0\in C^\infty,\quad g_0(0)\ne0,
+\]
+其中 $m$ 为非负整数. 对任意固定 $z\ne0$ 和非负整数 $k$, 演化式 \eqref{eq:timer} 给出的反射系数可在 $s=0$ 延拓为 $C^k$ 函数, 当且仅当 $m\ge2k+1$. 该判据在两个单值化共振原像均成立.
+\end{proposition}
+\begin{proof}
+记 $\rho_a=\rho(a)=\pm\sqrt{a^2+Q^2}$, 并写
+$F_{\rm pol}(\lambda)=4\beta\lambda^2-\alpha\lambda-2\beta Q^2$.
+由于 $\rho$ 在所选实谱叶上解析, 函数
+\[
+L(s)=\rho(a+s)F_{\rm pol}(a+s)
++\dfrac{\eta_0}{a}\dfrac{\rho(a+s)-\rho_a}{s}
+\]
+在 $s=0$ 可去. 因此
+\begin{equation}\label{eq:local-resonant-phase}
+-2z\rho(\lambda)F(\lambda)=\dfrac{c_z}{s}-2zL(s),\qquad
+c_z=-\dfrac{2z\eta_0\rho_a}{a}\ne0.
+\end{equation}
+演化后的反射可写为
+\[
+r_{\rm sp}(a+s,z)=s^m g_z(s)e^{\frac{\ii c_z}{s}},\qquad
+g_z(s)=g_0(s)e^{-2\ii zL(s)}.
+\]
+$g_z$ 光滑且 $g_z(0)\ne0$, 应用引理 \ref{prop:oscillatory-regularity} 即得充要条件. 又
+\[
+\lambda'(w_a^\pm)=\dfrac{1}{2}\left(1+\dfrac{Q^2}{(w_a^\pm)^2}\right)>0,
+\]
+故 $\lambda-a$ 与 $w-w_a^\pm$ 为等价的局部光滑坐标, 消失阶和 $C^k$ 性质不变.
 \end{proof}
