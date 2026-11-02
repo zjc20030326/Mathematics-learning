@@ -1,9 +1,10 @@
+% !LW recipe = latexmk (XeLaTeX)
 \documentclass[UTF8,12pt,openany,fontset=fandol]{ctexbook}
 % Full thesis text + stand-alone six-chapter derivation companion.
 % Source thesis: hmb-nzbc-thesis; snapshot 2026-10-31.
 \usepackage[a4paper,left=27mm,right=25mm,top=27mm,bottom=27mm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools,bm,graphicx,booktabs,longtable,array,enumitem}
-\usepackage[unicode,colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\usepackage[unicode,colorlinks=false,pdfborder={0 0 0},hypertexnames=false]{hyperref}
 \usepackage{bookmark}
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0.15em}
@@ -40,6 +41,7 @@
 \tableofcontents
 \mainmatter
 \part{原论文六章全文（公式与定理对照）}
+\renewcommand{\theHchapter}{part1.\arabic{chapter}}
 \chapter{绪论}\label{ch:intro}
 \input{../hmb-nzbc-thesis/section/01-introduction.tex}
 \chapter{模型与非零背景谱分析}\label{ch:model}
@@ -54,6 +56,7 @@
 \input{../hmb-nzbc-thesis/section/06-conclusion.tex}
 \part{逐句理解与逐公式推导讲解}
 \setcounter{chapter}{0}
+\renewcommand{\theHchapter}{part2.\arabic{chapter}}
 \input{chapters/00-preliminaries.tex}
 \input{chapters/01-introduction.tex}
 \input{chapters/02-model.tex}
@@ -62,8 +65,9 @@
 \input{chapters/05-solitons.tex}
 \input{chapters/06-propagation.tex}
 \appendix
+\renewcommand{\theHchapter}{app.\arabic{chapter}}
 \input{chapters/07-formula-index.tex}
 \backmatter
 \bibliographystyle{plain}
-\bibliography{../hmb-nzbc-thesis/citelist}
+\bibliography{citelist}
 \end{document}

@@ -4,7 +4,7 @@
 \chapter{不预先使用 Darboux，直接求一轨道无反射 RHP 并恢复 HMB 三场}
 
 对照正文：../hmb-nzbc-thesis/section/05-solitons.tex  \par
-核心标签：eq:imaginarypoint、eq:onezeros、eq:onec、lem:direct-solve、eq:one-AB、eq:one-schur-det、eq:algebraic-P、thm:oneRHP、eq:explicitM、thm:direct-HMB、eq:finalfields、eq:inverse-log-lax、eq:inverse-V-form、eq:N-cramer、prop:darboux。\par
+{\sloppy\raggedright 核心标签：eq:imaginarypoint、eq:onezeros、eq:onec、lem:direct-solve、eq:one-AB、eq:one-schur-det、eq:algebraic-P、thm:oneRHP、eq:explicitM、thm:direct-HMB、eq:finalfields、eq:inverse-log-lax、eq:inverse-V-form、eq:N-cramer、prop:darboux。\par}
 
 \textbf{这一章是整篇论文的主结果。} 最新版不同于旧稿：先从第四章有限维留数方程出发求解，再证明所得矩阵重构完整 HMB；Darboux 放到最后做交叉对照。阅读本章务必以最新源文件为准。\par
 
@@ -24,7 +24,7 @@
 \item 最后证明该结果与已有一次 Darboux 解一致。
 \end{enumerate}
 
-\section{为什么选 \ensuremath{\lambda}\textsubscript{1}=ib、b>Q？}
+\section{为什么选 \texorpdfstring{$\lambda_1=\ii b$、$b>Q$}{lambda1=ib, b>Q}？}
 \noindent{\small\textbf{对应原文：}\texttt{eq:imaginarypoint}}\par
 
 取\par
@@ -73,7 +73,7 @@ b-\kappa=\dfrac{Q^2}{W}=Qh_0,
 
 例如第一式左边是 2bQ/W，右边 $Q(1+Q^{2}/W^{2})$，乘 $W^{2}/Q$ 后都等于 $2bW=W^{2}+Q^{2}$。\par
 
-\section{一条轨道为什么有两个 D\textsubscript{+} 点？}
+\section{一条轨道为什么有两个 \texorpdfstring{$D_+$}{D+} 点？}
 \noindent{\small\textbf{对应原文：}\texttt{eq:onezeros}}\par
 
 由上一步\par
@@ -232,7 +232,7 @@ u_j=M_1(\overline{\zeta_j}),\qquad j=1,2.
 
 这就是本文真正\textbf{直接解 RHP}的出发点；到这一步还没有任何 Darboux 投影、已知孤子波形或猜测出来的 M。\par
 
-\section{为何得到这两个 2\ensuremath{\times}2 矩阵？}
+\section{为何得到这两个 \texorpdfstring{$2\times 2$}{2x2} 矩阵？}
 \noindent{\small\textbf{对应原文：}\texttt{eq:one-AB}}\par
 
 原文定义\par
@@ -452,7 +452,7 @@ M(w)=H\,N(\lambda(w))\,E(w)
 
 另一列的两个共轭点则对应 $\rho{}+i\kappa{}$。分母先由部分分式合并产生，\textbf{并不是为匹配 Darboux 形式而猜测}。N、P 只是把得到的分子缩写得更清楚。\par
 
-\section{为什么 det M=\ensuremath{\gamma}？}
+\section{为什么 \texorpdfstring{$\det M=\gamma$}{det M=gamma}？}
 
 利用 P 为秩一投影：在 Im P 上 P 的特征值为 1，在 ker P 上为 0。因此 N 的两个特征值分别是\par
 
@@ -537,7 +537,7 @@ u=\mathrm{i}M^{(1)}_{12}=-Q-4bP_{12}.
 
 \textbf{这个负号非常重要}。它与 H 的整体相位旋转及相同左右背景的选取有关。缺少它会使场的端态或介质重构产生符号冲突。\par
 
-\section{为什么介质要用 N(a)R\ensuremath{\infty}N(a)†？}
+\section{为什么介质要用 \texorpdfstring{$N(a)R_\infty N(a)^\dagger$}{N(a) R(infinity) N(a)*}？}
 
 第四章的共振重构：\par
 
@@ -582,7 +582,7 @@ R=\dfrac{HN(a)R_\infty N(a)^\dagger H^{-1}}
 
 此式右端与选择 $w_{a}^{+}$ 或 $w_{a}^{-}$ 无关，说明\textbf{两个共振原像给出同一个介质矩阵}。这不是额外假设，而是从已求得 RHP 矩阵的代数结构推出的。\par
 
-\section{eq:finalfields、eq:etacomponent、eq:pcomponent：如何读出 p 和 \ensuremath{\eta}？}
+\section{\texorpdfstring{\eqref{eq:finalfields}、\eqref{eq:etacomponent}、\eqref{eq:pcomponent}}{eq:finalfields, eq:etacomponent, eq:pcomponent}：如何读出 \texorpdfstring{$p$}{p} 和 \texorpdfstring{$\eta$}{eta}？}
 
 令 $n_{jk}=N(a)_{jk}$。为了方便对照论文，本节保留 n 的矩阵元而不另设多个新参数。\par
 
@@ -744,7 +744,7 @@ M(w_a)\left(\dfrac{\eta_0\rho(w_a)}{a}\sigma_3\right)M(w_a)^{-1}
 
 为什么这样做？如果能证明 $\mathcal U$、$\mathcal V$ 与第二章已有的 $\widehat U$、$\widehat V$ 完全相同，就证明重构场满足正确的线性 Lax 对；再由零曲率，就得到原 HMB 三条方程。\par
 
-\section{为什么 \textbackslash{}mathcal U、\textbackslash{}mathcal V 必须是 \ensuremath{\lambda} 的单值有理函数？}
+\section{为什么 \texorpdfstring{$\mathcal{U}$、$\mathcal{V}$}{U, V} 必须是 \texorpdfstring{$\lambda$}{lambda} 的单值有理函数？}
 
 M 的换叶约化为 $M(h(w))=M(w)C(w)$，并有\par
 
@@ -825,7 +825,7 @@ M^{-1}=\dfrac{\operatorname{adj}M}{\det M}.
 
 \textbf{这里尤其不能把“分支点处 M 解析”误当成“M\textsuperscript{-}\textsuperscript{1} 也解析”。} 这个固定核论证正是补上的关键步骤。\par
 
-\section{共振点处为什么 \textbackslash{}mathcal V 的留数恰为 iR？}
+\section{共振点处为什么 \texorpdfstring{$\mathcal{V}$}{V} 的留数恰为 \texorpdfstring{$\ii R$}{iR}？}
 
 $w_{a}\pm{}$ 处 M 解析可逆，$\mathcal U$ 无谱奇性。但 F 包含\par
 
@@ -852,7 +852,7 @@ M(w_a)\sigma_3M(w_a)^{-1}.
 
 这说明逆构造得到的传播矩阵不仅具有一个“形式上的极点”，而且极点的留数正好编码重构出的介质 p、$\eta{}$。\par
 
-\section{为什么能重建整个 \textbackslash{}widehat U？}
+\section{为什么能重建整个 \texorpdfstring{$\widehat{U}$}{hat(U)}？}
 
 当全部有限奇点可去后，$\mathcal U$ 是 $\lambda{}$ 的整有理函数；由第一叶无穷远展开得到\par
 
@@ -935,7 +935,7 @@ e^{-\mathrm{i}\rho x\sigma_3}.
 
 在 $\zeta{}_{1}$，列相关常数还满足 $b_{1}=c_{1}s'_{11}(\zeta{}_{1})=1$。至此“所选数据可实现”有了实质证明，而不再只是任意规定。\par
 
-\section{把 P\textsubscript{1}\textsubscript{2} 化为直观的双曲和三角函数}
+\section{把 \texorpdfstring{$P_{12}$}{P12} 化为直观的双曲和三角函数}
 \noindent{\small\textbf{对应原文：}\texttt{eq:hyperbolic-projector}}\par
 
 写\par
@@ -1019,7 +1019,7 @@ C=e^{2\mathrm{i}\operatorname{Im}s}
 
 于是可以把 PDE 残差化简成有理函数并检查分子恒等为零。其用途是\textbf{检验具体显式计算是否存在符号错误}；它不能取代前面所有参数下的 Lax 对证明。\par
 
-现有验证脚本和计算结果位于 ../hmb-nzbc-thesis/scripts/ 与 ../hmb-nzbc-thesis/calculations/。直接 RHP 求解代码应独立于旧版 Darboux 投影构造。\par
+{\sloppy \raggedright 现有验证脚本和计算结果位于 ../hmb-nzbc-thesis/scripts/ 与 ../hmb-nzbc-thesis/calculations/。直接 RHP 求解代码应独立于旧版 Darboux 投影构造。\par}
 
 \section{为什么结尾还能出现 Darboux？}
 \noindent{\small\textbf{对应原文：}\texttt{prop:darboux}}\par

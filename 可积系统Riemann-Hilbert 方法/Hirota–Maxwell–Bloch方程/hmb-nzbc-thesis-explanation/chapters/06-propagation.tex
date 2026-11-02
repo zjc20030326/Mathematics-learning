@@ -4,7 +4,7 @@
 \chapter{孤子幅值、传播周期与共振点正则性的逐式解析}
 
 对照正文：../hmb-nzbc-thesis/section/06-conclusion.tex  \par
-覆盖 §6.1–§6.2，主要标签：eq:velocity、eq:frequency、prop:wave-properties、eq:amplitude-bound、eq:medium-bound、eq:internal-period、prop:oscillatory-regularity、prop:resonant-regularity。\par
+覆盖 §6.1–§6.2，{\sloppy \raggedright 主要标签：eq:velocity、eq:frequency、prop:wave-properties、eq:amplitude-bound、eq:medium-bound、eq:internal-period、prop:oscillatory-regularity、prop:resonant-regularity。\par}
 
 本章不是再求一次孤子，而是回答两个更具体的问题：第五章的一轨道解在时空中怎么变化？如果允许非零反射，共振极点将怎样影响反射数据的光滑性？\par
 
@@ -63,7 +63,7 @@ B_b=\operatorname{Im}F(\mathrm{i}b)
 
 现在知道了：$\beta{}$ 主要进入这个纯虚谱点的整体传播速度 $A_b$；$\alpha{}$ 进入内部频率 $B_b$；介质参数 $\eta{}_{0}$ 同时改变两者。这是就本特殊纯虚谱点而言，不能无条件推广为任意复谱参数时的参数分工。\par
 
-\section{为什么引入随动坐标 X=x\ensuremath{-}A\_bz？}
+\section{为什么引入随动坐标 \texorpdfstring{$X=x-A_b z$}{X=x-Ab z}？}
 
 第五章\par
 
@@ -166,7 +166,7 @@ C_0=\eta_0^2\left(1+\dfrac{Q^2}{a^2}\right).
 
 这是模型的一个直观特点，前提是保持同一个背景 $\eta{}_{0}$、Q、a。\par
 
-\section{为什么局部化阶是 O(e\textasciicircum{}\{\ensuremath{-}2\ensuremath{\kappa}|X|\})？}
+\section{为什么局部化阶是 \texorpdfstring{$O(e^{-2\kappa|X|})$}{O(exp(-2kappa|X|))}？}
 
 仍然从第五章的代数投影 P(t) 出发。其分母\par
 
@@ -196,7 +196,7 @@ q、p、$\eta{}$ 都是 P 的光滑有理/矩阵表达式，且相关分母严�
 
 注意这是指数\textbf{衰减率}，并不是半高全宽的直接计算。若需要半高全宽，还应在固定内部相位时求幅值曲线对应的具体方程。\par
 
-\section{周期为什么是 \ensuremath{\pi}/(\ensuremath{\kappa}|B\_b|)？}
+\section{周期为什么是 \texorpdfstring{$\dfrac{\pi}{\kappa|B_b|}$}{pi/(kappa|Bb|)}？}
 \noindent{\small\textbf{对应原文：}\texttt{eq:internal-period}}\par
 
 固定 X，随 z 变化的只有 t 中的单位模相位\par
@@ -238,7 +238,7 @@ e^{-\mathrm{i}\Omega T_z}=1
 
 本章“内部周期”不要与复杂呼吸子在原时空中的全部周期性质混淆。\par
 
-\section{数值例：核对 A\_b 和 B\_b}
+\section{数值例：核对 \texorpdfstring{$A_b$ 和 $B_b$}{Ab 和 Bb}}
 
 取论文图一的参数\par
 
@@ -276,7 +276,7 @@ r_{\mathrm{sp}}(\lambda,0).
 
 因此“点值为 0”与“作为函数平滑”是两件不同的事情。第六章要精确回答：初始反射零点至少几阶，传播后才能在共振点保留 k 阶连续导数？\par
 
-\section{基础模型 f(s)=s\textasciicircum{}m g(s)e\textasciicircum{}\{ic/s\}}
+\section{基础模型 \texorpdfstring{$f(s)=s^m g(s)e^{\ii c/s}$}{f(s) = s**m g(s) exp(ic/s)}}
 \noindent{\small\textbf{对应原文：}\texttt{prop:oscillatory-regularity}}\par
 
 先研究纯实变量局部函数：\par
@@ -347,7 +347,7 @@ G_{j+1}(0)=-\mathrm{i}cG_j(0)
 
 归纳完成。这个递推保证主导振荡项的系数不为 0，所以我们不能指望高阶导数里的剧烈振荡被偶然抵消。\par
 
-\section{为什么连续延拓到 C\textasciicircum{}k 当且仅当 m\ensuremath{\ge}2k+1？}
+\section{为什么连续延拓到 \texorpdfstring{$C^k$}{Ck} 当且仅当 \texorpdfstring{$m\ge 2k+1$}{m >= 2k+1}？}
 
 \textbf{充分性}：若 $m\ge{}2k+1$，那么对 $0\le{}j\le{}k$，\par
 

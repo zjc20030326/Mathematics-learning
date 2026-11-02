@@ -6,6 +6,11 @@ HMB 非零背景 Riemann–Hilbert 方法论文全文与逐式精读（LaTeX）
 
 这份解析书籍在同一 PDF 中先收录对应原论文六章正文，再按同一章序讲解背景、推导、矩阵代数、留数条件、逆重构及共振正则性。第五章采用最新版直接 RHP 求解，Darboux 只用于结果对照。
 
+VS Code / LaTeX Workshop：
+  打开 hmb-explanation.tex，使用普通构建命令。主文件指定 latexmk (XeLaTeX) 配方，
+  该配方会按需要运行 XeLaTeX 和 BibTeX；不要将单次 XeLaTeX 作为完整构建。
+  如果手动选择了其他配方，则手动选择的配方会覆盖主文件中的默认指定。
+
 编译（在本文件夹中）：
   latexmk -xelatex -interaction=nonstopmode -halt-on-error hmb-explanation.tex
 
