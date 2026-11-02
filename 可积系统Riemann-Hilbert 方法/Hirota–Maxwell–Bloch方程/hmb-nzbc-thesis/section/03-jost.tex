@@ -1,14 +1,11 @@
-固定 $t$, 考虑空间谱方程 $\phi_x=U\phi$, 其中 $U=-\ii k\sg+Q$. 在 $z\in\Sigma\setminus\{0,\pm\ii q_0,z_a^\pm\}$ 上, 以背景解 \eqref{eq:theta} 定义 Jost 解
+固定 $t$, 考虑空间谱方程 $\phi_x=U\phi$, 其中 $U=-\ii k\sg+Q$. 在 $z\in\Sigma\setminus\{0,\pm\ii q_0,z_a^\pm\}$ 上定义 Jost 解及修正 Jost 解
 \begin{equation}\label{eq:jost-normalization}
-\phi_\pm(x,t,z)e^{-\ii\theta(x,t,z)\sg}\longrightarrow Y(z),
-\qquad x\to\pm\infty.
+\phi_\pm(x,t,z)e^{-\ii\theta(x,t,z)\sg}\longrightarrow Y(z),\qquad x\to\pm\infty,
 \end{equation}
-修正 Jost 解为
 \begin{equation}\label{eq:modified-jost}
-\mu_\pm=\phi_\pm e^{-\ii\theta\sg},\qquad
-\mu_\pm\longrightarrow Y\quad(x\to\pm\infty).
+\mu_\pm=\phi_\pm e^{-\ii\theta\sg},\qquad \mu_\pm\longrightarrow Y\quad(x\to\pm\infty).
 \end{equation}
-记 $\Delta Q=Q-Q_\infty$. 其解析性由以下积分方程确定.
+记 $\Delta Q=Q-Q_\infty$. 以下先在分支点之外构造解析列, 再讨论分支点的连续延拓.
 
 \begin{theorem}[Jost 解与解析列]\label{thm:jost}
 设 $q-q_0\in L^1(\mathbb R)\cap L^\infty(\mathbb R)$. 对 $z\in\Sigma\setminus\{0,\pm\ii q_0\}$, Volterra 方程
@@ -17,25 +14,121 @@
 Y(z)e^{-\ii\lambda(z)(x-y)\sg}Y(z)^{-1}
 \Delta Q(y)\mu_\pm(y,z)e^{\ii\lambda(z)(x-y)\sg}\,\dd y
 \end{equation}
-存在唯一关于 $x$ 有界的解. 列 $\mu_{-,1},\mu_{+,2}$ 在 $D_+$ 解析, 列 $\mu_{+,1},\mu_{-,2}$ 在 $D_-$ 解析, 并连续延拓到各自闭域中避开 $0,\pm\ii q_0$ 的紧子集. 在共振原像之外, $\phi_\pm=\mu_\pm e^{\ii\theta\sg}$ 是满足 \eqref{eq:jost-normalization} 的唯一空间 Jost 解.
+有唯一关于 $x$ 有界的解. 列 $\mu_{-,1},\mu_{+,2}$ 在 $D_+$ 解析, 列 $\mu_{+,1},\mu_{-,2}$ 在 $D_-$ 解析, 并连续延拓到各自闭域中避开 $0,\pm\ii q_0$ 的紧集. 在共振原像之外, $\phi_\pm=\mu_\pm e^{\ii\theta\sg}$ 是满足 \eqref{eq:jost-normalization} 的唯一空间 Jost 解.
 \end{theorem}
 \begin{proof}
-修正空间方程为
+修正空间方程及其背景恒等式为
 \[
-(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg.
+(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg,\qquad U_\infty Y=-\ii\lambda Y\sg.
 \]
-将 $U=U_\infty+\Delta Q$ 代入, 使用 $U_\infty Y=-\ii\lambda Y\sg$, 对 $Y^{-1}\mu_\pm$ 应用变分常数公式, 得到 \eqref{eq:volterra}. 令 $s_1=1,s_2=-1$, 第 $j$ 列的积分核为
+对 $Y^{-1}\mu_\pm$ 使用变分常数公式, 得到 \eqref{eq:volterra}. 令 $s_1=1,s_2=-1$, 第 $j$ 列的传播核为
 \begin{equation}\label{eq:columnkernel}
-K_j(x-y,z)=e^{\ii s_j\lambda(x-y)}Y e^{-\ii\lambda(x-y)\sg}Y^{-1}.
+K_j(r,z)=e^{\ii s_j\lambda r}Y e^{-\ii\lambda r\sg}Y^{-1},\qquad r=x-y.
 \end{equation}
-对第一列, 对角指数为 $\diag(1,e^{2\ii\lambda(x-y)})$. 在 $y\le x$、$\operatorname{Im}\lambda>0$ 时, 指数模不超过 1, 给出负端第一列在 $D_+$ 的估计. 第二列的指数为 $\diag(e^{-2\ii\lambda(x-y)},1)$, 在 $y\ge x$、$\operatorname{Im}\lambda>0$ 时同样有界, 给出正端第二列. 取相反积分方向和谱根虚部, 即得 $D_-$ 的另两列.
+以 $e_1,e_2$ 表示标准基向量. 对于负端第一列, 令 $w=Y^{-1}\mu_{-,1}$, 则
+\begin{equation}\label{eq:jost-column-volterra}
+w(x,z)=e_1+\int_{-\infty}^{x}G(x-y,z)\Delta Q(y)Y(z)w(y,z)\,\dd y,
+\end{equation}
+其中
+\begin{equation}\label{eq:jost-Gkernel}
+G(r,z)=\diag(1,e^{2\ii\lambda r})Y^{-1}
+=\dfrac{1}{\gamma(z)}
+\begin{pmatrix}
+1&\dfrac{\ii q_0}{z}\\[4pt]
+\dfrac{\ii q_0}{z}e^{2\ii\lambda r}&e^{2\ii\lambda r}
+\end{pmatrix}.
+\end{equation}
+当 $y\le x$, $\operatorname{Im}\lambda\ge0$ 时, $|e^{2\ii\lambda(x-y)}|\le1$, 因而此列对应 $D_+$. 对第二列, 相应对角指数为 $\diag(e^{-2\ii\lambda r},1)$; 它在 $y\ge x$, $\operatorname{Im}\lambda\ge0$ 时有界, 给出 $\mu_{+,2}$ 的解析域. 其余两列取相反的积分方向和谱根虚部.
 
-设 $\mathcal K$ 为相应闭域中避开 $0,\pm\ii q_0$ 的紧集, 则 $Y,Y^{-1}$ 及允许积分方向上的 $K_j$ 一致有界. 以负端第一列为例, 第 $n$ 次迭代项的模不超过
+采用向量范数 $\|v\|_1=|v_1|+|v_2|$ 及其诱导矩阵范数. 由
 \[
-\|Y_1\|\dfrac{C_{\mathcal K}^n}{n!}
-\left(\int_{-\infty}^{x}\|\Delta Q(y)\|\,\dd y\right)^n.
+\|\Delta Q(y)\|_1=|q(y)-q_0|,\qquad
+\|Y\|_1=1+\dfrac{q_0}{|z|},\qquad
+\|Y^{-1}\|_1=\dfrac{1+\dfrac{q_0}{|z|}}{|\gamma(z)|},
 \]
-有序积分域给出因子 $\dfrac{1}{n!}$, 因而 Neumann 级数绝对且局部一致收敛. 对两个解之差作同样迭代, 得到唯一性. 每个迭代项对谱参数解析, 紧集一致收敛保证解析性; 闭域连续性由上述控制函数及支配收敛得到. 正端积分的反向有序域给出相同估计. 对收敛的积分方程求 $x$ 导数, 即恢复空间谱方程及其归一化.
+可得 HMB 积分核的具体估计
+\begin{equation}\label{eq:jost-kernel-estimate}
+\|G(x-y,z)\Delta Q(y)Y\|_1
+\le c(z)|q(y)-q_0|,\qquad
+c(z)=\dfrac{\left(1+\dfrac{q_0}{|z|}\right)^2}{\left|1+\dfrac{q_0^2}{z^2}\right|}.
+\end{equation}
+取 $\mathcal K\subset\overline{D_+}\setminus\{0,\pm\ii q_0\}$ 为紧集, 记
+\[
+c_{\mathcal K}=\max_{z\in\mathcal K}c(z),\qquad
+M_{\mathcal K}(x)=c_{\mathcal K}\int_{-\infty}^{x}|q(y)-q_0|\,\dd y.
+\]
+构造 Neumann 级数
+\begin{equation}\label{eq:jost-neumann}
+\begin{aligned}
+w&=\sum\limits_{n=0}^{\infty}w^{(n)},\qquad w^{(0)}=e_1,\\
+w^{(n+1)}&=\int_{-\infty}^{x}G(x-y,z)\Delta Q(y)Yw^{(n)}(y,z)\,\dd y.
+\end{aligned}
+\end{equation}
+若 $\|w^{(n)}(y,z)\|_1\le \dfrac{M_{\mathcal K}(y)^n}{n!}$, 则
+\begin{align*}
+\|w^{(n+1)}(x,z)\|_1
+&\le\dfrac{1}{n!}\int_{-\infty}^{x}c_{\mathcal K}|q(y)-q_0|M_{\mathcal K}(y)^n\,\dd y\\
+&=\dfrac{M_{\mathcal K}(x)^{n+1}}{(n+1)!}.
+\end{align*}
+归纳即得
+\begin{equation}\label{eq:jost-factorial}
+\|w^{(n)}(x,z)\|_1\le\dfrac{M_{\mathcal K}(x)^n}{n!},\qquad
+\|w(x,z)-e_1\|_1\le e^{M_{\mathcal K}(x)}-1.
+\end{equation}
+由于 $M_{\mathcal K}(x)\le c_{\mathcal K}\|q-q_0\|_{L^1}$, 级数对实 $x$ 及 $z\in\mathcal K$ 绝对一致收敛, 且在 $x\to-\infty$ 时趋于 $e_1$. 每一项的积分核在 $D_+$ 解析, 并受上述可积函数控制; 参数积分定理及紧集一致收敛给出 $w$ 和 $\mu_{-,1}=Yw$ 的解析性. 同一控制函数与支配收敛定理给出闭域连续性.
+
+对两个有界解之差 $d$ 迭代 $n$ 次, 有
+\[
+\|d(x,z)\|_1\le\|d(\cdot,z)\|_{L^\infty}\dfrac{M_{\mathcal K}(x)^n}{n!}\longrightarrow0,
+\]
+从而解唯一. 正端取 $\displaystyle c_{\mathcal K}\int_x^{+\infty}|q(y)-q_0|\,\dd y$, 反向有序积分给出相同的阶乘估计; 另外两列亦同. 在 $\Sigma$ 上四列均可取边界值, 构成 \eqref{eq:volterra} 的有界矩阵解. 对积分方程作局部绝对连续意义下的 $x$ 微分, 恢复空间谱方程, 其归一化由 \eqref{eq:jost-factorial} 给出. 任一具有同一振荡归一化的空间解通过变分常数公式满足该 Volterra 方程, 因而也唯一.
 \end{proof}
 
-在 $z=\pm\ii q_0$ 处, $\lambda=0$ 且 $U_\infty^2=0$, 背景传播子为 $I+(x-y)U_\infty$. 其线性增长使端点分析涉及加权可积条件. 共振原像处的修正解则由 \eqref{eq:volterra} 正则取值. 传播方程与两组 Jost 解的共同演化由下一章给出.
+\begin{proposition}[向分支点的连续延拓]\label{prop:jost-branch}
+在定理 \ref{thm:jost} 的条件上, 再设
+\begin{equation}\label{eq:jost-weighted}
+\int_{-\infty}^{+\infty}(1+|x|)|q(x)-q_0|\,\dd x<\infty.
+\end{equation}
+则每个 Jost 解析列均可从其闭解析域连续延拓到 $z_b=\pm\ii q_0$. 端点值满足
+\begin{equation}\label{eq:jost-branch-volterra}
+\mu_\pm(x,z_b)=Y(z_b)+\int_{\pm\infty}^{x}
+[I+(x-y)U_\infty(z_b)]\Delta Q(y)\mu_\pm(y,z_b)\,\dd y,
+\end{equation}
+并在对应归一化端趋于 $Y(z_b)$. 此矩阵在任一对应半直线上有界, 满足空间谱方程, 且秩为一.
+\end{proposition}
+\begin{proof}
+由 $U_\infty^2=-\lambda^2I$, 背景传播矩阵可写为
+\begin{equation}\label{eq:background-propagator}
+e^{rU_\infty}
+=\cos(\lambda r)I+\dfrac{\sin(\lambda r)}{\lambda}U_\infty
+\longrightarrow I+rU_\infty(z_b),\qquad z\to z_b.
+\end{equation}
+尽管 $Y^{-1}$ 在分支点发散, \eqref{eq:columnkernel} 中的乘积具有可控的连续极限. 具体地,
+\begin{equation}\label{eq:branch-columnkernel}
+K_j(r,z)=\dfrac{1+e^{2\ii s_j\lambda r}}{2}I
++\dfrac{e^{2\ii s_j\lambda r}-1}{2\ii s_j\lambda}U_\infty(z).
+\end{equation}
+在该列允许的积分方向及闭解析域内, $s_j\operatorname{Im}\lambda\,r\ge0$, 且
+\[
+\dfrac{e^{2\ii s_j\lambda r}-1}{2\ii s_j\lambda}
+=r\int_0^1 e^{2\ii s_j\tau\lambda r}\,\dd\tau,\qquad
+\|K_j(r,z)\|_1\le1+C_b|r|.
+\]
+这里 $C_b$ 可在 $z_b$ 的一个闭邻域上一致选取. 这同时给出 $K_j(r,z_b)=I+rU_\infty(z_b)$.
+
+以负端为例, 固定 $b\in\mathbb R$, 对 $y\le x\le b$ 有
+\[
+1+C_b|x-y|\le A_b(1+|y|),\qquad
+L_b(x)=A_b\int_{-\infty}^{x}(1+|y|)|q(y)-q_0|\,\dd y.
+\]
+直接对 $\mu_{-,j}$ 的列积分方程迭代, 其第 $n$ 项满足
+\[
+\|\mu_{-,j}^{(n)}(x,z)\|_1
+\le\left(\sup_{z}\|Y_j(z)\|_1\right)\dfrac{L_b(x)^n}{n!},\qquad x\le b.
+\]
+加权可积条件保证级数在 $x\le b$ 及分支点邻域内一致收敛. 各项利用 \eqref{eq:branch-columnkernel} 支配收敛, 故其和连续趋于 \eqref{eq:jost-branch-volterra}; $L_b(x)\to0$ 则给出负端归一化. 正端使用 $y\ge x\ge b$ 和从 $x$ 到 $+\infty$ 的加权积分, 得到相同结论. 对差的有序积分估计还给出端点 Volterra 解在对应半直线上的唯一性.
+
+最后, $U_\infty(z_b)Y(z_b)=0$, $U_\infty(z_b)^2=0$. 对 \eqref{eq:jost-branch-volterra} 求导得到 $(\mu_\pm)_x=U(z_b)\mu_\pm$. 因 $Y(z_b)$ 的两列线性相关, 唯一性使同一关系对 $\mu_\pm(x,z_b)$ 成立. 其归一化端值非零, 而一阶线性系统的非零解不能在有限点为零, 因而矩阵秩恒为一.
+\end{proof}
+
+共振原像 $z_a^\pm$ 不使空间积分核退化, 因而 $\mu_\pm$ 在此仍由 \eqref{eq:volterra} 正则取值. 传播相位在共振处的处理及两组 Jost 解的共同演化见第 \ref{ch:scattering} 节.

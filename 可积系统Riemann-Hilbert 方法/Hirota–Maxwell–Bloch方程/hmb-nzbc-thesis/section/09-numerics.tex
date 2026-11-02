@@ -1,18 +1,19 @@
-\section{单孤子的三场分布}
-本章记 $q=q_{\rm phys}$、$p=p_{\rm phys}$. 取参数
+\subsection{单孤子的三场分布}
+本节对第 \ref{ch:rhp} 节证明的一轨道无反射解作数值求值. 图中使用规范变换前的场 $\widetilde q,\widetilde p,\eta$, 它们由 \eqref{eq:original-fields} 恢复. 取参数
 \begin{equation}\label{eq:numerical-parameters}
 q_0=1,\qquad a=2,\qquad\eta_0=0.6,\qquad
 \alpha=1,\qquad\beta=0.1,\qquad b=1.5,
 \end{equation}
-范数常数由式 \eqref{eq:onec} 给定, 场值直接由留数系统重构. 图 \ref{fig:one} 展示光场的局域振荡及同一区域内的极化和粒子数反转.
+范数常数由式 \eqref{eq:onec} 给定, 场值由四维留数系统及无穷远、共振点的重构公式计算, 不作 HMB 方程的数值离散. 图 \ref{fig:one} 展示光场的局域振荡及同一区域内的极化和粒子数反转.
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-fields.pdf}
-\caption{单轨道物理三场 $|q|,|p|,\eta$ 的曲面 (上排) 与等值图 (下排). 参数见 \eqref{eq:numerical-parameters}; $x\in\lbrack-6,6\rbrack$, $t\in\lbrack-1.5,1.5\rbrack$.}
+\caption{单轨道物理三场 $|\widetilde q|,|\widetilde p|,\eta$ 的曲面 (上排) 与等值图 (下排). 参数见 \eqref{eq:numerical-parameters}; $x\in\lbrack-6,6\rbrack$, $t\in\lbrack-1.5,1.5\rbrack$.}
 \label{fig:one}
 \end{figure}
 
-\section{传播速度与内部振荡}
+\FloatBarrier
+\subsection{传播速度与内部振荡}
 将背景传播因子分解为
 \begin{align}
 A_b=\operatorname{Re}F(\ii b)
@@ -28,11 +29,11 @@ T=e^{2s}=e^{2\kappa X}e^{-2\ii\kappa B_bt}
 \begin{equation}\label{eq:internal-period}
 T_t=\dfrac{\pi}{\kappa|B_b|}.
 \end{equation}
-若 $\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}$, 则 $B_b=0$, 去相位三场仅依赖 $X$. 原物理场的模 $|q|,|p|$ 和反转 $\eta$ 也具有周期 \eqref{eq:internal-period}; 复场 $q,p$ 具有同一随动周期当且仅当 $\Omega T_t\in2\pi\mathbb Z$.
+若 $\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}$, 则 $B_b=0$, 去相位三场仅依赖 $X$. 原场的模 $|\widetilde q|,|\widetilde p|$ 和反转 $\eta$ 也具有周期 \eqref{eq:internal-period}; 复场 $\widetilde q,\widetilde p$ 具有同一随动周期当且仅当 $\Omega T_t\in2\pi\mathbb Z$.
 
 由 $P^2=P=P^\dagger$ 和 $\tr P=1$, 有 $|P_{12}|^2=P_{11}(1-P_{11})\le\dfrac{1}{4}$. 因而
 \begin{equation}\label{eq:amplitude-bound}
-|q(x,t)|\le q_0+2b,\qquad |q(0,0)|=q_0+2b.
+|\widetilde q(x,t)|\le q_0+2b,\qquad |\widetilde q(0,0)|=q_0+2b.
 \end{equation}
 后一等式使用 $T(0,0)=1$ 和 $P_{12}(0,0)=\dfrac{1}{2}$. $P$ 在 $X\to\pm\infty$ 时趋于端态投影, 修正项为 $O(e^{-2\kappa|X|})$, 所以局域化尺度由 $\kappa$ 决定.
 
@@ -40,11 +41,12 @@ T_t=\dfrac{\pi}{\kappa|B_b|}.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-dynamics.pdf}
-\caption{单轨道光场的局域化与内部振荡. (a) 参数 \eqref{eq:numerical-parameters} 下的随动截面. (b) 改变 $\alpha$ 时 $|q(A_bt,t)|$ 的变化, 其余参数固定.}
+\caption{单轨道光场的局域化与内部振荡. (a) 参数 \eqref{eq:numerical-parameters} 下的随动截面. (b) 改变 $\alpha$ 时 $|\widetilde q(A_bt,t)|$ 的变化, 其余参数固定.}
 \label{fig:dynamics}
 \end{figure}
 
-\section{参数影响与数值验证}
+\FloatBarrier
+\subsection{参数影响与数值验证}
 $\beta$ 改变式 \eqref{eq:velocity} 中的传播速度, 而不改变式 \eqref{eq:frequency} 中的内部频率. 图 \ref{fig:velocity} 取 $\beta=0,0.15$, 相应的 $A_b$ 为 $-0.096,-1.746$; 两者均有 $B_b=-1.572$ 和相同的随动周期. 虚线 $x=A_bt$ 表示中心轨迹.
 \begin{figure}[htbp]
 \centering
@@ -70,5 +72,3 @@ Bloch 长度平方 & $4.77\times10^{-72}$\\
 \bottomrule
 \end{tabular}
 \end{table}
-
-作为精确检验, 参数 $q_0=1,b=\dfrac{5}{4},a=2,\eta_0=\dfrac{3}{5},\alpha=1,\beta=\dfrac{1}{10}$ 使 $\kappa=\dfrac{3}{4}$ 和 $F(\ii b)=-\dfrac{3321}{3560}-\dfrac{469\ii}{356}$. 在指数坐标中直接求解留数系统后, 三条 HMB 方程的有理残差均恒为零, 且 $|p|^2+\eta^2=\dfrac{9}{20}$.

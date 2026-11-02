@@ -1,6 +1,6 @@
 {
   "method": "Equilibrated 4x4 direct residue solve; infinity/resonance reconstruction",
-  "variables": "x,t; k original spectral parameter; lambda background root; z uniformization",
+  "variables": "x,t; k original spectral parameter; lambda background root; z uniformization; output q,p are original tilded fields",
   "parameters": {
     "q0": 1.0,
     "a": 2.0,
@@ -106,15 +106,19 @@
     ]
   },
   "spectral_geometry": {
-    "q0": 1,
-    "a": 2,
-    "b": 1.5,
-    "W": 2.618033988749895,
+    "type": "symbolic general complex quartet",
     "poles_D_plus": [
-      "2.618033988749895j",
-      "(-0-0.38196601125010515j)"
+      "zeta_j",
+      "h(conj(zeta_j))"
     ],
-    "contour_direction": "real exterior right; real interior left; upper circle clockwise; lower circle counterclockwise"
+    "poles_D_minus": [
+      "conj(zeta_j)",
+      "h(zeta_j)"
+    ],
+    "h": "-q0^2/z",
+    "pure_imaginary_orbit": "specialization used only in the one-orbit solution",
+    "contour_direction": "real exterior right; real interior left; upper circle clockwise; lower circle counterclockwise",
+    "domain_color": "D+ pale blue, D- white"
   },
   "files": [
     "analytic-regions.pdf",
@@ -125,57 +129,56 @@
   ],
   "figure_qa": {
     "analytic-regions": {
-      "text_exit": 0,
-      "collision_exit": 1,
-      "minimum_glyph_pt": 5.6,
-      "collision_verdict": "FIX BEFORE DELIVERY",
-      "collision_counts": {
-        "fail": 2,
+      "alignment_verdict": "NOT APPLICABLE",
+      "alignment_counts": {
+        "fail": 0,
         "warn": 0,
-        "contained_fill_overlays": 2,
-        "contained_image_overlays": 0
+        "comparisons": 0,
+        "exemptions": 0
       },
-      "manual_review": "Every raw finding is internal to one correctly typeset mathtext expression or its fraction rule; no inter-label, contour, marker, or clipping collision is visible in the final-size and 300-dpi figure. Raw automatic verdict, severities, counts and geometry are retained without alteration.",
-      "manual_reviewed_finding_count": 2,
-      "manual_approved_false_positives": [
-        0,
-        1
-      ],
-      "default_render_matches_final_png_sha256": "16f4db8e0358a1ae5a6a047c783c72f8ef04a9dbdb761d7640e0641c57971671"
-    },
-    "discrete-spectrum": {
-      "text_exit": 0,
-      "collision_exit": 1,
-      "minimum_glyph_pt": 5.6,
-      "collision_verdict": "FIX BEFORE DELIVERY",
-      "collision_counts": {
-        "fail": 8,
-        "warn": 4,
-        "contained_fill_overlays": 2,
-        "contained_image_overlays": 0
-      },
-      "manual_review": "Every raw finding is internal to one correctly typeset mathtext expression or its fraction rule; no inter-label, contour, marker, or clipping collision is visible in the final-size and 300-dpi figure. Raw automatic verdict, severities, counts and geometry are retained without alteration.",
-      "manual_reviewed_finding_count": 12,
-      "manual_approved_false_positives": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11
-      ],
-      "default_render_matches_final_png_sha256": "32d85d443197f4c6ca05539c644b08fbfaed2c7b76aba3a99c8274fffb34b648"
-    },
-    "one-soliton-fields": {
       "text_exit": 0,
       "collision_exit": 0,
-      "minimum_glyph_pt": 7.5,
+      "minimum_glyph_pt": 7.0,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 3,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "No collision warnings."
+    },
+    "discrete-spectrum": {
+      "alignment_verdict": "NOT APPLICABLE",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 0,
+        "exemptions": 0
+      },
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 7.0,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 3,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "No collision warnings."
+    },
+    "one-soliton-fields": {
+      "alignment_verdict": "PASS",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 7,
+        "exemptions": 0
+      },
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 6.0383386581,
       "collision_verdict": "REVIEW REQUIRED",
       "collision_counts": {
         "fail": 0,
@@ -186,6 +189,13 @@
       "manual_review": "All nine fill-edge warnings concern the 3D axes tick labels -6, 0 and -1 and projected filled-region bounding boxes; final-size inspection confirms no surface or axis-label occlusion. The top three surfaces and bottom contour panels were inspected separately."
     },
     "one-soliton-dynamics": {
+      "alignment_verdict": "PASS",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 1,
+        "exemptions": 0
+      },
       "text_exit": 0,
       "collision_exit": 0,
       "minimum_glyph_pt": 5.6,
@@ -199,6 +209,13 @@
       "manual_review": "No collision warnings."
     },
     "one-soliton-velocity": {
+      "alignment_verdict": "PASS",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 1,
+        "exemptions": 0
+      },
       "text_exit": 0,
       "collision_exit": 0,
       "minimum_glyph_pt": 5.95,

@@ -6,8 +6,10 @@
  auto-make-cover=false,hyperlink=color,bib-backend=bibtex,
  bib-style=numerical,bib-resource={citelist.bib}},
  info={title={Hirota–Maxwell–Bloch 方程的非零边界谱分析与孤子解},
- title*={Spectral Analysis and Soliton Solutions of the Hirota–Maxwell–Bloch System with Nonzero Boundary Conditions}}}
-\usepackage{booktabs,longtable,graphicx,array}
+ title*={Spectral Analysis and Soliton Solutions of the Hirota–Maxwell–Bloch System with Nonzero Boundary Conditions},
+ keywords={Hirota--Maxwell--Bloch 系统,非零边界,逆散射,Riemann--Hilbert 问题,介质重构},
+ keywords*={Hirota--Maxwell--Bloch system,nonzero boundary conditions,inverse scattering,Riemann--Hilbert problem,medium reconstruction}}}
+\usepackage{booktabs,longtable,graphicx,array,placeins}
 \hypersetup{allcolors=black}
 \newtheorem{proposition}{命题}
 \newtheorem{remark}{注}
@@ -27,33 +29,81 @@
 \setlength{\@fpsep}{14pt}
 \setlength{\@fpbot}{0pt plus 1fil}
 \makeatother
+% Retain fduthesis front matter and page geometry; the body is a continuous article.
+\counterwithout{section}{chapter}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\theHsection}{\arabic{section}}
+\counterwithout{equation}{chapter}
+\counterwithin{equation}{section}
+\counterwithout{figure}{chapter}
+\counterwithin{figure}{section}
+\counterwithout{table}{chapter}
+\counterwithin{table}{section}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\ExplSyntaxOn
+\clist_map_inline:nn { axiom,corollary,definition,example,lemma,theorem,proposition,remark }
+  { \counterwithout{#1}{chapter} \counterwithin{#1}{section} }
+% No classification was supplied in the original project.
+\cs_set_protected:Npn \__fdu_clc:nn #1#2 { }
+\ExplSyntaxOff
+\makeatletter
+% fduthesis loads hyperref at the end of the preamble.
+\AtBeginDocument{%
+  \def\toclevel@section{0}%
+  \def\toclevel@subsection{1}%
+  \def\toclevel@subsubsection{2}}
+\makeatother
+\ctexset{
+ section={name={,.},number=\arabic{section},format={\large\sffamily\bfseries},
+   beforeskip=1.2em,afterskip=0.65em,aftername=\quad},
+ subsection={name={},number=\thesection.\arabic{subsection},
+   format={\normalsize\sffamily\bfseries},beforeskip=1em,afterskip=0.5em,aftername=\quad},
+ subsubsection={name={},number=\thesubsection.\arabic{subsubsection},
+   format={\normalsize\sffamily},beforeskip=0.8em,afterskip=0.4em},
+ section/tocline={\normalfont\sffamily\CTEXnumberline{#1}#2},
+ subsection/tocline={\normalfont\CTEXnumberline{#1}#2}}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\quad #1}}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
 \begin{document}
 \raggedbottom
 \fancyhead[R]{}
 \frontmatter
+\begin{abstract}
+本文研究两端同相非零光场背景下的 Hirota--Maxwell--Bloch 系统. 从规范 Lax 对出发, 建立两叶谱曲面的单值化、Jost 解的解析性、散射数据的约化及简单离散谱的留数条件. 在具有相容边界值的 Riemann--Hilbert 解类中, 推导含离散主部和连续谱积分的表示、光场与介质重构公式以及同相端态的迹公式和相位条件. 对一个纯虚简单四点轨道, 直接消去有限维留数系统, 以严格正的 Schur 行列式证明无反射矩阵解的全局存在唯一性. 利用谱无穷远和两个共振原像重构光场、极化与粒子数反转, 通过极点可去性和矩阵对数导数恢复完整 Lax 对, 验证原 HMB 方程、Bloch 约束及同相非零边界. 数值求值展示该单轨道解的三场分布、传播速度与内部振荡.
+\end{abstract}
+\begin{abstract*}
+We study the Hirota--Maxwell--Bloch system with identical nonzero optical backgrounds at both spatial infinities. Starting from the gauged Lax pair, we establish uniformization, analyticity of the Jost solutions, scattering reductions, and residue conditions for simple discrete eigenvalues. For Riemann--Hilbert solutions with compatible boundary values, we derive a representation containing discrete principal parts and a continuous-spectrum integral, reconstruction formulas for the optical and medium fields, and the trace formula with the equal-phase constraint. For one purely imaginary four-point orbit, direct elimination of the residue system and a strictly positive Schur determinant establish global existence and uniqueness of the reflectionless matrix solution. Reconstruction at spectral infinity and at both resonance preimages recovers all three fields. Removability of the apparent poles and matrix logarithmic derivatives yield the complete Lax pair and verify the original equations, the Bloch constraint, and the prescribed boundary conditions. Numerical evaluation illustrates the field profiles, propagation speed, and internal oscillation of this solution.
+\end{abstract*}
 \begingroup
-\linespread{0.9}\selectfont
+\linespread{1.15}\selectfont
 \tableofcontents
 \endgroup
 \mainmatter
-\chapter{绪论}\label{ch:intro}
+\section{绪论}\label{ch:intro}
 \input{section/01-introduction}
-\chapter{谱分析}\label{ch:model}
+\section{谱分析}\label{ch:model}
 \input{section/02-model}
-\chapter{Jost 解}\label{ch:direct}
+\section{Jost 解}\label{ch:direct}
 \input{section/03-jost}
-\chapter{散射矩阵}\label{ch:scattering}
+\section{散射矩阵}\label{ch:scattering}
 \input{section/04-scattering}
-\chapter{对称性}\label{ch:symmetry}
+\section{对称性}\label{ch:symmetry}
 \input{section/05-symmetry}
-\chapter{离散谱与留数条件}\label{ch:discrete}
+\section{离散谱与留数条件}\label{ch:discrete}
 \input{section/06-discrete}
-\chapter{渐近行为}\label{ch:asymptotics}
+\section{渐近行为}\label{ch:asymptotics}
 \input{section/07-asymptotics}
-\chapter{Riemann--Hilbert 问题}\label{ch:rhp}\label{ch:soliton}
+\section{Riemann--Hilbert 问题}\label{ch:rhp}\label{ch:soliton}
 \input{section/08-rhp}
-\chapter{数值结果与动力学分析}\label{ch:conclusion}
+\section{数值结果与动力学分析}\label{ch:conclusion}
 \input{section/09-numerics}
+\FloatBarrier
 \backmatter
 \begingroup
 \linespread{1.2}\selectfont

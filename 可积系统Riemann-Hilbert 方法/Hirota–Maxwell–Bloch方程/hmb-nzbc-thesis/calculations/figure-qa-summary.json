@@ -1,0 +1,203 @@
+{
+  "backend": "Python / Matplotlib only",
+  "source_preflight": {
+    "ready": true,
+    "strict": false,
+    "counts": {
+      "PASS": 19,
+      "WARN": 2,
+      "FAIL": 0
+    }
+  },
+  "source_warning_review": "Two warnings concern generic Nature production widths and missing TIFF: this thesis uses vector PDFs and SVG sidecars. The 156.972 mm source canvases are placed at 146.4 mm, except spectral diagrams at 0.78 times that width.",
+  "reference_reading": {
+    "source": "Zhang and Fan (2020), DOI 10.1007/s00033-020-01371-z",
+    "spectral_section": "Section 2, PDF pages 2-4, with equations (2.1)-(2.14)",
+    "discrete_figure": "Figure 2, PDF page 11: inspected original visual and relation to section 6",
+    "numerical_section": "Section 9, PDF pages 19-27; equations (9.1)-(9.13) and figure organization",
+    "original_images_inspected": [
+      "Figure 1 on PDF page 4",
+      "Figure 2 on PDF page 11",
+      "Figure 3 on PDF page 21"
+    ],
+    "adaptation": "Visual restraint and surface/contour/profile organization only. GI quadrant analyticity and its extra z->-z symmetry are not imported into HMB."
+  },
+  "figures": {
+    "analytic-regions": {
+      "claim": "The HMB contour is real axis plus circle, with D+ pale blue and on the left of every arrow.",
+      "panels": [
+        "single symbolic domain diagram"
+      ],
+      "alignment_verdict": "NOT APPLICABLE",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 0,
+        "exemptions": 0
+      },
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 7.0,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 3,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "No collision warnings.",
+      "sha256": "154cc79e886bba304e349e2424633fd0c47329b7b346f9976082f02a827440b9",
+      "visual_review": {
+        "all_panels_and_complete_figure_inspected": true,
+        "labels": "original tilded optical and polarization fields; eta unchanged",
+        "uncertainty": "not applicable: deterministic exact-solution evaluation, no stochastic samples",
+        "integrity": "No PDE discretization, filtering, synthetic observations, or uncertainty estimates; independent analytic surface and contour grids are declared in plot-results.json."
+      },
+      "minimum_glyph_after_manuscript_placement_pt": 5.092271233086156
+    },
+    "discrete-spectrum": {
+      "claim": "Conjugation and sheet exchange generate a general four-point HMB orbit.",
+      "panels": [
+        "single symbolic general-quartet diagram"
+      ],
+      "alignment_verdict": "NOT APPLICABLE",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 0,
+        "exemptions": 0
+      },
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 7.0,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 3,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "No collision warnings.",
+      "sha256": "a19a4fbd3b7462ae46d503279bf89c10ae68582bdcc75f256b15098f422a1a36",
+      "visual_review": {
+        "all_panels_and_complete_figure_inspected": true,
+        "labels": "original tilded optical and polarization fields; eta unchanged",
+        "uncertainty": "not applicable: deterministic exact-solution evaluation, no stochastic samples",
+        "integrity": "No PDE discretization, filtering, synthetic observations, or uncertainty estimates; independent analytic surface and contour grids are declared in plot-results.json."
+      },
+      "minimum_glyph_after_manuscript_placement_pt": 5.092271233086156
+    },
+    "one-soliton-fields": {
+      "claim": "The reconstructed one-orbit optical and medium fields are localized on the same moving region.",
+      "panels": [
+        "a: optical amplitude surface",
+        "b: polarization amplitude surface",
+        "c: population inversion surface",
+        "d: optical localization and propagation",
+        "e: polarization localization and propagation",
+        "f: inversion localization and propagation"
+      ],
+      "alignment_verdict": "PASS",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 7,
+        "exemptions": 0
+      },
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 6.0383386581,
+      "collision_verdict": "REVIEW REQUIRED",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 9,
+        "contained_fill_overlays": 3,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "All nine fill-edge warnings concern the 3D axes tick labels -6, 0 and -1 and projected filled-region bounding boxes; final-size inspection confirms no surface or axis-label occlusion. The top three surfaces and bottom contour panels were inspected separately.",
+      "sha256": "dc68e91bbc7e3a06ee15f5d43fa87115bffeb5fb629c7b01339e07893da41d3f",
+      "visual_review": {
+        "all_panels_and_complete_figure_inspected": true,
+        "labels": "original tilded optical and polarization fields; eta unchanged",
+        "uncertainty": "not applicable: deterministic exact-solution evaluation, no stochastic samples",
+        "integrity": "No PDE discretization, filtering, synthetic observations, or uncertainty estimates; independent analytic surface and contour grids are declared in plot-results.json."
+      },
+      "minimum_glyph_after_manuscript_placement_pt": 5.6316590190979285
+    },
+    "one-soliton-dynamics": {
+      "claim": "The one-orbit solution separates envelope translation from internal oscillation.",
+      "panels": [
+        "a: localized profiles in the comoving coordinate",
+        "b: alpha-dependent internal oscillation at the comoving center"
+      ],
+      "alignment_verdict": "PASS",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 1,
+        "exemptions": 0
+      },
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 5.6,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "No collision warnings.",
+      "sha256": "2b472b62deb8b334871e9a87fecbeb74aff2fc8b4dbbf9e48c950f88c3bdfef0",
+      "visual_review": {
+        "all_panels_and_complete_figure_inspected": true,
+        "labels": "original tilded optical and polarization fields; eta unchanged",
+        "uncertainty": "not applicable: deterministic exact-solution evaluation, no stochastic samples",
+        "integrity": "No PDE discretization, filtering, synthetic observations, or uncertainty estimates; independent analytic surface and contour grids are declared in plot-results.json."
+      },
+      "minimum_glyph_after_manuscript_placement_pt": 5.222842290344775
+    },
+    "one-soliton-velocity": {
+      "claim": "Changing beta changes the envelope velocity at fixed internal frequency.",
+      "panels": [
+        "a: beta=0 with predicted center trajectory",
+        "b: beta=0.15 with predicted center trajectory"
+      ],
+      "alignment_verdict": "PASS",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 1,
+        "exemptions": 0
+      },
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 5.95,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "No collision warnings.",
+      "sha256": "df4353b06a457ae655191141957b121c4f20cc9cb924a6cab477937923a4df69",
+      "visual_review": {
+        "all_panels_and_complete_figure_inspected": true,
+        "labels": "original tilded optical and polarization fields; eta unchanged",
+        "uncertainty": "not applicable: deterministic exact-solution evaluation, no stochastic samples",
+        "integrity": "No PDE discretization, filtering, synthetic observations, or uncertainty estimates; independent analytic surface and contour grids are declared in plot-results.json."
+      },
+      "minimum_glyph_after_manuscript_placement_pt": 5.549269933491324
+    }
+  },
+  "geometry_check": "figure-geometry-check.json",
+  "aggregate_collision_failures": 0,
+  "aggregate_reviewed_warnings": 9,
+  "manuscript_placement": {
+    "text_width_mm": 146.4,
+    "source_width_mm": 156.972,
+    "numerical_scale": 0.9326504089901384,
+    "spectral_scale": 0.727467319012308
+  }
+}

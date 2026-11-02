@@ -1,9 +1,13 @@
-\section{散射系数与反射系数}
-两组 Jost 基底在普通连续谱上确定散射矩阵
+\subsection{散射矩阵与解析系数}
+记 $\Sigma^\circ=\Sigma\setminus\{0,\pm\ii q_0,z_a^\pm\}$. 在 $\Sigma^\circ$ 上, 两组 Jost 解为同一空间谱方程的基本解矩阵, 因而存在与 $x$ 无关的散射矩阵
 \begin{equation}\label{eq:Sdef}
 \phi_+(x,t,z)=\phi_-(x,t,z)S(z),\qquad S=(s_{jk})_{j,k=1}^{2}.
 \end{equation}
-散射系数的解析域由第三章的 Jost 解析列确定.
+其列关系为
+\begin{equation}\label{eq:scattering-columns}
+\phi_{+,1}=s_{11}\phi_{-,1}+s_{21}\phi_{-,2},\qquad
+\phi_{+,2}=s_{12}\phi_{-,1}+s_{22}\phi_{-,2}.
+\end{equation}
 
 \begin{proposition}[散射矩阵与 Wronskian]\label{prop:scattering}
 在定理 \ref{thm:jost} 的条件下,
@@ -17,25 +21,35 @@ s_{22}&=\dfrac{\det(\phi_{-,1},\phi_{+,2})}{\gamma},\label{eq:wronskian}\\
 s_{21}&=\dfrac{\det(\phi_{-,1},\phi_{+,1})}{\gamma},&
 s_{12}&=\dfrac{\det(\phi_{+,2},\phi_{-,2})}{\gamma}.\nonumber
 \end{align}
-其中 $s_{11}$ 在 $D_-$ 解析, $s_{22}$ 在 $D_+$ 解析, 并在相应闭域中避开特殊点的紧集上连续. $s_{12},s_{21}$ 在普通连续谱上连续.
+其中 $s_{11}$ 在 $D_-$ 解析, $s_{22}$ 在 $D_+$ 解析, 并连续延拓到相应闭域中避开 $0,\pm\ii q_0$ 的紧集. $s_{12},s_{21}$ 在 $\Sigma^\circ$ 上连续; 在共振原像处使用空间归一化值.
 \end{proposition}
 \begin{proof}
-由 $\tr U=0$, Abel 恒等式给出 $\partial_x\det\phi_\pm=0$. 在归一化端取极限, 并使用 $\det e^{\ii\theta\sg}=1$, 得到 \eqref{eq:detjost}. Cramer 法则给出 \eqref{eq:wronskian}. 对透射系数, 两列的指数相消, 故
+由 $\tr U=0$, Abel 恒等式给出 $\partial_x\det\phi_\pm=0$. 在归一化端取极限, 并使用 $\det e^{\ii\theta\sg}=1$, 得到 $\det\phi_\pm=\gamma$. 对 \eqref{eq:Sdef} 取行列式即得 $\det S=1$. 对第一条列关系分别与 $\phi_{-,2}$、$\phi_{-,1}$ 取行列式, 有
+\[
+\det(\phi_{+,1},\phi_{-,2})=s_{11}\gamma,\qquad
+\det(\phi_{-,1},\phi_{+,1})=s_{21}\gamma.
+\]
+第二条列关系同理给出 $s_{12},s_{22}$, 即 \eqref{eq:wronskian}. 对透射系数, 两列的指数相消, 故
 \[
 s_{11}=\dfrac{\det(\mu_{+,1},\mu_{-,2})}{\gamma},\qquad
 s_{22}=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{\gamma}.
 \]
-两个分子分别由 $D_-$ 和 $D_+$ 的解析列组成, 且 $\gamma$ 的零点只位于分支点. 定理 \ref{thm:jost} 因而给出所述解析性与连续性.
+两个分子分别由 $D_-$ 和 $D_+$ 的解析列组成, 且 $\gamma$ 的零点只位于分支点. 定理 \ref{thm:jost} 因而给出所述解析性与连续性. 对非对角元, 列指数只留下连续因子 $e^{\pm2\ii\theta}$, 故它们在 $\Sigma^\circ$ 上连续.
 \end{proof}
 
-在透射系数非零的谱弧上定义
+按照 $\phi_+=\phi_-S$ 的约定, 以下称 $s_{11},s_{22}$ 为透射系数. 在其非零的谱弧上定义反射系数
 \begin{equation}\label{eq:reflection}
 \rho(z)=\dfrac{s_{21}(z)}{s_{11}(z)},\qquad
 \widetilde\rho(z)=\dfrac{s_{12}(z)}{s_{22}(z)}.
 \end{equation}
-后续矩阵 RHP 取普通连续谱上 $s_{11}s_{22}\ne0$ 的散射数据.
+由 $\det S=1$,
+\begin{equation}\label{eq:scattering-determinant}
+s_{11}s_{22}-s_{12}s_{21}=1,\qquad
+s_{11}s_{22}(1-\rho\widetilde\rho)=1.
+\end{equation}
+后续矩阵 RHP 取普通连续谱上 $s_{11}s_{22}\ne0$ 的散射数据; 分支点的边界正则性另行列入 RHP 的条件.
 
-\section{演化与共振相容性}
+\subsection{演化与共振相容性}
 设三场为包含 $t=0$ 的开区间 $I$ 上的经典规范 HMB 解, 并满足
 \begin{equation}\label{eq:evolution-regularity}
 \begin{gathered}
@@ -43,7 +57,7 @@ q-q_0\in C(I;W^{3,1}(\mathbb R))\cap C^1(I;L^1(\mathbb R)),\\
 p+\dfrac{\ii\eta_0q_0}{a},\quad\eta-\eta_0\in C(I;W^{1,1}(\mathbb R)).
 \end{gathered}
 \end{equation}
-这些条件保证可对 Jost 积分方程求 $t$ 导数, 且 $V-V_\infty$ 在空间两端趋于零.
+这些条件保证可在避开共振原像的谱参数紧集上对 Jost 积分方程求 $t$ 导数, 且 $V-V_\infty$ 在空间两端趋于零.
 
 \begin{proposition}[散射数据的时间演化]\label{prop:evolution}
 在条件 \eqref{eq:evolution-regularity} 下, 共振点之外的 $\phi_\pm$ 同时满足 Lax 对 \eqref{eq:gaugelax}, $S$ 与 $x,t$ 无关. 对固定 $t$ 的空间归一化 Jost 解
@@ -62,25 +76,30 @@ S_{\rm sp}(z,t)=e^{\ii\lambda Ft\sg}S(z)e^{-\ii\lambda Ft\sg},
 透射系数、离散零点及同时归一化的离散列相关常数均与 $t$ 无关.
 \end{proposition}
 \begin{proof}
-零曲率条件给出
+先将归一化中的传播相位移到右侧. 零曲率条件给出
 \[
 \partial_x(\chi_{\pm,t}-V\chi_\pm)=U(\chi_{\pm,t}-V\chi_\pm).
 \]
-在普通连续谱上, $V_\infty Y=\ii\lambda F Y\sg$. 因而括号中的空间解在归一化端与 $-\chi_\pm\ii\lambda F\sg$ 具有相同渐近行为. 空间 Jost 唯一性给出
+在普通连续谱上, $V_\infty Y=\ii\lambda F Y\sg$. 由 \eqref{eq:evolution-regularity} 和归一化的 $t$ 导数, 空间解 $\chi_{\pm,t}-V\chi_\pm$ 在归一化端与 $-\chi_\pm\ii\lambda F\sg$ 具有相同渐近行为. 对相应齐次 Volterra 方程使用唯一性, 得到
 \[
 \chi_{\pm,t}=V\chi_\pm-\chi_\pm\ii\lambda F\sg.
 \]
-右乘 $e^{\ii\lambda Ft\sg}$, 得到 $\phi_{\pm,t}=V\phi_\pm$. 相应列等式延拓到各自解析域. 对 \eqref{eq:Sdef} 求 $x,t$ 导数, 得到 $S_x=S_t=0$; 对离散列的线性相关关系求导, 同样得到相关常数不变. 将 $\chi_\pm$ 代回散射关系, 得到 \eqref{eq:timeS}, 其非对角元分别带有 $e^{\mp2\ii\lambda Ft}$, 即为 \eqref{eq:timer}.
+右乘 $e^{\ii\lambda Ft\sg}$, 得到 $\phi_{\pm,t}=V\phi_\pm$. 同一论证作用于各解析列. 对 \eqref{eq:Sdef} 求导, 有
+\[
+\phi_-S_x=U\phi_+-U\phi_-S=0,\qquad
+\phi_-S_t=V\phi_+-V\phi_-S=0.
+\]
+因此 $S_x=S_t=0$. 透射系数的解析延拓与零点不变; 离散列相关常数的不变性由相同的微分等式得到. 将 $\chi_\pm$ 代回散射关系得到 \eqref{eq:timeS}, 其非对角元分别带有 $e^{\mp2\ii\lambda Ft}$, 即为 \eqref{eq:timer}.
 \end{proof}
 
 共振点的空间归一化取值由 \eqref{eq:volterra} 定义, 介质方程在此固定了散射矩阵的形式.
 
 \begin{proposition}[共振点的反射条件]\label{prop:resonance}
-固定 $t$. 设三场满足介质方程及共同端态
+固定 $t$, 设 $q-q_0\in L^1(\mathbb R)$, 三场满足介质方程及共同端态
 \[
 (q,p,\eta)\longrightarrow\left(q_0,-\dfrac{\ii\eta_0q_0}{a},\eta_0\right),\qquad x\to\pm\infty.
 \]
-若 $z_a^\pm$ 处的空间 Jost 基底 $\chi_\pm$ 正则可逆, 且具有上述振荡归一化, 则
+若 $z_a^\pm$ 处的空间 Jost 基底 $\chi_\pm$ 连续可逆, 且具有上述振荡归一化, 则
 \[
 [S_{\rm sp}(z_a^\pm,t),\sg]=0,\qquad
 \rho_{\rm sp}(z_a^\pm,t)=\widetilde\rho_{\rm sp}(z_a^\pm,t)=0.
@@ -105,5 +124,5 @@ $\lambda(z_a)=\pm\sqrt{a^2+q_0^2}$ 为非零实数, 空间指数及其逆均有�
 \dfrac{\eta_0\lambda(z_a)}{a}\sg
 =S_{\rm sp}^{-1}\dfrac{\eta_0\lambda(z_a)}{a}\sg S_{\rm sp}.
 \]
-因 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 两个非对角元必须为零. $\det S_{\rm sp}=1$ 保证对角元非零, 从而两反射系数均为零.
+因 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 两个非对角元必须为零. $\det S_{\rm sp}=1$ 保证对角元非零, 从而两反射系数均为零. 这里的取值仅涉及空间谱问题; 含有 $F(k)$ 的传播指数不在 $k=a$ 处求值.
 \end{proof}

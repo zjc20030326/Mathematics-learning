@@ -1,115 +1,118 @@
-\section{平面波背景与介质约束}
+\subsection{平面波背景与介质约束}
 设 $q_0>0$, $a\ne0$, $\eta_0\ne0$, $\alpha,\beta\in\mathbb R$. 系统 \eqref{eq:HMB} 的非零端态由下述平面波给出.
 
 \begin{proposition}[相容背景与 Bloch 长度]\label{prop:bg}\label{prop:bloch}
 HMB 系统具有平面波解
 \begin{equation}\label{eq:background}
-q_{\rm bg}=q_0e^{-\ii\Omega t},\qquad
-p_{\rm bg}=-\dfrac{\ii\eta_0}{a}q_{\rm bg},\qquad
+\widetilde q_{\rm bg}=q_0e^{-\ii\Omega t},\qquad
+\widetilde p_{\rm bg}=-\dfrac{\ii\eta_0}{a}\widetilde q_{\rm bg},\qquad
 \eta=\eta_0,\qquad
 \Omega=-\alpha q_0^2+\dfrac{2\eta_0}{a}.
 \end{equation}
 满足介质方程的经典解有
 \begin{equation}\label{eq:bloch}
-\partial_x(|p|^2+\eta^2)=0.
+\partial_x(|\widetilde p|^2+\eta^2)=0.
 \end{equation}
 在边界 \eqref{eq:targetboundary} 下,
 \begin{equation}\label{eq:C}
-|p|^2+\eta^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right).
+|\widetilde p|^2+\eta^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right).
 \end{equation}
 \end{proposition}
 \begin{proof}
-将不依赖 $x$ 的端态代入介质方程, 得到 $p_{\rm bg}=-\dfrac{\ii\eta_0}{a}q_{\rm bg}$. 光场方程化为
+将不依赖 $x$ 的端态代入介质方程, 得到 $\widetilde p_{\rm bg}=-\dfrac{\ii\eta_0}{a}\widetilde q_{\rm bg}$. 光场方程化为
 \[
-(q_{\rm bg})_t=\ii\left(\alpha q_0^2-\dfrac{2\eta_0}{a}\right)q_{\rm bg}=-\ii\Omega q_{\rm bg}.
+(\widetilde q_{\rm bg})_t=\ii\left(\alpha q_0^2-\dfrac{2\eta_0}{a}\right)\widetilde q_{\rm bg}=-\ii\Omega \widetilde q_{\rm bg}.
 \]
 另一方面, 介质方程给出
 \begin{align*}
-\partial_x(|p|^2+\eta^2)
-&=(2\eta q-2\ii ap)\conj{p}
-+p(2\eta\conj{q}+2\ii a\conj{p})
--2\eta(\conj{q}p+q\conj{p})=0.
+\partial_x(|\widetilde p|^2+\eta^2)
+&=(2\eta \widetilde q-2\ii a\widetilde p)\conj{\widetilde p}
++\widetilde p(2\eta\conj{\widetilde q}+2\ii a\conj{\widetilde p})
+-2\eta(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p})=0.
 \end{align*}
 在空间端点取极限即得 \eqref{eq:C}.
 \end{proof}
 
-\section{Lax 对}
-采用文献\cite{LHP2013}式 (2.2)--(2.4) 的 Lax 表示, 其中原文变量及参数对应为 $t_{\rm source}=x$, $z_{\rm source}=t$, $E=q$, $\omega=-a$. 定义
+\subsection{Lax 对}
+采用文献\cite{LHP2013}式 (2.2)--(2.4) 的 Lax 表示, 其中原文变量及参数对应为 $t_{\rm source}=x$, $z_{\rm source}=t$, $E=\widetilde q$, $\omega=-a$, $\lambda_{\rm source}=k$. 定义
 \begin{equation}\label{eq:potential-matrices}
-Q(q)=\begin{pmatrix}0&q\\-\conj{q}&0\end{pmatrix},\qquad
-R=\begin{pmatrix}\eta&-p\\-\conj{p}&-\eta\end{pmatrix},\qquad
+\widetilde Q=\begin{pmatrix}0&\widetilde q\\-\conj{\widetilde q}&0\end{pmatrix},\qquad
+\widetilde R=\begin{pmatrix}\eta&-\widetilde p\\-\conj{\widetilde p}&-\eta\end{pmatrix},\qquad
 \sg=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
 \end{equation}
-简记 $Q=Q(q)$, 原物理场的 Lax 对为
+原场的 Lax 对为
 \begin{equation}\label{eq:lax}
 \begin{aligned}
-\Phi_x&=U^{\rm phys}\Phi,\qquad \Phi_t=V^{\rm phys}\Phi,\\
-U^{\rm phys}&=-\ii k\sg+Q,\qquad
-V^{\rm phys}=\sum\limits_{j=0}^{3}k^jV_j(q)+\dfrac{\ii R}{k-a}.
+\Phi_x&=\widetilde U\Phi,\qquad \Phi_t=\widetilde V\Phi,\\
+\widetilde U&=-\ii k\sg+\widetilde Q,\qquad
+\widetilde V=\sum\limits_{j=0}^{3}k^jV_j(\widetilde q)+\dfrac{\ii \widetilde R}{k-a}.
 \end{aligned}
 \end{equation}
-其中
+其中 $V_j=V_j(\widetilde q)$ 的表达式为
 \begin{align}
-V_3&=4\ii\beta\sg,\qquad V_2=-\ii\alpha\sg-4\beta Q,\label{eq:V32}\\
+V_3&=4\ii\beta\sg,\qquad V_2=-\ii\alpha\sg-4\beta \widetilde Q,\label{eq:V32}\\
 V_1&=\begin{pmatrix}
--2\ii\beta|q|^2&\alpha q-2\ii\beta q_x\\
--\alpha\conj{q}-2\ii\beta\conj{q_x}&2\ii\beta|q|^2
+-2\ii\beta|\widetilde q|^2&\alpha \widetilde q-2\ii\beta \widetilde q_x\\
+-\alpha\conj{\widetilde q}-2\ii\beta\conj{\widetilde q_x}&2\ii\beta|\widetilde q|^2
 \end{pmatrix},\label{eq:V1}\\
-(V_0)_{11}&=\dfrac{\ii\alpha}{2}|q|^2-\beta(q\conj{q_x}-q_x\conj{q}),\label{eq:V0}\\
-(V_0)_{12}&=2\beta|q|^2q+\dfrac{\ii\alpha}{2}q_x+\beta q_{xx},\nonumber\\
+(V_0)_{11}&=\dfrac{\ii\alpha}{2}|\widetilde q|^2-\beta(\widetilde q\conj{\widetilde q_x}-\widetilde q_x\conj{\widetilde q}),\label{eq:V0}\\
+(V_0)_{12}&=2\beta|\widetilde q|^2\widetilde q+\dfrac{\ii\alpha}{2}\widetilde q_x+\beta \widetilde q_{xx},\nonumber\\
 (V_0)_{21}&=-\conj{(V_0)_{12}},\qquad (V_0)_{22}=-(V_0)_{11}.\nonumber
 \end{align}
 
 \begin{proposition}[Lax 相容性]\label{prop:zc}
-对足够光滑的复场 $q,p$ 和实场 $\eta$, 零曲率条件
+对足够光滑的复场 $\widetilde q,\widetilde p$ 和实场 $\eta$, 零曲率条件
 \begin{equation}\label{eq:zc}
-U^{\rm phys}_t-V^{\rm phys}_x+[U^{\rm phys},V^{\rm phys}]=0
+\widetilde U_t-\widetilde V_x+[\widetilde U,\widetilde V]=0
 \end{equation}
 等价于 \eqref{eq:HMB} 及其共轭方程. 两个 Lax 矩阵满足
 \begin{equation}\label{eq:antihermitian}
-U^{\rm phys}(\conj{k})^\dagger=-U^{\rm phys}(k),\qquad
-V^{\rm phys}(\conj{k})^\dagger=-V^{\rm phys}(k).
+\widetilde U(\conj{k})^\dagger=-\widetilde U(k),\qquad
+\widetilde V(\conj{k})^\dagger=-\widetilde V(k).
 \end{equation}
 \end{proposition}
 \begin{proof}
-约化 \eqref{eq:antihermitian} 来自 $Q^\dagger=-Q$, $R^\dagger=R$ 及 \eqref{eq:V32}--\eqref{eq:V0}. 利用 $U^{\rm phys}(k)=U^{\rm phys}(a)-\ii(k-a)\sg$, 零曲率的有理部分为
+约化 \eqref{eq:antihermitian} 来自 $\widetilde Q^\dagger=-\widetilde Q$, $\widetilde R^\dagger=\widetilde R$ 及 \eqref{eq:V32}--\eqref{eq:V0}. 利用 $\widetilde U(k)=\widetilde U(a)-\ii(k-a)\sg$, 零曲率的有理部分为
 \begin{equation}\label{eq:rationalzc}
--\dfrac{\ii R_x}{k-a}+\dfrac{\ii[U^{\rm phys}(k),R]}{k-a}
-=\dfrac{\ii([U^{\rm phys}(a),R]-R_x)}{k-a}+[\sg,R].
+-\dfrac{\ii \widetilde R_x}{k-a}+\dfrac{\ii[\widetilde U(k),\widetilde R]}{k-a}
+=\dfrac{\ii([\widetilde U(a),\widetilde R]-\widetilde R_x)}{k-a}+[\sg,\widetilde R].
 \end{equation}
-共振留数为零即 $R_x=[U^{\rm phys}(a),R]$, 其独立分量为
+共振留数为零即 $\widetilde R_x=[\widetilde U(a),\widetilde R]$, 其独立分量为
 \[
-p_x=2\eta q-2\ii ap,\qquad
-\eta_x=-(\conj{q}p+q\conj{p}).
+\widetilde p_x=2\eta \widetilde q-2\ii a\widetilde p,\qquad
+\eta_x=-(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p}).
 \]
 多项式的四次至一次项由
-\begin{align*}
-[-\ii\sg,V_3]&=0,\qquad[-\ii\sg,V_2]+[Q,V_3]=0,\\
--(V_2)_x+[-\ii\sg,V_1]+[Q,V_2]&=0,\\
--(V_1)_x+[-\ii\sg,V_0]+[Q,V_1]&=0
-\end{align*}
+\[
+\begin{aligned}
+\relax[-\ii\sg,V_3]&=0,\\
+[-\ii\sg,V_2]+[\widetilde Q,V_3]&=0,\\
+-(V_2)_x+[-\ii\sg,V_1]+[\widetilde Q,V_2]&=0,\\
+-(V_1)_x+[-\ii\sg,V_0]+[\widetilde Q,V_1]&=0.
+\end{aligned}
+\]
 相消. 常数项的 $(1,2)$ 元为
-$q_t-\partial_x(V_0)_{12}-2(V_0)_{11}q-2p$, 且
+$\widetilde q_t-\partial_x(V_0)_{12}-2(V_0)_{11}\widetilde q-2\widetilde p$, 且
 \begin{align*}
-\partial_x(V_0)_{12}+2(V_0)_{11}q
-&=\beta q_{xxx}+\dfrac{\ii\alpha}{2}q_{xx}
-+2\beta(|q|^2q)_x+\ii\alpha|q|^2q
--2\beta q(q\conj{q_x}-q_x\conj{q})\\
-&=\beta(q_{xxx}+6|q|^2q_x)
-+\ii\alpha\left(\dfrac{q_{xx}}{2}+|q|^2q\right).
+\partial_x(V_0)_{12}+2(V_0)_{11}\widetilde q
+&=\beta \widetilde q_{xxx}+\dfrac{\ii\alpha}{2}\widetilde q_{xx}
++2\beta(|\widetilde q|^2\widetilde q)_x+\ii\alpha|\widetilde q|^2\widetilde q
+-2\beta \widetilde q(\widetilde q\conj{\widetilde q_x}-\widetilde q_x\conj{\widetilde q})\\
+&=\beta(\widetilde q_{xxx}+6|\widetilde q|^2\widetilde q_x)
++\ii\alpha\left(\dfrac{\widetilde q_{xx}}{2}+|\widetilde q|^2\widetilde q\right).
 \end{align*}
 这给出光场方程. 常数项的对角元由
-$q(V_0)_{21}+(V_0)_{12}\conj{q}=\partial_x(V_0)_{11}$ 相消, 其余分量由迹零与约化确定.
+$\widetilde q(V_0)_{21}+(V_0)_{12}\conj{\widetilde q}=\partial_x(V_0)_{11}$ 相消, 其余分量由迹零与约化确定.
 \end{proof}
 
-\section{规范变换与背景谱问题}
-为去除端态的共同相位, 将前两节的物理场暂记为 $q_{\rm phys},p_{\rm phys}$, 令
+\subsection{规范变换与背景谱问题}
+为去除端态的共同相位, 令
 \begin{equation}\label{eq:gauge}
 G(t)=e^{-\frac{\ii\Omega t}{2}\sg},\qquad
-\Phi=G\phi,\qquad q=e^{\ii\Omega t}q_{\rm phys},\qquad
-p=e^{\ii\Omega t}p_{\rm phys}.
+\Phi=G\phi,\qquad q=e^{\ii\Omega t}\widetilde q,\qquad
+p=e^{\ii\Omega t}\widetilde p.
 \end{equation}
-下文仍用 $q,p$ 表示规范变换后的场, 并以 \eqref{eq:potential-matrices} 定义 $Q,R$. 此时
+下文仍用 $q,p$ 表示规范变换后的场, 记 $Q=Q(q)=G^{-1}\widetilde QG$, $R=G^{-1}\widetilde RG$, 即将 \eqref{eq:potential-matrices} 中的场替换为 $q,p$. 此时
 \[
 (q,p,\eta)\longrightarrow
 \left(q_0,-\dfrac{\ii\eta_0q_0}{a},\eta_0\right),\qquad x\to\pm\infty.
@@ -139,10 +142,10 @@ F(k)=4\beta k^2-\alpha k-2\beta q_0^2+\dfrac{\eta_0}{a(k-a)}.
 \begin{proof}
 由 $G_x=0$ 和 $G^{-1}G_t=-\dfrac{\ii\Omega}{2}\sg$,
 \[
-U=G^{-1}U^{\rm phys}G,\qquad
-V=G^{-1}V^{\rm phys}G-G^{-1}G_t.
+U=G^{-1}\widetilde UG,\qquad
+V=G^{-1}\widetilde VG-G^{-1}G_t.
 \]
-相位共轭把 $Q(q_{\rm phys})$ 与原介质矩阵分别变为 $Q(q)$ 与 $R$, 得到 \eqref{eq:gaugelax}. 相应规范光场方程为
+相位共轭把 $\widetilde Q,\widetilde R$ 分别变为 $Q,R$, 且 $V_j(q)=G^{-1}V_j(\widetilde q)G$, 得到 \eqref{eq:gaugelax}. 相应规范光场方程为
 \begin{equation}\label{eq:gauged-HMB}
 q_t=\ii\alpha\left(\dfrac{q_{xx}}{2}+|q|^2q\right)
 +\beta(q_{xxx}+6|q|^2q_x)+2p+\ii\Omega q.
@@ -159,7 +162,7 @@ q_t=\ii\alpha\left(\dfrac{q_{xx}}{2}+|q|^2q\right)
 最后一步使用 $\dfrac{\alpha q_0^2}{2}+\dfrac{\Omega}{2}=\dfrac{\eta_0}{a}$, 即得 \eqref{eq:F}.
 \end{proof}
 
-\section{黎曼曲面与单值化}
+\subsection{黎曼曲面与单值化}
 背景矩阵满足 $U_\infty^2=-(k^2+q_0^2)I$, 其特征值为 $\pm\ii\lambda$, 其中
 \begin{equation}\label{eq:spectral-curve}
 \lambda^2=k^2+q_0^2.
@@ -196,11 +199,9 @@ Y(z)=I-\dfrac{\ii}{z}\sg Q_\infty
 \end{equation}
 则
 \begin{equation}\label{eq:diagE}
-\begin{aligned}
-U_\infty Y&=-\ii\lambda Y\sg,\qquad
-\gamma(z):=\det Y=1+\dfrac{q_0^2}{z^2},\\
-Y^{-1}&=\dfrac{I+\dfrac{\ii q_0}{z}\sigma_1}{\gamma(z)}.
-\end{aligned}
+U_\infty Y=-\ii\lambda Y\sg,\qquad
+\gamma(z):=\det Y=1+\dfrac{q_0^2}{z^2},\qquad
+Y^{-1}=\dfrac{I+\dfrac{\ii q_0}{z}\sigma_1}{\gamma(z)}.
 \end{equation}
 背景同时 Lax 解为
 \begin{equation}\label{eq:theta}
@@ -232,7 +233,7 @@ $-\dfrac{\ii(\lambda-k)}{q_0}=-\dfrac{\ii q_0}{z}$; 另一特征向量交换两�
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.78\textwidth]{figures/analytic-regions.pdf}
-\caption{HMB 的单值化谱平面, 示意取 $q_0=1,a=2$. 轮廓 $\Sigma$ 由实轴与圆 $|z|=q_0$ 组成, $D_+$ 为外部上半平面和内部下半圆盘, 其余区域为 $D_-$.}
+\caption{HMB 的单值化谱平面. 轮廓 $\Sigma$ 由实轴与圆 $|z|=q_0$ 组成; 淡蓝色区域为 $D_+$, 白色区域为 $D_-$. 箭头使 $D_+$ 位于轮廓左侧. 方形点为分支点, 叉形点为轮廓交点.}
 \label{fig:analytic-regions}
 \end{figure}
 

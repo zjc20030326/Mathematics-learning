@@ -1,0 +1,20 @@
+{
+  "precision_digits": 60,
+  "symbolic_jump": "det J=1; G=I-J^-1; J(I-G)=I: exact",
+  "contour": "real rays right; inner segment left; upper circle clockwise; lower circle counterclockwise",
+  "test": "independent additive RHP with W=F_plus-F_minus, F_plus=(z+2i)^-2, F_minus=(z-2i)^-2",
+  "points": [
+    "(2.0 + 0.7j)",
+    "(0.3 - 0.2j)",
+    "(2.0 - 0.7j)",
+    "(0.3 + 0.2j)"
+  ],
+  "cauchy_value_errors": [
+    "7.292596028743525e-63",
+    "9.723461371658034e-63",
+    "2.004542914097963e-62",
+    "3.889384548663214e-62"
+  ],
+  "infinity_coefficient_sign_error": "2.908057009033977e-62",
+  "interpretation": "checks signs and orientation, not reflected HMB inverse solvability"
+}

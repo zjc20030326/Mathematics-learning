@@ -1,0 +1,145 @@
+{
+  "verdict": "PASS",
+  "q0": "schematic unit radius only",
+  "contour_arrows": [
+    {
+      "arc": "real axis",
+      "tail": [
+        -2.25,
+        0.0
+      ],
+      "head": [
+        -1.85,
+        0.0
+      ],
+      "left_domain_value": 0.015241380951247947,
+      "right_domain_value": -0.015241380951247947
+    },
+    {
+      "arc": "real axis",
+      "tail": [
+        1.85,
+        0.0
+      ],
+      "head": [
+        2.25,
+        0.0
+      ],
+      "left_domain_value": 0.015241380951247947,
+      "right_domain_value": -0.015241380951247947
+    },
+    {
+      "arc": "real axis",
+      "tail": [
+        -0.18,
+        0.0
+      ],
+      "head": [
+        -0.57,
+        0.0
+      ],
+      "left_domain_value": 0.12181882644921112,
+      "right_domain_value": -0.12181882644921112
+    },
+    {
+      "arc": "real axis",
+      "tail": [
+        0.57,
+        0.0
+      ],
+      "head": [
+        0.18,
+        0.0
+      ],
+      "left_domain_value": 0.12181882644921112,
+      "right_domain_value": -0.12181882644921112
+    },
+    {
+      "arc": "upper circle",
+      "tail": [
+        -0.6819983600624984,
+        0.7313537016191706
+      ],
+      "head": [
+        -0.5735764363510462,
+        0.8191520442889917
+      ],
+      "left_domain_value": 0.03078107533613881,
+      "right_domain_value": -0.03140304089152646
+    },
+    {
+      "arc": "lower circle",
+      "tail": [
+        -0.6819983600624986,
+        -0.7313537016191705
+      ],
+      "head": [
+        -0.5735764363510464,
+        -0.8191520442889916
+      ],
+      "left_domain_value": 0.03140304089152662,
+      "right_domain_value": -0.03078107533613854
+    }
+  ],
+  "domain_shading_samples": [
+    {
+      "point": [
+        -1.6,
+        1.2
+      ],
+      "domain": "D+"
+    },
+    {
+      "point": [
+        1.7,
+        0.9
+      ],
+      "domain": "D+"
+    },
+    {
+      "point": [
+        0.2,
+        -0.4
+      ],
+      "domain": "D+"
+    },
+    {
+      "point": [
+        -0.4,
+        -0.2
+      ],
+      "domain": "D+"
+    },
+    {
+      "point": [
+        -1.6,
+        -1.2
+      ],
+      "domain": "D-"
+    },
+    {
+      "point": [
+        1.7,
+        -0.9
+      ],
+      "domain": "D-"
+    },
+    {
+      "point": [
+        0.2,
+        0.4
+      ],
+      "domain": "D-"
+    },
+    {
+      "point": [
+        -0.4,
+        0.2
+      ],
+      "domain": "D-"
+    }
+  ],
+  "quartet": "four distinct off-contour points closed under conjugation and h(z)=-q0^2/z",
+  "plus_points": "zeta_j and h(conj(zeta_j))",
+  "minus_points": "conj(zeta_j) and h(zeta_j)"
+}

@@ -1,22 +1,22 @@
-\section{模型与非零光场边界}
+\subsection{模型与非零光场边界}
 Hirota–Maxwell–Bloch (HMB) 系统描述高阶色散光场与两能级介质的耦合\cite{PN1995}:
 \begin{equation}\label{eq:HMB}
 \begin{cases}
-q_t=\ii\alpha\left(\dfrac{1}{2}q_{xx}+|q|^2q\right)
-+\beta(q_{xxx}+6|q|^2q_x)+2p,\\
-p_x=2\eta q-2\ii ap,\\
-\eta_x=-(\conj{q}p+q\conj{p}),
+\widetilde q_t=\ii\alpha\left(\dfrac{1}{2}\widetilde q_{xx}+|\widetilde q|^2\widetilde q\right)
++\beta(\widetilde q_{xxx}+6|\widetilde q|^2\widetilde q_x)+2\widetilde p,\\
+\widetilde p_x=2\eta\widetilde q-2\ii a\widetilde p,\\
+\eta_x=-(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p}),
 \end{cases}
 \end{equation}
-其中 $x$ 为推迟时间, $t$ 为演化变量, $q,p$ 分别为复光场和复极化, $\eta$ 为实值粒子数反转, $\alpha,\beta,a$ 为实参数. 固定 $q_0>0$、$a\ne0$ 和 $\eta_0\ne0$, 取两端同相的非零边界
+其中 $x$ 为推迟时间, $t$ 为演化变量,  $\widetilde q,\widetilde p$ 分别为复光场和复极化, $\eta$ 为实值粒子数反转, $\alpha,\beta,a$ 为实参数. 固定 $q_0>0$、$a\ne0$ 和 $\eta_0\ne0$, 取两端同相的非零边界
 \begin{equation}\label{eq:targetboundary}
-(q,p,\eta)\longrightarrow
+(\widetilde q,\widetilde p,\eta)\longrightarrow
 \left(q_0e^{-\ii\Omega t},-\dfrac{\ii\eta_0q_0}{a}e^{-\ii\Omega t},\eta_0\right),
 \qquad x\longrightarrow\pm\infty,
 \end{equation}
 其中 $\Omega=-\alpha q_0^2+\dfrac{2\eta_0}{a}$. 非零光场产生双叶谱曲面 $\lambda^2=k^2+q_0^2$, 介质耦合则在演化 Lax 矩阵中引入实共振极点 $k=a$.
 
-\section{相关工作与主要结果}
+\subsection{相关工作与主要结果}
 Li、He 与 Porsezian\cite{LHP2013}给出了 HMB 的 Lax 对和 Darboux 变换, Zhao 与 Zhaqilao\cite{ZZ2026}研究了平面波及周期背景上的呼吸子和怪波. Li、Xia 与 Wei\cite{LXW2021}建立了零光场背景下的无反射 RHP. Liu 与 Liu\cite{LL2026}的非零背景施加于粒子数反转, 光场仍在无穷远趋于零; 边界 \eqref{eq:targetboundary} 则直接改变空间谱矩阵.
 
 非零边界逆散射的谱分析与矩阵重构可参见范恩贵\cite{Fan2022}、Zhang--Fan\cite{ZhangFan2020}及 Zhao--Fan\cite{ZhaoFan2019}. Zhang、Chen 与 Yan\cite{ZCY2020}讨论了 Hirota 方程的非零边界散射和相位约束, Biondini 等\cite{BGKL2019}建立了含频率相关介质的两能级系统的非零光场散射理论. 对局部 HMB 系统, 光场与介质的恢复分别由谱无穷远展开和实共振点的矩阵共轭确定.
