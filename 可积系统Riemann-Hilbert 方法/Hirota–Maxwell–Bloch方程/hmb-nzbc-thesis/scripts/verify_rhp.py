@@ -1,4 +1,6 @@
-"""Verify the one-quartet RHP independently of the PDE residual calculation."""
+"""Historical Darboux cross-check in the original coordinate notation.
+Not used to generate the current manuscript figures or direct-RHP results.
+Verify the one-quartet RHP independently of the PDE residual calculation."""
 from pathlib import Path
 import json
 import mpmath as m

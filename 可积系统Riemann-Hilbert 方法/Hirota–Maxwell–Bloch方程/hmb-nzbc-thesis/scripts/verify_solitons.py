@@ -1,4 +1,6 @@
-"""Direct PDE residuals by arbitrary-precision differentiation of explicit fields.
+"""Historical Darboux cross-check in the original coordinate notation.
+Not used to generate the current manuscript figures or direct-RHP results.
+Direct PDE residuals by arbitrary-precision differentiation of explicit fields.
 No use of the PDE to produce derivatives. Run from any working directory.
 """
 from pathlib import Path

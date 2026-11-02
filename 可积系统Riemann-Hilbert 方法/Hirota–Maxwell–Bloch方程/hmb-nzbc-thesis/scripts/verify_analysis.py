@@ -1,26 +1,26 @@
-"""Exact algebra for the high-energy transformation and resonance regularity."""
+"""High-energy and phase checks in k,lambda,z notation; archived extra checks are retained."""
 from pathlib import Path
 import json
 import sympy as s
 
 I=s.I
-q,r,qx,rx,Q,w=s.symbols("q r qx rx Q w",nonzero=True)
+q,r,qx,rx,q0,z=s.symbols("q r qx rx q0 z",nonzero=True)
 sigma=s.diag(1,-1)
 B=s.Matrix([[0,q],[r,0]])
 Bx=s.Matrix([[0,qx],[rx,0]])
-lam=(w-Q**2/w)/2
-rho=(w+Q**2/w)/2
-U=-I*lam*sigma+sigma*B
-T=s.eye(2)-I*B/w
-C1=I*((Q**2-q*r)*sigma+Bx)
-gauge=(U*T+I*rho*T*sigma+I*Bx/w-C1/w).applyfunc(s.simplify)
+k=(z-q0**2/z)/2
+lam=(z+q0**2/z)/2
+U=-I*k*sigma+sigma*B
+T=s.eye(2)-I*B/z
+C1=I*((q0**2-q*r)*sigma+Bx)
+gauge=(U*T+I*lam*T*sigma+I*Bx/z-C1/z).applyfunc(s.simplify)
 assert gauge==s.zeros(2)
 
 a,b,e,alpha,beta=s.symbols("a b eta0 alpha beta",real=True,nonzero=True)
-F=4*beta*(I*b)**2-alpha*I*b-2*beta*Q**2+e/(a*(I*b-a))
-Qreal=s.symbols("Qreal",positive=True)
-F=F.subs(Q,Qreal)
-A=-4*beta*b**2-2*beta*Qreal**2-e/(a*a+b*b)
+F=4*beta*(I*b)**2-alpha*I*b-2*beta*q0**2+e/(a*(I*b-a))
+q0real=s.symbols("q0real",positive=True)
+F=F.subs(q0,q0real)
+A=-4*beta*b**2-2*beta*q0real**2-e/(a*a+b*b)
 Bphase=-alpha*b-e*b/(a*(a*a+b*b))
 phase=s.simplify(F-A-I*Bphase)
 assert phase==0

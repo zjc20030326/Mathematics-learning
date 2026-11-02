@@ -15,13 +15,18 @@
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\sg}{\sigma_3}
 \newcommand{\Id}{I}
-\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\conj}[1]{{#1}^{*}}
 \DeclareMathOperator{\Res}{Res}
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\sech}{sech}
 \allowdisplaybreaks[2]
 \setlength{\emergencystretch}{2em}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{14pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
 \begin{document}
 \raggedbottom
 \fancyhead[R]{}
@@ -33,17 +38,26 @@
 \mainmatter
 \chapter{绪论}\label{ch:intro}
 \input{section/01-introduction}
-\chapter{非零背景与谱分析}\label{ch:model}
+\chapter{谱分析}\label{ch:model}
 \input{section/02-model}
-\chapter{Jost 解与直接散射}\label{ch:direct}
-\input{section/03-scattering}
-\chapter{非零边界的矩阵 RHP}\label{ch:rhp}
-\input{section/04-rhp}
-\chapter{无反射 RHP 与孤子解}\label{ch:soliton}
-\input{section/05-solitons}
+\chapter{Jost 解}\label{ch:direct}
+\input{section/03-jost}
+\chapter{散射矩阵}\label{ch:scattering}
+\input{section/04-scattering}
+\chapter{对称性}\label{ch:symmetry}
+\input{section/05-symmetry}
+\chapter{离散谱与留数条件}\label{ch:discrete}
+\input{section/06-discrete}
+\chapter{渐近行为}\label{ch:asymptotics}
+\input{section/07-asymptotics}
+\chapter{Riemann--Hilbert 问题}\label{ch:rhp}\label{ch:soliton}
+\input{section/08-rhp}
 \chapter{数值结果与动力学分析}\label{ch:conclusion}
-\input{section/06-conclusion}
+\input{section/09-numerics}
 \backmatter
+\begingroup
+\linespread{1.2}\selectfont
 \setlength{\bibsep}{2pt}
 \bibliography{citelist}
+\endgroup
 \end{document}

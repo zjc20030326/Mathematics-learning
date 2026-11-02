@@ -1,0 +1,56 @@
+复共轭与换叶分别改变谱根虚部的符号, 并交换两个解析域. 它们共同确定 Jost 解、散射数据和离散谱的约化.
+
+\begin{proposition}[共轭与换叶对称]\label{prop:symmetry}
+令
+\[
+\sigma_2=\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix},\qquad
+C(z)=\dfrac{\ii z}{q_0}\sigma_1.
+\]
+在定理 \ref{thm:jost} 的条件下, 普通连续谱上的 Jost 解及散射矩阵满足
+\begin{equation}\label{eq:conjugation}
+\phi_\pm(z)=\sigma_2\conj{\phi_\pm(\conj{z})}\sigma_2,\qquad
+\mu_\pm(z)=\sigma_2\conj{\mu_\pm(\conj{z})}\sigma_2,\qquad
+S(z)=\sigma_2\conj{S(\conj{z})}\sigma_2,
+\end{equation}
+\begin{equation}\label{eq:musheet}
+\phi_\pm(h(z))=\phi_\pm(z)C(z),\qquad
+\mu_\pm(h(z))=\mu_\pm(z)C(z),\qquad
+S(h(z))=\sigma_1S(z)\sigma_1.
+\end{equation}
+相应解析列及透射系数在各自域内满足同一约化. 逐元写为
+\begin{equation}\label{eq:sconj}
+s_{22}(z)=\conj{s_{11}(\conj{z})},\qquad
+s_{12}(z)=-\conj{s_{21}(\conj{z})},
+\end{equation}
+\begin{equation}\label{eq:reflection-symmetry}
+\rho(z)=-\conj{\widetilde\rho(\conj{z})},\qquad
+\rho(h(z))=\widetilde\rho(z).
+\end{equation}
+在实谱上还有 $S(z)^\dagger S(z)=I$.
+\end{proposition}
+\begin{proof}
+空间 Lax 矩阵与背景矩阵满足
+\[
+U(z)=\sigma_2\conj{U(\conj{z})}\sigma_2,\qquad
+Y(z)=\sigma_2\conj{Y(\conj{z})}\sigma_2.
+\]
+这是 $\sigma_2\sg\sigma_2=-\sg$、$\sigma_2\conj{Q}\sigma_2=Q$ 及 $k(\conj{z})=\conj{k(z)}$ 的结果. 再由 $\theta(\conj{z})=\conj{\theta(z)}$, 共轭后的 Jost 矩阵满足同一空间方程和归一化. 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:conjugation} 的前两式. 将其代入 $\phi_+=\phi_-S$, 得到散射矩阵的共轭约化.
+
+换叶保持 $k$ 而使 $\lambda$ 与 $\theta$ 变号. 由 \eqref{eq:E},
+\begin{equation}\label{eq:Esheet}
+Y(h(z))=Y(z)C(z),\qquad C(z)\sg=-\sg C(z).
+\end{equation}
+于是 $\phi_\pm(z)C(z)$ 在 $h(z)$ 处满足同一空间方程, 其归一化为
+\[
+Y(z)e^{\ii\theta(z)\sg}C(z)
+=Y(h(z))e^{\ii\theta(h(z))\sg}.
+\]
+再次由唯一性, 得到 Jost 换叶关系, 修正解的关系随之成立. 比较
+$\phi_+(h(z))=\phi_-(h(z))S(h(z))$ 与 $\phi_+(z)C(z)=\phi_-(z)S(z)C(z)$, 即得
+\[
+S(h(z))=C(z)^{-1}S(z)C(z)=\sigma_1S(z)\sigma_1.
+\]
+这些等式逐列延拓至各自解析域. 式 \eqref{eq:sconj} 及反射系数的关系由矩阵元和 \eqref{eq:reflection} 得到.
+
+在实 $z$ 上, $k,\lambda,F$ 为实数, 且 $U^\dagger=-U$. 因而 $\phi_\pm^\dagger\phi_\pm$ 与 $x$ 无关, 其归一化端值为 $Y^\dagger Y=\gamma I$. 代入散射关系得 $S^\dagger S=I$.
+\end{proof}

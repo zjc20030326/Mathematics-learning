@@ -1,7 +1,7 @@
 {
   "method": "Exact Schur solve of residue system; infinity/resonance reconstruction",
   "parameters": {
-    "Q": "1",
+    "q0": "1",
     "b": "5/4",
     "kappa": "3/4",
     "a": "2",
@@ -10,7 +10,7 @@
     "beta": "1/10"
   },
   "F": "-3321/3560 - 469*I/356",
-  "variables": "T=exp(2 Re(s)), C=exp(2 i Im(s)), s=kappa*(x-F*z)",
+  "variables": "tau=exp(2 Re(s)), C=exp(2 i Im(s)), T=tau*C, s=kappa*(x-F*t)",
   "residue_system_residuals": [
     "0",
     "0"

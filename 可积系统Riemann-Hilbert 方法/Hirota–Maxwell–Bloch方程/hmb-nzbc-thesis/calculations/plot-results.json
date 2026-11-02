@@ -1,7 +1,8 @@
 {
-  "method": "NumPy solution of equilibrated 4x4 residue block system; infinity/resonance reconstruction",
+  "method": "Equilibrated 4x4 direct residue solve; infinity/resonance reconstruction",
+  "variables": "x,t; k original spectral parameter; lambda background root; z uniformization",
   "parameters": {
-    "Q": 1.0,
+    "q0": 1.0,
     "a": 2.0,
     "eta0": 0.6,
     "alpha": 1.0,
@@ -12,14 +13,19 @@
     "x_min": -6,
     "x_max": 6,
     "x_count": 401,
-    "z_min": -1.5,
-    "z_max": 1.5,
-    "z_count": 251
+    "t_min": -1.5,
+    "t_max": 1.5,
+    "t_count": 251
+  },
+  "surface_grid": {
+    "x_count": 121,
+    "t_count": 101,
+    "rule": "separate analytic sampling grid for vector surface rendering"
   },
   "base_errors": {
-    "scaled_linear_residual": 8.371286939232045e-16,
-    "Bloch_error": 7.7755606928916195e-16,
-    "eta_imaginary": 5.208507236620363e-16
+    "scaled_linear_residual": 8.448410592419093e-16,
+    "Bloch_error": 6.726272082619646e-16,
+    "eta_imaginary": 4.579669976578771e-16
   },
   "high_precision_comparison_points": [
     [
@@ -44,12 +50,12 @@
     ]
   ],
   "high_precision_comparison_q_p_eta": [
-    6.004449063730082e-16,
-    1.982448181609094e-16,
-    2.220513810852149e-16
+    9.485749680535094e-16,
+    2.194270917860438e-16,
+    1.2412670766236366e-16
   ],
   "dynamics": {
-    "profile_z_over_T": [
+    "profile_t_over_T": [
       0,
       0.25,
       0.5
@@ -59,19 +65,19 @@
         "alpha": -0.048,
         "A_b": -1.1960000000000002,
         "B_b": 1.3877787807814457e-17,
-        "T_z": null
+        "T_t": null
       },
       {
         "alpha": 0.5,
         "A_b": -1.1960000000000002,
         "B_b": -0.822,
-        "T_z": 3.4184013289735895
+        "T_t": 3.4184013289735895
       },
       {
         "alpha": 1.0,
         "A_b": -1.1960000000000002,
         "B_b": -1.572,
-        "T_z": 1.787484664386953
+        "T_t": 1.787484664386953
       }
     ],
     "beta_cases": [
@@ -79,29 +85,131 @@
         "beta": 0.0,
         "A_b": -0.096,
         "B_b": -1.572,
-        "T_z": 1.787484664386953,
+        "T_t": 1.787484664386953,
         "errors": {
           "scaled_linear_residual": 9.65405288049483e-16,
-          "Bloch_error": 7.774955209629869e-16,
-          "eta_imaginary": 4.718447854656915e-16
+          "Bloch_error": 7.218348810931987e-16,
+          "eta_imaginary": 3.885780586188048e-16
         }
       },
       {
         "beta": 0.15,
         "A_b": -1.746,
         "B_b": -1.572,
-        "T_z": 1.787484664386953,
+        "T_t": 1.787484664386953,
         "errors": {
-          "scaled_linear_residual": 9.414204371965973e-16,
-          "Bloch_error": 8.354198274069938e-16,
-          "eta_imaginary": 4.3021142204224816e-16
+          "scaled_linear_residual": 9.599460689304613e-16,
+          "Bloch_error": 8.8820315404745e-16,
+          "eta_imaginary": 5.412337245047638e-16
         }
       }
     ]
   },
+  "spectral_geometry": {
+    "q0": 1,
+    "a": 2,
+    "b": 1.5,
+    "W": 2.618033988749895,
+    "poles_D_plus": [
+      "2.618033988749895j",
+      "(-0-0.38196601125010515j)"
+    ],
+    "contour_direction": "real exterior right; real interior left; upper circle clockwise; lower circle counterclockwise"
+  },
   "files": [
+    "analytic-regions.pdf",
+    "discrete-spectrum.pdf",
     "one-soliton-fields.pdf",
     "one-soliton-dynamics.pdf",
     "one-soliton-velocity.pdf"
-  ]
+  ],
+  "figure_qa": {
+    "analytic-regions": {
+      "text_exit": 0,
+      "collision_exit": 1,
+      "minimum_glyph_pt": 5.6,
+      "collision_verdict": "FIX BEFORE DELIVERY",
+      "collision_counts": {
+        "fail": 2,
+        "warn": 0,
+        "contained_fill_overlays": 2,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "Every raw finding is internal to one correctly typeset mathtext expression or its fraction rule; no inter-label, contour, marker, or clipping collision is visible in the final-size and 300-dpi figure. Raw automatic verdict, severities, counts and geometry are retained without alteration.",
+      "manual_reviewed_finding_count": 2,
+      "manual_approved_false_positives": [
+        0,
+        1
+      ],
+      "default_render_matches_final_png_sha256": "16f4db8e0358a1ae5a6a047c783c72f8ef04a9dbdb761d7640e0641c57971671"
+    },
+    "discrete-spectrum": {
+      "text_exit": 0,
+      "collision_exit": 1,
+      "minimum_glyph_pt": 5.6,
+      "collision_verdict": "FIX BEFORE DELIVERY",
+      "collision_counts": {
+        "fail": 8,
+        "warn": 4,
+        "contained_fill_overlays": 2,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "Every raw finding is internal to one correctly typeset mathtext expression or its fraction rule; no inter-label, contour, marker, or clipping collision is visible in the final-size and 300-dpi figure. Raw automatic verdict, severities, counts and geometry are retained without alteration.",
+      "manual_reviewed_finding_count": 12,
+      "manual_approved_false_positives": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "default_render_matches_final_png_sha256": "32d85d443197f4c6ca05539c644b08fbfaed2c7b76aba3a99c8274fffb34b648"
+    },
+    "one-soliton-fields": {
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 7.5,
+      "collision_verdict": "REVIEW REQUIRED",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 9,
+        "contained_fill_overlays": 3,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "All nine fill-edge warnings concern the 3D axes tick labels -6, 0 and -1 and projected filled-region bounding boxes; final-size inspection confirms no surface or axis-label occlusion. The top three surfaces and bottom contour panels were inspected separately."
+    },
+    "one-soliton-dynamics": {
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 5.6,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "No collision warnings."
+    },
+    "one-soliton-velocity": {
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 5.95,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "manual_review": "No collision warnings."
+    }
+  }
 }
