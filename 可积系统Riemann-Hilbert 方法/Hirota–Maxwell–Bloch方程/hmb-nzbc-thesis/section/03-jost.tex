@@ -21,7 +21,43 @@ Y(z)e^{-\ii\lambda(z)(x-y)\sg}Y(z)^{-1}
 \[
 (\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg,\qquad U_\infty Y=-\ii\lambda Y\sg.
 \]
-对 $Y^{-1}\mu_\pm$ 使用变分常数公式, 得到 \eqref{eq:volterra}. 令 $s_1=1,s_2=-1$, 第 $j$ 列的传播核为
+对 $Y^{-1}\mu_\pm$ 使用变分常数公式, 得到 \eqref{eq:volterra}.
+
+将 $\phi_\pm=\mu_\pm e^{\ii\theta\sg}$ 直接求导, 结合
+$\theta_x=-\lambda$, 有
+\[
+\begin{aligned}
+\phi_{\pm,x}
+&=(\mu_\pm)_x e^{\ii\theta\sg}
++\ii\theta_x\mu_\pm\sg e^{\ii\theta\sg}\\
+&=((\mu_\pm)_x-\ii\lambda\mu_\pm\sg)e^{\ii\theta\sg}.
+\end{aligned}
+\]
+故 $(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg$.
+把 $U=U_\infty+\Delta Q$ 和 $Y^{-1}U_\infty Y=-\ii\lambda\sg$
+代入, 得
+\[
+\partial_x(Y^{-1}\mu_\pm)
+=-\ii\lambda[\sg,Y^{-1}\mu_\pm]+Y^{-1}\Delta Q\mu_\pm.
+\]
+对第 $j$ 列, 由于 $\sg e_j=s_je_j$,
+\[
+\partial_x(Y^{-1}\mu_{\pm,j})
+=-\ii\lambda(\sg-s_jI)Y^{-1}\mu_{\pm,j}
++Y^{-1}\Delta Q\mu_{\pm,j}.
+\]
+左乘 $e^{\ii\lambda x(\sg-s_jI)}$ 后应用乘积法则:
+\[
+\partial_x\bigl(e^{\ii\lambda x(\sg-s_jI)}
+Y^{-1}\mu_{\pm,j}\bigr)
+=e^{\ii\lambda x(\sg-s_jI)}Y^{-1}\Delta Q\mu_{\pm,j}.
+\]
+再沿对应端点积分、乘回
+$Y e^{-\ii\lambda x(\sg-s_jI)}$,
+即得到 \eqref{eq:volterra} 的第 $j$ 列,
+从而得矩阵形式.
+
+ 令 $s_1=1,s_2=-1$, 第 $j$ 列的传播核为
 \begin{equation}\label{eq:columnkernel}
 K_j(r,z)=e^{\ii s_j\lambda r}Y e^{-\ii\lambda r\sg}Y^{-1},\qquad r=x-y.
 \end{equation}
@@ -39,6 +75,28 @@ G(r,z)=\diag(1,e^{2\ii\lambda r})Y^{-1}
 \end{pmatrix}.
 \end{equation}
 当 $y\le x$, $\operatorname{Im}\lambda\ge0$ 时, $|e^{2\ii\lambda(x-y)}|\le1$, 因而此列对应 $D_+$. 对第二列, 相应对角指数为 $\diag(e^{-2\ii\lambda r},1)$; 它在 $y\ge x$, $\operatorname{Im}\lambda\ge0$ 时有界, 给出 $\mu_{+,2}$ 的解析域. 其余两列取相反的积分方向和谱根虚部.
+
+核的有界性逐列核对为
+\[
+\begin{aligned}
+y\le x,\ \operatorname{Im}\lambda\ge0:\quad
+&|e^{2\ii\lambda(x-y)}|
+=e^{-2\operatorname{Im}\lambda(x-y)}\le1,\\
+y\ge x,\ \operatorname{Im}\lambda\ge0:\quad
+&|e^{-2\ii\lambda(x-y)}|
+=e^{2\operatorname{Im}\lambda(x-y)}\le1,\\
+y\le x,\ \operatorname{Im}\lambda\le0:\quad
+&|e^{-2\ii\lambda(x-y)}|
+=e^{2\operatorname{Im}\lambda(x-y)}\le1,\\
+y\ge x,\ \operatorname{Im}\lambda\le0:\quad
+&|e^{2\ii\lambda(x-y)}|
+=e^{-2\operatorname{Im}\lambda(x-y)}\le1.
+\end{aligned}
+\]
+因此 $\mu_{-,1},\mu_{+,2}$ 的解析域为 $D_+$,
+$\mu_{+,1},\mu_{-,2}$ 的解析域为 $D_-$.
+
+
 
 采用向量范数 $\|v\|_1=|v_1|+|v_2|$ 及其诱导矩阵范数. 由
 \[
@@ -70,6 +128,25 @@ w^{(n+1)}&=\int_{-\infty}^{x}G(x-y,z)\Delta Q(y)Yw^{(n)}(y,z)\,\dd y.
 =\dfrac{M_{\mathcal K}(x)^{n+1}}{(n+1)!}.
 \]
 归纳即得
+
+阶乘界由有序积分直接得出. 事实上
+$M_{\mathcal K}'(y)=c_{\mathcal K}|q(y)-q_0|$
+几乎处处成立, 且 $M_{\mathcal K}(-\infty)=0$, 所以
+\[
+\begin{aligned}
+&\int_{-\infty}^{x}c_{\mathcal K}|q(y)-q_0|
+M_{\mathcal K}(y)^n\,\dd y\\
+&=\int_{-\infty}^{x}
+M_{\mathcal K}'(y)M_{\mathcal K}(y)^n\,\dd y
+=\dfrac{M_{\mathcal K}(x)^{n+1}}{n+1}.
+\end{aligned}
+\]
+再除以 $n!$ 得到 $(n+1)!$. 因而
+$\sum\limits_{n=0}^{\infty}M_{\mathcal K}(x)^n/n!
+=e^{M_{\mathcal K}(x)}$,
+无需假设 $q-q_0$ 的 $L^1$ 范数足够小.
+
+
 \begin{equation}\label{eq:jost-factorial}
 \|w^{(n)}(x,z)\|_1\le\dfrac{M_{\mathcal K}(x)^n}{n!},\qquad
 \|w(x,z)-e_1\|_1\le e^{M_{\mathcal K}(x)}-1.
@@ -114,6 +191,28 @@ K_j(r,z)=\dfrac{1+e^{2\ii s_j\lambda r}}{2}I
 \|K_j(r,z)\|_1\le1+C_b|r|.
 \]
 这里 $C_b$ 可在 $z_b$ 的一个闭邻域上一致选取. 这同时给出 $K_j(r,z_b)=I+rU_\infty(z_b)$.
+
+为说明极限为何存在, 从
+$U_\infty Y=-\ii\lambda Y\sg$ 得
+\[
+Ye^{-\ii\lambda r\sg}Y^{-1}=e^{rU_\infty}
+=\cos(\lambda r)I+\dfrac{\sin(\lambda r)}{\lambda}U_\infty.
+\]
+于是
+\[
+\begin{aligned}
+K_j(r,z)
+&=e^{\ii s_j\lambda r}e^{rU_\infty}\\
+&=\dfrac{1+e^{2\ii s_j\lambda r}}{2}I
++\dfrac{e^{2\ii s_j\lambda r}-1}{2\ii s_j\lambda}U_\infty.
+\end{aligned}
+\]
+在 $\lambda\to0$ 时,
+$\sin(\lambda r)/\lambda\to r$, 故
+$K_j(r,z_b)=I+rU_\infty(z_b)$;
+这里始终没有在分支点取发散的 $Y^{-1}$.
+
+
 
 以负端为例, 固定 $b\in\mathbb R$, 对 $y\le x\le b$ 有
 \[
