@@ -40,7 +40,33 @@ Y(z)=\sigma_2\conj{Y(\conj{z})}\sigma_2.
 \sigma_2\conj{Y(\conj{z})e^{\ii\theta(\conj{z})\sg}}\sigma_2
 =Y(z)e^{\ii\theta(z)\sg}.
 \]
-共轭后的 Jost 解满足同一空间方程和同一归一化, 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:conjugation}. 在传播方程适用时, $\sigma_2\conj{R}\sigma_2=-R$ 同时保证 $V(z)=\sigma_2\conj{V(\conj{z})}\sigma_2$.
+共轭后的 Jost 解满足同一空间方程和同一归一化, 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:conjugation}.
+
+为逐元检查, 有
+\[
+\sigma_2\sg\sigma_2
+=\begin{pmatrix}-1&0\\0&1\end{pmatrix}=-\sg,
+\qquad
+\sigma_2\sigma_1\sigma_2=-\sigma_1.
+\]
+且
+\[
+\begin{aligned}
+\sigma_2\conj{Y(\conj{z})}\sigma_2
+&=\sigma_2\left(I+\dfrac{\ii q_0}{z}\sigma_1\right)\sigma_2
+=I-\dfrac{\ii q_0}{z}\sigma_1=Y(z),\\
+\sigma_2\conj{U(\conj{z})}\sigma_2
+&=\sigma_2(\ii k\sg+\conj Q)\sigma_2
+=-\ii k\sg+Q=U(z).
+\end{aligned}
+\]
+因此对 $\phi_\pm$ 复共轭并左右乘 $\sigma_2$,
+得到的函数既满足同一 $x$ 方程, 又有同一端点归一化.
+对矩阵取右端的两列便得到
+$\phi_{\pm,1}(z)=\ii\sigma_2\conj{\phi_{\pm,2}(\conj{z})}$、
+$\phi_{\pm,2}(z)=-\ii\sigma_2\conj{\phi_{\pm,1}(\conj{z})}$.
+
+ 在传播方程适用时, $\sigma_2\conj{R}\sigma_2=-R$ 同时保证 $V(z)=\sigma_2\conj{V(\conj{z})}\sigma_2$.
 
 换叶保持 $k$ 而使 $\lambda,\theta$ 变号. 直接由 \eqref{eq:E} 计算,
 \begin{equation}\label{eq:Esheet}
@@ -54,7 +80,26 @@ Y(z)e^{\ii\theta(z)\sg}C(z)
 \]
 再次由唯一性得到 $\phi_\pm$ 的换叶关系. 去除指数时使用
 $C(z)e^{\ii\theta(z)\sg}=e^{-\ii\theta(z)\sg}C(z)$,
-便得到 $\mu_\pm$ 的关系. 右乘矩阵的两列分别给出 \eqref{eq:jost-conjugate-columns}--\eqref{eq:jost-sheet-columns}. 变换后的列具有 \eqref{eq:symmetry-domains} 所确定的解析域, 因此同一 Volterra 唯一性论证在各解析域内成立.
+便得到 $\mu_\pm$ 的关系.
+
+换叶关系中的常数矩阵也可直接相乘:
+\[
+\begin{aligned}
+Y(z)C(z)
+&=\left(I-\dfrac{\ii q_0}{z}\sigma_1\right)
+\dfrac{\ii z}{q_0}\sigma_1\\
+&=\dfrac{\ii z}{q_0}\sigma_1+I
+=I-\dfrac{\ii q_0}{h(z)}\sigma_1=Y(h(z)).
+\end{aligned}
+\]
+这里用了 $h(z)=-q_0^2/z$, 因而
+$-\ii q_0/h(z)=\ii z/q_0$.
+再由 $\sigma_1\sg=-\sg\sigma_1$,
+有
+$e^{\ii\theta\sg}C=C e^{-\ii\theta\sg}$,
+从而两种 Jost 归一化在换叶下严格一致.
+
+ 右乘矩阵的两列分别给出 \eqref{eq:jost-conjugate-columns}--\eqref{eq:jost-sheet-columns}. 变换后的列具有 \eqref{eq:symmetry-domains} 所确定的解析域, 因此同一 Volterra 唯一性论证在各解析域内成立.
 \end{proof}
 
 \begin{proposition}[散射矩阵与反射数据的约化]\label{prop:scattering-symmetry}
@@ -91,7 +136,42 @@ S(z)^\dagger S(z)=I,\qquad
 \[
 S(h(z))=C(z)^{-1}S(z)C(z)=\sigma_1S(z)\sigma_1.
 \]
-逐元展开即得 \eqref{eq:sconj}--\eqref{eq:ssheet}; 除以相应透射系数得到 \eqref{eq:reflection-symmetry}. 解析透射系数的关系也可直接对 \eqref{eq:wronskian} 应用 Jost 列的约化得到.
+逐元展开即得 \eqref{eq:sconj}--\eqref{eq:ssheet}; 除以相应透射系数得到 \eqref{eq:reflection-symmetry}.
+
+所说的逐元展开如下:
+\[
+\begin{aligned}
+\sigma_2\conj{S(\conj{z})}\sigma_2
+&=\begin{pmatrix}
+\conj{s_{22}(\conj{z})}&-\conj{s_{21}(\conj{z})}\\
+-\conj{s_{12}(\conj{z})}&\conj{s_{11}(\conj{z})}
+\end{pmatrix},\\
+\sigma_1S(z)\sigma_1
+&=\begin{pmatrix}s_{22}(z)&s_{21}(z)\\
+s_{12}(z)&s_{11}(z)\end{pmatrix}.
+\end{aligned}
+\]
+例如第一种约化给出
+$s_{21}(z)=-\conj{s_{12}(\conj{z})}$,
+第二种给出
+$s_{21}(h(z))=s_{12}(z)$.
+所以
+\[
+\begin{aligned}
+\rho(z)
+&=\dfrac{s_{21}(z)}{s_{11}(z)}
+=-\dfrac{\conj{s_{12}(\conj{z})}}
+{\conj{s_{22}(\conj{z})}}
+=-\conj{\widetilde\rho(\conj{z})},\\
+\rho(h(z))
+&=\dfrac{s_{21}(h(z))}{s_{11}(h(z))}
+=\dfrac{s_{12}(z)}{s_{22}(z)}
+=\widetilde\rho(z).
+\end{aligned}
+\]
+这些都是相应透射系数非零处的恒等式.
+
+ 解析透射系数的关系也可直接对 \eqref{eq:wronskian} 应用 Jost 列的约化得到.
 
 在实 $z$ 上, $k,\lambda,F$ 为实数, 且 $U^\dagger=-U$. 因而
 \[
@@ -100,4 +180,26 @@ S(h(z))=C(z)^{-1}S(z)C(z)=\sigma_1S(z)\sigma_1.
 Y^\dagger Y=\gamma I.
 \]
 振荡归一化给出 $\phi_\pm^\dagger\phi_\pm=\gamma I$. 代入散射关系并除以 $\gamma>0$, 即得 \eqref{eq:scattering-unitarity}.
+
+在实轴上具体有
+\[
+Y^\dagger
+=\begin{pmatrix}1&\dfrac{\ii q_0}{z}\\
+\dfrac{\ii q_0}{z}&1\end{pmatrix},
+\qquad
+Y^\dagger Y
+=\begin{pmatrix}1+\dfrac{q_0^2}{z^2}&0\\
+0&1+\dfrac{q_0^2}{z^2}\end{pmatrix}
+=\gamma I.
+\]
+因此
+\[
+\gamma I=\phi_+^\dagger\phi_+
+=S^\dagger\phi_-^\dagger\phi_-S
+=\gamma S^\dagger S,
+\]
+即 $S^\dagger S=I$. 取其 $(1,1)$ 元得到
+$\conj{s_{11}}s_{11}+\conj{s_{21}}s_{21}=1$.
+
+
 \end{proof}
