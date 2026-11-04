@@ -24,7 +24,28 @@ C_j=c_je^{2\ii\theta(\zeta_j)}.
 \phi_{-,1}\sim Y_1e^{\ii\theta}\quad(x\to-\infty),\qquad
 \phi_{+,2}\sim Y_2e^{-\ii\theta}\quad(x\to+\infty)
 \]
-分别指数衰减. 任意另一个半轴 $L^2$ 解与该衰减列的 Wronskian 为常数; Cauchy--Schwarz 不等式又保证该 Wronskian 在半轴上可积, 因而此常数只能为零. 两端的 $L^2$ 解空间因此各为一维, 一个解在两端均属 $L^2$ 当且仅当这两列线性相关. 由 \eqref{eq:wronskian}, 这又等价于 $s_{22}(\zeta)=0$. 在 $D_-$ 中交换两列即得 $s_{11}$ 的结论.
+分别指数衰减.
+
+这是因为在固定 $t$ 时,
+$\theta=-\lambda x+\lambda F(k)t$,
+而 $e^{\ii\theta}$ 的 $x$ 依赖因子为
+$e^{-\ii\lambda x}$,
+$e^{-\ii\theta}$ 的 $x$ 依赖因子为
+$e^{\ii\lambda x}$. 因此当 $\operatorname{Im}\lambda>0$ 时,
+\[
+|e^{-\ii\lambda x}|=e^{\operatorname{Im}\lambda\,x}
+\longrightarrow0\quad(x\to-\infty),\qquad
+|e^{\ii\lambda x}|=e^{-\operatorname{Im}\lambda\,x}
+\longrightarrow0\quad(x\to+\infty).
+\]
+故同一解在两端均平方可积, 必须同时属于这两个一维衰减解空间.
+如果这两列线性相关,
+$\det(\phi_{-,1},\phi_{+,2})=0$;
+而 \eqref{eq:wronskian} 给出
+$\det(\phi_{-,1},\phi_{+,2})=\gamma s_{22}$.
+由于 $\gamma\ne0$ 在离散谱域内, 恰等价于 $s_{22}=0$.
+
+ 任意另一个半轴 $L^2$ 解与该衰减列的 Wronskian 为常数; Cauchy--Schwarz 不等式又保证该 Wronskian 在半轴上可积, 因而此常数只能为零. 两端的 $L^2$ 解空间因此各为一维, 一个解在两端均属 $L^2$ 当且仅当这两列线性相关. 由 \eqref{eq:wronskian}, 这又等价于 $s_{22}(\zeta)=0$. 在 $D_-$ 中交换两列即得 $s_{11}$ 的结论.
 
 共轭与换叶各自交换两个解析域, 二者复合保留解析域. 由 \eqref{eq:sconj}--\eqref{eq:ssheet},
 \[
@@ -33,6 +54,22 @@ s_{22}(\zeta)=0
 s_{11}(\conj{\zeta})=s_{11}(h(\zeta))=s_{22}(h(\conj{\zeta}))=0.
 \]
 $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性. 共轭的不动点位于实轴, 换叶的不动点为 $\pm\ii q_0$, 而 $h(\conj{z})=z$ 将导致 $|z|^2=-q_0^2$. 因而 $\Sigma$ 外的四点互异, 且每个轨道恰有一个外部上半平面的代表.
+
+还可直接检查轨道的位置. 由
+\[
+\operatorname{Im}\lambda(\conj z)
+=-\operatorname{Im}\lambda(z),\qquad
+\operatorname{Im}\lambda(h(z))
+=-\operatorname{Im}\lambda(z)
+\]
+可知单独共轭和单独换叶均交换 $D_+,D_-$,
+两者复合则保持区域. 若两个轨道点重合,
+则必有 $z=\conj z$（位于实轴）、
+$z=h(z)$（满足 $z^2=-q_0^2$, 位于分支点）,
+或 $z=h(\conj z)$（满足 $|z|^2=-q_0^2$, 不可能）.
+故 $\Sigma$ 外的轨道的确由四个互异点组成.
+
+
 
 Jost 列非零, 故列相关常数 $b_j\ne0$. 对 $\phi_{+,2}=b_j\phi_{-,1}$ 分别求 $x,t$ 导数并使用共同的 Lax 对, 得到
 \[
@@ -84,7 +121,30 @@ s_{22}'(\zeta_j)\ne0.
 =\lim\limits_{z\to\zeta_j}\dfrac{(z-\zeta_j)\mu_{+,2}(z)}{s_{22}(z)}
 =\dfrac{\mu_{+,2}(\zeta_j)}{s_{22}'(\zeta_j)},
 \]
-代入列相关关系即得 \eqref{eq:resplus}. 对列相关关系应用 \eqref{eq:jost-conjugate-columns}, 在 $\conj{\zeta_j}$ 处得到
+代入列相关关系即得 \eqref{eq:resplus}.
+
+为看清这里为何出现的是留数而不是函数值, 把分子也作 Taylor 展开:
+\[
+\mu_{+,2}(z)=\mu_{+,2}(\zeta_j)
++O(z-\zeta_j).
+\]
+故
+\[
+\begin{aligned}
+\dfrac{\mu_{+,2}(z)}{s_{22}(z)}
+&=\dfrac{\mu_{+,2}(\zeta_j)+O(z-\zeta_j)}
+{s_{22}'(\zeta_j)(z-\zeta_j)+O((z-\zeta_j)^2)}\\
+&=\dfrac{\mu_{+,2}(\zeta_j)}
+{s_{22}'(\zeta_j)}\dfrac{1}{z-\zeta_j}+O(1)\\
+&=\dfrac{b_je^{2\ii\theta(\zeta_j)}}
+{s_{22}'(\zeta_j)}
+\dfrac{\mu_{-,1}(\zeta_j)}{z-\zeta_j}+O(1).
+\end{aligned}
+\]
+$\mu_{-,1}$ 在该点正则, 因而右边的系数就是
+$C_j\mu_{-,1}(\zeta_j)$.
+
+ 对列相关关系应用 \eqref{eq:jost-conjugate-columns}, 在 $\conj{\zeta_j}$ 处得到
 \[
 \phi_{+,1}=-\conj{b_j}\phi_{-,2},\qquad
 s_{11}'(\conj{\zeta_j})=\conj{s_{22}'(\zeta_j)}.
@@ -125,7 +185,25 @@ c_{\widehat\zeta}
 =\dfrac{-\conj{b_\zeta}}{s_{22}'(\widehat\zeta)}
 =-h'(\conj{\zeta})\conj{c_\zeta},
 \]
-即为 \eqref{eq:cpair}. 最后 $\theta(\widehat\zeta)=-\conj{\theta(\zeta)}$, 故
+即为 \eqref{eq:cpair}.
+
+特别注意对 $s_{22}(h(z))=s_{11}(z)$ 求导使用的是
+完整的链式法则:
+\[
+\begin{aligned}
+\dfrac{\mathrm d}{\mathrm dz}s_{22}(h(z))
+&=s_{22}'(h(z))h'(z)
+=s_{11}'(z),\\
+h'(z)&=\dfrac{q_0^2}{z^2},\\
+s_{22}'(\widehat\zeta)
+&=\dfrac{\conj{s_{22}'(\zeta)}}{q_0^2/(\conj\zeta)^2}.
+\end{aligned}
+\]
+所以计算 $\widehat\zeta$ 处的范数常数时,
+必须同时带上 $-\conj{b_\zeta}$ 和这个换叶导数因子,
+不能只取 $c_\zeta$ 的复共轭.
+
+ 最后 $\theta(\widehat\zeta)=-\conj{\theta(\zeta)}$, 故
 \[
 C_{\widehat\zeta}
 =-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{c_\zeta}
