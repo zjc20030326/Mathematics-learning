@@ -31,6 +31,41 @@ HMB 系统具有平面波解
 -2\eta(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p})=0.
 \end{align*}
 在空间端点取极限即得 \eqref{eq:C}.
+
+为核对平面波的三个方程, 直接代入 $x$ 无关的端态:
+\[
+\begin{aligned}
+(\widetilde p_{\rm bg})_x
+&=0=2\eta_0\widetilde q_{\rm bg}
+-2\ii a\left(-\dfrac{\ii\eta_0}{a}\widetilde q_{\rm bg}\right)
+=2\eta_0\widetilde q_{\rm bg}-2\eta_0\widetilde q_{\rm bg},\\
+\eta_x
+&=0=-\left(
+-\dfrac{\ii\eta_0}{a}|\widetilde q_{\rm bg}|^2
++\dfrac{\ii\eta_0}{a}|\widetilde q_{\rm bg}|^2\right),\\
+(\widetilde q_{\rm bg})_t
+&=-\ii\Omega\widetilde q_{\rm bg}
+=\ii\alpha q_0^2\widetilde q_{\rm bg}
+-\dfrac{2\ii\eta_0}{a}\widetilde q_{\rm bg}.
+\end{aligned}
+\]
+最后, Bloch 长度导数的每类项分别相消:
+\[
+\begin{aligned}
+\partial_x(|\widetilde p|^2+\eta^2)
+={}&
+\bigl(2\eta\widetilde q\conj{\widetilde p}
+-2\eta\widetilde q\conj{\widetilde p}\bigr)\\
+&+\bigl(2\eta\widetilde p\conj{\widetilde q}
+-2\eta\conj{\widetilde q}\widetilde p\bigr)
++\bigl(-2\ii a|\widetilde p|^2+2\ii a|\widetilde p|^2\bigr)=0.
+\end{aligned}
+\]
+故它对 $x$ 为常数; 由两端共同边界确定为
+$\eta_0^2+\left|-\dfrac{\ii\eta_0q_0}{a}e^{-\ii\Omega t}\right|^2
+=\eta_0^2(1+q_0^2/a^2)$.
+
+
 \end{proof}
 
 \subsection{Lax 对}
@@ -91,7 +126,106 @@ V_1&=\begin{pmatrix}
 -(V_1)_x+[-\ii\sg,V_0]+[\widetilde Q,V_1]&=0.
 \end{aligned}
 \]
-相消. 常数项的 $(1,2)$ 元为
+相消. 常数项的
+
+具体地, 将
+$\widetilde U=-\ii k\sg+\widetilde Q$、
+$\widetilde V=\sum\limits_{j=0}^{3}k^jV_j+\dfrac{\ii\widetilde R}{k-a}$
+代入零曲率条件, 不计已单独拆出的共振有理项, 多项式部分逐次为
+\[
+\begin{aligned}
+k^4:\;&[-\ii\sg,V_3],\\
+k^3:\;&-(V_3)_x+[-\ii\sg,V_2]+[\widetilde Q,V_3],\\
+k^2:\;&-(V_2)_x+[-\ii\sg,V_1]+[\widetilde Q,V_2],\\
+k^1:\;&-(V_1)_x+[-\ii\sg,V_0]+[\widetilde Q,V_1],\\
+k^0:\;&\widetilde Q_t-(V_0)_x+[\widetilde Q,V_0]+[\sg,\widetilde R].
+\end{aligned}
+\]
+由于 $V_3=4\ii\beta\sg$ 不依赖 $x$, 有 $(V_3)_x=0$. 四次项为
+$[-\ii\sg,4\ii\beta\sg]=0$; 三次项为
+\[
+\begin{aligned}
+[-\ii\sg,-\ii\alpha\sg-4\beta\widetilde Q]
++[\widetilde Q,4\ii\beta\sg]
+&=4\ii\beta[\sg,\widetilde Q]
+-4\ii\beta[\sg,\widetilde Q]=0.
+\end{aligned}
+\]
+二次项逐个写为
+\[
+\begin{aligned}
+-(V_2)_x
+&=\begin{pmatrix}
+0&4\beta\widetilde q_x\\
+-4\beta\conj{\widetilde q_x}&0
+\end{pmatrix},\\
+[-\ii\sg,V_1]
+&=\begin{pmatrix}
+0&-2\ii\alpha\widetilde q-4\beta\widetilde q_x\\
+-2\ii\alpha\conj{\widetilde q}+4\beta\conj{\widetilde q_x}&0
+\end{pmatrix},\\
+[\widetilde Q,V_2]
+&=\begin{pmatrix}
+0&2\ii\alpha\widetilde q\\
+2\ii\alpha\conj{\widetilde q}&0
+\end{pmatrix}.
+\end{aligned}
+\]
+三矩阵相加的两个对角元本来就是零, 非对角元分别为
+$4\beta\widetilde q_x-2\ii\alpha\widetilde q
+-4\beta\widetilde q_x+2\ii\alpha\widetilde q=0$
+及其相应约化, 因此 $k^2$ 项为零.
+
+一次项要同时检查对角元与非对角元. 其 $(1,1)$ 元为
+\[
+\begin{aligned}
+&-\partial_x(-2\ii\beta|\widetilde q|^2)
++\widetilde q(V_1)_{21}+(V_1)_{12}\conj{\widetilde q}\\
+&=2\ii\beta\partial_x|\widetilde q|^2
++\widetilde q(-\alpha\conj{\widetilde q}
+-2\ii\beta\conj{\widetilde q_x})
++(\alpha\widetilde q-2\ii\beta\widetilde q_x)\conj{\widetilde q}\\
+&=2\ii\beta(\widetilde q_x\conj{\widetilde q}
++\widetilde q\conj{\widetilde q_x})
+-2\ii\beta(\widetilde q\conj{\widetilde q_x}
++\widetilde q_x\conj{\widetilde q})=0.
+\end{aligned}
+\]
+其 $(1,2)$ 元逐项为
+\[
+\begin{aligned}
+&-\partial_x(\alpha\widetilde q-2\ii\beta\widetilde q_x)
+-2\ii(V_0)_{12}
+-2(V_1)_{11}\widetilde q\\
+&=-\alpha\widetilde q_x+2\ii\beta\widetilde q_{xx}
+-2\ii\left(2\beta|\widetilde q|^2\widetilde q
++\dfrac{\ii\alpha}{2}\widetilde q_x
++\beta\widetilde q_{xx}\right)
++4\ii\beta|\widetilde q|^2\widetilde q\\
+&=-\alpha\widetilde q_x+2\ii\beta\widetilde q_{xx}
+-4\ii\beta|\widetilde q|^2\widetilde q
++\alpha\widetilde q_x-2\ii\beta\widetilde q_{xx}
++4\ii\beta|\widetilde q|^2\widetilde q=0.
+\end{aligned}
+\]
+其 $(2,1)$ 元同样不省略计算:
+\[
+\begin{aligned}
+&-\partial_x(-\alpha\conj{\widetilde q}
+-2\ii\beta\conj{\widetilde q_x})
++2\ii(V_0)_{21}
+-2(V_1)_{11}\conj{\widetilde q}\\
+&=\alpha\conj{\widetilde q_x}
++2\ii\beta\conj{\widetilde q_{xx}}
++2\ii\left(-2\beta|\widetilde q|^2\conj{\widetilde q}
++\dfrac{\ii\alpha}{2}\conj{\widetilde q_x}
+-\beta\conj{\widetilde q_{xx}}\right)
++4\ii\beta|\widetilde q|^2\conj{\widetilde q}=0.
+\end{aligned}
+\]
+$(2,2)$ 元是 $(1,1)$ 元的相反数, 至此一次项亦完全消去.
+
+ $(1,2)$ 元为
 $\widetilde q_t-\partial_x(V_0)_{12}-2(V_0)_{11}\widetilde q-2\widetilde p$, 且
 \begin{align*}
 \partial_x(V_0)_{12}+2(V_0)_{11}\widetilde q
@@ -102,7 +236,57 @@ $\widetilde q_t-\partial_x(V_0)_{12}-2(V_0)_{11}\widetilde q-2\widetilde p$, 且
 +\ii\alpha\left(\dfrac{\widetilde q_{xx}}{2}+|\widetilde q|^2\widetilde q\right).
 \end{align*}
 这给出光场方程. 常数项的对角元由
+
+上一步非线性项的合并并非形式简写, 因为
+\[
+\begin{aligned}
+&2(|\widetilde q|^2\widetilde q)_x
+-2\widetilde q\bigl(\widetilde q\conj{\widetilde q_x}
+-\widetilde q_x\conj{\widetilde q}\bigr)\\
+&=2\bigl(
+\widetilde q_x\conj{\widetilde q}\widetilde q
++\widetilde q\conj{\widetilde q_x}\widetilde q
++|\widetilde q|^2\widetilde q_x
+-\widetilde q^2\conj{\widetilde q_x}
++\widetilde q\widetilde q_x\conj{\widetilde q}
+\bigr)
+=6|\widetilde q|^2\widetilde q_x.
+\end{aligned}
+\]
+常数项的 $(1,2)$ 元也可直接由
+$[\widetilde Q,V_0]_{12}=-2(V_0)_{11}\widetilde q$ 及
+$[\sg,\widetilde R]_{12}=-2\widetilde p$ 得到.
+
+
 $\widetilde q(V_0)_{21}+(V_0)_{12}\conj{\widetilde q}=\partial_x(V_0)_{11}$ 相消, 其余分量由迹零与约化确定.
+
+对角元所用的恒等式可直接核算:
+\[
+\begin{aligned}
+&\widetilde q(V_0)_{21}+(V_0)_{12}\conj{\widetilde q}\\
+&=\widetilde q\left(-2\beta|\widetilde q|^2\conj{\widetilde q}
++\dfrac{\ii\alpha}{2}\conj{\widetilde q_x}
+-\beta\conj{\widetilde q_{xx}}\right)\\
+&\quad+\left(2\beta|\widetilde q|^2\widetilde q
++\dfrac{\ii\alpha}{2}\widetilde q_x+\beta\widetilde q_{xx}\right)
+\conj{\widetilde q}\\
+&=\dfrac{\ii\alpha}{2}
+\bigl(\widetilde q\conj{\widetilde q_x}
++\widetilde q_x\conj{\widetilde q}\bigr)
+-\beta\bigl(\widetilde q\conj{\widetilde q_{xx}}
+-\widetilde q_{xx}\conj{\widetilde q}\bigr)\\
+&=\partial_x\left[
+\dfrac{\ii\alpha}{2}|\widetilde q|^2
+-\beta(\widetilde q\conj{\widetilde q_x}
+-\widetilde q_x\conj{\widetilde q})\right]
+=\partial_x(V_0)_{11}.
+\end{aligned}
+\]
+所以常数项 $(1,1)$ 元为零. 其 $(2,2)$ 元因迹零也为零;
+常数项的 $(2,1)$ 元是 $(1,2)$ 元的负共轭.
+至此, 零曲率的全部矩阵元以及 $(k-a)^{-1}$ 的留数均已验证.
+
+
 \end{proof}
 
 \subsection{规范变换与背景谱问题}
@@ -160,6 +344,24 @@ q_t=\ii\alpha\left(\dfrac{q_{xx}}{2}+|q|^2q\right)
 &=\ii k\left(4\beta k^2-\alpha k-2\beta q_0^2+\dfrac{\eta_0}{a(k-a)}\right).
 \end{align*}
 最后一步使用 $\dfrac{\alpha q_0^2}{2}+\dfrac{\Omega}{2}=\dfrac{\eta_0}{a}$, 即得 \eqref{eq:F}.
+
+背景关系本身也可直接通过矩阵乘法核对:
+\[
+\dfrac{\ii\eta_0}{a}U_\infty(a)
+=\dfrac{\ii\eta_0}{a}
+\begin{pmatrix}-\ii a&q_0\\-q_0&\ii a\end{pmatrix}
+=\begin{pmatrix}
+\eta_0&\dfrac{\ii\eta_0q_0}{a}\\
+-\dfrac{\ii\eta_0q_0}{a}&-\eta_0
+\end{pmatrix}=R_\infty.
+\]
+而 $-F(k)U_\infty$ 的 $(1,1)$ 元为
+$\ii kF(k)$, $(1,2)$ 元为 $-q_0F(k)$, 即与上面计算的
+$(V_\infty)_{11}$、$(V_\infty)_{12}$ 完全一致;
+$(2,1)$、$(2,2)$ 元由矩阵约化与迹零确定. 因而传播矩阵恒等式
+$V_\infty=-F(k)U_\infty$ 是逐元成立的.
+
+
 \end{proof}
 
 \subsection{黎曼曲面与单值化}
@@ -228,6 +430,58 @@ $-\dfrac{\ii(\lambda-k)}{q_0}=-\dfrac{\ii q_0}{z}$; 另一特征向量交换两�
 (\phi_0)_t=-FU_\infty\phi_0=V_\infty\phi_0.
 \]
 最后解 $k(z)=a$, 得到 \eqref{eq:resonance-w}, 且 $z_a^+z_a^-=-q_0^2$.
+
+这里的每一步均可以直接核对. 首先
+\[
+U_\infty^2=
+\begin{pmatrix}-\ii k&q_0\\-q_0&\ii k\end{pmatrix}^2
+=\begin{pmatrix}-k^2-q_0^2&0\\0&-k^2-q_0^2\end{pmatrix}.
+\]
+又由 $\lambda^2-k^2=q_0^2$ 与 $z=k+\lambda$, 得
+$\lambda-k=q_0^2/z$, 两式相加减便得到
+\[
+2\lambda=z+\dfrac{q_0^2}{z},\qquad
+2k=z-\dfrac{q_0^2}{z}.
+\]
+接着 $Y=\begin{pmatrix}1&-\ii q_0/z\\-\ii q_0/z&1\end{pmatrix}$,
+故
+\[
+\begin{aligned}
+U_\infty Y
+&=\begin{pmatrix}
+-\ii(k+q_0^2/z)&q_0(1-k/z)\\
+-q_0(1-k/z)&\ii(k+q_0^2/z)
+\end{pmatrix}\\
+&=\begin{pmatrix}
+-\ii\lambda&q_0\lambda/z\\
+-q_0\lambda/z&\ii\lambda
+\end{pmatrix}
+=-\ii\lambda Y\sg,
+\end{aligned}
+\]
+其中使用 $k+q_0^2/z=\lambda$、$z-k=\lambda$.
+行列式为
+$\det Y=1-(-\ii q_0/z)^2=1+q_0^2/z^2$,
+因此只有在 $z=\pm\ii q_0$ 背景特征向量矩阵退化.
+
+换叶也可从原式直接展开:
+\[
+\begin{aligned}
+k(h(z))
+&=\dfrac12\left(-\dfrac{q_0^2}{z}
+-\dfrac{q_0^2}{-q_0^2/z}\right)
+=\dfrac12\left(z-\dfrac{q_0^2}{z}\right)=k(z),\\
+\lambda(h(z))
+&=\dfrac12\left(-\dfrac{q_0^2}{z}
++\dfrac{q_0^2}{-q_0^2/z}\right)
+=-\lambda(z).
+\end{aligned}
+\]
+最后 $k(z)=a$ 等价于
+$z^2-2az-q_0^2=0$, 因而
+$z_a^\pm=a\pm\sqrt{a^2+q_0^2}$.
+
+
 \end{proof}
 
 \begin{figure}[htbp]
