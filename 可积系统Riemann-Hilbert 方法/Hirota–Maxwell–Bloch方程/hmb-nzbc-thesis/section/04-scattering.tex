@@ -24,12 +24,60 @@ s_{12}&=\dfrac{\det(\phi_{+,2},\phi_{-,2})}{\gamma}.\nonumber
 其中 $s_{11}$ 在 $D_-$ 解析, $s_{22}$ 在 $D_+$ 解析, 并连续延拓到相应闭域中避开 $0,\pm\ii q_0$ 的紧集. $s_{12},s_{21}$ 在 $\Sigma^\circ$ 上连续; 在共振原像处使用空间归一化值.
 \end{proposition}
 \begin{proof}
-由 $\tr U=0$, Abel 恒等式给出 $\partial_x\det\phi_\pm=0$. 在归一化端取极限, 并使用 $\det e^{\ii\theta\sg}=1$, 得到 $\det\phi_\pm=\gamma$. 对 \eqref{eq:Sdef} 取行列式即得 $\det S=1$. 对第一条列关系分别与 $\phi_{-,2}$、$\phi_{-,1}$ 取行列式, 有
+由 $\tr U=0$, Abel 恒等式给出 $\partial_x\det\phi_\pm=0$. 在归一化端取极限, 并使用 $\det e^{\ii\theta\sg}=1$, 得到 $\det\phi_\pm=\gamma$. 对 \eqref{eq:Sdef} 取行列式即得 $\det S=1$.
+
+其中 Abel 恒等式本身可从两个列方程直接验证:
+\[
+\begin{aligned}
+\partial_x\det(\phi_{\pm,1},\phi_{\pm,2})
+&=\det(U\phi_{\pm,1},\phi_{\pm,2})
++\det(\phi_{\pm,1},U\phi_{\pm,2})\\
+&=(U_{11}+U_{22})\det(\phi_{\pm,1},\phi_{\pm,2})=0.
+\end{aligned}
+\]
+因为 $U_{11}=-\ii k$, $U_{22}=\ii k$,
+并且
+$\det(Y e^{\ii\theta\sg})
+=\det Y\,e^{\ii\theta}e^{-\ii\theta}
+=\gamma$,
+故 $\det\phi_\pm=\gamma$.
+由 $\phi_+=\phi_-S$ 再取行列式,
+$\gamma=\gamma\det S$. 在 $\gamma\ne0$ 的普通谱点,
+$\det S=1$; 由连续性可延拓至允许的边界点.
+
+ 对第一条列关系分别与 $\phi_{-,2}$、$\phi_{-,1}$ 取行列式, 有
 \[
 \det(\phi_{+,1},\phi_{-,2})=s_{11}\gamma,\qquad
 \det(\phi_{-,1},\phi_{+,1})=s_{21}\gamma.
 \]
-第二条列关系同理给出 $s_{12},s_{22}$, 即 \eqref{eq:wronskian}. 对透射系数, 两列的指数相消, 故
+第二条列关系同理给出 $s_{12},s_{22}$, 即 \eqref{eq:wronskian}.
+
+具体地,
+\[
+\begin{aligned}
+\det(\phi_{-,1},\phi_{+,2})
+&=\det(\phi_{-,1},
+s_{12}\phi_{-,1}+s_{22}\phi_{-,2})
+=s_{22}\gamma,\\
+\det(\phi_{+,2},\phi_{-,2})
+&=\det(s_{12}\phi_{-,1}+s_{22}\phi_{-,2},
+\phi_{-,2})=s_{12}\gamma.
+\end{aligned}
+\]
+这四个 Wronskian 公式均只利用行列式对每一列的线性性,
+没有额外的归一化常数. 例如
+$\phi_{+,1}=\mu_{+,1}e^{\ii\theta}$、
+$\phi_{-,2}=\mu_{-,2}e^{-\ii\theta}$,
+故
+\[
+\det(\phi_{+,1},\phi_{-,2})
+=e^{\ii\theta}e^{-\ii\theta}
+\det(\mu_{+,1},\mu_{-,2})
+=\det(\mu_{+,1},\mu_{-,2}).
+\]
+从而 $s_{11}$ 在 $D_-$ 解析; $s_{22}$ 的情形完全对应.
+
+ 对透射系数, 两列的指数相消, 故
 \[
 s_{11}=\dfrac{\det(\mu_{+,1},\mu_{-,2})}{\gamma},\qquad
 s_{22}=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{\gamma}.
@@ -90,6 +138,33 @@ S_{\rm sp}(z,t)=e^{\ii\lambda Ft\sg}S(z)e^{-\ii\lambda Ft\sg},
 \phi_-S_t=V\phi_+-V\phi_-S=0.
 \]
 因此 $S_x=S_t=0$. 透射系数的解析延拓与零点不变; 离散列相关常数的不变性由相同的微分等式得到. 将 $\chi_\pm$ 代回散射关系得到 \eqref{eq:timeS}, 其非对角元分别带有 $e^{\mp2\ii\lambda Ft}$, 即为 \eqref{eq:timer}.
+
+矩阵相乘可以完全写开:
+\[
+\begin{aligned}
+S_{\rm sp}(z,t)
+&=\begin{pmatrix}e^{\ii\lambda Ft}&0\\0&e^{-\ii\lambda Ft}\end{pmatrix}
+\begin{pmatrix}s_{11}&s_{12}\\s_{21}&s_{22}\end{pmatrix}
+\begin{pmatrix}e^{-\ii\lambda Ft}&0\\0&e^{\ii\lambda Ft}\end{pmatrix}\\
+&=\begin{pmatrix}
+s_{11}&e^{2\ii\lambda Ft}s_{12}\\
+e^{-2\ii\lambda Ft}s_{21}&s_{22}
+\end{pmatrix}.
+\end{aligned}
+\]
+因此 $s_{11}$、$s_{22}$ 不随 $t$ 变化, 而
+\[
+\rho_{\rm sp}(z,t)
+=\dfrac{e^{-2\ii\lambda Ft}s_{21}}{s_{11}}
+=e^{-2\ii\lambda Ft}\rho_{\rm sp}(z,0),
+\quad
+\widetilde\rho_{\rm sp}(z,t)
+=\dfrac{e^{2\ii\lambda Ft}s_{12}}{s_{22}}
+=e^{2\ii\lambda Ft}\widetilde\rho_{\rm sp}(z,0).
+\]
+这里所有式子均在 $k(z)\ne a$ 处求值.
+
+
 \end{proof}
 
 共振点的空间归一化取值由 \eqref{eq:volterra} 定义, 介质方程在此固定了散射矩阵的形式.
@@ -124,5 +199,34 @@ $\lambda(z_a)=\pm\sqrt{a^2+q_0^2}$ 为非零实数, 空间指数及其逆均有�
 \dfrac{\eta_0\lambda(z_a)}{a}\sg
 =S_{\rm sp}^{-1}\dfrac{\eta_0\lambda(z_a)}{a}\sg S_{\rm sp}.
 \]
-因 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 两个非对角元必须为零. $\det S_{\rm sp}=1$ 保证对角元非零, 从而两反射系数均为零. 这里的取值仅涉及空间谱问题; 含有 $F(k)$ 的传播指数不在 $k=a$ 处求值.
+因 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 两个非对角元必须为零. $\det S_{\rm sp}=1$ 保证对角元非零, 从而两反射系数均为零.
+
+为看清最后一步, 将
+$S_{\rm sp}=\begin{pmatrix}
+s_{11}^{\rm sp}&s_{12}^{\rm sp}\\
+s_{21}^{\rm sp}&s_{22}^{\rm sp}
+\end{pmatrix}$ 代入交换关系:
+\[
+\begin{aligned}
+S_{\rm sp}\sg
+&=\begin{pmatrix}
+s_{11}^{\rm sp}&-s_{12}^{\rm sp}\\
+s_{21}^{\rm sp}&-s_{22}^{\rm sp}
+\end{pmatrix},\\
+\sg S_{\rm sp}
+&=\begin{pmatrix}
+s_{11}^{\rm sp}&s_{12}^{\rm sp}\\
+-s_{21}^{\rm sp}&-s_{22}^{\rm sp}
+\end{pmatrix}.
+\end{aligned}
+\]
+所以 $-s_{12}^{\rm sp}=s_{12}^{\rm sp}$、
+$s_{21}^{\rm sp}=-s_{21}^{\rm sp}$, 即
+$s_{12}^{\rm sp}=s_{21}^{\rm sp}=0$.
+再由 $\det S_{\rm sp}=s_{11}^{\rm sp}s_{22}^{\rm sp}=1$
+得到两个透射系数均非零, 从而反射系数在两个共振原像为零.
+这一结论来自介质矩阵的空间共轭守恒,
+不是直接把含有 $(k-a)^{-1}$ 的时间传播相位代入 $k=a$.
+
+ 这里的取值仅涉及空间谱问题; 含有 $F(k)$ 的传播指数不在 $k=a$ 处求值.
 \end{proof}
