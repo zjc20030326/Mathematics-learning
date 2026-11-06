@@ -1,0 +1,498 @@
+离散谱是空间谱方程在 $\mathbb C\mathbin{\backslash}\Sigma$ 中存在非零 $L^2(\mathbb R)$ 解的谱点集合. 设三场满足命题 \ref{prop:evolution} 的条件, 并假设透射系数在各自解析域中只有有限个零点, 且这些零点均为简单零点.
+
+\begin{proposition}[四点离散谱轨道]\label{prop:quartet}
+离散谱恰为 $s_{22}$ 在 $D_+$ 中及 $s_{11}$ 在 $D_-$ 中的零点. 若 $\zeta\in D_+$ 是 $s_{22}$ 的简单零点, 则
+\begin{equation}\label{eq:quartet}
+\left\{\zeta,\conj{\zeta},-\dfrac{q_0^2}{\zeta},-\dfrac{q_0^2}{\conj{\zeta}}\right\}
+\end{equation}
+构成四点互异的完整轨道. 其中 $\zeta$ 与 $h(\conj{\zeta})$ 属于 $D_+$, 其余两点属于 $D_-$. 每个轨道选取外部上半平面的代表 $\zeta_j$, $j=1,\ldots,N$, 再令
+\begin{equation}\label{eq:discrete-indexing}
+\zeta_{N+j}=h(\conj{\zeta_j}),\qquad
+Z=\{\zeta_j,\conj{\zeta_j}:j=1,\ldots,2N\}.
+\end{equation}
+每个 $D_+$ 零点满足非零列相关关系
+\begin{equation}\label{eq:norming-definition}
+\phi_{+,2}(\zeta_j)=b_j\phi_{-,1}(\zeta_j),\qquad
+c_j=\dfrac{b_j}{s_{22}'(\zeta_j)},\qquad
+C_j=c_je^{2\ii\theta(\zeta_j)}.
+\end{equation}
+这里 $j=1,\ldots,2N$, $b_j,c_j$ 与 $x,t$ 无关, 撇号表示对单值化变量 $z$ 求导.
+\end{proposition}
+\begin{proof}
+在 $D_+$ 中, $\operatorname{Im}\lambda>0$, 因而
+\[
+\phi_{-,1}\sim Y_1e^{\ii\theta}\quad(x\to-\infty),\qquad
+\phi_{+,2}\sim Y_2e^{-\ii\theta}\quad(x\to+\infty)
+\]
+分别指数衰减. 任意另一个半轴 $L^2$ 解与该衰减列的 Wronskian 为常数; Cauchy--Schwarz 不等式又保证该 Wronskian 在半轴上可积, 因而此常数只能为零. 两端的 $L^2$ 解空间因此各为一维, 一个解在两端均属 $L^2$ 当且仅当这两列线性相关. 由 \eqref{eq:wronskian}, 这又等价于 $s_{22}(\zeta)=0$. 在 $D_-$ 中交换两列即得 $s_{11}$ 的结论.
+
+共轭与换叶各自交换两个解析域, 二者复合保留解析域. 由 \eqref{eq:sconj}--\eqref{eq:ssheet},
+\[
+s_{22}(\zeta)=0
+\quad\Longrightarrow\quad
+s_{11}(\conj{\zeta})=s_{11}(h(\zeta))=s_{22}(h(\conj{\zeta}))=0.
+\]
+$h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性. 共轭的不动点位于实轴, 换叶的不动点为 $\pm\ii q_0$, 而 $h(\conj{z})=z$ 将导致 $|z|^2=-q_0^2$. 因而 $\Sigma$ 外的四点互异, 且每个轨道恰有一个外部上半平面的代表.
+
+Jost 列非零, 故列相关常数 $b_j\ne0$. 对 $\phi_{+,2}=b_j\phi_{-,1}$ 分别求 $x,t$ 导数并使用共同的 Lax 对, 得到
+\[
+(b_j)_x\phi_{-,1}=0,\qquad (b_j)_t\phi_{-,1}=0.
+\]
+于是 $b_j$ 与 $x,t$ 无关. 透射系数及其导数也不随 $x,t$ 改变, 从而得到 \eqref{eq:norming-definition} 中的常数性质.
+\end{proof}
+
+图 \ref{fig:discrete-spectrum} 给出一般四点轨道在单值化平面上的分布.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.78\textwidth]{figures/discrete-spectrum.pdf}
+\caption{连续谱外的一般四点离散谱轨道. $\zeta_j$ 与 $h(\zeta_j^*)$ 为 $D_+$ 中的 $s_{22}$ 零点, $\zeta_j^*$ 与 $h(\zeta_j)$ 为 $D_-$ 中的 $s_{11}$ 零点; 换叶映射为 $h(z)=-\dfrac{q_0^2}{z}$.}
+\label{fig:discrete-spectrum}
+\end{figure}
+后文单轨道显式解取纯虚代表, 是图示四点结构的一种特殊情形.
+
+\begin{proposition}[简单零点的留数及常数约化]\label{prop:respair}
+在式 \eqref{eq:norming-definition} 的条件下, 相应解析商满足
+\begin{align}
+\Res_{z=\zeta_j}\dfrac{\mu_{+,2}(z)}{s_{22}(z)}
+&=C_j\mu_{-,1}(\zeta_j),\label{eq:resplus}\\
+\Res_{z=\conj{\zeta_j}}\dfrac{\mu_{+,1}(z)}{s_{11}(z)}
+&=-\conj{C_j}\mu_{-,2}(\conj{\zeta_j}).\label{eq:resminus}
+\end{align}
+若 $\widehat\zeta=h(\conj{\zeta})$ 为同一轨道的另一个 $D_+$ 点, 则
+\begin{equation}\label{eq:cpair}
+b_{\widehat\zeta}=-\conj{b_\zeta},\qquad
+c_{\widehat\zeta}=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{c_\zeta}.
+\end{equation}
+相应时空留数系数满足
+\begin{equation}\label{eq:Cpair}
+C_{\widehat\zeta}=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+由 $\phi_{+,2}=b_j\phi_{-,1}$ 及 $\phi_1=\mu_1e^{\ii\theta}$、$\phi_2=\mu_2e^{-\ii\theta}$, 得到
+\[
+\mu_{+,2}(\zeta_j)=b_je^{2\ii\theta(\zeta_j)}\mu_{-,1}(\zeta_j).
+\]
+在简单零点处展开,
+\[
+s_{22}(z)=s_{22}'(\zeta_j)(z-\zeta_j)+O((z-\zeta_j)^2),\qquad
+s_{22}'(\zeta_j)\ne0.
+\]
+因此
+\[
+\Res_{z=\zeta_j}\dfrac{\mu_{+,2}(z)}{s_{22}(z)}
+=\lim\limits_{z\to\zeta_j}\dfrac{(z-\zeta_j)\mu_{+,2}(z)}{s_{22}(z)}
+=\dfrac{\mu_{+,2}(\zeta_j)}{s_{22}'(\zeta_j)},
+\]
+代入列相关关系即得 \eqref{eq:resplus}. 对列相关关系应用 \eqref{eq:jost-conjugate-columns}, 在 $\conj{\zeta_j}$ 处得到
+\[
+\phi_{+,1}=-\conj{b_j}\phi_{-,2},\qquad
+s_{11}'(\conj{\zeta_j})=\conj{s_{22}'(\zeta_j)}.
+\]
+这里的导数关系也可由上述 Taylor 展开取共轭直接得到. 又因 $\theta(\conj{\zeta_j})=\conj{\theta(\zeta_j)}$,
+\[
+\dfrac{\mu_{+,1}(\conj{\zeta_j})}{s_{11}'(\conj{\zeta_j})}
+=-\conj{c_j}e^{-2\ii\theta(\conj{\zeta_j})}
+\mu_{-,2}(\conj{\zeta_j})
+=-\conj{C_j}\mu_{-,2}(\conj{\zeta_j}),
+\]
+即为 \eqref{eq:resminus}.
+
+再在 $z=\conj{\zeta}$ 使用换叶关系. 它给出
+\[
+\phi_{+,2}(\widehat\zeta)
+=\dfrac{\ii\conj{\zeta}}{q_0}\phi_{+,1}(\conj{\zeta})
+=-\conj{b_\zeta}\dfrac{\ii\conj{\zeta}}{q_0}\phi_{-,2}(\conj{\zeta})
+=-\conj{b_\zeta}\phi_{-,1}(\widehat\zeta).
+\]
+对恒等式 $s_{22}(h(z))=s_{11}(z)$ 求导, 有
+\[
+s_{22}'(\widehat\zeta)h'(\conj{\zeta})=\conj{s_{22}'(\zeta)},\qquad
+h'(\conj{\zeta})=\dfrac{q_0^2}{(\conj{\zeta})^2}.
+\]
+链式因子也可从两次展开直接看出:
+\[
+\begin{aligned}
+h(z)-\widehat\zeta
+&=h'(\conj{\zeta})(z-\conj{\zeta})+O((z-\conj{\zeta})^2),\\
+s_{22}(h(z))
+&=s_{22}'(\widehat\zeta)h'(\conj{\zeta})(z-\conj{\zeta})+O((z-\conj{\zeta})^2).
+\end{aligned}
+\]
+因此
+\[
+c_{\widehat\zeta}
+=\dfrac{-\conj{b_\zeta}}{s_{22}'(\widehat\zeta)}
+=-h'(\conj{\zeta})\conj{c_\zeta},
+\]
+即为 \eqref{eq:cpair}. 最后 $\theta(\widehat\zeta)=-\conj{\theta(\zeta)}$, 故
+\[
+C_{\widehat\zeta}
+=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{c_\zeta}
+e^{-2\ii\conj{\theta(\zeta)}}
+=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta},
+\]
+得到 \eqref{eq:Cpair}. 对全部 $D_+$ 零点应用 \eqref{eq:resplus}--\eqref{eq:resminus}, 即给出完整四点轨道的留数条件.
+\end{proof}
+
+
+\subsubsection*{本部分全部谱点与留数公式的逐式计算}
+\paragraph{式 \eqref{eq:quartet} 之前: 两列的指数衰减.}
+固定 $t$ 与谱点, 原文相位直接给出
+\begin{align*}
+e^{\ii\theta}&=e^{-\ii\lambda x}e^{\ii\lambda Ft},&
+|e^{\ii\theta}|&=e^{x\operatorname{Im}\lambda}
+ e^{-t\operatorname{Im}(\lambda F)},\\
+e^{-\ii\theta}&=e^{\ii\lambda x}e^{-\ii\lambda Ft},&
+|e^{-\ii\theta}|&=e^{-x\operatorname{Im}\lambda}
+ e^{t\operatorname{Im}(\lambda F)}.
+\end{align*}
+在 $D_+$ 中 $\operatorname{Im}\lambda>0$.
+第一行随 $x\to-\infty$ 衰减, 第二行随 $x\to+\infty$ 衰减.
+对应的 $\mu$ 列在归一化半轴有界, 因而
+\begin{align*}
+\int_{-\infty}^0\|\phi_{-,1}(x)\|_1^2\,\dd x
+&\le\|\mu_{-,1}\|_{L^\infty(-\infty,0)}^2
+ e^{-2t\operatorname{Im}(\lambda F)}
+ \int_{-\infty}^0 e^{2x\operatorname{Im}\lambda}\,\dd x\\
+&=\dfrac{\|\mu_{-,1}\|_{L^\infty(-\infty,0)}^2
+ e^{-2t\operatorname{Im}(\lambda F)}}{2\operatorname{Im}\lambda}<\infty,\\
+\int_0^{+\infty}\|\phi_{+,2}(x)\|_1^2\,\dd x
+&\le\|\mu_{+,2}\|_{L^\infty(0,+\infty)}^2
+ e^{2t\operatorname{Im}(\lambda F)}
+ \int_0^{+\infty} e^{-2x\operatorname{Im}\lambda}\,\dd x\\
+&=\dfrac{\|\mu_{+,2}\|_{L^\infty(0,+\infty)}^2
+ e^{2t\operatorname{Im}(\lambda F)}}{2\operatorname{Im}\lambda}<\infty.
+\end{align*}
+这里把半轴在 $0$ 分开只是选择积分区间, 没有对变量换元.
+两个指数积分分别由
+\[
+\left.\dfrac{e^{2x\operatorname{Im}\lambda}}{2\operatorname{Im}\lambda}
+\right|_{-\infty}^0
+=\dfrac{1}{2\operatorname{Im}\lambda},
+\qquad
+\left.-\dfrac{e^{-2x\operatorname{Im}\lambda}}{2\operatorname{Im}\lambda}
+\right|_0^{+\infty}
+=\dfrac{1}{2\operatorname{Im}\lambda}
+\]
+计算得到.
+在 $D_-$ 中 $\operatorname{Im}\lambda<0$,
+$\phi_{+,1}$ 在正端平方可积, $\phi_{-,2}$ 在负端平方可积.
+把上面的积分指数符号与端点同时反转,
+两个积分的值都变为 $-\dfrac{1}{2\operatorname{Im}\lambda}>0$.
+
+\paragraph{平方可积条件怎样等价于透射零点.}
+第4部分对行列式的求导计算适用于同一系统的任意两列,
+因此任意两个空间解的 Wronskian 都是常数.
+如果一个是衰减 Jost 列, 另一个也是同一半轴上的 $L^2$ 解,
+二阶行列式绝对值不超过两列欧氏范数的乘积.
+将该不等式在半轴上积分, 再用积分型 Cauchy--Schwarz 不等式,
+得到的上界是两列各自平方积分的平方根之积, 因而有限.
+这里没有对另一解另起辅助记号; 所用不等式就是行列式与范数的基本估计.
+一个非零常数在无限长半轴上的绝对值积分为无穷,
+所以这个 Wronskian 常数只能为零.
+于是任意半轴 $L^2$ 解都与对应 Jost 衰减列线性相关.
+两列在一处相关后, 空间线性初值问题的唯一性使同一个关系在全轴成立.
+
+因此 $D_+$ 内存在全轴 $L^2$ 解, 当且仅当
+\[
+\det(\phi_{-,1},\phi_{+,2})=0.
+\]
+用原文 Wronskian 公式直接替换,
+\[
+\det(\phi_{-,1},\phi_{+,2})=\gamma s_{22},
+\qquad \gamma\ne0\quad\hbox{在 }D_+,
+\]
+可知这与 $s_{22}=0$ 等价.
+反方向也具体成立: 如果 $s_{22}=0$, 两个非零列相关,
+$\phi_{-,1}$ 在负端衰减, 在正端又是 $\phi_{+,2}$ 的非零常数倍,
+所以它在全轴平方可积.
+在 $D_-$ 中用
+\[
+\det(\phi_{+,1},\phi_{-,2})=\gamma s_{11}
+\]
+得到同样结论.
+没有把一般非实谱上的指数增长列误认为 $L^2$ 列.
+
+\paragraph{式 \eqref{eq:quartet}: 四点的零点类型与区域.}
+由共轭约化先有
+\[
+s_{11}(\conj{\zeta})=\conj{s_{22}(\zeta)}=0.
+\]
+再由换叶约化,
+\[
+s_{11}(h(\zeta))=s_{22}(\zeta)=0,
+\qquad
+s_{22}(h(\conj{\zeta}))=s_{11}(\conj{\zeta})=0.
+\]
+两种映射分别交换 $D_+$ 与 $D_-$,
+所以四点的归属逐个是
+\[
+\zeta\in D_+,
+\qquad \conj{\zeta}\in D_-,
+\qquad h(\zeta)\in D_-,
+\qquad h(\conj{\zeta})\in D_+.
+\]
+共轭两次与换叶两次都回到原点, 且两种变换对易,
+所以再对这四点作任意一次约化不会产生第五个点.
+
+可能的重合只有以下三类, 其余情形可再作一次约化化到这三类:
+\begin{align*}
+\zeta=\conj{\zeta}
+&\ \Longrightarrow\ \operatorname{Im}\zeta=0,\\
+\zeta=h(\zeta)
+&\ \Longrightarrow\ \zeta=-\dfrac{q_0^2}{\zeta}
+\ \Longrightarrow\ \zeta^2=-q_0^2
+\ \Longrightarrow\ \zeta=\pm\ii q_0,\\
+\zeta=h(\conj{\zeta})
+&\ \Longrightarrow\ \zeta\conj{\zeta}=-q_0^2
+\ \Longrightarrow\ |\zeta|^2=-q_0^2.
+\end{align*}
+第一类位于实连续谱上, 第二类位于分支点上,
+第三类因左侧非负而右侧为负不可能成立.
+所以连续谱外四点互异.
+
+\paragraph{式 \eqref{eq:discrete-indexing}: 为什么每轨道只有一个所选代表.}
+$D_+$ 的两块区域是外部上半平面与内部下半平面.
+若 $\zeta$ 已位于外部上半平面, 它就是代表.
+若 $\zeta$ 位于内部下半平面, 则
+\[
+|h(\conj{\zeta})|=\dfrac{q_0^2}{|\zeta|}>q_0,
+\qquad
+\operatorname{Im}h(\conj{\zeta})
+=-\dfrac{q_0^2}{|\zeta|^2}\operatorname{Im}\zeta>0.
+\]
+所以同一轨道的另一个 $D_+$ 点恰好是外部上半平面代表.
+另外两点在 $D_-$, 因而不可能再成为这种代表.
+枚举 $N$ 个轨道后, 前 $N$ 个点是这些代表,
+后 $N$ 个点正好由 $h(\conj{\zeta_j})$ 补齐,
+再加上共轭点就得到 $4N$ 个完整离散谱点.
+
+\paragraph{式 \eqref{eq:norming-definition}: 非零常数及其时空恒定性.}
+Jost 列不能在任何有限点等于零向量.
+否则该点的零初值会使线性空间方程的解恒为零,
+与归一化端的非零 $Y_j$ 矛盾.
+两个非零列行列式为零时, 存在唯一的非零相关倍数,
+因此 $b_j$ 有定义且非零.
+逐项求空间导数,
+\begin{align*}
+(\phi_{+,2})_x
+&=(b_j)_x\phi_{-,1}+b_j(\phi_{-,1})_x\\
+&=(b_j)_x\phi_{-,1}+b_jU\phi_{-,1},\\
+U\phi_{+,2}&=b_jU\phi_{-,1}.
+\end{align*}
+相减后得 $(b_j)_x\phi_{-,1}=0$,
+而非零列保证 $(b_j)_x=0$.
+时间方向同样有
+\begin{align*}
+(\phi_{+,2})_t
+&=(b_j)_t\phi_{-,1}+b_jV\phi_{-,1},\\
+V\phi_{+,2}&=b_jV\phi_{-,1},
+\end{align*}
+从而 $(b_j)_t=0$.
+由于透射零点本身已由演化命题固定,
+这里不出现零点随时间移动的链式项.
+$s_{22}'(\zeta_j)$ 也恒定, 所以 $c_j$ 恒定.
+而 $C_j$ 包含指数, 它实际满足
+\[
+(C_j)_x=-2\ii\lambda(\zeta_j)C_j,
+\qquad
+(C_j)_t=2\ii\lambda(\zeta_j)F(k(\zeta_j))C_j.
+\]
+这是直接对 $c_je^{2\ii\theta(\zeta_j)}$ 求导得到的,
+与原文只称 $b_j,c_j$ 为常数完全一致.
+
+\paragraph{式 \eqref{eq:resplus}: 指数转换与分子分母的 Taylor 计算.}
+将原 Jost 列与修正列的定义逐个代入,
+\[
+\mu_{+,2}(\zeta_j)e^{-\ii\theta(\zeta_j)}
+=b_j\mu_{-,1}(\zeta_j)e^{\ii\theta(\zeta_j)}.
+\]
+两侧乘 $e^{\ii\theta(\zeta_j)}$ 后,
+\[
+\mu_{+,2}(\zeta_j)
+=b_je^{2\ii\theta(\zeta_j)}\mu_{-,1}(\zeta_j).
+\]
+现在同时展开分子与分母:
+\begin{align*}
+\mu_{+,2}(z)
+&=\mu_{+,2}(\zeta_j)+(z-\zeta_j)\mu_{+,2}'(\zeta_j)
++O((z-\zeta_j)^2),\\
+s_{22}(z)
+&=(z-\zeta_j)\left(s_{22}'(\zeta_j)
++\dfrac{s_{22}''(\zeta_j)}{2}(z-\zeta_j)
++O((z-\zeta_j)^2)\right).
+\end{align*}
+由于 $s_{22}'(\zeta_j)\ne0$, 对括号求倒数并相乘, 得
+\begin{align*}
+\dfrac{1}{s_{22}(z)}
+&=\dfrac{1}{s_{22}'(\zeta_j)(z-\zeta_j)}
+-\dfrac{s_{22}''(\zeta_j)}{2s_{22}'(\zeta_j)^2}
++O(z-\zeta_j),\\
+\dfrac{\mu_{+,2}(z)}{s_{22}(z)}
+&=\dfrac{\mu_{+,2}(\zeta_j)}{s_{22}'(\zeta_j)(z-\zeta_j)}
++\dfrac{\mu_{+,2}'(\zeta_j)}{s_{22}'(\zeta_j)}\\
+&\quad-\dfrac{\mu_{+,2}(\zeta_j)s_{22}''(\zeta_j)}{2s_{22}'(\zeta_j)^2}
++O(z-\zeta_j).
+\end{align*}
+倒数展开的一次系数也可以通过乘回验证:
+常数项为 1, 一次项是
+$\dfrac{s_{22}''}{2s_{22}'}-\dfrac{s_{22}''}{2s_{22}'}=0$.
+因此极点系数正是
+\[
+\dfrac{\mu_{+,2}(\zeta_j)}{s_{22}'(\zeta_j)}
+=\dfrac{b_j}{s_{22}'(\zeta_j)}e^{2\ii\theta(\zeta_j)}
+\mu_{-,1}(\zeta_j)=C_j\mu_{-,1}(\zeta_j).
+\]
+分子在该点非零, 所以这里不是可去奇点.
+
+\paragraph{式 \eqref{eq:resminus}: 共轭产生的负号逐列检查.}
+原相关式取共轭后为
+\[
+\conj{\phi_{+,2}(\zeta_j)}
+=\conj{b_j}\conj{\phi_{-,1}(\zeta_j)}.
+\]
+左乘 $\ii\sigma_2$,
+\begin{align*}
+\phi_{+,1}(\conj{\zeta_j})
+&=\conj{b_j}\ii\sigma_2\conj{\phi_{-,1}(\zeta_j)},\\
+\phi_{-,2}(\conj{\zeta_j})
+&=-\ii\sigma_2\conj{\phi_{-,1}(\zeta_j)}.
+\end{align*}
+第二行的 $-\ii$ 与第一行的 $+\ii$ 相反,
+因此
+\[
+\phi_{+,1}(\conj{\zeta_j})
+=-\conj{b_j}\phi_{-,2}(\conj{\zeta_j}).
+\]
+改写成修正列,
+\[
+\mu_{+,1}(\conj{\zeta_j})
+=-\conj{b_j}e^{-2\ii\theta(\conj{\zeta_j})}
+\mu_{-,2}(\conj{\zeta_j}).
+\]
+现在被除的列是第一列, 所以指数是负两倍.
+
+\paragraph{共轭零点处的导数由 Taylor 系数比较得到.}
+不能把非解析映射 $z\mapsto\conj{z}$ 当作解析函数套用复导数链式法则.
+正确计算从
+$s_{11}(z)=\conj{s_{22}(\conj{z})}$ 的局部展开开始:
+\begin{align*}
+s_{22}(\conj{z})
+&=s_{22}'(\zeta_j)(\conj{z}-\zeta_j)
++O(|\conj{z}-\zeta_j|^2),\\
+s_{11}(z)
+&=\conj{s_{22}'(\zeta_j)}(z-\conj{\zeta_j})
++O(|z-\conj{\zeta_j}|^2).
+\end{align*}
+因此
+\[
+s_{11}'(\conj{\zeta_j})=\conj{s_{22}'(\zeta_j)}\ne0.
+\]
+又有
+\begin{align*}
+\conj{C_j}
+&=\conj{c_j}\conj{e^{2\ii\theta(\zeta_j)}}\\
+&=\conj{c_j}e^{-2\ii\conj{\theta(\zeta_j)}}
+=\conj{c_j}e^{-2\ii\theta(\conj{\zeta_j})}.
+\end{align*}
+所以第二个简单极点的留数为
+\begin{align*}
+\dfrac{\mu_{+,1}(\conj{\zeta_j})}{s_{11}'(\conj{\zeta_j})}
+&=-\dfrac{\conj{b_j}}{\conj{s_{22}'(\zeta_j)}}
+ e^{-2\ii\theta(\conj{\zeta_j})}\mu_{-,2}(\conj{\zeta_j})\\
+&=-\conj{C_j}\mu_{-,2}(\conj{\zeta_j}).
+\end{align*}
+共轭后的简单性也在非零的一次 Taylor 系数中同时得到证明.
+
+\paragraph{式 \eqref{eq:cpair}: 先算列相关常数, 再算导数.}
+在 $\conj{\zeta}$ 处使用两条换叶列关系,
+\begin{align*}
+\phi_{+,2}(\widehat\zeta)
+&=\dfrac{\ii\conj{\zeta}}{q_0}\phi_{+,1}(\conj{\zeta}),\\
+\phi_{-,1}(\widehat\zeta)
+&=\dfrac{\ii\conj{\zeta}}{q_0}\phi_{-,2}(\conj{\zeta}).
+\end{align*}
+把共轭点的列相关关系代入第一行,
+\begin{align*}
+\phi_{+,2}(\widehat\zeta)
+&=-\conj{b_\zeta}\dfrac{\ii\conj{\zeta}}{q_0}
+\phi_{-,2}(\conj{\zeta})\\
+&=-\conj{b_\zeta}\phi_{-,1}(\widehat\zeta).
+\end{align*}
+右侧列非零, 所以相关倍数唯一,
+$b_{\widehat\zeta}=-\conj{b_\zeta}$.
+
+换叶的差值可以精确通分:
+\begin{align*}
+h(z)-h(\conj{\zeta})
+&=-\dfrac{q_0^2}{z}+\dfrac{q_0^2}{\conj{\zeta}}
+=\dfrac{q_0^2(z-\conj{\zeta})}{z\conj{\zeta}},\\
+\lim\limits_{z\to\conj{\zeta}}
+\dfrac{h(z)-h(\conj{\zeta})}{z-\conj{\zeta}}
+&=\dfrac{q_0^2}{(\conj{\zeta})^2}.
+\end{align*}
+对 $s_{22}(h(z))=s_{11}(z)$ 写差商,
+\[
+\dfrac{s_{22}(h(z))-s_{22}(\widehat\zeta)}{h(z)-\widehat\zeta}
+\dfrac{h(z)-\widehat\zeta}{z-\conj{\zeta}}
+=\dfrac{s_{11}(z)-s_{11}(\conj{\zeta})}{z-\conj{\zeta}}.
+\]
+取极限后,
+\[
+s_{22}'(\widehat\zeta)\dfrac{q_0^2}{(\conj{\zeta})^2}
+=\conj{s_{22}'(\zeta)},
+\qquad
+s_{22}'(\widehat\zeta)
+=\dfrac{(\conj{\zeta})^2}{q_0^2}\conj{s_{22}'(\zeta)}.
+\]
+两因子都不为零, 所以另一 $D_+$ 零点仍然简单.
+把结果代入 $c$ 的定义,
+\begin{align*}
+c_{\widehat\zeta}
+&=\dfrac{-\conj{b_\zeta}}
+{\dfrac{(\conj{\zeta})^2}{q_0^2}\conj{s_{22}'(\zeta)}}\\
+&=-\dfrac{q_0^2}{(\conj{\zeta})^2}
+\conj{\left(\dfrac{b_\zeta}{s_{22}'(\zeta)}\right)}
+=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{c_\zeta}.
+\end{align*}
+这里分母导数乘逆因子, 但再除以导数使留数系数乘正向因子.
+所有撇号都对原文的 $z$ 求导, 没有改用 $k$ 导数.
+
+\paragraph{式 \eqref{eq:Cpair}: 相位与四个留数的完整检查.}
+由 $k$ 在换叶下不变而 $\lambda$ 变号,
+\[
+\theta(\widehat\zeta)=-\conj{\theta(\zeta)},
+\qquad
+e^{2\ii\theta(\widehat\zeta)}
+=e^{-2\ii\conj{\theta(\zeta)}}
+=\conj{e^{2\ii\theta(\zeta)}}.
+\]
+所以
+\begin{align*}
+C_{\widehat\zeta}
+&=c_{\widehat\zeta}e^{2\ii\theta(\widehat\zeta)}\\
+&=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{c_\zeta}
+\conj{e^{2\ii\theta(\zeta)}}
+=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta}.
+\end{align*}
+完整四点留数逐一为
+\begin{align*}
+\Res_{z=\zeta}\dfrac{\mu_{+,2}(z)}{s_{22}(z)}
+&=C_\zeta\mu_{-,1}(\zeta),\\
+\Res_{z=\conj{\zeta}}\dfrac{\mu_{+,1}(z)}{s_{11}(z)}
+&=-\conj{C_\zeta}\mu_{-,2}(\conj{\zeta}),\\
+\Res_{z=h(\conj{\zeta})}\dfrac{\mu_{+,2}(z)}{s_{22}(z)}
+&=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta}
+\mu_{-,1}(h(\conj{\zeta})),\\
+\Res_{z=h(\zeta)}\dfrac{\mu_{+,1}(z)}{s_{11}(z)}
+&=\dfrac{q_0^2}{\zeta^2}C_\zeta\mu_{-,2}(h(\zeta)).
+\end{align*}
+最后一行的系数来自
+\[
+-\conj{C_{\widehat\zeta}}
+=-\conj{\left(-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta}\right)}
+=\dfrac{q_0^2}{\zeta^2}C_\zeta.
+\]
+所以最后一个点的正号是两个负号相乘的结果.
+全部新增展示式不另编号, 原文两条留数式及全部编号保持原样.

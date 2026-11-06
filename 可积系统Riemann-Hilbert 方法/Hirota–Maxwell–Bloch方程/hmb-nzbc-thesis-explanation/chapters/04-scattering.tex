@@ -1,0 +1,443 @@
+\subsection{散射矩阵与解析系数}
+记 $\Sigma^\circ=\Sigma\mathbin{\backslash}\{0,\pm\ii q_0,z_a^\pm\}$. 在 $\Sigma^\circ$ 上, 两组 Jost 解为同一空间谱方程的基本解矩阵, 因而存在与 $x$ 无关的散射矩阵
+\begin{equation}\label{eq:Sdef}
+\phi_+(x,t,z)=\phi_-(x,t,z)S(z),\qquad S=(s_{jk})_{j,k=1}^{2}.
+\end{equation}
+
+\paragraph{为什么两组基底只相差一个常矩阵.}
+先在非分支点处讨论. 下面将证明 $\det\phi_-=\gamma\ne0$,
+所以散射关系等价于 $S=\phi_-^{-1}\phi_+$.
+对恒等式 $\phi_-^{-1}\phi_-=I$ 求导,
+\[
+(\phi_-^{-1})_x\phi_-+\phi_-^{-1}(\phi_-)_x=0,
+\qquad
+(\phi_-^{-1})_x=-\phi_-^{-1}U.
+\]
+于是
+\begin{align*}
+S_x
+&=(\phi_-^{-1})_x\phi_++\phi_-^{-1}(\phi_+)_x\\
+&=-\phi_-^{-1}U\phi_++\phi_-^{-1}U\phi_+=0.
+\end{align*}
+这里 $U$ 可以随 $x$ 变化; 只因两组矩阵满足同一个空间方程,
+这两个包含 $U$ 的项才精确相消.
+把右乘矩阵逐元写出,
+\[
+(\phi_{-,1},\phi_{-,2})
+\begin{pmatrix}s_{11}&s_{12}\\s_{21}&s_{22}\end{pmatrix}
+=\bigl(s_{11}\phi_{-,1}+s_{21}\phi_{-,2},
+ s_{12}\phi_{-,1}+s_{22}\phi_{-,2}\bigr).
+\]
+注意第一列的两个系数是 $s_{11},s_{21}$,
+而不是散射矩阵的第一行. 所有后续反射系数的符号都依赖这一约定.
+
+其列关系为
+\begin{equation}\label{eq:scattering-columns}
+\phi_{+,1}=s_{11}\phi_{-,1}+s_{21}\phi_{-,2},\qquad
+\phi_{+,2}=s_{12}\phi_{-,1}+s_{22}\phi_{-,2}.
+\end{equation}
+
+\begin{proposition}[散射矩阵与 Wronskian]\label{prop:scattering}
+在定理 \ref{thm:jost} 的条件下,
+\begin{equation}\label{eq:detjost}
+\det\phi_\pm=\det\mu_\pm=\gamma(z),\qquad \det S=1.
+\end{equation}
+散射系数满足
+\begin{align}
+s_{11}&=\dfrac{\det(\phi_{+,1},\phi_{-,2})}{\gamma},&
+s_{22}&=\dfrac{\det(\phi_{-,1},\phi_{+,2})}{\gamma},\label{eq:wronskian}\\
+s_{21}&=\dfrac{\det(\phi_{-,1},\phi_{+,1})}{\gamma},&
+s_{12}&=\dfrac{\det(\phi_{+,2},\phi_{-,2})}{\gamma}.\nonumber
+\end{align}
+其中 $s_{11}$ 在 $D_-$ 解析, $s_{22}$ 在 $D_+$ 解析, 并连续延拓到相应闭域中避开 $0,\pm\ii q_0$ 的紧集. $s_{12},s_{21}$ 在 $\Sigma^\circ$ 上连续; 在共振原像处使用空间归一化值.
+\end{proposition}
+\begin{proof}
+
+\par\medskip\noindent\textbf{Abel 恒等式在这个二阶系统中的完整求导.}\quad 
+空间方程的四个分量是
+\begin{align*}
+(\phi_{11})_x&=-\ii k\phi_{11}+q\phi_{21},&
+(\phi_{12})_x&=-\ii k\phi_{12}+q\phi_{22},\\
+(\phi_{21})_x&=-\conj{q}\phi_{11}+\ii k\phi_{21},&
+(\phi_{22})_x&=-\conj{q}\phi_{12}+\ii k\phi_{22}.
+\end{align*}
+这里 $\phi$ 可以逐次取 $\phi_+$ 或 $\phi_-$,
+并未引入新的谱解. 对二阶行列式的两项分别求导:
+\begin{align*}
+\partial_x\det\phi
+&=\partial_x(\phi_{11}\phi_{22}-\phi_{12}\phi_{21})\\
+&=(-\ii k\phi_{11}+q\phi_{21})\phi_{22}
++\phi_{11}(-\conj{q}\phi_{12}+\ii k\phi_{22})\\
+&\quad-(-\ii k\phi_{12}+q\phi_{22})\phi_{21}
+-\phi_{12}(-\conj{q}\phi_{11}+\ii k\phi_{21})\\
+&=-\ii k\phi_{11}\phi_{22}+\ii k\phi_{11}\phi_{22}
++\ii k\phi_{12}\phi_{21}-\ii k\phi_{12}\phi_{21}\\
+&\quad+q\phi_{21}\phi_{22}-q\phi_{22}\phi_{21}
+-\conj{q}\phi_{11}\phi_{12}+\conj{q}\phi_{12}\phi_{11}=0.
+\end{align*}
+每个矩阵元是标量, 所以最后两组也能交换次序而相消.
+归一化端的行列式为
+\begin{align*}
+\det\phi_\pm
+&=\det\mu_\pm\det e^{\ii\theta\sg}
+=\det\mu_\pm\,e^{\ii\theta}e^{-\ii\theta}
+=\det\mu_\pm,\\
+\lim\limits_{x\to\pm\infty}\det\mu_\pm
+&=\det\begin{pmatrix}1&-\dfrac{\ii q_0}{z}\\
+-\dfrac{\ii q_0}{z}&1\end{pmatrix}
+=1-\left(-\dfrac{\ii q_0}{z}\right)^2
+=1+\dfrac{q_0^2}{z^2}=\gamma.
+\end{align*}
+由于行列式不随 $x$ 变化, 它等于自己的端点极限.
+对散射关系取行列式,
+\[
+\gamma=\gamma\det S,
+\qquad \gamma\ne0,
+\qquad \det S=1.
+\]
+
+由 $\tr U=0$, Abel 恒等式给出 $\partial_x\det\phi_\pm=0$. 在归一化端取极限, 并使用 $\det e^{\ii\theta\sg}=1$, 得到 $\det\phi_\pm=\gamma$. 对 \eqref{eq:Sdef} 取行列式即得 $\det S=1$. 
+\par\medskip\noindent\textbf{四个 Wronskian 分别怎样消去另一项.}\quad 
+二列行列式对每列都是线性的, 且两列相同的行列式为零.
+对第一条列关系, 两种取法为
+\begin{align*}
+\det(\phi_{+,1},\phi_{-,2})
+&=s_{11}\det(\phi_{-,1},\phi_{-,2})
++s_{21}\det(\phi_{-,2},\phi_{-,2})\\
+&=s_{11}\gamma+s_{21}\cdot0=s_{11}\gamma,\\
+\det(\phi_{-,1},\phi_{+,1})
+&=s_{11}\det(\phi_{-,1},\phi_{-,1})
++s_{21}\det(\phi_{-,1},\phi_{-,2})\\
+&=s_{11}\cdot0+s_{21}\gamma=s_{21}\gamma.
+\end{align*}
+对第二条列关系, 应按下面的列次序取行列式:
+\begin{align*}
+\det(\phi_{-,1},\phi_{+,2})
+&=s_{12}\det(\phi_{-,1},\phi_{-,1})
++s_{22}\det(\phi_{-,1},\phi_{-,2})\\
+&=s_{22}\gamma,\\
+\det(\phi_{+,2},\phi_{-,2})
+&=s_{12}\det(\phi_{-,1},\phi_{-,2})
++s_{22}\det(\phi_{-,2},\phi_{-,2})\\
+&=s_{12}\gamma.
+\end{align*}
+例如, 若把最后一个行列式的两列反过来,
+会得到 $-s_{12}\gamma$, 因而不能随意交换列序.
+除以 $\gamma$ 后恰好得到原文四个散射系数.
+
+对第一条列关系分别与 $\phi_{-,2}$、$\phi_{-,1}$ 取行列式, 有
+\[
+\det(\phi_{+,1},\phi_{-,2})=s_{11}\gamma,\qquad
+\det(\phi_{-,1},\phi_{+,1})=s_{21}\gamma.
+\]
+第二条列关系同理给出 $s_{12},s_{22}$, 即 \eqref{eq:wronskian}. 
+\par\medskip\noindent\textbf{把四个行列式中的指数也逐个抽出.}\quad 
+由第一列与第二列分别带 $e^{\ii\theta}$ 与 $e^{-\ii\theta}$,
+\begin{align*}
+\det(\phi_{+,1},\phi_{-,2})
+&=e^{\ii\theta}e^{-\ii\theta}
+\det(\mu_{+,1},\mu_{-,2})
+=\det(\mu_{+,1},\mu_{-,2}),\\
+\det(\phi_{-,1},\phi_{+,2})
+&=e^{\ii\theta}e^{-\ii\theta}
+\det(\mu_{-,1},\mu_{+,2})
+=\det(\mu_{-,1},\mu_{+,2}),\\
+\det(\phi_{-,1},\phi_{+,1})
+&=e^{2\ii\theta}\det(\mu_{-,1},\mu_{+,1}),\\
+\det(\phi_{+,2},\phi_{-,2})
+&=e^{-2\ii\theta}\det(\mu_{+,2},\mu_{-,2}).
+\end{align*}
+因此四个系数也可写为
+\begin{align*}
+s_{11}&=\dfrac{(\mu_+)_{11}(\mu_-)_{22}
+-(\mu_-)_{12}(\mu_+)_{21}}{\gamma},\\
+s_{22}&=\dfrac{(\mu_-)_{11}(\mu_+)_{22}
+-(\mu_+)_{12}(\mu_-)_{21}}{\gamma},\\
+s_{21}&=\dfrac{e^{2\ii\theta}}{\gamma}
+\bigl((\mu_-)_{11}(\mu_+)_{21}
+-(\mu_+)_{11}(\mu_-)_{21}\bigr),\\
+s_{12}&=\dfrac{e^{-2\ii\theta}}{\gamma}
+\bigl((\mu_+)_{12}(\mu_-)_{22}
+-(\mu_-)_{12}(\mu_+)_{22}\bigr).
+\end{align*}
+$s_{22}$ 的两列恰为 $\mu_{-,1},\mu_{+,2}$,
+二者都在 $D_+$ 解析; $s_{11}$ 的两列恰为
+$\mu_{+,1},\mu_{-,2}$, 二者都在 $D_-$ 解析.
+$\gamma$ 在相应开域没有零点, 所以除法保留解析性.
+另一方面, $s_{21}$ 与 $s_{12}$ 所用两列来自相反解析域,
+这里只能在共同边界上取值, 不能由这两个式子直接宣称全域解析.
+
+对透射系数, 两列的指数相消, 故
+\[
+s_{11}=\dfrac{\det(\mu_{+,1},\mu_{-,2})}{\gamma},\qquad
+s_{22}=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{\gamma}.
+\]
+两个分子分别由 $D_-$ 和 $D_+$ 的解析列组成, 且 $\gamma$ 的零点只位于分支点. 定理 \ref{thm:jost} 因而给出所述解析性与连续性. 对非对角元, 列指数只留下连续因子 $e^{\pm2\ii\theta}$, 故它们在 $\Sigma^\circ$ 上连续.
+\end{proof}
+
+按照 $\phi_+=\phi_-S$ 的约定, 以下称 $s_{11},s_{22}$ 为透射系数. 在其非零的谱弧上定义反射系数
+\begin{equation}\label{eq:reflection}
+\rho(z)=\dfrac{s_{21}(z)}{s_{11}(z)},\qquad
+\widetilde\rho(z)=\dfrac{s_{12}(z)}{s_{22}(z)}.
+\end{equation}
+由 $\det S=1$,
+\begin{equation}\label{eq:scattering-determinant}
+s_{11}s_{22}-s_{12}s_{21}=1,\qquad
+s_{11}s_{22}(1-\rho\widetilde\rho)=1.
+\end{equation}
+
+\paragraph{反射系数与行列式约束的代数.}
+由定义, 在分母不为零的谱弧上有
+\[
+s_{21}=\rho s_{11},\qquad s_{12}=\widetilde\rho s_{22}.
+\]
+将这两式原次序代入行列式,
+\begin{align*}
+s_{11}s_{22}-s_{12}s_{21}
+&=s_{11}s_{22}-(\widetilde\rho s_{22})(\rho s_{11})\\
+&=s_{11}s_{22}(1-\rho\widetilde\rho)=1.
+\end{align*}
+由于这里都是标量函数, 可以交换乘法次序.
+这也说明 $1-\rho\widetilde\rho$ 不能在该谱弧上为零.
+共轭约化之后, 实轴上会有
+$\widetilde\rho=-\conj\rho$, 从而该因子变成
+$1+|\rho|^2$; 这里先保留原有符号形式,
+以免把只在实轴成立的等式用于圆谱的非实点.
+
+后续矩阵 RHP 取普通连续谱上 $s_{11}s_{22}\ne0$ 的散射数据; 分支点的边界正则性另行列入 RHP 的条件.
+
+\subsection{演化与共振相容性}
+设三场为包含 $t=0$ 的开区间 $I$ 上的经典规范 HMB 解, 并满足
+\begin{equation}\label{eq:evolution-regularity}
+\begin{gathered}
+q-q_0\in C(I;W^{3,1}(\mathbb R))\cap C^1(I;L^1(\mathbb R)),\\
+p+\dfrac{\ii\eta_0q_0}{a},\quad\eta-\eta_0\in C(I;W^{1,1}(\mathbb R)).
+\end{gathered}
+\end{equation}
+这些条件保证可在避开共振原像的谱参数紧集上对 Jost 积分方程求 $t$ 导数, 且 $V-V_\infty$ 在空间两端趋于零.
+
+\begin{proposition}[散射数据的时间演化]\label{prop:evolution}
+在条件 \eqref{eq:evolution-regularity} 下, 共振点之外的 $\phi_\pm$ 同时满足 Lax 对 \eqref{eq:gaugelax}, $S$ 与 $x,t$ 无关. 对固定 $t$ 的空间归一化 Jost 解
+\[
+\chi_\pm=\phi_\pm e^{-\ii\lambda Ft\sg},\qquad
+\chi_\pm e^{\ii\lambda x\sg}\longrightarrow Y\quad(x\to\pm\infty),
+\]
+定义 $\chi_+=\chi_-S_{\rm sp}$. 则
+\begin{equation}\label{eq:timeS}
+S_{\rm sp}(z,t)=e^{\ii\lambda Ft\sg}S(z)e^{-\ii\lambda Ft\sg},
+\end{equation}
+\begin{equation}\label{eq:timer}
+\rho_{\rm sp}(z,t)=e^{-2\ii\lambda Ft}\rho_{\rm sp}(z,0),\qquad
+\widetilde\rho_{\rm sp}(z,t)=e^{2\ii\lambda Ft}\widetilde\rho_{\rm sp}(z,0).
+\end{equation}
+透射系数、离散零点及同时归一化的离散列相关常数均与 $t$ 无关.
+\end{proposition}
+\begin{proof}
+
+\par\medskip\noindent\textbf{零曲率怎样保证时间偏差仍是空间解.}\quad 
+$\chi_\pm$ 满足 $(\chi_\pm)_x=U\chi_\pm$.
+交换混合导数并逐项求导,
+\begin{align*}
+\partial_x(\chi_{\pm,t}-V\chi_\pm)
+&=\partial_t(U\chi_\pm)-V_x\chi_\pm-VU\chi_\pm\\
+&=U\chi_{\pm,t}+(U_t-V_x-VU)\chi_\pm\\
+&=U\chi_{\pm,t}-UV\chi_\pm\\
+&=U(\chi_{\pm,t}-V\chi_\pm).
+\end{align*}
+第三行使用
+$U_t-V_x+[U,V]=U_t-V_x+UV-VU=0$.
+空间归一化中没有 $t$ 指数, 因而在相应端点
+\[
+\chi_\pm\sim Ye^{-\ii\lambda x\sg},
+\qquad
+\chi_{\pm,t}\sim0.
+\]
+另一方面,
+\begin{align*}
+V_\infty Ye^{-\ii\lambda x\sg}
+&=\ii\lambda F Y\sg e^{-\ii\lambda x\sg}\\
+&=Ye^{-\ii\lambda x\sg}\ii\lambda F\sg.
+\end{align*}
+所以 $\chi_{\pm,t}-V\chi_\pm$ 的端态恰好等于
+$-\chi_\pm\ii\lambda F\sg$ 的端态.
+两者均满足同一个空间方程, 用 Jost 唯一性比较每一列即可相等.
+正则性条件的用途是保证先前交换 $x,t$ 微分和求端点极限合法;
+不能仅凭形式上的零曲率就跳过这些步骤.
+
+先将归一化中的传播相位移到右侧. 零曲率条件给出
+\[
+\partial_x(\chi_{\pm,t}-V\chi_\pm)=U(\chi_{\pm,t}-V\chi_\pm).
+\]
+在普通连续谱上, $V_\infty Y=\ii\lambda F Y\sg$. 由 \eqref{eq:evolution-regularity} 和归一化的 $t$ 导数, 空间解 $\chi_{\pm,t}-V\chi_\pm$ 在归一化端与 $-\chi_\pm\ii\lambda F\sg$ 具有相同渐近行为. 对相应齐次 Volterra 方程使用唯一性, 得到
+\[
+\chi_{\pm,t}=V\chi_\pm-\chi_\pm\ii\lambda F\sg.
+\]
+
+\par\medskip\noindent\textbf{恢复共同传播相位时的乘积求导.}\quad 
+因为 $\lambda,F$ 都与 $t$ 无关,
+\begin{align*}
+\partial_t\bigl(\chi_\pm e^{\ii\lambda Ft\sg}\bigr)
+&=\chi_{\pm,t}e^{\ii\lambda Ft\sg}
++\chi_\pm\ii\lambda F\sg e^{\ii\lambda Ft\sg}\\
+&=(V\chi_\pm-\chi_\pm\ii\lambda F\sg)e^{\ii\lambda Ft\sg}
++\chi_\pm\ii\lambda F\sg e^{\ii\lambda Ft\sg}\\
+&=V\chi_\pm e^{\ii\lambda Ft\sg}=V\phi_\pm.
+\end{align*}
+这两个 $\ii\lambda F\sg$ 项的符号必须相反才会抵消.
+空间关系也保持不变, 因为右侧指数不依赖 $x$.
+
+右乘 $e^{\ii\lambda Ft\sg}$, 得到 $\phi_{\pm,t}=V\phi_\pm$. 同一论证作用于各解析列. 对 \eqref{eq:Sdef} 求导, 有
+\[
+\phi_-S_x=U\phi_+-U\phi_-S=0,\qquad
+\phi_-S_t=V\phi_+-V\phi_-S=0.
+\]
+
+\par\medskip\noindent\textbf{从矩阵恒定性到逐元的时间演化.}\quad 
+$\det\phi_-\ne0$, 所以原文两条矩阵等式左乘
+$\phi_-^{-1}$ 后给出 $S_x=S_t=0$.
+将 $\phi_\pm=\chi_\pm e^{\ii\lambda Ft\sg}$
+代回散射关系, 得
+\begin{align*}
+\chi_+e^{\ii\lambda Ft\sg}
+&=\chi_-e^{\ii\lambda Ft\sg}S,\\
+\chi_+&=\chi_-e^{\ii\lambda Ft\sg}Se^{-\ii\lambda Ft\sg}.
+\end{align*}
+于是空间散射矩阵的四个矩阵元为
+\begin{align*}
+S_{\rm sp}
+&=\begin{pmatrix}e^{\ii\lambda Ft}&0\\0&e^{-\ii\lambda Ft}\end{pmatrix}
+\begin{pmatrix}s_{11}&s_{12}\\s_{21}&s_{22}\end{pmatrix}
+\begin{pmatrix}e^{-\ii\lambda Ft}&0\\0&e^{\ii\lambda Ft}\end{pmatrix}\\
+&=\begin{pmatrix}
+s_{11}&e^{2\ii\lambda Ft}s_{12}\\
+e^{-2\ii\lambda Ft}s_{21}&s_{22}
+\end{pmatrix}.
+\end{align*}
+所以两个对角元恒定, 非对角元分别乘相反符号的指数.
+按照原文的比值定义再除以不变的对角元,
+\begin{align*}
+\rho_{\rm sp}(t)
+&=\dfrac{e^{-2\ii\lambda Ft}s_{21}}{s_{11}}
+=e^{-2\ii\lambda Ft}\rho_{\rm sp}(0),\\
+\widetilde\rho_{\rm sp}(t)
+&=\dfrac{e^{2\ii\lambda Ft}s_{12}}{s_{22}}
+=e^{2\ii\lambda Ft}\widetilde\rho_{\rm sp}(0).
+\end{align*}
+透射系数作为解析函数恒定, 因而它的零点与对 $z$ 的导数都恒定.
+离散列的相关常数所指的是同时满足两条 Lax 方程的 $\phi$ 列;
+若改用只作空间归一化的 $\chi$ 列, 相关常数会含传播指数.
+
+因此 $S_x=S_t=0$. 透射系数的解析延拓与零点不变; 离散列相关常数的不变性由相同的微分等式得到. 将 $\chi_\pm$ 代回散射关系得到 \eqref{eq:timeS}, 其非对角元分别带有 $e^{\mp2\ii\lambda Ft}$, 即为 \eqref{eq:timer}.
+\end{proof}
+
+共振点的空间归一化取值由 \eqref{eq:volterra} 定义, 介质方程在此固定了散射矩阵的形式.
+
+\begin{proposition}[共振点的反射条件]\label{prop:resonance}
+固定 $t$, 设 $q-q_0\in L^1(\mathbb R)$, 三场满足介质方程及共同端态
+\[
+(q,p,\eta)\longrightarrow\left(q_0,-\dfrac{\ii\eta_0q_0}{a},\eta_0\right),\qquad x\to\pm\infty.
+\]
+若 $z_a^\pm$ 处的空间 Jost 基底 $\chi_\pm$ 连续可逆, 且具有上述振荡归一化, 则
+\[
+[S_{\rm sp}(z_a^\pm,t),\sg]=0,\qquad
+\rho_{\rm sp}(z_a^\pm,t)=\widetilde\rho_{\rm sp}(z_a^\pm,t)=0.
+\]
+\end{proposition}
+\begin{proof}
+
+\par\medskip\noindent\textbf{介质约束在共振谱点如何变成守恒矩阵.}\quad 
+这里始终固定 $k=a$, 并且只使用空间解 $\chi_\pm$,
+因此没有计算在 $F$ 的极点上的指数.
+逆矩阵的空间导数是
+\[
+(\chi_\pm^{-1})_x=-\chi_\pm^{-1}U(a).
+\]
+对被共轭的介质矩阵逐项求导,
+\begin{align*}
+\partial_x(\chi_\pm^{-1}R\chi_\pm)
+&=-\chi_\pm^{-1}U(a)R\chi_\pm
++\chi_\pm^{-1}R_x\chi_\pm
++\chi_\pm^{-1}RU(a)\chi_\pm\\
+&=\chi_\pm^{-1}\bigl(R_x-U(a)R+RU(a)\bigr)\chi_\pm\\
+&=\chi_\pm^{-1}\bigl(R_x-[U(a),R]\bigr)\chi_\pm=0.
+\end{align*}
+这说明它不随 $x$ 变化, 可在任一归一化端计算.
+
+由 $R_x=[U(a),R]$,
+\[
+\partial_x(\chi_\pm^{-1}R\chi_\pm)
+=\chi_\pm^{-1}(R_x-[U(a),R])\chi_\pm=0.
+\]
+另一方面, 式 \eqref{eq:Rbg} 和 \eqref{eq:diagE} 给出
+\[
+Y(z_a)^{-1}R_\infty Y(z_a)=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
+\]
+
+\par\medskip\noindent\textbf{背景介质矩阵的特征值逐项核对.}\quad 
+在共振原像有 $k=a$, 因而
+\[
+\lambda=a+\dfrac{q_0^2}{z_a},
+\qquad z_a=a+\lambda.
+\]
+直接把 $R_\infty$ 与 $Y$ 相乘,
+\begin{align*}
+R_\infty Y
+&=\begin{pmatrix}
+\eta_0+\dfrac{\eta_0q_0^2}{az_a}&
+-\dfrac{\ii\eta_0q_0}{z_a}+\dfrac{\ii\eta_0q_0}{a}\\
+-\dfrac{\ii\eta_0q_0}{a}+\dfrac{\ii\eta_0q_0}{z_a}&
+-\eta_0-\dfrac{\eta_0q_0^2}{az_a}
+\end{pmatrix}\\
+&=\dfrac{\eta_0\lambda}{a}
+\begin{pmatrix}1&\dfrac{\ii q_0}{z_a}\\
+-\dfrac{\ii q_0}{z_a}&-1\end{pmatrix}
+=\dfrac{\eta_0\lambda}{a}Y\sg.
+\end{align*}
+例如右上元所用的等式是
+\[
+\dfrac{1}{a}-\dfrac{1}{z_a}
+=\dfrac{z_a-a}{az_a}
+=\dfrac{\lambda}{az_a}.
+\]
+左乘 $Y^{-1}$ 就得到原文的对角化公式.
+
+$\lambda(z_a)=\pm\sqrt{a^2+q_0^2}$ 为非零实数, 空间指数及其逆均有界. 在各自归一化端取极限可得
+\[
+\chi_\pm^{-1}R\chi_\pm=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
+\]
+再用 $\chi_+=\chi_-S_{\rm sp}$, 得到
+\[
+\dfrac{\eta_0\lambda(z_a)}{a}\sg
+=S_{\rm sp}^{-1}\dfrac{\eta_0\lambda(z_a)}{a}\sg S_{\rm sp}.
+\]
+
+\par\medskip\noindent\textbf{从相同端态到反射为零的最后一步.}\quad 
+在端点, 代入空间归一化可得
+\begin{align*}
+\chi_\pm^{-1}R\chi_\pm
+&\longrightarrow e^{\ii\lambda x\sg}Y^{-1}R_\infty Y
+ e^{-\ii\lambda x\sg}\\
+&=\dfrac{\eta_0\lambda}{a}
+ e^{\ii\lambda x\sg}\sg e^{-\ii\lambda x\sg}
+=\dfrac{\eta_0\lambda}{a}\sg.
+\end{align*}
+指数与逆指数有界使趋零的端态误差仍然趋零.
+两端计算出同一个对角矩阵, 再用散射关系可得
+$S_{\rm sp}\sg=\sg S_{\rm sp}$.
+把这个交换子逐元展开,
+\[
+S_{\rm sp}\sg-\sg S_{\rm sp}
+=\begin{pmatrix}
+0&-2(S_{\rm sp})_{12}\\2(S_{\rm sp})_{21}&0
+\end{pmatrix}=0.
+\]
+所以 $(S_{\rm sp})_{12}=(S_{\rm sp})_{21}=0$.
+再由
+\[
+1=\det S_{\rm sp}=(S_{\rm sp})_{11}(S_{\rm sp})_{22}
+\]
+可知两个分母都非零, 因而反射系数的零值确实有定义.
+这里 $a\ne0,\eta_0\ne0$ 以及 $\lambda\ne0$ 都在除法时使用了.
+
+因 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 两个非对角元必须为零. $\det S_{\rm sp}=1$ 保证对角元非零, 从而两反射系数均为零. 这里的取值仅涉及空间谱问题; 含有 $F(k)$ 的传播指数不在 $k=a$ 处求值.
+\end{proof}

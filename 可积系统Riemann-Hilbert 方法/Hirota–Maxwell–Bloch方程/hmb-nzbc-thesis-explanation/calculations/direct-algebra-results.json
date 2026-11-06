@@ -1,0 +1,25 @@
+{
+  "variables": "0<h<1, q0>0; r=conjugate(T), T!=0 on the physical slice",
+  "Schur_determinant": "(T*h**2*r - 2*T*h + T*r + h**2 - 2*h*r + 1)*(T*h**2*r + 2*T*h + T*r + h**2 + 2*h*r + 1)/(h**2 + 1)**2",
+  "computed_v_rows": "Matrix([[-(h**2 + 1)*(h*r - 1)/(T*h**2*r - 2*T*h + T*r + h**2 - 2*h*r + 1), (-h + r)*(h**2 + 1)/(T*h**2*r - 2*T*h + T*r + h**2 - 2*h*r + 1)], [(-T + h)*(h**2 + 1)/(h*(T*h**2*r - 2*T*h + T*r + h**2 - 2*h*r + 1)), -(h**2 + 1)*(T*h - 1)/(h*(T*h**2*r - 2*T*h + T*r + h**2 - 2*h*r + 1))]])",
+  "computed_u_rows": "Matrix([[(-T + h)*(h**2 + 1)/(T*h**2*r - 2*T*h + T*r + h**2 - 2*h*r + 1), -(h**2 + 1)*(T*h - 1)/(T*h**2*r - 2*T*h + T*r + h**2 - 2*h*r + 1)], [(h**2 + 1)*(h*r - 1)/(h*(T*h**2*r - 2*T*h + T*r + h**2 - 2*h*r + 1)), -(-h + r)*(h**2 + 1)/(h*(T*h**2*r - 2*T*h + T*r + h**2 - 2*h*r + 1))]])",
+  "checks": {
+    "Schur factorization": "exact zero",
+    "explicit v": "exact zero",
+    "explicit u": "exact zero",
+    "finite1": "exact zero",
+    "finite2": "exact zero",
+    "partial fractions equal compact M": "exact zero",
+    "rank-one projector identity": "exact zero",
+    "numerator determinant": "exact zero",
+    "sheet symmetry": "exact zero",
+    "infinity normalization": "exact zero",
+    "zero normalization": "exact zero",
+    "optical reconstruction": "exact zero",
+    "new-direction Wronskians": "exact zero",
+    "new-direction jump": "exact zero",
+    "jump determinant": "exact zero",
+    "negative Jost endpoint": "exact zero",
+    "positive Jost endpoint": "exact zero"
+  }
+}

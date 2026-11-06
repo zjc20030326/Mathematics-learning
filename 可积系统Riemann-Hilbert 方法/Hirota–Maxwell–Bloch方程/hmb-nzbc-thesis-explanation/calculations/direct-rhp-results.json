@@ -1,0 +1,89 @@
+{
+  "precision_digits": 70,
+  "variables": "x,t; k=(z-q0^2/z)/2; lambda=(z+q0^2/z)/2",
+  "method": "LU solve of residue block matrix; no Darboux input",
+  "parameters": {
+    "q0": "1.0",
+    "a": "2.0",
+    "eta0": "0.6",
+    "alpha": "1.0",
+    "beta": "0.1",
+    "b": "1.5"
+  },
+  "points": [
+    [
+      "-1.2",
+      "-.35"
+    ],
+    [
+      "0",
+      "0"
+    ],
+    [
+      ".37",
+      ".21"
+    ],
+    [
+      "1.4",
+      "-.1"
+    ],
+    [
+      "2.3",
+      ".6"
+    ]
+  ],
+  "max_errors": {
+    "linear_system": "2.2238171134297e-74",
+    "theta_condition": "0.0",
+    "constant_pair": "0.0",
+    "residue_plus_0": "3.5742556955374e-68",
+    "residue_minus_0": "3.5742563540183e-68",
+    "residue_plus_1": "9.1861954090365e-69",
+    "residue_minus_1": "9.1741904718873e-69",
+    "schur_factorization": "9.9573097044957e-60",
+    "medium_two_sheets": "1.1121218397023e-71",
+    "medium_Hermitian": "3.566149526026e-72",
+    "medium_trace": "3.5660018776183e-72",
+    "eta_real": "1.7829271146053e-72",
+    "Bloch": "4.7643678852178e-72",
+    "determinant_0": "2.0249114002679e-71",
+    "sheet_0": "5.7984638196049e-71",
+    "conjugation_0": "0.0",
+    "Lax_x_0": "1.358351861824e-70",
+    "Lax_t_0": "6.3443094932006e-70",
+    "determinant_1": "2.5355901420715e-70",
+    "sheet_1": "1.8161172162286e-71",
+    "conjugation_1": "0.0",
+    "Lax_x_1": "4.8131594520629e-70",
+    "Lax_t_1": "1.9456016386693e-69",
+    "determinant_2": "3.7994372562646e-71",
+    "sheet_2": "3.8419992509325e-71",
+    "conjugation_2": "0.0",
+    "Lax_x_2": "1.7300850587825e-70",
+    "Lax_t_2": "8.5268968574719e-70",
+    "special_point_det_0": "3.6287467048555e-71",
+    "special_point_det_1": "3.6287038369211e-71",
+    "special_point_det_2": "5.4592690857206e-71",
+    "branch_kernel_2": "5.4908805984998e-71",
+    "special_point_det_3": "5.4678803368796e-71",
+    "branch_kernel_3": "5.4993332689152e-71",
+    "PDE_q": "1.8658423748127e-69",
+    "PDE_p": "8.2505317503173e-71",
+    "PDE_eta": "1.4912310488341e-70",
+    "normalization_infty_scaled": "1.1534570472099e-29",
+    "normalization_zero_scaled": "4.8051811092089e-30"
+  },
+  "boundary_errors_x_minus_plus_30": [
+    [
+      "5.018292698308e-29",
+      "1.2876849150577e-29",
+      "9.6997510041922e-31"
+    ],
+    [
+      "1.6321009470846e-29",
+      "3.8532841512952e-30",
+      "1.6705017301997e-30"
+    ]
+  ],
+  "normalization_note": "scaled remainder divided by large z, or multiplied by small z; 1e15 and 1e-15"
+}

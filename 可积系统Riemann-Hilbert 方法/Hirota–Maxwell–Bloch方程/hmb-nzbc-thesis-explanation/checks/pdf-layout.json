@@ -1,0 +1,175 @@
+{
+  "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-explanation\\hmb-explanation.pdf",
+  "pages": 160,
+  "bytes": 2429750,
+  "page_geometry": [
+    595.280029296875,
+    841.8900146484375
+  ],
+  "out_of_page_text_spans": [],
+  "bookmarks": [
+    [
+      1,
+      "摘 要",
+      1
+    ],
+    [
+      1,
+      "Abstract",
+      2
+    ],
+    [
+      1,
+      "如何阅读本详细版",
+      3
+    ],
+    [
+      1,
+      "目 录",
+      6
+    ],
+    [
+      1,
+      "1. 绪论",
+      7
+    ],
+    [
+      2,
+      "1.1 模型与非零光场边界",
+      7
+    ],
+    [
+      2,
+      "1.2 相关工作与主要结果",
+      8
+    ],
+    [
+      1,
+      "2. 谱分析",
+      9
+    ],
+    [
+      2,
+      "2.1 平面波背景与介质约束",
+      9
+    ],
+    [
+      2,
+      "2.2 Lax 对",
+      13
+    ],
+    [
+      2,
+      "2.3 规范变换与背景谱问题",
+      26
+    ],
+    [
+      2,
+      "2.4 黎曼曲面与单值化",
+      31
+    ],
+    [
+      1,
+      "3. Jost 解",
+      43
+    ],
+    [
+      1,
+      "4. 散射矩阵",
+      53
+    ],
+    [
+      2,
+      "4.1 散射矩阵与解析系数",
+      53
+    ],
+    [
+      2,
+      "4.2 演化与共振相容性",
+      57
+    ],
+    [
+      1,
+      "5. 对称性",
+      61
+    ],
+    [
+      1,
+      "6. 离散谱与留数条件",
+      68
+    ],
+    [
+      1,
+      "7. 渐近行为",
+      77
+    ],
+    [
+      1,
+      "8. Riemann–Hilbert 问题",
+      90
+    ],
+    [
+      2,
+      "8.1 留数条件与重构公式",
+      93
+    ],
+    [
+      2,
+      "8.2 迹公式与相位条件",
+      99
+    ],
+    [
+      2,
+      "8.3 无反射 RHP 的直接求解",
+      102
+    ],
+    [
+      2,
+      "8.4 单轨道解及 HMB 方程验证",
+      118
+    ],
+    [
+      1,
+      "9. 数值结果与动力学分析",
+      134
+    ],
+    [
+      2,
+      "9.1 单孤子的三场分布",
+      134
+    ],
+    [
+      2,
+      "9.2 传播速度与内部振荡",
+      136
+    ],
+    [
+      2,
+      "9.3 参数影响与数值验证",
+      140
+    ],
+    [
+      1,
+      "原公式逐式定位表",
+      155
+    ],
+    [
+      1,
+      "参考文献",
+      160
+    ]
+  ],
+  "contact_sheets": [
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-01.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-02.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-03.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-04.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-05.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-06.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-07.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-08.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-09.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-10.png"
+  ],
+  "contact_pages_covered": 160
+}

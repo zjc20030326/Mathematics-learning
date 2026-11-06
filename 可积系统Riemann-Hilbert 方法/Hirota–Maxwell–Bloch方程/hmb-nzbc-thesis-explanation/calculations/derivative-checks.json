@@ -1,0 +1,452 @@
+{
+  "generated_utc": "2026-11-04T12:11:52.539898+00:00",
+  "script": "checks/verify_derivatives.py",
+  "source": "chapters/09-derivative-details.tex",
+  "source_sha256": "3338874030e6dbde8e89900b7fb1e5487a6ef275a839ad52553a41203344bbb3",
+  "python_version": "3.13.7",
+  "sympy_version": "1.14.0",
+  "method": "Exact symbolic identities with independent T,Tc,F,Fc; no finite differences.",
+  "scope": [
+    "projection derivatives and recurrences",
+    "physical optical-field derivatives",
+    "N and medium derivatives",
+    "component substitutions",
+    "both endpoint errors",
+    "norming-constant radicals and printed decimals"
+  ],
+  "checks_total": 64,
+  "checks_passed": 64,
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "Delta_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "Delta_xx",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "Delta_xxx",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "Delta_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "absT2_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "absT2_xx",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "absT2_xxx",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "absT2_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_numerator_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_numerator_xx",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_numerator_xxx",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_numerator_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_x_expanded",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_xx_expanded",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_xxx_expanded",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_t_expanded",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_x_product_recurrence",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_xx_product_recurrence",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P12_xxx_product_recurrence",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P11_numerator_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P11_numerator_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P11_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P11_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P21_numerator_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P21_numerator_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P21_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P21_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P22_numerator_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P22_numerator_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P22_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P22_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "trace_P_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "trace_P_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P21_x_conjugation",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P21_t_conjugation",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "qtilde_x",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "qtilde_xx",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "qtilde_xxx",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "qtilde_t",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "N_x_all_entries",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "N_dagger_x_all_entries",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "medium_product_derivative_all_entries",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "medium_H_diagonal_sign",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "medium_H_offdiagonal_sign",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "eta_x_expanded_component_substitution",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "ptilde_x_expanded_component_substitution",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "P_minus_Pminus_all_entries",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "P_minus_Pplus_all_entries",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "positive_end_scaled_denominator",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "positive_end_scaled_differences_all_entries",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "medium_endpoint_minus",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "medium_product_difference_minus",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "medium_endpoint_error_formula_minus",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "qtilde_endpoint_error_minus",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "medium_endpoint_plus",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "medium_product_difference_plus",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "medium_endpoint_error_formula_plus",
+      "passed": true,
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "qtilde_endpoint_error_plus",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "example_h_squared",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "example_1_plus_h_squared",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "example_c1_radical",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "example_c2_radical",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "example_c1_decimal",
+      "passed": true,
+      "absolute_error": "3.630758403353979429021072850262781923909e-16",
+      "tolerance": "5e-16"
+    },
+    {
+      "name": "example_c2_decimal",
+      "passed": true,
+      "absolute_error": "2.974250700206460956877395169294485905760e-17",
+      "tolerance": "5e-16"
+    }
+  ]
+}

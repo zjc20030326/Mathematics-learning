@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-04",
+  "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-explanation\\hmb-explanation.pdf",
+  "pages": 160,
+  "bytes": 2429750,
+  "pdf_sha256": "f3ca4152e10dbabd125245b6fda1c9a342e134b6c6d47a3963fdd13fedcbf928",
+  "original_display_blocks_preserved": 210,
+  "expanded_display_blocks_in_nine_sections": 852,
+  "original_labels_compared": 170,
+  "formula_index_entries": 127,
+  "source_unchanged": true,
+  "final_log": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-build\\pass6.txt",
+  "final_log_issues": [],
+  "derivative_symbolic_checks": 64,
+  "contact_pages_covered": 160,
+  "detail_pages_visually_reviewed": [
+    3,
+    50,
+    108,
+    123,
+    136,
+    147,
+    155
+  ],
+  "contact_preview_directory": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview",
+  "math_checks": [
+    "zero curvature and background",
+    "one-orbit exact elimination and matrix identities",
+    "70-digit residue/PDE/Lax/medium/boundary checks",
+    "64 derivative and endpoint exact identities"
+  ],
+  "visual_review": "All pages reviewed in contact sheets; selected pages enlarged; header correction checked separately."
+}

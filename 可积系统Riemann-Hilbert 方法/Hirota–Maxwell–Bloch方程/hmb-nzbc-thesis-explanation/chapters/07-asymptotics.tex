@@ -1,0 +1,763 @@
+谱曲面的两处无穷远分别为 $z=\infty$ 与 $z=0$. 以下在固定 $t$ 下推导修正 Jost 解及透射系数的展开. 为使一阶系数及二阶余项均可控制, 假设
+\begin{equation}\label{eq:highenergy-assumption}
+q-q_0\in W^{2,1}(\mathbb R).
+\end{equation}
+此时 $q$ 有界, $q_x$ 连续且在两端趋于零, $q_x,q_{xx}\in L^1(\mathbb R)$.
+
+\begin{proposition}[两处无穷远的渐近展开]\label{prop:highenergy}
+在条件 \eqref{eq:highenergy-assumption} 下, 记
+\begin{equation}\label{eq:asymptotic-coefficients}
+B(q)=\sg Q=\begin{pmatrix}0&q\\\conj{q}&0\end{pmatrix},\qquad
+J_\pm(x)=\int_{\pm\infty}^{x}(q_0^2-|q(y)|^2)\,\dd y.
+\end{equation}
+各 Jost 解析列在相应闭域内满足
+\begin{equation}\label{eq:mu-highenergy}
+\mu_\pm(x,z)=I+\dfrac{A_\pm(x)}{z}+O(z^{-2}),\qquad
+A_\pm=-\ii B(q)+\ii J_\pm\sg,\qquad z\to\infty,
+\end{equation}
+余项对实 $x$ 一致, 矩阵式按各自解析列理解. 令
+\[
+J_{\rm tot}=\int_{-\infty}^{+\infty}(q_0^2-|q|^2)\,\dd x,
+\]
+则透射系数满足
+\begin{equation}\label{eq:transmission-highenergy}
+\begin{aligned}
+s_{22}(z)&=1+\dfrac{\ii J_{\rm tot}}{z}+O(z^{-2}),&&z\to\infty,\quad z\in\overline{D_+},\\
+s_{11}(z)&=1-\dfrac{\ii J_{\rm tot}}{z}+O(z^{-2}),&&z\to\infty,\quad z\in\overline{D_-}.
+\end{aligned}
+\end{equation}
+在另一处无穷远,
+\begin{equation}\label{eq:smallmu}
+\mu_\pm(x,z)=-\dfrac{\ii q_0}{z}\sigma_1
++\dfrac{1}{q_0}\begin{pmatrix}q(x)&-J_\pm(x)\\J_\pm(x)&\conj{q(x)}\end{pmatrix}
++O(z),\qquad z\to0,
+\end{equation}
+以及
+\begin{equation}\label{eq:transmission-smallenergy}
+\begin{aligned}
+s_{22}(z)&=1+\dfrac{\ii J_{\rm tot}}{q_0^2}z+O(z^2),&&z\to0,\quad z\in\overline{D_+},\\
+s_{11}(z)&=1-\dfrac{\ii J_{\rm tot}}{q_0^2}z+O(z^2),&&z\to0,\quad z\in\overline{D_-}.
+\end{aligned}
+\end{equation}
+完整散射矩阵在实轴两端满足
+\begin{equation}\label{eq:scattering-two-infinities}
+\begin{aligned}
+S(z)&=I-\dfrac{\ii J_{\rm tot}}{z}\sg+O(z^{-2}),&&z\to\infty,\\
+S(z)&=I-\dfrac{\ii J_{\rm tot}}{q_0^2}z\sg+O(z^2),&&z\to0.
+\end{aligned}
+\end{equation}
+\end{proposition}
+\begin{proof}
+先确定展开的系数. 将空间方程写为
+\begin{equation}\label{eq:mu-highenergy-system}
+\mu_x=-\dfrac{\ii z}{2}[\sg,\mu]+Q\mu
++\dfrac{\ii q_0^2}{2z}(\sg\mu+\mu\sg).
+\end{equation}
+以 $\mu=I+\dfrac{A}{z}+\dfrac{A_2}{z^2}+\cdots$ 为待证展开, 比较常数项与 $z^{-1}$ 项, 分别得到
+\[
+-\dfrac{\ii}{2}[\sg,A]+Q=0,\qquad
+A_x=-\dfrac{\ii}{2}[\sg,A_2]+QA+\ii q_0^2\sg.
+\]
+第一式确定 $A$ 的非对角部分为 $-\ii\sg Q=-\ii B(q)$. 对第二式取对角部分, 使用 $QB=|q|^2\sg$, 得到
+\[
+(A_{\rm d})_x=\ii(q_0^2-|q|^2)\sg,\qquad
+A_{\rm d}(\pm\infty)=0,
+\]
+故 $A_\pm=-\ii B+\ii J_\pm\sg$. 以下由积分方程证明此展开及其一致余项, 无须预先假定渐近级数可逐项求导.
+
+作局部矩阵变换
+\[
+\mathcal T(x,z)=I-\dfrac{\ii B(q(x))}{z},\qquad \mu_\pm=\mathcal T n_\pm.
+\]
+由 $B\sg=-\sg B$, $B^2=|q|^2I$,
+\[
+\det\mathcal T=1+\dfrac{|q|^2}{z^2},\qquad
+\mathcal T^{-1}=\dfrac{I+\dfrac{\ii B}{z}}{1+\dfrac{|q|^2}{z^2}}.
+\]
+当 $|z|$ 足够大时, $\mathcal T,\mathcal T^{-1}$ 对所有实 $x$ 一致有界; 在归一化端 $\mathcal T\to Y$, 故 $n_\pm\to I$. 利用 $k+\lambda=z$ 和 $\lambda-k=\dfrac{q_0^2}{z}$, 有
+\begin{align*}
+U\mathcal T+\ii\lambda\mathcal T\sg-\mathcal T_x
+&=\ii(\lambda-k)\sg+Q-\dfrac{k+\lambda}{z}\sg B
+-\dfrac{\ii}{z}QB+\dfrac{\ii}{z}B_x\\
+&=\dfrac{\ii}{z}\bigl((q_0^2-|q|^2)\sg+B_x\bigr).
+\end{align*}
+因此
+\begin{equation}\label{eq:n-volterra-system}
+(n_\pm)_x=-\ii\lambda[\sg,n_\pm]+\mathcal Cn_\pm,\qquad
+\mathcal C=\dfrac{1}{z}\mathcal T^{-1}\mathcal C_1,\qquad
+\mathcal C_1=\ii\bigl((q_0^2-|q|^2)\sg+B_x\bigr).
+\end{equation}
+由 \eqref{eq:highenergy-assumption}, $q_0^2-|q|^2,q_x\in L^1$, 从而
+\begin{equation}\label{eq:asymptotic-L1-control}
+\|\mathcal C(\cdot,z)\|_{L^1}\le\dfrac{C}{|z|},\qquad
+\left\|\mathcal C(\cdot,z)-\dfrac{\mathcal C_1}{z}\right\|_{L^1}
+\le\dfrac{C}{|z|^2}.
+\end{equation}
+第 $j$ 列的 Volterra 方程为
+\[
+n_{\pm,j}(x,z)=e_j+\int_{\pm\infty}^{x}
+e^{-\ii\lambda(x-y)(\sg-s_jI)}\mathcal C(y,z)n_{\pm,j}(y,z)\,\dd y.
+\]
+其中 $s_1=1,s_2=-1$, 传播核在相应闭解析域及积分方向上范数不超过 1. 与定理 \ref{thm:jost} 相同的有序积分估计给出第 $l$ 次迭代项的界 $\dfrac{C^l}{l!|z|^l}$, 所以
+\[
+\|n_\pm-I\|_{L^\infty_x}\le e^{\frac{C}{|z|}}-1=O(z^{-1}),\qquad
+\sum\limits_{l=2}^{\infty}\dfrac{C^l}{l!|z|^l}=O(z^{-2}).
+\]
+结合 \eqref{eq:asymptotic-L1-control}, 只需计算以 $\dfrac{\mathcal C_1}{z}$ 代替 $\mathcal C$ 的第一次迭代. 以负端第一列为例, 对角分量为
+\[
+\dfrac{1}{z}\int_{-\infty}^{x}(\mathcal C_1)_{11}(y)\,\dd y
+=\dfrac{\ii J_-(x)}{z},
+\]
+非对角分量为
+\[
+\dfrac{\ii}{z}\int_{-\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_y(y)}\,\dd y.
+\]
+由于 $q_x$ 在负端趋于零, 分部积分得
+\[
+\int_{-\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_y(y)}\,\dd y
+=-\dfrac{\conj{q_x(x)}}{2\ii\lambda}
++\dfrac{1}{2\ii\lambda}\int_{-\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_{yy}(y)}\,\dd y.
+\]
+在 $\overline{D_+}$ 中, $y\le x$ 时指数模不超过 1, 且当 $z\to\infty$ 时 $|\lambda|\ge c|z|$. 因此该非对角分量绝对值至多为
+\[
+\dfrac{\|q_x\|_{L^\infty}+\|q_{xx}\|_{L^1}}{2|z\lambda|}=O(z^{-2}).
+\]
+正端和第二列只改变积分方向或指数符号, 具有相同估计. 于是
+\[
+n_\pm=I+\dfrac{\ii J_\pm\sg}{z}+O(z^{-2}),
+\]
+与 $\mathcal T$ 相乘即证明 \eqref{eq:mu-highenergy}. 此外, 从 \eqref{eq:n-volterra-system} 及 $n_\pm$ 非对角部分为 $O(z^{-2})$, 可得 $(n_\pm)_x=O(z^{-1})$, 因而 $(\mu_\pm)_x=O(z^{-1})$, 仍按解析列理解.
+
+将展开代入 Wronskian 表达式, 有
+\[
+\det(\mu_{-,1},\mu_{+,2})
+=1+\dfrac{\ii(J_--J_+)}{z}+O(z^{-2}),\qquad
+J_--J_+=J_{\rm tot},\qquad \gamma=1+O(z^{-2}).
+\]
+这给出 $s_{22}$ 的展开. 同理,
+\[
+\det(\mu_{+,1},\mu_{-,2})
+=1-\dfrac{\ii J_{\rm tot}}{z}+O(z^{-2}),
+\]
+从而得到 \eqref{eq:transmission-highenergy}. 在实轴上 $\theta$ 为实数, 由散射关系
+\[
+\begin{aligned}
+S&=e^{-\ii\theta\sg}\mu_-^{-1}\mu_+e^{\ii\theta\sg},\\
+\mu_-^{-1}\mu_+&=I+\dfrac{A_+-A_-}{z}+O(z^{-2})
+=I-\dfrac{\ii J_{\rm tot}}{z}\sg+O(z^{-2}),
+\end{aligned}
+\]
+得到 \eqref{eq:scattering-two-infinities} 的第一式.
+
+最后, 令 $w=h(z)=-\dfrac{q_0^2}{z}$. 第 \ref{ch:symmetry} 节的换叶关系给出
+\[
+\mu_\pm(z)=-\dfrac{\ii q_0}{z}\mu_\pm(w)\sigma_1
+=-\dfrac{\ii q_0}{z}\sigma_1+\dfrac{\ii}{q_0}A_\pm\sigma_1+O(z).
+\]
+计算 $\ii A_\pm\sigma_1=B\sigma_1-J_\pm\sg\sigma_1$ 即得 \eqref{eq:smallmu}. 因 $h$ 交换 $D_\pm$, 透射系数满足 $s_{22}(z)=s_{11}(w)$ 和 $s_{11}(z)=s_{22}(w)$; 将 $w^{-1}=-\dfrac{z}{q_0^2}$ 代入 \eqref{eq:transmission-highenergy}, 得到 \eqref{eq:transmission-smallenergy}. 在实轴上再用 $S(z)=\sigma_1S(w)\sigma_1$, 即得 \eqref{eq:scattering-two-infinities} 的第二式.
+\end{proof}
+
+两处无穷远控制 RHP 的归一化及光场重构. 分支点 $z=\pm\ii q_0$ 的连续延拓由命题 \ref{prop:jost-branch} 另行给出; 轮廓交点 $z=\pm q_0$ 是不同谱弧的交汇处, 共振原像 $z_a^\pm$ 则来自传播 Lax 矩阵的有理项.
+
+
+\subsubsection*{两处无穷远展开的全部矩阵元与余项计算}
+\paragraph{式 \eqref{eq:highenergy-assumption} 的具体用途.}
+$q-q_0\in W^{2,1}$ 蕴含 $q-q_0,q_x,q_{xx}\in L^1$.
+一维绝对连续代表满足
+\[
+q_x(x)=-\int_x^{+\infty}q_{yy}(y)\,\dd y,
+\qquad
+|q_x(x)|\le\|q_{xx}\|_{L^1}.
+\]
+同样从负端积分也可得到有界性与两端极限为零.
+$q-q_0$ 亦有界, 所以 $q$ 有界.
+对原文中对角积分的被积函数, 可以精确分解为
+\begin{align*}
+q_0^2-|q|^2
+&=-(q-q_0)\conj{q}-q_0(\conj{q}-q_0),\\
+|q_0^2-|q|^2|
+&\le(|q|+q_0)|q-q_0|.
+\end{align*}
+因此该函数属于 $L^1$,
+\[
+|J_\pm(x)|\le(\|q\|_{L^\infty}+q_0)\|q-q_0\|_{L^1}
+\]
+对所有实 $x$ 一致成立.
+$J_+$ 的正端定向要特别留意:
+\[
+J_-(x)=\int_{-\infty}^{x}(q_0^2-|q|^2)\,\dd y,
+\qquad
+J_+(x)=-\int_x^{+\infty}(q_0^2-|q|^2)\,\dd y.
+\]
+两者的空间导数相同,
+\[
+J_-'(x)=J_+'(x)=q_0^2-|q(x)|^2.
+\]
+但两者分别在各自归一化端为零.
+
+\paragraph{式 \eqref{eq:mu-highenergy-system} 由原空间方程逐项得到.}
+直接把 $k,\lambda$ 的有理表达式代入
+$\mu_x=(-\ii k\sg+Q)\mu+\ii\lambda\mu\sg$,
+\begin{align*}
+\mu_x
+&=-\dfrac{\ii z}{2}\sg\mu
++\dfrac{\ii q_0^2}{2z}\sg\mu
++Q\mu
++\dfrac{\ii z}{2}\mu\sg
++\dfrac{\ii q_0^2}{2z}\mu\sg\\
+&=-\dfrac{\ii z}{2}(\sg\mu-\mu\sg)
++Q\mu+\dfrac{\ii q_0^2}{2z}(\sg\mu+\mu\sg).
+\end{align*}
+对易子与反对易部分逐元为
+\[
+[\sg,\mu]=\begin{pmatrix}0&2\mu_{12}\\-2\mu_{21}&0\end{pmatrix},
+\qquad
+\sg\mu+\mu\sg=\begin{pmatrix}2\mu_{11}&0\\0&-2\mu_{22}\end{pmatrix}.
+\]
+而势矩阵左乘的结果是
+\[
+Q\mu=\begin{pmatrix}
+q\mu_{21}&q\mu_{22}\\
+-\conj{q}\mu_{11}&-\conj{q}\mu_{12}
+\end{pmatrix}.
+\]
+于是完整的四个标量微分方程为
+\begin{align*}
+(\mu_{11})_x&=q\mu_{21}+\dfrac{\ii q_0^2}{z}\mu_{11},\\
+(\mu_{12})_x&=-\ii z\mu_{12}+q\mu_{22},\\
+(\mu_{21})_x&=\ii z\mu_{21}-\conj{q}\mu_{11},\\
+(\mu_{22})_x&=-\conj{q}\mu_{12}-\dfrac{\ii q_0^2}{z}\mu_{22}.
+\end{align*}
+从这四式可以逐个核对下面每一个系数的符号.
+
+\paragraph{式 \eqref{eq:mu-highenergy}: 常数阶首先确定两个非对角元.}
+按原文的待证形式把 $\mu=I+\dfrac{A}{z}+\dfrac{A_2}{z^2}+\cdots$ 代入.
+左侧没有常数项, 右侧常数阶为
+\[
+-\dfrac{\ii}{2}[\sg,A]+Q
+=\begin{pmatrix}
+0&-\ii A_{12}+q\\
+\ii A_{21}-\conj{q}&0
+\end{pmatrix}=0.
+\]
+两个非平凡的标量等式解为
+\[
+-\ii A_{12}+q=0\ \Longrightarrow\ A_{12}=-\ii q,
+\qquad
+\ii A_{21}-\conj{q}=0\ \Longrightarrow\ A_{21}=-\ii\conj{q}.
+\]
+这个常数阶方程没有确定 $A_{11},A_{22}$,
+因为与 $\sg$ 的对易子对角元恒为零.
+不能把这两个尚未确定的对角系数直接设为零.
+
+$z^{-1}$ 阶的矩阵方程中,
+\[
+-\dfrac{\ii}{2}[\sg,A_2]
+=\begin{pmatrix}0&-\ii(A_2)_{12}\\
+\ii(A_2)_{21}&0\end{pmatrix},
+\qquad
+QA=\begin{pmatrix}
+qA_{21}&qA_{22}\\-\conj{q}A_{11}&-\conj{q}A_{12}
+\end{pmatrix}.
+\]
+逐个比较四个矩阵元,
+\begin{align*}
+(A_{11})_x&=qA_{21}+\ii q_0^2,\\
+(A_{12})_x&=-\ii(A_2)_{12}+qA_{22},\\
+(A_{21})_x&=\ii(A_2)_{21}-\conj{q}A_{11},\\
+(A_{22})_x&=-\conj{q}A_{12}-\ii q_0^2.
+\end{align*}
+将已经算出的 $A_{12},A_{21}$ 代入两条对角方程,
+\begin{align*}
+(A_{11})_x
+&=q(-\ii\conj{q})+\ii q_0^2
+=\ii(q_0^2-|q|^2),\\
+(A_{22})_x
+&=-\conj{q}(-\ii q)-\ii q_0^2
+=-\ii(q_0^2-|q|^2).
+\end{align*}
+在归一化端 $\mu_\pm\to Y=I-\dfrac{\ii q_0}{z}\sigma_1$,
+所以对角一阶系数的端态为零.
+从相应端积分,
+\begin{align*}
+(A_\pm)_{11}(x)
+&=\ii\int_{\pm\infty}^{x}(q_0^2-|q(y)|^2)\,\dd y
+=\ii J_\pm(x),\\
+(A_\pm)_{22}(x)
+&=-\ii\int_{\pm\infty}^{x}(q_0^2-|q(y)|^2)\,\dd y
+=-\ii J_\pm(x).
+\end{align*}
+因此四个系数完整合起来为
+\[
+A_\pm=\begin{pmatrix}
+\ii J_\pm&-\ii q\\-\ii\conj{q}&-\ii J_\pm
+\end{pmatrix}
+=-\ii B(q)+\ii J_\pm\sg.
+\]
+这是系数的形式计算; 原文随后用积分方程证明余项,
+所以不需要先假定整个渐近级数可以无限次逐项求导.
+
+\paragraph{继续核对下一阶的两个非对角系数.}
+虽然原结论只需一阶系数, 上面四个矩阵元还显示形式上的
+$(A_2)_{12},(A_2)_{21}$ 应满足什么关系.
+用 $A_{12}=-\ii q,A_{22}=-\ii J_\pm$,
+\[
+-\ii q_x=-\ii(A_2)_{12}-\ii qJ_\pm,
+\qquad (A_2)_{12}=q_x-qJ_\pm.
+\]
+用 $A_{21}=-\ii\conj{q},A_{11}=\ii J_\pm$,
+\[
+-\ii\conj{q_x}=\ii(A_2)_{21}-\ii\conj{q}J_\pm,
+\qquad (A_2)_{21}=-\conj{q_x}+\conj{q}J_\pm.
+\]
+这只是对待证级数的代数核对, 并不把原文的
+$O(z^{-2})$ 余项擅自改成已证明的完整二阶展开.
+原论证不需要对 $A_2$ 的对角部分再作积分.
+
+\paragraph{原文局部矩阵 $\mathcal T$ 的逆逐元验证.}
+这里仅使用原文已经引入的 $\mathcal T,n_\pm,\mathcal C,\mathcal C_1$,
+不新增任何为简算而设的变换或辅助未知量.
+\[
+B=\begin{pmatrix}0&q\\\conj{q}&0\end{pmatrix},
+\qquad
+B^2=\begin{pmatrix}|q|^2&0\\0&|q|^2\end{pmatrix}=|q|^2I.
+\]
+于是
+\[
+\mathcal T=\begin{pmatrix}
+1&-\dfrac{\ii q}{z}\\-\dfrac{\ii\conj{q}}{z}&1
+\end{pmatrix},
+\qquad
+\det\mathcal T
+=1-\left(-\dfrac{\ii q}{z}\right)
+\left(-\dfrac{\ii\conj{q}}{z}\right)
+=1+\dfrac{|q|^2}{z^2}.
+\]
+将所写的逆矩阵与原矩阵相乘,
+\begin{align*}
+\left(I-\dfrac{\ii B}{z}\right)
+\left(I+\dfrac{\ii B}{z}\right)
+&=I+\dfrac{B^2}{z^2}
+=\left(1+\dfrac{|q|^2}{z^2}\right)I.
+\end{align*}
+这说明逆矩阵公式中分母的符号为正.
+只要 $|z|^2\ge2\|q\|_{L^\infty}^2$, 就有
+\[
+\left|1+\dfrac{|q(x)|^2}{z^2}\right|
+\ge1-\dfrac{|q(x)|^2}{|z|^2}\ge\dfrac{1}{2}
+\]
+对所有 $x$ 一致成立, 因而逆矩阵一致有界.
+在归一化端 $q\to q_0$, $\mathcal T\to Y$,
+所以 $n_\pm=\mathcal T^{-1}\mu_\pm\to I$.
+
+\paragraph{式 \eqref{eq:n-volterra-system} 的剩余矩阵逐个矩阵元相消.}
+先把 $U\mathcal T$ 直接乘出来:
+\[
+U\mathcal T=\begin{pmatrix}
+-\ii k-\dfrac{\ii|q|^2}{z}&q-\dfrac{kq}{z}\\
+-\conj{q}+\dfrac{k\conj{q}}{z}&\ii k+\dfrac{\ii|q|^2}{z}
+\end{pmatrix}.
+\]
+另外两个矩阵分别为
+\[
+\ii\lambda\mathcal T\sg
+=\begin{pmatrix}
+\ii\lambda&-\dfrac{\lambda q}{z}\\
+\dfrac{\lambda\conj{q}}{z}&-\ii\lambda
+\end{pmatrix},
+\qquad
+-\mathcal T_x
+=\begin{pmatrix}0&\dfrac{\ii q_x}{z}\\
+\dfrac{\ii\conj{q_x}}{z}&0\end{pmatrix}.
+\]
+逐元相加, 左上元是
+\[
+-\ii k-\dfrac{\ii|q|^2}{z}+\ii\lambda
+=\ii(\lambda-k)-\dfrac{\ii|q|^2}{z}
+=\dfrac{\ii(q_0^2-|q|^2)}{z}.
+\]
+右下元是它的相反数.
+右上元为
+\[
+q-\dfrac{(k+\lambda)q}{z}+\dfrac{\ii q_x}{z}
+=q-q+\dfrac{\ii q_x}{z}
+=\dfrac{\ii q_x}{z}.
+\]
+左下元为
+\[
+-\conj{q}+\dfrac{(k+\lambda)\conj{q}}{z}
++\dfrac{\ii\conj{q_x}}{z}
+=-\conj{q}+\conj{q}+\dfrac{\ii\conj{q_x}}{z}
+=\dfrac{\ii\conj{q_x}}{z}.
+\]
+因此剩余矩阵恰好为
+\[
+U\mathcal T+\ii\lambda\mathcal T\sg-\mathcal T_x
+=\dfrac{\mathcal C_1}{z},
+\qquad
+\mathcal C_1=\begin{pmatrix}
+\ii(q_0^2-|q|^2)&\ii q_x\\
+\ii\conj{q_x}&-\ii(q_0^2-|q|^2)
+\end{pmatrix}.
+\]
+
+\paragraph{为什么 $n$ 方程中还有一个对易子.}
+将 $\mu=\mathcal Tn$ 代入原空间方程,
+\[
+\mathcal T_xn+\mathcal Tn_x
+=U\mathcal Tn+\ii\lambda\mathcal Tn\sg.
+\]
+不能把最后一项直接改成 $\ii\lambda\mathcal T\sg n$.
+应加减同一项, 按原顺序写成
+\begin{align*}
+\mathcal Tn_x
+&=(U\mathcal T+\ii\lambda\mathcal T\sg-\mathcal T_x)n
++\ii\lambda\mathcal T(n\sg-\sg n)\\
+&=\dfrac{\mathcal C_1}{z}n
+-\ii\lambda\mathcal T[\sg,n].
+\end{align*}
+左乘 $\mathcal T^{-1}$ 就得到
+$n_x=-\ii\lambda[\sg,n]+\mathcal Cn$.
+整个推导中没有把非交换的矩阵乘法次序互换.
+
+\paragraph{式 \eqref{eq:asymptotic-L1-control} 的两条估计.}
+其中平方模差的可积性可逐项估计为
+\begin{align*}
+\left|q_0^2-|q|^2\right|
+&=(q_0+|q|)\left|q_0-|q|\right|\\
+&\le(q_0+\|q\|_{L^\infty})|q-q_0|,\\
+\int_{-\infty}^{+\infty}\left|q_0^2-|q(x)|^2\right|\,\dd x
+&\le(q_0+\|q\|_{L^\infty})\|q-q_0\|_{L^1}<\infty.
+\end{align*}
+第一行是平方差因式分解, 第二行使用反三角不等式.
+由被积函数的可积性,
+\[
+\|\mathcal C_1\|_{L^1}
+\le C\left(\|q_0^2-|q|^2\|_{L^1}+\|q_x\|_{L^1}\right)<\infty.
+\]
+这里与原文相同的 $C$ 表示与大谱参数无关的估计常数.
+原文的逆矩阵可改写成精确差值
+\[
+\mathcal T^{-1}-I
+=\dfrac{\dfrac{\ii B}{z}-\dfrac{|q|^2}{z^2}I}
+{1+\dfrac{|q|^2}{z^2}}.
+\]
+所以在前面的大 $|z|$ 范围,
+\[
+\|\mathcal T^{-1}-I\|_{L^\infty_x}\le\dfrac{C}{|z|}.
+\]
+再按矩阵乘法范数估计,
+\begin{align*}
+\|\mathcal C\|_{L^1}
+&=\left\|\dfrac{1}{z}\mathcal T^{-1}\mathcal C_1\right\|_{L^1}
+\le\dfrac{\|\mathcal T^{-1}\|_{L^\infty}\|\mathcal C_1\|_{L^1}}{|z|}
+\le\dfrac{C}{|z|},\\
+\left\|\mathcal C-\dfrac{\mathcal C_1}{z}\right\|_{L^1}
+&=\left\|\dfrac{1}{z}(\mathcal T^{-1}-I)\mathcal C_1\right\|_{L^1}\\
+&\le\dfrac{\|\mathcal T^{-1}-I\|_{L^\infty}\|\mathcal C_1\|_{L^1}}{|z|}
+\le\dfrac{C}{|z|^2}.
+\end{align*}
+因此不是把 $\mathcal T^{-1}$ 形式上替换为 $I$,
+而是有一个可积的 $O(z^{-2})$ 误差.
+
+\paragraph{四个 $n$ 列的传播核及第一次迭代.}
+第一列对应
+\[
+e^{-\ii\lambda(x-y)(\sg-I)}
+=\begin{pmatrix}1&0\\0&e^{2\ii\lambda(x-y)}\end{pmatrix},
+\]
+第二列对应
+\[
+e^{-\ii\lambda(x-y)(\sg+I)}
+=\begin{pmatrix}e^{-2\ii\lambda(x-y)}&0\\0&1\end{pmatrix}.
+\]
+四种列与允许方向与第3部分相同:
+负端第一列和正端第二列用 $\operatorname{Im}\lambda\ge0$,
+正端第一列和负端第二列用 $\operatorname{Im}\lambda\le0$.
+故每个传播对角元的模不超过 1.
+把 $\dfrac{\mathcal C_1}{z}$ 作用在自由项 $e_1,e_2$ 上,
+第一次迭代分别为
+\begin{align*}
+n_{\pm,1}(x,z)
+&=e_1+\dfrac{\ii}{z}
+\begin{pmatrix}
+\displaystyle\int_{\pm\infty}^{x}(q_0^2-|q|^2)\,\dd y\\[4pt]
+\displaystyle\int_{\pm\infty}^{x}
+ e^{2\ii\lambda(x-y)}\conj{q_y(y)}\,\dd y
+\end{pmatrix}+O(z^{-2}),\\
+n_{\pm,2}(x,z)
+&=e_2+\dfrac{\ii}{z}
+\begin{pmatrix}
+\displaystyle\int_{\pm\infty}^{x}
+ e^{-2\ii\lambda(x-y)}q_y(y)\,\dd y\\[4pt]
+-\displaystyle\int_{\pm\infty}^{x}(q_0^2-|q|^2)\,\dd y
+\end{pmatrix}+O(z^{-2}).
+\end{align*}
+这里的 $O(z^{-2})$ 包含系数替换误差与第二次以后的迭代.
+具体地, 第 $l$ 次有序积分的上界为
+$\dfrac{C^l}{l!|z|^l}$.
+当 $|z|\ge1$ 时,
+\begin{align*}
+\sum\limits_{l=2}^{\infty}\dfrac{C^l}{l!|z|^l}
+&\le\dfrac{1}{|z|^2}\sum\limits_{l=2}^{\infty}\dfrac{C^l}{l!}
+=\dfrac{e^C-1-C}{|z|^2}.
+\end{align*}
+因此从第一次迭代开始分离余项是有定量依据的.
+
+\paragraph{分部积分给出的额外一个大谱参数因子.}
+对第一列的非对角积分,
+\[
+\partial_y e^{2\ii\lambda(x-y)}
+=-2\ii\lambda e^{2\ii\lambda(x-y)}.
+\]
+把指数写成它的 $y$ 导数乘系数, 再分部积分,
+\begin{align*}
+&\int_{\pm\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_y(y)}\,\dd y\\
+&=-\dfrac{1}{2\ii\lambda}
+\int_{\pm\infty}^{x}\partial_y\bigl(e^{2\ii\lambda(x-y)}\bigr)
+\conj{q_y(y)}\,\dd y\\
+&=-\dfrac{1}{2\ii\lambda}
+\left[e^{2\ii\lambda(x-y)}\conj{q_y(y)}\right]_{\pm\infty}^{x}
++\dfrac{1}{2\ii\lambda}
+\int_{\pm\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_{yy}(y)}\,\dd y\\
+&=-\dfrac{\conj{q_x(x)}}{2\ii\lambda}
++\dfrac{1}{2\ii\lambda}
+\int_{\pm\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_{yy}(y)}\,\dd y.
+\end{align*}
+无穷远的边界项为零, 因为指数在当前允许方向有界且 $q_x\to0$.
+第二列的指数导数符号相反,
+\[
+\partial_y e^{-2\ii\lambda(x-y)}
+=2\ii\lambda e^{-2\ii\lambda(x-y)},
+\]
+所以逐项计算为
+\begin{align*}
+&\int_{\pm\infty}^{x}e^{-2\ii\lambda(x-y)}q_y(y)\,\dd y\\
+&=\dfrac{1}{2\ii\lambda}
+\left[e^{-2\ii\lambda(x-y)}q_y(y)\right]_{\pm\infty}^{x}
+-\dfrac{1}{2\ii\lambda}
+\int_{\pm\infty}^{x}e^{-2\ii\lambda(x-y)}q_{yy}(y)\,\dd y\\
+&=\dfrac{q_x(x)}{2\ii\lambda}
+-\dfrac{1}{2\ii\lambda}
+\int_{\pm\infty}^{x}e^{-2\ii\lambda(x-y)}q_{yy}(y)\,\dd y.
+\end{align*}
+正端积分的方向仍为从 $+\infty$ 到 $x$;
+定向积分的分部积分公式本身不需要另加符号.
+两类积分的绝对值都不超过
+\[
+\dfrac{\|q_x\|_{L^\infty}+\|q_{xx}\|_{L^1}}{2|\lambda|}.
+\]
+对大 $|z|$,
+\[
+|\lambda(z)|
+=\dfrac{1}{2}\left|z+\dfrac{q_0^2}{z}\right|
+\ge\dfrac{1}{2}\left(|z|-\dfrac{q_0^2}{|z|}\right)
+\ge\dfrac{|z|}{4}
+\]
+只需 $|z|^2\ge2q_0^2$.
+所以第一次迭代前面的 $\dfrac{1}{z}$ 再乘这里的 $\dfrac{1}{\lambda}$,
+确实给出 $O(z^{-2})$.
+
+\paragraph{乘回 $\mathcal T$ 时四个矩阵元分别是什么.}
+由对角积分与刚才的非对角估计,
+\[
+n_\pm=\begin{pmatrix}
+1+\dfrac{\ii J_\pm}{z}+O(z^{-2})&O(z^{-2})\\
+O(z^{-2})&1-\dfrac{\ii J_\pm}{z}+O(z^{-2})
+\end{pmatrix}.
+\]
+直接把 $\mu_\pm=\mathcal Tn_\pm$ 逐元相乘,
+\begin{align*}
+(\mu_\pm)_{11}
+&=(n_\pm)_{11}-\dfrac{\ii q}{z}(n_\pm)_{21}
+=1+\dfrac{\ii J_\pm}{z}+O(z^{-2}),\\
+(\mu_\pm)_{12}
+&=(n_\pm)_{12}-\dfrac{\ii q}{z}(n_\pm)_{22}
+=-\dfrac{\ii q}{z}+O(z^{-2}),\\
+(\mu_\pm)_{21}
+&=-\dfrac{\ii\conj{q}}{z}(n_\pm)_{11}+(n_\pm)_{21}
+=-\dfrac{\ii\conj{q}}{z}+O(z^{-2}),\\
+(\mu_\pm)_{22}
+&=-\dfrac{\ii\conj{q}}{z}(n_\pm)_{12}+(n_\pm)_{22}
+=1-\dfrac{\ii J_\pm}{z}+O(z^{-2}).
+\end{align*}
+这里 $q,J_\pm$ 有界, 所以余项乘上这些系数仍有同一个阶.
+四个余项在各自解析列允许的闭域与所有实 $x$ 上一致.
+
+空间导数的估计也可以从 $n$ 方程逐元核对:
+\[
+[\sg,n_\pm]=\begin{pmatrix}0&O(z^{-2})\\O(z^{-2})&0\end{pmatrix}.
+\]
+因此 $\lambda[\sg,n_\pm]=O(z^{-1})$,
+$\mathcal Cn_\pm=O(z^{-1})$, 故 $(n_\pm)_x=O(z^{-1})$.
+同时 $\mathcal T_x=O(z^{-1})$, 所以
+\[
+(\mu_\pm)_x=\mathcal T_xn_\pm+\mathcal T(n_\pm)_x=O(z^{-1}).
+\]
+这一步不是直接对没有先验证的 $O(z^{-2})$ 余项求导.
+
+\paragraph{式 \eqref{eq:transmission-highenergy}: 两个 Wronskian 都展开.}
+由四个矩阵元,
+\begin{align*}
+\det(\mu_{-,1},\mu_{+,2})
+&=(\mu_-)_{11}(\mu_+)_{22}-(\mu_+)_{12}(\mu_-)_{21}\\
+&=\left(1+\dfrac{\ii J_-}{z}+O(z^{-2})\right)
+\left(1-\dfrac{\ii J_+}{z}+O(z^{-2})\right)\\
+&\quad-\left(-\dfrac{\ii q}{z}+O(z^{-2})\right)
+\left(-\dfrac{\ii\conj{q}}{z}+O(z^{-2})\right)\\
+&=1+\dfrac{\ii(J_--J_+)}{z}+O(z^{-2}).
+\end{align*}
+非对角乘积至少是二阶, 所以不会改变一阶系数.
+两个定向积分的差为
+\begin{align*}
+J_--J_+
+&=\int_{-\infty}^{x}(q_0^2-|q|^2)\,\dd y
++\int_x^{+\infty}(q_0^2-|q|^2)\,\dd y\\
+&=\int_{-\infty}^{+\infty}(q_0^2-|q|^2)\,\dd y=J_{\rm tot}.
+\end{align*}
+而
+\[
+\dfrac{1}{\gamma(z)}
+=\dfrac{1}{1+\dfrac{q_0^2}{z^2}}
+=1-\dfrac{q_0^2}{z^2}+O(z^{-4})
+\]
+没有一阶项, 所以 $s_{22}=1+\dfrac{\ii J_{\rm tot}}{z}+O(z^{-2})$.
+另一个 Wronskian逐项为
+\begin{align*}
+\det(\mu_{+,1},\mu_{-,2})
+&=(\mu_+)_{11}(\mu_-)_{22}-(\mu_-)_{12}(\mu_+)_{21}\\
+&=\left(1+\dfrac{\ii J_+}{z}+O(z^{-2})\right)
+\left(1-\dfrac{\ii J_-}{z}+O(z^{-2})\right)\\
+&\quad-\left(-\dfrac{\ii q}{z}+O(z^{-2})\right)
+\left(-\dfrac{\ii\conj{q}}{z}+O(z^{-2})\right)\\
+&=1+\dfrac{\ii(J_+-J_-)}{z}+O(z^{-2})\\
+&=1-\dfrac{\ii J_{\rm tot}}{z}+O(z^{-2}).
+\end{align*}
+除以同一个 $\gamma$ 就得到 $s_{11}$ 的展开.
+
+\paragraph{两个非对角散射系数为什么没有一阶项.}
+在实轴上, 两个 Wronskian 的一阶项直接抵消:
+\begin{align*}
+\det(\mu_{-,1},\mu_{+,1})
+&=(\mu_-)_{11}(\mu_+)_{21}-(\mu_+)_{11}(\mu_-)_{21}\\
+&=\left(1+\dfrac{\ii J_-}{z}\right)
+\left(-\dfrac{\ii\conj{q}}{z}\right)
+-\left(1+\dfrac{\ii J_+}{z}\right)
+\left(-\dfrac{\ii\conj{q}}{z}\right)+O(z^{-2})\\
+&=-\dfrac{\ii\conj{q}}{z}+\dfrac{\ii\conj{q}}{z}+O(z^{-2})
+=O(z^{-2}),\\
+\det(\mu_{+,2},\mu_{-,2})
+&=(\mu_+)_{12}(\mu_-)_{22}-(\mu_-)_{12}(\mu_+)_{22}\\
+&=\left(-\dfrac{\ii q}{z}\right)
+\left(1-\dfrac{\ii J_-}{z}\right)
+-\left(-\dfrac{\ii q}{z}\right)
+\left(1-\dfrac{\ii J_+}{z}\right)+O(z^{-2})\\
+&=-\dfrac{\ii q}{z}+\dfrac{\ii q}{z}+O(z^{-2})=O(z^{-2}).
+\end{align*}
+乘回 $e^{\pm2\ii\theta}$ 后, 在实轴上指数模为 1,
+所以 $s_{12},s_{21}=O(z^{-2})$.
+这说明完整散射矩阵的一阶系数是对角矩阵.
+在非实谱参数上, 不能不加条件地把指数因子的模也当作 1;
+这正是原文把完整矩阵的展开限制在实轴上的原因.
+
+\paragraph{式 \eqref{eq:scattering-two-infinities} 的矩阵计算交叉核对.}
+由 $\det\mu_-=\gamma$, 二阶逆矩阵公式给出
+\[
+\mu_-^{-1}
+=\dfrac{1}{\gamma}
+\begin{pmatrix}(\mu_-)_{22}&-(\mu_-)_{12}\\
+-(\mu_-)_{21}&(\mu_-)_{11}\end{pmatrix}
+=I-\dfrac{A_-}{z}+O(z^{-2}).
+\]
+因而
+\begin{align*}
+\mu_-^{-1}\mu_+
+&=\left(I-\dfrac{A_-}{z}+O(z^{-2})\right)
+\left(I+\dfrac{A_+}{z}+O(z^{-2})\right)\\
+&=I+\dfrac{A_+-A_-}{z}+O(z^{-2}),\\
+A_+-A_-
+&=-\ii B+\ii J_+\sg+\ii B-\ii J_-\sg\\
+&=\ii(J_+-J_-)\sg=-\ii J_{\rm tot}\sg.
+\end{align*}
+对角系数与 $e^{\ii\theta\sg}$ 交换,
+所以左右相位共轭不改变它.
+实轴上相位与逆相位有界, 因而也保留余项阶数,
+最终得到原文 $S$ 在大 $z$ 的矩阵展开.
+
+\paragraph{式 \eqref{eq:smallmu}: 用原换叶关系逐项乘出常数矩阵.}
+这里的 $w=h(z)$ 是原文已经使用的谱点记号.
+由于 $h(h(z))=z$, 在 $w$ 处应用换叶关系可得
+\[
+\mu_\pm(z)=\mu_\pm(w)C(w),
+\qquad
+C(w)=\dfrac{\ii w}{q_0}\sigma_1
+=-\dfrac{\ii q_0}{z}\sigma_1.
+\]
+因此
+\begin{align*}
+\mu_\pm(z)
+&=-\dfrac{\ii q_0}{z}
+\left(I+\dfrac{A_\pm}{w}+O(w^{-2})\right)\sigma_1\\
+&=-\dfrac{\ii q_0}{z}\sigma_1
++\dfrac{\ii}{q_0}A_\pm\sigma_1+O(z).
+\end{align*}
+这里使用 $w^{-1}=-\dfrac{z}{q_0^2}$;
+大 $w$ 的 $O(w^{-2})$ 乘上 $\dfrac{1}{z}$ 后是 $O(z)$.
+接着不省略常数矩阵乘法:
+\[
+B\sigma_1=\begin{pmatrix}q&0\\0&\conj{q}\end{pmatrix},
+\qquad
+\sg\sigma_1=\begin{pmatrix}0&1\\-1&0\end{pmatrix},
+\]
+\begin{align*}
+\ii A_\pm\sigma_1
+&=\ii(-\ii B+\ii J_\pm\sg)\sigma_1\\
+&=B\sigma_1-J_\pm\sg\sigma_1\\
+&=\begin{pmatrix}q&-J_\pm\\J_\pm&\conj{q}\end{pmatrix}.
+\end{align*}
+所以小 $z$ 的四个矩阵元分别为
+\begin{align*}
+(\mu_\pm)_{11}&=\dfrac{q}{q_0}+O(z),&
+(\mu_\pm)_{12}&=-\dfrac{\ii q_0}{z}-\dfrac{J_\pm}{q_0}+O(z),\\
+(\mu_\pm)_{21}&=-\dfrac{\ii q_0}{z}+\dfrac{J_\pm}{q_0}+O(z),&
+(\mu_\pm)_{22}&=\dfrac{\conj{q}}{q_0}+O(z).
+\end{align*}
+非对角常数项的符号相反, 正是上面 $\sg\sigma_1$ 的两项符号不同.
+在背景 $q=q_0,J_\pm=0$ 上, 这个式子恢复
+$Y=I-\dfrac{\ii q_0}{z}\sigma_1$, 可直接复核常数矩阵.
+
+\paragraph{式 \eqref{eq:transmission-smallenergy} 的每个符号.}
+$h$ 交换两个解析域, 因而在 $z\in D_+$ 时 $w\in D_-$.
+使用相应域内正确的透射展开,
+\begin{align*}
+s_{22}(z)
+&=s_{11}(w)
+=1-\dfrac{\ii J_{\rm tot}}{w}+O(w^{-2})\\
+&=1-\ii J_{\rm tot}\left(-\dfrac{z}{q_0^2}\right)+O(z^2)
+=1+\dfrac{\ii J_{\rm tot}}{q_0^2}z+O(z^2).
+\end{align*}
+在 $z\in D_-$ 时 $w\in D_+$, 同样有
+\begin{align*}
+s_{11}(z)
+&=s_{22}(w)
+=1+\dfrac{\ii J_{\rm tot}}{w}+O(w^{-2})\\
+&=1+\ii J_{\rm tot}\left(-\dfrac{z}{q_0^2}\right)+O(z^2)
+=1-\dfrac{\ii J_{\rm tot}}{q_0^2}z+O(z^2).
+\end{align*}
+小 $z$ 展开的正负号不仅由 $w^{-1}$ 的负号决定,
+还使用了换叶后必须交换 $s_{11}$ 与 $s_{22}$.
+
+完整散射矩阵在实轴上满足
+\begin{align*}
+S(z)
+&=\sigma_1S(w)\sigma_1\\
+&=\sigma_1\left(I-\dfrac{\ii J_{\rm tot}}{w}\sg
++O(w^{-2})\right)\sigma_1\\
+&=I+\dfrac{\ii J_{\rm tot}}{w}\sg+O(w^{-2})\\
+&=I-\dfrac{\ii J_{\rm tot}}{q_0^2}z\sg+O(z^2).
+\end{align*}
+第三行使用 $\sigma_1\sg\sigma_1=-\sg$,
+第四行再使用 $w^{-1}=-\dfrac{z}{q_0^2}$.
+两个非对角元也由换叶关系保持为 $O(z^2)$.
+所有小 $z$ 公式都是从已验证的大 $z$ 展开与原约化关系推出,
+没有在 $z=0$ 处对含奇系数的微分方程作不受控的形式除法.

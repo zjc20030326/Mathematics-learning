@@ -1,0 +1,8 @@
+{
+  "zero_curvature": "Matrix([[0, 0], [0, 0]])",
+  "resonance_commutator": "Matrix([[0, 0], [0, 0]])",
+  "bloch_derivative": "0",
+  "background_time_identity": "Matrix([[0, 0], [0, 0]])",
+  "background_diagonalization": "Matrix([[0, 0], [0, 0]])",
+  "uniformization": "0"
+}

@@ -1,0 +1,608 @@
+\subsubsection*{补充计算: 投影矩阵与三场导数的逐项求值}
+这一段继续使用原文的 $T,h_0,\kappa,\Delta_-,P,N,n_{jk}$, 不为任何分子或分母另取名称. 求偏导时固定全部模型参数和离散谱参数. 下面所有式子都只含原文已经定义的量及它们的导数, 所以既可以手工依次计算, 也可以按所写顺序直接用于数值求值.
+
+\paragraph{先展开模平方及其空间、时间导数.}
+原有指数满足
+\begin{align*}
+\partial_xT&=2\kappa T,
+&\partial_x\conj{T}&=2\kappa\conj{T},\\
+\partial_tT&=-2\kappa F(\ii b)T,
+&\partial_t\conj{T}&=-2\kappa\conj{F(\ii b)}\conj{T}.
+\end{align*}
+因此不能把 $|T|^2$ 当成常数, 而须按两个指数的乘积求导:
+\begin{align*}
+|T|^2&=T\conj{T},\\
+\partial_x|T|^2
+&=(2\kappa T)\conj{T}
++T(2\kappa\conj{T})=4\kappa|T|^2,\\
+\partial_x^2|T|^2
+&=4\kappa\partial_x|T|^2
+=16\kappa^2|T|^2,\\
+\partial_x^3|T|^2
+&=16\kappa^2\partial_x|T|^2
+=64\kappa^3|T|^2,\\
+\partial_t|T|^2
+&=-2\kappa F(\ii b)T\conj{T}
+-2\kappa\conj{F(\ii b)}T\conj{T}\\
+&=-2\kappa\bigl(F(\ii b)+\conj{F(\ii b)}\bigr)|T|^2.
+\end{align*}
+同样, 对两个一次指数分别有
+\begin{align*}
+\partial_x^2T&=4\kappa^2T,
+&\partial_x^2\conj{T}&=4\kappa^2\conj{T},\\
+\partial_x^3T&=8\kappa^3T,
+&\partial_x^3\conj{T}&=8\kappa^3\conj{T}.
+\end{align*}
+模平方的空间导数系数是 $4\kappa$, 一次指数的系数则是 $2\kappa$, 后面出现的 $2,4,8$ 倍数正是由这一区别产生.
+
+\paragraph{把原分母的所有所需导数写全.}
+原分母不作换名, 直接展开为
+\[
+\Delta_-=(1+h_0^2)(1+|T|^2)-2h_0(T+\conj{T}).
+\]
+连续求三次 $x$ 导数, 得
+\begin{align*}
+\partial_x\Delta_-
+&=(1+h_0^2)\partial_x|T|^2
+-2h_0(\partial_xT+\partial_x\conj{T})\\
+&=4\kappa(1+h_0^2)|T|^2
+-4\kappa h_0(T+\conj{T}),\\
+\partial_x^2\Delta_-
+&=4\kappa(1+h_0^2)\partial_x|T|^2
+-4\kappa h_0(\partial_xT+\partial_x\conj{T})\\
+&=16\kappa^2(1+h_0^2)|T|^2
+-8\kappa^2h_0(T+\conj{T}),\\
+\partial_x^3\Delta_-
+&=16\kappa^2(1+h_0^2)\partial_x|T|^2
+-8\kappa^2h_0(\partial_xT+\partial_x\conj{T})\\
+&=64\kappa^3(1+h_0^2)|T|^2
+-16\kappa^3h_0(T+\conj{T}).
+\end{align*}
+时间导数则保留原有传播函数及其共轭:
+\begin{align*}
+\partial_t\Delta_-
+&=(1+h_0^2)\partial_t|T|^2
+-2h_0(\partial_tT+\partial_t\conj{T})\\
+&=-2\kappa(1+h_0^2)
+\bigl(F(\ii b)+\conj{F(\ii b)}\bigr)|T|^2\\
+&\quad+4\kappa h_0
+\bigl(F(\ii b)T+\conj{F(\ii b)}\conj{T}\bigr).
+\end{align*}
+这些式子都可以只用已知的 $T,\conj{T}$ 直接求值. 后面出现 $\partial_x\Delta_-$ 等记法时, 它们就是以上完全写出的表达式, 并不代表需要另外求解的未知量.
+
+\paragraph{右上投影元的乘积恒等式及其各阶右端.}
+从原投影公式开始,
+\begin{align*}
+\Delta_-P_{12}
+&=(T-h_0)(1-h_0\conj{T})\\
+&=T-h_0-h_0|T|^2+h_0^2\conj{T}.
+\end{align*}
+右端的一至三阶空间导数依次是
+\begin{align*}
+\partial_x\bigl[(T-h_0)(1-h_0\conj{T})\bigr]
+&=2\kappa T-4\kappa h_0|T|^2
++2\kappa h_0^2\conj{T}\\
+&=2\kappa\bigl(T+h_0^2\conj{T}-2h_0|T|^2\bigr),\\
+\partial_x^2\bigl[(T-h_0)(1-h_0\conj{T})\bigr]
+&=4\kappa^2T-16\kappa^2h_0|T|^2
++4\kappa^2h_0^2\conj{T}\\
+&=4\kappa^2\bigl(T+h_0^2\conj{T}-4h_0|T|^2\bigr),\\
+\partial_x^3\bigl[(T-h_0)(1-h_0\conj{T})\bigr]
+&=8\kappa^3T-64\kappa^3h_0|T|^2
++8\kappa^3h_0^2\conj{T}\\
+&=8\kappa^3\bigl(T+h_0^2\conj{T}-8h_0|T|^2\bigr).
+\end{align*}
+时间导数也从原乘积直接展开:
+\begin{align*}
+\partial_t\bigl[(T-h_0)(1-h_0\conj{T})\bigr]
+&=(-2\kappa F(\ii b)T)(1-h_0\conj{T})\\
+&\quad+(T-h_0)
+\bigl(2\kappa h_0\conj{F(\ii b)}\conj{T}\bigr)\\
+&=-2\kappa F(\ii b)T
++2\kappa h_0F(\ii b)|T|^2\\
+&\quad+2\kappa h_0\conj{F(\ii b)}|T|^2
+-2\kappa h_0^2\conj{F(\ii b)}\conj{T}\\
+&=-2\kappa\left[
+F(\ii b)T+h_0^2\conj{F(\ii b)}\conj{T}
+-h_0\bigl(F(\ii b)+\conj{F(\ii b)}\bigr)|T|^2
+\right].
+\end{align*}
+
+\paragraph{由乘积恒等式连续求导, 得到可依次执行的递推.}
+对 $\Delta_-P_{12}$ 求一次导数时, 两个因子都要求导:
+\[
+\Delta_-\partial_xP_{12}
++(\partial_x\Delta_-)P_{12}
+=2\kappa\bigl(T+h_0^2\conj{T}-2h_0|T|^2\bigr).
+\]
+再求一次导数, 有
+\begin{align*}
+\Delta_-\partial_x^2P_{12}
++2(\partial_x\Delta_-)\partial_xP_{12}
++(\partial_x^2\Delta_-)P_{12}
+&=4\kappa^2
+\bigl(T+h_0^2\conj{T}-4h_0|T|^2\bigr).
+\end{align*}
+这里两个相同的中间项分别来自对 $\Delta_-\partial_xP_{12}$ 和 $(\partial_x\Delta_-)P_{12}$ 求导. 第三次求导时,
+\begin{align*}
+\Delta_-\partial_x^3P_{12}
+&+3(\partial_x\Delta_-)\partial_x^2P_{12}\\
+&+3(\partial_x^2\Delta_-)\partial_xP_{12}
++(\partial_x^3\Delta_-)P_{12}\\
+&=8\kappa^3
+\bigl(T+h_0^2\conj{T}-8h_0|T|^2\bigr).
+\end{align*}
+因此实际求值时可以按以下顺序, 每次只使用前面已经算出的低阶导数:
+\begin{align*}
+\partial_xP_{12}
+&=\dfrac{2\kappa(T+h_0^2\conj{T}-2h_0|T|^2)
+-(\partial_x\Delta_-)P_{12}}{\Delta_-},\\
+\partial_x^2P_{12}
+&=\dfrac{4\kappa^2(T+h_0^2\conj{T}-4h_0|T|^2)}{\Delta_-}\\
+&\quad-\dfrac{2(\partial_x\Delta_-)\partial_xP_{12}
++(\partial_x^2\Delta_-)P_{12}}{\Delta_-},\\
+\partial_x^3P_{12}
+&=\dfrac{8\kappa^3(T+h_0^2\conj{T}-8h_0|T|^2)}{\Delta_-}\\
+&\quad-\dfrac{3(\partial_x\Delta_-)\partial_x^2P_{12}
++3(\partial_x^2\Delta_-)\partial_xP_{12}
++(\partial_x^3\Delta_-)P_{12}}{\Delta_-}.
+\end{align*}
+原文已经证明 $\Delta_->0$, 所以每一次除法在所有实 $x,t$ 上都有意义. 这个递推没有引入分子的新名字, 也不需要用相邻网格点近似导数.
+
+\paragraph{把递推消去, 写成完全展开的商法则形式.}
+先把原 $P_{12}$ 代入一次导数公式:
+\begin{align*}
+\partial_xP_{12}
+&=\dfrac{2\kappa(T+h_0^2\conj{T}-2h_0|T|^2)}{\Delta_-}\\
+&\quad-\dfrac{(T-h_0)(1-h_0\conj{T})\partial_x\Delta_-}{\Delta_-^2}.
+\end{align*}
+对这一行逐项再求导, 相同项合并后得到
+\begin{align*}
+\partial_x^2P_{12}
+&=\dfrac{4\kappa^2(T+h_0^2\conj{T}-4h_0|T|^2)}{\Delta_-}\\
+&\quad-\dfrac{4\kappa(T+h_0^2\conj{T}-2h_0|T|^2)
+\partial_x\Delta_-}{\Delta_-^2}\\
+&\quad-\dfrac{(T-h_0)(1-h_0\conj{T})
+\partial_x^2\Delta_-}{\Delta_-^2}\\
+&\quad+\dfrac{2(T-h_0)(1-h_0\conj{T})
+(\partial_x\Delta_-)^2}{\Delta_-^3}.
+\end{align*}
+再对各项求导, 三阶结果为
+\begin{align*}
+\partial_x^3P_{12}
+&=\dfrac{8\kappa^3(T+h_0^2\conj{T}-8h_0|T|^2)}{\Delta_-}\\
+&\quad-\dfrac{12\kappa^2(T+h_0^2\conj{T}-4h_0|T|^2)
+\partial_x\Delta_-}{\Delta_-^2}\\
+&\quad-\dfrac{6\kappa(T+h_0^2\conj{T}-2h_0|T|^2)
+\partial_x^2\Delta_-}{\Delta_-^2}\\
+&\quad+\dfrac{12\kappa(T+h_0^2\conj{T}-2h_0|T|^2)
+(\partial_x\Delta_-)^2}{\Delta_-^3}\\
+&\quad-\dfrac{(T-h_0)(1-h_0\conj{T})
+\partial_x^3\Delta_-}{\Delta_-^2}\\
+&\quad+\dfrac{6(T-h_0)(1-h_0\conj{T})
+(\partial_x\Delta_-)(\partial_x^2\Delta_-)}{\Delta_-^3}\\
+&\quad-\dfrac{6(T-h_0)(1-h_0\conj{T})
+(\partial_x\Delta_-)^3}{\Delta_-^4}.
+\end{align*}
+这两种写法完全等价: 递推形式依次利用低阶结果, 展开形式则只有 $T,\conj{T}$、原分母及其已写出的导数. 例如三阶式中的系数3, 来自第三次对乘积求导时导数分配到两个因子的三种位置; 展开后对应系数 $12\kappa^2$, $6\kappa$, $12\kappa$.
+
+\paragraph{右上投影元的时间导数.}
+对原乘积恒等式求 $t$ 导数, 先得到
+\begin{align*}
+\Delta_-\partial_tP_{12}
++(\partial_t\Delta_-)P_{12}
+&=-2\kappa\left[
+F(\ii b)T+h_0^2\conj{F(\ii b)}\conj{T}\right.\\
+&\hspace{35mm}\left.
+-h_0\bigl(F(\ii b)+\conj{F(\ii b)}\bigr)|T|^2
+\right].
+\end{align*}
+移项并代回原 $P_{12}$, 就有
+\begin{align*}
+\partial_tP_{12}
+&=-\dfrac{2\kappa}{\Delta_-}
+\left[F(\ii b)T+h_0^2\conj{F(\ii b)}\conj{T}\right.\\
+&\hspace{34mm}\left.
+-h_0\bigl(F(\ii b)+\conj{F(\ii b)}\bigr)|T|^2\right]\\
+&\quad-\dfrac{(T-h_0)(1-h_0\conj{T})
+\partial_t\Delta_-}{\Delta_-^2}.
+\end{align*}
+原场所需导数于是全部可以直接算出:
+\begin{align*}
+\widetilde q_x
+&=-4b e^{-\ii\Omega t}\partial_xP_{12},\\
+\widetilde q_{xx}
+&=-4b e^{-\ii\Omega t}\partial_x^2P_{12},\\
+\widetilde q_{xxx}
+&=-4b e^{-\ii\Omega t}\partial_x^3P_{12},\\
+\widetilde q_t
+&=e^{-\ii\Omega t}
+\left[\ii\Omega(q_0+4bP_{12})-4b\partial_tP_{12}\right].
+\end{align*}
+这里时间导数中的共同相位项仍须保留; 以上投影导数本身不能替代它.
+
+\paragraph{其余三个投影元的一阶空间导数.}
+先把原分子逐个展开, 不给它们另起名字:
+\begin{align*}
+|T-h_0|^2&=|T|^2-h_0(T+\conj{T})+h_0^2,\\
+(1-h_0T)(\conj{T}-h_0)
+&=\conj{T}-h_0-h_0|T|^2+h_0^2T,\\
+|1-h_0T|^2&=1-h_0(T+\conj{T})+h_0^2|T|^2.
+\end{align*}
+故它们的导数分别为
+\begin{align*}
+\partial_x|T-h_0|^2
+&=4\kappa|T|^2-2\kappa h_0(T+\conj{T}),\\
+\partial_x\bigl[(1-h_0T)(\conj{T}-h_0)\bigr]
+&=2\kappa\bigl(\conj{T}+h_0^2T-2h_0|T|^2\bigr),\\
+\partial_x|1-h_0T|^2
+&=-2\kappa h_0(T+\conj{T})+4\kappa h_0^2|T|^2.
+\end{align*}
+逐个应用商法则, 得
+\begin{align*}
+\partial_xP_{11}
+&=\dfrac{4\kappa|T|^2-2\kappa h_0(T+\conj{T})}{\Delta_-}
+-\dfrac{|T-h_0|^2\partial_x\Delta_-}{\Delta_-^2},\\
+\partial_xP_{21}
+&=\dfrac{2\kappa(\conj{T}+h_0^2T-2h_0|T|^2)}{\Delta_-}\\
+&\quad-\dfrac{(1-h_0T)(\conj{T}-h_0)
+\partial_x\Delta_-}{\Delta_-^2},\\
+\partial_xP_{22}
+&=\dfrac{-2\kappa h_0(T+\conj{T})+4\kappa h_0^2|T|^2}{\Delta_-}
+-\dfrac{|1-h_0T|^2\partial_x\Delta_-}{\Delta_-^2}.
+\end{align*}
+因为 $\Delta_-$ 是实函数, 可直接从这些表达式检查
+\[
+\partial_xP_{21}=\conj{\partial_xP_{12}},
+\qquad
+\partial_xP_{11}+\partial_xP_{22}=0.
+\]
+第二式也可以从 $P_{11}+P_{22}=1$ 求导得到, 因而是检查实际实现的一项独立恒等式.
+
+\paragraph{其余三个投影元的一阶时间导数.}
+同样先求原分子的导数:
+\begin{align*}
+\partial_t|T-h_0|^2
+&=-2\kappa\bigl(F(\ii b)+\conj{F(\ii b)}\bigr)|T|^2\\
+&\quad+2\kappa h_0
+\bigl(F(\ii b)T+\conj{F(\ii b)}\conj{T}\bigr),\\
+\partial_t\bigl[(1-h_0T)(\conj{T}-h_0)\bigr]
+&=-2\kappa\left[
+\conj{F(\ii b)}\conj{T}+h_0^2F(\ii b)T\right.\\
+&\hspace{29mm}\left.
+-h_0\bigl(F(\ii b)+\conj{F(\ii b)}\bigr)|T|^2\right],\\
+\partial_t|1-h_0T|^2
+&=2\kappa h_0
+\bigl(F(\ii b)T+\conj{F(\ii b)}\conj{T}\bigr)\\
+&\quad-2\kappa h_0^2
+\bigl(F(\ii b)+\conj{F(\ii b)}\bigr)|T|^2.
+\end{align*}
+再除以原分母并减去分母求导项:
+\begin{align*}
+\partial_tP_{11}
+&=-\dfrac{2\kappa(F(\ii b)+\conj{F(\ii b)})|T|^2}{\Delta_-}\\
+&\quad+\dfrac{2\kappa h_0
+(F(\ii b)T+\conj{F(\ii b)}\conj{T})}{\Delta_-}
+-\dfrac{|T-h_0|^2\partial_t\Delta_-}{\Delta_-^2},\\
+\partial_tP_{21}
+&=-\dfrac{2\kappa}{\Delta_-}
+\left[\conj{F(\ii b)}\conj{T}+h_0^2F(\ii b)T\right.\\
+&\hspace{33mm}\left.
+-h_0(F(\ii b)+\conj{F(\ii b)})|T|^2\right]\\
+&\quad-\dfrac{(1-h_0T)(\conj{T}-h_0)
+\partial_t\Delta_-}{\Delta_-^2},\\
+\partial_tP_{22}
+&=\dfrac{2\kappa h_0
+(F(\ii b)T+\conj{F(\ii b)}\conj{T})}{\Delta_-}\\
+&\quad-\dfrac{2\kappa h_0^2
+(F(\ii b)+\conj{F(\ii b)})|T|^2}{\Delta_-}
+-\dfrac{|1-h_0T|^2\partial_t\Delta_-}{\Delta_-^2}.
+\end{align*}
+它们满足 $\partial_tP_{21}=\conj{\partial_tP_{12}}$ 及 $\partial_tP_{11}+\partial_tP_{22}=0$. 因而需要时间 Lax 检查时, 原矩阵 $P$ 的全部一阶时间导数也已具备.
+
+\paragraph{从投影导数逐元得到 $N(a)$ 的导数.}
+原定义 $N(k)=(k+\ii b)I-2\ii bP$ 在 $k=a$ 时给出
+\begin{align*}
+n_{11}&=a+\ii b-2\ii bP_{11},
+&n_{12}&=-2\ii bP_{12},\\
+n_{21}&=-2\ii bP_{21},
+&n_{22}&=a+\ii b-2\ii bP_{22}.
+\end{align*}
+因此逐元求导的结果为
+\begin{align*}
+\partial_xn_{11}&=-2\ii b\partial_xP_{11},
+&\partial_xn_{12}&=-2\ii b\partial_xP_{12},\\
+\partial_xn_{21}&=-2\ii b\partial_xP_{21},
+&\partial_xn_{22}&=-2\ii b\partial_xP_{22}.
+\end{align*}
+将它们合为矩阵, 得
+\[
+\partial_xN(a)=-2\ii b\partial_xP.
+\]
+由于 $b$ 为实数且 $P^\dagger=P$, 求导与共轭转置交换, 所以
+\begin{align*}
+\partial_xN(a)^\dagger
+&=(\partial_xN(a))^\dagger\\
+&=(-2\ii b\partial_xP)^\dagger
+=2\ii b\partial_xP.
+\end{align*}
+逐个标量共轭时, 同样应使用
+\[
+\conj{\partial_xn_{jk}}
+=2\ii b\conj{\partial_xP_{jk}}.
+\]
+这里 $n_{jk}$ 是原论文已有的 $N(a)$ 元素, 没有引入一个新的场或新的系数矩阵.
+
+\paragraph{介质矩阵求导时的两个乘积及非对角负号.}
+原介质矩阵为
+\[
+R=\dfrac{HN(a)R_\infty N(a)^\dagger H^{-1}}{a^2+b^2},
+\qquad H=\diag(\ii,-\ii).
+\]
+$H,R_\infty,a,b$ 对 $x$ 都是常数, 所以乘积法则严格给出
+\[
+R_x=\dfrac{H\left[
+(\partial_xN(a))R_\infty N(a)^\dagger
++N(a)R_\infty(\partial_xN(a))^\dagger
+\right]H^{-1}}{a^2+b^2}.
+\]
+这个式子包含两项, 分别来自左右两个 $N$ 因子, 不可以只对左边的因子求导. 在 $H$ 的对角共轭作用下, 对角元不变, 两个非对角元反号. 特别地,
+\begin{align*}
+(R_x)_{11}
+&=\dfrac{\left[
+(\partial_xN(a))R_\infty N(a)^\dagger
++N(a)R_\infty(\partial_xN(a))^\dagger
+\right]_{11}}{a^2+b^2},\\
+(R_x)_{12}
+&=-\dfrac{\left[
+(\partial_xN(a))R_\infty N(a)^\dagger
++N(a)R_\infty(\partial_xN(a))^\dagger
+\right]_{12}}{a^2+b^2}.
+\end{align*}
+结合原物理场 $\widetilde p=-e^{-\ii\Omega t}R_{12}$, 这个非对角负号与恢复极化的负号相消:
+\begin{align*}
+\eta_x&=(R_x)_{11},\\
+\widetilde p_x
+&=\dfrac{e^{-\ii\Omega t}}{a^2+b^2}
+\left[
+(\partial_xN(a))R_\infty N(a)^\dagger
++N(a)R_\infty(\partial_xN(a))^\dagger
+\right]_{12}.
+\end{align*}
+这解释了为什么以下极化导数公式整体带正号, 虽然 $R$ 的右上元在原定义中等于 $-p$.
+
+\paragraph{反转导数按原 $n_{jk}$ 分量式完全展开.}
+由式 \eqref{eq:etacomponent}, 对每个乘积的两个因子分别求导, 得
+\begin{align*}
+\eta_x
+&=\dfrac{\eta_0}{a^2+b^2}\left[
+(\partial_xn_{11})\conj{n_{11}}
++n_{11}\conj{\partial_xn_{11}}\right.\\
+&\quad-(\partial_xn_{12})\conj{n_{12}}
+-n_{12}\conj{\partial_xn_{12}}\\
+&\quad+\dfrac{\ii q_0}{a}\bigl(
+(\partial_xn_{11})\conj{n_{12}}
++n_{11}\conj{\partial_xn_{12}}\\
+&\hspace{32mm}\left.
+-(\partial_xn_{12})\conj{n_{11}}
+-n_{12}\conj{\partial_xn_{11}}\bigr)\right].
+\end{align*}
+再用已经得到的四个 $\partial_xn_{jk}$ 消去这些导数, 可以写成
+\begin{align*}
+\eta_x
+&=\dfrac{2\ii b\eta_0}{a^2+b^2}\left[
+-(\partial_xP_{11})\conj{n_{11}}
++n_{11}\conj{\partial_xP_{11}}\right.\\
+&\quad+(\partial_xP_{12})\conj{n_{12}}
+-n_{12}\conj{\partial_xP_{12}}\\
+&\quad+\dfrac{\ii q_0}{a}\bigl(
+-(\partial_xP_{11})\conj{n_{12}}
++n_{11}\conj{\partial_xP_{12}}\\
+&\hspace{32mm}\left.
++(\partial_xP_{12})\conj{n_{11}}
+-n_{12}\conj{\partial_xP_{11}}\bigr)\right].
+\end{align*}
+虽然这个写法显式含有 $\ii$, 整体仍为实数, 因为它与 Hermitian 矩阵 $R_x$ 的对角元相同. 实际计算中出现的极小虚部可以作为舍入误差的监测量, 不应先在代数推导中随意删去一项.
+
+\paragraph{极化导数按原 $n_{jk}$ 分量式完全展开.}
+由于 $e^{\ii\Omega t}$ 不依赖 $x$, 对式 \eqref{eq:pcomponent} 求导得到
+\begin{align*}
+\widetilde p_x
+&=\dfrac{\eta_0e^{-\ii\Omega t}}{a^2+b^2}\left[
+(\partial_xn_{11})\conj{n_{21}}
++n_{11}\conj{\partial_xn_{21}}\right.\\
+&\quad-(\partial_xn_{12})\conj{n_{22}}
+-n_{12}\conj{\partial_xn_{22}}\\
+&\quad+\dfrac{\ii q_0}{a}\bigl(
+(\partial_xn_{11})\conj{n_{22}}
++n_{11}\conj{\partial_xn_{22}}\\
+&\hspace{32mm}\left.
+-(\partial_xn_{12})\conj{n_{21}}
+-n_{12}\conj{\partial_xn_{21}}\bigr)\right].
+\end{align*}
+继续代入 $\partial_xn_{jk}=-2\ii b\partial_xP_{jk}$, 得
+\begin{align*}
+\widetilde p_x
+&=\dfrac{2\ii b\eta_0e^{-\ii\Omega t}}{a^2+b^2}\left[
+-(\partial_xP_{11})\conj{n_{21}}
++n_{11}\conj{\partial_xP_{21}}\right.\\
+&\quad+(\partial_xP_{12})\conj{n_{22}}
+-n_{12}\conj{\partial_xP_{22}}\\
+&\quad+\dfrac{\ii q_0}{a}\bigl(
+-(\partial_xP_{11})\conj{n_{22}}
++n_{11}\conj{\partial_xP_{22}}\\
+&\hspace{32mm}\left.
++(\partial_xP_{12})\conj{n_{21}}
+-n_{12}\conj{\partial_xP_{21}}\bigr)\right].
+\end{align*}
+右端的每个投影导数都已经由前面的商法则明示. 因而检查介质 PDE 时, 可以先从显式场求导, 再与 $2\eta\widetilde q-2\ii a\widetilde p$ 及 $-(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p})$ 比较; 不必预先把待检查的 PDE 当作计算导数的公式.
+
+\subsubsection*{补充计算: 投影端态误差的四个分量}
+\paragraph{先以减去端态并通分的方式计算, 不只读出极限.}
+原文给出的两个端态投影是
+\[
+P_- =\dfrac{1}{1+h_0^2}
+\begin{pmatrix}h_0^2&-h_0\\-h_0&1\end{pmatrix},
+\qquad
+P_+ =\dfrac{1}{1+h_0^2}
+\begin{pmatrix}1&-h_0\\-h_0&h_0^2\end{pmatrix}.
+\]
+例如在负端, 第1行第1列的差通分后为
+\begin{align*}
+P_{11}-(P_-)_{11}
+&=\dfrac{|T-h_0|^2}{\Delta_-}-\dfrac{h_0^2}{1+h_0^2}\\
+&=\dfrac{(1+h_0^2)|T-h_0|^2-h_0^2\Delta_-}
+{(1+h_0^2)\Delta_-}.
+\end{align*}
+这个分子完全展开并抵消常数项, 得
+\begin{align*}
+&(1+h_0^2)\bigl[|T|^2-h_0(T+\conj{T})+h_0^2\bigr]\\
+&\quad-h_0^2\bigl[(1+h_0^2)(1+|T|^2)-2h_0(T+\conj{T})\bigr]\\
+&=(1-h_0^2)\bigl[(1+h_0^2)|T|^2-h_0(T+\conj{T})\bigr].
+\end{align*}
+非对角元的相同计算是
+\begin{align*}
+P_{12}-(P_-)_{12}
+&=\dfrac{(T-h_0)(1-h_0\conj{T})}{\Delta_-}
++\dfrac{h_0}{1+h_0^2}\\
+&=\dfrac{(1+h_0^2)(T-h_0-h_0|T|^2+h_0^2\conj{T})
++h_0\Delta_-}{(1+h_0^2)\Delta_-}\\
+&=\dfrac{(1-h_0^2)(T-h_0^2\conj{T})}
+{(1+h_0^2)\Delta_-}.
+\end{align*}
+因此负端的四个差值全部为
+\begin{align*}
+P_{11}-(P_-)_{11}
+&=\dfrac{(1-h_0^2)
+\bigl[T((1+h_0^2)\conj{T}-h_0)-h_0\conj{T}\bigr]}
+{(1+h_0^2)\Delta_-},\\
+P_{12}-(P_-)_{12}
+&=\dfrac{(1-h_0^2)(T-h_0^2\conj{T})}
+{(1+h_0^2)\Delta_-},\\
+P_{21}-(P_-)_{21}
+&=\dfrac{(1-h_0^2)(\conj{T}-h_0^2T)}
+{(1+h_0^2)\Delta_-},\\
+P_{22}-(P_-)_{22}
+&=-\dfrac{(1-h_0^2)
+\bigl[T((1+h_0^2)\conj{T}-h_0)-h_0\conj{T}\bigr]}
+{(1+h_0^2)\Delta_-}.
+\end{align*}
+每个分子都明确带有 $T$ 或 $\conj{T}$ 因子. 在 $|T|\to0$ 时, 分母趋于 $(1+h_0^2)^2>0$, 所以四个差值逐个都是 $O(|T|)$.
+
+\paragraph{正端也先给出精确差值.}
+两个端态的非对角元相同, 故两条非对角差值与刚才完全一致. 对角元则得到
+\begin{align*}
+P_{11}-(P_+)_{11}
+&=\dfrac{(1+h_0^2)|T-h_0|^2-\Delta_-}
+{(1+h_0^2)\Delta_-}\\
+&=\dfrac{(1-h_0^2)
+\bigl[h_0(T+\conj{T})-(1+h_0^2)\bigr]}
+{(1+h_0^2)\Delta_-},\\
+P_{12}-(P_+)_{12}
+&=\dfrac{(1-h_0^2)(T-h_0^2\conj{T})}
+{(1+h_0^2)\Delta_-},\\
+P_{21}-(P_+)_{21}
+&=\dfrac{(1-h_0^2)(\conj{T}-h_0^2T)}
+{(1+h_0^2)\Delta_-},\\
+P_{22}-(P_+)_{22}
+&=-\dfrac{(1-h_0^2)
+\bigl[h_0(T+\conj{T})-(1+h_0^2)\bigr]}
+{(1+h_0^2)\Delta_-}.
+\end{align*}
+在 $|T|\to\infty$ 时, 必须比较分子与分母的阶数, 不能看到分子也增长就断言误差不衰减. 先把原分母除以 $|T|^2$, 得
+\[
+\dfrac{\Delta_-}{|T|^2}
+=(1+h_0^2)\left(1+\dfrac{1}{|T|^2}\right)
+-2h_0\left(\dfrac{1}{T}+\dfrac{1}{\conj{T}}\right).
+\]
+其中用了 $\dfrac{T}{|T|^2}=\dfrac{1}{\conj{T}}$ 和 $\dfrac{\conj{T}}{|T|^2}=\dfrac{1}{T}$. 将四个差值的分子分母同时除以 $|T|^2$, 它们逐个变成
+\begin{align*}
+P_{11}-(P_+)_{11}
+&=\dfrac{(1-h_0^2)
+\left[h_0\left(\dfrac{1}{T}+\dfrac{1}{\conj{T}}\right)
+-\dfrac{1+h_0^2}{|T|^2}\right]}
+{(1+h_0^2)\dfrac{\Delta_-}{|T|^2}},\\
+P_{12}-(P_+)_{12}
+&=\dfrac{(1-h_0^2)
+\left(\dfrac{1}{\conj{T}}-\dfrac{h_0^2}{T}\right)}
+{(1+h_0^2)\dfrac{\Delta_-}{|T|^2}},\\
+P_{21}-(P_+)_{21}
+&=\dfrac{(1-h_0^2)
+\left(\dfrac{1}{T}-\dfrac{h_0^2}{\conj{T}}\right)}
+{(1+h_0^2)\dfrac{\Delta_-}{|T|^2}},\\
+P_{22}-(P_+)_{22}
+&=-\dfrac{(1-h_0^2)
+\left[h_0\left(\dfrac{1}{T}+\dfrac{1}{\conj{T}}\right)
+-\dfrac{1+h_0^2}{|T|^2}\right]}
+{(1+h_0^2)\dfrac{\Delta_-}{|T|^2}}.
+\end{align*}
+现在分子明确含有 $1/T$, $1/\conj{T}$ 或 $1/|T|^2$, 分母趋于 $(1+h_0^2)^2>0$. 因而正端的四个差值逐个都是 $O(|T|^{-1})$. 这也是在较大 $|T|$ 处求值时可用的精确等价表达式, 可以避免先形成过大的共同因子再相除.
+
+\paragraph{从投影误差具体传递到三个场.}
+两端都有 $(P_\pm)_{12}=-h_0/(1+h_0^2)$, 而原恒等式 $2bh_0=q_0(1+h_0^2)$ 给出
+\[
+-q_0-4b(P_\pm)_{12}
+=-q_0+\dfrac{4bh_0}{1+h_0^2}
+=-q_0+2q_0=q_0.
+\]
+所以光场的端态差精确为
+\[
+\widetilde q-q_0e^{-\ii\Omega t}
+=-4b e^{-\ii\Omega t}
+\bigl(P_{12}-(P_\pm)_{12}\bigr).
+\]
+对介质使用原来的 $N_\pm=(a+\ii b)I-2\ii bP_\pm$, 有
+\[
+N(a)-N_\pm=-2\ii b(P-P_\pm).
+\]
+将两个乘积相减, 可以不遗漏任何交叉项地写成
+\begin{align*}
+&N(a)R_\infty N(a)^\dagger-N_\pm R_\infty N_\pm^\dagger\\
+&\quad=(N(a)-N_\pm)R_\infty N(a)^\dagger
++N_\pm R_\infty(N(a)^\dagger-N_\pm^\dagger).
+\end{align*}
+右边展开后中间的 $-N_\pm R_\infty N(a)^\dagger$ 和 $+N_\pm R_\infty N(a)^\dagger$ 相消, 正好只留下左边的两项. 再使用前文已证明的端态介质等式, 就有
+\begin{align*}
+R-R_\infty
+&=\dfrac{1}{a^2+b^2}H\Bigl[
+(N(a)-N_\pm)R_\infty N(a)^\dagger\\
+&\hspace{22mm}+N_\pm R_\infty(N(a)^\dagger-N_\pm^\dagger)
+\Bigr]H^{-1}.
+\end{align*}
+再把 $N(a)-N_\pm=-2\ii b(P-P_\pm)$ 及其 Hermitian 共轭代入, 得到
+\begin{align*}
+R-R_\infty
+&=-\dfrac{2\ii b}{a^2+b^2}H(P-P_\pm)R_\infty N(a)^\dagger H^{-1}\\
+&\quad+\dfrac{2\ii b}{a^2+b^2}HN_\pm R_\infty(P-P_\pm)H^{-1}.
+\end{align*}
+因为 $P,P_\pm$ 是正交投影, 它们有界, 从而 $N(a),N_\pm$ 也有界. 上式的每个乘积都明确含有一个 $P-P_\pm$ 因子, 故介质误差与投影误差同阶. 最后由
+\[
+\widetilde p+\dfrac{\ii\eta_0q_0}{a}e^{-\ii\Omega t}
+=-e^{-\ii\Omega t}(R_{12}-(R_\infty)_{12}),
+\qquad
+\eta-\eta_0=R_{11}-(R_\infty)_{11},
+\]
+得到两个物理介质分量的端态误差. 这就把 $O(|T|)$ 和 $O(|T|^{-1})$ 明确传递到三场. 用原有 $|T|=e^{2\kappa X}$, 负端为 $O(e^{2\kappa X})$, 正端为 $O(e^{-2\kappa X})$, 合起来是 $O(e^{-2\kappa|X|})$.
+
+\paragraph{本例范数常数的根式化简.}
+在 $q_0=1,b=1.5$ 的给定参数下,
+\begin{align*}
+h_0^2&=\left(\dfrac{3-\sqrt{5}}{2}\right)^2
+=\dfrac{7-3\sqrt{5}}{2},\\
+1+h_0^2&=\dfrac{9-3\sqrt{5}}{2}=3h_0,\\
+c_1&=\dfrac{4\ii\kappa}{1+h_0^2}
+=\dfrac{4\ii\sqrt{5}}{3(3-\sqrt{5})}\\
+&=\dfrac{4\ii\sqrt{5}(3+\sqrt{5})}{3(9-5)}
+=\dfrac{\ii(5+3\sqrt{5})}{3},\\
+c_2&=-h_0^2c_1
+=-\dfrac{4\ii\kappa h_0}{3}\\
+&=-\dfrac{\ii\sqrt{5}(3-\sqrt{5})}{3}
+=\dfrac{\ii(5-3\sqrt{5})}{3}.
+\end{align*}
+所以本例可直接使用
+\[
+c_1\approx3.902734644166456\ii,
+\qquad
+c_2\approx-0.569401310833123\ii.
+\]
+两者仍是原文的范数常数, 这些根式和小数只是把原式进一步算完, 不引入新的谱数据.

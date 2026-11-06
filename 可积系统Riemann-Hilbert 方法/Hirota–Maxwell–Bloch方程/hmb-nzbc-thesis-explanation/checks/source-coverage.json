@@ -1,0 +1,116 @@
+{
+  "source": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis",
+  "sections": [
+    {
+      "file": "01-introduction.tex",
+      "original_lines": 24,
+      "expanded_lines": 93,
+      "original_display_blocks": 2,
+      "expanded_display_blocks": 9,
+      "original_labels": 2,
+      "original_prose_retained_in_order": true,
+      "original_lines_split_by_insertions": 0
+    },
+    {
+      "file": "02-model.tex",
+      "original_lines": 240,
+      "expanded_lines": 1879,
+      "original_display_blocks": 33,
+      "expanded_display_blocks": 194,
+      "original_labels": 33,
+      "original_prose_retained_in_order": true,
+      "original_lines_split_by_insertions": 0
+    },
+    {
+      "file": "03-jost.tex",
+      "original_lines": 133,
+      "expanded_lines": 577,
+      "original_display_blocks": 21,
+      "expanded_display_blocks": 64,
+      "original_labels": 15,
+      "original_prose_retained_in_order": true,
+      "original_lines_split_by_insertions": 1
+    },
+    {
+      "file": "04-scattering.tex",
+      "original_lines": 128,
+      "expanded_lines": 443,
+      "original_display_blocks": 21,
+      "expanded_display_blocks": 49,
+      "original_labels": 12,
+      "original_prose_retained_in_order": true,
+      "original_lines_split_by_insertions": 2
+    },
+    {
+      "file": "05-symmetry.tex",
+      "original_lines": 103,
+      "expanded_lines": 468,
+      "original_display_blocks": 17,
+      "expanded_display_blocks": 61,
+      "original_labels": 13,
+      "original_prose_retained_in_order": true,
+      "original_lines_split_by_insertions": 1
+    },
+    {
+      "file": "06-discrete.tex",
+      "original_lines": 136,
+      "expanded_lines": 498,
+      "original_display_blocks": 19,
+      "expanded_display_blocks": 56,
+      "original_labels": 10,
+      "original_prose_retained_in_order": true,
+      "original_lines_split_by_insertions": 0
+    },
+    {
+      "file": "07-asymptotics.tex",
+      "original_lines": 160,
+      "expanded_lines": 763,
+      "original_display_blocks": 27,
+      "expanded_display_blocks": 91,
+      "original_labels": 11,
+      "original_prose_retained_in_order": true,
+      "original_lines_split_by_insertions": 0
+    },
+    {
+      "file": "08-rhp.tex",
+      "original_lines": 459,
+      "expanded_lines": 2696,
+      "original_display_blocks": 65,
+      "expanded_display_blocks": 286,
+      "original_labels": 55,
+      "original_prose_retained_in_order": true,
+      "original_lines_split_by_insertions": 0
+    },
+    {
+      "file": "09-numerics.tex",
+      "original_lines": 74,
+      "expanded_lines": 360,
+      "original_display_blocks": 5,
+      "expanded_display_blocks": 42,
+      "original_labels": 9,
+      "original_prose_retained_in_order": true,
+      "original_lines_split_by_insertions": 0
+    }
+  ],
+  "reference_number_check": {
+    "original_labels_compared": 170,
+    "mismatches": {}
+  },
+  "tex_files_checked": [
+    "hmb-explanation.tex",
+    "00-reading-guide.tex",
+    "01-introduction.tex",
+    "02-model.tex",
+    "03-jost.tex",
+    "04-scattering.tex",
+    "05-symmetry.tex",
+    "06-discrete.tex",
+    "07-asymptotics.tex",
+    "08-rhp.tex",
+    "09-derivative-details.tex",
+    "09-numerics.tex",
+    "10-formula-index.tex"
+  ],
+  "source_unchanged": true,
+  "failures": []
+}
