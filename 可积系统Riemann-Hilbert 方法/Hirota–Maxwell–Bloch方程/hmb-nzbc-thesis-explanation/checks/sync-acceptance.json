@@ -2,11 +2,11 @@
   "date": "2026-11-09",
   "logs": {
     "main": {
-      "path": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\main-build\\fduthesis.log",
+      "path": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\main-build\\fduthesis.log",
       "warnings_errors_overfull_underfull": []
     },
     "explanation": {
-      "path": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\explanation-build\\hmb-explanation.log",
+      "path": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\explanation-build\\hmb-explanation.log",
       "warnings_errors_overfull_underfull": []
     }
   },
@@ -14,7 +14,7 @@
     "main": {
       "path": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis\\fduthesis.pdf",
       "pages": 38,
-      "sha256": "cd1f57b741028f052e5cb097cafcb2fcdbe31edc8b89ce45843eb553fccac4be",
+      "sha256": "36a81938a782e76151c60864493b4d1fa0dd6c13d8d7e4795d1056b9eebfcb3c",
       "links_checked": 230,
       "invalid_internal_links": [],
       "blank_pages": []
@@ -22,7 +22,7 @@
     "explanation": {
       "path": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-explanation\\hmb-explanation.pdf",
       "pages": 166,
-      "sha256": "340503ca79244f624e62b7fdab469d7789e08d0f5b85e29de82ed392ba716428",
+      "sha256": "7eab1ff808ff3c54222ce9c22439c3fabee6db6c644855d420cfeef1b434094a",
       "links_checked": 564,
       "invalid_internal_links": [],
       "blank_pages": []
@@ -33,10 +33,16 @@
   "source_labels_compared": 176,
   "indexed_equations": 133,
   "all_nine_source_chapters_retained_in_order": true,
-  "visual_review": "All 166 pages in contact sheets; enlarged updated Chapter 7 notation, N-orbit data and determinant elimination, scattering evolution and branch-point proof.",
+  "visual_review": "All-page review retained from the synchronized baseline; revised section 8.3 headings and tables of contents inspected in both rebuilt PDFs after the title change.",
   "backup_pdf": {
     "path": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\hmb-explanation-before-sync.pdf",
     "sha256": "59f9d8a4d69c3df008682d53e5dbcfafaa9cbdd757515feb9c09666a1317303c"
   },
-  "numerical_scope": "One-orbit symbolic/PDE checks; 64 derivative checks; sampled N=2,3,4 block/Schur/determinant identities at 80 digits. No arbitrary-N global invertibility claim."
+  "numerical_scope": "One-orbit symbolic/PDE checks; 64 derivative checks; sampled N=2,3,4 block/Schur/determinant identities at 80 digits. No arbitrary-N global invertibility claim.",
+  "title_update": {
+    "section": "8.3",
+    "title": "HMB 方程的 N 孤子解",
+    "N_counts": "complete simple four-point orbits",
+    "formulas_and_invertibility_conditions_unchanged": true
+  }
 }

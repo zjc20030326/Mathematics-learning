@@ -30,7 +30,7 @@
 
 ## 核验
 
-`checks/source-hashes.json` 与 `checks/source-main-and-pdf-hashes.json` 记录本次同步后的章节、入口及 PDF 的 SHA-256. `checks/source-reference.json` 从本次主论文完整编译的辅助文件提取编号, 作为当前编号对照. 这些快照用于检查详细版是否仍对应当前论文, 并在论文后续更新时提示重新同步; 旧基准保留在 Git 历史中. 本次主论文仅按要求去掉第7部分花体, explanation 则同步此前多轮正文修改.
+`checks/source-hashes.json` 与 `checks/source-main-and-pdf-hashes.json` 记录本次同步后的章节、入口及 PDF 的 SHA-256. `checks/source-reference.json` 从本次主论文完整编译的辅助文件提取编号, 作为当前编号对照. 这些快照用于检查详细版是否仍对应当前论文, 并在论文后续更新时提示重新同步; 旧基准保留在 Git 历史中. 本次主论文去掉第7部分花体, 并将8.3标题简化为“HMB 方程的 $N$ 孤子解”; explanation 同步该标题及此前多轮正文修改. 完整简单四点轨道假设和系数矩阵可逆性条件仍在正文中保留.
 
 ```powershell
 python .\checks\check_source.py "$env:TEMP\hmb-explanation-20261104-build\hmb-explanation.aux"

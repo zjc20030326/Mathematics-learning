@@ -2,7 +2,7 @@
 
 日期: 2026-11-09.
 
-本次将详细版同步到相邻 `hmb-nzbc-thesis` 的当前九部分正文. 主论文按要求仅将第7部分的花体矩阵记号改为普通字母; 详细版则合入此前多轮正文修改, 保留原有逐式计算, 并补充一般完整多轨道的详细推导. 主论文 PDF 为38页, 详细版 PDF 为166页.
+本次将详细版同步到相邻 `hmb-nzbc-thesis` 的当前九部分正文. 主论文将第7部分的花体矩阵记号改为普通字母, 并将8.3标题简化为“HMB 方程的 $N$ 孤子解”; 正文说明 $N$ 按完整简单四点轨道计数, 仍保留系数矩阵可逆性条件. 详细版合入此前多轮正文修改并同步标题, 保留原有逐式计算, 补充一般完整多轨道的详细推导. 主论文 PDF 为38页, 详细版 PDF 为166页.
 
 ## 已同步的内容
 
@@ -40,10 +40,12 @@
 
 两份文档均完成 XeLaTeX、BibTeX、XeLaTeX、XeLaTeX 的完整流程. 最终日志的警告、未定义引用、缺字、Overfull 和 Underfull 均为0. 主论文230个链接、详细版564个链接均检查通过, 没有无效内部链接或空白页.
 
-全部166页详细版已生成联系表并复核, 放大检查了更新后的第7部分记号、散射演化、分支点证明、多轨道数据与消元、行列式公式及单行留数等式. 文本边界扫描未发现页面外文字. 预览与日志位于 `C:\Users\m1881\AppData\Local\Temp\hmb-explanation-sync-20261109-183605`, 版面报告见 [pdf-layout.json](pdf-layout.json).
+全部166页详细版已生成联系表并复核, 放大检查了更新后的第7部分记号、散射演化、分支点证明、多轨道数据与消元、行列式公式及单行留数等式. 文本边界扫描未发现页面外文字. 最新标题调整后的预览与日志位于 `C:\Users\m1881\AppData\Local\Temp\hmb-83-title-20261109`, 版面报告见 [pdf-layout.json](pdf-layout.json).
 
-主论文 PDF SHA-256: `cd1f57b741028f052e5cb097cafcb2fcdbe31edc8b89ce45843eb553fccac4be`.
+主论文 PDF SHA-256: `36a81938a782e76151c60864493b4d1fa0dd6c13d8d7e4795d1056b9eebfcb3c`.
 
-详细版 PDF SHA-256: `340503ca79244f624e62b7fdab469d7789e08d0f5b85e29de82ed392ba716428`.
+详细版 PDF SHA-256: `7eab1ff808ff3c54222ce9c22439c3fabee6db6c644855d420cfeef1b434094a`.
 
 开工时已有本地修改的 explanation PDF 在重新编译前已完整备份到 `C:\Users\m1881\AppData\Local\Temp\hmb-explanation-sync-20261109-183605\hmb-explanation-before-sync.pdf`, 哈希见 [sync-acceptance.json](sync-acceptance.json). 如需恢复该旧 PDF, 可用此备份覆盖详细版目录中的同名 PDF; 当前同步版仍可由本工程源码重新编译.
+
+本次8.3标题调整后, 两份文档的目录、书签、源文件对应关系和编号均重新检查通过. 公式及可逆性条件未变, 数学核验沿用上述已完成的结果.
