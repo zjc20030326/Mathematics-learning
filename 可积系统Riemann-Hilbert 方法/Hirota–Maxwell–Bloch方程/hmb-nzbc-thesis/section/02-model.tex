@@ -85,10 +85,10 @@ V_1&=\begin{pmatrix}
 多项式的四次至一次项由
 \[
 \begin{aligned}
-\relax[-\ii\sg,V_3]&=0,\\
-[-\ii\sg,V_2]+[\widetilde Q,V_3]&=0,\\
--(V_2)_x+[-\ii\sg,V_1]+[\widetilde Q,V_2]&=0,\\
--(V_1)_x+[-\ii\sg,V_0]+[\widetilde Q,V_1]&=0.
+&[-\ii\sg,V_3]=0,\\
+&[-\ii\sg,V_2]+[\widetilde Q,V_3]=0,\\
+&-(V_2)_x+[-\ii\sg,V_1]+[\widetilde Q,V_2]=0,\\
+&-(V_1)_x+[-\ii\sg,V_0]+[\widetilde Q,V_1]=0.
 \end{aligned}
 \]
 相消. 常数项的 $(1,2)$ 元为
@@ -126,6 +126,11 @@ p=e^{\ii\Omega t}\widetilde p.
 V&=\sum\limits_{j=0}^{3}k^jV_j(q)+\dfrac{\ii\Omega}{2}\sg+\dfrac{\ii R}{k-a}.
 \end{aligned}
 \end{equation}
+其中
+\[
+Q=\begin{pmatrix}0&q\\-\conj{q}&0\end{pmatrix},\qquad
+R=\begin{pmatrix}\eta&-p\\-\conj{p}&-\eta\end{pmatrix}.
+\]
 记 $Q_\infty=Q(q_0)$, $U_\infty=-\ii k\sg+Q_\infty$, 则
 \begin{equation}\label{eq:Rbg}
 R_\infty=\begin{pmatrix}
@@ -176,10 +181,11 @@ k(z)=\dfrac{1}{2}\left(z-\dfrac{q_0^2}{z}\right),\qquad
 两叶无穷远分别对应 $z=\infty$ 和 $z=0$.
 
 \begin{proposition}[连续谱与解析区域]\label{prop:curve}\label{prop:domains}
-背景振荡谱及其单值化轮廓为
+背景振荡谱为
 \begin{equation}\label{eq:lambda-spectrum}
 \Sigma_k=\mathbb R\cup\ii\lbrack-q_0,q_0\rbrack,
 \end{equation}
+其在单值化平面中的像 $\Sigma$ 是解析域 $D_+$ 与 $D_-$ 的公共边界, 其中
 \begin{align}
 \Sigma&=\mathbb R\cup\{z:|z|=q_0\},\label{eq:Sigma}\\
 D_\pm&=\left\{z:\ \pm\operatorname{Im}z
@@ -233,8 +239,8 @@ $-\dfrac{\ii(\lambda-k)}{q_0}=-\dfrac{\ii q_0}{z}$; 另一特征向量交换两�
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.78\textwidth]{figures/analytic-regions.pdf}
-\caption{HMB 的单值化谱平面. 轮廓 $\Sigma$ 由实轴与圆 $|z|=q_0$ 组成; 淡蓝色区域为 $D_+$, 白色区域为 $D_-$. 箭头使 $D_+$ 位于轮廓左侧. 方形点为分支点, 叉形点为轮廓交点.}
+\caption{HMB 的单值化谱平面. 公共边界 $\Sigma$ 由实轴与圆 $|z|=q_0$ 组成; 淡蓝色区域为 $D_+$, 白色区域为 $D_-$. 箭头使 $D_+$ 位于定向边界的左侧. 方形点为分支点, 叉形点为边界交点.}
 \label{fig:analytic-regions}
 \end{figure}
 
-轮廓以 $D_+$ 位于左侧为正向: 实轴外段朝右, 内段朝左, 上半圆顺时针, 下半圆逆时针. $z=\pm\ii q_0$ 为背景特征向量退化的分支点, $z=\pm q_0$ 为轮廓交点. 共振原像 $z_a^\pm$ 处空间谱问题正则; 其 Jost 值取固定 $t$ 的空间归一化.
+为进行后续的轮廓积分, 将 $\Sigma$ 定向为 $D_+$ 位于左侧: 实轴外段朝右, 内段朝左, 上半圆顺时针, 下半圆逆时针. $z=\pm\ii q_0$ 为背景特征向量退化的分支点, $z=\pm q_0$ 为轮廓交点. 共振原像 $z_a^\pm$ 处空间谱问题正则; 其 Jost 值取固定 $t$ 的空间归一化.
