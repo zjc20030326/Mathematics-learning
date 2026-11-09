@@ -94,16 +94,18 @@ w^{(n+1)}&=\int_{-\infty}^{x}G(x-y,z)\Delta Q(y)Yw^{(n)}(y,z)\,\dd y.
 从而解唯一. 其余三列同理.
 \end{proof}
 
-在分支点 $z_b=\pm\ii q_0$ 处, 若进一步满足加权条件
+\begin{proposition}[向分支点的连续延拓]\label{prop:jost-branch}
+在定理 \ref{thm:jost} 的条件下, 若进一步满足加权条件
 \begin{equation}\label{eq:jost-weighted}
 \int_{-\infty}^{+\infty}(1+|x|)|q(x)-q_0|\,\dd x<\infty.
 \end{equation}
-则每个 Jost 解析列均可从其闭解析域连续延拓到 $z_b$. 端点值满足
+则每个 Jost 解析列均可从其闭解析域连续延拓到分支点 $z_b=\pm\ii q_0$. 端点值满足
 \begin{equation}\label{eq:jost-branch-volterra}
 \mu_\pm(x,z_b)=Y(z_b)+\int_{\pm\infty}^{x}
 [I+(x-y)U_\infty(z_b)]\Delta Q(y)\mu_\pm(y,z_b)\,\dd y,
 \end{equation}
 并在对应归一化端趋于 $Y(z_b)$, 满足空间谱方程, 且秩为一.
+\end{proposition}
 \begin{proof}
 由 $U_\infty^2=-\lambda^2I$, 背景传播矩阵可写为
 \begin{equation}\label{eq:background-propagator}

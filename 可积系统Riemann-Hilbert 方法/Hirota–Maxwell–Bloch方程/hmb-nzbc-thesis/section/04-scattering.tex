@@ -76,7 +76,7 @@ S_{\rm sp}(z,t)=e^{\ii\lambda Ft\sg}S(z)e^{-\ii\lambda Ft\sg},
 透射系数、离散零点及同时归一化的离散列相关常数均与 $t$ 无关.
 \end{proposition}
 \begin{proof}
-先将归一化中的传播相位移到右侧. 零曲率条件给出
+由零曲率条件,
 \[
 \partial_x(\chi_{\pm,t}-V\chi_\pm)=U(\chi_{\pm,t}-V\chi_\pm).
 \]
@@ -89,7 +89,22 @@ S_{\rm sp}(z,t)=e^{\ii\lambda Ft\sg}S(z)e^{-\ii\lambda Ft\sg},
 \phi_-S_x=U\phi_+-U\phi_-S=0,\qquad
 \phi_-S_t=V\phi_+-V\phi_-S=0.
 \]
-因此 $S_x=S_t=0$. 透射系数的解析延拓与零点不变; 离散列相关常数的不变性由相同的微分等式得到. 将 $\chi_\pm$ 代回散射关系得到 \eqref{eq:timeS}, 其非对角元分别带有 $e^{\mp2\ii\lambda Ft}$, 即为 \eqref{eq:timer}.
+因此 $S_x=S_t=0$. 由 $\chi_\pm=\phi_\pm e^{-\ii\lambda Ft\sg}$ 及 $\phi_+=\phi_-S$,
+\[
+\chi_+=\chi_-e^{\ii\lambda Ft\sg}S e^{-\ii\lambda Ft\sg},
+\]
+与 $\chi_+=\chi_-S_{\rm sp}$ 比较即得 \eqref{eq:timeS}. 展开右端,
+\begin{align*}
+S_{\rm sp}
+&=\begin{pmatrix}e^{\ii\lambda Ft}&0\\0&e^{-\ii\lambda Ft}\end{pmatrix}
+\begin{pmatrix}s_{11}&s_{12}\\s_{21}&s_{22}\end{pmatrix}
+\begin{pmatrix}e^{-\ii\lambda Ft}&0\\0&e^{\ii\lambda Ft}\end{pmatrix}\\
+&=\begin{pmatrix}
+s_{11}&e^{2\ii\lambda Ft}s_{12}\\
+e^{-2\ii\lambda Ft}s_{21}&s_{22}
+\end{pmatrix}.
+\end{align*}
+由对角元可见, 空间归一化的透射系数仍为 $s_{11},s_{22}$, 因而它们的解析延拓与离散零点均不随 $t$ 改变. 再由非对角元及反射系数的定义 \eqref{eq:reflection}, 并使用 $S_{\rm sp}(z,0)=S(z)$, 得到 \eqref{eq:timer}. 同时归一化的离散列相关常数不随 $t$ 改变, 则由两列共同满足的传播方程得到.
 \end{proof}
 
 共振点的空间归一化取值由 \eqref{eq:volterra} 定义, 介质方程在此固定了散射矩阵的形式.
@@ -124,5 +139,5 @@ $\lambda(z_a)=\pm\sqrt{a^2+q_0^2}$ 为非零实数, 空间指数及其逆均有�
 \dfrac{\eta_0\lambda(z_a)}{a}\sg
 =S_{\rm sp}^{-1}\dfrac{\eta_0\lambda(z_a)}{a}\sg S_{\rm sp}.
 \]
-因 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 两个非对角元必须为零. $\det S_{\rm sp}=1$ 保证对角元非零, 从而两反射系数均为零. 这里的取值仅涉及空间谱问题; 含有 $F(k)$ 的传播指数不在 $k=a$ 处求值.
+因 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 两个非对角元必须为零. $\det S_{\rm sp}=1$ 保证对角元非零, 从而两反射系数均为零.
 \end{proof}

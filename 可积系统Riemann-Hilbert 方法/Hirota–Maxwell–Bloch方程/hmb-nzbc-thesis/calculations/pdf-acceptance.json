@@ -9,7 +9,7 @@
   },
   "build": "XeLaTeX, BibTeX, XeLaTeX, XeLaTeX",
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 37,
+  "pdf_pages": 36,
   "top_level_sections": [
     [
       1,
@@ -44,7 +44,7 @@
     [
       1,
       "7. 渐近行为",
-      20
+      19
     ],
     [
       1,
@@ -65,6 +65,6 @@
     "2.24",
     "5"
   ],
-  "pdf_sha256": "7f700601194f78cf13b3538a0ef66c072901d32ebebccdd850f2221ff87301d0",
+  "pdf_sha256": "985d3f6de5885418af06da3589e3494af722e2f2239ca511c9c30736a2ae0cc3",
   "visual_review": "Full-page contact sheets plus enlarged headings, all Jost/asymptotic proofs, spectrum diagrams, general RHP, sections 8.1-8.4, all numerical figures and bibliography. This field records human/agent inspection in the task, not a machine inference."
 }
