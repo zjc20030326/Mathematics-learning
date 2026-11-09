@@ -1,15 +1,15 @@
 {
   "sources": {
     "tex_files": 10,
-    "labels": 169,
-    "references": 162,
+    "labels": 176,
+    "references": 174,
     "balanced_delimiters_environments_braces": true,
     "nine_continuous_sections": true,
     "forbidden_forms_absent": true
   },
   "build": "XeLaTeX, BibTeX, XeLaTeX, XeLaTeX",
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 36,
+  "pdf_pages": 38,
   "top_level_sections": [
     [
       1,
@@ -54,17 +54,17 @@
     [
       1,
       "9. 数值结果与动力学分析",
-      33
+      35
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 218,
+  "pdf_links_checked": 230,
   "invalid_internal_links": [],
   "original_eq_2_24_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "2.24",
     "5"
   ],
-  "pdf_sha256": "985d3f6de5885418af06da3589e3494af722e2f2239ca511c9c30736a2ae0cc3",
+  "pdf_sha256": "ee959cc5ac0f73c86341bb345074e9d7779289494d99769d44f7f64ad6d07a5b",
   "visual_review": "Full-page contact sheets plus enlarged headings, all Jost/asymptotic proofs, spectrum diagrams, general RHP, sections 8.1-8.4, all numerical figures and bibliography. This field records human/agent inspection in the task, not a machine inference."
 }
