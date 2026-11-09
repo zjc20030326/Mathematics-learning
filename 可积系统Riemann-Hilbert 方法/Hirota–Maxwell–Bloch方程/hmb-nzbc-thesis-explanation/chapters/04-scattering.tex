@@ -264,7 +264,7 @@ $-\chi_\pm\ii\lambda F\sg$ 的端态.
 正则性条件的用途是保证先前交换 $x,t$ 微分和求端点极限合法;
 不能仅凭形式上的零曲率就跳过这些步骤.
 
-先将归一化中的传播相位移到右侧. 零曲率条件给出
+由零曲率条件,
 \[
 \partial_x(\chi_{\pm,t}-V\chi_\pm)=U(\chi_{\pm,t}-V\chi_\pm).
 \]
@@ -302,7 +302,11 @@ $\phi_-^{-1}$ 后给出 $S_x=S_t=0$.
 &=\chi_-e^{\ii\lambda Ft\sg}S,\\
 \chi_+&=\chi_-e^{\ii\lambda Ft\sg}Se^{-\ii\lambda Ft\sg}.
 \end{align*}
-于是空间散射矩阵的四个矩阵元为
+因此 $S_x=S_t=0$. 由 $\chi_\pm=\phi_\pm e^{-\ii\lambda Ft\sg}$ 及 $\phi_+=\phi_-S$,
+\[
+\chi_+=\chi_-e^{\ii\lambda Ft\sg}S e^{-\ii\lambda Ft\sg},
+\]
+与 $\chi_+=\chi_-S_{\rm sp}$ 比较即得 \eqref{eq:timeS}. 展开右端,
 \begin{align*}
 S_{\rm sp}
 &=\begin{pmatrix}e^{\ii\lambda Ft}&0\\0&e^{-\ii\lambda Ft}\end{pmatrix}
@@ -313,6 +317,8 @@ s_{11}&e^{2\ii\lambda Ft}s_{12}\\
 e^{-2\ii\lambda Ft}s_{21}&s_{22}
 \end{pmatrix}.
 \end{align*}
+由对角元可见, 空间归一化的透射系数仍为 $s_{11},s_{22}$, 因而它们的解析延拓与离散零点均不随 $t$ 改变. 再由非对角元及反射系数的定义 \eqref{eq:reflection}, 并使用 $S_{\rm sp}(z,0)=S(z)$, 得到 \eqref{eq:timer}. 同时归一化的离散列相关常数不随 $t$ 改变, 则由两列共同满足的传播方程得到.
+
 所以两个对角元恒定, 非对角元分别乘相反符号的指数.
 按照原文的比值定义再除以不变的对角元,
 \begin{align*}
@@ -326,8 +332,6 @@ e^{-2\ii\lambda Ft}s_{21}&s_{22}
 透射系数作为解析函数恒定, 因而它的零点与对 $z$ 的导数都恒定.
 离散列的相关常数所指的是同时满足两条 Lax 方程的 $\phi$ 列;
 若改用只作空间归一化的 $\chi$ 列, 相关常数会含传播指数.
-
-因此 $S_x=S_t=0$. 透射系数的解析延拓与零点不变; 离散列相关常数的不变性由相同的微分等式得到. 将 $\chi_\pm$ 代回散射关系得到 \eqref{eq:timeS}, 其非对角元分别带有 $e^{\mp2\ii\lambda Ft}$, 即为 \eqref{eq:timer}.
 \end{proof}
 
 共振点的空间归一化取值由 \eqref{eq:volterra} 定义, 介质方程在此固定了散射矩阵的形式.
@@ -439,5 +443,5 @@ S_{\rm sp}\sg-\sg S_{\rm sp}
 可知两个分母都非零, 因而反射系数的零值确实有定义.
 这里 $a\ne0,\eta_0\ne0$ 以及 $\lambda\ne0$ 都在除法时使用了.
 
-因 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 两个非对角元必须为零. $\det S_{\rm sp}=1$ 保证对角元非零, 从而两反射系数均为零. 这里的取值仅涉及空间谱问题; 含有 $F(k)$ 的传播指数不在 $k=a$ 处求值.
+因 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 两个非对角元必须为零. $\det S_{\rm sp}=1$ 保证对角元非零, 从而两反射系数均为零.
 \end{proof}

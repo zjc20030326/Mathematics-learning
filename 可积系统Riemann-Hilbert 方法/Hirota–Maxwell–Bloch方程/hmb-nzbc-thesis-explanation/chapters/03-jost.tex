@@ -176,7 +176,18 @@ G(r,z)=\diag(1,e^{2\ii\lambda r})Y^{-1}
 \dfrac{\ii q_0}{z}e^{2\ii\lambda r}&e^{2\ii\lambda r}
 \end{pmatrix}.
 \end{equation}
-当 $y\le x$, $\operatorname{Im}\lambda\ge0$ 时, $|e^{2\ii\lambda(x-y)}|\le1$, 因而此列对应 $D_+$. 对第二列, 相应对角指数为 $\diag(e^{-2\ii\lambda r},1)$; 它在 $y\ge x$, $\operatorname{Im}\lambda\ge0$ 时有界, 给出 $\mu_{+,2}$ 的解析域. 其余两列取相反的积分方向和谱根虚部.
+第一列对应的对角指数为 $\diag(1,e^{2\ii\lambda r})$, 第二列为 $\diag(e^{-2\ii\lambda r},1)$. 由 $r=x-y$, 四列的积分方向及指数模分别满足
+\begin{align*}
+\mu_{-,1}:&\quad y\le x,\ r\ge0,\ \operatorname{Im}\lambda\ge0,
+& e^{-2r\operatorname{Im}\lambda}&\le1,\\
+\mu_{+,2}:&\quad y\ge x,\ r\le0,\ \operatorname{Im}\lambda\ge0,
+& e^{2r\operatorname{Im}\lambda}&\le1,\\
+\mu_{+,1}:&\quad y\ge x,\ r\le0,\ \operatorname{Im}\lambda\le0,
+& e^{-2r\operatorname{Im}\lambda}&\le1,\\
+\mu_{-,2}:&\quad y\le x,\ r\ge0,\ \operatorname{Im}\lambda\le0,
+& e^{2r\operatorname{Im}\lambda}&\le1.
+\end{align*}
+故前两列对应 $D_+$, 后两列对应 $D_-$.
 
 
 \par\medskip\noindent\textbf{负端第一列的两个分量积分式.}\quad 
@@ -227,10 +238,10 @@ w_2(x)
 \le c(z)|q(y)-q_0|,\qquad
 c(z)=\dfrac{\left(1+\dfrac{q_0}{|z|}\right)^2}{\left|1+\dfrac{q_0^2}{z^2}\right|}.
 \end{equation}
-取 $\mathcal K\subset\overline{D_+}\mathbin{\backslash}\{0,\pm\ii q_0\}$ 为紧集, 记
+取 $K\subset\overline{D_+}\mathbin{\backslash}\{0,\pm\ii q_0\}$ 为紧集, 记
 \[
-c_{\mathcal K}=\max_{z\in\mathcal K}c(z),\qquad
-M_{\mathcal K}(x)=c_{\mathcal K}\int_{-\infty}^{x}|q(y)-q_0|\,\dd y.
+c_{K}=\max\limits_{z\in K}c(z),\qquad
+M_{K}(x)=c_{K}\int_{-\infty}^{x}|q(y)-q_0|\,\dd y.
 \]
 
 \par\medskip\noindent\textbf{矩阵范数估计中的每一个因子.}\quad 
@@ -254,11 +265,11 @@ M_{\mathcal K}(x)=c_{\mathcal K}\int_{-\infty}^{x}|q(y)-q_0|\,\dd y.
 &\le\dfrac{\left(1+\dfrac{q_0}{|z|}\right)^2}{|\gamma|}
 |q-q_0|\|w\|_1.
 \end{align*}
-紧集避开 $z=0$ 与 $\gamma=0$ 的两点, 因而 $c_{\mathcal K}$ 有限.
-$M_{\mathcal K}$ 是非减的绝对连续函数, 且几乎处处满足
+紧集避开 $z=0$ 与 $\gamma=0$ 的两点, 因而 $c_{ K}$ 有限.
+$M_{ K}$ 是非减的绝对连续函数, 且几乎处处满足
 \[
-M_{\mathcal K}'(x)=c_{\mathcal K}|q(x)-q_0|,
-\qquad M_{\mathcal K}(-\infty)=0.
+M_{ K}'(x)=c_{ K}|q(x)-q_0|,
+\qquad M_{ K}(-\infty)=0.
 \]
 这一个导数等式正是下文阶乘分母的来源.
 
@@ -269,44 +280,44 @@ w&=\sum\limits_{n=0}^{\infty}w^{(n)},\qquad w^{(0)}=e_1,\\
 w^{(n+1)}&=\int_{-\infty}^{x}G(x-y,z)\Delta Q(y)Yw^{(n)}(y,z)\,\dd y.
 \end{aligned}
 \end{equation}
-若 $\|w^{(n)}(y,z)\|_1\le \dfrac{M_{\mathcal K}(y)^n}{n!}$, 则
+若 $\|w^{(n)}(y,z)\|_1\le \dfrac{M_{K}(y)^n}{n!}$, 则
 \[
-\|w^{(n+1)}(x,z)\|_1\le\dfrac{1}{n!}\int_{-\infty}^{x}c_{\mathcal K}|q(y)-q_0|M_{\mathcal K}(y)^n\,\dd y
-=\dfrac{M_{\mathcal K}(x)^{n+1}}{(n+1)!}.
+\|w^{(n+1)}(x,z)\|_1\le\dfrac{1}{n!}\int_{-\infty}^{x}c_{K}|q(y)-q_0|M_{K}(y)^n\,\dd y
+=\dfrac{M_{K}(x)^{n+1}}{(n+1)!}.
 \]
 归纳即得
 \begin{equation}\label{eq:jost-factorial}
-\|w^{(n)}(x,z)\|_1\le\dfrac{M_{\mathcal K}(x)^n}{n!},\qquad
-\|w(x,z)-e_1\|_1\le e^{M_{\mathcal K}(x)}-1.
+\|w^{(n)}(x,z)\|_1\le\dfrac{M_{K}(x)^n}{n!},\qquad
+\|w(x,z)-e_1\|_1\le e^{M_{K}(x)}-1.
 \end{equation}
 
 \par\medskip\noindent\textbf{把逐次积分真正展开到阶乘.}\quad 
 第一次与第二次迭代分别满足
 \begin{align*}
 \|w^{(1)}(x,z)\|_1
-&\le\int_{-\infty}^{x}M_{\mathcal K}'(y)\,\dd y
-=M_{\mathcal K}(x),\\
+&\le\int_{-\infty}^{x}M_{ K}'(y)\,\dd y
+=M_{ K}(x),\\
 \|w^{(2)}(x,z)\|_1
-&\le\int_{-\infty}^{x}M_{\mathcal K}'(y)
-\int_{-\infty}^{y}M_{\mathcal K}'(y_1)\,\dd y_1\,\dd y\\
-&=\int_{-\infty}^{x}M_{\mathcal K}'(y)M_{\mathcal K}(y)\,\dd y
-=\dfrac{M_{\mathcal K}(x)^2}{2}.
+&\le\int_{-\infty}^{x}M_{ K}'(y)
+\int_{-\infty}^{y}M_{ K}'(y_1)\,\dd y_1\,\dd y\\
+&=\int_{-\infty}^{x}M_{ K}'(y)M_{ K}(y)\,\dd y
+=\dfrac{M_{ K}(x)^2}{2}.
 \end{align*}
 第三次同样得到
 \[
 \|w^{(3)}(x,z)\|_1
-\le\int_{-\infty}^{x}M_{\mathcal K}'(y)
-\dfrac{M_{\mathcal K}(y)^2}{2}\,\dd y
-=\dfrac{M_{\mathcal K}(x)^3}{6}.
+\le\int_{-\infty}^{x}M_{ K}'(y)
+\dfrac{M_{ K}(y)^2}{2}\,\dd y
+=\dfrac{M_{ K}(x)^3}{6}.
 \]
 一般一步的等号由微积分基本定理逐行给出:
 \begin{align*}
 \dfrac{1}{n!}\int_{-\infty}^{x}
-M_{\mathcal K}'(y)M_{\mathcal K}(y)^n\,\dd y
+M_{ K}'(y)M_{ K}(y)^n\,\dd y
 &=\dfrac{1}{n!}\int_{-\infty}^{x}
-\dfrac{1}{n+1}\partial_y\bigl(M_{\mathcal K}(y)^{n+1}\bigr)\,\dd y\\
-&=\dfrac{M_{\mathcal K}(x)^{n+1}-M_{\mathcal K}(-\infty)^{n+1}}{(n+1)!}\\
-&=\dfrac{M_{\mathcal K}(x)^{n+1}}{(n+1)!}.
+\dfrac{1}{n+1}\partial_y\bigl(M_{ K}(y)^{n+1}\bigr)\,\dd y\\
+&=\dfrac{M_{ K}(x)^{n+1}-M_{ K}(-\infty)^{n+1}}{(n+1)!}\\
+&=\dfrac{M_{ K}(x)^{n+1}}{(n+1)!}.
 \end{align*}
 等价地, 第 $n$ 次迭代的积分区域是
 \[
@@ -315,16 +326,16 @@ M_{\mathcal K}'(y)M_{\mathcal K}(y)^n\,\dd y
 把 $( -\infty,x)^n$ 按 $n$ 个坐标的先后次序分成 $n!$ 个区域;
 被积的范数上界是各坐标中同一非负函数的乘积, 因而每个区域的积分相等.
 于是其积分为整个乘积积分的 $\dfrac{1}{n!}$, 即
-$\dfrac{M_{\mathcal K}(x)^n}{n!}$.
+$\dfrac{M_{ K}(x)^n}{n!}$.
 求和时从 $n=1$ 开始的部分为
 \[
-\sum\limits_{n=1}^{\infty}\dfrac{M_{\mathcal K}(x)^n}{n!}
-=e^{M_{\mathcal K}(x)}-1.
+\sum\limits_{n=1}^{\infty}\dfrac{M_{ K}(x)^n}{n!}
+=e^{M_{ K}(x)}-1.
 \]
 特别地, 不要求 $\|q-q_0\|_{L^1}$ 小于某个数;
 阶乘使任意有限的 $L^1$ 质量都能给出收敛.
 
-由于 $M_{\mathcal K}(x)\le c_{\mathcal K}\|q-q_0\|_{L^1}$, 级数对实 $x$ 及 $z\in\mathcal K$ 绝对一致收敛, 且在 $x\to-\infty$ 时趋于 $e_1$. 每一项的积分核在 $D_+$ 解析, 并受上述可积函数控制; 参数积分定理及紧集一致收敛给出 $w$ 和 $\mu_{-,1}=Yw$ 的解析性. 同一控制函数与支配收敛定理给出闭域连续性.
+由于 $M_{K}(x)\le c_{K}\|q-q_0\|_{L^1}$, 级数对实 $x$ 及 $z\in K$ 绝对一致收敛, 且在 $x\to-\infty$ 时趋于 $e_1$. 每一迭代项在 $D_+$ 解析, 并在相应闭域上连续; 上述一致估计保证其和 $w$ 及 $\mu_{-,1}=Yw$ 也具有这些性质.
 
 
 \par\medskip\noindent\textbf{参数解析性与闭域连续性所用的控制.}\quad 
@@ -333,17 +344,17 @@ $\dfrac{M_{\mathcal K}(x)^n}{n!}$.
 因为 $Y,Y^{-1},\lambda$ 在当前紧集附近解析, 指数是整函数.
 再让 $R\to+\infty$, 积分尾部的范数至多为
 \[
-c_{\mathcal K}\sup\limits_{y,z}\|w^{(n)}(y,z)\|_1
+c_{ K}\sup\limits_{y,z}\|w^{(n)}(y,z)\|_1
 \int_{-\infty}^{-R}|q(y)-q_0|\,\dd y,
 \]
-它与 $z\in\mathcal K$ 无关并趋于零.
+它与 $z\in K$ 无关并趋于零.
 所以每一项 $w^{(n)}$ 都是解析函数的一致极限.
 对所有迭代项再使用
 \[
 \sum\limits_{n=0}^{\infty}
-\sup\limits_{x\in\mathbb R,z\in\mathcal K}\|w^{(n)}(x,z)\|_1
+\sup\limits_{x\in\mathbb R,z\in K}\|w^{(n)}(x,z)\|_1
 \le\sum\limits_{n=0}^{\infty}
-\dfrac{\bigl(c_{\mathcal K}\|q-q_0\|_{L^1}\bigr)^n}{n!}<\infty.
+\dfrac{\bigl(c_{ K}\|q-q_0\|_{L^1}\bigr)^n}{n!}<\infty.
 \]
 解析函数列的紧集一致极限仍然解析.
 若 $z$ 从解析域趋向闭域边界, 核逐点连续,
@@ -354,22 +365,23 @@ c_{\mathcal K}\sup\limits_{y,z}\|w^{(n)}(y,z)\|_1
 
 对两个有界解之差 $d$ 迭代 $n$ 次, 有
 \[
-\|d(x,z)\|_1\le\|d(\cdot,z)\|_{L^\infty}\dfrac{M_{\mathcal K}(x)^n}{n!}\longrightarrow0,
+\|d(x,z)\|_1\le\|d(\cdot,z)\|_{L^\infty}\dfrac{M_{K}(x)^n}{n!}\longrightarrow0,
 \]
-从而解唯一. 
+从而解唯一. 其余三列同理.
+
 \par\medskip\noindent\textbf{唯一性与空间微分各自怎样完成.}\quad 
 差 $d$ 的自由项为零. 第一次应用积分方程给出
 \[
-\|d(x,z)\|_1\le\|d\|_{L^\infty}M_{\mathcal K}(x).
+\|d(x,z)\|_1\le\|d\|_{L^\infty}M_{ K}(x).
 \]
 把同一个积分式再次代入积分中的 $d(y,z)$,
 积分区域成为 $y_1\le x,y_2\le y_1$, 故
 \[
 \|d(x,z)\|_1\le\|d\|_{L^\infty}
-\dfrac{M_{\mathcal K}(x)^2}{2!}.
+\dfrac{M_{ K}(x)^2}{2!}.
 \]
-重复 $n$ 次后就是原文所列估计. 对固定 $M_{\mathcal K}(x)$,
-相邻上界之比为 $\dfrac{M_{\mathcal K}(x)}{n+1}$, 趋于零,
+重复 $n$ 次后就是原文所列估计. 对固定 $M_{ K}(x)$,
+相邻上界之比为 $\dfrac{M_{ K}(x)}{n+1}$, 趋于零,
 因此右端趋于零, 从而 $d(x,z)=0$.
 对空间导数, 直接使用原文的列核有
 \[
@@ -399,21 +411,19 @@ K_j(0,z)=I,
 \end{align*}
 在目前的低正则性假设下, 上述空间导数理解为几乎处处导数,
 解在有限区间上绝对连续; 若 $q$ 连续, 等式处处成立.
-
-正端取 $\displaystyle c_{\mathcal K}\int_x^{+\infty}|q(y)-q_0|\,\dd y$, 反向有序积分给出相同的阶乘估计; 另外两列亦同. 在 $\Sigma$ 上四列均可取边界值, 构成 \eqref{eq:volterra} 的有界矩阵解. 对积分方程作局部绝对连续意义下的 $x$ 微分, 恢复空间谱方程, 其归一化由 \eqref{eq:jost-factorial} 给出. 任一具有同一振荡归一化的空间解通过变分常数公式满足该 Volterra 方程, 因而也唯一.
 \end{proof}
 
 \begin{proposition}[向分支点的连续延拓]\label{prop:jost-branch}
-在定理 \ref{thm:jost} 的条件上, 再设
+在定理 \ref{thm:jost} 的条件下, 若进一步满足加权条件
 \begin{equation}\label{eq:jost-weighted}
 \int_{-\infty}^{+\infty}(1+|x|)|q(x)-q_0|\,\dd x<\infty.
 \end{equation}
-则每个 Jost 解析列均可从其闭解析域连续延拓到 $z_b=\pm\ii q_0$. 端点值满足
+则每个 Jost 解析列均可从其闭解析域连续延拓到分支点 $z_b=\pm\ii q_0$. 端点值满足
 \begin{equation}\label{eq:jost-branch-volterra}
 \mu_\pm(x,z_b)=Y(z_b)+\int_{\pm\infty}^{x}
 [I+(x-y)U_\infty(z_b)]\Delta Q(y)\mu_\pm(y,z_b)\,\dd y,
 \end{equation}
-并在对应归一化端趋于 $Y(z_b)$. 此矩阵在任一对应半直线上有界, 满足空间谱方程, 且秩为一.
+并在对应归一化端趋于 $Y(z_b)$, 满足空间谱方程, 且秩为一.
 \end{proposition}
 \begin{proof}
 
@@ -451,7 +461,7 @@ e^{rU_\infty}
 =\cos(\lambda r)I+\dfrac{\sin(\lambda r)}{\lambda}U_\infty
 \longrightarrow I+rU_\infty(z_b),\qquad z\to z_b.
 \end{equation}
-尽管 $Y^{-1}$ 在分支点发散, \eqref{eq:columnkernel} 中的乘积具有可控的连续极限. 具体地,
+将 \eqref{eq:columnkernel} 写为
 \begin{equation}\label{eq:branch-columnkernel}
 K_j(r,z)=\dfrac{1+e^{2\ii s_j\lambda r}}{2}I
 +\dfrac{e^{2\ii s_j\lambda r}-1}{2\ii s_j\lambda}U_\infty(z).
@@ -493,7 +503,7 @@ $0\le\tau\le1$ 上的指数模均不超过 1, 于是
 =r\int_0^1 e^{2\ii s_j\tau\lambda r}\,\dd\tau,\qquad
 \|K_j(r,z)\|_1\le1+C_b|r|.
 \]
-这里 $C_b$ 可在 $z_b$ 的一个闭邻域上一致选取. 这同时给出 $K_j(r,z_b)=I+rU_\infty(z_b)$.
+其中 $C_b$ 在 $z_b$ 的一个闭邻域内一致有界, 且 $K_j(r,z_b)=I+rU_\infty(z_b)$.
 
 以负端为例, 固定 $b\in\mathbb R$, 对 $y\le x\le b$ 有
 \[
@@ -530,12 +540,12 @@ L_b(x)=A_b\int_{-\infty}^{x}(1+|y|)|q(y)-q_0|\,\dd y.
 $y-x\le |y|+|b|$, 并把积分上界改为从 $x$ 到 $+\infty$,
 其余每一步保持相同.
 
-直接对 $\mu_{-,j}$ 的列积分方程迭代, 其第 $n$ 项满足
+列积分方程的第 $n$ 次迭代满足
 \[
 \|\mu_{-,j}^{(n)}(x,z)\|_1
-\le\left(\sup_{z}\|Y_j(z)\|_1\right)\dfrac{L_b(x)^n}{n!},\qquad x\le b.
+\le C_Y\dfrac{L_b(x)^n}{n!},\qquad x\le b,
 \]
-加权可积条件保证级数在 $x\le b$ 及分支点邻域内一致收敛. 各项利用 \eqref{eq:branch-columnkernel} 支配收敛, 故其和连续趋于 \eqref{eq:jost-branch-volterra}; $L_b(x)\to0$ 则给出负端归一化. 正端使用 $y\ge x\ge b$ 和从 $x$ 到 $+\infty$ 的加权积分, 得到相同结论. 对差的有序积分估计还给出端点 Volterra 解在对应半直线上的唯一性.
+其中 $C_Y$ 为该邻域内 $\|Y_j(z)\|_1$ 的统一界. 加权条件保证级数一致收敛, 逐项取极限得到 \eqref{eq:jost-branch-volterra}; $L_b(x)\to0$ 给出负端归一化. 正端的反向积分同理, 对两解之差的迭代也给出端点唯一性.
 
 
 \par\medskip\noindent\textbf{端点空间方程与秩一结论的具体计算.}\quad 
@@ -571,7 +581,7 @@ U_\infty\mu_\pm(x)
 若它在某个有限点为零, 一阶线性初值问题的唯一性会使它处处为零,
 与非零端态矛盾. 所以两列始终相关且至少一列非零, 矩阵秩恰为一.
 
-最后, $U_\infty(z_b)Y(z_b)=0$, $U_\infty(z_b)^2=0$. 对 \eqref{eq:jost-branch-volterra} 求导得到 $(\mu_\pm)_x=U(z_b)\mu_\pm$. 因 $Y(z_b)$ 的两列线性相关, 唯一性使同一关系对 $\mu_\pm(x,z_b)$ 成立. 其归一化端值非零, 而一阶线性系统的非零解不能在有限点为零, 因而矩阵秩恒为一.
+对 \eqref{eq:jost-branch-volterra} 求导得到 $(\mu_\pm)_x=U(z_b)\mu_\pm$. 由端点唯一性, $Y(z_b)$ 两列的线性关系传递给 $\mu_\pm(x,z_b)$. 归一化端值非零, 线性系统的非零解不能在有限点为零, 故其秩恒为一.
 \end{proof}
 
 共振原像 $z_a^\pm$ 不使空间积分核退化, 因而 $\mu_\pm$ 在此仍由 \eqref{eq:volterra} 正则取值. 传播相位在共振处的处理及两组 Jost 解的共同演化见第 \ref{ch:scattering} 节.

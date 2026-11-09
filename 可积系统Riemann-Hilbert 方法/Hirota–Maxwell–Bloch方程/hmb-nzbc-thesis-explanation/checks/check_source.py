@@ -1,4 +1,4 @@
-"""Check source preservation, formula coverage and equation numbering.
+"""Check the synchronized source baseline, coverage and equation numbering.
 
 This is a document acceptance tool, not a replacement for mathematical review.
 The original thesis is read only. Reports are written beside this script.
@@ -47,7 +47,7 @@ def main():
     for entry in hashes:
         path = Path(entry['Path'])
         if hashlib.sha256(path.read_bytes()).hexdigest().upper() != entry['Hash']:
-            failures.append(f'Original file changed: {path}')
+            failures.append(f'Synchronized source baseline changed: {path}')
     sections = []
     all_labels = []
     for original in sorted((SOURCE / 'section').glob('*.tex')):
@@ -75,6 +75,12 @@ def main():
         new_env = re.findall(r'\\begin\{(equation|align|gather|multline|theorem|lemma|proposition|remark|definition|corollary)\}', b)
         if old_env != new_env:
             failures.append(f'{original.name}: numbered environment sequence changed')
+        old_headings = re.findall(r'^\\subsection\{[^\n]*', a, re.M)
+        new_headings = re.findall(r'^\\subsection\{[^\n]*', b, re.M)
+        if [clean(x) for x in old_headings] != [clean(x) for x in new_headings]:
+            failures.append(f'{original.name}: subsection sequence differs from current source')
+        if original.name.startswith(('07-', '08-')) and re.search(r'\\(?:mathcal|mathscr)\b', b):
+            failures.append(f'{original.name}: calligraphic notation remains')
         old_lines = [x.strip() for x in a.splitlines() if x.strip() and not x.lstrip().startswith('%')]
         missing_lines = [x for x in old_lines if x not in b]
         retained = ordered_subsequence(a, b)
@@ -102,6 +108,11 @@ def main():
     duplicates = [x for x, n in collections.Counter(all_labels).items() if n > 1]
     if duplicates:
         failures.append(f'Duplicate labels: {duplicates}')
+    index = (ROOT / 'chapters/10-formula-index.tex').read_text(encoding='utf-8')
+    indexed = re.findall(r'\\eqref\{([^{}]+)\}', index)
+    equations = [x for x in all_labels if x.startswith('eq:')]
+    if indexed != equations:
+        failures.append('Formula index does not match the current source equation sequence')
     # Read every produced TeX file directly, including the guide, index and
     # derivative supplement. Auxiliary template .cls/.def files are unchanged.
     checked_tex = [ROOT / 'hmb-explanation.tex', *sorted((ROOT / 'chapters').glob('*.tex'))]
@@ -129,8 +140,9 @@ def main():
             failures.append(f'Original reference numbers changed: {mismatch}')
         number_check = dict(original_labels_compared=len([k for k in old if k in all_labels or k.startswith('ch:')]), mismatches=mismatch)
     report = dict(source=str(SOURCE), sections=sections, reference_number_check=number_check,
+                  indexed_equations=len(indexed),
                   tex_files_checked=[p.name for p in checked_tex],
-                  source_unchanged=not any('Original file changed' in s for s in failures), failures=failures)
+                  source_matches_sync_baseline=not any('Synchronized source baseline changed' in s for s in failures), failures=failures)
     (ROOT / 'checks/source-coverage.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(report, ensure_ascii=True, indent=2))
     return bool(failures)

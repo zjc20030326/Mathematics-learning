@@ -67,45 +67,45 @@ A_{\rm d}(\pm\infty)=0,
 
 作局部矩阵变换
 \[
-\mathcal T(x,z)=I-\dfrac{\ii B(q(x))}{z},\qquad \mu_\pm=\mathcal T n_\pm.
+ T(x,z)=I-\dfrac{\ii B(q(x))}{z},\qquad \mu_\pm= T n_\pm.
 \]
 由 $B\sg=-\sg B$, $B^2=|q|^2I$,
 \[
-\det\mathcal T=1+\dfrac{|q|^2}{z^2},\qquad
-\mathcal T^{-1}=\dfrac{I+\dfrac{\ii B}{z}}{1+\dfrac{|q|^2}{z^2}}.
+\det T=1+\dfrac{|q|^2}{z^2},\qquad
+ T^{-1}=\dfrac{I+\dfrac{\ii B}{z}}{1+\dfrac{|q|^2}{z^2}}.
 \]
-当 $|z|$ 足够大时, $\mathcal T,\mathcal T^{-1}$ 对所有实 $x$ 一致有界; 在归一化端 $\mathcal T\to Y$, 故 $n_\pm\to I$. 利用 $k+\lambda=z$ 和 $\lambda-k=\dfrac{q_0^2}{z}$, 有
+当 $|z|$ 足够大时, $ T, T^{-1}$ 对所有实 $x$ 一致有界; 在归一化端 $ T\to Y$, 故 $n_\pm\to I$. 利用 $k+\lambda=z$ 和 $\lambda-k=\dfrac{q_0^2}{z}$, 有
 \begin{align*}
-U\mathcal T+\ii\lambda\mathcal T\sg-\mathcal T_x
+U T+\ii\lambda T\sg- T_x
 &=\ii(\lambda-k)\sg+Q-\dfrac{k+\lambda}{z}\sg B
 -\dfrac{\ii}{z}QB+\dfrac{\ii}{z}B_x\\
 &=\dfrac{\ii}{z}\bigl((q_0^2-|q|^2)\sg+B_x\bigr).
 \end{align*}
 因此
 \begin{equation}\label{eq:n-volterra-system}
-(n_\pm)_x=-\ii\lambda[\sg,n_\pm]+\mathcal Cn_\pm,\qquad
-\mathcal C=\dfrac{1}{z}\mathcal T^{-1}\mathcal C_1,\qquad
-\mathcal C_1=\ii\bigl((q_0^2-|q|^2)\sg+B_x\bigr).
+(n_\pm)_x=-\ii\lambda[\sg,n_\pm]+ Cn_\pm,\qquad
+ C=\dfrac{1}{z} T^{-1} C_1,\qquad
+ C_1=\ii\bigl((q_0^2-|q|^2)\sg+B_x\bigr).
 \end{equation}
 由 \eqref{eq:highenergy-assumption}, $q_0^2-|q|^2,q_x\in L^1$, 从而
 \begin{equation}\label{eq:asymptotic-L1-control}
-\|\mathcal C(\cdot,z)\|_{L^1}\le\dfrac{C}{|z|},\qquad
-\left\|\mathcal C(\cdot,z)-\dfrac{\mathcal C_1}{z}\right\|_{L^1}
+\| C(\cdot,z)\|_{L^1}\le\dfrac{C}{|z|},\qquad
+\left\| C(\cdot,z)-\dfrac{ C_1}{z}\right\|_{L^1}
 \le\dfrac{C}{|z|^2}.
 \end{equation}
 第 $j$ 列的 Volterra 方程为
 \[
 n_{\pm,j}(x,z)=e_j+\int_{\pm\infty}^{x}
-e^{-\ii\lambda(x-y)(\sg-s_jI)}\mathcal C(y,z)n_{\pm,j}(y,z)\,\dd y.
+e^{-\ii\lambda(x-y)(\sg-s_jI)} C(y,z)n_{\pm,j}(y,z)\,\dd y.
 \]
 其中 $s_1=1,s_2=-1$, 传播核在相应闭解析域及积分方向上范数不超过 1. 与定理 \ref{thm:jost} 相同的有序积分估计给出第 $l$ 次迭代项的界 $\dfrac{C^l}{l!|z|^l}$, 所以
 \[
 \|n_\pm-I\|_{L^\infty_x}\le e^{\frac{C}{|z|}}-1=O(z^{-1}),\qquad
 \sum\limits_{l=2}^{\infty}\dfrac{C^l}{l!|z|^l}=O(z^{-2}).
 \]
-结合 \eqref{eq:asymptotic-L1-control}, 只需计算以 $\dfrac{\mathcal C_1}{z}$ 代替 $\mathcal C$ 的第一次迭代. 以负端第一列为例, 对角分量为
+结合 \eqref{eq:asymptotic-L1-control}, 只需计算以 $\dfrac{ C_1}{z}$ 代替 $ C$ 的第一次迭代. 以负端第一列为例, 对角分量为
 \[
-\dfrac{1}{z}\int_{-\infty}^{x}(\mathcal C_1)_{11}(y)\,\dd y
+\dfrac{1}{z}\int_{-\infty}^{x}( C_1)_{11}(y)\,\dd y
 =\dfrac{\ii J_-(x)}{z},
 \]
 非对角分量为
@@ -126,7 +126,7 @@ e^{-\ii\lambda(x-y)(\sg-s_jI)}\mathcal C(y,z)n_{\pm,j}(y,z)\,\dd y.
 \[
 n_\pm=I+\dfrac{\ii J_\pm\sg}{z}+O(z^{-2}),
 \]
-与 $\mathcal T$ 相乘即证明 \eqref{eq:mu-highenergy}. 此外, 从 \eqref{eq:n-volterra-system} 及 $n_\pm$ 非对角部分为 $O(z^{-2})$, 可得 $(n_\pm)_x=O(z^{-1})$, 因而 $(\mu_\pm)_x=O(z^{-1})$, 仍按解析列理解.
+与 $ T$ 相乘即证明 \eqref{eq:mu-highenergy}. 此外, 从 \eqref{eq:n-volterra-system} 及 $n_\pm$ 非对角部分为 $O(z^{-2})$, 可得 $(n_\pm)_x=O(z^{-1})$, 因而 $(\mu_\pm)_x=O(z^{-1})$, 仍按解析列理解.
 
 将展开代入 Wronskian 表达式, 有
 \[

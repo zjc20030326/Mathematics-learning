@@ -3,8 +3,8 @@
   "sections": [
     {
       "file": "01-introduction.tex",
-      "original_lines": 24,
-      "expanded_lines": 93,
+      "original_lines": 26,
+      "expanded_lines": 95,
       "original_display_blocks": 2,
       "expanded_display_blocks": 9,
       "original_labels": 2,
@@ -13,30 +13,30 @@
     },
     {
       "file": "02-model.tex",
-      "original_lines": 240,
-      "expanded_lines": 1879,
-      "original_display_blocks": 33,
-      "expanded_display_blocks": 194,
+      "original_lines": 248,
+      "expanded_lines": 1887,
+      "original_display_blocks": 34,
+      "expanded_display_blocks": 195,
       "original_labels": 33,
       "original_prose_retained_in_order": true,
       "original_lines_split_by_insertions": 0
     },
     {
       "file": "03-jost.tex",
-      "original_lines": 133,
-      "expanded_lines": 577,
-      "original_display_blocks": 21,
-      "expanded_display_blocks": 64,
+      "original_lines": 144,
+      "expanded_lines": 587,
+      "original_display_blocks": 22,
+      "expanded_display_blocks": 65,
       "original_labels": 15,
       "original_prose_retained_in_order": true,
-      "original_lines_split_by_insertions": 1
+      "original_lines_split_by_insertions": 0
     },
     {
       "file": "04-scattering.tex",
-      "original_lines": 128,
-      "expanded_lines": 443,
-      "original_display_blocks": 21,
-      "expanded_display_blocks": 49,
+      "original_lines": 143,
+      "expanded_lines": 447,
+      "original_display_blocks": 23,
+      "expanded_display_blocks": 50,
       "original_labels": 12,
       "original_prose_retained_in_order": true,
       "original_lines_split_by_insertions": 2
@@ -45,19 +45,19 @@
       "file": "05-symmetry.tex",
       "original_lines": 103,
       "expanded_lines": 468,
-      "original_display_blocks": 17,
-      "expanded_display_blocks": 61,
+      "original_display_blocks": 16,
+      "expanded_display_blocks": 60,
       "original_labels": 13,
       "original_prose_retained_in_order": true,
       "original_lines_split_by_insertions": 1
     },
     {
       "file": "06-discrete.tex",
-      "original_lines": 136,
-      "expanded_lines": 498,
+      "original_lines": 127,
+      "expanded_lines": 489,
       "original_display_blocks": 19,
       "expanded_display_blocks": 56,
-      "original_labels": 10,
+      "original_labels": 9,
       "original_prose_retained_in_order": true,
       "original_lines_split_by_insertions": 0
     },
@@ -73,11 +73,11 @@
     },
     {
       "file": "08-rhp.tex",
-      "original_lines": 459,
-      "expanded_lines": 2696,
-      "original_display_blocks": 65,
-      "expanded_display_blocks": 286,
-      "original_labels": 55,
+      "original_lines": 542,
+      "expanded_lines": 2991,
+      "original_display_blocks": 77,
+      "expanded_display_blocks": 316,
+      "original_labels": 62,
       "original_prose_retained_in_order": true,
       "original_lines_split_by_insertions": 0
     },
@@ -93,9 +93,10 @@
     }
   ],
   "reference_number_check": {
-    "original_labels_compared": 170,
+    "original_labels_compared": 176,
     "mismatches": {}
   },
+  "indexed_equations": 133,
   "tex_files_checked": [
     "hmb-explanation.tex",
     "00-reading-guide.tex",
@@ -111,6 +112,6 @@
     "09-numerics.tex",
     "10-formula-index.tex"
   ],
-  "source_unchanged": true,
+  "source_matches_sync_baseline": true,
   "failures": []
 }

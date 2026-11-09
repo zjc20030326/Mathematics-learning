@@ -8,6 +8,7 @@ import sys
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT.parent / 'hmb-nzbc-thesis'
+sys.path.insert(0, str(SOURCE / 'scripts'))
 REPORTS = ROOT / 'calculations'
 REPORTS.mkdir(exist_ok=True)
 
@@ -28,6 +29,7 @@ def main():
     run('verify_symbolic.py')
     run('verify_direct_algebra.py')
     numerical = run('verify_direct_rhp.py', main=True)
+    run('verify_n_orbits.py', main=True)
     mp = numerical['mp']
     mp.mp.dps = 70
     q, p, eta = numerical['fields'](mp.mpf(0), mp.mpf(0))

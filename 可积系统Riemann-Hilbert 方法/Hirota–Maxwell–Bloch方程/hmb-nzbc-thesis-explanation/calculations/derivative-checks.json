@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-04T12:11:52.539898+00:00",
+  "generated_utc": "2026-11-09T11:55:09.656585+00:00",
   "script": "checks/verify_derivatives.py",
   "source": "chapters/09-derivative-details.tex",
   "source_sha256": "3338874030e6dbde8e89900b7fb1e5487a6ef275a839ad52553a41203344bbb3",

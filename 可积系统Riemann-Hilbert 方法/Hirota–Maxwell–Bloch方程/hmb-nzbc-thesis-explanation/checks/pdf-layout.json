@@ -1,7 +1,7 @@
 {
   "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-explanation\\hmb-explanation.pdf",
-  "pages": 160,
-  "bytes": 2429750,
+  "pages": 166,
+  "bytes": 2438832,
   "page_geometry": [
     595.280029296875,
     841.8900146484375
@@ -101,7 +101,7 @@
     [
       1,
       "7. 渐近行为",
-      77
+      76
     ],
     [
       1,
@@ -111,7 +111,7 @@
     [
       2,
       "8.1 留数条件与重构公式",
-      93
+      92
     ],
     [
       2,
@@ -120,56 +120,57 @@
     ],
     [
       2,
-      "8.3 无反射 RHP 的直接求解",
+      "8.3 N 个完整简单四点轨道的无反射 RHP 求解",
       102
     ],
     [
       2,
       "8.4 单轨道解及 HMB 方程验证",
-      118
+      108
     ],
     [
       1,
       "9. 数值结果与动力学分析",
-      134
+      139
     ],
     [
       2,
       "9.1 单孤子的三场分布",
-      134
+      139
     ],
     [
       2,
       "9.2 传播速度与内部振荡",
-      136
+      141
     ],
     [
       2,
       "9.3 参数影响与数值验证",
-      140
+      145
     ],
     [
       1,
       "原公式逐式定位表",
-      155
+      160
     ],
     [
       1,
       "参考文献",
-      160
+      166
     ]
   ],
   "contact_sheets": [
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-01.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-02.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-03.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-04.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-05.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-06.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-07.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-08.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-09.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview\\contact-10.png"
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-01.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-02.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-03.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-04.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-05.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-06.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-07.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-08.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-09.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-10.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-sync-20261109-183605\\preview\\contact-11.png"
   ],
-  "contact_pages_covered": 160
+  "contact_pages_covered": 166
 }
