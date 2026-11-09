@@ -211,19 +211,19 @@ M(z)=I-\dfrac{\ii q_0}{z}\sigma_1+\sum\limits_{j=1}^{m}
 \end{align}
 反之, 任一系统解通过 \eqref{eq:partialfraction} 给出具有指定留数和两处归一化的矩阵. 记
 \[
-\mathcal A_{jk}=\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}},\qquad
-\mathcal B_{jk}=\dfrac{C_k}{\conj{\zeta_j}-\zeta_k},\qquad j,k=1,\ldots,m,
+A_{jk}=\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}},\qquad
+B_{jk}=\dfrac{C_k}{\conj{\zeta_j}-\zeta_k},\qquad j,k=1,\ldots,m,
 \]
 并记 $f_j=e_1-\dfrac{\ii q_0}{\zeta_j}e_2$、$g_j=e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1$. 将 $\mathbf v_j^T,\mathbf u_j^T,f_j^T,g_j^T$ 分别作为 $m\times2$ 矩阵 $\boldsymbol v,\boldsymbol u,\boldsymbol f,\boldsymbol g$ 的第 $j$ 行. 则留数系统为
 \begin{equation}\label{eq:N-block-system}
-\mathcal K_N\begin{pmatrix}\boldsymbol v\\\boldsymbol u\end{pmatrix}
+K_N\begin{pmatrix}\boldsymbol v\\\boldsymbol u\end{pmatrix}
 =\begin{pmatrix}\boldsymbol f\\\boldsymbol g\end{pmatrix},\qquad
-\mathcal K_N=\begin{pmatrix}I_m&\mathcal A\\-\mathcal B&I_m\end{pmatrix}.
+K_N=\begin{pmatrix}I_m&A\\-B&I_m\end{pmatrix}.
 \end{equation}
-置 $\mathcal L_N=I_m+\mathcal A\mathcal B$. 若 $\det\mathcal L_N\ne0$, 则系统的唯一解为
+置 $L_N=I_m+AB$. 若 $\det L_N\ne0$, 则系统的唯一解为
 \begin{equation}\label{eq:finite-schur}
-\boldsymbol v=\mathcal L_N^{-1}(\boldsymbol f-\mathcal A\boldsymbol g),\qquad
-\boldsymbol u=\boldsymbol g+\mathcal B\boldsymbol v.
+\boldsymbol v=L_N^{-1}(\boldsymbol f-A\boldsymbol g),\qquad
+\boldsymbol u=\boldsymbol g+B\boldsymbol v.
 \end{equation}
 相应光场为
 \begin{equation}\label{eq:qfinite}
@@ -233,34 +233,34 @@ q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\mathbf v_j)_1.
 \begin{proof}
 减去 $z=0$ 处主部及全部离散主部后, 剩余矩阵在有限平面解析, 且在无穷远趋于 $I$. Liouville 定理给出 \eqref{eq:partialfraction}, 这也正是 \eqref{eq:general-cauchy} 中 $G=0$ 的情形. 在第一列取 $z=\zeta_j$, 在第二列取 $z=\conj{\zeta_j}$, 即得 \eqref{eq:finite1}--\eqref{eq:finite2}. 反向代入时, 这些取值等式保证留数系数恰为对应正则列. 写成
 \[
-\boldsymbol v=\boldsymbol f-\mathcal A\boldsymbol u,\qquad
-\boldsymbol u=\boldsymbol g+\mathcal B\boldsymbol v,
+\boldsymbol v=\boldsymbol f-A\boldsymbol u,\qquad
+\boldsymbol u=\boldsymbol g+B\boldsymbol v,
 \]
 对系数矩阵作分块消元,
 \[
-\begin{pmatrix}I_m&-\mathcal A\\0&I_m\end{pmatrix}
-\begin{pmatrix}I_m&\mathcal A\\-\mathcal B&I_m\end{pmatrix}
-=\begin{pmatrix}\mathcal L_N&0\\-\mathcal B&I_m\end{pmatrix},
-\qquad \det\mathcal K_N=\det\mathcal L_N.
+\begin{pmatrix}I_m&-A\\0&I_m\end{pmatrix}
+\begin{pmatrix}I_m&A\\-B&I_m\end{pmatrix}
+=\begin{pmatrix}L_N&0\\-B&I_m\end{pmatrix},
+\qquad \det K_N=\det L_N.
 \]
 当此行列式非零时, 第一行解出 $\boldsymbol v$, 第二行给出 $\boldsymbol u$, 得到 \eqref{eq:finite-schur}. 最后读取 \eqref{eq:partialfraction} 的 $(1,2)$ 元的 $z^{-1}$ 系数, 得到 \eqref{eq:qfinite}.
 \end{proof}
 
 \begin{theorem}[$N$ 轨道矩阵解与行列式重构]\label{thm:N-orbit-RHP}
-设数据满足 \eqref{eq:N-orbit-data}--\eqref{eq:N-orbit-phase}. 在任一满足 $\det\mathcal L_N(x,t)\ne0$ 的实点 $(x,t)$, 式 \eqref{eq:finite-schur} 和 \eqref{eq:partialfraction} 给出无反射 RHP 的唯一解. 它满足 \eqref{eq:Msym} 及 $\det M=\gamma$, 在分支点解析且秩为一. 令
+设数据满足 \eqref{eq:N-orbit-data}--\eqref{eq:N-orbit-phase}. 在任一满足 $\det L_N(x,t)\ne0$ 的实点 $(x,t)$, 式 \eqref{eq:finite-schur} 和 \eqref{eq:partialfraction} 给出无反射 RHP 的唯一解. 它满足 \eqref{eq:Msym} 及 $\det M=\gamma$, 在分支点解析且秩为一. 令
 \begin{equation}\label{eq:N-rhs}
 \begin{aligned}
 &\boldsymbol C=(C_1,\ldots,C_m)^T,\qquad
-\boldsymbol r=(\boldsymbol f-\mathcal A\boldsymbol g)e_1,\\
+\boldsymbol r=(\boldsymbol f-A\boldsymbol g)e_1,\\
 &r_j=1+\ii q_0\sum\limits_{k=1}^{m}
 \dfrac{\conj{C_k}}{(\zeta_j-\conj{\zeta_k})\conj{\zeta_k}},\qquad j=1,\ldots,m,
 \end{aligned}
 \end{equation}
 则规范光场有显式矩阵式与行列式表示
 \begin{equation}\label{eq:N-determinant-q}
-q=q_0+\ii\boldsymbol C^T\mathcal L_N^{-1}\boldsymbol r
-=\dfrac{\det\begin{pmatrix}\mathcal L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}}
-{\det\mathcal L_N}.
+q=q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r
+=\dfrac{\det\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}}
+{\det L_N}.
 \end{equation}
 介质矩阵由同一有理矩阵在共振原像处重构:
 \begin{equation}\label{eq:N-medium}
@@ -269,18 +269,16 @@ R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
 两个符号给出相同结果; 原三场按 \eqref{eq:original-fields} 恢复.
 \end{theorem}
 \begin{proof}
-命题 \ref{prop:finite} 给出有理矩阵的全部留数及归一化, 并由 $\det\mathcal L_N\ne0$ 保证唯一性. 共轭变换 $\sigma_2\conj{M(\conj{z})}\sigma_2$ 交换两组极点, 满足同一留数系统和两处归一化. 换叶变换
+命题 \ref{prop:finite} 给出有理矩阵的全部留数及归一化, 并由 $\det L_N\ne0$ 保证唯一性. 共轭变换 $\sigma_2\conj{M(\conj{z})}\sigma_2$ 交换两组极点, 满足同一留数系统和两处归一化. 换叶变换
 \[
 \widehat M(z)=M(h(z))\left(\dfrac{\ii z}{q_0}\sigma_1\right)^{-1}
 \]
 也满足这些条件. 具体地, 记同一轨道的配对指标为 $\widehat j$, 即 $\zeta_{\widehat j}=h(\conj{\zeta_j})$. 在 $z=\zeta_j$ 处, $h(z)$ 趋于 $\conj{\zeta_{\widehat j}}$, 由 $h'(\zeta_j)=\dfrac{q_0^2}{\zeta_j^2}$ 和 \eqref{eq:Cpair},
 \[
-\begin{aligned}
 \Res_{z=\zeta_j}\widehat M_2(z)
-&=\dfrac{\ii q_0\conj{C_{\widehat j}}}{\zeta_jh'(\zeta_j)}\mathbf u_{\widehat j}\\
-&=C_j\left(-\dfrac{\ii q_0}{\zeta_j}\mathbf u_{\widehat j}\right)
+=\dfrac{\ii q_0\conj{C_{\widehat j}}}{\zeta_jh'(\zeta_j)}\mathbf u_{\widehat j}
+=C_j\left(-\dfrac{\ii q_0}{\zeta_j}\mathbf u_{\widehat j}\right)
 =C_j\widehat M_1(\zeta_j).
-\end{aligned}
 \]
 共轭点处同理, 得到带负号的第一列留数条件. 在 $0,\infty$ 处, 换叶交换两处归一化, 仍给出规定主项. 由唯一性得到两项约化 \eqref{eq:Msym}.
 
@@ -296,15 +294,15 @@ R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
 \]
 故 $d=0$, 即 $\det M=\gamma$. 分支点不在部分分式的极点集合中, 所以 $M$ 在该处解析. 若 $M(z_b)$ 为零矩阵, 则行列式至少有二阶零点, 与 $\gamma'(z_b)\ne0$ 矛盾; 因此其秩恰为一.
 
-由 \eqref{eq:finite-schur}, 正则列第一分量排成的列向量为 $\mathcal L_N^{-1}\boldsymbol r$. 代入 \eqref{eq:qfinite} 得到 \eqref{eq:N-determinant-q} 的第一式. 再对其分子作分块行列式计算,
+由 \eqref{eq:finite-schur}, 正则列第一分量排成的列向量为 $L_N^{-1}\boldsymbol r$. 代入 \eqref{eq:qfinite} 得到 \eqref{eq:N-determinant-q} 的第一式. 再对其分子作分块行列式计算,
 \[
-\det\begin{pmatrix}\mathcal L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}
-=\det\mathcal L_N\left(q_0+\ii\boldsymbol C^T\mathcal L_N^{-1}\boldsymbol r\right),
+\det\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}
+=\det L_N\left(q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r\right),
 \]
 得到第二式. 共振原像不在离散谱中, 且 $\gamma(z_a^\pm)>0$, 所以逆矩阵存在. 两个原像互为换叶, $\lambda(h(z))=-\lambda(z)$, 而 $\sigma_1\sigma_3\sigma_1=-\sigma_3$; 代入换叶约化即得 \eqref{eq:N-medium} 与谱叶无关.
 \end{proof}
 
-上述公式将 $N$ 轨道问题化为 $2N$ 阶矩阵 $\mathcal L_N$ 的求逆. 公式适用于 $\det\mathcal L_N\ne0$ 的区域; 下节对一个纯虚轨道进一步显式消元, 并证明该行列式在全体实 $x,t$ 上严格为正.
+上述公式将 $N$ 轨道问题化为 $2N$ 阶矩阵 $L_N$ 的求逆. 公式适用于 $\det L_N\ne0$ 的区域; 下节对一个纯虚轨道进一步显式消元, 并证明该行列式在全体实 $x,t$ 上严格为正.
 
 \subsection{单轨道解及 HMB 方程验证}
 取一个纯虚离散轨道
@@ -346,9 +344,9 @@ s=\kappa[x-F(\ii b)t],\qquad T=e^{2s}.
 \begin{proof}
 代入谱点和范数常数得到
 \begin{equation}\label{eq:one-AB}
-\mathcal A=\dfrac{1}{1+h_0^2}
+A=\dfrac{1}{1+h_0^2}
 \begin{pmatrix}(h_0^2-1)\conj{T}&2h_0^2T\\-2\conj{T}&(h_0^2-1)T\end{pmatrix},\quad
-\mathcal B=\dfrac{1}{1+h_0^2}
+B=\dfrac{1}{1+h_0^2}
 \begin{pmatrix}(h_0^2-1)T&2h_0^2\conj{T}\\-2T&(h_0^2-1)\conj{T}\end{pmatrix}.
 \end{equation}
 对应右端为
@@ -360,26 +358,26 @@ g_2=\begin{pmatrix}-h_0^{-1}\\1\end{pmatrix}.
 \]
 两个向量分量分别满足同一个四阶标量系数系统,
 \[
-\begin{pmatrix}I_2&\mathcal A\\-\mathcal B&I_2\end{pmatrix}
+\begin{pmatrix}I_2&A\\-B&I_2\end{pmatrix}
 \begin{pmatrix}\boldsymbol v\\\boldsymbol u\end{pmatrix}
 =\begin{pmatrix}\boldsymbol f\\\boldsymbol g\end{pmatrix}.
 \]
 其 Schur 补行列式为
 \begin{equation}\label{eq:one-schur-det}
-\det(I_2+\mathcal A\mathcal B)=\dfrac{\Delta_-\Delta_+}{(1+h_0^2)^2}>0.
+\det(I_2+AB)=\dfrac{\Delta_-\Delta_+}{(1+h_0^2)^2}>0.
 \end{equation}
 事实上,
 \[
 \Delta_-=|T-h_0|^2+|1-h_0T|^2,\qquad
 \Delta_+=|T+h_0|^2+|1+h_0T|^2,
 \]
-且 $\Delta_\pm\ge(1-h_0)^2(1+|T|^2)$. 令 $L=I_2+\mathcal A\mathcal B$, 用二阶逆矩阵公式计算 $L^{-1}(\boldsymbol f-\mathcal A\boldsymbol g)$, 约去公因子 $\Delta_+$, 得
+且 $\Delta_\pm\ge(1-h_0)^2(1+|T|^2)$. 令 $L=I_2+AB$, 用二阶逆矩阵公式计算 $L^{-1}(\boldsymbol f-A\boldsymbol g)$, 约去公因子 $\Delta_+$, 得
 \[
 \boldsymbol v=\dfrac{1+h_0^2}{\Delta_-}
 \begin{pmatrix}1-h_0\conj{T}&\conj{T}-h_0\\
 \dfrac{h_0-T}{h_0}&\dfrac{1-h_0T}{h_0}\end{pmatrix}.
 \]
-此处每一行是一个正则列的转置. 由 $\boldsymbol u=\boldsymbol g+\mathcal B\boldsymbol v$ 得到其余两列, 即 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2}.
+此处每一行是一个正则列的转置. 由 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$ 得到其余两列, 即 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2}.
 \end{proof}
 
 将所得列向量代入部分分式表示. 其系数可用以下秩一正交投影写成紧凑形式:
@@ -472,37 +470,37 @@ M\longrightarrow Y\diag(s_{22},s_{22}^{-1})\quad(x\to+\infty).
 
 对避开特殊点的 $z$ 定义
 \begin{equation}\label{eq:inverse-log-lax}
-\mathcal U=(M_x-\ii\lambda M\sg)M^{-1},\qquad
-\mathcal V=(M_t+\ii\lambda F M\sg)M^{-1}.
+U=(M_x-\ii\lambda M\sg)M^{-1},\qquad
+V=(M_t+\ii\lambda F M\sg)M^{-1}.
 \end{equation}
 它们是 $\phi=Me^{\ii\theta\sg}$ 的两个对数导数. 换叶时 $\lambda$ 和 $\theta$ 变号, $\sigma_1$ 与 $\sg$ 反对易, 故两矩阵在 $z$ 和 $h(z)$ 取值相同, 是 $k$ 的单值有理矩阵.
 
 在 $\zeta_j$ 附近, $\phi$ 的列留数为 $\Res\phi_2=c_j\phi_1(\zeta_j)$. 常数 $c_j$ 与 $x,t$ 无关, 故
 \[
-\phi=\mathcal H_j(z)\left(I+\dfrac{c_je_1e_2^T}{z-\zeta_j}\right),\qquad
-\det\mathcal H_j(\zeta_j)=\gamma(\zeta_j)\ne0.
+\phi=H_j(z)\left(I+\dfrac{c_je_1e_2^T}{z-\zeta_j}\right),\qquad
+\det H_j(\zeta_j)=\gamma(\zeta_j)\ne0.
 \]
 右因子不依赖 $x,t$, 因而两个对数导数的离散极点可去; 共轭极点同理.
 
-在分支点 $z_*=\pm\ii q_0$, 换叶约化使 $M(z_*)$ 消灭 $C(z_*)$ 的固定 $-1$ 特征空间. 该核不依赖 $x,t$, 因此 $M_x(z_*)$ 和 $M_t(z_*)$ 也消灭它. 又 $\lambda(z_*)=0$, $F$ 在此有限, \eqref{eq:inverse-log-lax} 的两个分子均消灭同一核. $\det M=\gamma$ 在 $z_*$ 有一阶零点, 而 $\operatorname{adj}M(z_*)$ 的像正是该核, 故两个商的分子抵消行列式的零点. 这证明分支点可去. 轮廓交点处 $\gamma\ne0$, 没有逆矩阵奇性. 在共振点, $\mathcal U$ 解析, $\mathcal V$ 的唯一留数为
+在分支点 $z_*=\pm\ii q_0$, 换叶约化使 $M(z_*)$ 消灭 $C(z_*)$ 的固定 $-1$ 特征空间. 该核不依赖 $x,t$, 因此 $M_x(z_*)$ 和 $M_t(z_*)$ 也消灭它. 又 $\lambda(z_*)=0$, $F$ 在此有限, \eqref{eq:inverse-log-lax} 的两个分子均消灭同一核. $\det M=\gamma$ 在 $z_*$ 有一阶零点, 而 $\operatorname{adj}M(z_*)$ 的像正是该核, 故两个商的分子抵消行列式的零点. 这证明分支点可去. 轮廓交点处 $\gamma\ne0$, 没有逆矩阵奇性. 在共振点, $U$ 解析, $V$ 的唯一留数为
 \[
-\Res_{k=a}\mathcal V=\dfrac{\ii\eta_0\lambda(z_a)}{a}M(z_a)\sg M(z_a)^{-1}=\ii R.
+\Res_{k=a}V=\dfrac{\ii\eta_0\lambda(z_a)}{a}M(z_a)\sg M(z_a)^{-1}=\ii R.
 \]
 
 在第一叶无穷远, $M=I+O(k^{-1})$, $M_x,M_t=O(k^{-1})$. 由 \eqref{eq:reconq},
 \[
-\mathcal U=-\ii k\sg+Q+O(k^{-1}).
+U=-\ii k\sg+Q+O(k^{-1}).
 \]
-有限点均可去, Liouville 定理给出 $\mathcal U=-\ii k\sg+Q$. 恒等式
+有限点均可去, Liouville 定理给出 $U=-\ii k\sg+Q$. 恒等式
 \[
-\mathcal V=-F\mathcal U+(M_t+FM_x)M^{-1}
+V=-FU+(M_t+FM_x)M^{-1}
 \]
 的第二项至多一次增长, 因而
 \begin{equation}\label{eq:inverse-V-form}
-\mathcal V=4\ii\beta k^3\sg+k^2(-\ii\alpha\sg-4\beta Q)
+V=4\ii\beta k^3\sg+k^2(-\ii\alpha\sg-4\beta Q)
 +kW_1+W_0+\dfrac{\ii R}{k-a}.
 \end{equation}
-由 $\det\phi=\gamma$ 与 $x,t$ 无关, 两矩阵均迹零. 实谱上的共轭约化给出 $M^\dagger M=\gamma I$, 因此 $\mathcal U,\mathcal V$ 在实 $k\ne a$ 上反 Hermitian, 各系数具有相应约化.
+由 $\det\phi=\gamma$ 与 $x,t$ 无关, 两矩阵均迹零. 实谱上的共轭约化给出 $M^\dagger M=\gamma I$, 因此 $U,V$ 在实 $k\ne a$ 上反 Hermitian, 各系数具有相应约化.
 
 作为同一 $\phi$ 的对数导数, 两矩阵恒满足零曲率关系. 比较 $k^2$ 项的非对角元及 $k$ 项的对角元, 得
 \[
@@ -511,7 +509,7 @@ M\longrightarrow Y\diag(s_{22},s_{22}^{-1})\quad(x\to+\infty).
 \partial_x(W_1)_{11}&=-2\ii\beta\partial_x|q|^2.
 \end{aligned}
 \]
-故 $(W_1)_{11}=-2\ii\beta|q|^2+\chi_1(t)$. 由 \eqref{eq:direct-M-ends}, 两端 $\mathcal V\to-FU_\infty$, 从而 $\chi_1(t)=0$. 再比较 $k$ 项的非对角元及常数项的对角元, 有
+故 $(W_1)_{11}=-2\ii\beta|q|^2+\chi_1(t)$. 由 \eqref{eq:direct-M-ends}, 两端 $V\to-FU_\infty$, 从而 $\chi_1(t)=0$. 再比较 $k$ 项的非对角元及常数项的对角元, 有
 \[
 \begin{aligned}
 (W_0)_{12}&=2\beta|q|^2q+\dfrac{\ii\alpha}{2}q_x+\beta q_{xx},\\
