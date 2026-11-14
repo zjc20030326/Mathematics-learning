@@ -25,7 +25,7 @@ import sympy as sp
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "chapters" / "09-derivative-details.tex"
+SOURCE = ROOT / "chapters" / "08-numerics.tex"
 
 
 def main() -> int:
@@ -281,7 +281,7 @@ def main() -> int:
     report = {
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "script": "checks/verify_derivatives.py",
-        "source": "chapters/09-derivative-details.tex",
+        "source": "chapters/08-numerics.tex",
         "source_sha256": hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
         "python_version": sys.version.split()[0],
         "sympy_version": sp.__version__,

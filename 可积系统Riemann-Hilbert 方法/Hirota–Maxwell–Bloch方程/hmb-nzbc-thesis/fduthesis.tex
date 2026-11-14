@@ -29,7 +29,7 @@
 \setlength{\@fpsep}{14pt}
 \setlength{\@fpbot}{0pt plus 1fil}
 \makeatother
-% Retain fduthesis front matter and page geometry; the body is a continuous article.
+% Keep the existing page geometry and continuous section numbering.
 \counterwithout{section}{chapter}
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\theHsection}{\arabic{section}}
@@ -74,12 +74,6 @@
 \raggedbottom
 \fancyhead[R]{}
 \frontmatter
-\begin{abstract}
-本文研究两端同相非零光场背景下的 Hirota--Maxwell--Bloch 系统. 从规范 Lax 对出发, 建立两叶谱曲面的单值化、Jost 解的解析性、散射数据的约化及简单离散谱的留数条件. 在具有相容边界值的 Riemann--Hilbert 解类中, 推导含离散主部和连续谱积分的表示、光场与介质重构公式以及同相端态的迹公式和相位条件. 对 $N$ 个完整简单四点轨道, 在留数系数矩阵可逆的条件下给出无反射矩阵解和光场的行列式公式. 对一个纯虚轨道进一步显式消元, 以严格正的 Schur 行列式证明矩阵解的全局存在唯一性. 利用谱无穷远和两个共振原像重构光场、极化与粒子数反转, 通过极点可去性和矩阵对数导数恢复完整 Lax 对, 验证该单轨道解满足原 HMB 方程、Bloch 约束及同相非零边界. 数值求值展示其三场分布、传播速度与内部振荡.
-\end{abstract}
-\begin{abstract*}
-We study the Hirota--Maxwell--Bloch system with identical nonzero optical backgrounds at both spatial infinities. Starting from the gauged Lax pair, we establish uniformization, analyticity of the Jost solutions, scattering reductions, and residue conditions for simple discrete eigenvalues. For Riemann--Hilbert solutions with compatible boundary values, we derive a representation containing discrete principal parts and a continuous-spectrum integral, reconstruction formulas for the optical and medium fields, and the trace formula with the equal-phase constraint. For $N$ complete simple four-point orbits, we obtain the reflectionless matrix solution and a determinant formula for the optical field whenever the residue coefficient matrix is invertible. For one purely imaginary orbit, explicit elimination and a strictly positive Schur determinant establish global existence and uniqueness. Reconstruction at spectral infinity and at both resonance preimages recovers all three fields. Removability of the apparent poles and matrix logarithmic derivatives yield the complete Lax pair and verify the original equations, the Bloch constraint, and the prescribed boundary conditions for this single-orbit solution. Numerical evaluation illustrates its field profiles, propagation speed, and internal oscillation.
-\end{abstract*}
 \begingroup
 \linespread{1.15}\selectfont
 \tableofcontents
@@ -87,22 +81,20 @@ We study the Hirota--Maxwell--Bloch system with identical nonzero optical backgr
 \mainmatter
 \section{绪论}\label{ch:intro}
 \input{section/01-introduction}
-\section{谱分析}\label{ch:model}
+\section{HMB 模型、基本条件与背景谱问题}\label{ch:model}
 \input{section/02-model}
-\section{Jost 解}\label{ch:direct}
-\input{section/03-jost}
-\section{散射矩阵}\label{ch:scattering}
-\input{section/04-scattering}
-\section{对称性}\label{ch:symmetry}
-\input{section/05-symmetry}
-\section{离散谱与留数条件}\label{ch:discrete}
-\input{section/06-discrete}
-\section{渐近行为}\label{ch:asymptotics}
-\input{section/07-asymptotics}
-\section{Riemann--Hilbert 问题}\label{ch:rhp}\label{ch:soliton}
-\input{section/08-rhp}
+\section{非零背景的直接散射}\label{ch:direct}
+\input{section/03-direct-scattering}
+\section{散射演化与共振相容性}\label{ch:scattering}
+\input{section/04-evolution-resonance}
+\section{矩阵 RHP 与三场重构}\label{ch:rhp}
+\input{section/05-rhp-reconstruction}
+\section{无反射 RHP 与轨道构造}\label{ch:soliton}
+\input{section/06-reflectionless}
+\section{单轨道三场解的全局性与方程验证}\label{ch:verification}
+\input{section/07-hmb-verification}
 \section{数值结果与动力学分析}\label{ch:conclusion}
-\input{section/09-numerics}
+\input{section/08-numerics}
 \FloatBarrier
 \backmatter
 \begingroup

@@ -21,7 +21,7 @@ def source_checks():
         text = path.read_text(encoding='utf-8-sig')
         text = re.sub(r'(?<!\\)%[^\n]*', '', text)
         forbidden = [r'\tfrac', r'\begin{smallmatrix}', r'\resizebox',
-                     r'\scriptsize', '$$', r'\(', r'\)', 'phys']
+                     r'\scriptsize', '$$', r'\(', r'\)', r'\phys']
         assert not any(v in text for v in forbidden), (path.name, 'forbidden source form')
         assert len(re.findall(r'(?<!\\)\$', text)) % 2 == 0, path.name
         # Do not treat the row-spacing command \\[6pt] as a display opener.
@@ -44,16 +44,34 @@ def source_checks():
     assert len(labels) == len(set(labels)), 'duplicate labels'
     assert not set(refs)-set(labels), sorted(set(refs)-set(labels))
     main = files[0].read_text(encoding='utf-8-sig')
-    assert len(re.findall(r'\\section\{', main)) == 9
+    assert len(re.findall(r'\\section\{', main)) == 8
     assert r'\chapter{' not in main
+    assert r'\begin{abstract' not in main
+    body = '\n'.join(p.read_text(encoding='utf-8-sig') for p in files[1:])
+    assert r'S_{\rm sp}' not in body and r'\rho_{\rm sp}' not in body
+    direct = (ROOT/'section/03-direct-scattering.tex').read_text(encoding='utf-8')
+    assert r'\phi' not in direct and r'\theta' not in direct
+    assert r'\label{ass:fields}' in body
+    assert r'\label{eq:norming-time}' in body
+    assert r'\label{lem:RHP-determinant}' in body
+    assert r'\label{lem:medium-reduction}' in body
+    citations = set()
+    for match in re.finditer(r'\\cite(?:\[[^\]]*\])?\{([^}]+)\}', body):
+        citations.update(match[1].split(','))
+    bibliography = (ROOT/'citelist.bib').read_text(encoding='utf-8')
+    keys = set(re.findall(r'@\w+\{([^,\s]+)', bibliography))
+    assert not citations-keys, sorted(citations-keys)
     return {'tex_files': len(files), 'labels': len(labels), 'references': len(refs),
             'balanced_delimiters_environments_braces': True,
-            'nine_continuous_sections': True, 'forbidden_forms_absent': True}
+            'eight_continuous_sections': True, 'forbidden_forms_absent': True,
+            'spatial_Jost_and_single_scattering_notation': True,
+            'cited_bibliography_entries': len(citations)}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--build-dir', type=Path, required=True)
+    parser.add_argument('--visual-review-note', default='Visual review is not inferred by this automated check.')
     args = parser.parse_args()
     sources = source_checks()
     log = (args.build_dir/'fduthesis.log').read_text(encoding='utf-8', errors='replace')
@@ -66,7 +84,7 @@ def main():
     document = pymupdf.open(pdf)
     outline = document.get_toc()
     sections = [row for row in outline if re.match(r'^[1-9]\. ', row[1])]
-    assert len(sections) == 9 and all(row[0] == 1 for row in sections), sections
+    assert len(sections) == 8 and all(row[0] == 1 for row in sections), sections
     assert not any(re.match(r'^0\.', row[1]) for row in outline)
     blanks = [i+1 for i, page in enumerate(document) if len(page.get_text().strip()) < 20]
     assert not blanks, blanks
@@ -87,10 +105,10 @@ def main():
         'log_warnings_errors_overfull_underfull': bad, 'pdf_pages': len(document),
         'top_level_sections': sections, 'blank_pages': blanks,
         'pdf_links_checked': link_count, 'invalid_internal_links': invalid_links,
-        'original_eq_2_24_label': 'eq:diagE',
+        'background_diagonalization_label': 'eq:diagE',
         'current_eq_number_and_printed_page': list(eq224.groups()),
         'pdf_sha256': hashlib.sha256(pdf.read_bytes()).hexdigest(),
-        'visual_review': 'Full-page contact sheets plus enlarged headings, all Jost/asymptotic proofs, spectrum diagrams, general RHP, sections 8.1-8.4, all numerical figures and bibliography. This field records human/agent inspection in the task, not a machine inference.',
+        'visual_review': args.visual_review_note,
     }
     (ROOT/'calculations'/'pdf-acceptance.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False, indent=2))

@@ -1,7 +1,9 @@
-"""Check the synchronized source baseline, coverage and equation numbering.
+"""Check the current rewritten source baseline, coverage and equation numbering.
 
 This is a document acceptance tool, not a replacement for mathematical review.
-The original thesis is read only. Reports are written beside this script.
+The owning thesis is read only during this check. Reports are written beside
+this script. The baseline and numbering are refreshed for the eight-section
+rewrite; the companion must retain the current owning text and all its labels.
 """
 from pathlib import Path
 import collections

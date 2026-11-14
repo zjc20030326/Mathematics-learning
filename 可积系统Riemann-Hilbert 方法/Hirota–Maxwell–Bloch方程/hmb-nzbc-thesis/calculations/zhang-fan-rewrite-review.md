@@ -1,5 +1,7 @@
 # HMB 九部分重写与验收记录
 
+> 历史记录，对应 2026-11-02 的旧九节版本。当前正文不再沿用 Zhang–Fan 的目录安排；本轮方案与验收范围见 [结构重写记录](structural-rewrite-review.md)。
+
 本记录属于源码与计算附件, 不进入论文正文. 起点为远程 `main` 的 `111890a89fff7efaba02cd29567fd4667e5db635`, 日期为 2026-11-02. 修改前工作区只有论文 PDF 改动; 已备份至 `C:\Users\m1881\AppData\Local\Temp\hmb-rewrite-20261102\fduthesis-before.pdf`.
 
 ## 原文阅读及对应

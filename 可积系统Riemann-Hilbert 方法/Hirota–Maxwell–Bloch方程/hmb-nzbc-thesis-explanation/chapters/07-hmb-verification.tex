@@ -1,0 +1,1010 @@
+\subsection{单轨道三场解及逆向验证}
+重构公式将同一矩阵的无穷远系数与共振值分别转化为光场和介质. 以下结论同时给出三个物理场及其 Lax 相容性.
+
+\begin{theorem}[单轨道三场解]\label{thm:direct-HMB}\label{prop:oneboundary}
+设定理 \ref{thm:oneRHP} 的条件成立, $N$ 按 \eqref{eq:Nfactor} 定义, $n_{jk}=N(a)_{jk}$. 则物理场
+\begin{equation}\label{eq:finalfields}
+\begin{aligned}
+\widetilde q&=-e^{-\ii\Omega t}(q_0+4bP_{12}),\\
+\widetilde p&=\dfrac{e^{-\ii\Omega t}(N(a)R_\infty N(a)^\dagger)_{12}}{a^2+b^2},\qquad
+\eta=\dfrac{(N(a)R_\infty N(a)^\dagger)_{11}}{a^2+b^2}
+\end{aligned}
+\end{equation}
+在全体实 $x,t$ 上光滑, 属于定义 \ref{ass:fields} 中 $I=\mathbb R$ 的基本场类, 并满足原 HMB 系统 \eqref{eq:HMB}、Bloch 约束 \eqref{eq:C} 及两端同相边界 \eqref{eq:targetboundary}. 两个共振原像重构出同一个 Hermitian 迹零介质矩阵. 介质分量为
+\begin{align}
+\eta&=\dfrac{\eta_0}{a^2+b^2}\left[|n_{11}|^2-|n_{12}|^2
++\dfrac{\ii q_0}{a}(n_{11}\conj{n_{12}}-n_{12}\conj{n_{11}})\right],\label{eq:etacomponent}\\
+e^{\ii\Omega t}\widetilde p&=\dfrac{\eta_0}{a^2+b^2}\left[n_{11}\conj{n_{21}}-n_{12}\conj{n_{22}}
++\dfrac{\ii q_0}{a}(n_{11}\conj{n_{22}}-n_{12}\conj{n_{21}})\right].\label{eq:pcomponent}
+\end{align}
+固定 $t$ 时, 三个场的端态误差为 $O(e^{-2\kappa|x|})$.
+\end{theorem}
+\begin{proof}
+\par\medskip\noindent\textbf{三场重构.}\quad
+在无穷远展开 \eqref{eq:explicitM}, 得
+\[
+M^{(1)}=H(2\ii bI-4\ii bP-\ii q_0\sigma_1-2\ii\kappa\sg)H^{-1}.
+\]
+于是规范光场 $q=\ii M^{(1)}_{12}=-q_0-4bP_{12}$. 在实共振点, 由 $Y\lambda\sg Y^{-1}=\ii U_\infty$ 及 $N(a)^{-1}=\dfrac{N(a)^\dagger}{a^2+b^2}$,
+\begin{equation}\label{eq:direct-medium}
+M(z_a)\dfrac{\eta_0\lambda(z_a)}{a}\sg M(z_a)^{-1}
+=\dfrac{HN(a)R_\infty N(a)^\dagger H^{-1}}{a^2+b^2}=:R.
+\end{equation}
+右端与谱叶无关. $N(a)N(a)^\dagger=(a^2+b^2)I$, 因而该酉共轭保持 Hermitian 性、迹零及 $R_\infty$ 的特征值. 特别地,
+$R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)I$, 给出 Bloch 约束. 结合 \eqref{eq:original-fields} 得到 \eqref{eq:finalfields}; 矩阵相乘给出两条分量式.
+
+\par\medskip\noindent\textbf{空间端态与基本场类.}\quad
+当 $x\to\pm\infty$ 时, $|T|$ 分别趋于无穷和零, 因而
+\begin{equation}\label{eq:Pends}
+P_+=\dfrac{1}{1+h_0^2}\begin{pmatrix}1&-h_0\\-h_0&h_0^2\end{pmatrix},\qquad
+P_-=\dfrac{1}{1+h_0^2}\begin{pmatrix}h_0^2&-h_0\\-h_0&1\end{pmatrix}.
+\end{equation}
+这给出 $q\to q_0$. 将端态代入 $N$, 有
+\[
+N_+Y=Y_{-q_0}\diag(\lambda-\ii\kappa,\lambda+\ii\kappa),\qquad
+N_-Y=Y_{-q_0}\diag(\lambda+\ii\kappa,\lambda-\ii\kappa),
+\]
+其中 $Y_{-q_0}=I+\dfrac{\ii q_0}{z}\sigma_1$. 利用 $HY_{-q_0}H^{-1}=Y$, 得
+\begin{equation}\label{eq:direct-M-ends}
+M\longrightarrow Y\quad(x\to-\infty),\qquad
+M\longrightarrow Y\diag(s_{22},s_{22}^{-1})\quad(x\to+\infty).
+\end{equation}
+对角因子与 $\sg$ 对易, 所以两端 $R\to R_\infty$. 由 $|T|=e^{2\kappa[x-\operatorname{Re}F(\ii b)t]}$, 端态误差及任意固定阶导数均按 $e^{-2\kappa|x|}$ 衰减, 对紧 $t$ 区间一致. $\Delta_->0$ 与 $a^2+b^2>0$ 保证全局光滑.
+
+
+更具体地, 对任意紧区间 $J\subset\mathbb R$ 和任意固定非负整数 $r,s$,
+对端态扰动求 $\partial_x^r\partial_t^s$ 后仍有
+$C_{J,r,s}e^{-2\kappa|x|}$ 的统一界.
+这是因为 $T_x=2\kappa T$, $T_t=-2\kappa F(\ii b)T$,
+而各场是 $T,\conj T$ 的有理式, 分母由 \eqref{eq:delta-pair} 的正下界控制.
+在两端分别用 $T$ 或 $T^{-1}$ 展开, 即得到同阶的导数估计.
+该可积控制同时允许对加权范数使用支配收敛,
+所以三场满足定义 \ref{ass:fields}, 其中 $I=\mathbb R$.
+
+
+\par\medskip\noindent\textbf{矩阵对数导数与奇性消去.}\quad
+对避开特殊点的 $z$ 定义
+\begin{equation}\label{eq:inverse-log-lax}
+U=(M_x-\ii\lambda M\sg)M^{-1},\qquad
+V=(M_t+\ii\lambda F M\sg)M^{-1}.
+\end{equation}
+它们是 $\phi=Me^{\ii\theta\sg}$ 的两个对数导数. 换叶时 $\lambda$ 和 $\theta$ 变号, $\sigma_1$ 与 $\sg$ 反对易, 故两矩阵在 $z$ 和 $h(z)$ 取值相同, 是 $k$ 的单值有理矩阵.
+
+在 $\zeta_j$ 附近, $\phi$ 的列留数为 $\Res\phi_2=c_j(0)\phi_1(\zeta_j)$. 常数 $c_j(0)$ 与 $x,t$ 无关, 故
+\[
+\phi=H_j(z)\left(I+\dfrac{c_j(0)e_1e_2^T}{z-\zeta_j}\right),\qquad
+\det H_j(\zeta_j)=\gamma(\zeta_j)\ne0.
+\]
+右因子不依赖 $x,t$, 因而两个对数导数的离散极点可去; 共轭极点同理.
+
+在分支点 $z_*=\pm\ii q_0$, 换叶约化使 $M(z_*)$ 消灭 $C(z_*)$ 的固定 $-1$ 特征空间. 该核不依赖 $x,t$, 因此 $M_x(z_*)$ 和 $M_t(z_*)$ 也消灭它. 又 $\lambda(z_*)=0$, $F$ 在此有限, \eqref{eq:inverse-log-lax} 的两个分子均消灭同一核. $\det M=\gamma$ 在 $z_*$ 有一阶零点, 而 $\operatorname{adj}M(z_*)$ 的像正是该核, 故两个商的分子抵消行列式的零点. 这证明分支点可去. 轮廓交点处 $\gamma\ne0$, 没有逆矩阵奇性. 在共振点, $U$ 解析, $V$ 的唯一留数为
+\[
+\Res_{k=a}V=\dfrac{\ii\eta_0\lambda(z_a)}{a}M(z_a)\sg M(z_a)^{-1}=\ii R.
+\]
+
+\par\medskip\noindent\textbf{恢复 Lax 系数并验证方程.}\quad
+在第一叶无穷远, $M=I+O(k^{-1})$, $M_x,M_t=O(k^{-1})$. 由 \eqref{eq:reconq},
+\[
+U=-\ii k\sg+Q+O(k^{-1}).
+\]
+有限点均可去, Liouville 定理给出 $U=-\ii k\sg+Q$. 恒等式
+\[
+V=-FU+(M_t+FM_x)M^{-1}
+\]
+的第二项至多一次增长, 因而
+\begin{equation}\label{eq:inverse-V-form}
+V=4\ii\beta k^3\sg+k^2(-\ii\alpha\sg-4\beta Q)
++kW_1+W_0+\dfrac{\ii R}{k-a}.
+\end{equation}
+由 $\det\phi=\gamma$ 与 $x,t$ 无关, 两矩阵均迹零. 实谱上的共轭约化给出 $M^\dagger M=\gamma I$, 因此 $U,V$ 在实 $k\ne a$ 上反 Hermitian, 各系数具有相应约化.
+
+作为同一 $\phi$ 的对数导数, 两矩阵恒满足零曲率关系. 比较 $k^2$ 项的非对角元及 $k$ 项的对角元, 得
+\[
+\begin{aligned}
+(W_1)_{12}&=\alpha q-2\ii\beta q_x,\\
+\partial_x(W_1)_{11}&=-2\ii\beta\partial_x|q|^2.
+\end{aligned}
+\]
+故 $(W_1)_{11}=-2\ii\beta|q|^2+\chi_1(t)$. 由 \eqref{eq:direct-M-ends}, 两端 $V\to-FU_\infty$, 从而 $\chi_1(t)=0$. 再比较 $k$ 项的非对角元及常数项的对角元, 有
+\[
+\begin{aligned}
+(W_0)_{12}&=2\beta|q|^2q+\dfrac{\ii\alpha}{2}q_x+\beta q_{xx},\\
+\partial_x(W_0)_{11}&=\partial_x\left[\dfrac{\ii\alpha}{2}|q|^2-\beta(q\conj{q_x}-q_x\conj{q})\right].
+\end{aligned}
+\]
+同一端态固定后一积分常数为 $\dfrac{\ii\Omega}{2}$. 于是 $W_1=V_1(q)$、$W_0=V_0(q)+\dfrac{\ii\Omega}{2}\sg$, 其余分量由迹零和约化确定, 得到完整规范 Lax 对 \eqref{eq:gaugelax}.
+
+零曲率的共振留数和常数非对角元分别给出
+\[
+R_x=[-\ii a\sg+Q,R],\qquad
+q_t=\ii\alpha\left(\dfrac{q_{xx}}{2}+|q|^2q\right)
++\beta(q_{xxx}+6|q|^2q_x)+2p+\ii\Omega q.
+\]
+前式为两条介质方程; 恢复 \eqref{eq:original-fields} 即得原 HMB 系统.
+
+最后, 在普通连续谱上令
+\[
+\chi_-=Me^{-\ii\lambda x\sg},\qquad
+\chi_+=M\diag(s_{22}^{-1},s_{22})e^{-\ii\lambda x\sg}.
+\]
+已恢复的空间方程及 \eqref{eq:direct-M-ends} 表明两者具有相应端点归一化, 由 Jost 唯一性即为重构场的 Jost 解. 所以 $S=\diag(s_{22}^{-1},s_{22})$, 反射为零, 透射函数为 \eqref{eq:onezeros}; 外部零点的列关系给出 $b_1(0)=c_1(0)s_{22}'(\zeta_1)=1$.
+\end{proof}
+
+% BEGIN EXPANSION 08-I
+\subsubsection*{三个物理场的重构乘法, 端态矩阵与误差}
+无穷远处, 三个谱因子的展开分别是
+\[
+\begin{aligned}
+N(k(z))
+&=\dfrac{z}{2}I+\ii bI-2\ii bP
+-\dfrac{q_0^2}{2z}I,\\
+Y(z)&=I-\dfrac{\ii q_0}{z}\sigma_1,\\
+\diag\left(\dfrac{1}{\lambda+\ii\kappa},
+\dfrac{1}{\lambda-\ii\kappa}\right)
+&=\dfrac{2}{z}
+\left(I-\dfrac{2\ii\kappa}{z}\sg+O(z^{-2})\right).
+\end{aligned}
+\]
+先乘前两个矩阵, 再乘第三个, 得
+\[
+\begin{aligned}
+NY
+&=\dfrac{z}{2}I
++\ii bI-2\ii bP-\dfrac{\ii q_0}{2}\sigma_1
++O(z^{-1}),\\
+NY\diag\left(\dfrac{1}{\lambda+\ii\kappa},
+\dfrac{1}{\lambda-\ii\kappa}\right)
+&=I+\dfrac{2\ii bI-4\ii bP-\ii q_0\sigma_1-2\ii\kappa\sg}{z}
++O(z^{-2}).
+\end{aligned}
+\]
+最后乘 $H,H^{-1}$, 非对角元变号, 所以
+\[
+M^{(1)}_{12}=4\ii bP_{12}+\ii q_0,
+\qquad
+\ii M^{(1)}_{12}=-4bP_{12}-q_0.
+\]
+这也可由有限求和独立核验:
+\[
+\begin{aligned}
+C_1(\mathbf v_1)_1+C_2(\mathbf v_2)_1
+&=\dfrac{4\ii\kappa}{\Delta_-}
+\bigl(T(1-h_0\conj T)+h_0\conj T(T-h_0)\bigr)\\
+&=\dfrac{4\ii\kappa}{\Delta_-}(T-h_0^2\conj T),\\
+q
+&=q_0-\dfrac{4\kappa(T-h_0^2\conj T)}{\Delta_-}.
+\end{aligned}
+\]
+上式与 $-q_0-4bP_{12}$ 相等, 因为通分后需要核验的恒等式只是
+\[
+\begin{aligned}
+2q_0\Delta_-
+={}&4\kappa(T-h_0^2\conj T)
+-4b(T-h_0)(1-h_0\conj T).
+\end{aligned}
+\]
+代入 $2b=\dfrac{q_0(1+h_0^2)}{h_0}$ 与
+$2\kappa=\dfrac{q_0(1-h_0^2)}{h_0}$ 后, 右侧展开为
+\[
+2q_0(1+h_0^2)(1+|T|^2)-4q_0h_0(T+\conj T),
+\]
+正是左侧.
+
+\paragraph{共振矩阵的消因子与酉共轭.}
+在 $k=a$ 上, $P^\dagger=P$ 给出
+\[
+N(a)^\dagger=(a-\ii b)I+2\ii bP.
+\]
+直接乘法为
+\[
+\begin{aligned}
+N(a)N(a)^\dagger
+={}&(a+\ii b)(a-\ii b)I\\
+&+2\ii b(a+\ii b)P
+-2\ii b(a-\ii b)P
++4b^2P^2\\
+={}&(a^2+b^2)I-4b^2P+4b^2P\\
+={}&(a^2+b^2)I.
+\end{aligned}
+\]
+所以 $N(a)^{-1}=\dfrac{N(a)^\dagger}{a^2+b^2}$.
+共振重构中, 右侧的列分母矩阵与 $\sg$ 都是对角矩阵,
+故该分母矩阵及其逆矩阵在共轭乘积中相消.
+同时 $H^{-1}\sg H=\sg$.
+于是
+\[
+\begin{aligned}
+M\dfrac{\eta_0\lambda}{a}\sg M^{-1}
+&=HN Y\dfrac{\eta_0\lambda}{a}\sg Y^{-1}N^{-1}H^{-1}\\
+&=HN\dfrac{\ii\eta_0}{a}U_\infty(a)N^{-1}H^{-1}\\
+&=HN R_\infty N^{-1}H^{-1}\\
+&=\dfrac{HN R_\infty N^\dagger H^{-1}}{a^2+b^2}.
+\end{aligned}
+\]
+第一步消去了所有谱叶依赖的列分母;
+第二步使用 $Y\lambda\sg Y^{-1}=\ii U_\infty$.
+所得右侧仅含 $a$, 所以两共振原像自动给出同一矩阵.
+
+\paragraph{介质分量中每一个乘积的来源.}
+原有 $n_{jk}=N(a)_{jk}$, 因而
+\[
+N(a)=\begin{pmatrix}n_{11}&n_{12}\\n_{21}&n_{22}\end{pmatrix},\qquad
+N(a)^\dagger=
+\begin{pmatrix}\conj{n_{11}}&\conj{n_{21}}\\
+\conj{n_{12}}&\conj{n_{22}}\end{pmatrix}.
+\]
+第一轮矩阵乘法为
+\[
+N(a)R_\infty
+=\eta_0\begin{pmatrix}
+n_{11}-\dfrac{\ii q_0}{a}n_{12}
+&\dfrac{\ii q_0}{a}n_{11}-n_{12}\\
+n_{21}-\dfrac{\ii q_0}{a}n_{22}
+&\dfrac{\ii q_0}{a}n_{21}-n_{22}
+\end{pmatrix}.
+\]
+第二轮右乘 $N(a)^\dagger$ 的四元分别为
+\[
+\begin{aligned}
+(N R_\infty N^\dagger)_{11}
+={}&\eta_0\left[
+\left(n_{11}-\dfrac{\ii q_0}{a}n_{12}\right)\conj{n_{11}}
++\left(\dfrac{\ii q_0}{a}n_{11}-n_{12}\right)\conj{n_{12}}
+\right]\\
+={}&\eta_0\left[
+|n_{11}|^2-|n_{12}|^2
++\dfrac{\ii q_0}{a}
+(n_{11}\conj{n_{12}}-n_{12}\conj{n_{11}})
+\right],\\
+(N R_\infty N^\dagger)_{12}
+={}&\eta_0\left[
+\left(n_{11}-\dfrac{\ii q_0}{a}n_{12}\right)\conj{n_{21}}
++\left(\dfrac{\ii q_0}{a}n_{11}-n_{12}\right)\conj{n_{22}}
+\right]\\
+={}&\eta_0\left[
+n_{11}\conj{n_{21}}-n_{12}\conj{n_{22}}
++\dfrac{\ii q_0}{a}
+(n_{11}\conj{n_{22}}-n_{12}\conj{n_{21}})
+\right],\\
+(N R_\infty N^\dagger)_{21}
+={}&\eta_0\left[
+\left(n_{21}-\dfrac{\ii q_0}{a}n_{22}\right)\conj{n_{11}}
++\left(\dfrac{\ii q_0}{a}n_{21}-n_{22}\right)\conj{n_{12}}
+\right],\\
+(N R_\infty N^\dagger)_{22}
+={}&\eta_0\left[
+\left(n_{21}-\dfrac{\ii q_0}{a}n_{22}\right)\conj{n_{21}}
++\left(\dfrac{\ii q_0}{a}n_{21}-n_{22}\right)\conj{n_{22}}
+\right].
+\end{aligned}
+\]
+$H$ 的共轭作用将此矩阵的 $(1,2)$ 元变号,
+而从 $R_{12}$ 恢复 $\widetilde p$ 时又有一个负号,
+这两个负号抵消, 给出 \eqref{eq:pcomponent}.
+对角元不变, 直接给出 \eqref{eq:etacomponent}.
+介质矩阵的 Hermitian 性由
+\[
+(HN R_\infty N^\dagger H^{-1})^\dagger
+=HN R_\infty N^\dagger H^{-1}
+\]
+得到, 因为 $H^{-1}=H^\dagger$ 且 $R_\infty^\dagger=R_\infty$.
+迹用循环性与 $N^\dagger N=(a^2+b^2)I$ 得
+\[
+\tr R
+=\dfrac{\tr(R_\infty N^\dagger N)}{a^2+b^2}
+=\tr R_\infty=0.
+\]
+背景矩阵平方的两个对角元均为
+$\eta_0^2+\dfrac{\eta_0^2q_0^2}{a^2}$, 两个非对角元为零:
+\[
+R_\infty^2
+=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)I.
+\]
+把 $N^\dagger N$ 在 $R^2$ 的中间约掉, 就得到同一平方恒等式.
+又因
+\[
+R=\begin{pmatrix}\eta&-p\\-\conj p&-\eta\end{pmatrix},\qquad
+R^2=(\eta^2+|p|^2)I,
+\]
+且 $|p|=|\widetilde p|$, 所以得到 Bloch 约束.
+
+\paragraph{两端的 $N$ 与背景列的逐元相乘.}
+由 $\Delta_-$ 的最高次项与常数项分别读取 $P_+,P_-$.
+再用 $2bh_0=q_0(1+h_0^2)$, 得
+\[
+N_+=\begin{pmatrix}k-\ii\kappa&\ii q_0\\
+\ii q_0&k+\ii\kappa\end{pmatrix},\qquad
+N_-=\begin{pmatrix}k+\ii\kappa&\ii q_0\\
+\ii q_0&k-\ii\kappa\end{pmatrix}.
+\]
+例如 $N_+Y$ 的四个元是
+\[
+\begin{aligned}
+(N_+Y)_{11}&=k-\ii\kappa+\dfrac{q_0^2}{z}=\lambda-\ii\kappa,\\
+(N_+Y)_{12}&=\ii q_0-\dfrac{\ii q_0}{z}(k-\ii\kappa)
+=\dfrac{\ii q_0}{z}(\lambda+\ii\kappa),\\
+(N_+Y)_{21}&=\ii q_0-\dfrac{\ii q_0}{z}(k+\ii\kappa)
+=\dfrac{\ii q_0}{z}(\lambda-\ii\kappa),\\
+(N_+Y)_{22}&=k+\ii\kappa+\dfrac{q_0^2}{z}=\lambda+\ii\kappa.
+\end{aligned}
+\]
+即 $Y_{-q_0}\diag(\lambda-\ii\kappa,\lambda+\ii\kappa)$.
+交换 $\kappa$ 的正负, 就逐元得到
+\[
+N_-Y=Y_{-q_0}\diag(\lambda+\ii\kappa,\lambda-\ii\kappa).
+\]
+乘回显式矩阵中的列分母, 再用 $HY_{-q_0}H^{-1}=Y$,
+正是 \eqref{eq:direct-M-ends}.
+因为两端的对角因子与 $\sg$ 对易, 它们在介质共轭中完全相消.
+因此
+\[
+R\longrightarrow Y\dfrac{\eta_0\lambda}{a}\sg Y^{-1}=R_\infty.
+\]
+光场端态也可由投影直接读出:
+\[
+q\longrightarrow -q_0-4b\left(-\dfrac{h_0}{1+h_0^2}\right)
+=-q_0+2q_0=q_0.
+\]
+
+\paragraph{指数误差怎样从有理分子分母中读出.}
+在 $x\to-\infty$ 时 $|T|\to0$,
+$\Delta_-=(1+h_0^2)+O(|T|)$,
+$P$ 的各元分子是其常数项加 $O(|T|)$.
+因此
+\[
+P-P_-=O(|T|).
+\]
+在 $x\to+\infty$ 时, 将分子分母同时除以 $|T|^2$,
+分母成为 $(1+h_0^2)+O(|T|^{-1})$,
+各分子成为端态常数加 $O(|T|^{-1})$, 所以
+\[
+P-P_+=O(|T|^{-1}).
+\]
+而
+\[
+|T|=e^{2\kappa[x-\operatorname{Re}F(\ii b)t]},
+\]
+故固定 $t$ 后两端分别是 $O(e^{2\kappa x})$ 与
+$O(e^{-2\kappa x})$, 合写为 $O(e^{-2\kappa|x|})$.
+因为
+\[
+T_x=2\kappa T,\quad
+T_t=-2\kappa F(\ii b)T,\quad
+(\conj T)_x=2\kappa\conj T,\quad
+(\conj T)_t=-2\kappa\conj{F(\ii b)}\conj T,
+\]
+任何固定阶 $x,t$ 导数仍具有相同端态衰减阶.
+分母始终受 $\Delta_-\ge(1-h_0)^2(1+|T|^2)>0$ 控制,
+所以求导不产生真实奇点.
+$q$ 是 $P_{12}$ 的仿射函数,
+$R$ 是 $P$ 的多项式除以正常数 $a^2+b^2$,
+从而三场及任意固定阶导数都得到同一误差阶.
+% END EXPANSION 08-I
+\subsubsection*{对数导数的每种潜在极点与谱变量单值性}
+先直接微分 $\phi=Me^{\ii\theta\sg}$.
+因为 $\theta_x=-\lambda$ 与 $\theta_t=\lambda F$,
+\[
+\begin{aligned}
+\phi_x
+&=(M_x-\ii\lambda M\sg)e^{\ii\theta\sg},\\
+\phi_t
+&=(M_t+\ii\lambda F M\sg)e^{\ii\theta\sg}.
+\end{aligned}
+\]
+右乘 $\phi^{-1}=e^{-\ii\theta\sg}M^{-1}$,
+就分别得到 $ U, V$.
+以下要检查 $M^{-1}$ 产生的潜在奇性, 不能只检查 $M$ 的分母.
+
+\paragraph{离散点处, 不依赖 $x,t$ 的右因子怎样消去极点.}
+在 $\zeta_j$ 处, $\phi_1$ 正则,
+且 $\phi_2$ 的留数为 $c_j(0)\phi_1(\zeta_j)$.
+利用 $(e_1e_2^T)^2=e_1(e_2^Te_1)e_2^T=0$,
+原证明的正则因子可以直接定义为
+\[
+ H_j(z)
+=\phi(z)\left(I-\dfrac{c_j(0)e_1e_2^T}{z-\zeta_j}\right).
+\]
+其两列是
+\[
+( H_j)_1=\phi_1(z),\qquad
+( H_j)_2=\phi_2(z)-\dfrac{c_j(0)\phi_1(z)}{z-\zeta_j}.
+\]
+将 $\phi_1(z)=\phi_1(\zeta_j)+O(z-\zeta_j)$ 代入第二列,
+其负一次项恰好相消, 所以 $ H_j$ 解析.
+右因子的行列式为 1, 因而
+\[
+\det H_j(z)=\det\phi(z)=\gamma(z).
+\]
+由于离散点不在分支点, $\gamma(\zeta_j)\ne0$,
+故 $ H_j$ 在该点可逆.
+再将反因子乘回去, 有
+\[
+\phi= H_j
+\left(I+\dfrac{c_j(0)e_1e_2^T}{z-\zeta_j}\right).
+\]
+因为 $c_j(0),\zeta_j$ 与 $x,t$ 无关, 对 $x$ 微分时只微分 $ H_j$:
+\[
+\begin{aligned}
+\phi_x\phi^{-1}
+&=( H_j)_x
+\left(I+\dfrac{c_j(0)e_1e_2^T}{z-\zeta_j}\right)
+\left(I-\dfrac{c_j(0)e_1e_2^T}{z-\zeta_j}\right)
+ H_j^{-1}\\
+&=( H_j)_x H_j^{-1}.
+\end{aligned}
+\]
+对 $t$ 微分得到同样的式子.
+所以 $ U, V$ 的离散极点都可去.
+在共轭极点处, 用 $-\conj{c_j(0)}e_2e_1^T$ 替换
+$c_j(0)e_1e_2^T$, 同样有平方为零的恒等式,
+因此两组离散点全部消去.
+
+\paragraph{两个分支点处固定核的具体向量.}
+在 $z_* =\ii q_0$ 处, 换叶标量矩阵是
+\[
+\dfrac{\ii z_*}{q_0}\sigma_1=-\sigma_1.
+\]
+$h(z_*)=z_*$, 所以 $M(z_*)=M(z_*)(-\sigma_1)$,
+即 $M(z_*)(I+\sigma_1)=0$.
+因此
+\[
+M(\ii q_0)\begin{pmatrix}1\\1\end{pmatrix}=0.
+\]
+在 $z_*=-\ii q_0$ 处, 同理得到
+\[
+M(-\ii q_0)\begin{pmatrix}1\\-1\end{pmatrix}=0.
+\]
+这两条核向量是常向量, 不依赖 $x,t$.
+对相应等式求 $x,t$ 导数, 就得到
+\[
+\begin{aligned}
+M_x(\ii q_0)\begin{pmatrix}1\\1\end{pmatrix}
+&=M_t(\ii q_0)\begin{pmatrix}1\\1\end{pmatrix}=0,\\
+M_x(-\ii q_0)\begin{pmatrix}1\\-1\end{pmatrix}
+&=M_t(-\ii q_0)\begin{pmatrix}1\\-1\end{pmatrix}=0.
+\end{aligned}
+\]
+此处 $M$ 的秩为一, 所以其伴随矩阵也是秩一且非零.
+由 $M\operatorname{adj}M=(\det M)I=0$,
+$\operatorname{adj}M(z_*)$ 的每一列都属于上述一维核.
+又因 $\lambda(z_*)=0$ 且 $F(k(z_*))$ 有限,
+\[
+\begin{aligned}
+\bigl(M_x-\ii\lambda M\sg\bigr)(z_*)
+\operatorname{adj}M(z_*)&=0,\\
+\bigl(M_t+\ii\lambda F M\sg\bigr)(z_*)
+\operatorname{adj}M(z_*)&=0.
+\end{aligned}
+\]
+而
+\[
+\gamma'(z_*)=-\dfrac{2q_0^2}{z_*^3}\ne0.
+\]
+所以将 $M^{-1}=\dfrac{\operatorname{adj}M}{\gamma}$ 代入对数导数后,
+分子与分母都至少含一因子 $z-z_*$, 且分母恰为一阶零.
+约去该因子就证明两个分支点均可去.
+仅知道 $\det M=0$ 并不足够;
+关键是上面已经逐一确认导数分子也消灭同一个固定核.
+
+\paragraph{共振点与轮廓交点.}
+轮廓交点处 $M$ 解析且 $\gamma\ne0$,
+所以其逆矩阵也解析, 两对数导数均无奇性.
+在 $k=a$ 处, $M,M_x,M_t$ 都解析且 $M$ 可逆,
+$ U$ 因而解析.
+在 $ V$ 中仅 $F$ 的共振项产生极点:
+\[
+F(k)=4\beta k^2-\alpha k-2\beta q_0^2
++\dfrac{\eta_0}{a(k-a)}.
+\]
+因此按 $k$ 取留数得到
+\[
+\begin{aligned}
+\Res_{k=a} V
+&=\lim\limits_{k\to a}(k-a)
+\ii\lambda F M\sg M^{-1}\\
+&=\dfrac{\ii\eta_0\lambda(z_a)}{a}
+M(z_a)\sg M(z_a)^{-1}
+=\ii R.
+\end{aligned}
+\]
+这里取的是 $k$ 留数, 没有混入 $z$ 留数的导数因子.
+两个 $z$ 原像因换叶重构一致而给出同一个 $k$ 留数.
+
+\paragraph{换叶不变怎样消除 $k$ 平面的多值性.}
+换叶时
+\[
+M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
+\quad \lambda(h(z))=-\lambda(z),
+\quad k(h(z))=k(z).
+\]
+其中右乘因子与 $x,t$ 无关, 所以
+\[
+\begin{aligned}
+M_x(h(z))M(h(z))^{-1}&=M_x(z)M(z)^{-1},\\
+M_t(h(z))M(h(z))^{-1}&=M_t(z)M(z)^{-1}.
+\end{aligned}
+\]
+带 $\lambda$ 的项中, 又有
+\[
+\begin{aligned}
+\lambda(h(z))M(h(z))\sg M(h(z))^{-1}
+&=-\lambda(z)M(z)\sigma_1\sg\sigma_1M(z)^{-1}\\
+&=\lambda(z)M(z)\sg M(z)^{-1}.
+\end{aligned}
+\]
+$F$ 仅依赖 $k$, 故换叶不变.
+由此逐项得到
+\[
+ U(h(z))= U(z),\qquad
+ V(h(z))= V(z).
+\]
+显式 $M$ 对 $z$ 有理, 对 $x,t$ 微分只改变其系数,
+因此这两个矩阵对 $z$ 都是有理矩阵.
+关系 $z^2-2kz-q_0^2=0$ 说明 $z$ 是关于 $k$ 的二次代数变量.
+任一关于 $z$ 的有理函数均可在该关系下化为
+关于 $k$ 的有理函数加上 $z$ 乘以关于 $k$ 的有理函数.
+再比较其在 $z$ 与 $h(z)$ 的值,
+差值等于第二个系数乘以
+\[
+z-h(z)=z+\dfrac{q_0^2}{z}=2\lambda.
+\]
+换叶不变迫使第二个系数恒为零.
+因此两矩阵实际上都是 $k$ 的单值有理矩阵.
+这里没有把在分支点消去 $z$ 奇性误当成自动消去多值性;
+两件事分别由固定核与换叶不变证明.
+
+\paragraph{无穷远次数与空间 Lax 矩阵的恢复.}
+在第一叶 $k\to\infty$ 时,
+\[
+\lambda=k+\dfrac{q_0^2}{2k}+O(k^{-3}),\qquad
+M=I+O(k^{-1}),\qquad M_x,M_t=O(k^{-1}).
+\]
+为把常数项也逐元读出, 保留原来的 $z^{-1}$ 系数:
+\[
+M=I+\dfrac{M^{(1)}}{z}+O(z^{-2}),\qquad
+M^{-1}=I-\dfrac{M^{(1)}}{z}+O(z^{-2}).
+\]
+于是按矩阵先后顺序相乘,
+\begin{align*}
+M\sg M^{-1}
+&=\sg+\dfrac{M^{(1)}\sg-\sg M^{(1)}}{z}+O(z^{-2})\\
+&=\sg-\dfrac{[\sg,M^{(1)}]}{z}+O(z^{-2}),\\
+(M_x-\ii\lambda M\sg)M^{-1}
+&=-\ii\lambda\sg+\dfrac{\ii\lambda}{z}[\sg,M^{(1)}]+O(z^{-1})\\
+&=-\ii k\sg+\dfrac{\ii}{2}[\sg,M^{(1)}]+O(k^{-1}).
+\end{align*}
+最后一行使用 $\lambda-k=O(k^{-1})$ 及 $\dfrac{\lambda}{z}=\dfrac{1}{2}+O(z^{-2})$.
+这里交换子的四个元是
+\[
+[\sg,M^{(1)}]
+=\begin{pmatrix}0&2M^{(1)}_{12}\\-2M^{(1)}_{21}&0\end{pmatrix},\qquad
+\dfrac{\ii}{2}[\sg,M^{(1)}]
+=\begin{pmatrix}0&\ii M^{(1)}_{12}\\-\ii M^{(1)}_{21}&0\end{pmatrix}.
+\]
+由 $q=\ii M^{(1)}_{12}$ 以及共轭约化
+$M^{(1)}_{21}=-\conj{M^{(1)}_{12}}$, 右上元就是 $q$,
+左下元就是 $-\conj q$, 故常数矩阵正是 $Q(q)$.
+于是
+\[
+ U=-\ii k\sg+Q+O(k^{-1}).
+\]
+已经证明 $ U$ 的全部有限点奇性可去.
+故每个矩阵元减去 $(-\ii k\sg+Q)$ 的对应元后,
+是无穷远趋零的整函数, 必恒为零:
+\[
+ U=-\ii k\sg+Q.
+\]
+对于时间矩阵, 精确重排是
+\[
+\begin{aligned}
+-F U+(M_t+FM_x)M^{-1}
+&=-F(M_x-\ii\lambda M\sg)M^{-1}
++(M_t+FM_x)M^{-1}\\
+&=(M_t+\ii\lambda F M\sg)M^{-1}= V.
+\end{aligned}
+\]
+$F=O(k^2)$ 与 $M_x=O(k^{-1})$ 使最后的修正项至多为 $O(k)$.
+因此三次项和二次项完全由 $-F U$ 确定:
+\[
+\begin{aligned}
+-F(-\ii k\sg+Q)
+={}&4\ii\beta k^3\sg
++k^2(-\ii\alpha\sg-4\beta Q)+O(k).
+\end{aligned}
+\]
+减去这些项和 $\dfrac{\ii R}{k-a}$ 后, 仅余一次多项式,
+于是得到原文的 $kW_1+W_0$.
+
+\paragraph{迹零与反 Hermitian 约化的独立元.}
+指数矩阵的行列式是 1, 所以 $\det\phi=\gamma$.
+对行列式微分的公式给出
+\[
+\tr(\phi_x\phi^{-1})=\partial_x\log\gamma=0,\qquad
+\tr(\phi_t\phi^{-1})=\partial_t\log\gamma=0.
+\]
+在实 $z$ 上, 共轭约化逐元为
+\[
+M_{22}=\conj{M_{11}},\qquad
+M_{21}=-\conj{M_{12}}.
+\]
+因此
+\[
+\begin{aligned}
+M^\dagger M
+&=\begin{pmatrix}
+\conj{M_{11}}&-M_{12}\\
+\conj{M_{12}}&M_{11}
+\end{pmatrix}
+\begin{pmatrix}
+M_{11}&M_{12}\\
+-\conj{M_{12}}&\conj{M_{11}}
+\end{pmatrix}\\
+&=(|M_{11}|^2+|M_{12}|^2)I=\gamma I.
+\end{aligned}
+\]
+又 $\theta$ 在实谱上为实数, 故 $\phi^\dagger\phi=\gamma I$.
+对 $x$ 或 $t$ 微分, 用 $\gamma_x=\gamma_t=0$,
+便得到 $ U^\dagger=- U$ 与
+$ V^\dagger=- V$.
+因此每个多项式系数矩阵都由纯虚的 $(1,1)$ 元及复数 $(1,2)$ 元决定:
+\[
+(W_1)_{22}=-(W_1)_{11},\quad
+(W_1)_{21}=-\conj{(W_1)_{12}},
+\]
+\[
+(W_0)_{22}=-(W_0)_{11},\quad
+(W_0)_{21}=-\conj{(W_0)_{12}}.
+\]
+
+\subsubsection*{零曲率逐次幂恢复全部 Lax 系数与积分常数}
+由同一个可逆 $\phi$ 定义两个对数导数,
+混合偏导交换给出
+\[
+\begin{aligned}
+ U_t
+&=\phi_{xt}\phi^{-1}- U V,\\
+ V_x
+&=\phi_{tx}\phi^{-1}- V U.
+\end{aligned}
+\]
+相减便是
+\[
+ U_t- V_x+[ U, V]=0.
+\]
+下面逐个比较矩阵元, 不以已经知道 HMB 方程作为前提.
+
+\paragraph{$k^2$ 项的非对角元.}
+这一项的矩阵等式是
+\[
+4\beta Q_x+[-\ii\sg,W_1]+[Q,-\ii\alpha\sg-4\beta Q]=0.
+\]
+其中
+\[
+[Q,-4\beta Q]=0,\qquad
+[Q,-\ii\alpha\sg]_{12}=2\ii\alpha q,
+\]
+\[
+[-\ii\sg,W_1]_{12}=-2\ii(W_1)_{12}.
+\]
+所以 $(1,2)$ 元成为
+\[
+4\beta q_x-2\ii(W_1)_{12}+2\ii\alpha q=0.
+\]
+逐项移项并除以 $2\ii$, 得
+\[
+(W_1)_{12}=\alpha q-2\ii\beta q_x.
+\]
+反 Hermitian 性立即确定另一非对角元:
+\[
+(W_1)_{21}=-\alpha\conj q-2\ii\beta\conj{q_x}.
+\]
+
+\paragraph{$k$ 项的对角元与第一个积分常数.}
+$k$ 项的矩阵方程是
+\[
+-(W_1)_x+[-\ii\sg,W_0]+[Q,W_1]=0.
+\]
+中间交换子的对角元为零, 所以
+\[
+\begin{aligned}
+\partial_x(W_1)_{11}
+&=[Q,W_1]_{11}\\
+&=q(W_1)_{21}+(W_1)_{12}\conj q\\
+&=q(-\alpha\conj q-2\ii\beta\conj{q_x})
++(\alpha q-2\ii\beta q_x)\conj q\\
+&=-2\ii\beta(q\conj{q_x}+q_x\conj q)\\
+&=-2\ii\beta\partial_x|q|^2.
+\end{aligned}
+\]
+关于 $x$ 积分, 得
+\[
+(W_1)_{11}=-2\ii\beta|q|^2+\chi_1(t).
+\]
+要确定它, 先按原来的端态读取时间矩阵:
+\[
+ V\longrightarrow-F(k)U_\infty(k).
+\]
+该矩阵的 $(1,1)$ 元恰为 $\ii kF(k)$.
+精确展开
+\[
+\begin{aligned}
+\ii kF(k)
+={}&4\ii\beta k^3-\ii\alpha k^2
+-2\ii\beta q_0^2 k
++\dfrac{\ii\eta_0}{a}
++\dfrac{\ii\eta_0}{k-a}.
+\end{aligned}
+\]
+因此 $k$ 系数在端态是 $-2\ii\beta q_0^2$.
+另一方面 $q\to q_0$, 所以积分式的端态是
+$-2\ii\beta q_0^2+\chi_1(t)$.
+两者相等迫使 $\chi_1(t)=0$.
+于是 $W_1$ 的四元已全部确定为 \eqref{eq:V1} 中的规范场表达式.
+
+\paragraph{$k$ 项的非对角元恢复 $(W_0)_{12}$.}
+同一个 $k$ 项方程的 $(1,2)$ 元为
+\[
+-\partial_x(W_1)_{12}-2\ii(W_0)_{12}
+-2(W_1)_{11}q=0.
+\]
+解出未知元, 代入刚确定的 $W_1$, 得
+\[
+\begin{aligned}
+(W_0)_{12}
+&=\dfrac{\ii}{2}
+\bigl(\partial_x(W_1)_{12}+2(W_1)_{11}q\bigr)\\
+&=\dfrac{\ii}{2}
+\bigl(\alpha q_x-2\ii\beta q_{xx}
+-4\ii\beta|q|^2q\bigr)\\
+&=\dfrac{\ii\alpha}{2}q_x+\beta q_{xx}+2\beta|q|^2q.
+\end{aligned}
+\]
+反 Hermitian 性给出
+\[
+(W_0)_{21}
+=\dfrac{\ii\alpha}{2}\conj{q_x}
+-\beta\conj{q_{xx}}-2\beta|q|^2\conj q.
+\]
+
+\paragraph{常数项的对角元与第二个积分常数.}
+将共振项拆成留数项与常数交换子后,
+常数项为
+\[
+Q_t-(W_0)_x+[Q,W_0]+[\sg,R]=0.
+\]
+$Q_t$ 与 $[\sg,R]$ 的对角元均为零.
+所以
+\[
+\begin{aligned}
+\partial_x(W_0)_{11}
+&=q(W_0)_{21}+(W_0)_{12}\conj q\\
+&=q\left(\dfrac{\ii\alpha}{2}\conj{q_x}
+-\beta\conj{q_{xx}}-2\beta|q|^2\conj q\right)\\
+&\quad+\left(\dfrac{\ii\alpha}{2}q_x
++\beta q_{xx}+2\beta|q|^2q\right)\conj q\\
+&=\dfrac{\ii\alpha}{2}(q\conj{q_x}+q_x\conj q)
++\beta(q_{xx}\conj q-q\conj{q_{xx}})\\
+&=\partial_x\left[
+\dfrac{\ii\alpha}{2}|q|^2
+-\beta(q\conj{q_x}-q_x\conj q)
+\right].
+\end{aligned}
+\]
+在最后一步, 乘积求导的中间两项
+$q_x\conj{q_x}$ 正负相消.
+因此 $(W_0)_{11}$ 与方括号之间只差一个依赖 $t$ 的积分常数.
+由上面的端态展开, 常数项对角元必须是
+$\dfrac{\ii\eta_0}{a}$.
+方括号的端态是 $\dfrac{\ii\alpha q_0^2}{2}$,
+因此积分常数为
+\[
+\dfrac{\ii\eta_0}{a}-\dfrac{\ii\alpha q_0^2}{2}
+=\dfrac{\ii}{2}\left(-\alpha q_0^2+\dfrac{2\eta_0}{a}\right)
+=\dfrac{\ii\Omega}{2}.
+\]
+于是完整时间矩阵的两个剩余对角元为
+\[
+\begin{aligned}
+(W_0)_{11}
+&=\dfrac{\ii\alpha}{2}|q|^2
+-\beta(q\conj{q_x}-q_x\conj q)+\dfrac{\ii\Omega}{2},\\
+(W_0)_{22}&=-(W_0)_{11}.
+\end{aligned}
+\]
+至此 $W_1,W_0$ 的四个独立标量项及全部积分常数均被恢复,
+没有留下任意的时间函数.
+
+\paragraph{共振留数的四个介质矩阵元.}
+在有理部分利用
+\[
+ U(k)= U(a)-\ii(k-a)\sg,
+\]
+得到
+\[
+\dfrac{\ii([ U(k),R]-R_x)}{k-a}
+=\dfrac{\ii([ U(a),R]-R_x)}{k-a}+[\sg,R].
+\]
+故共振留数为零即
+$R_x=[-\ii a\sg+Q,R]$.
+把两矩阵完整写出:
+\[
+-\ii a\sg+Q
+=\begin{pmatrix}-\ii a&q\\-\conj q&\ii a\end{pmatrix},\qquad
+R=\begin{pmatrix}\eta&-p\\-\conj p&-\eta\end{pmatrix}.
+\]
+两个乘积之差的独立元为
+\[
+\begin{aligned}
+\relax[-\ii a\sg+Q,R]_{11}
+&=(-\ii a\eta-q\conj p)-(-\ii a\eta+p\conj q)\\
+&=-q\conj p-\conj q p,\\
+[-\ii a\sg+Q,R]_{12}
+&=(\ii ap-q\eta)-(\eta q-\ii ap)\\
+&=2\ii ap-2\eta q.
+\end{aligned}
+\]
+左侧对应元是 $\eta_x,-p_x$, 所以
+\[
+\eta_x=-(q\conj p+\conj q p),\qquad
+p_x=2\eta q-2\ii ap.
+\]
+另两元由 Hermitian 性与迹零给出共轭方程, 不再增加独立方程.
+
+\paragraph{常数非对角元恢复光场方程.}
+$[\sg,R]_{12}=2R_{12}=-2p$,
+而 $[Q,W_0]_{12}=-2(W_0)_{11}q$.
+因此常数项的 $(1,2)$ 元是
+\[
+q_t-\partial_x(W_0)_{12}-2(W_0)_{11}q-2p=0.
+\]
+把已确定的分量代入:
+\[
+\begin{aligned}
+\partial_x(W_0)_{12}+2(W_0)_{11}q
+={}&\dfrac{\ii\alpha}{2}q_{xx}+\beta q_{xxx}
++2\beta(|q|^2q)_x+\ii\alpha|q|^2q\\
+&-2\beta q(q\conj{q_x}-q_x\conj q)
++\ii\Omega q.
+\end{aligned}
+\]
+非线性导数的全部乘积展开为
+\[
+\begin{aligned}
+2\beta(|q|^2q)_x
+&=2\beta(q_x\conj q+q\conj{q_x})q
++2\beta|q|^2q_x\\
+&=4\beta|q|^2q_x+2\beta q^2\conj{q_x},\\
+-2\beta q(q\conj{q_x}-q_x\conj q)
+&=-2\beta q^2\conj{q_x}+2\beta|q|^2q_x.
+\end{aligned}
+\]
+相加后 $q^2\conj{q_x}$ 消去, 仅剩 $6\beta|q|^2q_x$.
+故
+\[
+q_t=\ii\alpha\left(\dfrac{q_{xx}}{2}+|q|^2q\right)
++\beta(q_{xxx}+6|q|^2q_x)+2p+\ii\Omega q.
+\]
+最后, 由 $q=e^{\ii\Omega t}\widetilde q$,
+\[
+q_t=e^{\ii\Omega t}
+(\widetilde q_t+\ii\Omega\widetilde q),\qquad
+q_x=e^{\ii\Omega t}\widetilde q_x,
+\]
+且 $p=e^{\ii\Omega t}\widetilde p$, $|q|=|\widetilde q|$.
+把这些关系代入规范光场方程, 除以 $e^{\ii\Omega t}$,
+两侧的 $\ii\Omega\widetilde q$ 恰好相消, 得到原 HMB 光场方程.
+介质方程中空间导数不作用于共同的时间相位,
+所以同样直接还原原场的两条介质方程.
+
+\paragraph{从所得矩阵重新识别散射数据.}
+在 $x\to-\infty$ 时 $M\to Y$,
+所以 $Me^{\ii\theta\sg}$ 是负端归一化的 Jost 解.
+在 $x\to+\infty$ 时
+$M\to Y\diag(s_{22},s_{22}^{-1})$,
+右乘 $\diag(s_{22}^{-1},s_{22})$ 恰好消去该端态因子.
+因此正端归一化的 Jost 解是
+\[
+M\diag(s_{22}^{-1},s_{22})e^{\ii\theta\sg}.
+\]
+对角矩阵与指数对易, 故正负端解满足
+\[
+\phi_+=\phi_-\diag(s_{22}^{-1},s_{22}).
+\]
+其非对角散射元都是零.
+透射系数恰为原来的两因子乘积,
+而
+\[
+b_1(0)=c_1(0)s_{22}'(\zeta_1)
+=\dfrac{4\ii\kappa}{1+h_0^2}
+\dfrac{1+h_0^2}{4\ii\kappa}=1.
+\]
+由此验证重构后的实际散射数据与最初输入的数据一致.
+
+\subsection{双曲表达与局域化}
+写 $s=\xi+\ii\nu$, 光场公式中的投影元还可表示为
+\begin{equation}\label{eq:hyperbolic-projector}
+P_{12}=\dfrac{-2h_0\cosh(2\xi)+(1+h_0^2)\cos(2\nu)+\ii(1-h_0^2)\sin(2\nu)}
+{2(1+h_0^2)\cosh(2\xi)-4h_0\cos(2\nu)}.
+\end{equation}
+分母不小于 $2(1-h_0)^2$, 局域包络与内部振荡分别由 $\xi$ 和 $\nu$ 控制.
+% BEGIN EXPANSION 08-J
+\subsubsection*{双曲形式的指数展开与传播参数}
+原记号 $s=\xi+\ii\nu$ 给出
+\[
+\begin{aligned}
+T=e^{2s}&=e^{2\xi}e^{2\ii\nu},\\
+\conj T&=e^{2\xi}e^{-2\ii\nu},\\
+|T|^2&=e^{4\xi}.
+\end{aligned}
+\]
+$P_{12}$ 的分子先按乘法展开:
+\[
+\begin{aligned}
+(T-h_0)(1-h_0\conj T)
+&=T+h_0^2\conj T-h_0(1+|T|^2).
+\end{aligned}
+\]
+分子分母同除以严格正数 $e^{2\xi}$, 分子成为
+\[
+\begin{aligned}
+e^{2\ii\nu}+h_0^2e^{-2\ii\nu}
+-h_0(e^{2\xi}+e^{-2\xi})
+={}&(1+h_0^2)\cos(2\nu)
++\ii(1-h_0^2)\sin(2\nu)\\
+&-2h_0\cosh(2\xi).
+\end{aligned}
+\]
+这里使用的三个指数恒等式分别是
+\[
+e^{2\ii\nu}=\cos(2\nu)+\ii\sin(2\nu),\quad
+e^{-2\ii\nu}=\cos(2\nu)-\ii\sin(2\nu),
+\]
+\[
+e^{2\xi}+e^{-2\xi}=2\cosh(2\xi).
+\]
+分母成为
+\[
+\begin{aligned}
+e^{-2\xi}\Delta_-
+&=(1+h_0^2)(e^{-2\xi}+e^{2\xi})
+-2h_0(e^{2\ii\nu}+e^{-2\ii\nu})\\
+&=2(1+h_0^2)\cosh(2\xi)-4h_0\cos(2\nu).
+\end{aligned}
+\]
+相除即得到 \eqref{eq:hyperbolic-projector}.
+因为 $\cosh(2\xi)\ge1$ 且 $\cos(2\nu)\le1$,
+\[
+2(1+h_0^2)\cosh(2\xi)-4h_0\cos(2\nu)
+\ge2(1+h_0^2)-4h_0=2(1-h_0)^2>0.
+\]
+因此双曲形式与有理投影形式给出相同的全局光滑性判断.
+若进一步把传播函数代入原有的 $s$, 复系数可以完全分开:
+\[
+\begin{aligned}
+F(\ii b)
+&=-4\beta b^2-\ii\alpha b-2\beta q_0^2
++\dfrac{\eta_0}{a(\ii b-a)}\\
+&=-4\beta b^2-2\beta q_0^2-\dfrac{\eta_0}{a^2+b^2}
+-\ii b\left(\alpha+\dfrac{\eta_0}{a(a^2+b^2)}\right).
+\end{aligned}
+\]
+其中最后一步将共振分母乘以其共轭:
+\[
+\dfrac{\eta_0}{a(\ii b-a)}
+=\dfrac{\eta_0(-a-\ii b)}{a(a^2+b^2)}.
+\]
+因此
+\[
+\begin{aligned}
+\xi
+&=\kappa\left[
+x+\left(4\beta b^2+2\beta q_0^2
++\dfrac{\eta_0}{a^2+b^2}\right)t
+\right],\\
+\nu
+&=\kappa b\left(\alpha+\dfrac{\eta_0}{a(a^2+b^2)}\right)t.
+\end{aligned}
+\]
+这两式没有重新定义谱变量或引入简算别名;
+它们只是将原先 $s$ 的实部与虚部逐项算出.
+% END EXPANSION 08-J

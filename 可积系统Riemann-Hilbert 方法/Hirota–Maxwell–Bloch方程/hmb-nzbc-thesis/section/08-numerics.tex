@@ -1,10 +1,10 @@
-\subsection{单孤子的三场分布}
-本节对第 \ref{ch:rhp} 节证明的一轨道无反射解作数值求值. 图中使用规范变换前的场 $\widetilde q,\widetilde p,\eta$, 它们由 \eqref{eq:original-fields} 恢复. 取参数
+\subsection{单轨道解的三场分布}
+本节对定理 \ref{thm:direct-HMB} 的单轨道三场解作数值计算. 图中使用规范变换前的场 $\widetilde q,\widetilde p,\eta$, 它们由 \eqref{eq:original-fields} 恢复. 取参数
 \begin{equation}\label{eq:numerical-parameters}
 q_0=1,\qquad a=2,\qquad\eta_0=0.6,\qquad
 \alpha=1,\qquad\beta=0.1,\qquad b=1.5,
 \end{equation}
-范数常数由式 \eqref{eq:onec} 给定, 场值由四维留数系统及无穷远、共振点的重构公式计算, 不作 HMB 方程的数值离散. 图 \ref{fig:one} 展示光场的局域振荡及同一区域内的极化和粒子数反转.
+范数常数由式 \eqref{eq:onec} 给定, 场值由四维留数系统及无穷远、共振点的重构公式计算. 图 \ref{fig:one} 展示光场的局域振荡及同一区域内的极化和粒子数反转.
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-fields.pdf}
@@ -72,3 +72,16 @@ Bloch 长度平方 & $4.77\times10^{-72}$\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+
+\subsection{数值计算的方法与结论范围}
+数值图像由已证明的单轨道重构公式求值得到.
+计算同时采用有限维留数系统与投影表达式, 用两种实现的相互比较核对代数重构.
+三场方程、Lax 方程、Bloch 约束和两共振原像一致性的残差分别检验,
+空间端态则在较大正负 $x$ 处核对.
+这些样点检验与第 \ref{ch:verification} 节的解析证明相互配合:
+解析证明建立全部实 $x,t$ 上的方程与边界, 数值结果展示局域结构及参数作用.
+
+本文由此完成非零背景的直接散射、共振相容性、条件性 RHP 重构和指定单轨道的全局验证.
+一般含反射数据的 RHP 可解性, 以及一般多轨道留数矩阵的全局非退化性,
+需要进一步的分析, 不由本文的有限样点计算推出.

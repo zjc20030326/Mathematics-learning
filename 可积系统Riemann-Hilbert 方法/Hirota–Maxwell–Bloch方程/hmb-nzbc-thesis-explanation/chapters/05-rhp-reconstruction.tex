@@ -1,0 +1,805 @@
+
+\subsection{散射数据与矩阵问题}
+本节先规定逆问题, 再说明正向散射产生的矩阵满足这些条件.
+取满足共轭、换叶约化的演化反射数据 $\rho(z,t),\widetilde\rho(z,t)$,
+以及有限简单离散数据 $\zeta_j,c_j(0)$, $j=1,\ldots,m$, $m=2N$.
+各离散点在 $\Sigma$ 外, 透射系数在普通连续谱上非零,
+并取 \eqref{eq:C-timephase} 的 $C_j(x,t)$.
+共振处要求 \eqref{eq:resonance-reflection} 的反射条件.
+谱数据的相位约束在本节末尾另行说明.
+
+将 $\Sigma$ 定向为 $D_+$ 位于左侧: 实轴外部两段向右、内部区间向左,
+上半圆顺时针、下半圆逆时针. 下标 $+$、$-$ 表示左、右非切向边界值.
+普通谱弧删去 $0,\pm q_0,\pm\ii q_0,z_a^\pm$.
+
+\begin{definition}[非零背景矩阵 RHP]\label{def:RHP}\label{thm:RHP}
+求关于 $z$ 分片亚纯的二阶矩阵 $M(x,t,z)$, 满足下列条件.
+在 $D_+$ 中只有第二列可在 $\zeta_j$ 有简单极点,
+在 $D_-$ 中只有第一列可在 $\conj{\zeta_j}$ 有简单极点, 留数由 \eqref{eq:resplus}--\eqref{eq:resminus} 给定.
+要求普通谱弧上具有局部连续的非切向边界值, 跳跃为
+\begin{equation}\label{eq:jump}
+M_+=M_-J,\qquad
+J=\begin{pmatrix}
+1&\widetilde\rho(z,t)e^{-2\ii\lambda x}\\
+-\rho(z,t)e^{2\ii\lambda x}&1-\rho(z,t)\widetilde\rho(z,t)
+\end{pmatrix},\qquad \det J=1.
+\end{equation}
+两处归一化为
+\begin{align}
+M(z)&=I+\dfrac{M^{(1)}}{z}+O(z^{-2}),\qquad z\to\infty,\label{eq:Minfty}\\
+M(z)&=-\dfrac{\ii q_0}{z}\sigma_1+O(1),\qquad z\to0.\label{eq:Mzero}
+\end{align}
+要求约化关系
+\begin{equation}\label{eq:Msym}
+M(z)=\sigma_2\conj{M(\conj z)}\sigma_2,\qquad
+M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1.
+\end{equation}
+除上述指定主部外, 矩阵在各有限特殊点局部有界,
+其扇区边界值与相邻谱弧上的跳跃相容.
+在两个共振原像处要求两侧具有共同连续值.
+\end{definition}
+这里的局部要求是 RHP 解类的一部分.
+Jost 列在分支点连续不自动保证拼接矩阵满足这一要求;
+对独立数据, 本定义也不预先断言解存在.
+
+\begin{proposition}[由正向散射构造 RHP]\label{prop:jump}
+设三场满足第 \ref{ch:scattering} 节的正向演化条件,
+其透射系数在普通连续谱上非零且离散零点有限、简单.
+以 Jost 解析列构造
+\begin{equation}\label{eq:Mdef}
+M(z)=\begin{cases}
+M_+(z)=\left(\mu_{-,1},\dfrac{\mu_{+,2}}{s_{22}}\right),&z\in D_+,\\[6pt]
+M_-(z)=\left(\dfrac{\mu_{+,1}}{s_{11}},\mu_{-,2}\right),&z\in D_-.
+\end{cases}
+\end{equation}
+若该拼接矩阵具有定义 \ref{def:RHP} 规定的有限特殊点边界行为,
+则它是相应 RHP 的解.
+\end{proposition}
+\begin{proof}
+解析性与列极点由第 \ref{ch:direct} 节的结果得到. 去除散射关系中的指数, 有
+\[
+\mu_{+,1}=s_{11}\mu_{-,1}+s_{21}e^{2\ii\lambda x}\mu_{-,2},\qquad
+\mu_{+,2}=s_{12}e^{-2\ii\lambda x}\mu_{-,1}+s_{22}\mu_{-,2}.
+\]
+第一式给出 $M_{+,1}=M_{-,1}-\rho e^{2\ii\lambda x}M_{-,2}$, 代入第二式得到
+\[
+M_{+,2}=\widetilde\rho e^{-2\ii\lambda x}M_{-,1}+(1-\rho\widetilde\rho)M_{-,2},
+\]
+即 \eqref{eq:jump}. Wronskian 表达式给出
+\[
+\det M_+=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{s_{22}}=\gamma,
+\]
+另一域同理. 第 \ref{ch:asymptotics} 节的展开确定两处归一化. 共轭约化交换两列和两域; 换叶约化将 $\mu_{-,1}$ 与 $\mu_{-,2}$、$\dfrac{\mu_{+,2}}{s_{22}}$ 与 $\dfrac{\mu_{+,1}}{s_{11}}$ 配对, 因而得到 \eqref{eq:Msym}.
+\end{proof}
+
+% BEGIN EXPANSION 08-A
+\subsubsection*{逐列消元, 跳跃方向与行列式的逐项计算}
+这里 $M_{+,1}$ 表示 $M_+$ 的第一列, 不是矩阵的 $(+,1)$ 元.
+两个域中的定义逐列写为
+\[
+\begin{aligned}
+M_{+,1}&=\mu_{-,1},&
+M_{+,2}&=\dfrac{\mu_{+,2}}{s_{22}},\\
+M_{-,1}&=\dfrac{\mu_{+,1}}{s_{11}},&
+M_{-,2}&=\mu_{-,2}.
+\end{aligned}
+\]
+第一条散射关系两侧除以非零的 $s_{11}$, 得
+\[
+\dfrac{\mu_{+,1}}{s_{11}}
+=\mu_{-,1}
++\dfrac{s_{21}}{s_{11}}e^{2\ii\lambda x}\mu_{-,2}.
+\]
+把 $\rho=\dfrac{s_{21}}{s_{11}}$ 代入, 再将右侧最后一项移到左边, 就得到
+\[
+\begin{aligned}
+M_{-,1}
+&=M_{+,1}+\rho e^{2\ii\lambda x}M_{-,2},\\
+M_{+,1}
+&=M_{-,1}-\rho e^{2\ii\lambda x}M_{-,2}.
+\end{aligned}
+\]
+第二条散射关系除以 $s_{22}$, 使用 $\widetilde\rho=\dfrac{s_{12}}{s_{22}}$, 得
+\[
+M_{+,2}
+=\widetilde\rho e^{-2\ii\lambda x}M_{+,1}+M_{-,2}.
+\]
+将刚得到的第一列式代入, 每一步只对标量与列向量作分配律:
+\[
+\begin{aligned}
+M_{+,2}
+&=\widetilde\rho e^{-2\ii\lambda x}
+\bigl(M_{-,1}-\rho e^{2\ii\lambda x}M_{-,2}\bigr)
++M_{-,2}\\
+&=\widetilde\rho e^{-2\ii\lambda x}M_{-,1}
+-\widetilde\rho\rho e^{2\ii(-\lambda x)-2\ii(-\lambda x)}M_{-,2}
++M_{-,2}\\
+&=\widetilde\rho e^{-2\ii\lambda x}M_{-,1}
++(1-\rho\widetilde\rho)M_{-,2}.
+\end{aligned}
+\]
+右乘矩阵的第一列给第一条线性组合, 第二列给第二条线性组合, 因而
+\[
+\begin{aligned}
+M_-J
+&=(M_{-,1},M_{-,2})
+\begin{pmatrix}
+1&\widetilde\rho e^{-2\ii\lambda x}\\
+-\rho e^{2\ii\lambda x}&1-\rho\widetilde\rho
+\end{pmatrix}\\
+&=\bigl(
+M_{-,1}-\rho e^{2\ii\lambda x}M_{-,2},
+\widetilde\rho e^{-2\ii\lambda x}M_{-,1}
++(1-\rho\widetilde\rho)M_{-,2}
+\bigr)\\
+&=(M_{+,1},M_{+,2}).
+\end{aligned}
+\]
+行列式中两项的相消为
+\[
+\begin{aligned}
+\det J
+&=1\cdot(1-\rho\widetilde\rho)
+-(\widetilde\rho e^{-2\ii\lambda x})
+(-\rho e^{2\ii\lambda x})\\
+&=1-\rho\widetilde\rho+\rho\widetilde\rho=1.
+\end{aligned}
+\]
+由 $\det S=1$ 也直接得到
+\[
+\begin{aligned}
+1
+&=s_{11}s_{22}-s_{12}s_{21}\\
+&=s_{11}s_{22}
+\left(1-\dfrac{s_{12}}{s_{22}}\dfrac{s_{21}}{s_{11}}\right)\\
+&=s_{11}s_{22}(1-\rho\widetilde\rho).
+\end{aligned}
+\]
+这解释后面标量迹公式中倒数的来源.
+计算 $\det M_+$ 时, 先在第二列使用散射展开:
+\[
+\begin{aligned}
+\det(\mu_{-,1},\mu_{+,2})
+&=\det\bigl(\mu_{-,1},
+s_{12}e^{-2\ii\lambda x}\mu_{-,1}+s_{22}\mu_{-,2}\bigr)\\
+&=s_{12}e^{-2\ii\lambda x}
+\det(\mu_{-,1},\mu_{-,1})
++s_{22}\det(\mu_{-,1},\mu_{-,2})\\
+&=0+s_{22}\gamma.
+\end{aligned}
+\]
+同样, 对 $M_-$ 的第一列展开:
+\[
+\begin{aligned}
+\det(\mu_{+,1},\mu_{-,2})
+&=s_{11}\det(\mu_{-,1},\mu_{-,2})
++s_{21}e^{2\ii\lambda x}\det(\mu_{-,2},\mu_{-,2})\\
+&=s_{11}\gamma.
+\end{aligned}
+\]
+两侧分别除以相应的透射系数, 都得到 $\gamma$.
+在离散零点处, 该商恒等式由亚纯延拓成立, 不能把零点处的表达式理解为直接作 $\dfrac{0}{0}$ 数值除法.
+
+\paragraph{标准基与秩一主部.}
+标准基及其转置为
+\[
+e_1=\begin{pmatrix}1\\0\end{pmatrix},\qquad
+e_2=\begin{pmatrix}0\\1\end{pmatrix},\qquad
+e_1^T=(1,0),\qquad e_2^T=(0,1).
+\]
+因而两种留数矩阵按元展开是
+\[
+\begin{aligned}
+C_j\mathbf v_je_2^T
+&=\begin{pmatrix}
+0&C_j(\mathbf v_j)_1\\
+0&C_j(\mathbf v_j)_2
+\end{pmatrix},\\
+-\conj{C_j}\mathbf u_je_1^T
+&=\begin{pmatrix}
+-\conj{C_j}(\mathbf u_j)_1&0\\
+-\conj{C_j}(\mathbf u_j)_2&0
+\end{pmatrix}.
+\end{aligned}
+\]
+第一种主部只占第二列, 所以在 $z=\zeta_j$ 取第一列值没有奇性.
+第二种主部只占第一列, 所以在 $z=\conj{\zeta_j}$ 取第二列值没有奇性.
+这正是后面积分--代数系统可以在极点位置求值的原因.
+% END EXPANSION 08-A
+
+\begin{lemma}[RHP 行列式]\label{lem:RHP-determinant}
+任一属于定义 \ref{def:RHP} 解类的矩阵满足
+\begin{equation}\label{eq:detM}
+\det M(z)=\gamma(z)=1+\dfrac{q_0^2}{z^2}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+由 $\det J=1$, 行列式在普通谱弧上没有跳跃.
+在离散极点, 奇异列的留数是正则列的标量倍数, 所以行列式的留数为零.
+有限特殊点的局部有界性使它们对行列式可去.
+两处归一化因而给出 $\det M=1+d/z+q_0^2/z^2$.
+另一方面, 换叶约化给出
+\[
+\det M(h(z))=\dfrac{z^2}{q_0^2}\det M(z).
+\]
+比较两边的一次项, 得 $-d=d$, 故 $d=0$.
+\end{proof}
+\subsection{含反射的 Cauchy 表示}
+记 $e_1,e_2$ 为标准基, 置
+\begin{equation}\label{eq:Gdefinition}
+G=I-J^{-1}=\begin{pmatrix}
+\rho\widetilde\rho&\widetilde\rho e^{-2\ii\lambda x}\\
+-\rho e^{2\ii\lambda x}&0
+\end{pmatrix},\qquad M_+-M_-=M_+G.
+\end{equation}
+以下表示按照先消去奇性、再应用 Plemelj 公式的顺序建立\cite{ZhangFan2020,Fan2022}. 它适用于满足所列条件的 RHP 解.
+
+% BEGIN EXPANSION 08-B
+\paragraph{先核对逆矩阵, 再核对 $G$ 的符号.}
+因为 $\det J=1$, 二阶逆矩阵公式给出
+\[
+J^{-1}=\begin{pmatrix}
+1-\rho\widetilde\rho&-\widetilde\rho e^{-2\ii\lambda x}\\
+\rho e^{2\ii\lambda x}&1
+\end{pmatrix}.
+\]
+其乘积四个元逐个为
+\[
+\begin{aligned}
+(JJ^{-1})_{11}
+&=1-\rho\widetilde\rho
++\widetilde\rho e^{-2\ii\lambda x}\rho e^{2\ii\lambda x}=1,\\
+(JJ^{-1})_{12}
+&=-\widetilde\rho e^{-2\ii\lambda x}
++\widetilde\rho e^{-2\ii\lambda x}=0,\\
+(JJ^{-1})_{21}
+&=-\rho e^{2\ii\lambda x}(1-\rho\widetilde\rho)
++(1-\rho\widetilde\rho)\rho e^{2\ii\lambda x}=0,\\
+(JJ^{-1})_{22}
+&=\rho\widetilde\rho+1-\rho\widetilde\rho=1.
+\end{aligned}
+\]
+再按元作 $I-J^{-1}$, 得
+\[
+\begin{aligned}
+(I-J^{-1})_{11}&=1-(1-\rho\widetilde\rho)=\rho\widetilde\rho,\\
+(I-J^{-1})_{12}&=0-(-\widetilde\rho e^{-2\ii\lambda x})
+=\widetilde\rho e^{-2\ii\lambda x},\\
+(I-J^{-1})_{21}&=0-\rho e^{2\ii\lambda x}
+=-\rho e^{2\ii\lambda x},\\
+(I-J^{-1})_{22}&=1-1=0.
+\end{aligned}
+\]
+从 $M_+=M_-J$ 右乘 $J^{-1}$ 得 $M_-=M_+J^{-1}$, 所以
+\[
+M_+-M_-=M_+-M_+J^{-1}=M_+(I-J^{-1})=M_+G.
+\]
+这里右侧是 $M_+$, 而不是 $M_-$.
+若将密度错误地写成 $M_-(I-J^{-1})$, 就不能重现原跳跃.
+按列计算实际密度, 有
+\[
+\begin{aligned}
+W_1
+&=\rho\widetilde\rho M_{+,1}
+-\rho e^{2\ii\lambda x}M_{+,2},\\
+W_2
+&=\widetilde\rho e^{-2\ii\lambda x}M_{+,1}.
+\end{aligned}
+\]
+尤其
+\[
+W_{12}=\widetilde\rho e^{-2\ii\lambda x}(M_{+,1})_1.
+\]
+这些等式只展开原有密度, 没有把它当作预先已知的独立函数.
+因此含反射表示仍是未知 $M_+$ 与离散正则列共同满足的关系.
+% END EXPANSION 08-B
+\begin{proposition}[含反射的留数积分表示]\label{prop:cauchy-representation}
+设定义 \ref{def:RHP} 的 RHP 有解. 假设减去离散主部及 $z=0$ 主部后, 矩阵在各有限特殊点有有界、相容的扇区边界值; 跳跃密度 $W=M_+G$ 在普通弧上局部 Hölder 连续, 且 $W,sW\in L^1(\Sigma)$. 删去特殊点的小圆弧时, 假设其上的正则化矩阵一致有界. 则
+\begin{equation}\label{eq:general-cauchy}
+\begin{aligned}
+M(z)={}&I-\dfrac{\ii q_0}{z}\sigma_1
++\sum\limits_{j=1}^{m}\left(
+\dfrac{C_j\mathbf v_je_2^T}{z-\zeta_j}
+-\dfrac{\conj{C_j}\mathbf u_je_1^T}{z-\conj{\zeta_j}}\right)\\
+&+\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{M_+(s)G(s)}{s-z}\,\dd s,
+\qquad z\in\mathbb C\mathbin{\backslash}\Sigma,
+\end{aligned}
+\end{equation}
+其中 $\mathbf v_j=M_1(\zeta_j)$、$\mathbf u_j=M_2(\conj{\zeta_j})$ 是各点的正则列. 它们满足积分--代数关系
+\begin{align}
+\mathbf v_j={}&e_1-\dfrac{\ii q_0}{\zeta_j}e_2
+-\sum\limits_{k=1}^{m}\dfrac{\conj{C_k}\mathbf u_k}{\zeta_j-\conj{\zeta_k}}
++\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{W_1(s)}{s-\zeta_j}\,\dd s,
+\label{eq:general-finite1}\\
+\mathbf u_j={}&e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1
++\sum\limits_{k=1}^{m}\dfrac{C_k\mathbf v_k}{\conj{\zeta_j}-\zeta_k}
++\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{W_2(s)}{s-\conj{\zeta_j}}\,\dd s.
+\label{eq:general-finite2}
+\end{align}
+按 $q=\ii M^{(1)}_{12}$ 定义重构光场, 则
+\begin{equation}\label{eq:qgeneral}
+q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\mathbf v_j)_1
+-\dfrac{1}{2\pi}\int\limits_\Sigma W_{12}(s)\,\dd s.
+\end{equation}
+\end{proposition}
+\begin{proof}
+第 \ref{ch:discrete} 节的留数条件给出
+\[
+\Res_{z=\zeta_j}M=C_j\mathbf v_je_2^T,\qquad
+\Res_{z=\conj{\zeta_j}}M=-\conj{C_j}\mathbf u_je_1^T.
+\]
+从 $M$ 减去 $I-\dfrac{\ii q_0}{z}\sigma_1$ 及上述各主部, 所得分片解析矩阵 $F_0$ 在无穷远为 $O(z^{-1})$, 而 $F_{0,+}-F_{0,-}=W$. 对删去特殊点小圆盘并截断于大圆的两域分别使用 Cauchy 公式. 左侧为正向边界, 将两域的公共边界合并得到 $W$; 局部一致有界性保证小圆贡献消失, 大圆上的 $O(z^{-1})$ 使其贡献消失. 因而
+\[
+F_0(z)=\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{W(s)}{s-z}\,\dd s,
+\]
+得到 \eqref{eq:general-cauchy}. 正号由 \eqref{eq:Gdefinition} 与轮廓定向共同确定.
+
+在第一列取 $z=\zeta_j$, 在第二列取 $z=\conj{\zeta_j}$, 各自本列在该点没有离散极点, 得 \eqref{eq:general-finite1}--\eqref{eq:general-finite2}. 沿避开轮廓的闭角域令 $z\to\infty$, 使用
+\[
+\dfrac{1}{s-z}=-\dfrac{1}{z}+\dfrac{s}{z(s-z)},\qquad
+\left|\dfrac{s}{z(s-z)}\right|\le\dfrac{C|s|}{|z|^2},
+\]
+及 $sW\in L^1$ 控制余项, 得
+\begin{equation}\label{eq:M1-general}
+M^{(1)}=-\ii q_0\sigma_1
++\sum\limits_{j=1}^{m}(C_j\mathbf v_je_2^T-\conj{C_j}\mathbf u_je_1^T)
+-\dfrac{1}{2\pi\ii}\int\limits_\Sigma W(s)\,\dd s.
+\end{equation}
+读取 $(1,2)$ 元的系数并乘以 $\ii$, 即得 \eqref{eq:qgeneral}. 对直接散射构造的 $M$, 此定义与原光场一致, 见下述重构命题.
+\end{proof}
+
+% BEGIN EXPANSION 08-C
+\paragraph{Cauchy 表示中每一种奇性的消去.}
+原证明使用的正则化矩阵完整写为
+\[
+\begin{aligned}
+F_0(z)
+={}&M(z)-I+\dfrac{\ii q_0}{z}\sigma_1\\
+&-\sum\limits_{j=1}^{m}
+\dfrac{C_j\mathbf v_je_2^T}{z-\zeta_j}
++\sum\limits_{j=1}^{m}
+\dfrac{\conj{C_j}\mathbf u_je_1^T}{z-\conj{\zeta_j}}.
+\end{aligned}
+\]
+在 $\zeta_j$ 附近, $M$ 的 Laurent 展开首项是
+$\dfrac{C_j\mathbf v_je_2^T}{z-\zeta_j}$.
+上式中减去完全相同的项, 所以 $F_0$ 没有该极点.
+在 $\conj{\zeta_j}$ 附近首项是
+$-\dfrac{\conj{C_j}\mathbf u_je_1^T}{z-\conj{\zeta_j}}$;
+这里在 $F_0$ 中加上其相反数, 同样消去极点.
+在 $0$ 附近, 原归一化是
+\[
+M(z)=-\dfrac{\ii q_0}{z}\sigma_1+O(1),
+\]
+所以 $M+\dfrac{\ii q_0}{z}\sigma_1$ 有界.
+在无穷远, 每个被减去的离散主部都是 $O(z^{-1})$, 故
+\[
+F_0(z)=O(z^{-1}).
+\]
+所有被减去的有理项在普通弧两侧取值一致, 所以
+\[
+\begin{aligned}
+F_{0,+}-F_{0,-}
+&=(M_+-M_-)+0+0+0\\
+&=W.
+\end{aligned}
+\]
+对任一不在轮廓上的固定 $z$, 特殊点周围半径为 $\varepsilon$ 的小圆弧上,
+$\dfrac{1}{|s-z|}$ 有统一上界.
+若 $F_0$ 在这些弧上一致有界, 则弧长为 $O(\varepsilon)$ 给出
+\[
+\left\|
+\int_{\text{小圆弧}}
+\dfrac{F_0(s)}{s-z}\,\dd s
+\right\|
+\le
+\sup\limits_{\text{小圆弧}}\|F_0(s)\|
+\sup\limits_{\text{小圆弧}}\dfrac{1}{|s-z|}
+\operatorname{length}(\text{小圆弧})
+\longrightarrow0.
+\]
+在半径为 $R$ 的大圆上, $F_0(s)=O(R^{-1})$ 且
+$\dfrac{1}{s-z}=O(R^{-1})$, 从而
+\[
+\int_{|s|=R}\dfrac{F_0(s)}{s-z}\,\dd s=O(R^{-1})\longrightarrow0.
+\]
+沿公共边界, $D_+$ 的正向边界与 $\Sigma$ 同向,
+$D_-$ 的正向边界与 $\Sigma$ 反向.
+两条边界积分相加, 密度因此是 $F_{0,+}-F_{0,-}=W$, 不是其相反数.
+
+\paragraph{边界值与积分方程的核对.}
+在普通弧的局部光滑点, Plemelj 公式按既定左侧正向给出
+\[
+\begin{aligned}
+F_{0,+}(z)
+&=\dfrac{1}{2}W(z)
++\dfrac{1}{2\pi\ii}\operatorname{p.v.}
+\int\limits_\Sigma\dfrac{W(s)}{s-z}\,\dd s,\\
+F_{0,-}(z)
+&=-\dfrac{1}{2}W(z)
++\dfrac{1}{2\pi\ii}\operatorname{p.v.}
+\int\limits_\Sigma\dfrac{W(s)}{s-z}\,\dd s.
+\end{aligned}
+\]
+相减恰得 $W$.
+把第一式加回全部有理项, 就给出 $M_+$ 的边界积分方程;
+再用 $W=M_+G$, 未知边界值同时出现在积分外和积分内.
+这一推导说明原命题是已有 RHP 解的必要表示.
+要从该式独立证明一般含反射 RHP 有解, 还需要解相应的奇异积分方程;
+这里没有加入这一额外存在性结论.
+
+\paragraph{在正则列取值时, 为什么没有自作用发散项.}
+因为
+\[
+e_2^Te_1=0,\quad e_1^Te_1=1,\quad
+e_1^Te_2=0,\quad e_2^Te_2=1,
+\]
+对表示式右乘 $e_1$, 得
+\[
+M_1(z)=e_1-\dfrac{\ii q_0}{z}e_2
+-\sum\limits_{k=1}^{m}
+\dfrac{\conj{C_k}\mathbf u_k}{z-\conj{\zeta_k}}
++\dfrac{1}{2\pi\ii}\int\limits_\Sigma
+\dfrac{W_1(s)}{s-z}\,\dd s.
+\]
+所有 $D_+$ 极点主部都因 $e_2^Te_1=0$ 消失.
+于是直接令 $z=\zeta_j$ 就是 \eqref{eq:general-finite1}.
+右乘 $e_2$ 则得到
+\[
+M_2(z)=e_2-\dfrac{\ii q_0}{z}e_1
++\sum\limits_{k=1}^{m}
+\dfrac{C_k\mathbf v_k}{z-\zeta_k}
++\dfrac{1}{2\pi\ii}\int\limits_\Sigma
+\dfrac{W_2(s)}{s-z}\,\dd s.
+\]
+所有 $D_-$ 极点主部因 $e_1^Te_2=0$ 消失.
+于是令 $z=\conj{\zeta_j}$ 就是 \eqref{eq:general-finite2}.
+这里不同域的离散点互异, 所以所剩分母均不为零.
+
+\paragraph{无穷远展开与光场前面的积分负号.}
+精确恒等式
+\[
+\dfrac{1}{s-z}+\dfrac{1}{z}
+=\dfrac{z+s-z}{z(s-z)}
+=\dfrac{s}{z(s-z)}
+\]
+给出
+\[
+\begin{aligned}
+\dfrac{1}{2\pi\ii}\int\limits_\Sigma
+\dfrac{W(s)}{s-z}\,\dd s
+={}&-\dfrac{1}{2\pi\ii z}\int\limits_\Sigma W(s)\,\dd s\\
+&+\dfrac{1}{2\pi\ii}\int\limits_\Sigma
+\dfrac{sW(s)}{z(s-z)}\,\dd s.
+\end{aligned}
+\]
+后项范数不超过常数乘
+\[
+\dfrac{1}{|z|^2}\int\limits_\Sigma |s|\|W(s)\|\,|\dd s|,
+\]
+所以是 $O(z^{-2})$.
+离散有理项逐项使用
+\[
+\dfrac{1}{z-\zeta_j}=\dfrac{1}{z}+O(z^{-2}),\qquad
+\dfrac{1}{z-\conj{\zeta_j}}=\dfrac{1}{z}+O(z^{-2}).
+\]
+因此 $(1,2)$ 元的系数为
+\[
+M^{(1)}_{12}
+=-\ii q_0
++\sum\limits_{j=1}^{m}C_j(\mathbf v_j)_1
+-\dfrac{1}{2\pi\ii}\int\limits_\Sigma W_{12}(s)\,\dd s.
+\]
+第二组留数矩阵的第二列是零, 对这个矩阵元不贡献.
+两侧乘以 $\ii$, 用 $\ii(-\ii)=1$ 及
+$\dfrac{\ii}{2\pi\ii}=\dfrac{1}{2\pi}$, 就得到 \eqref{eq:qgeneral}.
+% END EXPANSION 08-C
+\subsection{光场与介质的恢复公式}
+\begin{proposition}[正向散射的恢复恒等式]\label{prop:reconstruction}
+直接散射构造的矩阵 $M$ 满足
+\begin{equation}\label{eq:reconq}
+Q(q)=\dfrac{\ii}{2}[\sg,M^{(1)}],\qquad q=\ii M^{(1)}_{12}.
+\end{equation}
+若满足命题 \ref{prop:resonance} 的共振相容条件, 则 $M$ 在两个共振原像的空间归一化值可逆, 且
+\begin{equation}\label{eq:RfromM}
+R=M(x,t,z_a)\dfrac{\eta_0\lambda(z_a)}{a}\sg M(x,t,z_a)^{-1},
+\qquad z_a=z_a^\pm.
+\end{equation}
+两式给出同一个介质矩阵. 原物理场由
+\begin{equation}\label{eq:original-fields}
+\widetilde q=e^{-\ii\Omega t}q,\qquad
+\widetilde p=-e^{-\ii\Omega t}R_{12},\qquad \eta=R_{11}
+\end{equation}
+恢复.
+\end{proposition}
+\begin{proof}
+由 \eqref{eq:mu-highenergy} 与 \eqref{eq:transmission-highenergy}, 在 $D_+$ 中第二列除以 $s_{22}$ 后, 其对角系数从 $-\ii J_+$ 变为 $-\ii(J_++J_{\rm tot})=-\ii J_-$. 另一域相同, 故
+\[
+M^{(1)}=-\ii B(q)+\ii J_-\sg,
+\]
+得到 \eqref{eq:reconq}. 这一关系也可由空间方程
+\begin{equation}\label{eq:Mspace}
+M_x=-\ii k\sg M+QM+\ii\lambda M\sg
+\end{equation}
+比较无穷远的常数项得到: 第 \ref{ch:asymptotics} 节的积分估计还给出 $M_x=O(z^{-1})$, 而 $k,\lambda\sim\dfrac{z}{2}$.
+
+在共振点, $S$ 对角, 两种拼接均为 $M=\mu_-$. 命题 \ref{prop:resonance} 的证明给出
+\[
+\chi_-^{-1}R\chi_-=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
+\]
+空间指数与 $\sg$ 对易, 因而得到 \eqref{eq:RfromM}; 这里使用空间归一化值, 不对奇异的传播指数求值. $\gamma(z_a)>0$ 保证可逆. 换叶时 $\lambda$ 变号, 同时 $\sigma_1\sg\sigma_1=-\sg$, 两次变号相消, 故两原像的结果一致.
+\end{proof}
+
+% BEGIN EXPANSION 08-D
+\subsubsection*{从高能系数到三个场的完整矩阵运算}
+原有记号 $B(q)$ 的非对角元是 $q,\conj q$, 因而
+\[
+M^{(1)}=
+\begin{pmatrix}
+\ii J_-&-\ii q\\
+-\ii\conj q&-\ii J_-
+\end{pmatrix}.
+\]
+分别左乘和右乘 $\sg$:
+\[
+\sg M^{(1)}=
+\begin{pmatrix}
+\ii J_-&-\ii q\\
+\ii\conj q&\ii J_-
+\end{pmatrix},\qquad
+M^{(1)}\sg=
+\begin{pmatrix}
+\ii J_-&\ii q\\
+-\ii\conj q&\ii J_-
+\end{pmatrix}.
+\]
+相减并乘 $\dfrac{\ii}{2}$, 得
+\[
+\dfrac{\ii}{2}[\sg,M^{(1)}]
+=\dfrac{\ii}{2}
+\begin{pmatrix}
+0&-2\ii q\\
+2\ii\conj q&0
+\end{pmatrix}
+=\begin{pmatrix}
+0&q\\-\conj q&0
+\end{pmatrix}=Q(q).
+\]
+直接从空间方程也能读出完全相同的式子.
+在无穷远有
+\[
+k=\dfrac{z}{2}-\dfrac{q_0^2}{2z},\qquad
+\lambda=\dfrac{z}{2}+\dfrac{q_0^2}{2z},\qquad
+M=I+\dfrac{M^{(1)}}{z}+O(z^{-2}).
+\]
+将右侧逐项展开, 常数项为
+\[
+\begin{aligned}
+-\ii k\sg M
+&=-\dfrac{\ii z}{2}\sg
+-\dfrac{\ii}{2}\sg M^{(1)}+O(z^{-1}),\\
+QM&=Q+O(z^{-1}),\\
+\ii\lambda M\sg
+&=\dfrac{\ii z}{2}\sg
++\dfrac{\ii}{2}M^{(1)}\sg+O(z^{-1}).
+\end{aligned}
+\]
+因为左侧 $M_x=O(z^{-1})$, 常数项必须为零, 即
+\[
+0=Q-\dfrac{\ii}{2}\sg M^{(1)}
++\dfrac{\ii}{2}M^{(1)}\sg.
+\]
+移项便是 \eqref{eq:reconq}.
+
+\paragraph{共振重构的逆矩阵与换叶抵消.}
+在共振原像处写出 $2\times2$ 逆矩阵而不省略分母:
+\[
+M(z_a)^{-1}
+=\dfrac{1}{\gamma(z_a)}
+\begin{pmatrix}
+M_{22}(z_a)&-M_{12}(z_a)\\
+-M_{21}(z_a)&M_{11}(z_a)
+\end{pmatrix}.
+\]
+因此重构矩阵四个元可以直接检查为
+\[
+\begin{aligned}
+R_{11}
+&=\dfrac{\eta_0\lambda(z_a)}{a\gamma(z_a)}
+\bigl(M_{11}(z_a)M_{22}(z_a)+M_{12}(z_a)M_{21}(z_a)\bigr),\\
+R_{12}
+&=-\dfrac{2\eta_0\lambda(z_a)}{a\gamma(z_a)}
+M_{11}(z_a)M_{12}(z_a),\\
+R_{21}
+&=\dfrac{2\eta_0\lambda(z_a)}{a\gamma(z_a)}
+M_{21}(z_a)M_{22}(z_a),\\
+R_{22}&=-R_{11}.
+\end{aligned}
+\]
+这里没有在 $\chi$ 的奇异时间指数中代入共振点;
+所用对象始终是空间归一化的 $M(z_a)$.
+由于 $z_a$ 是非零实数,
+\[
+\gamma(z_a)=1+\dfrac{q_0^2}{z_a^2}>0.
+\]
+换叶公式中的标量 $\dfrac{\ii z_a}{q_0}$ 在共轭乘积两侧抵消, 于是
+\[
+\begin{aligned}
+M(h(z_a))\lambda(h(z_a))\sg M(h(z_a))^{-1}
+&=M(z_a)\sigma_1(-\lambda(z_a)\sg)\sigma_1M(z_a)^{-1}\\
+&=M(z_a)\lambda(z_a)\sg M(z_a)^{-1}.
+\end{aligned}
+\]
+所用反对易关系按元可见:
+\[
+\sigma_1\sg\sigma_1
+=\begin{pmatrix}0&1\\1&0\end{pmatrix}
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\begin{pmatrix}0&1\\1&0\end{pmatrix}
+=\begin{pmatrix}-1&0\\0&1\end{pmatrix}=-\sg.
+\]
+原物理场重构中的负号来自 $R_{12}=-p$, 所以
+$\widetilde p=e^{-\ii\Omega t}p=-e^{-\ii\Omega t}R_{12}$.
+
+% END EXPANSION 08-D
+
+\begin{lemma}[介质重构的约化相容性]\label{lem:medium-reduction}
+设 $M$ 是定义 \ref{def:RHP} 的一个解.
+用 \eqref{eq:RfromM} 定义 $R$, 则共振处逆矩阵存在, 两个原像给出同一个 $R$.
+该矩阵为 Hermitian 迹零矩阵, 且
+\begin{equation}\label{eq:reconstructed-bloch}
+R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)I.
+\end{equation}
+\end{lemma}
+\begin{proof}
+引理 \ref{lem:RHP-determinant} 给出 $\det M(z_a)=\gamma(z_a)>0$.
+换叶约化中 $\lambda(h(z_a))=-\lambda(z_a)$,
+而 $\sigma_1\sg\sigma_1=-\sg$; 代入 \eqref{eq:RfromM}, 两次变号抵消, 得到同一个矩阵.
+
+共振处两侧有共同值, 实轴上的共轭约化使它具有形式
+\[
+M(z_a)=\begin{pmatrix}u&v\\-\conj v&\conj u\end{pmatrix}.
+\]
+因此 $M(z_a)^\dagger M(z_a)=\gamma(z_a)I$.
+式 \eqref{eq:RfromM} 是实 Hermitian 对角矩阵的酉相似变换,
+从而保持 Hermitian 性与迹零. 其平方为
+$\dfrac{\eta_0^2\lambda(z_a)^2}{a^2}I$;
+再用 $\lambda(z_a)^2=a^2+q_0^2$, 得到 \eqref{eq:reconstructed-bloch}.
+\end{proof}
+引理 \ref{lem:medium-reduction} 是对任一满足所列条件的矩阵解的代数结论.
+要由独立数据得到 HMB 解, 还需验证参数正则性、空间端态及原方程.
+第 \ref{ch:verification} 节对指定纯虚单轨道完成这些步骤.
+\subsection{迹公式与相位条件}
+本小节各谱数据取同一时刻. 相位条件由 $z=0$ 处的归一化确定. 透射系数同时包含离散零点和连续谱反射的贡献. 以下标量分解采用非零边界逆散射中的 Cauchy 积分方法\cite{Fan2022,ZhangFan2020}, 积分轮廓取 HMB 的实轴与圆周.
+
+\begin{proposition}[迹公式与同相约束]\label{prop:theta}
+设透射系数在普通轮廓上非零, 只有上述有限简单离散零点. 取
+$\ell(s)=\log(1-\rho(s)\widetilde\rho(s))$ 的零指标分支, 设其在普通弧上局部 Hölder 连续, 在 $0,\infty$ 的极限为零, 且 $\ell,\dfrac{\ell(s)}{s}\in L^1(\Sigma)$. 假设剔除零点后两域中的透射函数具有与乘积关系相容的单值对数, 这些对数与下述 Cauchy 积分在各有限特殊点的边界值有界并局部匹配. 则
+\begin{equation}\label{eq:trace}
+s_{22}(z)=\prod_{j=1}^{m}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}
+\exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s-z}\,\dd s\right\},\qquad z\in D_+.
+\end{equation}
+$s_{11}$ 由共轭约化确定. 相同左右背景要求
+\begin{equation}\label{eq:theta-condition}
+\prod_{j=1}^{m}\dfrac{\zeta_j}{\conj{\zeta_j}}
+\exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s}\,\dd s\right\}=1.
+\end{equation}
+特别地, 无反射时 $s_{22}$ 等于 \eqref{eq:trace} 中的有理乘积, 且 $\displaystyle\prod_{j=1}^{m}\dfrac{\zeta_j}{\conj{\zeta_j}}=1$.
+\end{proposition}
+\begin{proof}
+记 $B_0(z)=\displaystyle\prod_{j=1}^{m}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}$, 定义
+$\beta_+=\dfrac{s_{22}}{B_0}$、$\beta_-=s_{11}B_0$. 它们在相应域解析且无零点, 无穷远归一化为 1. 由 $\det S=1$,
+\[
+\beta_+\beta_-=s_{11}s_{22}=\dfrac{1}{1-\rho\widetilde\rho}.
+\]
+相容的对数分支满足 $\log\beta_++\log\beta_-=-\ell$, 因而分片解析函数 $f_+=\log\beta_+$、$f_-=-\log\beta_-$ 的跳跃为 $f_+-f_-=-\ell$. Plemelj 公式及归一化给出
+\[
+f(z)=-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s-z}\,\dd s.
+\]
+差函数在特殊点可去且在无穷远为零, 因而没有附加整函数项. 代回 $\beta_+$ 即得 \eqref{eq:trace}. 为取零点极限, 沿 $D_+$ 内的 $z=-\ii\varepsilon$, $\varepsilon\downarrow0$. 实轴上 $\left|\dfrac{s}{s+\ii\varepsilon}\right|\le1$, 圆周与零点分离, 故 $\dfrac{\ell(s)}{s-z}$ 受 $C\left|\dfrac{\ell(s)}{s}\right|$ 控制. 支配收敛结合 $s_{22}(0)=1$ 给出 \eqref{eq:theta-condition}.
+\end{proof}
+
+% BEGIN EXPANSION 08-K
+\paragraph{去零点乘积与标量跳跃的符号.}
+在 $D_+$ 中, $B_0$ 与 $s_{22}$ 在同一点各有一阶零;
+在 $\zeta_j$ 附近,
+\[
+\begin{aligned}
+s_{22}(z)&=s_{22}'(\zeta_j)(z-\zeta_j)+O((z-\zeta_j)^2),\\
+B_0(z)&=(z-\zeta_j)
+\dfrac{1}{z-\conj{\zeta_j}}
+\prod\limits_{\substack{k=1\\k\ne j}}^{m}
+\dfrac{z-\zeta_k}{z-\conj{\zeta_k}}.
+\end{aligned}
+\]
+所以其商的有限非零极限为
+\[
+\beta_+(\zeta_j)
+=s_{22}'(\zeta_j)(\zeta_j-\conj{\zeta_j})
+\prod\limits_{\substack{k=1\\k\ne j}}^{m}
+\dfrac{\zeta_j-\conj{\zeta_k}}{\zeta_j-\zeta_k}.
+\]
+同理, $D_-$ 中 $s_{11}$ 的零与 $B_0$ 的极点相消,
+因此 $\beta_-=s_{11}B_0$ 也解析且无零点.
+相乘时 $B_0$ 完全约掉:
+\[
+\beta_+\beta_-
+=\dfrac{s_{22}}{B_0}s_{11}B_0
+=s_{11}s_{22}
+=\dfrac{1}{1-\rho\widetilde\rho}.
+\]
+在原文明确假设的相容单值对数分支下, 才能写
+\[
+\log\beta_++\log\beta_-=-\ell.
+\]
+该分支条件排除了在各连通域之间任意加上不同 $2\pi\ii$ 整数倍的歧义.
+原文将下侧函数定义为 $f_-=-\log\beta_-$, 所以
+\[
+f_+-f_-=log\beta_++\log\beta_-=-\ell.
+\]
+故 Cauchy 核前面是负号.
+把 $f$ 减去其 Cauchy 积分后, 普通轮廓两侧没有跳跃;
+特殊点有界且相容, 所以这些点可去.
+无穷远极限为零, 由 Liouville 定理差函数恒为零.
+最后在 $D_+$ 中逐步指数化:
+\[
+\begin{aligned}
+\log\beta_+(z)
+&=-\dfrac{1}{2\pi\ii}\int\limits_\Sigma
+\dfrac{\ell(s)}{s-z}\,\dd s,\\
+\beta_+(z)
+&=\exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma
+\dfrac{\ell(s)}{s-z}\,\dd s\right\},\\
+s_{22}(z)&=B_0(z)\beta_+(z).
+\end{aligned}
+\]
+
+\paragraph{零点归一化如何成为同相条件.}
+取 $z=-\ii\varepsilon$ 且 $0<\varepsilon<q_0$.
+这时 $\operatorname{Im}z<0$ 且 $1-\dfrac{q_0^2}{|z|^2}<0$,
+故 $z\in D_+$.
+对实轴上的 $s$,
+\[
+\left|\dfrac{s}{s+\ii\varepsilon}\right|
+=\dfrac{|s|}{\sqrt{s^2+\varepsilon^2}}\le1,
+\]
+从而
+\[
+\left|\dfrac{\ell(s)}{s+\ii\varepsilon}\right|
+\le\left|\dfrac{\ell(s)}{s}\right|.
+\]
+圆周满足 $|s|=q_0$, 取 $\varepsilon<\dfrac{q_0}{2}$ 时
+$|s+\ii\varepsilon|\ge\dfrac{q_0}{2}$,
+因此圆周上的同类控制常数可取为 2.
+原假设使该控制函数可积, 支配收敛给出
+\[
+\lim\limits_{\varepsilon\downarrow0}
+\int\limits_\Sigma\dfrac{\ell(s)}{s+\ii\varepsilon}\,\dd s
+=\int\limits_\Sigma\dfrac{\ell(s)}{s}\,\dd s.
+\]
+离散乘积逐因子取极限:
+\[
+\dfrac{-\ii\varepsilon-\zeta_j}
+{-\ii\varepsilon-\conj{\zeta_j}}
+\longrightarrow\dfrac{\zeta_j}{\conj{\zeta_j}}.
+\]
+用 $s_{22}(0)=1$ 即得到 \eqref{eq:theta-condition}.
+一个四点轨道的另一个 $D_+$ 点是
+$-\dfrac{q_0^2}{\conj{\zeta_n}}$, 它的相位比值为
+\[
+\dfrac{-\dfrac{q_0^2}{\conj{\zeta_n}}}{-\dfrac{q_0^2}{\zeta_n}}
+=\dfrac{\zeta_n}{\conj{\zeta_n}}.
+\]
+两个因子相乘便是 $(\dfrac{\zeta_n}{\conj{\zeta_n}})^2$.
+又 $\dfrac{\zeta_n}{\conj{\zeta_n}}=e^{2\ii\arg\zeta_n}$,
+所以所有轨道乘积为
+\[
+\exp\left\{4\ii\sum\limits_{n=1}^{N}\arg\zeta_n\right\}.
+\]
+等于 1 恰是原文的模 $2\pi$ 相位条件.
+% END EXPANSION 08-K
+每个完整四点轨道取外部上半平面的代表 $\zeta_n$, 则它的两个 $D_+$ 零点对无反射相位乘积的贡献为 $\left(\dfrac{\zeta_n}{\conj{\zeta_n}}\right)^2$. 因而同相约束化为
+\[
+4\sum\limits_{n=1}^{N}\arg\zeta_n=0\pmod{2\pi}.
+\]
+纯虚代表逐轨道满足这一条件.

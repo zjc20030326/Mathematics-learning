@@ -1,0 +1,1275 @@
+本节从独立的无反射离散数据出发, 不预设待构造三场已经满足 HMB 方程.
+先求一般有限维系统, 再对指定纯虚轨道证明全局可逆性.
+本节的常数均取初始时刻, 时间因素由式 \eqref{eq:C-timephase} 统一给出.
+
+\subsection{多轨道无反射问题的条件性求解}
+这里的 $N$ 按完整简单四点轨道的数目计数. 以下在无反射条件下求出矩阵解及相应场的重构公式.
+
+当 $\rho=\widetilde\rho=0$ 时, 跳跃矩阵为 $I$. 在非极点轮廓处取可去条件. 在分支点 $z_b=\pm\ii q_0$ 处, 矩阵 $M$ 正则, 而其行列式 $\gamma(z)=1+\dfrac{q_0^2}{z^2}$ 具有一阶零点, 即 $\gamma(z_b)=0$、$\gamma'(z_b)\ne0$.
+
+固定 $N$ 个两两不交的完整简单四点轨道. 按 \eqref{eq:discrete-indexing} 选取外部上半平面代表 $\zeta_1,\ldots,\zeta_N$, 并置
+\begin{equation}\label{eq:N-orbit-data}
+\begin{aligned}
+m&=2N,\qquad \zeta_{N+n}=-\dfrac{q_0^2}{\conj{\zeta_n}},\qquad n=1,\ldots,N,\\
+c_{N+n}(0)&=-\dfrac{q_0^2}{(\conj{\zeta_n})^2}\conj{c_n(0)},\qquad
+C_j=c_j(0)e^{2\ii\theta(\zeta_j)},\qquad j=1,\ldots,m.
+\end{aligned}
+\end{equation}
+所有 $4N$ 个谱点互异且位于 $\Sigma$ 外, 各 $c_n(0)\ne0$. 同相背景要求
+\begin{equation}\label{eq:N-orbit-phase}
+\prod\limits_{j=1}^{m}\dfrac{\zeta_j}{\conj{\zeta_j}}=1.
+\end{equation}
+下文保留全部 $m$ 个 $D_+$ 点及其共轭点, 令 $\mathbf v_j=M_1(\zeta_j)$、$\mathbf u_j=M_2(\conj{\zeta_j})$.
+
+\paragraph{留数系统与分块消元.}\label{prop:finite}
+除 $0$ 与指定离散极点外没有有限奇点的无反射矩阵解具有表示
+\begin{equation}\label{eq:partialfraction}
+M(z)=I-\dfrac{\ii q_0}{z}\sigma_1+\sum\limits_{j=1}^{m}
+\left(\dfrac{C_j\mathbf v_je_2^T}{z-\zeta_j}
+-\dfrac{\conj{C_j}\mathbf u_je_1^T}{z-\conj{\zeta_j}}\right),
+\end{equation}
+其正则列满足
+\begin{align}
+\mathbf v_j&=e_1-\dfrac{\ii q_0}{\zeta_j}e_2
+-\sum\limits_{k=1}^{m}\dfrac{\conj{C_k}\mathbf u_k}{\zeta_j-\conj{\zeta_k}},\label{eq:finite1}\\
+\mathbf u_j&=e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1
++\sum\limits_{k=1}^{m}\dfrac{C_k\mathbf v_k}{\conj{\zeta_j}-\zeta_k}.\label{eq:finite2}
+\end{align}
+反之, 任一系统解通过 \eqref{eq:partialfraction} 给出具有指定留数和两处归一化的矩阵. 记
+\[
+A_{jk}=\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}},\qquad
+B_{jk}=\dfrac{C_k}{\conj{\zeta_j}-\zeta_k},\qquad j,k=1,\ldots,m,
+\]
+并记 $f_j=e_1-\dfrac{\ii q_0}{\zeta_j}e_2$、$g_j=e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1$. 将 $\mathbf v_j^T,\mathbf u_j^T,f_j^T,g_j^T$ 分别作为 $m\times2$ 矩阵 $\boldsymbol v,\boldsymbol u,\boldsymbol f,\boldsymbol g$ 的第 $j$ 行. 则留数系统为
+\begin{equation}\label{eq:N-block-system}
+K_N\begin{pmatrix}\boldsymbol v\\\boldsymbol u\end{pmatrix}
+=\begin{pmatrix}\boldsymbol f\\\boldsymbol g\end{pmatrix},\qquad
+K_N=\begin{pmatrix}I_m&A\\-B&I_m\end{pmatrix}.
+\end{equation}
+置 $L_N=I_m+AB$. 若 $\det L_N\ne0$, 则系统的唯一解为
+\begin{equation}\label{eq:finite-schur}
+\boldsymbol v=L_N^{-1}(\boldsymbol f-A\boldsymbol g),\qquad
+\boldsymbol u=\boldsymbol g+B\boldsymbol v.
+\end{equation}
+相应光场为
+\begin{equation}\label{eq:qfinite}
+q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\mathbf v_j)_1.
+\end{equation}
+
+上述关系由以下计算得到.
+
+减去 $z=0$ 处主部及全部离散主部后, 剩余矩阵在有限平面解析, 且在无穷远趋于 $I$. Liouville 定理给出 \eqref{eq:partialfraction}, 这也正是 \eqref{eq:general-cauchy} 中 $G=0$ 的情形. 在第一列取 $z=\zeta_j$, 在第二列取 $z=\conj{\zeta_j}$, 即得 \eqref{eq:finite1}--\eqref{eq:finite2}. 反向代入时, 这些取值等式保证留数系数恰为对应正则列. 写成
+\[
+\boldsymbol v=\boldsymbol f-A\boldsymbol u,\qquad
+\boldsymbol u=\boldsymbol g+B\boldsymbol v,
+\]
+对系数矩阵作分块消元,
+\[
+\begin{pmatrix}I_m&-A\\0&I_m\end{pmatrix}
+\begin{pmatrix}I_m&A\\-B&I_m\end{pmatrix}
+=\begin{pmatrix}L_N&0\\-B&I_m\end{pmatrix},
+\qquad \det K_N=\det L_N.
+\]
+当此行列式非零时, 第一行解出 $\boldsymbol v$, 第二行给出 $\boldsymbol u$, 得到 \eqref{eq:finite-schur}. 最后读取 \eqref{eq:partialfraction} 的 $(1,2)$ 元的 $z^{-1}$ 系数, 得到 \eqref{eq:qfinite}.
+
+
+\begin{theorem}[$N$ 轨道矩阵解与行列式重构]\label{thm:N-orbit-RHP}
+设数据满足 \eqref{eq:N-orbit-data}--\eqref{eq:N-orbit-phase}. 固定实点 $(x,t)$ 并假设留数矩阵满足 $\det L_N(x,t)\ne0$. 则式 \eqref{eq:finite-schur} 和 \eqref{eq:partialfraction} 给出无反射 RHP 的唯一解. 它满足 \eqref{eq:Msym} 及 $\det M=\gamma$, 在分支点解析且秩为一. 令
+\begin{equation}\label{eq:N-rhs}
+\begin{aligned}
+&\boldsymbol C=(C_1,\ldots,C_m)^T,\qquad
+\boldsymbol r=(\boldsymbol f-A\boldsymbol g)e_1,\\
+&r_j=1+\ii q_0\sum\limits_{k=1}^{m}
+\dfrac{\conj{C_k}}{(\zeta_j-\conj{\zeta_k})\conj{\zeta_k}},\qquad j=1,\ldots,m,
+\end{aligned}
+\end{equation}
+则规范光场有显式矩阵式与行列式表示
+\begin{equation}\label{eq:N-determinant-q}
+q=q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r
+=\dfrac{\det\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}}
+{\det L_N}.
+\end{equation}
+介质矩阵由同一有理矩阵在共振原像处重构:
+\begin{equation}\label{eq:N-medium}
+R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
+\end{equation}
+两个符号给出相同结果; 相应三场按 \eqref{eq:original-fields} 恢复.
+\end{theorem}
+\begin{proof}
+上述留数系统 给出有理矩阵的全部留数及归一化, 并由 $\det L_N\ne0$ 保证唯一性. 共轭变换 $\sigma_2\conj{M(\conj{z})}\sigma_2$ 交换两组极点, 满足同一留数系统和两处归一化. 换叶变换
+\[
+\widehat M(z)=M(h(z))\left(\dfrac{\ii z}{q_0}\sigma_1\right)^{-1}
+\]
+也满足这些条件. 具体地, 记同一轨道的配对指标为 $\widehat j$, 即 $\zeta_{\widehat j}=h(\conj{\zeta_j})$. 在 $z=\zeta_j$ 处, $h(z)$ 趋于 $\conj{\zeta_{\widehat j}}$, 由 $h'(\zeta_j)=\dfrac{q_0^2}{\zeta_j^2}$ 和 \eqref{eq:Cpair},
+\[
+\Res_{z=\zeta_j}\widehat M_2(z)
+=\dfrac{\ii q_0\conj{C_{\widehat j}}}{\zeta_jh'(\zeta_j)}\mathbf u_{\widehat j}
+=C_j\left(-\dfrac{\ii q_0}{\zeta_j}\mathbf u_{\widehat j}\right)
+=C_j\widehat M_1(\zeta_j).
+\]
+共轭点处同理, 得到带负号的第一列留数条件. 在 $0,\infty$ 处, 换叶交换两处归一化, 仍给出规定主项. 由唯一性得到两项约化 \eqref{eq:Msym}.
+
+在每个离散极点, 奇异列的留数为正则列的标量倍数, 因而 $\det M$ 的留数为零. 又由 $0,\infty$ 的归一化,
+\[
+\det M(z)=1+\dfrac{d}{z}+\dfrac{q_0^2}{z^2}
+\]
+对某个标量 $d$ 成立. 换叶约化的行列式给出
+\[
+1-\dfrac{dz}{q_0^2}+\dfrac{z^2}{q_0^2}
+=\det M(h(z))=\dfrac{z^2}{q_0^2}\det M(z)
+=\dfrac{z^2}{q_0^2}+\dfrac{dz}{q_0^2}+1,
+\]
+故 $d=0$, 即 $\det M=\gamma$. 分支点不在部分分式的极点集合中, 所以 $M$ 在该处解析. 若 $M(z_b)$ 为零矩阵, 则行列式至少有二阶零点, 与 $\gamma'(z_b)\ne0$ 矛盾; 因此其秩恰为一.
+
+由 \eqref{eq:finite-schur}, 正则列第一分量排成的列向量为 $L_N^{-1}\boldsymbol r$. 代入 \eqref{eq:qfinite} 得到 \eqref{eq:N-determinant-q} 的第一式. 再对其分子作分块行列式计算,
+\[
+\det\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}
+=\det L_N\left(q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r\right),
+\]
+得到第二式. 共振原像不在离散谱中, 且 $\gamma(z_a^\pm)>0$, 所以逆矩阵存在. 两个原像互为换叶, $\lambda(h(z))=-\lambda(z)$, 而 $\sigma_1\sigma_3\sigma_1=-\sigma_3$; 代入换叶约化即得 \eqref{eq:N-medium} 与谱叶无关.
+\end{proof}
+
+% BEGIN EXPANSION 08-N
+\subsubsection*{完整多轨道数据、Schur 消元与行列式公式的逐项计算}
+\paragraph{一个轨道为什么贡献两个正则列指标.}
+每个外部上半平面的代表 $\zeta_n$ 对应四点
+\[
+\zeta_n,\quad \conj{\zeta_n},\quad
+h(\zeta_n)=-\dfrac{q_0^2}{\zeta_n},\quad
+h(\conj{\zeta_n})=-\dfrac{q_0^2}{\conj{\zeta_n}}.
+\]
+其中第一点与第四点属于 $D_+$, 第二点与第三点属于 $D_-$.
+因此 $N$ 个完整轨道共有 $m=2N$ 个 $D_+$ 点,
+而不是只取 $N$ 个外部代表就结束求和.
+第 $n$ 与第 $N+n$ 个指标分别指第一点和第四点;
+它们的共轭点自动补齐另一个解析域.
+因为 $\zeta_n\notin\Sigma$, $\zeta_n\ne0$,
+且不同轨道不相交, 所有差 $\zeta_j-\conj{\zeta_k}$ 均不为零.
+所以 $A,B$ 的矩阵元在给定数据下都有定义.
+
+由 $\theta(h(\conj{\zeta_n}))=-\conj{\theta(\zeta_n)}$,
+\[
+\begin{aligned}
+C_{N+n}
+&=-\dfrac{q_0^2}{(\conj{\zeta_n})^2}\conj{c_n(0)}
+e^{-2\ii\conj{\theta(\zeta_n)}}\\
+&=-\dfrac{q_0^2}{(\conj{\zeta_n})^2}\conj{C_n}.
+\end{aligned}
+\]
+这说明时空指数保持范数常数的配对关系.
+同一轨道对相位乘积的贡献逐因子为
+\[
+\dfrac{\zeta_n}{\conj{\zeta_n}}
+\dfrac{\zeta_{N+n}}{\conj{\zeta_{N+n}}}
+=\dfrac{\zeta_n}{\conj{\zeta_n}}
+\dfrac{-\dfrac{q_0^2}{\conj{\zeta_n}}}{-\dfrac{q_0^2}{\zeta_n}}
+=\left(\dfrac{\zeta_n}{\conj{\zeta_n}}\right)^2.
+\]
+于是 \eqref{eq:N-orbit-phase} 与上一小节的相位和条件一致.
+该约束规定两端背景的相位, 不等同于有限维矩阵的可逆性条件.
+
+\paragraph{把有理矩阵的两列与四个元全部写出.}
+由部分分式式 \eqref{eq:partialfraction},
+\[
+\begin{aligned}
+M_1(z)&=e_1-\dfrac{\ii q_0}{z}e_2
+-\sum\limits_{k=1}^{m}\dfrac{\conj{C_k}\mathbf u_k}{z-\conj{\zeta_k}},\\
+M_2(z)&=e_2-\dfrac{\ii q_0}{z}e_1
++\sum\limits_{k=1}^{m}\dfrac{C_k\mathbf v_k}{z-\zeta_k}.
+\end{aligned}
+\]
+因此
+\[
+\begin{aligned}
+M_{11}(z)&=1-\sum\limits_{k=1}^{m}
+\dfrac{\conj{C_k}(\mathbf u_k)_1}{z-\conj{\zeta_k}},\\
+M_{21}(z)&=-\dfrac{\ii q_0}{z}-\sum\limits_{k=1}^{m}
+\dfrac{\conj{C_k}(\mathbf u_k)_2}{z-\conj{\zeta_k}},\\
+M_{12}(z)&=-\dfrac{\ii q_0}{z}+\sum\limits_{k=1}^{m}
+\dfrac{C_k(\mathbf v_k)_1}{z-\zeta_k},\\
+M_{22}(z)&=1+\sum\limits_{k=1}^{m}
+\dfrac{C_k(\mathbf v_k)_2}{z-\zeta_k}.
+\end{aligned}
+\]
+第一列在每个 $\zeta_j$ 处正则, 第二列在每个 $\conj{\zeta_j}$ 处正则.
+分别取值就得到 \eqref{eq:finite1}--\eqref{eq:finite2}.
+反向代入时, 第二列在 $\zeta_j$ 的留数是 $C_j\mathbf v_j$,
+而系统保证 $\mathbf v_j=M_1(\zeta_j)$;
+第一列的负号也由相同取值核对, 没有额外的未知留数.
+
+\paragraph{为什么 $4N$ 阶系统能缩减为 $2N$ 阶系统.}
+$\boldsymbol v,\boldsymbol u$ 各有 $m$ 行, 每行有两个标量分量.
+对任意一个固定的分量, 系数矩阵 $K_N$ 是 $2m\times2m$, 即 $4N$ 阶.
+两列右端共用同一系数矩阵, 所以只须分解该矩阵一次.
+从第二组方程逐指标代入第一组,
+\[
+\begin{aligned}
+\mathbf v_j
+&=f_j-\sum\limits_{k=1}^{m}A_{jk}
+\left(g_k+\sum\limits_{l=1}^{m}B_{kl}\mathbf v_l\right)\\
+&=f_j-\sum\limits_{k=1}^{m}A_{jk}g_k
+-\sum\limits_{l=1}^{m}\left(\sum\limits_{k=1}^{m}A_{jk}B_{kl}\right)\mathbf v_l.
+\end{aligned}
+\]
+把含未知列的项移到左边, 就是
+\[
+\sum\limits_{l=1}^{m}(L_N)_{jl}\mathbf v_l
+=f_j-\sum\limits_{k=1}^{m}A_{jk}g_k,
+\]
+其中
+\[
+(L_N)_{jl}=\delta_{jl}+
+\sum\limits_{k=1}^{m}
+\dfrac{\conj{C_k}C_l}
+{(\zeta_j-\conj{\zeta_k})(\conj{\zeta_k}-\zeta_l)}.
+\]
+这里 $\delta_{jl}$ 为 Kronecker 符号: $j=l$ 时等于 1, 否则等于 0.
+这正是矩阵乘积 $L_N=I_m+AB$ 的逐元表达式.
+分块消元左乘矩阵的行列式为 1, 因而
+$\det K_N=\det L_N$.
+所以 $\det L_N\ne0$ 同时保证两个向量分量的唯一可解性,
+而不只是其中某个标量方程有解.
+
+右端也可逐分量核对:
+\[
+\begin{aligned}
+(\boldsymbol f-A\boldsymbol g)_{j1}
+&=1+\ii q_0\sum\limits_{k=1}^{m}
+\dfrac{\conj{C_k}}{(\zeta_j-\conj{\zeta_k})\conj{\zeta_k}}=r_j,\\
+(\boldsymbol f-A\boldsymbol g)_{j2}
+&=-\dfrac{\ii q_0}{\zeta_j}
+-\sum\limits_{k=1}^{m}\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}}.
+\end{aligned}
+\]
+因此先求 $\boldsymbol v=L_N^{-1}(\boldsymbol f-A\boldsymbol g)$,
+再按 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$ 代回,
+就得到了全部 $4N$ 条正则列, 并可直接代入上面的四个矩阵元.
+
+\paragraph{光场的边框行列式不省略消元步骤.}
+因为 $\boldsymbol v e_1=L_N^{-1}\boldsymbol r$,
+\[
+\sum\limits_{j=1}^{m}C_j(\mathbf v_j)_1
+=\boldsymbol C^T\boldsymbol v e_1
+=\boldsymbol C^T L_N^{-1}\boldsymbol r.
+\]
+此处是转置 $T$, 没有对 $C_j$ 再作共轭.
+由 $M_{12}$ 的 $z^{-1}$ 系数乘以 $\ii$, 就得到
+$q=q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r$.
+再作一次分块消元,
+\[
+\begin{aligned}
+&
+\begin{pmatrix}I_m&0\\\ii\boldsymbol C^T L_N^{-1}&1\end{pmatrix}
+\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}\\
+&\qquad=\begin{pmatrix}L_N&\boldsymbol r\\0&q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r\end{pmatrix}.
+\end{aligned}
+\]
+左乘矩阵行列式仍为 1. 对右边分块三角矩阵取行列式,
+再除以非零的 $\det L_N$, 得到 \eqref{eq:N-determinant-q}.
+这给出任意有限 $N$ 的直接代数求解, 不需要把单轨道公式反复相加.
+
+\paragraph{换叶留数中的链式因子与负号.}
+右乘 $\sigma_1$ 交换两列, 且
+$\left(\dfrac{\ii z}{q_0}\sigma_1\right)^{-1}
+=-\dfrac{\ii q_0}{z}\sigma_1$.
+所以
+\[
+\widehat M_1(z)=-\dfrac{\ii q_0}{z}M_2(h(z)),\qquad
+\widehat M_2(z)=-\dfrac{\ii q_0}{z}M_1(h(z)).
+\]
+在 $z=\zeta_j$ 附近,
+\[
+h(z)-\conj{\zeta_{\widehat j}}
+=h'(\zeta_j)(z-\zeta_j)+O((z-\zeta_j)^2).
+\]
+$M_1$ 在共轭点的留数为 $-\conj{C_{\widehat j}}\mathbf u_{\widehat j}$,
+与前面的 $-\ii q_0/z$ 相乘给出原证明的正号.
+再用
+\[
+\conj{C_{\widehat j}}=-\dfrac{q_0^2}{\zeta_j^2}C_j,
+\qquad h'(\zeta_j)=\dfrac{q_0^2}{\zeta_j^2},
+\]
+得到原证明中单行等式的每一个因子.
+这一步是在完整轨道中配对, 因而对任意 $N$ 都成立.
+
+\paragraph{行列式与分支点的正则性分开检查.}
+在 $z=\zeta_j$ 处写第二列为
+$\dfrac{C_jM_1(\zeta_j)}{z-\zeta_j}+O(1)$,
+则行列式的留数为
+\[
+C_j\det(M_1(\zeta_j),M_1(\zeta_j))=0.
+\]
+共轭点同理. 因此行列式只可能在 $0$ 处有二阶极点,
+其最高阶系数为
+\[
+\det\left(-\dfrac{\ii q_0}{z}\sigma_1\right)
+=\left(-\dfrac{\ii q_0}{z}\right)^2\det\sigma_1
+=\dfrac{q_0^2}{z^2}.
+\]
+这与无穷远极限 1 一起给出原证明中的 $1+\dfrac{d}{z}+\dfrac{q_0^2}{z^2}$.
+换叶后的行列式比较消去 $d$, 从而 $\det M=\gamma$.
+在 $z_b=\pm\ii q_0$ 处,
+\[
+\gamma'(z_b)=-\dfrac{2q_0^2}{z_b^3}\ne0.
+\]
+这里有一阶零点的是行列式, 不是说矩阵的四个元同时为零.
+若四个元都在 $z_b$ 为零, 它们都含因子 $z-z_b$,
+行列式便含 $(z-z_b)^2$, 与上述导数矛盾.
+因此正则矩阵 $M(z_b)$ 的秩恰为一.
+
+\paragraph{两个共振值以及一般公式的可逆性范围.}
+记换叶因子仍为原文的 $\dfrac{\ii z}{q_0}\sigma_1$.
+在共振点两叶上, 由 $\lambda(h(z))=-\lambda(z)$,
+\[
+\begin{aligned}
+&M(h(z))\lambda(h(z))\sg M(h(z))^{-1}\\
+&\quad=M(z)\sigma_1(-\lambda(z)\sg)\sigma_1M(z)^{-1}
+=M(z)\lambda(z)\sg M(z)^{-1}.
+\end{aligned}
+\]
+所以同一部分分式矩阵给出唯一的介质矩阵,
+而 $\gamma(z_a^\pm)>0$ 保证这里所用的二阶逆矩阵存在.
+计算时先完成有限系统, 再代入两个实共振原像;
+无须在共振点计算含极点的传播指数.
+
+一般 $N$ 的公式以 $\det L_N(x,t)\ne0$ 为条件.
+它说明在这些点上矩阵解存在且唯一,
+并不由相位乘积条件自动推出 $\det L_N$ 在全平面不为零.
+下节取 $N=1$ 并指定纯虚数据后,
+另行分解行列式并证明严格正性;
+该全局正性证明与一般 $N$ 的条件性代数公式应分别阅读.
+% END EXPANSION 08-N
+
+上述公式将 $N$ 轨道问题化为 $2N$ 阶矩阵 $L_N$ 的求逆. 公式适用于 $\det L_N\ne0$ 的区域; 下节对一个纯虚轨道进一步显式消元, 并证明该行列式在全体实 $x,t$ 上严格为正.
+
+\subsection{纯虚单轨道数据与全局矩阵解}
+
+% BEGIN EXPANSION 08-E
+\paragraph{单轨道的两点系统逐行消元.}
+这里取 $N=1$, 因而 $m=2$. 无反射意味着 $G=0$, 因而 $W=0$.
+一般表示中连续谱积分逐项等于零, 剩下的不是积分方程, 而是有限个列向量的线性代数方程.
+当 $j,k=1,2$ 时, 四行逐行写为
+\[
+\begin{aligned}
+\mathbf v_1
+&=f_1- A_{11}\mathbf u_1- A_{12}\mathbf u_2,\\
+\mathbf v_2
+&=f_2- A_{21}\mathbf u_1- A_{22}\mathbf u_2,\\
+\mathbf u_1
+&=g_1+ B_{11}\mathbf v_1+ B_{12}\mathbf v_2,\\
+\mathbf u_2
+&=g_2+ B_{21}\mathbf v_1+ B_{22}\mathbf v_2.
+\end{aligned}
+\]
+把后两行逐个代进第一行, 得
+\[
+\begin{aligned}
+\mathbf v_1
+={}&f_1- A_{11}g_1- A_{12}g_2\\
+&-( A_{11} B_{11}
++ A_{12} B_{21})\mathbf v_1\\
+&-( A_{11} B_{12}
++ A_{12} B_{22})\mathbf v_2.
+\end{aligned}
+\]
+同样代进第二行, 得
+\[
+\begin{aligned}
+\mathbf v_2
+={}&f_2- A_{21}g_1- A_{22}g_2\\
+&-( A_{21} B_{11}
++ A_{22} B_{21})\mathbf v_1\\
+&-( A_{21} B_{12}
++ A_{22} B_{22})\mathbf v_2.
+\end{aligned}
+\]
+把含未知列的项移到左侧, 就是
+\[
+(I_2+ A B)\boldsymbol v
+=\boldsymbol f- A\boldsymbol g.
+\]
+这里 $I_2+ A B$ 的下标是离散点下标;
+每个未知量本身仍是一条二维列.
+对每个向量分量分别取值, 所以同一个二阶系数矩阵解两次.
+这也解释原文将 $\boldsymbol v$ 记成两行两列数组时, 每一行实际是一条正则列的转置.
+% END EXPANSION 08-E
+取一个纯虚离散轨道
+\begin{equation}\label{eq:imaginarypoint}
+k_1=\ii b,\qquad b>q_0,\qquad
+\kappa=\sqrt{b^2-q_0^2},\qquad W=b+\kappa,\qquad h_0=\dfrac{q_0}{W}\in(0,1).
+\end{equation}
+两个 $D_+$ 零点与透射函数为
+\begin{equation}\label{eq:onezeros}
+\zeta_1=\ii W,\qquad \zeta_2=-\ii q_0h_0=h(\conj{\zeta_1}),\qquad
+s_{22}(z)=\dfrac{\lambda(z)-\ii\kappa}{\lambda(z)+\ii\kappa}.
+\end{equation}
+这正是无反射迹公式的两因子乘积, 其在 $0,\infty$ 均趋于 1. 在外部零点选择 $b_1(0)=1$, 并由换叶约化确定另一常数:
+\begin{equation}\label{eq:onec}
+c_1(0)=\dfrac{1}{s_{22}'(\zeta_1)}=\dfrac{4\ii\kappa}{1+h_0^2},\qquad
+c_2(0)=-h_0^2c_1(0).
+\end{equation}
+令
+\begin{equation}\label{eq:orbit-phase}
+s=\kappa[x-F(\ii b)t],\qquad T=e^{2s}.
+\end{equation}
+由 $\lambda(\zeta_1)=\lambda(\zeta_2)=\ii\kappa$, $k(\zeta_2)=-\ii b$ 及 $F(-\ii b)=\conj{F(\ii b)}$, 得 $C_1=c_1(0)T$、$C_2=-h_0^2c_1(0)\conj{T}$.
+
+% BEGIN EXPANSION 08-F
+\paragraph{谱点, 换叶, 透射导数与四个范数系数的实算.}
+由 $\kappa^2=b^2-q_0^2$ 得
+\[
+(b+\kappa)(b-\kappa)=q_0^2.
+\]
+结合 $W=b+\kappa$ 与 $h_0=\dfrac{q_0}{W}$, 逐式得到
+\[
+\begin{aligned}
+W&=\dfrac{q_0}{h_0},&
+b-\kappa&=q_0h_0,\\
+2b&=\dfrac{q_0}{h_0}+q_0h_0
+=\dfrac{q_0(1+h_0^2)}{h_0},\\
+2\kappa&=\dfrac{q_0}{h_0}-q_0h_0
+=\dfrac{q_0(1-h_0^2)}{h_0}.
+\end{aligned}
+\]
+由于 $b>q_0>0$, 有 $\kappa>0$ 和 $W>q_0$, 所以 $0<h_0<1$.
+四个点逐一列出是
+\[
+\zeta_1=\dfrac{\ii q_0}{h_0},\quad
+\zeta_2=-\ii q_0h_0,\quad
+\conj{\zeta_1}=-\dfrac{\ii q_0}{h_0},\quad
+\conj{\zeta_2}=\ii q_0h_0.
+\]
+在第一个点代入均匀化公式:
+\[
+\begin{aligned}
+\lambda(\zeta_1)
+&=\dfrac{1}{2}\left(\dfrac{\ii q_0}{h_0}
++\dfrac{q_0^2}{\dfrac{\ii q_0}{h_0}}\right)
+=\dfrac{\ii q_0}{2}(h_0^{-1}-h_0)=\ii\kappa,\\
+k(\zeta_1)
+&=\dfrac{\ii q_0}{2}(h_0^{-1}+h_0)=\ii b.
+\end{aligned}
+\]
+在第二个点同样计算:
+\[
+\begin{aligned}
+\lambda(\zeta_2)
+&=\dfrac{1}{2}\left(-\ii q_0h_0
++\dfrac{q_0^2}{-\ii q_0h_0}\right)
+=\dfrac{\ii q_0}{2}(h_0^{-1}-h_0)=\ii\kappa,\\
+k(\zeta_2)
+&=-\dfrac{\ii q_0}{2}(h_0+h_0^{-1})=-\ii b.
+\end{aligned}
+\]
+共轭点的对应值则是
+\[
+\begin{aligned}
+\lambda(\conj{\zeta_1})&=-\ii\kappa,&
+k(\conj{\zeta_1})&=-\ii b,\\
+\lambda(\conj{\zeta_2})&=-\ii\kappa,&
+k(\conj{\zeta_2})&=\ii b.
+\end{aligned}
+\]
+两个零因子的分子相乘为
+\[
+\begin{aligned}
+(z-\zeta_1)(z-\zeta_2)
+&=\left(z-\dfrac{\ii q_0}{h_0}\right)
+\left(z+\ii q_0h_0\right)\\
+&=z^2-\ii q_0(h_0^{-1}-h_0)z+q_0^2\\
+&=z^2-2\ii\kappa z+q_0^2
+=2z(\lambda-\ii\kappa).
+\end{aligned}
+\]
+共轭分母相乘同理为 $2z(\lambda+\ii\kappa)$.
+两者相除便是原文的 $s_{22}$.
+对该式按 $z$ 求导, 使用商法则:
+\[
+\begin{aligned}
+s_{22}'(z)
+&=\dfrac{\lambda'(z)(\lambda+\ii\kappa)
+-(\lambda-\ii\kappa)\lambda'(z)}
+{(\lambda+\ii\kappa)^2}\\
+&=\dfrac{2\ii\kappa\lambda'(z)}
+{(\lambda+\ii\kappa)^2},\\
+\lambda'(z)&=\dfrac{1}{2}\left(1-\dfrac{q_0^2}{z^2}\right).
+\end{aligned}
+\]
+四点上的导数分别为
+\[
+\begin{aligned}
+\lambda'(\zeta_1)=\lambda'(\conj{\zeta_1})
+&=\dfrac{1+h_0^2}{2},\\
+\lambda'(\zeta_2)=\lambda'(\conj{\zeta_2})
+&=\dfrac{1+h_0^{-2}}{2}
+=\dfrac{1+h_0^2}{2h_0^2}.
+\end{aligned}
+\]
+所以
+\[
+\begin{aligned}
+s_{22}'(\zeta_1)
+&=\dfrac{\lambda'(\zeta_1)}{2\ii\kappa}
+=\dfrac{1+h_0^2}{4\ii\kappa},\\
+s_{22}'(\zeta_2)
+&=\dfrac{1+h_0^2}{4\ii\kappa h_0^2}.
+\end{aligned}
+\]
+原选择 $b_1(0)=1$ 与约化 $b_2(0)=-\conj{b_1(0)}=-1$ 给出
+\[
+\begin{aligned}
+c_1(0)&=\dfrac{1}{s_{22}'(\zeta_1)}
+=\dfrac{4\ii\kappa}{1+h_0^2},\\
+c_2(0)&=\dfrac{-1}{s_{22}'(\zeta_2)}
+=-\dfrac{4\ii\kappa h_0^2}{1+h_0^2}
+=-h_0^2c_1(0).
+\end{aligned}
+\]
+因此 $\conj{c_1(0)}=-c_1(0)$, $\conj{c_2(0)}=-c_2(0)$.
+再计算时间指数:
+\[
+\begin{aligned}
+2\ii\theta(\zeta_1)
+&=2\ii(-\ii\kappa)[x-F(\ii b)t]
+=2\kappa[x-F(\ii b)t]=2s,\\
+2\ii\theta(\zeta_2)
+&=2\kappa[x-F(-\ii b)t]=2\conj s.
+\end{aligned}
+\]
+所以四个实际留数标量是
+\[
+\begin{aligned}
+C_1&=\dfrac{4\ii\kappa}{1+h_0^2}T,&
+C_2&=-\dfrac{4\ii\kappa h_0^2}{1+h_0^2}\conj T,\\
+\conj{C_1}&=-\dfrac{4\ii\kappa}{1+h_0^2}\conj T,&
+\conj{C_2}&=\dfrac{4\ii\kappa h_0^2}{1+h_0^2}T.
+\end{aligned}
+\]
+% END EXPANSION 08-F
+\begin{lemma}[一轨道系统的消元]\label{lem:direct-solve}
+上述留数系统对任意实 $x,t$ 唯一可解. 记
+\begin{equation}\label{eq:delta-pair}
+\Delta_\pm=(1+h_0^2)(1+|T|^2)\pm2h_0(T+\conj{T}),
+\end{equation}
+则其解为
+\begin{align}
+\mathbf v_1&=\dfrac{1+h_0^2}{\Delta_-}
+\begin{pmatrix}1-h_0\conj{T}\\\conj{T}-h_0\end{pmatrix},&
+\mathbf u_1&=\dfrac{1+h_0^2}{\Delta_-}
+\begin{pmatrix}h_0-T\\1-h_0T\end{pmatrix},\label{eq:direct-vu1}\\
+\mathbf v_2&=\dfrac{1}{h_0}\mathbf u_1,&
+\mathbf u_2&=-\dfrac{1}{h_0}\mathbf v_1.\label{eq:direct-vu2}
+\end{align}
+\end{lemma}
+\begin{proof}
+代入谱点和范数常数得到
+\begin{equation}\label{eq:one-AB}
+A=\dfrac{1}{1+h_0^2}
+\begin{pmatrix}(h_0^2-1)\conj{T}&2h_0^2T\\-2\conj{T}&(h_0^2-1)T\end{pmatrix},\quad
+B=\dfrac{1}{1+h_0^2}
+\begin{pmatrix}(h_0^2-1)T&2h_0^2\conj{T}\\-2T&(h_0^2-1)\conj{T}\end{pmatrix}.
+\end{equation}
+对应右端为
+\[
+f_1=\begin{pmatrix}1\\-h_0\end{pmatrix},\quad
+f_2=\begin{pmatrix}1\\h_0^{-1}\end{pmatrix},\quad
+g_1=\begin{pmatrix}h_0\\1\end{pmatrix},\quad
+g_2=\begin{pmatrix}-h_0^{-1}\\1\end{pmatrix}.
+\]
+两个向量分量分别满足同一个四阶标量系数系统,
+\[
+\begin{pmatrix}I_2&A\\-B&I_2\end{pmatrix}
+\begin{pmatrix}\boldsymbol v\\\boldsymbol u\end{pmatrix}
+=\begin{pmatrix}\boldsymbol f\\\boldsymbol g\end{pmatrix}.
+\]
+其 Schur 补行列式为
+\begin{equation}\label{eq:one-schur-det}
+\det(I_2+AB)=\dfrac{\Delta_-\Delta_+}{(1+h_0^2)^2}>0.
+\end{equation}
+事实上,
+\[
+\Delta_-=|T-h_0|^2+|1-h_0T|^2,\qquad
+\Delta_+=|T+h_0|^2+|1+h_0T|^2,
+\]
+且 $\Delta_\pm\ge(1-h_0)^2(1+|T|^2)$. 令 $L=I_2+AB$, 用二阶逆矩阵公式计算 $L^{-1}(\boldsymbol f-A\boldsymbol g)$, 约去公因子 $\Delta_+$, 得
+\[
+\boldsymbol v=\dfrac{1+h_0^2}{\Delta_-}
+\begin{pmatrix}1-h_0\conj{T}&\conj{T}-h_0\\
+\dfrac{h_0-T}{h_0}&\dfrac{1-h_0T}{h_0}\end{pmatrix}.
+\]
+此处每一行是一个正则列的转置. 由 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$ 得到其余两列, 即 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2}.
+\end{proof}
+
+% BEGIN EXPANSION 08-G
+\subsubsection*{留数系统的八个系数, Schur 补的四元与二阶逆矩阵}
+四种差分母逐个为
+\[
+\begin{aligned}
+\zeta_1-\conj{\zeta_1}&=\dfrac{2\ii q_0}{h_0},\\
+\zeta_1-\conj{\zeta_2}&=\dfrac{\ii q_0(1-h_0^2)}{h_0},\\
+\zeta_2-\conj{\zeta_1}&=\dfrac{\ii q_0(1-h_0^2)}{h_0},\\
+\zeta_2-\conj{\zeta_2}&=-2\ii q_0h_0.
+\end{aligned}
+\]
+由 $2\kappa h_0=q_0(1-h_0^2)$, 八个商逐个化简为
+\[
+\begin{aligned}
+ A_{11}
+&=\dfrac{-4\ii\kappa\conj T}{1+h_0^2}
+\dfrac{h_0}{2\ii q_0}
+=\dfrac{(h_0^2-1)\conj T}{1+h_0^2},\\
+ A_{12}
+&=\dfrac{4\ii\kappa h_0^2T}{1+h_0^2}
+\dfrac{h_0}{\ii q_0(1-h_0^2)}
+=\dfrac{2h_0^2T}{1+h_0^2},\\
+ A_{21}
+&=\dfrac{-4\ii\kappa\conj T}{1+h_0^2}
+\dfrac{h_0}{\ii q_0(1-h_0^2)}
+=-\dfrac{2\conj T}{1+h_0^2},\\
+ A_{22}
+&=\dfrac{4\ii\kappa h_0^2T}{1+h_0^2}
+\dfrac{-1}{2\ii q_0h_0}
+=\dfrac{(h_0^2-1)T}{1+h_0^2},\\
+ B_{11}
+&=\dfrac{4\ii\kappa T}{1+h_0^2}
+\dfrac{-h_0}{2\ii q_0}
+=\dfrac{(h_0^2-1)T}{1+h_0^2},\\
+ B_{12}
+&=\dfrac{-4\ii\kappa h_0^2\conj T}{1+h_0^2}
+\dfrac{-h_0}{\ii q_0(1-h_0^2)}
+=\dfrac{2h_0^2\conj T}{1+h_0^2},\\
+ B_{21}
+&=\dfrac{4\ii\kappa T}{1+h_0^2}
+\dfrac{-h_0}{\ii q_0(1-h_0^2)}
+=-\dfrac{2T}{1+h_0^2},\\
+ B_{22}
+&=\dfrac{-4\ii\kappa h_0^2\conj T}{1+h_0^2}
+\dfrac{1}{2\ii q_0h_0}
+=\dfrac{(h_0^2-1)\conj T}{1+h_0^2}.
+\end{aligned}
+\]
+原文已经定义 $L=I_2+ A B$.
+矩阵乘法每个元只包含两个乘积, 全部写为
+\[
+\begin{aligned}
+L_{11}
+&=1+ A_{11} B_{11}
++ A_{12} B_{21}\\
+&=1+\dfrac{(h_0^2-1)^2|T|^2-4h_0^2T^2}
+{(1+h_0^2)^2},\\
+L_{12}
+&= A_{11} B_{12}
++ A_{12} B_{22}\\
+&=\dfrac{2h_0^2(h_0^2-1)((\conj{T})^2+|T|^2)}
+{(1+h_0^2)^2},\\
+L_{21}
+&= A_{21} B_{11}
++ A_{22} B_{21}\\
+&=-\dfrac{2(h_0^2-1)(|T|^2+T^2)}
+{(1+h_0^2)^2},\\
+L_{22}
+&=1+ A_{21} B_{12}
++ A_{22} B_{22}\\
+&=1+\dfrac{(h_0^2-1)^2|T|^2-4h_0^2(\conj{T})^2}
+{(1+h_0^2)^2}.
+\end{aligned}
+\]
+先分别计算两个系数矩阵的行列式:
+\[
+\begin{aligned}
+\det A
+&=\dfrac{(h_0^2-1)^2\conj T T+4h_0^2T\conj T}
+{(1+h_0^2)^2}\\
+&=\dfrac{(h_0^4-2h_0^2+1+4h_0^2)|T|^2}
+{(1+h_0^2)^2}=|T|^2,\\
+\det B&=|T|^2.
+\end{aligned}
+\]
+任意二阶矩阵的恒等式
+$\det(I_2+ A B)
+=1+\tr( A B)+\det( A B)$
+可由 $L_{11}L_{22}-L_{12}L_{21}$ 直接展开得到.
+这里代入上面的四元, 给出
+\[
+\det L
+=1+|T|^4
++\dfrac{2(h_0^2-1)^2|T|^2
+-4h_0^2(T^2+(\conj{T})^2)}{(1+h_0^2)^2}.
+\]
+另一方面, 把 $\Delta_\pm$ 的乘积按平方差展开:
+\[
+\begin{aligned}
+\Delta_-\Delta_+
+={}&(1+h_0^2)^2(1+|T|^2)^2
+-4h_0^2(T+\conj T)^2\\
+={}&(1+h_0^2)^2(1+|T|^4)\\
+&+\bigl(2(1+h_0^2)^2-8h_0^2\bigr)|T|^2
+-4h_0^2(T^2+(\conj{T})^2)\\
+={}&(1+h_0^2)^2(1+|T|^4)
++2(h_0^2-1)^2|T|^2
+-4h_0^2(T^2+(\conj{T})^2).
+\end{aligned}
+\]
+除以 $(1+h_0^2)^2$ 恰为 $\det L$.
+正性可不用任何关于 $T$ 相位的限制:
+\[
+\begin{aligned}
+|T\mp h_0|^2+|1\mp h_0T|^2
+&=(1+h_0^2)(1+|T|^2)
+\mp2h_0(T+\conj T),\\
+\Delta_\pm
+&\ge(1+h_0^2)(1+|T|^2)-4h_0|T|\\
+&=(1-h_0)^2(1+|T|^2)
++2h_0(|T|-1)^2\\
+&\ge(1-h_0)^2(1+|T|^2)>0.
+\end{aligned}
+\]
+因此四阶系数系统对于任意复数 $T$ 都可逆;
+实际 $T=e^{2s}$ 当然也在这个范围内.
+
+\paragraph{右端四个标量以及伴随矩阵乘法.}
+将两条列的转置排成行, 原有右端的四个元分别为
+\[
+\begin{aligned}
+(\boldsymbol f- A\boldsymbol g)_{11}
+&=1-h_0 A_{11}+h_0^{-1} A_{12}\\
+&=\dfrac{1+h_0^2-h_0(h_0^2-1)\conj T+2h_0T}
+{1+h_0^2},\\
+(\boldsymbol f- A\boldsymbol g)_{12}
+&=-h_0- A_{11}- A_{12}\\
+&=\dfrac{-h_0(1+h_0^2)-(h_0^2-1)\conj T-2h_0^2T}
+{1+h_0^2},\\
+(\boldsymbol f- A\boldsymbol g)_{21}
+&=1-h_0 A_{21}+h_0^{-1} A_{22}\\
+&=\dfrac{h_0(1+h_0^2)+2h_0^2\conj T+(h_0^2-1)T}
+{h_0(1+h_0^2)},\\
+(\boldsymbol f- A\boldsymbol g)_{22}
+&=h_0^{-1}- A_{21}- A_{22}\\
+&=\dfrac{1+h_0^2+2h_0\conj T-h_0(h_0^2-1)T}
+{h_0(1+h_0^2)}.
+\end{aligned}
+\]
+二阶逆矩阵的完整式为
+\[
+L^{-1}
+=\dfrac{1}{\det L}
+\begin{pmatrix}L_{22}&-L_{12}\\-L_{21}&L_{11}\end{pmatrix}.
+\]
+例如其与第一列相乘的第一元, 在通分后是
+\[
+\begin{aligned}
+&L_{22}(\boldsymbol f- A\boldsymbol g)_{11}
+-L_{12}(\boldsymbol f- A\boldsymbol g)_{21}\\
+={}&\dfrac{1}{(1+h_0^2)^3}
+\Bigl[
+\bigl((1+h_0^2)^2+(h_0^2-1)^2|T|^2-4h_0^2(\conj{T})^2\bigr)\\
+&\qquad\cdot
+\bigl(1+h_0^2-h_0(h_0^2-1)\conj T+2h_0T\bigr)\\
+&\qquad-2h_0(h_0^2-1)((\conj{T})^2+|T|^2)
+\bigl(h_0(1+h_0^2)+2h_0^2\conj T+(h_0^2-1)T\bigr)
+\Bigr]\\
+={}&\dfrac{\Delta_+}{1+h_0^2}(1-h_0\conj T).
+\end{aligned}
+\]
+最后一行可以逐幂核验: 将 $|T|^2$ 写回 $T\conj T$,
+同类项相加, 分子正好为
+\[
+(1+h_0^2)^2(1-h_0\conj T)
+\bigl((1+h_0^2)(1+T\conj T)+2h_0(T+\conj T)\bigr).
+\]
+同一伴随矩阵乘法的其余三个元, 不省略其组合方式:
+\[
+\begin{aligned}
+&L_{22}(\boldsymbol f- A\boldsymbol g)_{12}
+-L_{12}(\boldsymbol f- A\boldsymbol g)_{22}
+=\dfrac{\Delta_+}{1+h_0^2}(\conj T-h_0),\\
+&-L_{21}(\boldsymbol f- A\boldsymbol g)_{11}
++L_{11}(\boldsymbol f- A\boldsymbol g)_{21}
+=\dfrac{\Delta_+}{h_0(1+h_0^2)}(h_0-T),\\
+&-L_{21}(\boldsymbol f- A\boldsymbol g)_{12}
++L_{11}(\boldsymbol f- A\boldsymbol g)_{22}
+=\dfrac{\Delta_+}{h_0(1+h_0^2)}(1-h_0T).
+\end{aligned}
+\]
+用 $\det L=\dfrac{\Delta_-\Delta_+}{(1+h_0^2)^2}$ 除这四项,
+每一项中的 $\Delta_+$ 都约掉, 正好得到原文的 $\boldsymbol v$.
+
+\paragraph{将 $\boldsymbol v$ 代回以得到 $\boldsymbol u$.}
+例如第一条列的第一元是
+\[
+\begin{aligned}
+(\mathbf u_1)_1
+&=h_0+ B_{11}(\mathbf v_1)_1
++ B_{12}(\mathbf v_2)_1\\
+&=h_0+\dfrac{(h_0^2-1)T(1-h_0\conj T)
++2h_0\conj T(h_0-T)}{\Delta_-}\\
+&=\dfrac{h_0\Delta_-+(h_0^2-1)T(1-h_0\conj T)
++2h_0\conj T(h_0-T)}{\Delta_-}\\
+&=\dfrac{(1+h_0^2)(h_0-T)}{\Delta_-}.
+\end{aligned}
+\]
+其余三个元使用同一个代入, 分子分别为
+\[
+\begin{aligned}
+\Delta_-(\mathbf u_1)_2
+&=\Delta_-+(h_0^2-1)T(\conj T-h_0)
++2h_0\conj T(1-h_0T)\\
+&=(1+h_0^2)(1-h_0T),\\
+\Delta_-(\mathbf u_2)_1
+&=-\dfrac{\Delta_-}{h_0}-2T(1-h_0\conj T)
++\dfrac{h_0^2-1}{h_0}\conj T(h_0-T)\\
+&=-\dfrac{1+h_0^2}{h_0}(1-h_0\conj T),\\
+\Delta_-(\mathbf u_2)_2
+&=\Delta_--2T(\conj T-h_0)
++\dfrac{h_0^2-1}{h_0}\conj T(1-h_0T)\\
+&=-\dfrac{1+h_0^2}{h_0}(\conj T-h_0).
+\end{aligned}
+\]
+这四式既给出 $\mathbf u_1,\mathbf u_2$, 也直接检查
+$\mathbf v_2=\dfrac{\mathbf u_1}{h_0}$ 与 $\mathbf u_2=-\dfrac{\mathbf v_1}{h_0}$.
+没有使用预先假定的换叶关系去缩小系统;
+换叶关系是解出完整系统后得到的结论.
+% END EXPANSION 08-G
+将所得列向量代入部分分式表示. 其系数可用以下秩一正交投影写成紧凑形式:
+\begin{equation}\label{eq:algebraic-P}
+P=\dfrac{1}{\Delta_-}
+\begin{pmatrix}
+|T-h_0|^2&(T-h_0)(1-h_0\conj{T})\\
+(1-h_0T)(\conj{T}-h_0)&|1-h_0T|^2
+\end{pmatrix},\qquad H=\diag(\ii,-\ii).
+\end{equation}
+由 $\Delta_-=|T-h_0|^2+|1-h_0T|^2$, 有 $P^\dagger=P$, $P^2=P$, $\tr P=1$.
+
+\begin{theorem}[完整四点轨道的矩阵解]\label{thm:oneRHP}\label{prop:unique-reflectionless}
+在背景参数 $q_0>0$, $a\ne0$, $\eta_0\ne0$, $\alpha,\beta\in\mathbb R$ 和 $b>q_0$ 下, 数据 \eqref{eq:onezeros}--\eqref{eq:onec} 的无反射 RHP 有唯一解
+\begin{equation}\label{eq:explicitM}
+M(z)=H\bigl[(k(z)+\ii b)I-2\ii bP\bigr]Y(z)
+\diag\left(\dfrac{1}{\lambda(z)+\ii\kappa},\dfrac{1}{\lambda(z)-\ii\kappa}\right)H^{-1}.
+\end{equation}
+它满足定义 \ref{def:RHP} 的全部条件, 在分支点、轮廓交点与共振原像解析, 在分支点秩为一, 在共振原像可逆. 唯一性取于除 $0$ 和指定四点外没有有限奇点、非极点轮廓处可去并满足留数及两处归一化的亚纯矩阵类.
+\end{theorem}
+\begin{proof}
+在部分分式的第二列合并分母,
+$(z-\zeta_1)(z-\zeta_2)=2z(\lambda-\ii\kappa)$, 第一列同理. 利用
+$2bh_0=q_0(1+h_0^2)$、$2\kappa h_0=q_0(1-h_0^2)$ 化简分子, 得到 \eqref{eq:explicitM}. 留数、两处归一化及恒等跳跃已由上述留数系统 保证.
+
+共轭矩阵 $\sigma_2\conj{M(\conj{z})}\sigma_2$ 满足同一留数系统, 其中交换两组极点产生 \eqref{eq:resminus} 的负号. 换叶矩阵 $M(h(z))C(z)^{-1}$ 也满足该系统: 留数变换的导数因子由 \eqref{eq:cpair} 抵消, 而 $\theta(h(\conj{\zeta}))=-\conj{\theta(\zeta)}$ 保证指数一致. 两处归一化相互交换后仍为规定主项. 引理 \ref{lem:direct-solve} 的唯一性遂给出 \eqref{eq:Msym}.
+
+记
+\begin{equation}\label{eq:Nfactor}
+N(k)=(k+\ii b)I-2\ii bP.
+\end{equation}
+$P$ 的特征值为 $1,0$, 故
+\[
+\det N=(k-\ii b)(k+\ii b)=\lambda^2+\kappa^2.
+\]
+它抵消两个列分母的乘积, 得 $\det M=\det Y=\gamma$. 在分支点 $z=\pm\ii q_0$ 上, $\lambda=0$, 两个列分母均非零; $N$ 可逆而 $Y$ 秩一, 因此 $M$ 解析且秩一. 交点和共振原像的 $\lambda$ 为实数, 也没有列分母零点; 共振处 $\gamma>0$, 所以 $M$ 可逆. 显式表达式不再含有其他有限奇点.
+
+任一属于所述函数类的解均具有 \eqref{eq:partialfraction} 的表示, 因而由同一留数系统确定. Schur 行列式 \eqref{eq:one-schur-det} 严格为正, 保证该解唯一.
+\end{proof}
+
+% BEGIN EXPANSION 08-H
+\subsubsection*{投影, 有理矩阵的四元以及四点留数的直接核验}
+先逐项检查原有投影矩阵.
+其四元是
+\[
+\begin{aligned}
+P_{11}&=\dfrac{(T-h_0)(\conj T-h_0)}{\Delta_-},\\
+P_{12}&=\dfrac{(T-h_0)(1-h_0\conj T)}{\Delta_-},\\
+P_{21}&=\dfrac{(1-h_0T)(\conj T-h_0)}{\Delta_-},\\
+P_{22}&=\dfrac{(1-h_0T)(1-h_0\conj T)}{\Delta_-}.
+\end{aligned}
+\]
+分母为正实数, 所以 $P_{11},P_{22}$ 为实数且
+$\conj{P_{12}}=P_{21}$.
+这逐元给出 $P^\dagger=P$.
+迹的计算为
+\[
+P_{11}+P_{22}
+=\dfrac{|T-h_0|^2+|1-h_0T|^2}{\Delta_-}=1.
+\]
+行列式分子中两项完全相同:
+\[
+\begin{aligned}
+\Delta_-^2\det P
+={}&(T-h_0)(\conj T-h_0)(1-h_0T)(1-h_0\conj T)\\
+&-(T-h_0)(1-h_0\conj T)(1-h_0T)(\conj T-h_0)=0.
+\end{aligned}
+\]
+平方矩阵四元的乘法则是
+\[
+\begin{aligned}
+(P^2)_{11}
+&=\dfrac{|T-h_0|^4+|T-h_0|^2|1-h_0T|^2}{\Delta_-^2}
+=P_{11},\\
+(P^2)_{12}
+&=\dfrac{(T-h_0)(1-h_0\conj T)
+(|T-h_0|^2+|1-h_0T|^2)}{\Delta_-^2}
+=P_{12},\\
+(P^2)_{21}
+&=\dfrac{(1-h_0T)(\conj T-h_0)
+(|T-h_0|^2+|1-h_0T|^2)}{\Delta_-^2}
+=P_{21},\\
+(P^2)_{22}
+&=\dfrac{|1-h_0T|^2|T-h_0|^2+|1-h_0T|^4}{\Delta_-^2}
+=P_{22}.
+\end{aligned}
+\]
+其中第二、第三行分子中紧邻括号表示乘积.
+因此该矩阵确为正交投影.
+其迹为 1 而非零, 行列式为零, 所以秩恰为一.
+
+\paragraph{由部分分式合并得到显式矩阵, 不跳过四个元.}
+四个留数列的系数分别是
+\[
+\begin{aligned}
+C_1\mathbf v_1
+&=\dfrac{4\ii\kappa T}{\Delta_-}
+\begin{pmatrix}1-h_0\conj T\\\conj T-h_0\end{pmatrix},\\
+C_2\mathbf v_2
+&=\dfrac{4\ii\kappa h_0\conj T}{\Delta_-}
+\begin{pmatrix}T-h_0\\h_0T-1\end{pmatrix},\\
+-\conj{C_1}\mathbf u_1
+&=\dfrac{4\ii\kappa\conj T}{\Delta_-}
+\begin{pmatrix}h_0-T\\1-h_0T\end{pmatrix},\\
+-\conj{C_2}\mathbf u_2
+&=\dfrac{4\ii\kappa h_0T}{\Delta_-}
+\begin{pmatrix}1-h_0\conj T\\\conj T-h_0\end{pmatrix}.
+\end{aligned}
+\]
+因此原部分分式四元完整写为
+\[
+\begin{aligned}
+M_{11}
+&=1+\dfrac{4\ii\kappa}{\Delta_-}
+\left[
+\dfrac{\conj T(h_0-T)}{z+\dfrac{\ii q_0}{h_0}}
++\dfrac{h_0T(1-h_0\conj T)}{z-\ii q_0h_0}
+\right],\\
+M_{21}
+&=-\dfrac{\ii q_0}{z}
++\dfrac{4\ii\kappa}{\Delta_-}
+\left[
+\dfrac{\conj T(1-h_0T)}{z+\dfrac{\ii q_0}{h_0}}
++\dfrac{h_0T(\conj T-h_0)}{z-\ii q_0h_0}
+\right],\\
+M_{12}
+&=-\dfrac{\ii q_0}{z}
++\dfrac{4\ii\kappa}{\Delta_-}
+\left[
+\dfrac{T(1-h_0\conj T)}{z-\dfrac{\ii q_0}{h_0}}
++\dfrac{h_0\conj T(T-h_0)}{z+\ii q_0h_0}
+\right],\\
+M_{22}
+&=1+\dfrac{4\ii\kappa}{\Delta_-}
+\left[
+\dfrac{T(\conj T-h_0)}{z-\dfrac{\ii q_0}{h_0}}
+-\dfrac{h_0\conj T(1-h_0T)}{z+\ii q_0h_0}
+\right].
+\end{aligned}
+\]
+第一列两个分母的乘积是 $2z(\lambda+\ii\kappa)$,
+第二列两个分母的乘积是 $2z(\lambda-\ii\kappa)$.
+例如 $M_{12}$ 中两个留数项通分时的分子为
+\[
+\begin{aligned}
+&T(1-h_0\conj T)(z+\ii q_0h_0)
++h_0\conj T(T-h_0)(z-\dfrac{\ii q_0}{h_0})\\
+={}&z\bigl(T-h_0^2\conj T\bigr)
++\ii q_0\bigl(h_0(T+\conj T)-(1+h_0^2)|T|^2\bigr).
+\end{aligned}
+\]
+其余三个元的对应分子也逐个为
+\[
+\begin{aligned}
+&\conj T(h_0-T)(z-\ii q_0h_0)
++h_0T(1-h_0\conj T)(z+\dfrac{\ii q_0}{h_0})\\
+&\qquad=z\bigl(h_0(T+\conj T)-(1+h_0^2)|T|^2\bigr)
++\ii q_0(T-h_0^2\conj T),\\
+&\conj T(1-h_0T)(z-\ii q_0h_0)
++h_0T(\conj T-h_0)(z+\dfrac{\ii q_0}{h_0})\\
+&\qquad=z(\conj T-h_0^2T)
++\ii q_0\bigl((1+h_0^2)|T|^2-h_0(T+\conj T)\bigr),\\
+&T(\conj T-h_0)(z+\ii q_0h_0)
+-h_0\conj T(1-h_0T)(z-\dfrac{\ii q_0}{h_0})\\
+&\qquad=z\bigl((1+h_0^2)|T|^2-h_0(T+\conj T)\bigr)
++\ii q_0(\conj T-h_0^2T).
+\end{aligned}
+\]
+接着将 $N$ 的四元直接写出:
+\[
+\begin{aligned}
+N_{11}&=k+\ii b-2\ii bP_{11},&
+N_{12}&=-2\ii bP_{12},\\
+N_{21}&=-2\ii bP_{21},&
+N_{22}&=k+\ii b-2\ii bP_{22}.
+\end{aligned}
+\]
+因为
+\[
+H=\begin{pmatrix}\ii&0\\0&-\ii\end{pmatrix},\qquad
+H^{-1}=\begin{pmatrix}-\ii&0\\0&\ii\end{pmatrix},
+\]
+对任意矩阵左右乘 $H,H^{-1}$ 会保持对角元, 将两个非对角元变号.
+因此显式矩阵 \eqref{eq:explicitM} 按元展开为
+\[
+\begin{aligned}
+M_{11}
+&=\dfrac{N_{11}-\dfrac{\ii q_0}{z}N_{12}}{\lambda+\ii\kappa},\\
+M_{21}
+&=-\dfrac{N_{21}-\dfrac{\ii q_0}{z}N_{22}}{\lambda+\ii\kappa},\\
+M_{12}
+&=-\dfrac{N_{12}-\dfrac{\ii q_0}{z}N_{11}}{\lambda-\ii\kappa},\\
+M_{22}
+&=\dfrac{N_{22}-\dfrac{\ii q_0}{z}N_{21}}{\lambda-\ii\kappa}.
+\end{aligned}
+\]
+代入 $P_{jk}$ 后, 这四式与上面的通分式逐元相同.
+核对时仅需使用
+\[
+\lambda-k=\dfrac{q_0^2}{z},\qquad
+2bh_0=q_0(1+h_0^2),\qquad
+2\kappa h_0=q_0(1-h_0^2).
+\]
+例如第三式的分子可无省略地写为
+\[
+\begin{aligned}
+&2\ii b(T-h_0)(1-h_0\conj T)
++\dfrac{\ii q_0}{z}
+\bigl((k+\ii b)\Delta_--2\ii b|T-h_0|^2\bigr)\\
+={}&-\ii q_0(\lambda-\ii\kappa)\Delta_-\\
+&+\dfrac{2\ii\kappa}{z}
+\left[
+z(T-h_0^2\conj T)
++\ii q_0\bigl(h_0(T+\conj T)-(1+h_0^2)|T|^2\bigr)
+\right].
+\end{aligned}
+\]
+两侧同除以 $(\lambda-\ii\kappa)\Delta_-$ 就得到先前的 $M_{12}$.
+这给出了从部分分式到紧凑矩阵乘积的可直接复算过程.
+
+\paragraph{外部 $D_+$ 点 $\zeta_1$ 的正则列与留数.}
+在此点 $k=\ii b$, 所以 $N=2\ii b(I-P)$.
+两列背景向量分别为 $(1,-h_0)^T,(-h_0,1)^T$.
+投影的两次乘法逐项为
+\[
+\begin{aligned}
+(I-P)\begin{pmatrix}1\\-h_0\end{pmatrix}
+&=\dfrac{1-h_0^2}{\Delta_-}
+\begin{pmatrix}1-h_0\conj T\\-(\conj T-h_0)\end{pmatrix},\\
+(I-P)\begin{pmatrix}-h_0\\1\end{pmatrix}
+&=\dfrac{(1-h_0^2)T}{\Delta_-}
+\begin{pmatrix}-(1-h_0\conj T)\\\conj T-h_0\end{pmatrix}.
+\end{aligned}
+\]
+例如第一式第一元的分子是
+\[
+|1-h_0T|^2+h_0(T-h_0)(1-h_0\conj T)
+=(1-h_0\conj T)(1-h_0^2).
+\]
+先读正则第一列, 分母是 $2\ii\kappa$:
+\[
+M_1(\zeta_1)
+=\dfrac{b(1-h_0^2)}{\kappa\Delta_-}
+\begin{pmatrix}1-h_0\conj T\\\conj T-h_0\end{pmatrix}
+=\mathbf v_1.
+\]
+这里用 $\dfrac{b(1-h_0^2)}{\kappa}=1+h_0^2$.
+第二列分母在此点的导数是 $\dfrac{1+h_0^2}{2}$.
+注意 $H$ 对非对角元的变号后, 其留数为
+\[
+\begin{aligned}
+\Res_{z=\zeta_1}M_2
+&=\dfrac{4\ii b(1-h_0^2)T}{(1+h_0^2)\Delta_-}
+\begin{pmatrix}1-h_0\conj T\\\conj T-h_0\end{pmatrix}\\
+&=\dfrac{4\ii\kappa T}{\Delta_-}
+\begin{pmatrix}1-h_0\conj T\\\conj T-h_0\end{pmatrix}
+=C_1\mathbf v_1.
+\end{aligned}
+\]
+
+\paragraph{内部 $D_+$ 点 $\zeta_2$ 的正则列与留数.}
+这里 $k=-\ii b$, 所以 $N=-2\ii bP$.
+两列背景向量为 $(1,h_0^{-1})^T,(h_0^{-1},1)^T$.
+所需投影乘法分别是
+\[
+\begin{aligned}
+P\begin{pmatrix}1\\h_0^{-1}\end{pmatrix}
+&=\dfrac{1-h_0^2}{h_0\Delta_-}
+\begin{pmatrix}T-h_0\\1-h_0T\end{pmatrix},\\
+P\begin{pmatrix}h_0^{-1}\\1\end{pmatrix}
+&=\dfrac{(1-h_0^2)\conj T}{h_0\Delta_-}
+\begin{pmatrix}T-h_0\\1-h_0T\end{pmatrix}.
+\end{aligned}
+\]
+两式的标量来源可逐个查看:
+\[
+\begin{aligned}
+(\conj T-h_0)+h_0^{-1}(1-h_0\conj T)
+&=\dfrac{1-h_0^2}{h_0},\\
+h_0^{-1}(\conj T-h_0)+(1-h_0\conj T)
+&=\dfrac{(1-h_0^2)\conj T}{h_0}.
+\end{aligned}
+\]
+正则第一列因此是
+\[
+M_1(\zeta_2)
+=\dfrac{1+h_0^2}{h_0\Delta_-}
+\begin{pmatrix}h_0-T\\1-h_0T\end{pmatrix}
+=\mathbf v_2.
+\]
+第二列分母导数为 $\dfrac{1+h_0^2}{2h_0^2}$, 所以
+\[
+\begin{aligned}
+\Res_{z=\zeta_2}M_2
+&=\dfrac{4\ii b h_0(1-h_0^2)\conj T}
+{(1+h_0^2)\Delta_-}
+\begin{pmatrix}T-h_0\\-(1-h_0T)\end{pmatrix}\\
+&=\dfrac{4\ii\kappa h_0\conj T}{\Delta_-}
+\begin{pmatrix}T-h_0\\h_0T-1\end{pmatrix}
+=C_2\mathbf v_2.
+\end{aligned}
+\]
+
+\paragraph{外部 $D_-$ 点 $\conj{\zeta_1}$ 的正则列与留数.}
+这里仍有 $N=-2\ii bP$, 但 $\lambda=-\ii\kappa$.
+背景两列为 $(1,h_0)^T,(h_0,1)^T$.
+直接相乘得到
+\[
+\begin{aligned}
+P\begin{pmatrix}1\\h_0\end{pmatrix}
+&=\dfrac{(1-h_0^2)\conj T}{\Delta_-}
+\begin{pmatrix}T-h_0\\1-h_0T\end{pmatrix},\\
+P\begin{pmatrix}h_0\\1\end{pmatrix}
+&=\dfrac{1-h_0^2}{\Delta_-}
+\begin{pmatrix}T-h_0\\1-h_0T\end{pmatrix}.
+\end{aligned}
+\]
+正则第二列分母为 $-2\ii\kappa$, 因而
+\[
+M_2(\conj{\zeta_1})
+=\dfrac{1+h_0^2}{\Delta_-}
+\begin{pmatrix}h_0-T\\1-h_0T\end{pmatrix}
+=\mathbf u_1.
+\]
+第一列分母导数为 $\dfrac{1+h_0^2}{2}$, 所以
+\[
+\begin{aligned}
+\Res_{z=\conj{\zeta_1}}M_1
+&=\dfrac{4\ii\kappa\conj T}{\Delta_-}
+\begin{pmatrix}h_0-T\\1-h_0T\end{pmatrix}\\
+&=-\conj{C_1}\mathbf u_1.
+\end{aligned}
+\]
+其负号已经由 $\conj{C_1}=-\dfrac{4\ii\kappa\conj T}{1+h_0^2}$ 明确给出.
+
+\paragraph{内部 $D_-$ 点 $\conj{\zeta_2}$ 的正则列与留数.}
+此时 $N=2\ii b(I-P)$, $\lambda=-\ii\kappa$,
+背景两列为 $(1,-h_0^{-1})^T,(-h_0^{-1},1)^T$.
+直接计算
+\[
+\begin{aligned}
+(I-P)\begin{pmatrix}1\\-h_0^{-1}\end{pmatrix}
+&=\dfrac{(1-h_0^2)T}{h_0\Delta_-}
+\begin{pmatrix}1-h_0\conj T\\-(\conj T-h_0)\end{pmatrix},\\
+(I-P)\begin{pmatrix}-h_0^{-1}\\1\end{pmatrix}
+&=\dfrac{1-h_0^2}{h_0\Delta_-}
+\begin{pmatrix}-(1-h_0\conj T)\\\conj T-h_0\end{pmatrix}.
+\end{aligned}
+\]
+正则第二列是
+\[
+M_2(\conj{\zeta_2})
+=-\dfrac{1+h_0^2}{h_0\Delta_-}
+\begin{pmatrix}1-h_0\conj T\\\conj T-h_0\end{pmatrix}
+=\mathbf u_2.
+\]
+第一列分母导数为 $\dfrac{1+h_0^2}{2h_0^2}$, 给出
+\[
+\begin{aligned}
+\Res_{z=\conj{\zeta_2}}M_1
+&=\dfrac{4\ii\kappa h_0T}{\Delta_-}
+\begin{pmatrix}1-h_0\conj T\\\conj T-h_0\end{pmatrix}\\
+&=-\conj{C_2}\mathbf u_2.
+\end{aligned}
+\]
+至此四个点全部按显式矩阵直接取过正则列和留数,
+不再只依赖部分分式的抽象结论.
+
+\paragraph{$N$ 的投影分解, 逆矩阵与行列式.}
+利用 $I=P+(I-P)$, 原有 $N$ 可分解为
+\[
+N=(k-\ii b)P+(k+\ii b)(I-P).
+\]
+因为 $P(I-P)=(I-P)P=0$, 直接相乘得到
+\[
+\begin{aligned}
+N^{-1}
+&=\dfrac{P}{k-\ii b}+\dfrac{I-P}{k+\ii b}\\
+&=\dfrac{(k+\ii b)P+(k-\ii b)(I-P)}{k^2+b^2}\\
+&=\dfrac{(k-\ii b)I+2\ii bP}{k^2+b^2}.
+\end{aligned}
+\]
+分母不为零处该式逐项成立, 其余处按亚纯函数理解.
+两个互补秩一子空间上 $N$ 的特征值是 $k-\ii b,k+\ii b$,
+所以
+\[
+\det N=k^2+b^2
+=\lambda^2-q_0^2+b^2
+=\lambda^2+\kappa^2.
+\]
+于是显式矩阵全部因子的行列式相乘为
+\[
+\begin{aligned}
+\det M
+&=\det H\,\det N\,\det Y
+\dfrac{1}{(\lambda+\ii\kappa)(\lambda-\ii\kappa)}\det H^{-1}\\
+&=\dfrac{(\lambda^2+\kappa^2)\gamma}{\lambda^2+\kappa^2}
+=\gamma.
+\end{aligned}
+\]
+在离散点, 该式是约去公因子后的亚纯恒等式.
+
+\paragraph{两域约化为何由同一个有限系统固定.}
+共轭变换对任意二阶矩阵的作用是
+\[
+\sigma_2\conj M\sigma_2
+=\begin{pmatrix}
+\conj{M_{22}}&-\conj{M_{21}}\\
+-\conj{M_{12}}&\conj{M_{11}}
+\end{pmatrix}.
+\]
+因此 $D_+$ 的第二列极点转成 $D_-$ 的第一列极点,
+列交换时的负号正是负留数条件中的负号.
+换叶关系的列形式是
+\[
+M_1(h(z))=\dfrac{\ii z}{q_0}M_2(z),\qquad
+M_2(h(z))=\dfrac{\ii z}{q_0}M_1(z).
+\]
+例如 $h(\conj{\zeta_1})=\zeta_2$ 时,
+$\dfrac{\ii\conj{\zeta_1}}{q_0}=h_0^{-1}$,
+第一式正给出 $\mathbf v_2=\dfrac{\mathbf u_1}{h_0}$.
+在 $h(\zeta_1)=\conj{\zeta_2}$ 时,
+$\dfrac{\ii\zeta_1}{q_0}=-h_0^{-1}$,
+第二式给出 $\mathbf u_2=-\dfrac{\mathbf v_1}{h_0}$.
+这两个正则列关系已经由完整消元独立得到.
+在留数中还要乘 $h'(z)=\dfrac{q_0^2}{z^2}$;
+原有 $C$ 的配对公式恰好提供这个导数因子,
+所以变换后的矩阵满足同一留数系统.
+由于该系统可逆, 两域约化得以全局成立.
+
+\paragraph{分支点与轮廓点的解析性.}
+在 $z=\pm\ii q_0$ 处 $\lambda=0$,
+$\lambda\pm\ii\kappa$ 都非零, $\det N=\kappa^2>0$.
+只有 $Y$ 的行列式为零, 且
+\[
+Y(\ii q_0)=I-\sigma_1,\qquad
+Y(-\ii q_0)=I+\sigma_1.
+\]
+这两个矩阵均非零且秩为一, 所以 $M$ 解析且秩为一.
+在交点 $z=\pm q_0$ 处, $\lambda=\pm q_0$ 为非零实数,
+列分母也不为零.
+在共振原像 $z_a^\pm$ 处, $\lambda=\pm\sqrt{a^2+q_0^2}$,
+列分母非零且 $\gamma>0$, 所以 $M$ 解析并可逆.
+全部判断直接来自显式有理式的分母, 无需附加轮廓上的跳跃论证.
+% END EXPANSION 08-H

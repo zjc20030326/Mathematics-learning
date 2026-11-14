@@ -29,7 +29,7 @@
 \setlength{\@fpsep}{14pt}
 \setlength{\@fpbot}{0pt plus 1fil}
 \makeatother
-% Retain fduthesis front matter and page geometry; the body is a continuous article.
+% Keep the existing page geometry and continuous section numbering.
 \counterwithout{section}{chapter}
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\theHsection}{\arabic{section}}
@@ -74,12 +74,6 @@
 \raggedbottom
 \fancyhead[R]{}
 \frontmatter
-\begin{abstract}
-本册以相邻目录当前论文的九部分源码为底稿, 完整保留原文叙述、公式、命题、定理和证明, 在相应位置补入逐式计算与阅读说明. 公式编号及符号与本次同步后的论文一致; 补充计算使用无编号公式, 因而可逐项核对. 计算包括平面波与 Bloch 约束、Lax 零曲率的矩阵分量、规范变换与背景谱分析、Jost 积分方程及解析性、散射演化与约化、离散谱留数、两处渐近、Riemann--Hilbert 表示、迹公式、$N$ 个完整简单四点轨道的有限系统与行列式重构、单轨道显式求解、三场重构与完整逆验证, 以及数值参数和动力学结论的具体代入. 本册沿用原文的规范变换、谱单值化及已定义辅助量, 不增加为了简算而设置的换元或别名. 含反射表示的存在性与正则性前提、一般 $N$ 轨道公式的矩阵可逆性条件, 以及纯虚单轨道的全局结论, 均分别保留并解释.
-\end{abstract}
-\begin{abstract*}
-This companion expands all nine sections of the current source thesis and matches its notation and equation numbering. Every current statement and formula is retained. Unnumbered calculations detail the matrix algebra and spectral analysis. They cover the Jost equations, scattering evolution, residues, asymptotic expansions, field reconstruction, and verification of the single-orbit solution. The reflectionless problem for $N$ complete simple four-point orbits is expanded through the residue system, Schur elimination, and bordered-determinant reconstruction. Its invertibility condition is distinguished from the global positivity proved for the specified purely imaginary single orbit. The original gauge, uniformization, and auxiliary quantities are retained; no additional substitutions are introduced to shorten the calculations. Statements for reflective data retain their existence and regularity hypotheses.
-\end{abstract*}
 \input{chapters/00-reading-guide}
 \begingroup
 \linespread{1.15}\selectfont
@@ -88,24 +82,21 @@ This companion expands all nine sections of the current source thesis and matche
 \mainmatter
 \section{绪论}\label{ch:intro}
 \input{chapters/01-introduction}
-\section{谱分析}\label{ch:model}
+\section{HMB 模型、基本条件与背景谱问题}\label{ch:model}
 \input{chapters/02-model}
-\section{Jost 解}\label{ch:direct}
-\input{chapters/03-jost}
-\section{散射矩阵}\label{ch:scattering}
-\input{chapters/04-scattering}
-\section{对称性}\label{ch:symmetry}
-\input{chapters/05-symmetry}
-\section{离散谱与留数条件}\label{ch:discrete}
-\input{chapters/06-discrete}
-\section{渐近行为}\label{ch:asymptotics}
-\input{chapters/07-asymptotics}
-\section{Riemann--Hilbert 问题}\label{ch:rhp}\label{ch:soliton}
-\input{chapters/08-rhp}
+\section{非零背景的直接散射}\label{ch:direct}
+\input{chapters/03-direct-scattering}
+\section{散射演化与共振相容性}\label{ch:scattering}
+\input{chapters/04-evolution-resonance}
+\section{矩阵 RHP 与三场重构}\label{ch:rhp}
+\input{chapters/05-rhp-reconstruction}
+\section{无反射 RHP 与轨道构造}\label{ch:soliton}
+\input{chapters/06-reflectionless}
+\section{单轨道三场解的全局性与方程验证}\label{ch:verification}
+\input{chapters/07-hmb-verification}
 \section{数值结果与动力学分析}\label{ch:conclusion}
-\input{chapters/09-numerics}
+\input{chapters/08-numerics}
 \FloatBarrier
-\input{chapters/09-derivative-details}
 \input{chapters/10-formula-index}
 \backmatter
 \begingroup

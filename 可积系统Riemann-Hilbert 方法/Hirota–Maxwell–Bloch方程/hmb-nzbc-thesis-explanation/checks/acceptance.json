@@ -1,33 +1,137 @@
 {
-  "date": "2026-11-04",
-  "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-explanation\\hmb-explanation.pdf",
-  "pages": 160,
-  "bytes": 2429750,
-  "pdf_sha256": "f3ca4152e10dbabd125245b6fda1c9a342e134b6c6d47a3963fdd13fedcbf928",
-  "original_display_blocks_preserved": 210,
-  "expanded_display_blocks_in_nine_sections": 852,
-  "original_labels_compared": 170,
-  "formula_index_entries": 127,
-  "source_unchanged": true,
-  "final_log": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-build\\pass6.txt",
-  "final_log_issues": [],
-  "derivative_symbolic_checks": 64,
-  "contact_pages_covered": 160,
-  "detail_pages_visually_reviewed": [
-    3,
-    50,
-    108,
-    123,
-    136,
-    147,
-    155
-  ],
-  "contact_preview_directory": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-explanation-20261104-preview",
-  "math_checks": [
-    "zero curvature and background",
-    "one-orbit exact elimination and matrix identities",
-    "70-digit residue/PDE/Lax/medium/boundary checks",
-    "64 derivative and endpoint exact identities"
-  ],
-  "visual_review": "All pages reviewed in contact sheets; selected pages enlarged; header correction checked separately."
+  "date": "2026-11-14",
+  "generated_utc": "2026-11-14T15:32:29.863754+00:00",
+  "baseline_commit": "8690a1b6babb3c6006608009fe13aa142c0100f3",
+  "working_branch": "main",
+  "delivery": "Verification snapshot before publication on main; consult Git history and origin/main for publication status.",
+  "logs": {
+    "main": {
+      "path": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-main-20261114\\fduthesis.log",
+      "warnings_errors_overfull_underfull": [],
+      "build_chain": [
+        "XeLaTeX",
+        "BibTeX",
+        "XeLaTeX",
+        "XeLaTeX"
+      ]
+    },
+    "explanation": {
+      "path": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-explanation-20261114\\hmb-explanation.log",
+      "warnings_errors_overfull_underfull": [],
+      "build_chain": [
+        "XeLaTeX",
+        "BibTeX",
+        "XeLaTeX",
+        "XeLaTeX"
+      ]
+    }
+  },
+  "pdfs": {
+    "main": {
+      "path": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis\\fduthesis.pdf",
+      "pages": 42,
+      "bytes": 1949424,
+      "sha256": "236712905467fc2a550dc7b961c29142c55eb873c6211d73d95ea3e8a8bfcb62",
+      "links_checked": 288,
+      "invalid_internal_links": [],
+      "blank_pages": [],
+      "fresh_against_tex_and_bibliography": true
+    },
+    "explanation": {
+      "path": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-explanation\\hmb-explanation.pdf",
+      "pages": 164,
+      "bytes": 2425093,
+      "sha256": "eeb0d13f5eda84660352f30b4f1eb6ad95528809464df8b014949f6f8b5f7522",
+      "links_checked": 498,
+      "invalid_internal_links": [],
+      "blank_pages": [],
+      "fresh_against_tex_and_bibliography": true
+    }
+  },
+  "source_sections": 8,
+  "source_display_blocks_retained": 236,
+  "expanded_section_display_blocks": 932,
+  "source_labels_compared": 190,
+  "numbering_mismatches": {},
+  "indexed_equations": 142,
+  "owning_source_and_bibliography_synchronized": true,
+  "all_eight_source_sections_retained_in_order": true,
+  "math_checks": {
+    "zero_curvature_background_and_uniformization": "Exact symbolic checks passed.",
+    "single_orbit_elimination_and_matrix_identities": "Exact checks passed.",
+    "single_orbit_precision_digits": 70,
+    "single_orbit_PDE_max_residuals": {
+      "PDE_q": "1.8658423748127e-69",
+      "PDE_p": "8.2505317503173e-71",
+      "PDE_eta": "1.4912310488341e-70"
+    },
+    "multi_orbit_tests": "N=2,3,4 at 80 digits; block/Schur/bordered determinant identities passed. Sampled algebraic checks only.",
+    "cauchy_orientation_and_signs": "Independent additive test RHP at 60 digits passed.",
+    "jost_branch_and_asymptotics": "Symbolic identities and numerical Volterra convergence/order checks passed.",
+    "derivative_and_endpoint_exact_checks": {
+      "passed": 64,
+      "total": 64
+    }
+  },
+  "visual_review": {
+    "all_page_contact_sheets_actually_reviewed": {
+      "main": 42,
+      "explanation": 164
+    },
+    "main_pdf_pages_enlarged_and_reviewed": [
+      5,
+      14,
+      22,
+      25,
+      31,
+      35,
+      36,
+      38
+    ],
+    "explanation_pdf_pages_enlarged_and_reviewed": [
+      84,
+      95,
+      101,
+      128,
+      151
+    ],
+    "main_contacts": [
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\main\\contact-01.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\main\\contact-02.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\main\\contact-03.png"
+    ],
+    "explanation_contacts": [
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-01.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-02.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-03.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-04.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-05.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-06.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-07.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-08.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-09.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-10.png",
+      "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-11.png"
+    ],
+    "out_of_page_text_spans": [],
+    "note": "Contact sheets show every page; enlargement is selective. This is an inspection record, not a claim that machine geometry proves all typography correct.",
+    "publication_whitespace_cleanup": {
+      "pages_compared_with_previous_reviewed_PDFs": {
+        "main": 42,
+        "explanation": 164
+      },
+      "text_pixel_and_bookmark_signatures_identical": true,
+      "method": "Every page rendered at 0.6 scale; SHA256 of all pixel buffers and extracted text plus all bookmarks compared."
+    }
+  },
+  "verified_backup": {
+    "directory": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb_rewrite_8690a1b\\baseline",
+    "files_hash_checked": 120
+  },
+  "scope": [
+    "Reflected RHP representation is conditional on existence and the stated local and integrability conditions.",
+    "General N-orbit formulas assume det L_N != 0; no general global nondegeneracy claim.",
+    "The specified imaginary single orbit has a global analytic proof of the three-field HMB solution, boundaries and stated field-class membership.",
+    "Figures evaluate reconstructed exact solutions; they are not an independent PDE time-stepping simulation."
+  ]
 }

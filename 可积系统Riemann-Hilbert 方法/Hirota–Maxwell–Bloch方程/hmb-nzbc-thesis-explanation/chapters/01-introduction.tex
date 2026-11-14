@@ -1,95 +1,49 @@
-\subsection{模型与非零光场边界}
-Hirota–Maxwell–Bloch (HMB) 系统描述高阶色散光场与两能级介质的耦合\cite{PN1995}:
-\begin{equation}\label{eq:HMB}
-\begin{cases}
-\widetilde q_t=\ii\alpha\left(\dfrac{1}{2}\widetilde q_{xx}+|\widetilde q|^2\widetilde q\right)
-+\beta(\widetilde q_{xxx}+6|\widetilde q|^2\widetilde q_x)+2\widetilde p,\\
-\widetilde p_x=2\eta\widetilde q-2\ii a\widetilde p,\\
-\eta_x=-(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p}),
-\end{cases}
-\end{equation}
-其中 $x$ 为推迟时间, $t$ 为演化变量,  $\widetilde q,\widetilde p$ 分别为复光场和复极化, $\eta$ 为实值粒子数反转, $\alpha,\beta,a$ 为实参数. 固定 $q_0>0$、$a\ne0$ 和 $\eta_0\ne0$, 取两端同相的非零边界
-\paragraph{逐项读懂原方程.}
-式 \eqref{eq:HMB} 是本论文要研究的模型, 不是由前面的某个公式推导出来的结论. 第一行规定光场对演化变量 $t$ 的变化, 第二、三行规定介质沿 $x$ 的变化. 其中
-\[
-|\widetilde q|^2\widetilde q
-=\widetilde q\conj{\widetilde q}\widetilde q,
-\qquad
-6|\widetilde q|^2\widetilde q_x
-=6\widetilde q\conj{\widetilde q}\widetilde q_x.
-\]
-第一行右端依次包含二阶导数、三次非线性、三阶导数、含一阶导数的三次非线性和极化耦合. 第二行中 $\eta\widetilde q$ 是实介质量与复光场的乘积, 第三行中两个乘积互为复共轭:
-\[
-\conj{\conj{\widetilde q}\widetilde p}
-=\widetilde q\conj{\widetilde p}.
-\]
-所以第三行右端是实数, 与 $\eta$ 的实值要求相容. 若对前两行分别取复共轭, 由于 $\conj{\ii}=-\ii$ 且参数为实数, 得到
-\begin{align*}
-\conj{\widetilde q_t}
-&=-\ii\alpha\left(\dfrac{1}{2}\conj{\widetilde q_{xx}}
-+|\widetilde q|^2\conj{\widetilde q}\right)
-+\beta\left(\conj{\widetilde q_{xxx}}+6|\widetilde q|^2\conj{\widetilde q_x}\right)
-+2\conj{\widetilde p},\\
-\conj{\widetilde p_x}
-&=2\eta\conj{\widetilde q}+2\ii a\conj{\widetilde p}.
-\end{align*}
-这两条不是新增加的独立方程, 而是原复方程的共轭. 后面的矩阵零曲率会同时出现它们.
 
-\paragraph{边界假设怎样阅读.}
-$q_0>0$ 表示光场在两端有非零模长. $a\ne0$ 使所选端态中的除法有意义. $\eta_0\ne0$ 还会保证共振处的介质特征值不为零, 这是后文反射条件的一项依据. ``两端同相''表示 $x\to+\infty$ 和 $x\to-\infty$ 时使用完全相同的复光场, 不是仅要求两端的模相同. 边界值本身随 $t$ 变化, 所以``非零边界''不等于三个场在 $x,t$ 上都是常数.
-\begin{equation}\label{eq:targetboundary}
-(\widetilde q,\widetilde p,\eta)\longrightarrow
-\left(q_0e^{-\ii\Omega t},-\dfrac{\ii\eta_0q_0}{a}e^{-\ii\Omega t},\eta_0\right),
-\qquad x\longrightarrow\pm\infty,
-\end{equation}
-其中 $\Omega=-\alpha q_0^2+\dfrac{2\eta_0}{a}$. 非零光场产生双叶谱曲面 $\lambda^2=k^2+q_0^2$, 介质耦合则在演化 Lax 矩阵中引入实共振极点 $k=a$.
+\subsection{研究问题与数学特点}
+Hirota--Maxwell--Bloch (HMB) 系统描述高阶色散光场与两能级介质的耦合\cite{PN1995,LHP2013}.
+本文研究空间两端具有相同振幅与相位的非零光场背景. 去除背景的共同时间相位后,
+空间谱矩阵具有常系数端态, 其特征值满足双叶谱曲线; 演化谱矩阵则在实共振参数处具有简单极点.
+因此, 光场与介质分别由两种谱信息恢复: 光场取自谱无穷远的展开系数, 极化与粒子数反转取自共振处的矩阵共轭.
 
-\paragraph{端态的相位和极化系数为何这样选.}
-先把边界候选式当作对所有 $x$ 都成立的平面波. 它的全部 $x$ 导数为零. 第二条方程于是给出
-\begin{align*}
-0&=2\eta_0q_0e^{-\ii\Omega t}-2\ii a\widetilde p,\\
-2\ii a\widetilde p&=2\eta_0q_0e^{-\ii\Omega t},\\
-\widetilde p&=\dfrac{\eta_0q_0}{\ii a}e^{-\ii\Omega t}
-=-\dfrac{\ii\eta_0q_0}{a}e^{-\ii\Omega t}.
-\end{align*}
-最后一步使用 $\dfrac{1}{\ii}=-\ii$, 因为 $\ii(-\ii)=1$. 因 $\Omega$ 是实数, 指数与其共轭相乘为1:
-\[
-\left|q_0e^{-\ii\Omega t}\right|^2
-=q_0e^{-\ii\Omega t}q_0e^{\ii\Omega t}=q_0^2.
-\]
-将这些结果代入第一行, 有
-\begin{align*}
-\partial_t(q_0e^{-\ii\Omega t})
-&=-\ii\Omega q_0e^{-\ii\Omega t},\\
-\ii\alpha q_0^2q_0e^{-\ii\Omega t}+2\widetilde p
-&=\left(\ii\alpha q_0^2-\dfrac{2\ii\eta_0}{a}\right)q_0e^{-\ii\Omega t}.
-\end{align*}
-$q_0e^{-\ii\Omega t}$ 不为零, 两边除以它, 再除以 $-\ii$, 就得到 $\Omega=-\alpha q_0^2+\dfrac{2\eta_0}{a}$. 第三行也必须单独检查:
-\begin{align*}
-\conj{\widetilde q}\widetilde p
-&=q_0e^{\ii\Omega t}\left(-\dfrac{\ii\eta_0q_0}{a}e^{-\ii\Omega t}\right)
-=-\dfrac{\ii\eta_0q_0^2}{a},\\
-\widetilde q\conj{\widetilde p}
-&=q_0e^{-\ii\Omega t}\left(\dfrac{\ii\eta_0q_0}{a}e^{\ii\Omega t}\right)
-=\dfrac{\ii\eta_0q_0^2}{a},\\
--(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p})&=0=\partial_x\eta_0.
-\end{align*}
-这说明所选平面波确实相容. 这项检查是直接代入一个具体函数, 并不是从一般函数有边界极限就自动推出它的导数也有对应极限; 后文需要导数衰减时会另列正则性条件.
+本文的目标是从这一谱结构出发组织逆散射构造, 使空间谱分析、散射数据演化、共振相容性与三场验证形成连续的论证.
+其中需要区分时间 Lax 矩阵的固定共振极点与离散谱引起的 RHP 留数极点.
+前者影响传播相位和介质重构, 后者决定无反射问题的有限维代数系统.
 
-\paragraph{谱曲面与共振点在全文中的位置.}
-$k$ 是线性谱问题的参数, 不是空间变量. $\lambda$ 是背景谱矩阵的特征根. 第2部分将从背景矩阵相乘和特征方程逐步算出 $\lambda^2=k^2+q_0^2$, 再解释一个 $k$ 通常有两个谱根的原因. $k=a$ 则来自演化矩阵中的分母, 与这个平方根的分支点是两类不同的特殊点. 仅从本段文字还不能把它们混同, 也不能把在 $k=a$ 奇异的时间传播指数直接代入该点.
+\subsection{相关研究}
+HMB 的 Lax 表示、Darboux 变换以及非零背景上的呼吸子和怪波已有研究\cite{LHP2013,ZZ2026}.
+Li、Xia 与 Wei\cite{LXW2021}利用 Riemann--Hilbert 方法构造零光场背景下的 HMB 多孤子.
+高阶非线性 Schr\"odinger--Maxwell--Bloch 系统的 RHP 与孤子分类见文献\cite{LTPY2020,Guo2022},
+NLS--Maxwell--Bloch 的相关构造见文献\cite{LZX2021}.
+Liu 与 Liu\cite{LL2026}研究的非零背景施加于介质变量, 其光场在空间无穷远趋于零.
+本文采用的非零光场端态改变了空间谱矩阵, 因而需要相应的谱曲面与单值化分析.
 
-\subsection{相关工作与主要结果}
-Li、He 与 Porsezian\cite{LHP2013}给出了 HMB 的 Lax 对和 Darboux 变换, Zhao 与 Zhaqilao\cite{ZZ2026}研究了平面波及周期背景上的呼吸子和怪波. Li、Xia 与 Wei\cite{LXW2021}建立了零光场背景下的无反射 RHP. Liu 与 Liu\cite{LL2026}的非零背景施加于粒子数反转, 光场仍在无穷远趋于零; 边界 \eqref{eq:targetboundary} 则直接改变空间谱矩阵.
+非零光场的 Maxwell--Bloch 逆散射理论见 Biondini 等\cite{BGKL2019}.
+该工作同时恢复光场和介质矩阵, 但介质具有频率分布, 其传播问题与本文的局部共振项需要分别处理.
+无谱线展宽的 MB 系统中, Kotlyarov--Moskovchenko\cite{KM2014}以及
+Filipkovska 等\cite{FKM2017}通过两个 Lax 方程的谱分析、规范变换与正则矩阵 RHP 研究初边值问题.
+Li--Miller\cite{LM2024}和 Wu、He、Huang\cite{WHH2025}进一步分析了 sharp-line 模型中的奇异演化与边界行为.
+这些研究提示, 共振处的点值相容性与演化散射数据的函数空间正则性应分别说明.
 
-非零边界逆散射的谱分析与矩阵重构可参见范恩贵\cite{Fan2022}、Zhang--Fan\cite{ZhangFan2020}及 Zhao--Fan\cite{ZhaoFan2019}. Zhang、Chen 与 Yan\cite{ZCY2020}讨论了 Hirota 方程的非零边界散射和相位约束, Biondini 等\cite{BGKL2019}建立了含频率相关介质的两能级系统的非零光场散射理论. 对局部 HMB 系统, 光场与介质的恢复分别由谱无穷远展开和实共振点的矩阵共轭确定.
+非零背景谱分析、散射约化和迹公式可参考文献\cite{Fan2022,ZhangFan2020,ZCY2020}.
+谱奇点的正则化与适定性属于进一步的分析问题, 相关方法见文献\cite{BM2019,BPZ2024}.
+本文在相应的条件下给出含反射的表示, 随后集中求解无反射问题, 并对指定单轨道完成原方程验证.
 
-本文建立非零背景的 Jost 解、散射数据及矩阵 RHP, 推导迹公式与同相约束. 对 $N$ 个完整简单四点轨道, 在系数矩阵可逆时求解留数系统, 给出矩阵解及光场的行列式公式. 对一个纯虚轨道进一步显式消元, 证明矩阵解的全局存在唯一性, 再由无穷远及两个共振原像重构三场. 矩阵对数导数恢复完整 Lax 对, 证明该单轨道三场满足 HMB 方程及边界 \eqref{eq:targetboundary}. 最后展示三场分布、传播速度与内部振荡.
+\subsection{本文结果与论证安排}
+本文首先在统一的三场基本条件下建立空间 Jost 解、解析列、散射约化与离散谱.
+在正向演化中增加 HMB 方程条件, 推导唯一一套空间散射数据的时间演化,
+再由介质方程和共同端态证明共振处的反射消失条件.
+在此基础上构造矩阵 RHP, 给出满足局部正则性与可积性条件的解的 Cauchy 表示、迹公式和三场重构.
 
-本文以 $\ii$ 表示虚数单位, 上标 $*$ 表示复共轭; 对向量或矩阵, 复共轭逐项作用. 对矩阵 $A$, $A^T$ 表示转置, $A^\dagger=(A^*)^T$ 表示共轭转置. 记 $I$ 为二阶单位矩阵, $[A,B]=AB-BA$ 为矩阵交换子, $\operatorname{Re}$ 和 $\operatorname{Im}$ 分别表示实部和虚部.
+对于 $N$ 个完整简单四点轨道, 本文在有限维留数矩阵可逆的区域给出无反射矩阵解及行列式重构.
+对于一族指定的纯虚单轨道数据, 通过显式消元证明该矩阵在所有实 $x,t$ 上可逆,
+从同一个 RHP 解恢复光场、极化与粒子数反转, 并证明两个共振原像的一致性.
+随后消去矩阵对数导数的表观奇性, 恢复完整 Lax 对并验证原 HMB 方程、Bloch 约束、两端边界及基本函数空间条件.
+最后给出三场数值图像、参数比较和高精度残差核验.
 
-\paragraph{这些结果之间的逻辑依赖.}
-正向计算先给定满足适当条件的场, 解线性空间方程, 得到散射数据. 逆向计算则试图从数据恢复场. 第3--7部分说明从场得到的数据必须具有何种解析性、对称性、零点结构和渐近形式. 第8部分前半说明若相应矩阵 RHP 有满足所列条件的解, 怎样写出表示并读取场. 这一步包含假设, 不能取消. 8.3 对 $N$ 个完整简单四点轨道给出有限系统、Schur 消元和行列式公式, 可解性要求 $\det L_N\ne0$. 8.4 再对一个指定纯虚轨道证明该行列式全局严格为正, 并从矩阵恢复满足原方程的三场. 因此应分别检查一般轨道的条件性公式和指定单轨道的全局存在唯一性证明.
-
-\paragraph{本节不需要提前掌握的术语.}
-此处的 Jost 解、解析列、留数、RHP、迹公式和矩阵对数导数, 都将在后文出现其具体表达式时解释. 阅读顺序按原论文推进即可. 在文献综述中提到 Darboux 方法, 只是在交代原论文的研究背景; 后面的详细计算仍使用本论文的直接散射、留数系统和矩阵逆验证, 不改用另一种构造方法.
+第 \ref{ch:model} 节规定模型、基本条件及背景谱几何;
+第 \ref{ch:direct} 节研究固定时刻的直接散射;
+第 \ref{ch:scattering} 节处理散射演化与共振相容性;
+第 \ref{ch:rhp} 节建立 RHP 与重构框架;
+第 \ref{ch:soliton} 节求解无反射留数系统;
+第 \ref{ch:verification} 节证明单轨道三场解的全局性及方程相容性;
+第 \ref{ch:conclusion} 节展示数值结果与动力学.

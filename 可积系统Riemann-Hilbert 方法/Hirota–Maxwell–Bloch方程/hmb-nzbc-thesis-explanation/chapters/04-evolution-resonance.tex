@@ -1,0 +1,226 @@
+
+本节研究空间散射数据的演化. 在定义 \ref{ass:fields} 的基本条件上,
+本节的正向演化命题另设三场满足规范 HMB 系统, 即 \eqref{eq:gauged-HMB} 及两条介质方程.
+散射矩阵始终按空间归一化关系 $\chi_+=\chi_-S(z,t)$ 定义.
+
+\subsection{空间 Jost 解的修正时间方程}
+\begin{proposition}[散射矩阵的演化]\label{prop:evolution}
+设上述正向演化条件成立. 对避开共振原像的普通连续谱,
+\begin{equation}\label{eq:chi-time}
+\chi_{\pm,t}=V\chi_\pm-\chi_\pm\ii\lambda F\sg.
+\end{equation}
+散射矩阵满足 $S_x=0$ 和 $S_t=[\ii\lambda F\sg,S]$, 因而
+\begin{equation}\label{eq:timeS}
+S(z,t)=e^{\ii\lambda Ft\sg}S(z,0)e^{-\ii\lambda Ft\sg}.
+\end{equation}
+透射系数及其解析零点不随 $t$ 变化; 反射系数满足
+\begin{equation}\label{eq:timer}
+\rho(z,t)=e^{-2\ii\lambda Ft}\rho(z,0),\qquad
+\widetilde\rho(z,t)=e^{2\ii\lambda Ft}\widetilde\rho(z,0).
+\end{equation}
+\end{proposition}
+\begin{proof}
+基本条件中的 $C^1(I;L^1)$ 正则性允许对相应 Jost 积分方程求时间导数.
+在避开 $0,\pm\ii q_0,z_a^\pm$ 的谱参数紧集上, Volterra 核与时间导数的迭代由可积函数一致控制.
+零曲率关系给出
+\[
+\partial_x(\chi_{\pm,t}-V\chi_\pm)=U(\chi_{\pm,t}-V\chi_\pm).
+\]
+在各自归一化端, $V-V_\infty\to0$, 且
+$V_\infty Y=\ii\lambda F Y\sg$.
+因此 $\chi_{\pm,t}-V\chi_\pm$ 与 $-\chi_\pm\ii\lambda F\sg$ 满足同一空间方程和同一端态.
+去除空间指数后应用 Volterra 唯一性, 得到 \eqref{eq:chi-time}.
+同样的逐列论证适用于各解析列.
+
+对散射关系求导, 有
+\[
+\chi_-S_t
+=(V\chi_+-\chi_+\ii\lambda F\sg)
+-(V\chi_--\chi_-\ii\lambda F\sg)S
+=\chi_-[\ii\lambda F\sg,S].
+\]
+连续谱上的 $\chi_-$ 可逆, 故得到 $S_t$ 方程及 \eqref{eq:timeS}.
+将右端的对角矩阵相乘,
+\[
+S(z,t)=
+\begin{pmatrix}
+s_{11}(z,0)&e^{2\ii\lambda Ft}s_{12}(z,0)\\
+e^{-2\ii\lambda Ft}s_{21}(z,0)&s_{22}(z,0)
+\end{pmatrix}.
+\]
+对角元不变, 非对角元除以相应透射系数即得 \eqref{eq:timer}.
+透射系数的解析延拓由相应 Jost 列的同一论证确定, 所以离散零点不随 $t$ 变化.
+\end{proof}
+
+在共振之外, 定义辅助的完整时空归一化解
+\begin{equation}\label{eq:full-jost}
+\phi_\pm=\chi_\pm e^{\ii\lambda Ft\sg}
+=\mu_\pm e^{\ii\theta\sg}.
+\end{equation}
+式 \eqref{eq:chi-time} 表明 $\phi_{\pm,x}=U\phi_\pm$、$\phi_{\pm,t}=V\phi_\pm$.
+空间解 $\chi_\pm$ 与完整解 $\phi_\pm$ 的区别只在已知传播指数.
+本文用前者定义 $S(z,t)$, 用后者解释后续对数导数中的完整相位.
+在共振处, 前者由空间积分方程定义, 后者的传播指数不作点值代入.
+
+\subsection{离散范数数据与时空留数系数}
+\begin{proposition}[范数数据的演化]\label{prop:norming-evolution}
+设正向演化条件成立, $\zeta_j$ 是简单离散零点.
+按 \eqref{eq:norming-definition} 定义的空间范数数据满足
+\begin{equation}\label{eq:norming-time}
+b_j(t)=b_j(0)e^{2\ii\lambda(\zeta_j)F(k(\zeta_j))t},\qquad
+c_j(t)=c_j(0)e^{2\ii\lambda(\zeta_j)F(k(\zeta_j))t}.
+\end{equation}
+相应留数系数为
+\begin{equation}\label{eq:C-timephase}
+C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}
+=c_j(0)e^{2\ii\theta(x,t,\zeta_j)}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+修正时间方程的两列分别满足
+\[
+\chi_{\pm,1,t}=V\chi_{\pm,1}-\ii\lambda F\chi_{\pm,1},\qquad
+\chi_{\pm,2,t}=V\chi_{\pm,2}+\ii\lambda F\chi_{\pm,2}.
+\]
+把 $\chi_{+,2}=b_j(t)\chi_{-,1}$ 求时间导数,
+消去相同的 $V\chi_{-,1}$ 项, 得
+\[
+b_j'(t)\chi_{-,1}
+=2\ii\lambda(\zeta_j)F(k(\zeta_j))b_j(t)\chi_{-,1}.
+\]
+该列非零, 从而得到 $b_j$ 的标量常微分方程.
+积分即得第一式; $s_{22}'(\zeta_j)$ 不随时间变化, 得到第二式.
+再代入空间去相位因子, 得 \eqref{eq:C-timephase}.
+\end{proof}
+因此, 取初始范数数据与完整相位, 或取演化后的范数数据与空间相位, 给出同一个 $C_j$.
+后文有限维公式使用初始数据 $c_j(0)$ 与完整相位; 跳跃矩阵则使用 $\rho(z,t),\widetilde\rho(z,t)$ 与空间指数.
+
+\subsection{共振处的介质相容性}
+\begin{proposition}[共振处的空间恒等式]\label{prop:resonance}
+固定 $t$. 设三场满足基本条件及两条介质方程. 则在每个共振原像,
+\begin{equation}\label{eq:resonance-conjugation}
+\chi_\pm(z_a^\pm)^{-1}R\chi_\pm(z_a^\pm)
+=\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sg.
+\end{equation}
+散射矩阵满足
+\begin{equation}\label{eq:resonance-reflection}
+[S(z_a^\pm,t),\sg]=0,\qquad
+\rho(z_a^\pm,t)=\widetilde\rho(z_a^\pm,t)=0.
+\end{equation}
+\end{proposition}
+\begin{proof}
+空间 Jost 构造在 $z_a^\pm$ 正则, 且 $\det\chi_\pm=\gamma(z_a^\pm)>0$.
+将介质方程写为 $R_x=[U(a),R]$, 则
+\[
+\partial_x(\chi_\pm^{-1}R\chi_\pm)
+=\chi_\pm^{-1}(R_x-[U(a),R])\chi_\pm=0.
+\]
+由背景恒等式,
+\[
+Y(z_a)^{-1}R_\infty Y(z_a)=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
+\]
+$\lambda(z_a)=\pm\sqrt{a^2+q_0^2}$ 为非零实数.
+在 $\chi_\pm$ 各自的归一化端, 振荡矩阵及其逆有界, 并与 $\sg$ 对易.
+取极限就得到 \eqref{eq:resonance-conjugation}.
+再使用 $\chi_+=\chi_-S$, 得
+\[
+S(z_a,t)^{-1}\dfrac{\eta_0\lambda(z_a)}{a}\sg S(z_a,t)
+=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
+\]
+因系数非零, $S$ 必须对角; $\det S=1$ 保证两个对角元均非零, 故反射系数为零.
+\end{proof}
+该恒等式还说明修正时间方程的共振主部如何相消:
+\[
+R\chi_\pm(z_a)-\chi_\pm(z_a)\dfrac{\eta_0\lambda(z_a)}{a}\sg=0.
+\]
+这是 \eqref{eq:chi-time} 中 $V\chi_\pm$ 与 $\chi_\pm\ii\lambda F\sg$ 的留数抵消关系.
+后文介质重构正是使用这一空间恒等式.
+
+\subsection{演化数据的正则性与逆问题条件}
+式 \eqref{eq:resonance-reflection} 是共同介质端态的必要条件.
+它并不单独决定反射系数乘上奇异时间指数后的可微性.
+例如, 固定非零实数 $c$, 局部函数 $r(s)=s e^{\frac{\ii c}{s}}$ 在 $s=0$ 连续取零, 但
+\[
+r'(s)=e^{\frac{\ii c}{s}}\left(1-\dfrac{\ii c}{s}\right)
+\]
+一般不在原点附近平方可积. 这说明点值消失与 Sobolev 正则性是不同要求.
+sharp-line MB 的相关分析可参见文献\cite{LM2024,WHH2025}.
+
+本文将条件分成三层: 基本场类支撑正向空间分析;
+散射数据另满足约化、简单离散谱和相位约束;
+一般 RHP 的积分表示再要求其解具有所列局部边界行为与可积跳跃密度.
+本文不由共振点的反射消失自动推断一般含反射 RHP 的存在性或演化的空间保持性.
+无反射时, 连续谱的反射项恒为零, 可直接从独立离散数据求解有理矩阵问题.
+
+\subsubsection*{补充计算: 修正项、散射矩阵与范数数据}
+\paragraph{为什么空间归一化产生右侧修正项.}
+背景解的空间形式为 $Ye^{-\ii\lambda x\sg}$.
+它没有时间依赖, 而 $V_\infty Ye^{-\ii\lambda x\sg}
+=Ye^{-\ii\lambda x\sg}\ii\lambda F\sg$.
+所以 $\chi_t=V\chi$ 与纯空间端态不相容, 需要减去 $\chi\ii\lambda F\sg$.
+由乘积求导, 对辅助完整解有
+\begin{align*}
+\phi_t
+&=\chi_t e^{\ii\lambda Ft\sg}
++\chi\ii\lambda F\sg e^{\ii\lambda Ft\sg}\\
+&=(V\chi-\chi\ii\lambda F\sg)e^{\ii\lambda Ft\sg}
++\chi\ii\lambda F\sg e^{\ii\lambda Ft\sg}
+=V\phi.
+\end{align*}
+两项抵消使用的是右乘顺序, 无须把 $\sg$ 移到 $\chi$ 左侧.
+
+\paragraph{把散射演化逐元展开.}
+用已定义的对角矩阵指数直接相乘,
+\begin{align*}
+S(z,t)
+&=\begin{pmatrix}e^{\ii\lambda Ft}&0\\0&e^{-\ii\lambda Ft}\end{pmatrix}
+\begin{pmatrix}s_{11}(z,0)&s_{12}(z,0)\\s_{21}(z,0)&s_{22}(z,0)\end{pmatrix}
+\begin{pmatrix}e^{-\ii\lambda Ft}&0\\0&e^{\ii\lambda Ft}\end{pmatrix}\\
+&=\begin{pmatrix}
+s_{11}(z,0)&e^{2\ii\lambda Ft}s_{12}(z,0)\\
+e^{-2\ii\lambda Ft}s_{21}(z,0)&s_{22}(z,0)
+\end{pmatrix}.
+\end{align*}
+因此
+\[
+\partial_t s_{11}=\partial_t s_{22}=0,\qquad
+\partial_t s_{12}=2\ii\lambda F s_{12},\qquad
+\partial_t s_{21}=-2\ii\lambda F s_{21}.
+\]
+反射系数的分母不随 $t$ 变化, 故其演化只来自非对角分子.
+
+\paragraph{离散列相关关系的时间求导.}
+在 $\zeta_j$ 处,
+\begin{align*}
+\partial_t\chi_{+,2}
+&=b_j'(t)\chi_{-,1}+b_j(t)\partial_t\chi_{-,1}\\
+&=b_j'(t)\chi_{-,1}
++b_j(t)V\chi_{-,1}-\ii\lambda F b_j(t)\chi_{-,1}.
+\end{align*}
+另一方面, 第二列的修正时间方程给出
+\[
+\partial_t\chi_{+,2}
+=b_j(t)V\chi_{-,1}+\ii\lambda F b_j(t)\chi_{-,1}.
+\]
+逐项相减得到 $b_j'=2\ii\lambda F b_j$.
+将该解乘以 $e^{-2\ii\lambda x}$, 完整相位就只出现一次.
+在辅助完整解中则有
+$\phi_{+,2}=b_j(t)e^{-2\ii\lambda Ft}\phi_{-,1}
+=b_j(0)\phi_{-,1}$.
+这解释了为什么后文完整相位下的留数右因子使用初始常数.
+
+\paragraph{共振处的对角化和反射消失.}
+由 $R_\infty=\dfrac{\ii\eta_0}{a}U_\infty(a)$ 以及
+$Y^{-1}U_\infty Y=-\ii\lambda\sg$,
+\[
+Y^{-1}R_\infty Y
+=\dfrac{\ii\eta_0}{a}(-\ii\lambda\sg)
+=\dfrac{\eta_0\lambda}{a}\sg.
+\]
+若 $S=\begin{pmatrix}s_{11}&s_{12}\\s_{21}&s_{22}\end{pmatrix}$,
+则
+\[
+[\sg,S]=\begin{pmatrix}0&2s_{12}\\-2s_{21}&0\end{pmatrix}.
+\]
+对易性恰好消去非对角元, 而 $s_{11}s_{22}=1$ 保证反射比值可定义.
+这一步使用共同介质端态, 未对含极点的时间指数作点值运算.

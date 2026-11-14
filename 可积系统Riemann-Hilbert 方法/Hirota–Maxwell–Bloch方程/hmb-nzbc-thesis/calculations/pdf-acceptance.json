@@ -1,70 +1,67 @@
 {
   "sources": {
-    "tex_files": 10,
-    "labels": 176,
-    "references": 174,
+    "tex_files": 9,
+    "labels": 190,
+    "references": 192,
     "balanced_delimiters_environments_braces": true,
-    "nine_continuous_sections": true,
-    "forbidden_forms_absent": true
+    "eight_continuous_sections": true,
+    "forbidden_forms_absent": true,
+    "spatial_Jost_and_single_scattering_notation": true,
+    "cited_bibliography_entries": 18
   },
   "build": "XeLaTeX, BibTeX, XeLaTeX, XeLaTeX",
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 38,
+  "pdf_pages": 42,
   "top_level_sections": [
     [
       1,
       "1. 绪论",
+      3
+    ],
+    [
+      1,
+      "2. HMB 模型、基本条件与背景谱问题",
       4
     ],
     [
       1,
-      "2. 谱分析",
-      4
-    ],
-    [
-      1,
-      "3. Jost 解",
+      "3. 非零背景的直接散射",
       9
     ],
     [
       1,
-      "4. 散射矩阵",
-      12
+      "4. 散射演化与共振相容性",
+      21
     ],
     [
       1,
-      "5. 对称性",
-      15
+      "5. 矩阵 RHP 与三场重构",
+      24
     ],
     [
       1,
-      "6. 离散谱与留数条件",
-      17
+      "6. 无反射 RHP 与轨道构造",
+      29
     ],
     [
       1,
-      "7. 渐近行为",
-      19
+      "7. 单轨道三场解的全局性与方程验证",
+      34
     ],
     [
       1,
-      "8. Riemann–Hilbert 问题",
-      23
-    ],
-    [
-      1,
-      "9. 数值结果与动力学分析",
-      35
+      "8. 数值结果与动力学分析",
+      37
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 230,
+  "pdf_links_checked": 288,
   "invalid_internal_links": [],
-  "original_eq_2_24_label": "eq:diagE",
+  "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
-    "2.24",
-    "5"
+    "2.29",
+    "7"
   ],
-  "pdf_sha256": "36a81938a782e76151c60864493b4d1fa0dd6c13d8d7e4795d1056b9eebfcb3c",
-  "visual_review": "Full-page contact sheets plus enlarged headings, all Jost/asymptotic proofs, spectrum diagrams, general RHP, sections 8.1-8.4, all numerical figures and bibliography. This field records human/agent inspection in the task, not a machine inference."
+  "pdf_sha256": "236712905467fc2a550dc7b961c29142c55eb873c6211d73d95ea3e8a8bfcb62",
+  "visual_review": "Full-page review and selected enlargements completed in the rewrite task; publication rebuild pixel comparison is recorded in the companion acceptance.json."
 }

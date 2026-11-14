@@ -1,7 +1,7 @@
 {
   "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-explanation\\hmb-explanation.pdf",
-  "pages": 166,
-  "bytes": 2438809,
+  "pages": 164,
+  "bytes": 2425093,
   "page_geometry": [
     595.280029296875,
     841.8900146484375
@@ -10,167 +10,232 @@
   "bookmarks": [
     [
       1,
-      "摘 要",
+      "详细版阅读说明",
       1
     ],
     [
       1,
-      "Abstract",
+      "目 录",
       2
     ],
     [
       1,
-      "如何阅读本详细版",
-      3
-    ],
-    [
-      1,
-      "目 录",
-      6
-    ],
-    [
-      1,
       "1. 绪论",
-      7
+      4
     ],
     [
       2,
-      "1.1 模型与非零光场边界",
-      7
+      "1.1 研究问题与数学特点",
+      4
     ],
     [
       2,
-      "1.2 相关工作与主要结果",
-      8
+      "1.2 相关研究",
+      4
+    ],
+    [
+      2,
+      "1.3 本文结果与论证安排",
+      4
     ],
     [
       1,
-      "2. 谱分析",
+      "2. HMB 模型、基本条件与背景谱问题",
+      5
+    ],
+    [
+      2,
+      "2.1 方程、背景与记号",
+      5
+    ],
+    [
+      2,
+      "2.2 函数空间与基本条件",
+      5
+    ],
+    [
+      2,
+      "2.3 Lax 对",
       9
     ],
     [
       2,
-      "2.1 平面波背景与介质约束",
-      9
+      "2.4 规范变换与背景谱问题",
+      22
     ],
     [
       2,
-      "2.2 Lax 对",
-      13
-    ],
-    [
-      2,
-      "2.3 规范变换与背景谱问题",
-      26
-    ],
-    [
-      2,
-      "2.4 黎曼曲面与单值化",
-      31
+      "2.5 谱曲面、单值化与背景基底",
+      28
     ],
     [
       1,
-      "3. Jost 解",
-      43
+      "3. 非零背景的直接散射",
+      40
     ],
     [
-      1,
-      "4. 散射矩阵",
+      2,
+      "3.1 空间归一化与 Volterra 方程",
+      40
+    ],
+    [
+      2,
+      "3.2 分支点的连续延拓",
+      47
+    ],
+    [
+      2,
+      "3.3 散射矩阵与解析系数",
+      49
+    ],
+    [
+      2,
+      "3.4 共轭与换叶约化",
       53
     ],
     [
       2,
-      "4.1 散射矩阵与解析系数",
-      53
+      "3.5 离散谱、范数数据与留数",
+      60
     ],
     [
       2,
-      "4.2 演化与共振相容性",
-      57
-    ],
-    [
-      1,
-      "5. 对称性",
-      61
-    ],
-    [
-      1,
-      "6. 离散谱与留数条件",
+      "3.6 两处谱无穷远的渐近展开",
       68
     ],
     [
-      1,
-      "7. 渐近行为",
-      76
-    ],
-    [
-      1,
-      "8. Riemann–Hilbert 问题",
-      90
-    ],
-    [
       2,
-      "8.1 留数条件与重构公式",
-      92
-    ],
-    [
-      2,
-      "8.2 迹公式与相位条件",
-      99
-    ],
-    [
-      2,
-      "8.3 HMB 方程的 N 孤子解",
-      102
-    ],
-    [
-      2,
-      "8.4 单轨道解及 HMB 方程验证",
-      108
+      "3.7 特殊谱点与后续 RHP 条件",
+      81
     ],
     [
       1,
-      "9. 数值结果与动力学分析",
-      139
+      "4. 散射演化与共振相容性",
+      81
     ],
     [
       2,
-      "9.1 单孤子的三场分布",
-      139
+      "4.1 空间 Jost 解的修正时间方程",
+      82
     ],
     [
       2,
-      "9.2 传播速度与内部振荡",
-      141
+      "4.2 离散范数数据与时空留数系数",
+      83
     ],
     [
       2,
-      "9.3 参数影响与数值验证",
-      145
+      "4.3 共振处的介质相容性",
+      83
+    ],
+    [
+      2,
+      "4.4 演化数据的正则性与逆问题条件",
+      84
     ],
     [
       1,
-      "原公式逐式定位表",
-      160
+      "5. 矩阵 RHP 与三场重构",
+      85
+    ],
+    [
+      2,
+      "5.1 散射数据与矩阵问题",
+      85
+    ],
+    [
+      2,
+      "5.2 含反射的 Cauchy 表示",
+      89
+    ],
+    [
+      2,
+      "5.3 光场与介质的恢复公式",
+      93
+    ],
+    [
+      2,
+      "5.4 迹公式与相位条件",
+      96
+    ],
+    [
+      1,
+      "6. 无反射 RHP 与轨道构造",
+      98
+    ],
+    [
+      2,
+      "6.1 多轨道无反射问题的条件性求解",
+      98
+    ],
+    [
+      2,
+      "6.2 纯虚单轨道数据与全局矩阵解",
+      105
+    ],
+    [
+      1,
+      "7. 单轨道三场解的全局性与方程验证",
+      120
+    ],
+    [
+      2,
+      "7.1 单轨道三场解及逆向验证",
+      120
+    ],
+    [
+      2,
+      "7.2 双曲表达与局域化",
+      135
+    ],
+    [
+      1,
+      "8. 数值结果与动力学分析",
+      136
+    ],
+    [
+      2,
+      "8.1 单轨道解的三场分布",
+      136
+    ],
+    [
+      2,
+      "8.2 传播速度与内部振荡",
+      138
+    ],
+    [
+      2,
+      "8.3 参数影响与数值验证",
+      142
+    ],
+    [
+      2,
+      "8.4 数值计算的方法与结论范围",
+      157
+    ],
+    [
+      1,
+      "公式索引",
+      158
     ],
     [
       1,
       "参考文献",
-      166
+      163
     ]
   ],
   "contact_sheets": [
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-01.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-02.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-03.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-04.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-05.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-06.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-07.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-08.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-09.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-10.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-83-title-20261109\\preview\\contact-11.png"
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-01.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-02.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-03.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-04.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-05.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-06.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-07.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-08.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-09.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-10.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-11.png"
   ],
-  "contact_pages_covered": 166
+  "contact_pages_covered": 164
 }
