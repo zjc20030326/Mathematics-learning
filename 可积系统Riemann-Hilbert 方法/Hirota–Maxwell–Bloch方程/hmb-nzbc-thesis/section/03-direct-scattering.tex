@@ -1,6 +1,7 @@
 
-本节以背景矩阵为端态构造 Jost 矩阵 $\mu_\pm$, 证明其解析性与唯一性,
-再讨论散射数据、对称关系及渐近性质. 对固定时刻 $t$ 的空间谱分析, 以下适当省略函数的 $t$ 参数.
+本节对每个固定的 $t\in I$ 构造 Jost 矩阵 $\mu_\pm(x,t,z)$,
+证明其解析性与唯一性, 再讨论散射数据、对称关系及渐近性质.
+同点代数运算中可省略全部自变量; 写出函数自变量时保留其时间参数.
 
 \subsection{Jost 解及其解析性质}
 对背景矩阵 $U_\infty$ 的特征值 $-\ii\lambda$ 和 $\ii\lambda$,
@@ -31,22 +32,22 @@ Y^{-1}=\dfrac{I+\dfrac{\ii q_0}{z}\sigma_1}{\gamma(z)},\quad z\ne0,\pm\ii q_0.
 
 对 $z\notin\{0,\pm\ii q_0,z_a^\pm\}$, 考虑渐近谱问题
 \begin{equation}\label{eq:background-lax}
-\phi_{0,x}=U_\infty\phi_0,\qquad \phi_{0,t}=V_\infty\phi_0.
+\phi_{\infty,x}=U_\infty\phi_\infty,\qquad \phi_{\infty,t}=V_\infty\phi_\infty.
 \end{equation}
 左乘 $Y^{-1}$ 后, 由 \eqref{eq:diagE} 得到对角系统
 \begin{equation*}
-(Y^{-1}\phi_0)_x=-\ii\lambda\sg(Y^{-1}\phi_0),\qquad
-(Y^{-1}\phi_0)_t=\ii\lambda F\sg(Y^{-1}\phi_0).
+(Y^{-1}\phi_\infty)_x=-\ii\lambda\sg(Y^{-1}\phi_\infty),\qquad
+(Y^{-1}\phi_\infty)_t=\ii\lambda F\sg(Y^{-1}\phi_\infty).
 \end{equation*}
-由此可以得到渐进谱问题\eqref{eq:background-lax}的解
+由此得到渐近谱问题 \eqref{eq:background-lax} 的解
 \begin{equation}\label{eq:theta}
-\phi_0=Y(z)e^{\ii\theta(x,t,z)\sg},\qquad
+\phi_\infty(x,t,z)=Y(z)e^{\ii\theta(x,t,z)\sg},\qquad
 \theta(x,t,z)=-\lambda(z)[x-F(k(z))t].
 \end{equation}
 
 固定上述谱点. 若矩阵 $\phi(x,t,z)$ 同时满足 Lax 对 \eqref{eq:gaugelax}, 令
 $\mu(x,t,z)=\phi(x,t,z)e^{-\ii\theta(x,t,z)\sg}$,
-并记 $\Delta Q=Q-Q_\infty$, $\Delta V=V-V_\infty$.
+并记 $\Delta Q(x,t)=Q(x,t)-Q_\infty$, $\Delta V(x,t,z)=V(x,t,z)-V_\infty(z)$.
 由 $\theta_x=-\lambda$, $\theta_t=\lambda F$, 得
 \begin{equation}\label{eq:jost-modified-lax}
 \begin{aligned}
@@ -80,16 +81,27 @@ Y(z)^{-1}\Delta Q(y,t)\mu_\pm(y,t,z)\right]\,\dd y.
 并连续延拓到各自闭域中避开 $0,\pm\ii q_0$ 的紧集. 上述连续谱结论包含 $z=z_a^\pm$.
 \end{theorem}
 \begin{proof}
-(1) 解析性与有界性. 令 $s_1=1,s_2=-1$, 第 $j$ 列的传播核为
+(1) 解析性与有界性. 以 $e_1,e_2$ 表示标准基向量, 令 $s_1=1,s_2=-1$.
+由 $\sg e_j=s_je_j$, 有
+\begin{equation*}
+e^{\ii\lambda(x-y)\sg}e_j=e^{\ii s_j\lambda(x-y)}e_j.
+\end{equation*}
+取 \eqref{eq:volterra} 的第 $j$ 列, 得
+\begin{equation*}
+\mu_{\pm,j}(x,t,z)=Y_j(z)+\int_{\pm\infty}^{x}
+K_j(x,y,z)\Delta Q(y,t)\mu_{\pm,j}(y,t,z)\,\dd y,
+\end{equation*}
+其中列积分核为
 \begin{equation}\label{eq:columnkernel}
 K_j(x,y,z)=e^{\ii s_j\lambda(x-y)}Y e^{-\ii\lambda(x-y)\sg}Y^{-1}.
 \end{equation}
-以 $e_1,e_2$ 表示标准基向量. 令 $w_{\pm,j}=Y^{-1}\mu_{\pm,j}$, 则四列均满足
+令 $w_{\pm,j}(x,t,z)=Y(z)^{-1}\mu_{\pm,j}(x,t,z)$ 及 $G_j=Y^{-1}K_j$,
+左乘 $Y^{-1}$ 后即得
 \begin{equation}\label{eq:jost-column-volterra}
-w_{\pm,j}(x,z)=e_j+\int_{\pm\infty}^{x}
-G_j(x,y,z)\Delta Q(y)Y(z)w_{\pm,j}(y,z)\,\dd y,
+w_{\pm,j}(x,t,z)=e_j+\int_{\pm\infty}^{x}
+G_j(x,y,z)\Delta Q(y,t)Y(z)w_{\pm,j}(y,t,z)\,\dd y,
 \end{equation}
-其中 $G_j=Y^{-1}K_j$, 即
+由 \eqref{eq:columnkernel}, 两种核的具体表达式为
 \begin{equation}\label{eq:jost-Gkernel}
 \begin{aligned}
 &G_1(x,y,z)=\diag\bigl(1,e^{2\ii\lambda(x-y)}\bigr)Y^{-1},\\
@@ -111,60 +123,59 @@ G_j(x,y,z)\Delta Q(y)Y(z)w_{\pm,j}(y,z)\,\dd y,
 
 采用向量范数 $\|v\|_1=|v_1|+|v_2|$ 及其诱导矩阵范数. 由
 \begin{equation*}
-\|\Delta Q(y)\|_1=|q(y)-q_0|,\qquad
+\|\Delta Q(y,t)\|_1=|q(y,t)-q_0|,\qquad
 \|Y\|_1=1+\dfrac{q_0}{|z|},\qquad
 \|Y^{-1}\|_1=\dfrac{1+\dfrac{q_0}{|z|}}{|\gamma(z)|},
 \end{equation*}
 可得
 \begin{equation}\label{eq:jost-kernel-estimate}
-\|G_j(x,y,z)\Delta Q(y)Y\|_1
-\le c(z)|q(y)-q_0|,\qquad
-c(z)=\dfrac{\left(1+\dfrac{q_0}{|z|}\right)^2}{\left|1+\dfrac{q_0^2}{z^2}\right|}.
+\|G_j(x,y,z)\Delta Q(y,t)Y\|_1
+\le c(z)|q(y,t)-q_0|,\qquad
+c(z)=\dfrac{(|z|+q_0)^2}{|z^2+q_0^2|}.
 \end{equation}
-在各列对应的闭域中取避开 $0,\pm\ii q_0$ 的紧集 $K$, 记 $c_K=\max\limits_{z\in K}c(z)$, 并令
+在各列对应的闭域中取避开 $0,\pm\ii q_0$ 的紧集 $K$, 记 $c_K=\displaystyle\max\limits_{z\in K}c(z)$, 并令
 \begin{equation*}
-\begin{aligned}
-&M_{-,K}(x)=c_K\int_{-\infty}^{x}|q(y)-q_0|\,\dd y,\\
-&M_{+,K}(x)=c_K\int_x^{+\infty}|q(y)-q_0|\,\dd y.
-\end{aligned}
+M_{-,K}(x,t)=c_K\int_{-\infty}^{x}|q(y,t)-q_0|\,\dd y,\qquad
+M_{+,K}(x,t)=c_K\int_x^{+\infty}|q(y,t)-q_0|\,\dd y.
 \end{equation*}
 构造 Neumann 级数
 \begin{equation}\label{eq:jost-neumann}
 \begin{aligned}
 &w_{\pm,j}=\sum\limits_{n=0}^{\infty}w_{\pm,j}^{(n)},\qquad w_{\pm,j}^{(0)}=e_j,\\
-&w_{\pm,j}^{(n+1)}(x,z)=\int_{\pm\infty}^{x}
-G_j(x,y,z)\Delta Q(y)Yw_{\pm,j}^{(n)}(y,z)\,\dd y.
+&w_{\pm,j}^{(n+1)}(x,t,z)=\int_{\pm\infty}^{x}
+G_j(x,y,z)\Delta Q(y,t)Yw_{\pm,j}^{(n)}(y,t,z)\,\dd y.
 \end{aligned}
 \end{equation}
 归纳即得
 \begin{equation}\label{eq:jost-factorial}
-\|w_{\pm,j}^{(n)}(x,z)\|_1\le\dfrac{M_{\pm,K}(x)^n}{n!},\qquad
-\|w_{\pm,j}(x,z)-e_j\|_1\le e^{M_{\pm,K}(x)}-1.
+\|w_{\pm,j}^{(n)}(x,t,z)\|_1\le\dfrac{M_{\pm,K}(x,t)^n}{n!},\qquad
+\|w_{\pm,j}(x,t,z)-e_j\|_1\le e^{M_{\pm,K}(x,t)}-1.
 \end{equation}
-由于 $M_{\pm,K}(x)\le c_K\|q-q_0\|_{L^1}$, 级数对实 $x$ 及 $z\in K$ 绝对一致收敛,
+由于 $M_{\pm,K}(x,t)\le c_K\|q(\cdot,t)-q_0\|_{L^1}$, 固定 $t$ 时级数对实 $x$ 及 $z\in K$ 绝对一致收敛,
 且在 $x\to\pm\infty$ 时 $w_{\pm,j}\to e_j$.
 每一迭代项在对应的 $D_+$ 或 $D_-$ 中解析, 并在相应闭域上连续;
 上述一致估计保证其和 $w_{\pm,j}$ 及 $\mu_{\pm,j}=Yw_{\pm,j}$ 也具有这些性质.
 
 (2) 唯一性. 对同一列的两个有界解之差 $d_{\pm,j}$ 迭代 $n$ 次, 有
 \begin{equation*}
-\|d_{\pm,j}(x,z)\|_1\le\|d_{\pm,j}(\cdot,z)\|_{L^\infty}
-\dfrac{M_{\pm,K}(x)^n}{n!}\longrightarrow0,
+\|d_{\pm,j}(x,t,z)\|_1\le\|d_{\pm,j}(\cdot,t,z)\|_{L^\infty}
+\dfrac{M_{\pm,K}(x,t)^n}{n!}\longrightarrow0,
 \end{equation*}
 从而各列解唯一.
 对 \eqref{eq:volterra} 关于 $x$ 求导即得 \eqref{eq:jost-modified-lax} 的第一式;
 结合端点归一化, 得到所述 Jost 矩阵.
 \end{proof}
 
+分支点处的连续性采用加权 Volterra 估计处理\cite{ZhangFan2020}.
 \begin{lemma}\label{prop:jost-branch}
-基本条件给出加权可积性
+固定 $t\in I$. 基本条件给出加权可积性
 \begin{equation}\label{eq:jost-weighted}
-\int_{-\infty}^{+\infty}(1+|x|)|q(x)-q_0|\,\dd x<\infty.
+\int_{-\infty}^{+\infty}(1+|x|)|q(x,t)-q_0|\,\dd x<\infty.
 \end{equation}
 在此条件下, 每个 Jost 解析列均可从其闭解析域连续延拓到分支点 $z_b=\pm\ii q_0$. 端点值满足
 \begin{equation}\label{eq:jost-branch-volterra}
-\mu_\pm(x,z_b)=Y(z_b)+\int_{\pm\infty}^{x}
-[I+(x-y)U_\infty(z_b)]\Delta Q(y)\mu_\pm(y,z_b)\,\dd y,
+\mu_\pm(x,t,z_b)=Y(z_b)+\int_{\pm\infty}^{x}
+[I+(x-y)U_\infty(z_b)]\Delta Q(y,t)\mu_\pm(y,t,z_b)\,\dd y,
 \end{equation}
 并在对应归一化端趋于 $Y(z_b)$, 满足空间谱方程, 且秩为一.
 \end{lemma}
@@ -180,29 +191,26 @@ e^{(x-y)U_\infty}
 K_j(x,y,z)=\dfrac{1+e^{2\ii s_j\lambda(x-y)}}{2}I
 +\dfrac{e^{2\ii s_j\lambda(x-y)}-1}{2\ii s_j\lambda}U_\infty(z).
 \end{equation}
-在该列允许的积分方向及闭解析域内, $s_j\operatorname{Im}\lambda\,(x-y)\ge0$, 且
+在该列允许的积分方向及闭解析域内, $s_j\operatorname{Im}\lambda\,(x-y)\ge0$, 因而
 \begin{equation*}
-\begin{aligned}
-&\dfrac{e^{2\ii s_j\lambda(x-y)}-1}{2\ii s_j\lambda}
-=(x-y)\int_0^1 e^{2\ii s_j\tau\lambda(x-y)}\,\dd\tau,\\
-&\|K_j(x,y,z)\|_1\le1+C_b|x-y|.
-\end{aligned}
+\left|\dfrac{e^{2\ii s_j\lambda(x-y)}-1}{2\ii s_j\lambda}\right|\le|x-y|,\qquad
+\|K_j(x,y,z)\|_1\le1+C_b|x-y|.
 \end{equation*}
-其中 $C_b$ 在 $z_b$ 的一个闭邻域内一致有界, 且 $K_j(x,y,z_b)=I+(x-y)U_\infty(z_b)$.
+其中 $C_b$ 在 $z_b$ 的固定小邻域内一致有界.
 
-以负端为例, 固定 $b\in\mathbb R$, 对 $y\le x\le b$ 有
+对负端固定 $x\le b$, 利用 $1+C_b|x-y|\le A_b(1+|y|)$, 令
 \begin{equation*}
-1+C_b|x-y|\le A_b(1+|y|),\qquad
-L_b(x)=A_b\int_{-\infty}^{x}(1+|y|)|q(y)-q_0|\,\dd y.
+L_b(x,t)=A_b\int_{-\infty}^{x}(1+|y|)|q(y,t)-q_0|\,\dd y.
 \end{equation*}
-列积分方程的第 $n$ 次迭代满足
-\begin{equation*}
-\|\mu_{-,j}^{(n)}(x,z)\|_1
-\le C_Y\dfrac{L_b(x)^n}{n!},\qquad x\le b,
-\end{equation*}
-其中 $C_Y$ 为该邻域内 $\|Y_j(z)\|_1$ 的统一界. 加权条件保证级数一致收敛, 逐项取极限得到 \eqref{eq:jost-branch-volterra}; $L_b(x)\to0$ 给出负端归一化. 正端的反向积分同理, 对两解之差的迭代也给出端点唯一性.
+各迭代项满足 $\|\mu_{-,j}^{(n)}(x,t,z)\|_1\le C_Y\dfrac{L_b(x,t)^n}{n!}$,
+其中 $C_Y$ 为背景列的统一界. 因而 Neumann 级数在上述半轴及谱参数邻域内一致收敛.
+对各项积分应用支配收敛, 再交换极限与求和, 即得 \eqref{eq:jost-branch-volterra} 及连续延拓.
+当 $x\to-\infty$ 时 $L_b(x,t)\to0$, 给出负端归一化;
+正端同理, 同一估计也给出端点解的唯一性.
 
-对 \eqref{eq:jost-branch-volterra} 求导得到 $(\mu_\pm)_x=U(z_b)\mu_\pm$. 由端点唯一性, $Y(z_b)$ 两列的线性关系传递给 $\mu_\pm(x,z_b)$. 归一化端值非零, 线性系统的非零解不能在有限点为零, 故其秩恒为一.
+对端点积分方程求导, 即得 $\partial_x\mu_\pm(x,t,z_b)=U(x,t,z_b)\mu_\pm(x,t,z_b)$.
+由唯一性, $Y(z_b)$ 的列相关关系传递给 $\mu_\pm(x,t,z_b)$;
+非零列在有限点不消失, 故其秩恒为一.
 \end{proof}
 
 \begin{remark}
@@ -231,13 +239,15 @@ Jost 列在分支点的连续性与组成 RHP 的解析商的局部有界性分�
 \begin{equation}\label{eq:detjost}
 \det\mu_\pm=\gamma(z),\qquad \det S=1,\qquad S_x=0.
 \end{equation}
-散射系数满足
-\begin{align}
-s_{11}&=\dfrac{\det(\mu_{+,1},\mu_{-,2})}{\gamma},&
-s_{22}&=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{\gamma},\label{eq:wronskian}\\
-s_{21}&=e^{-2\ii\lambda x}\dfrac{\det(\mu_{-,1},\mu_{+,1})}{\gamma},&
-s_{12}&=e^{2\ii\lambda x}\dfrac{\det(\mu_{+,2},\mu_{-,2})}{\gamma}.\nonumber
-\end{align}
+在同一 $(x,t,z)$ 处取列行列式, 散射系数满足
+\begin{equation}\label{eq:wronskian}
+\begin{aligned}
+&s_{11}(z,t)=\dfrac{\det(\mu_{+,1},\mu_{-,2})}{\gamma},\qquad
+s_{22}(z,t)=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{\gamma},\\
+&s_{21}(z,t)=e^{-2\ii\lambda x}\dfrac{\det(\mu_{-,1},\mu_{+,1})}{\gamma},\qquad
+s_{12}(z,t)=e^{2\ii\lambda x}\dfrac{\det(\mu_{+,2},\mu_{-,2})}{\gamma}.
+\end{aligned}
+\end{equation}
 其中 $s_{11}$ 在 $D_-$ 解析, $s_{22}$ 在 $D_+$ 解析, 并连续延拓到相应闭域中避开 $0,\pm\ii q_0$ 的紧集. $s_{12},s_{21}$ 在 $\Sigma^\circ$ 上连续.
 \end{proposition}
 \begin{proof}
@@ -266,8 +276,8 @@ s_{12}&=e^{2\ii\lambda x}\dfrac{\det(\mu_{+,2},\mu_{-,2})}{\gamma}.\nonumber
 
 以下称 $s_{11},s_{22}$ 为透射系数. 在其非零的谱弧上定义反射系数
 \begin{equation}\label{eq:reflection}
-\rho(z)=\dfrac{s_{21}(z)}{s_{11}(z)},\qquad
-\widetilde\rho(z)=\dfrac{s_{12}(z)}{s_{22}(z)}.
+\rho(z,t)=\dfrac{s_{21}(z,t)}{s_{11}(z,t)},\qquad
+\widetilde\rho(z,t)=\dfrac{s_{12}(z,t)}{s_{22}(z,t)}.
 \end{equation}
 由 $\det S=1$,
 \begin{equation}\label{eq:scattering-determinant}
@@ -289,27 +299,27 @@ C(z)=\dfrac{\ii z}{q_0}\sigma_1.
 \end{equation*}
 在定理 \ref{thm:jost} 的条件下,
 \begin{equation}\label{eq:conjugation}
-\mu_\pm(z)=\sigma_2\conj{\mu_\pm(\conj{z})}\sigma_2,
+\mu_\pm(x,t,z)=\sigma_2\conj{\mu_\pm(x,t,\conj{z})}\sigma_2,
 \end{equation}
 \begin{equation}\label{eq:musheet}
-\mu_\pm(h(z))=\mu_\pm(z)C(z).
+\mu_\pm(x,t,h(z))=\mu_\pm(x,t,z)C(z).
 \end{equation}
 逐列写为
-\begin{alignat}{2}
-&\mu_{\pm,1}(z)=\ii\sigma_2\conj{\mu_{\pm,2}(\conj{z})},&\qquad
-&\mu_{\pm,2}(z)=-\ii\sigma_2\conj{\mu_{\pm,1}(\conj{z})},\label{eq:jost-conjugate-columns}\\
-&\mu_{\pm,1}(h(z))=\dfrac{\ii z}{q_0}\mu_{\pm,2}(z),&\qquad
-&\mu_{\pm,2}(h(z))=\dfrac{\ii z}{q_0}\mu_{\pm,1}(z).\label{eq:jost-sheet-columns}
-\end{alignat}
+\begin{align}
+&\mu_{\pm,1}(x,t,z)=\ii\sigma_2\conj{\mu_{\pm,2}(x,t,\conj{z})},\nonumber\\
+&\mu_{\pm,2}(x,t,z)=-\ii\sigma_2\conj{\mu_{\pm,1}(x,t,\conj{z})},\label{eq:jost-conjugate-columns}\\
+&\mu_{\pm,1}(x,t,h(z))=\dfrac{\ii z}{q_0}\mu_{\pm,2}(x,t,z),\nonumber\\
+&\mu_{\pm,2}(x,t,h(z))=\dfrac{\ii z}{q_0}\mu_{\pm,1}(x,t,z).\label{eq:jost-sheet-columns}
+\end{align}
 \end{proposition}
 \begin{proof}
 由 $\sigma_2\sg\sigma_2=-\sg$、$\sigma_2\conj{Q}\sigma_2=Q$ 及 $k(\conj{z})=\conj{k(z)}$,
 \begin{equation*}
-U(z)=\sigma_2\conj{U(\conj{z})}\sigma_2,\qquad
+U(x,t,z)=\sigma_2\conj{U(x,t,\conj{z})}\sigma_2,\qquad
 Y(z)=\sigma_2\conj{Y(\conj{z})}\sigma_2.
 \end{equation*}
 又有 $\lambda(\conj{z})=\conj{\lambda(z)}$, 故矩阵
-$\sigma_2\conj{\mu_\pm(\conj{z})}\sigma_2$ 满足 $z$ 处的修正空间方程,
+$\sigma_2\conj{\mu_\pm(x,t,\conj{z})}\sigma_2$ 满足 $z$ 处的修正空间方程,
 并在对应端点趋于 $Y(z)$. 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:conjugation}.
 
 换叶保持 $k$ 而使 $\lambda$ 变号. 直接由 \eqref{eq:E} 计算,
@@ -320,10 +330,10 @@ C(z)\sg=-\sg C(z).
 因此
 \begin{equation*}
 \begin{aligned}
-\partial_x(\mu_\pm(z)C(z))
-&=U(z)\mu_\pm(z)C(z)-\ii\lambda(z)\mu_\pm(z)C(z)\sg\\
-&=U(h(z))\mu_\pm(z)C(z)
-+\ii\lambda(h(z))\mu_\pm(z)C(z)\sg.
+\partial_x(\mu_\pm(x,t,z)C(z))
+&=U(x,t,z)\mu_\pm(x,t,z)C(z)-\ii\lambda(z)\mu_\pm(x,t,z)C(z)\sg\\
+&=U(x,t,h(z))\mu_\pm(x,t,z)C(z)
++\ii\lambda(h(z))\mu_\pm(x,t,z)C(z)\sg.
 \end{aligned}
 \end{equation*}
 其端点值为 $Y(z)C(z)=Y(h(z))$, 再次由唯一性得到 \eqref{eq:musheet}.
@@ -335,39 +345,39 @@ C(z)\sg=-\sg C(z).
 \begin{proposition}\label{prop:scattering-symmetry}
 散射矩阵满足
 \begin{equation}\label{eq:scattering-symmetry}
-S(z)=\sigma_2\conj{S(\conj{z})}\sigma_2,\qquad
-S(h(z))=\sigma_1S(z)\sigma_1.
+S(z,t)=\sigma_2\conj{S(\conj{z},t)}\sigma_2,\qquad
+S(h(z),t)=\sigma_1S(z,t)\sigma_1.
 \end{equation}
 特别地,
 \begin{equation}\label{eq:sconj}
-s_{22}(z)=\conj{s_{11}(\conj{z})},\qquad
-s_{12}(z)=-\conj{s_{21}(\conj{z})},
+s_{22}(z,t)=\conj{s_{11}(\conj{z},t)},\qquad
+s_{12}(z,t)=-\conj{s_{21}(\conj{z},t)},
 \end{equation}
 \begin{equation}\label{eq:ssheet}
-s_{22}(h(z))=s_{11}(z),\qquad s_{12}(h(z))=s_{21}(z),
+s_{22}(h(z),t)=s_{11}(z,t),\qquad s_{12}(h(z),t)=s_{21}(z,t),
 \end{equation}
 \begin{equation}\label{eq:reflection-symmetry}
-\rho(z)=-\conj{\widetilde\rho(\conj{z})},\qquad
-\rho(h(z))=\widetilde\rho(z).
+\rho(z,t)=-\conj{\widetilde\rho(\conj{z},t)},\qquad
+\rho(h(z),t)=\widetilde\rho(z,t).
 \end{equation}
 透射系数的关系在相应解析域内成立. 在实谱的普通点,
 \begin{equation}\label{eq:scattering-unitarity}
-S(z)^\dagger S(z)=I,\qquad
-|s_{11}(z)|^2+|s_{21}(z)|^2=1.
+S(z,t)^\dagger S(z,t)=I,\qquad
+|s_{11}(z,t)|^2+|s_{21}(z,t)|^2=1.
 \end{equation}
 \end{proposition}
 \begin{proof}
 由 \eqref{eq:Sdef},
 \begin{equation*}
-S(z)=e^{\ii\lambda(z)x\widehat{\sigma}_3}\!\left[\mu_-(z)^{-1}\mu_+(z)\right].
+S(z,t)=e^{\ii\lambda(z)x\widehat{\sigma}_3}\!\left[\mu_-(x,t,z)^{-1}\mu_+(x,t,z)\right].
 \end{equation*}
 代入 \eqref{eq:conjugation}, 并使用 $\sigma_2\sg\sigma_2=-\sg$,
 即得 \eqref{eq:scattering-symmetry} 的第一式. 再由 $C\sg=-\sg C$ 和换叶关系,
 \begin{equation*}
 \begin{aligned}
-S(h(z))
+S(h(z),t)
 &=e^{-\ii\lambda x\widehat{\sigma}_3}\!\left[C^{-1}\mu_-^{-1}\mu_+C\right]\\
-&=C^{-1}S(z)C=\sigma_1S(z)\sigma_1.
+&=C^{-1}S(z,t)C=\sigma_1S(z,t)\sigma_1.
 \end{aligned}
 \end{equation*}
 逐元展开即得 \eqref{eq:sconj}--\eqref{eq:ssheet}; 除以相应透射系数得到 \eqref{eq:reflection-symmetry}. 解析透射系数的关系也可直接对 \eqref{eq:wronskian} 应用 Jost 列的约化得到.
@@ -383,7 +393,7 @@ S(h(z))
 并除以 $\gamma>0$, 即得 \eqref{eq:scattering-unitarity}.
 \end{proof}
 离散谱指空间谱方程 $f_x=U(x,t,z)f$ 在 $\mathbb C\mathbin{\backslash}\Sigma$ 中存在非零 $L^2(\mathbb R)$ 解的谱点集合.
-以下假设离散零点有限且均为简单零点.
+以下按当前固定时刻标记离散零点, 并假设其有限且均为简单零点.
 
 \begin{proposition}\label{prop:quartet}
 离散谱恰为 $s_{22}$ 在 $D_+$ 中及 $s_{11}$ 在 $D_-$ 中的零点. 若 $\zeta\in D_+$ 是 $s_{22}$ 的简单零点, 则
@@ -410,8 +420,8 @@ C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}.
 在 $D_+$ 中, $\operatorname{Im}\lambda>0$, 因而
 \begin{equation*}
 \begin{aligned}
-&e^{-\ii\lambda x}\mu_{-,1}(x,z)\sim e^{-\ii\lambda x}Y_1(z),\qquad x\to-\infty,\\
-&e^{\ii\lambda x}\mu_{+,2}(x,z)\sim e^{\ii\lambda x}Y_2(z),\qquad x\to+\infty
+&e^{-\ii\lambda x}\mu_{-,1}(x,t,z)\sim e^{-\ii\lambda x}Y_1(z),\qquad x\to-\infty,\\
+&e^{\ii\lambda x}\mu_{+,2}(x,t,z)\sim e^{\ii\lambda x}Y_2(z),\qquad x\to+\infty
 \end{aligned}
 \end{equation*}
 给出的两列均满足原空间谱方程, 并在相应半轴指数衰减.
@@ -423,157 +433,163 @@ Cauchy--Schwarz 不等式又保证该 Wronskian 在半轴上可积, 因而此常
 \det\bigl(e^{-\ii\lambda x}\mu_{-,1},e^{\ii\lambda x}\mu_{+,2}\bigr)
 =\det(\mu_{-,1},\mu_{+,2})=\gamma s_{22},
 \end{equation*}
-故该条件等价于 $s_{22}(\zeta)=0$. 在 $D_-$ 中交换两列即得 $s_{11}$ 的结论.
+故该条件等价于 $s_{22}(\zeta,t)=0$. 在 $D_-$ 中交换两列即得 $s_{11}$ 的结论.
 
 共轭与换叶各自交换两个解析域, 二者复合保留解析域. 由 \eqref{eq:sconj}--\eqref{eq:ssheet},
 \begin{equation*}
-s_{22}(\zeta)=0
+s_{22}(\zeta,t)=0
 \quad\Longrightarrow\quad
-s_{11}(\conj{\zeta})=s_{11}(h(\zeta))=s_{22}(h(\conj{\zeta}))=0.
+s_{11}(\conj{\zeta},t)=s_{11}(h(\zeta),t)=s_{22}(h(\conj{\zeta}),t)=0.
 \end{equation*}
 $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性. 共轭的不动点位于实轴, 换叶的不动点为 $\pm\ii q_0$, 而 $h(\conj{z})=z$ 将导致 $|z|^2=-q_0^2$. 因而 $\Sigma$ 外的四点互异, 且每个轨道恰有一个外部上半平面的代表.
 
 
-在 $s_{22}(\zeta_j)=0$ 处, 两列相关且均非零, 可写为
-$\mu_{+,2}(\zeta_j)=d_j(x,t)\mu_{-,1}(\zeta_j)$, 其中 $d_j(x,t)\ne0$.
+在 $s_{22}(\zeta_j,t)=0$ 处, 两列相关且均非零, 可写为
+\begin{equation*}
+\mu_{+,2}(x,t,\zeta_j)=d_j(x,t)\mu_{-,1}(x,t,\zeta_j),\qquad d_j(x,t)\ne0.
+\end{equation*}
 对其求 $x$ 导数, 两列的修正空间方程给出
 \begin{equation*}
-\bigl((d_j)_x+2\ii\lambda(\zeta_j)d_j\bigr)\mu_{-,1}(\zeta_j)=0.
+\bigl((d_j)_x+2\ii\lambda(\zeta_j)d_j\bigr)\mu_{-,1}(x,t,\zeta_j)=0.
 \end{equation*}
 因此 $d_j(x,t)=b_j(t)e^{-2\ii\lambda(\zeta_j)x}$,
 其中 $b_j(t)\ne0$ 与 $x$ 无关. 这就得到 \eqref{eq:norming-definition}.
-
+\NoEndMark\hfill\ensuremath{\QED}
 \end{proof}
 
 \begin{proposition}\label{prop:respair}
 在式 \eqref{eq:norming-definition} 的条件下, 相应解析商满足
 \begin{align}
-\Res_{z=\zeta_j}\dfrac{\mu_{+,2}(z)}{s_{22}(z)}
-&=C_j\mu_{-,1}(\zeta_j),\label{eq:resplus}\\
-\Res_{z=\conj{\zeta_j}}\dfrac{\mu_{+,1}(z)}{s_{11}(z)}
-&=-\conj{C_j}\mu_{-,2}(\conj{\zeta_j}).\label{eq:resminus}
+\Res_{z=\zeta_j}\dfrac{\mu_{+,2}(x,t,z)}{s_{22}(z,t)}
+&=C_j(x,t)\mu_{-,1}(x,t,\zeta_j),\label{eq:resplus}\\
+\Res_{z=\conj{\zeta_j}}\dfrac{\mu_{+,1}(x,t,z)}{s_{11}(z,t)}
+&=-\conj{C_j(x,t)}\mu_{-,2}(x,t,\conj{\zeta_j}).\label{eq:resminus}
 \end{align}
 若 $\widehat\zeta=h(\conj{\zeta})$ 为同一轨道的另一个 $D_+$ 点, 则
 \begin{equation}\label{eq:cpair}
-b_{\widehat\zeta}=-\conj{b_\zeta},\qquad
-c_{\widehat\zeta}=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{c_\zeta}.
+b_{\widehat\zeta}(t)=-\conj{b_\zeta(t)},\qquad
+c_{\widehat\zeta}(t)=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{c_\zeta(t)}.
 \end{equation}
 相应时空留数系数满足
 \begin{equation}\label{eq:Cpair}
-C_{\widehat\zeta}=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta}.
+C_{\widehat\zeta}(x,t)=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta(x,t)}.
 \end{equation}
 \end{proposition}
 \begin{proof}
 由 \eqref{eq:norming-definition},
 \begin{equation*}
-\mu_{+,2}(\zeta_j)=b_je^{-2\ii\lambda(\zeta_j)x}\mu_{-,1}(\zeta_j).
+\mu_{+,2}(x,t,\zeta_j)=b_j(t)e^{-2\ii\lambda(\zeta_j)x}\mu_{-,1}(x,t,\zeta_j).
 \end{equation*}
 在简单零点处展开,
 \begin{equation*}
-s_{22}(z)=s_{22}'(\zeta_j)(z-\zeta_j)+O((z-\zeta_j)^2),\qquad
-s_{22}'(\zeta_j)\ne0.
+s_{22}(z,t)=s_{22}'(\zeta_j,t)(z-\zeta_j)+O((z-\zeta_j)^2),\qquad
+s_{22}'(\zeta_j,t)\ne0.
 \end{equation*}
 因此
 \begin{equation*}
-\Res_{z=\zeta_j}\dfrac{\mu_{+,2}(z)}{s_{22}(z)}
-=\lim\limits_{z\to\zeta_j}\dfrac{(z-\zeta_j)\mu_{+,2}(z)}{s_{22}(z)}
-=\dfrac{\mu_{+,2}(\zeta_j)}{s_{22}'(\zeta_j)},
+\Res_{z=\zeta_j}\dfrac{\mu_{+,2}(x,t,z)}{s_{22}(z,t)}
+=\lim\limits_{z\to\zeta_j}\dfrac{(z-\zeta_j)\mu_{+,2}(x,t,z)}{s_{22}(z,t)}
+=\dfrac{\mu_{+,2}(x,t,\zeta_j)}{s_{22}'(\zeta_j,t)},
 \end{equation*}
 代入列相关关系即得 \eqref{eq:resplus}. 对列相关关系应用 \eqref{eq:jost-conjugate-columns}, 在 $\conj{\zeta_j}$ 处得到
 \begin{equation*}
 \begin{aligned}
-&\mu_{+,1}(\conj{\zeta_j})
-=-\conj{b_j}e^{2\ii\lambda(\conj{\zeta_j})x}\mu_{-,2}(\conj{\zeta_j}),\\
-&s_{11}'(\conj{\zeta_j})=\conj{s_{22}'(\zeta_j)}.
+&\mu_{+,1}(x,t,\conj{\zeta_j})
+=-\conj{b_j(t)}e^{2\ii\lambda(\conj{\zeta_j})x}\mu_{-,2}(x,t,\conj{\zeta_j}),\\
+&s_{11}'(\conj{\zeta_j},t)=\conj{s_{22}'(\zeta_j,t)}.
 \end{aligned}
 \end{equation*}
 又因 $\lambda(\conj{\zeta_j})=\conj{\lambda(\zeta_j)}$,
 \begin{equation*}
-\dfrac{\mu_{+,1}(\conj{\zeta_j})}{s_{11}'(\conj{\zeta_j})}
-=-\conj{c_j}e^{2\ii\lambda(\conj{\zeta_j})x}
-\mu_{-,2}(\conj{\zeta_j})
-=-\conj{C_j}\mu_{-,2}(\conj{\zeta_j}),
+\dfrac{\mu_{+,1}(x,t,\conj{\zeta_j})}{s_{11}'(\conj{\zeta_j},t)}
+=-\conj{c_j(t)}e^{2\ii\lambda(\conj{\zeta_j})x}
+\mu_{-,2}(x,t,\conj{\zeta_j})
+=-\conj{C_j(x,t)}\mu_{-,2}(x,t,\conj{\zeta_j}),
 \end{equation*}
 即为 \eqref{eq:resminus}.
 
 再在 $z=\conj{\zeta}$ 使用换叶关系. 它给出
 \begin{equation*}
 \begin{aligned}
-\mu_{+,2}(\widehat\zeta)
-&=\dfrac{\ii\conj{\zeta}}{q_0}\mu_{+,1}(\conj{\zeta})\\
-&=-\conj{b_\zeta}e^{2\ii\lambda(\conj{\zeta})x}
-\dfrac{\ii\conj{\zeta}}{q_0}\mu_{-,2}(\conj{\zeta})\\
-&=-\conj{b_\zeta}e^{-2\ii\lambda(\widehat\zeta)x}\mu_{-,1}(\widehat\zeta).
+\mu_{+,2}(x,t,\widehat\zeta)
+&=\dfrac{\ii\conj{\zeta}}{q_0}\mu_{+,1}(x,t,\conj{\zeta})\\
+&=-\conj{b_\zeta(t)}e^{2\ii\lambda(\conj{\zeta})x}
+\dfrac{\ii\conj{\zeta}}{q_0}\mu_{-,2}(x,t,\conj{\zeta})\\
+&=-\conj{b_\zeta(t)}e^{-2\ii\lambda(\widehat\zeta)x}\mu_{-,1}(x,t,\widehat\zeta).
 \end{aligned}
 \end{equation*}
-比较 \eqref{eq:norming-definition}, 得 $b_{\widehat\zeta}=-\conj{b_\zeta}$.
-对恒等式 $s_{22}(h(z))=s_{11}(z)$ 求导, 有
+比较 \eqref{eq:norming-definition}, 得 $b_{\widehat\zeta}(t)=-\conj{b_\zeta(t)}$.
+对恒等式 $s_{22}(h(z),t)=s_{11}(z,t)$ 求导, 有
 \begin{equation*}
-s_{22}'(\widehat\zeta)h'(\conj{\zeta})=\conj{s_{22}'(\zeta)},\qquad
+s_{22}'(\widehat\zeta,t)h'(\conj{\zeta})=\conj{s_{22}'(\zeta,t)},\qquad
 h'(\conj{\zeta})=\dfrac{q_0^2}{(\conj{\zeta})^2}.
 \end{equation*}
 因此
 \begin{equation*}
-c_{\widehat\zeta}
-=\dfrac{-\conj{b_\zeta}}{s_{22}'(\widehat\zeta)}
-=-h'(\conj{\zeta})\conj{c_\zeta},
+c_{\widehat\zeta}(t)
+=\dfrac{-\conj{b_\zeta(t)}}{s_{22}'(\widehat\zeta,t)}
+=-h'(\conj{\zeta})\conj{c_\zeta(t)},
 \end{equation*}
 即为 \eqref{eq:cpair}. 最后 $\lambda(\widehat\zeta)=-\conj{\lambda(\zeta)}$, 故
 \begin{equation*}
-C_{\widehat\zeta}
-=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{c_\zeta}
+C_{\widehat\zeta}(x,t)
+=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{c_\zeta(t)}
 e^{2\ii\conj{\lambda(\zeta)}x}
-=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta},
+=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta(x,t)},
 \end{equation*}
 得到 \eqref{eq:Cpair}. 对全部 $D_+$ 零点应用 \eqref{eq:resplus}--\eqref{eq:resminus}, 即给出完整四点轨道的留数条件.
 \end{proof}
 \subsection{两处无穷远的渐近展开}\label{ch:asymptotics}
 基本条件蕴含
 \begin{equation}\label{eq:highenergy-assumption}
-q-q_0\in W^{2,1}(\mathbb R).
+q(\cdot,t)-q_0\in W^{2,1}(\mathbb R).
 \end{equation}
 此时 $q$ 有界, $q_x$ 连续且在两端趋于零, $q_x,q_{xx}\in L^1(\mathbb R)$.
 
 \begin{proposition}\label{prop:highenergy}
 在基本条件下, 记
 \begin{equation}\label{eq:asymptotic-coefficients}
-B(q)=\sg Q=\begin{pmatrix}0&q\\\conj{q}&0\end{pmatrix},\qquad
-J_\pm(x)=\int_{\pm\infty}^{x}(q_0^2-|q(y)|^2)\,\dd y.
+\begin{aligned}
+&B(q)=\sg Q=\begin{pmatrix}0&q\\\conj{q}&0\end{pmatrix},\\
+&J_\pm(x,t)=\int_{\pm\infty}^{x}(q_0^2-|q(y,t)|^2)\,\dd y.
+\end{aligned}
 \end{equation}
 各 Jost 解析列在相应闭域内满足
 \begin{equation}\label{eq:mu-highenergy}
-\mu_\pm(x,z)=I+\dfrac{A_\pm(x)}{z}+O(z^{-2}),\qquad
-A_\pm=-\ii B(q)+\ii J_\pm\sg,\qquad z\to\infty,
+\begin{aligned}
+&\mu_\pm(x,t,z)=I+\dfrac{A_\pm(x,t)}{z}+O(z^{-2}),\qquad z\to\infty,\\
+&A_\pm(x,t)=-\ii B(q(x,t))+\ii J_\pm(x,t)\sg,
+\end{aligned}
 \end{equation}
-余项对实 $x$ 一致, 矩阵式按各自解析列理解. 令
+对每个固定的 $t$, 余项对实 $x$ 一致, 矩阵式按各自解析列理解. 令
 \begin{equation*}
-J_{\rm tot}=\int_{-\infty}^{+\infty}(q_0^2-|q|^2)\,\dd x,
+J_{\rm tot}(t)=\int_{-\infty}^{+\infty}(q_0^2-|q(x,t)|^2)\,\dd x,
 \end{equation*}
 则透射系数满足
 \begin{equation}\label{eq:transmission-highenergy}
 \begin{aligned}
-s_{22}(z)&=1+\dfrac{\ii J_{\rm tot}}{z}+O(z^{-2}),&&z\to\infty,\quad z\in\overline{D_+},\\
-s_{11}(z)&=1-\dfrac{\ii J_{\rm tot}}{z}+O(z^{-2}),&&z\to\infty,\quad z\in\overline{D_-}.
+s_{22}(z,t)&=1+\dfrac{\ii J_{\rm tot}(t)}{z}+O(z^{-2}),&&z\to\infty,\quad z\in\overline{D_+},\\
+s_{11}(z,t)&=1-\dfrac{\ii J_{\rm tot}(t)}{z}+O(z^{-2}),&&z\to\infty,\quad z\in\overline{D_-}.
 \end{aligned}
 \end{equation}
 在另一处无穷远,
 \begin{equation}\label{eq:smallmu}
-\mu_\pm(x,z)=-\dfrac{\ii q_0}{z}\sigma_1
-+\dfrac{1}{q_0}\begin{pmatrix}q(x)&-J_\pm(x)\\J_\pm(x)&\conj{q(x)}\end{pmatrix}
+\mu_\pm(x,t,z)=-\dfrac{\ii q_0}{z}\sigma_1
++\dfrac{1}{q_0}\begin{pmatrix}q(x,t)&-J_\pm(x,t)\\J_\pm(x,t)&\conj{q(x,t)}\end{pmatrix}
 +O(z),\qquad z\to0,
 \end{equation}
 以及
 \begin{equation}\label{eq:transmission-smallenergy}
 \begin{aligned}
-s_{22}(z)&=1+\dfrac{\ii J_{\rm tot}}{q_0^2}z+O(z^2),&&z\to0,\quad z\in\overline{D_+},\\
-s_{11}(z)&=1-\dfrac{\ii J_{\rm tot}}{q_0^2}z+O(z^2),&&z\to0,\quad z\in\overline{D_-}.
+s_{22}(z,t)&=1+\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z+O(z^2),&&z\to0,\quad z\in\overline{D_+},\\
+s_{11}(z,t)&=1-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z+O(z^2),&&z\to0,\quad z\in\overline{D_-}.
 \end{aligned}
 \end{equation}
 完整散射矩阵在实轴两端满足
 \begin{equation}\label{eq:scattering-two-infinities}
 \begin{aligned}
-S(z)&=I-\dfrac{\ii J_{\rm tot}}{z}\sg+O(z^{-2}),&&z\to\infty,\\
-S(z)&=I-\dfrac{\ii J_{\rm tot}}{q_0^2}z\sg+O(z^2),&&z\to0.
+S(z,t)&=I-\dfrac{\ii J_{\rm tot}(t)}{z}\sg+O(z^{-2}),&&z\to\infty,\\
+S(z,t)&=I-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z\sg+O(z^2),&&z\to0.
 \end{aligned}
 \end{equation}
 \end{proposition}
@@ -591,13 +607,16 @@ A_x=-\dfrac{\ii}{2}[\sg,A_2]+QA+\ii q_0^2\sg.
 第一式确定 $A$ 的非对角部分为 $-\ii\sg Q=-\ii B(q)$. 对第二式取对角部分, 使用 $QB=|q|^2\sg$, 得到
 \begin{equation*}
 (A_{\rm d})_x=\ii(q_0^2-|q|^2)\sg,\qquad
-A_{\rm d}(\pm\infty)=0,
+A_{\rm d}(\pm\infty,t)=0,
 \end{equation*}
 故 $A_\pm=-\ii B+\ii J_\pm\sg$. 以下由积分方程建立此展开并估计其一致余项.
 
 作局部矩阵变换
 \begin{equation*}
- T(x,z)=I-\dfrac{\ii B(q(x))}{z},\qquad \mu_\pm= T n_\pm.
+\begin{aligned}
+&T(x,t,z)=I-\dfrac{\ii B(q(x,t))}{z},\\
+&\mu_\pm(x,t,z)=T(x,t,z)n_\pm(x,t,z).
+\end{aligned}
 \end{equation*}
 由 $B\sg=-\sg B$, $B^2=|q|^2I$,
 \begin{equation*}
@@ -613,20 +632,22 @@ U T+\ii\lambda T\sg- T_x
 \end{align*}
 因此
 \begin{equation}\label{eq:n-volterra-system}
-(n_\pm)_x=-\ii\lambda[\sg,n_\pm]+ Cn_\pm,\qquad
- C=\dfrac{1}{z} T^{-1} C_1,\qquad
- C_1=\ii\bigl((q_0^2-|q|^2)\sg+B_x\bigr).
+\begin{aligned}
+&(n_\pm)_x=-\ii\lambda[\sg,n_\pm]+Cn_\pm,\\
+&C(x,t,z)=\dfrac{1}{z}T(x,t,z)^{-1}C_1(x,t),\\
+&C_1(x,t)=\ii\bigl((q_0^2-|q(x,t)|^2)\sg+B_x\bigr).
+\end{aligned}
 \end{equation}
 由 \eqref{eq:highenergy-assumption}, $q_0^2-|q|^2,q_x\in L^1$, 从而
 \begin{equation}\label{eq:asymptotic-L1-control}
-\| C(\cdot,z)\|_{L^1}\le\dfrac{C}{|z|},\qquad
-\left\| C(\cdot,z)-\dfrac{ C_1}{z}\right\|_{L^1}
+\| C(\cdot,t,z)\|_{L^1}\le\dfrac{C}{|z|},\qquad
+\left\| C(\cdot,t,z)-\dfrac{ C_1(\cdot,t)}{z}\right\|_{L^1}
 \le\dfrac{C}{|z|^2}.
 \end{equation}
 第 $j$ 列的 Volterra 方程为
 \begin{equation*}
-n_{\pm,j}(x,z)=e_j+\int_{\pm\infty}^{x}
-e^{-\ii\lambda(x-y)(\sg-s_jI)} C(y,z)n_{\pm,j}(y,z)\,\dd y.
+n_{\pm,j}(x,t,z)=e_j+\int_{\pm\infty}^{x}
+e^{-\ii\lambda(x-y)(\sg-s_jI)} C(y,t,z)n_{\pm,j}(y,t,z)\,\dd y.
 \end{equation*}
 其中 $s_1=1,s_2=-1$, 传播核在相应闭解析域及积分方向上范数不超过 1. 与定理 \ref{thm:jost} 相同的有序积分估计给出第 $l$ 次迭代项的界 $\dfrac{C^l}{l!|z|^l}$, 所以
 \begin{equation*}
@@ -635,22 +656,22 @@ e^{-\ii\lambda(x-y)(\sg-s_jI)} C(y,z)n_{\pm,j}(y,z)\,\dd y.
 \end{equation*}
 结合 \eqref{eq:asymptotic-L1-control}, 只需计算以 $\dfrac{ C_1}{z}$ 代替 $ C$ 的第一次迭代. 以负端第一列为例, 对角分量为
 \begin{equation*}
-\dfrac{1}{z}\int_{-\infty}^{x}( C_1)_{11}(y)\,\dd y
-=\dfrac{\ii J_-(x)}{z},
+\dfrac{1}{z}\int_{-\infty}^{x}(C_1(y,t))_{11}\,\dd y
+=\dfrac{\ii J_-(x,t)}{z},
 \end{equation*}
 非对角分量为
 \begin{equation*}
-\dfrac{\ii}{z}\int_{-\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_y(y)}\,\dd y.
+\dfrac{\ii}{z}\int_{-\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_y(y,t)}\,\dd y.
 \end{equation*}
 由于 $q_x$ 在负端趋于零, 分部积分得
 \begin{equation*}
-\int_{-\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_y(y)}\,\dd y
-=-\dfrac{\conj{q_x(x)}}{2\ii\lambda}
-+\dfrac{1}{2\ii\lambda}\int_{-\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_{yy}(y)}\,\dd y.
+\int_{-\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_y(y,t)}\,\dd y
+=-\dfrac{\conj{q_x(x,t)}}{2\ii\lambda}
++\dfrac{1}{2\ii\lambda}\int_{-\infty}^{x}e^{2\ii\lambda(x-y)}\conj{q_{yy}(y,t)}\,\dd y.
 \end{equation*}
 在 $\overline{D_+}$ 中, $y\le x$ 时指数模不超过 1, 且当 $z\to\infty$ 时 $|\lambda|\ge c|z|$. 因此该非对角分量绝对值至多为
 \begin{equation*}
-\dfrac{\|q_x\|_{L^\infty}+\|q_{xx}\|_{L^1}}{2|z\lambda|}=O(z^{-2}).
+\dfrac{\|q_x(\cdot,t)\|_{L^\infty}+\|q_{xx}(\cdot,t)\|_{L^1}}{2|z\lambda|}=O(z^{-2}).
 \end{equation*}
 正端和第二列只改变积分方向或指数符号, 具有相同估计. 于是
 \begin{equation*}
@@ -662,29 +683,29 @@ n_\pm=I+\dfrac{\ii J_\pm\sg}{z}+O(z^{-2}),
 \begin{equation*}
 \det(\mu_{-,1},\mu_{+,2})
 =1+\dfrac{\ii(J_--J_+)}{z}+O(z^{-2}),\qquad
-J_--J_+=J_{\rm tot},\qquad \gamma=1+O(z^{-2}).
+J_--J_+=J_{\rm tot}(t),\qquad \gamma=1+O(z^{-2}).
 \end{equation*}
 这给出 $s_{22}$ 的展开. 同理,
 \begin{equation*}
 \det(\mu_{+,1},\mu_{-,2})
-=1-\dfrac{\ii J_{\rm tot}}{z}+O(z^{-2}),
+=1-\dfrac{\ii J_{\rm tot}(t)}{z}+O(z^{-2}),
 \end{equation*}
 从而得到 \eqref{eq:transmission-highenergy}. 在实轴上 $\lambda x$ 为实数, 由散射关系
 \begin{equation*}
 \begin{aligned}
 S&=e^{\ii\lambda x\widehat{\sigma}_3}(\mu_-^{-1}\mu_+),\\
 \mu_-^{-1}\mu_+&=I+\dfrac{A_+-A_-}{z}+O(z^{-2})
-=I-\dfrac{\ii J_{\rm tot}}{z}\sg+O(z^{-2}),
+=I-\dfrac{\ii J_{\rm tot}(t)}{z}\sg+O(z^{-2}),
 \end{aligned}
 \end{equation*}
 得到 \eqref{eq:scattering-two-infinities} 的第一式.
 
 最后, 令 $w=h(z)=-\dfrac{q_0^2}{z}$. 第 \ref{ch:symmetry} 节的换叶关系给出
 \begin{equation*}
-\mu_\pm(z)=-\dfrac{\ii q_0}{z}\mu_\pm(w)\sigma_1
+\mu_\pm(x,t,z)=-\dfrac{\ii q_0}{z}\mu_\pm(x,t,w)\sigma_1
 =-\dfrac{\ii q_0}{z}\sigma_1+\dfrac{\ii}{q_0}A_\pm\sigma_1+O(z).
 \end{equation*}
-计算 $\ii A_\pm\sigma_1=B\sigma_1-J_\pm\sg\sigma_1$ 即得 \eqref{eq:smallmu}. 因 $h$ 交换 $D_\pm$, 透射系数满足 $s_{22}(z)=s_{11}(w)$ 和 $s_{11}(z)=s_{22}(w)$; 将 $w^{-1}=-\dfrac{z}{q_0^2}$ 代入 \eqref{eq:transmission-highenergy}, 得到 \eqref{eq:transmission-smallenergy}. 在实轴上再用 $S(z)=\sigma_1S(w)\sigma_1$, 即得 \eqref{eq:scattering-two-infinities} 的第二式.
+计算 $\ii A_\pm\sigma_1=B\sigma_1-J_\pm\sg\sigma_1$ 即得 \eqref{eq:smallmu}. 因 $h$ 交换 $D_\pm$, 透射系数满足 $s_{22}(z,t)=s_{11}(w,t)$ 和 $s_{11}(z,t)=s_{22}(w,t)$; 将 $w^{-1}=-\dfrac{z}{q_0^2}$ 代入 \eqref{eq:transmission-highenergy}, 得到 \eqref{eq:transmission-smallenergy}. 在实轴上再用 $S(z,t)=\sigma_1S(w,t)\sigma_1$, 即得 \eqref{eq:scattering-two-infinities} 的第二式.
 \end{proof}
 
 散射数据的时间依赖由演化 Lax 方程确定, 共振点处的介质相容性将在下一节讨论.

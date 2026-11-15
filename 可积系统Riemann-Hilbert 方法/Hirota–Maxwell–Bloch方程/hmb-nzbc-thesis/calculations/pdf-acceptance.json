@@ -2,7 +2,7 @@
   "sources": {
     "tex_files": 9,
     "labels": 197,
-    "references": 193,
+    "references": 194,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -11,7 +11,7 @@
   },
   "build": "XeLaTeX, BibTeX, XeLaTeX, XeLaTeX",
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 39,
+  "pdf_pages": 40,
   "top_level_sections": [
     [
       1,
@@ -55,13 +55,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 269,
+  "pdf_links_checked": 271,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "92015f16a2b1c3ac32033a56b705da8564a88bb404cd43762270b3ef750a6585",
-  "visual_review": "保留用户最新源码与latexmk编译PDF；复查第10—11页的阶乘估计及相邻续排，无裁切。帽算子/路径积分此前已检查；详解保持既有版本。"
+  "pdf_sha256": "41a1fa644619e0c6d67e19235a9c0a7b14eee8aff23b400bd2afe486e23d114d",
+  "visual_review": "已放大检查正文第8—20页，补齐时间参数的长公式均无裁切或标签重叠；最终第15页证明结束符已复查正确。197个标签编号一致，详解53个文件保持不变。"
 }
