@@ -23,20 +23,20 @@
     },
     {
       "file": "03-direct-scattering.tex",
-      "original_lines": 661,
-      "expanded_lines": 2760,
+      "original_lines": 703,
+      "expanded_lines": 2798,
       "original_display_blocks": 99,
-      "expanded_display_blocks": 317,
-      "original_labels": 65,
+      "expanded_display_blocks": 323,
+      "original_labels": 64,
       "original_prose_retained_in_order": true,
       "original_lines_split_by_insertions": 0
     },
     {
       "file": "04-evolution-resonance.tex",
-      "original_lines": 141,
-      "expanded_lines": 241,
-      "original_display_blocks": 18,
-      "expanded_display_blocks": 27,
+      "original_lines": 146,
+      "expanded_lines": 292,
+      "original_display_blocks": 19,
+      "expanded_display_blocks": 37,
       "original_labels": 12,
       "original_prose_retained_in_order": true,
       "original_lines_split_by_insertions": 0
@@ -44,7 +44,7 @@
     {
       "file": "05-rhp-reconstruction.tex",
       "original_lines": 252,
-      "expanded_lines": 808,
+      "expanded_lines": 807,
       "original_display_blocks": 31,
       "expanded_display_blocks": 87,
       "original_labels": 27,
@@ -83,10 +83,10 @@
     }
   ],
   "reference_number_check": {
-    "original_labels_compared": 199,
+    "original_labels_compared": 198,
     "mismatches": {}
   },
-  "indexed_equations": 148,
+  "indexed_equations": 147,
   "tex_files_checked": [
     "hmb-explanation.tex",
     "00-reading-guide.tex",

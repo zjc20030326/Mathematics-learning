@@ -16,6 +16,12 @@ HMB 系统的非零背景同时约束光场与介质的端态. 本节确定相�
 本文固定实参数 $q_0>0$, $a\ne0$, $\eta_0\ne0$ 和 $\alpha,\beta\in\mathbb R$.
 以 $\ii$ 表示虚数单位, 上标 $*$ 表示逐项复共轭, $A^T$ 表示转置,
 $A^\dagger=(A^*)^T$ 表示共轭转置. 记 $I$ 为二阶单位矩阵, $[A,B]=AB-BA$.
+对任意二阶矩阵 $A$ 和 $c\in\mathbb C$, 约定
+\begin{equation*}
+\sg=\begin{pmatrix}1&0\\0&-1\end{pmatrix},\qquad
+\widehat{\sigma}_3 A=[\sg,A],\qquad
+e^{c\widehat{\sigma}_3}A=e^{c\sg}Ae^{-c\sg}.
+\end{equation*}
 
 将不依赖 $x$ 的场代入两条介质方程, 得到 $\widetilde p_{\rm bg}=-\dfrac{\ii\eta_0}{a}\widetilde q_{\rm bg}$.
 光场方程进一步确定相位频率, 因而相容平面波为
@@ -77,8 +83,7 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 采用已有 HMB 的 Lax 表示\cite{LHP2013}. 在本文的变量与参数约定下, 先定义场矩阵
 \begin{equation}\label{eq:potential-matrices}
 \widetilde Q=\begin{pmatrix}0&\widetilde q\\-\conj{\widetilde q}&0\end{pmatrix},\qquad
-\widetilde R=\begin{pmatrix}\eta&-\widetilde p\\-\conj{\widetilde p}&-\eta\end{pmatrix},\qquad
-\sg=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\widetilde R=\begin{pmatrix}\eta&-\widetilde p\\-\conj{\widetilde p}&-\eta\end{pmatrix}.
 \end{equation}
 原场的 Lax 对为
 \begin{equation}\label{eq:lax}

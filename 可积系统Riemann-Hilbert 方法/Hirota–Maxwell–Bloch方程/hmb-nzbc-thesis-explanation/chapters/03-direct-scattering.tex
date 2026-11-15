@@ -1,6 +1,6 @@
 
-本节由常背景谱问题构造空间 Jost 解及其积分方程,
-证明解析性与唯一性, 再讨论散射数据、对称关系及渐近性质.
+本节以背景矩阵为端态构造 Jost 矩阵 $\mu_\pm$, 证明其解析性与唯一性,
+再讨论散射数据、对称关系及渐近性质. 对固定时刻 $t$ 的空间谱分析, 以下适当省略函数的 $t$ 参数.
 
 \subsection{Jost 解及其解析性质}
 对背景矩阵 $U_\infty$ 的特征值 $-\ii\lambda$ 和 $\ii\lambda$,
@@ -44,8 +44,9 @@ Y^{-1}=\dfrac{I+\dfrac{\ii q_0}{z}\sigma_1}{\gamma(z)},\quad z\ne0,\pm\ii q_0.
 \theta(x,t,z)=-\lambda(z)[x-F(k(z))t].
 \end{equation}
 
-固定上述谱点. 若矩阵 $\phi$ 同时满足 Lax 对 \eqref{eq:gaugelax}, 令
-$\mu=\phi e^{-\ii\theta\sg}$, 并记 $\Delta Q=Q-Q_\infty$, $\Delta V=V-V_\infty$.
+固定上述谱点. 若矩阵 $\phi(x,t,z)$ 同时满足 Lax 对 \eqref{eq:gaugelax}, 令
+$\mu(x,t,z)=\phi(x,t,z)e^{-\ii\theta(x,t,z)\sg}$,
+并记 $\Delta Q=Q-Q_\infty$, $\Delta V=V-V_\infty$.
 由 $\theta_x=-\lambda$, $\theta_t=\lambda F$, 得
 \begin{equation}\label{eq:jost-modified-lax}
 \begin{aligned}
@@ -60,31 +61,28 @@ $\mu=\phi e^{-\ii\theta\sg}$, 并记 $\Delta Q=Q-Q_\infty$, $\Delta V=V-V_\infty
 \end{equation}
 
 固定 $t\in I$, 对 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$,
-取空间谱方程的端点归一化
+称满足修正空间方程及端点归一化
 \begin{equation}\label{eq:jost-normalization}
-\chi_{\pm,x}=U\chi_\pm,\qquad
-\chi_\pm(x,t,z)e^{\ii\lambda(z)x\sg}\longrightarrow Y(z),
-\quad x\to\pm\infty.
+\begin{aligned}
+&(\mu_\pm)_x(x,t,z)=U(x,t,z)\mu_\pm(x,t,z)
++\ii\lambda(z)\mu_\pm(x,t,z)\sg,\\
+&\mu_\pm(x,t,z)\longrightarrow Y(z),\qquad x\to\pm\infty
+\end{aligned}
 \end{equation}
-称 $\chi_\pm$ 为空间 Jost 解. 去除空间振荡, 令
-\begin{equation}\label{eq:modified-jost}
-\mu_\pm=\chi_\pm e^{\ii\lambda x\sg},\qquad
-\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg},\qquad
-\mu_\pm\longrightarrow Y.
-\end{equation}
-空间方程给出 \eqref{eq:jost-modified-lax} 的第一式.
+的矩阵 $\mu_\pm(x,t,z)$ 为 Jost 矩阵.
+左乘 $Y^{-1}$ 即得 \eqref{eq:jost-modified-lax} 的第一式.
 由该空间方程, 在固定 $t$ 时从各自归一化端积分, 得到 Volterra 方程
 \begin{equation}\label{eq:volterra}
-\mu_\pm(x,z)=Y(z)+\int_{\pm\infty}^{x}
+\mu_\pm(x,t,z)=Y(z)+\int_{\pm\infty}^{x}
 Y(z)e^{-\ii\lambda(z)(x-y)\sg}Y(z)^{-1}
-\Delta Q(y)\mu_\pm(y,z)e^{\ii\lambda(z)(x-y)\sg}\,\dd y.
+\Delta Q(y,t)\mu_\pm(y,t,z)e^{\ii\lambda(z)(x-y)\sg}\,\dd y.
 \end{equation}
 上述空间积分核在两个共振原像处仍正则.
 
 \begin{theorem}\label{thm:jost}
 设光场满足基本条件中的空间要求.
 对 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$, 方程 \eqref{eq:volterra} 存在唯一关于 $x$ 有界的解 $\mu_\pm$,
-相应的 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$ 是满足 \eqref{eq:jost-normalization} 的唯一空间 Jost 解.
+它也是满足 \eqref{eq:jost-normalization} 的唯一 Jost 矩阵.
 对每个固定的 $x,t$, 列 $\mu_{-,1},\mu_{+,2}$ 在 $D_+$ 解析, 列 $\mu_{+,1},\mu_{-,2}$ 在 $D_-$ 解析,
 并连续延拓到各自闭域中避开 $0,\pm\ii q_0$ 的紧集. 上述连续谱结论包含 $z=z_a^\pm$.
 \end{theorem}
@@ -167,8 +165,8 @@ G_j(x,y,z)\Delta Q(y)Yw_{\pm,j}^{(n)}(y,z)\,\dd y.
 \dfrac{M_{\pm,K}(x)^n}{n!}\longrightarrow0,
 \end{equation*}
 从而各列解唯一.
-对 \eqref{eq:volterra} 关于 $x$ 求导, 再乘回空间指数, 即恢复空间谱方程;
-结合端点归一化, 得到相应的空间 Jost 解.
+对 \eqref{eq:volterra} 关于 $x$ 求导即恢复 \eqref{eq:jost-normalization} 中的修正空间方程;
+结合端点归一化, 得到所述 Jost 矩阵.
 \end{proof}
 
 \begin{lemma}\label{prop:jost-branch}
@@ -225,45 +223,61 @@ Jost 列在分支点的连续性与组成 RHP 的解析商的局部有界性分�
 \end{remark}
 
 \subsection{散射数据与离散谱}\label{ch:symmetry}\label{ch:discrete}
-记 $\Sigma^\circ=\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$. 在 $\Sigma^\circ$ 上, 两组 Jost 解为同一空间谱方程的基本解矩阵, 因而存在与 $x$ 无关的散射矩阵
+记 $\Sigma^\circ=\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$.
+在 $\Sigma^\circ$ 上, 散射矩阵 $S(z,t)$ 由两组 Jost 矩阵的关系
 \begin{equation}\label{eq:Sdef}
-\chi_+(x,t,z)=\chi_-(x,t,z)S(z,t),\qquad S(z,t)=(s_{jk}(z,t))_{j,k=1}^{2}.
+\begin{aligned}
+&\mu_+(x,t,z)=\mu_-(x,t,z)e^{-\ii\lambda(z)x\sg}S(z,t)e^{\ii\lambda(z)x\sg},\\
+&S(z,t)=(s_{jk}(z,t))_{j,k=1}^{2}
+\end{aligned}
 \end{equation}
-以下省略散射系数的 $t$ 自变量. 其列关系为
+确定. 逐列写为
 \begin{equation}\label{eq:scattering-columns}
-\chi_{+,1}=s_{11}\chi_{-,1}+s_{21}\chi_{-,2},\qquad
-\chi_{+,2}=s_{12}\chi_{-,1}+s_{22}\chi_{-,2}.
+\begin{aligned}
+&\mu_{+,1}=s_{11}\mu_{-,1}+s_{21}e^{2\ii\lambda x}\mu_{-,2},\\
+&\mu_{+,2}=s_{12}e^{-2\ii\lambda x}\mu_{-,1}+s_{22}\mu_{-,2}.
+\end{aligned}
 \end{equation}
 
 \begin{proposition}\label{prop:scattering}
 在定理 \ref{thm:jost} 的条件下,
 \begin{equation}\label{eq:detjost}
-\det\chi_\pm=\det\mu_\pm=\gamma(z),\qquad \det S=1.
+\det\mu_\pm=\gamma(z),\qquad \det S=1,\qquad S_x=0.
 \end{equation}
 散射系数满足
 \begin{align}
-s_{11}&=\dfrac{\det(\chi_{+,1},\chi_{-,2})}{\gamma},&
-s_{22}&=\dfrac{\det(\chi_{-,1},\chi_{+,2})}{\gamma},\label{eq:wronskian}\\
-s_{21}&=\dfrac{\det(\chi_{-,1},\chi_{+,1})}{\gamma},&
-s_{12}&=\dfrac{\det(\chi_{+,2},\chi_{-,2})}{\gamma}.\nonumber
+s_{11}&=\dfrac{\det(\mu_{+,1},\mu_{-,2})}{\gamma},&
+s_{22}&=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{\gamma},\label{eq:wronskian}\\
+s_{21}&=e^{-2\ii\lambda x}\dfrac{\det(\mu_{-,1},\mu_{+,1})}{\gamma},&
+s_{12}&=e^{2\ii\lambda x}\dfrac{\det(\mu_{+,2},\mu_{-,2})}{\gamma}.\nonumber
 \end{align}
 其中 $s_{11}$ 在 $D_-$ 解析, $s_{22}$ 在 $D_+$ 解析, 并连续延拓到相应闭域中避开 $0,\pm\ii q_0$ 的紧集. $s_{12},s_{21}$ 在 $\Sigma^\circ$ 上连续.
 \end{proposition}
 \begin{proof}
-由 $\tr U=0$, Abel 恒等式给出 $\partial_x\det\chi_\pm=0$. 在归一化端取极限, 并使用 $\det e^{-\ii\lambda x\sg}=1$, 得到 $\det\chi_\pm=\gamma$. 对 \eqref{eq:Sdef} 取行列式即得 $\det S=1$. 对第一条列关系分别与 $\chi_{-,2}$、$\chi_{-,1}$ 取行列式, 有
+修正空间方程的第一、第二列分别含有右乘项 $\ii\lambda\mu_{\pm,1}$ 和 $-\ii\lambda\mu_{\pm,2}$.
+对两列行列式求导, 得
 \begin{equation*}
-\det(\chi_{+,1},\chi_{-,2})=s_{11}\gamma,\qquad
-\det(\chi_{-,1},\chi_{+,1})=s_{21}\gamma.
+\partial_x\det\mu_\pm=(\tr U+\ii\lambda-\ii\lambda)\det\mu_\pm=0.
 \end{equation*}
-第二条列关系同理给出 $s_{12},s_{22}$, 即 \eqref{eq:wronskian}. 对透射系数, 两列的指数相消, 故
+在归一化端取极限, 得到 $\det\mu_\pm=\det Y=\gamma\ne0$,
+故 \eqref{eq:Sdef} 唯一确定 $S$. 对该关系取行列式即得 $\det S=1$.
+再对其求 $x$ 导数, 利用两组矩阵满足同一修正空间方程, 有
 \begin{equation*}
-s_{11}=\dfrac{\det(\mu_{+,1},\mu_{-,2})}{\gamma},\qquad
-s_{22}=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{\gamma}.
+\mu_-e^{-\ii\lambda x\sg}S_xe^{\ii\lambda x\sg}
+=(\mu_+)_x-U\mu_+-\ii\lambda\mu_+\sg=0.
 \end{equation*}
-两个分子分别由 $D_-$ 和 $D_+$ 的解析列组成, 且 $\gamma$ 的零点只位于分支点. 定理 \ref{thm:jost} 因而给出所述解析性与连续性. 对非对角元, 列指数只留下连续因子 $e^{\pm2\ii\lambda x}$, 故它们在 $\Sigma^\circ$ 上连续.
+由 $\mu_-$ 可逆, 得 $S_x=0$. 对 \eqref{eq:scattering-columns} 的第一式分别与 $\mu_{-,2}$、$\mu_{-,1}$ 取行列式, 得
+\begin{equation*}
+\det(\mu_{+,1},\mu_{-,2})=s_{11}\gamma,\qquad
+\det(\mu_{-,1},\mu_{+,1})=s_{21}e^{2\ii\lambda x}\gamma.
+\end{equation*}
+第二式同理给出 $s_{12},s_{22}$, 即 \eqref{eq:wronskian}.
+两个透射系数的分子分别由 $D_-$ 和 $D_+$ 的解析列组成, 且 $\gamma$ 的零点只位于分支点.
+定理 \ref{thm:jost} 因而给出所述解析性与连续性.
+非对角元的表达式中, 两列及指数因子在 $\Sigma^\circ$ 上连续, 故 $s_{12},s_{21}$ 也连续.
 \end{proof}
 
-按照 $\chi_+=\chi_-S$ 的约定, 以下称 $s_{11},s_{22}$ 为透射系数. 在其非零的谱弧上定义反射系数
+以下称 $s_{11},s_{22}$ 为透射系数. 在其非零的谱弧上定义反射系数
 \begin{equation}\label{eq:reflection}
 \rho(z)=\dfrac{s_{21}(z)}{s_{11}(z)},\qquad
 \widetilde\rho(z)=\dfrac{s_{12}(z)}{s_{22}(z)}.
@@ -288,21 +302,18 @@ C(z)=\dfrac{\ii z}{q_0}\sigma_1.
 \end{equation*}
 在定理 \ref{thm:jost} 的条件下,
 \begin{equation}\label{eq:conjugation}
-\chi_\pm(z)=\sigma_2\conj{\chi_\pm(\conj{z})}\sigma_2,\qquad
 \mu_\pm(z)=\sigma_2\conj{\mu_\pm(\conj{z})}\sigma_2,
 \end{equation}
 \begin{equation}\label{eq:musheet}
-\chi_\pm(h(z))=\chi_\pm(z)C(z),\qquad
 \mu_\pm(h(z))=\mu_\pm(z)C(z).
 \end{equation}
 逐列写为
 \begin{alignat}{2}
-&\chi_{\pm,1}(z)=\ii\sigma_2\conj{\chi_{\pm,2}(\conj{z})},&\qquad
-&\chi_{\pm,2}(z)=-\ii\sigma_2\conj{\chi_{\pm,1}(\conj{z})},\label{eq:jost-conjugate-columns}\\
-&\chi_{\pm,1}(h(z))=\dfrac{\ii z}{q_0}\chi_{\pm,2}(z),&\qquad
-&\chi_{\pm,2}(h(z))=\dfrac{\ii z}{q_0}\chi_{\pm,1}(z).\label{eq:jost-sheet-columns}
+&\mu_{\pm,1}(z)=\ii\sigma_2\conj{\mu_{\pm,2}(\conj{z})},&\qquad
+&\mu_{\pm,2}(z)=-\ii\sigma_2\conj{\mu_{\pm,1}(\conj{z})},\label{eq:jost-conjugate-columns}\\
+&\mu_{\pm,1}(h(z))=\dfrac{\ii z}{q_0}\mu_{\pm,2}(z),&\qquad
+&\mu_{\pm,2}(h(z))=\dfrac{\ii z}{q_0}\mu_{\pm,1}(z).\label{eq:jost-sheet-columns}
 \end{alignat}
-修正列 $\mu_{\pm,j}$ 满足相同关系.
 \end{proposition}
 \begin{proof}
 由 $\sigma_2\sg\sigma_2=-\sg$、$\sigma_2\conj{Q}\sigma_2=Q$ 及 $k(\conj{z})=\conj{k(z)}$,
@@ -310,29 +321,28 @@ C(z)=\dfrac{\ii z}{q_0}\sigma_1.
 U(z)=\sigma_2\conj{U(\conj{z})}\sigma_2,\qquad
 Y(z)=\sigma_2\conj{Y(\conj{z})}\sigma_2.
 \end{equation*}
-又有 $\lambda(\conj{z})=\conj{\lambda(z)}$, 故
-\begin{equation*}
-\sigma_2\conj{Y(\conj{z})e^{-\ii\lambda(\conj{z})x\sg}}\sigma_2
-=Y(z)e^{-\ii\lambda(z)x\sg}.
-\end{equation*}
-共轭后的 Jost 解满足同一空间方程和同一归一化, 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:conjugation}.
+又有 $\lambda(\conj{z})=\conj{\lambda(z)}$, 故矩阵
+$\sigma_2\conj{\mu_\pm(\conj{z})}\sigma_2$ 满足 $z$ 处的修正空间方程,
+并在对应端点趋于 $Y(z)$. 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:conjugation}.
 
 换叶保持 $k$ 而使 $\lambda$ 变号. 直接由 \eqref{eq:E} 计算,
 \begin{equation}\label{eq:Esheet}
 Y(h(z))=I+\dfrac{\ii z}{q_0}\sigma_1=Y(z)C(z),\qquad
 C(z)\sg=-\sg C(z).
 \end{equation}
-于是 $\chi_\pm(z)C(z)$ 在 $h(z)$ 处满足同一空间方程, 且
+因此
 \begin{equation*}
-Y(z)e^{-\ii\lambda(z)x\sg}C(z)
-=Y(h(z))e^{-\ii\lambda(h(z))x\sg}.
+\begin{aligned}
+\partial_x(\mu_\pm(z)C(z))
+&=U(z)\mu_\pm(z)C(z)-\ii\lambda(z)\mu_\pm(z)C(z)\sg\\
+&=U(h(z))\mu_\pm(z)C(z)
++\ii\lambda(h(z))\mu_\pm(z)C(z)\sg.
+\end{aligned}
 \end{equation*}
-再次由唯一性得到 $\chi_\pm$ 的换叶关系. 去除指数时使用
-
-\begin{equation*}
-C(z)e^{-\ii\lambda(z)x\sg}=e^{\ii\lambda(z)x\sg}C(z),
-\end{equation*}
-便得到 $\mu_\pm$ 的关系. 右乘矩阵的两列分别给出 \eqref{eq:jost-conjugate-columns}--\eqref{eq:jost-sheet-columns}. 变换后的列具有 \eqref{eq:symmetry-domains} 所确定的解析域, 因此同一 Volterra 唯一性论证在各解析域内成立.
+其端点值为 $Y(z)C(z)=Y(h(z))$, 再次由唯一性得到 \eqref{eq:musheet}.
+逐列展开即得 \eqref{eq:jost-conjugate-columns}--\eqref{eq:jost-sheet-columns}.
+变换后的列具有 \eqref{eq:symmetry-domains} 所确定的解析域,
+同一 Volterra 唯一性论证因而在各解析域内成立.
 \end{proof}
 
 \begin{proposition}\label{prop:scattering-symmetry}
@@ -360,26 +370,33 @@ S(z)^\dagger S(z)=I,\qquad
 \end{equation}
 \end{proposition}
 \begin{proof}
-将 \eqref{eq:conjugation} 代入 $\chi_+=\chi_-S$, 并利用 $\chi_-$ 的可逆性, 得到 \eqref{eq:scattering-symmetry} 的第一式. 比较
+由 \eqref{eq:Sdef},
 \begin{equation*}
-\chi_+(z)C(z)=\chi_-(z)S(z)C(z)
-=\chi_-(z)C(z)S(h(z)),
+S(z)=e^{\ii\lambda(z)x\sg}\mu_-(z)^{-1}\mu_+(z)e^{-\ii\lambda(z)x\sg}.
 \end{equation*}
-得到
+代入 \eqref{eq:conjugation}, 并使用 $\sigma_2\sg\sigma_2=-\sg$,
+即得 \eqref{eq:scattering-symmetry} 的第一式. 再由 $C\sg=-\sg C$ 和换叶关系,
 \begin{equation*}
-S(h(z))=C(z)^{-1}S(z)C(z)=\sigma_1S(z)\sigma_1.
+\begin{aligned}
+S(h(z))
+&=e^{-\ii\lambda x\sg}C^{-1}\mu_-^{-1}\mu_+Ce^{\ii\lambda x\sg}\\
+&=C^{-1}S(z)C=\sigma_1S(z)\sigma_1.
+\end{aligned}
 \end{equation*}
 逐元展开即得 \eqref{eq:sconj}--\eqref{eq:ssheet}; 除以相应透射系数得到 \eqref{eq:reflection-symmetry}. 解析透射系数的关系也可直接对 \eqref{eq:wronskian} 应用 Jost 列的约化得到.
 
-在实 $z$ 上, $k,\lambda$ 为实数, 且 $U^\dagger=-U$. 因而
+在实 $z$ 上, $k,\lambda$ 为实数, 且 $U^\dagger=-U$.
+记 $H_\pm=\mu_\pm^\dagger\mu_\pm$, 则修正空间方程给出
 \begin{equation*}
-\partial_x(\chi_\pm^\dagger\chi_\pm)
-=\chi_\pm^\dagger(U^\dagger+U)\chi_\pm=0,\qquad
-Y^\dagger Y=\gamma I.
+(H_\pm)_x=\ii\lambda[H_\pm,\sg],\qquad
+\partial_x\!\left(e^{\ii\lambda x\sg}H_\pm e^{-\ii\lambda x\sg}\right)=0.
 \end{equation*}
-振荡归一化给出 $\chi_\pm^\dagger\chi_\pm=\gamma I$. 代入散射关系并除以 $\gamma>0$, 即得 \eqref{eq:scattering-unitarity}.
+归一化及 $Y^\dagger Y=\gamma I$ 确定该常矩阵为 $\gamma I$, 故 $H_\pm=\gamma I$.
+将其代入 \eqref{eq:Sdef}, 利用实 $\lambda$ 对应的指数矩阵为幺正矩阵,
+并除以 $\gamma>0$, 即得 \eqref{eq:scattering-unitarity}.
 \end{proof}
-离散谱指空间方程在 $\mathbb C\mathbin{\backslash}\Sigma$ 中存在非零 $L^2(\mathbb R)$ 解的谱点集合. 以下假设离散零点有限且均为简单零点.
+离散谱指空间谱方程 $f_x=U(x,t,z)f$ 在 $\mathbb C\mathbin{\backslash}\Sigma$ 中存在非零 $L^2(\mathbb R)$ 解的谱点集合.
+以下假设离散零点有限且均为简单零点.
 
 \begin{proposition}\label{prop:quartet}
 离散谱恰为 $s_{22}$ 在 $D_+$ 中及 $s_{11}$ 在 $D_-$ 中的零点. 若 $\zeta\in D_+$ 是 $s_{22}$ 的简单零点, 则
@@ -393,19 +410,33 @@ Z=\{\zeta_j,\conj{\zeta_j}:j=1,\ldots,2N\}.
 \end{equation}
 每个 $D_+$ 零点满足非零列相关关系
 \begin{equation}\label{eq:norming-definition}
-\chi_{+,2}(\zeta_j)=b_j(t)\chi_{-,1}(\zeta_j),\qquad
-c_j(t)=\dfrac{b_j(t)}{s_{22}'(\zeta_j)},\qquad
+\begin{aligned}
+&\mu_{+,2}(x,t,\zeta_j)
+=b_j(t)e^{-2\ii\lambda(\zeta_j)x}\mu_{-,1}(x,t,\zeta_j),\\
+&c_j(t)=\dfrac{b_j(t)}{s_{22}'(\zeta_j,t)},\qquad
 C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}.
+\end{aligned}
 \end{equation}
 这里 $j=1,\ldots,2N$, $b_j(t),c_j(t)$ 与 $x$ 无关, 撇号表示对 $z$ 求导.
 \end{proposition}
 \begin{proof}
 在 $D_+$ 中, $\operatorname{Im}\lambda>0$, 因而
 \begin{equation*}
-\chi_{-,1}\sim Y_1e^{-\ii\lambda x}\quad(x\to-\infty),\qquad
-\chi_{+,2}\sim Y_2e^{\ii\lambda x}\quad(x\to+\infty)
+\begin{aligned}
+&e^{-\ii\lambda x}\mu_{-,1}(x,z)\sim e^{-\ii\lambda x}Y_1(z),\qquad x\to-\infty,\\
+&e^{\ii\lambda x}\mu_{+,2}(x,z)\sim e^{\ii\lambda x}Y_2(z),\qquad x\to+\infty
+\end{aligned}
 \end{equation*}
-分别指数衰减. 任意另一个半轴 $L^2$ 解与该衰减列的 Wronskian 为常数; Cauchy--Schwarz 不等式又保证该 Wronskian 在半轴上可积, 因而此常数只能为零. 两端的 $L^2$ 解空间因此各为一维, 一个解在两端均属 $L^2$ 当且仅当这两列线性相关. 由 \eqref{eq:wronskian}, 这又等价于 $s_{22}(\zeta)=0$. 在 $D_-$ 中交换两列即得 $s_{11}$ 的结论.
+给出的两列均满足原空间谱方程, 并在相应半轴指数衰减.
+任意另一个半轴 $L^2$ 解与该衰减列的 Wronskian 为常数;
+Cauchy--Schwarz 不等式又保证该 Wronskian 在半轴上可积, 因而此常数只能为零.
+两端的 $L^2$ 解空间因此各为一维, 一个解在两端均属 $L^2$ 当且仅当这两列线性相关.
+又由 \eqref{eq:wronskian},
+\begin{equation*}
+\det\bigl(e^{-\ii\lambda x}\mu_{-,1},e^{\ii\lambda x}\mu_{+,2}\bigr)
+=\det(\mu_{-,1},\mu_{+,2})=\gamma s_{22},
+\end{equation*}
+故该条件等价于 $s_{22}(\zeta)=0$. 在 $D_-$ 中交换两列即得 $s_{11}$ 的结论.
 
 共轭与换叶各自交换两个解析域, 二者复合保留解析域. 由 \eqref{eq:sconj}--\eqref{eq:ssheet},
 \begin{equation*}
@@ -416,10 +447,14 @@ s_{11}(\conj{\zeta})=s_{11}(h(\zeta))=s_{22}(h(\conj{\zeta}))=0.
 $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性. 共轭的不动点位于实轴, 换叶的不动点为 $\pm\ii q_0$, 而 $h(\conj{z})=z$ 将导致 $|z|^2=-q_0^2$. 因而 $\Sigma$ 外的四点互异, 且每个轨道恰有一个外部上半平面的代表.
 
 
-Jost 列是非零空间解, 所以 $b_j(t)\ne0$.
-对 $\chi_{+,2}=b_j(t)\chi_{-,1}$ 求 $x$ 导数并使用同一空间方程,
-得到 $(b_j)_x\chi_{-,1}=0$. 因而 $b_j$ 与 $x$ 无关.
-固定 $t$ 时省略 $b_j(t),c_j(t)$ 的时间自变量.
+在 $s_{22}(\zeta_j)=0$ 处, 两列相关且均非零, 可写为
+$\mu_{+,2}(\zeta_j)=d_j(x,t)\mu_{-,1}(\zeta_j)$, 其中 $d_j(x,t)\ne0$.
+对其求 $x$ 导数, 两列的修正空间方程给出
+\begin{equation*}
+\bigl((d_j)_x+2\ii\lambda(\zeta_j)d_j\bigr)\mu_{-,1}(\zeta_j)=0.
+\end{equation*}
+因此 $d_j(x,t)=b_j(t)e^{-2\ii\lambda(\zeta_j)x}$,
+其中 $b_j(t)\ne0$ 与 $x$ 无关. 这就得到 \eqref{eq:norming-definition}.
 
 \end{proof}
 
@@ -442,7 +477,7 @@ C_{\widehat\zeta}=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta}.
 \end{equation}
 \end{proposition}
 \begin{proof}
-由 $\chi_{+,2}=b_j\chi_{-,1}$ 及 $\chi_1=\mu_1e^{-\ii\lambda x}$、$\chi_2=\mu_2e^{\ii\lambda x}$, 得到
+由 \eqref{eq:norming-definition},
 \begin{equation*}
 \mu_{+,2}(\zeta_j)=b_je^{-2\ii\lambda(\zeta_j)x}\mu_{-,1}(\zeta_j).
 \end{equation*}
@@ -459,8 +494,11 @@ s_{22}'(\zeta_j)\ne0.
 \end{equation*}
 代入列相关关系即得 \eqref{eq:resplus}. 对列相关关系应用 \eqref{eq:jost-conjugate-columns}, 在 $\conj{\zeta_j}$ 处得到
 \begin{equation*}
-\chi_{+,1}=-\conj{b_j}\chi_{-,2},\qquad
-s_{11}'(\conj{\zeta_j})=\conj{s_{22}'(\zeta_j)}.
+\begin{aligned}
+&\mu_{+,1}(\conj{\zeta_j})
+=-\conj{b_j}e^{2\ii\lambda(\conj{\zeta_j})x}\mu_{-,2}(\conj{\zeta_j}),\\
+&s_{11}'(\conj{\zeta_j})=\conj{s_{22}'(\zeta_j)}.
+\end{aligned}
 \end{equation*}
 又因 $\lambda(\conj{\zeta_j})=\conj{\lambda(\zeta_j)}$,
 \begin{equation*}
@@ -473,11 +511,15 @@ s_{11}'(\conj{\zeta_j})=\conj{s_{22}'(\zeta_j)}.
 
 再在 $z=\conj{\zeta}$ 使用换叶关系. 它给出
 \begin{equation*}
-\chi_{+,2}(\widehat\zeta)
-=\dfrac{\ii\conj{\zeta}}{q_0}\chi_{+,1}(\conj{\zeta})
-=-\conj{b_\zeta}\dfrac{\ii\conj{\zeta}}{q_0}\chi_{-,2}(\conj{\zeta})
-=-\conj{b_\zeta}\chi_{-,1}(\widehat\zeta).
+\begin{aligned}
+\mu_{+,2}(\widehat\zeta)
+&=\dfrac{\ii\conj{\zeta}}{q_0}\mu_{+,1}(\conj{\zeta})\\
+&=-\conj{b_\zeta}e^{2\ii\lambda(\conj{\zeta})x}
+\dfrac{\ii\conj{\zeta}}{q_0}\mu_{-,2}(\conj{\zeta})\\
+&=-\conj{b_\zeta}e^{-2\ii\lambda(\widehat\zeta)x}\mu_{-,1}(\widehat\zeta).
+\end{aligned}
 \end{equation*}
+比较 \eqref{eq:norming-definition}, 得 $b_{\widehat\zeta}=-\conj{b_\zeta}$.
 对恒等式 $s_{22}(h(z))=s_{11}(z)$ 求导, 有
 \begin{equation*}
 s_{22}'(\widehat\zeta)h'(\conj{\zeta})=\conj{s_{22}'(\zeta)},\qquad
@@ -862,22 +904,25 @@ V_\infty\phi_0=
 
 
 
-\par\smallskip\noindent 空间指数的两列与求导.\quad
-右乘 $e^{\ii\lambda x\sg}$ 分别给第一、二列乘 $e^{\ii\lambda x}$ 与 $e^{-\ii\lambda x}$, 因而
+\par\smallskip\noindent 固定时刻的列方程与空间振荡因子.\quad
+取 $s_1=1,s_2=-1$, 则矩阵方程
 \begin{equation*}
-\chi_{\pm,1}=e^{-\ii\lambda x}\mu_{\pm,1},\qquad
-\chi_{\pm,2}=e^{\ii\lambda x}\mu_{\pm,2}.
+(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg
 \end{equation*}
-把 $\mu_\pm=\chi_\pm e^{\ii\lambda x\sg}$ 求导,
+的第 $j$ 列满足
 \begin{equation*}
-(\mu_\pm)_x
-=U\chi_\pm e^{\ii\lambda x\sg}
-+\chi_\pm\ii\lambda\sg e^{\ii\lambda x\sg}
-=U\mu_\pm+\ii\lambda\mu_\pm\sg.
+(\mu_{\pm,j})_x=(U+\ii s_j\lambda I)\mu_{\pm,j}.
 \end{equation*}
-矩阵 $\sg$ 可以与对角指数交换, 但不能任意穿过 $\mu_\pm$.
-这里没有时间指数; $t$ 是势函数的参数, 其演化在第 \ref{ch:scattering} 节另行研究.
-
+因此恢复空间振荡因子后,
+\begin{align*}
+\partial_x\bigl(e^{-\ii s_j\lambda x}\mu_{\pm,j}\bigr)
+&=e^{-\ii s_j\lambda x}
+\bigl[(U+\ii s_j\lambda I)\mu_{\pm,j}
+-\ii s_j\lambda\mu_{\pm,j}\bigr]\\
+&=U\bigl(e^{-\ii s_j\lambda x}\mu_{\pm,j}\bigr).
+\end{align*}
+第一、二列的空间因子分别为 $e^{-\ii\lambda x}$ 与 $e^{\ii\lambda x}$.
+这里固定 $t$, $\mu_\pm$ 由空间积分方程确定; 时间演化在第 \ref{ch:scattering} 节证明.
 
 \par\medskip\noindent 把变分常数公式展开成积分因子的计算.\quad
 在当前的 $z$ 上, $Y$ 与 $x$ 无关且可逆. 把
@@ -1146,14 +1191,14 @@ K_j(x,y,z)\Delta Q(y)\mu_{\pm,j}(y)\,\dd y\\
 最后一步使用 $(U_\infty+\ii s_j\lambda I)Y_j=0$.
 恢复空间振荡因子后,
 \begin{align*}
-\partial_x\chi_{\pm,j}
-&=\partial_x\bigl(\mu_{\pm,j}e^{-\ii s_j\lambda x}\bigr)\\
-&=(U+\ii s_j\lambda I)\mu_{\pm,j}e^{-\ii s_j\lambda x}
--\ii s_j\lambda\mu_{\pm,j}e^{-\ii s_j\lambda x}\\
-&=U\chi_{\pm,j}.
+\partial_x\bigl(e^{-\ii s_j\lambda x}\mu_{\pm,j}\bigr)
+&=e^{-\ii s_j\lambda x}
+\bigl[(U+\ii s_j\lambda I)\mu_{\pm,j}
+-\ii s_j\lambda\mu_{\pm,j}\bigr]\\
+&=U\bigl(e^{-\ii s_j\lambda x}\mu_{\pm,j}\bigr).
 \end{align*}
 基本条件给出 $q$ 连续, 所以上述空间微分等式处处成立.
-结合已得的端点归一化, 即得到两组空间 Jost 解.
+这同时核对了 Jost 列的空间方程与端点归一化.
 
 \par\medskip\noindent 为什么分支点必须重新估计核.\quad
 当 $z\to z_b$, $\gamma(z)\to0$, 因而前面的
@@ -1283,127 +1328,116 @@ U_\infty\mu_\pm(x)
 与非零端态矛盾. 所以两列始终相关且至少一列非零, 矩阵秩恰为一.
 
 
-\par\smallskip\noindent 为什么两组基底只相差一个常矩阵.\quad
-先在非分支点处讨论. 下面将证明 $\det\chi_-=\gamma\ne0$,
-所以散射关系等价于 $S=\chi_-^{-1}\chi_+$.
-对恒等式 $\chi_-^{-1}\chi_-=I$ 求导,
+\par\smallskip\noindent 散射矩阵中的指数共轭与空间常数性质.\quad
+在非分支点的普通连续谱上, 下文将证明 $\det\mu_\pm=\gamma\ne0$.
+记 $E=e^{-\ii\lambda x\sg}$, 散射关系等价于
 \begin{equation*}
-(\chi_-^{-1})_x\chi_-+\chi_-^{-1}(\chi_-)_x=0,
-\qquad
-(\chi_-^{-1})_x=-\chi_-^{-1}U.
+S=E^{-1}\mu_-^{-1}\mu_+E,
+\qquad \mu_+=\mu_-ESE^{-1}.
 \end{equation*}
+对 $\mu_-^{-1}\mu_-=I$ 求导,
+\begin{align*}
+(\mu_-^{-1})_x
+&=-\mu_-^{-1}(\mu_-)_x\mu_-^{-1}\\
+&=-\mu_-^{-1}U-\ii\lambda\sg\mu_-^{-1}.
+\end{align*}
 于是
 \begin{align*}
+(\mu_-^{-1}\mu_+)_x
+&=(-\mu_-^{-1}U-\ii\lambda\sg\mu_-^{-1})\mu_+
++\mu_-^{-1}(U\mu_++\ii\lambda\mu_+\sg)\\
+&=\ii\lambda\bigl(\mu_-^{-1}\mu_+\sg
+-\sg\mu_-^{-1}\mu_+\bigr).
+\end{align*}
+再用 $E_x=-\ii\lambda\sg E$ 与 $(E^{-1})_x=\ii\lambda E^{-1}\sg$,
+\begin{align*}
 S_x
-&=(\chi_-^{-1})_x\chi_++\chi_-^{-1}(\chi_+)_x\\
-&=-\chi_-^{-1}U\chi_++\chi_-^{-1}U\chi_+=0.
+&=E^{-1}\bigl[\ii\lambda\sg\mu_-^{-1}\mu_+
++(\mu_-^{-1}\mu_+)_x
+-\ii\lambda\mu_-^{-1}\mu_+\sg\bigr]E=0.
 \end{align*}
-这里 $U$ 可以随 $x$ 变化; 只因两组矩阵满足同一个空间方程,
-这两个包含 $U$ 的项才精确相消.
-把右乘矩阵逐元写出,
+因此与 $x$ 无关的是 $S$, 而 $\mu_-^{-1}\mu_+=ESE^{-1}$ 保留空间指数.
+将该乘积逐元写出,
 \begin{equation*}
-(\chi_{-,1},\chi_{-,2})
-\begin{pmatrix}s_{11}&s_{12}\\s_{21}&s_{22}\end{pmatrix}
-=\bigl(s_{11}\chi_{-,1}+s_{21}\chi_{-,2},
- s_{12}\chi_{-,1}+s_{22}\chi_{-,2}\bigr).
+ESE^{-1}
+=\begin{pmatrix}
+s_{11}&e^{-2\ii\lambda x}s_{12}\\
+e^{2\ii\lambda x}s_{21}&s_{22}
+\end{pmatrix}.
 \end{equation*}
-注意第一列的两个系数是 $s_{11},s_{21}$,
-而不是散射矩阵的第一行. 所有后续反射系数的符号都依赖这一约定.
-
-
-
-\par\medskip\noindent Abel 恒等式在这个二阶系统中的完整求导.\quad
-空间方程的四个分量是
+两条列关系因而为
 \begin{align*}
-(\chi_{11})_x&=-\ii k\chi_{11}+q\chi_{21},&
-(\chi_{12})_x&=-\ii k\chi_{12}+q\chi_{22},\\
-(\chi_{21})_x&=-\conj{q}\chi_{11}+\ii k\chi_{21},&
-(\chi_{22})_x&=-\conj{q}\chi_{12}+\ii k\chi_{22}.
+\mu_{+,1}&=s_{11}\mu_{-,1}
++s_{21}e^{2\ii\lambda x}\mu_{-,2},\\
+\mu_{+,2}&=s_{12}e^{-2\ii\lambda x}\mu_{-,1}
++s_{22}\mu_{-,2}.
 \end{align*}
-这里 $\chi$ 可以逐次取 $\chi_+$ 或 $\chi_-$,
-并未引入新的谱解. 对二阶行列式的两项分别求导:
+第一列的两个散射系数为 $s_{11},s_{21}$, 并带有上式规定的指数.
+
+\par\medskip\noindent 行列式恒等式的逐元求导.\quad
+暂省略端点下标, $\mu$ 逐次取 $\mu_+$ 或 $\mu_-$.
+修正空间方程的四个分量是
 \begin{align*}
-\partial_x\det\chi
-&=\partial_x(\chi_{11}\chi_{22}-\chi_{12}\chi_{21})\\
-&=(-\ii k\chi_{11}+q\chi_{21})\chi_{22}
-+\chi_{11}(-\conj{q}\chi_{12}+\ii k\chi_{22})\\
-&\quad-(-\ii k\chi_{12}+q\chi_{22})\chi_{21}
--\chi_{12}(-\conj{q}\chi_{11}+\ii k\chi_{21})\\
-&=-\ii k\chi_{11}\chi_{22}+\ii k\chi_{11}\chi_{22}
-+\ii k\chi_{12}\chi_{21}-\ii k\chi_{12}\chi_{21}\\
-&\quad+q\chi_{21}\chi_{22}-q\chi_{22}\chi_{21}
--\conj{q}\chi_{11}\chi_{12}+\conj{q}\chi_{12}\chi_{11}=0.
+(\mu_{11})_x&=\ii(\lambda-k)\mu_{11}+q\mu_{21},&
+(\mu_{12})_x&=-\ii(k+\lambda)\mu_{12}+q\mu_{22},\\
+(\mu_{21})_x&=-\conj{q}\mu_{11}+\ii(k+\lambda)\mu_{21},&
+(\mu_{22})_x&=-\conj{q}\mu_{12}+\ii(k-\lambda)\mu_{22}.
 \end{align*}
-每个矩阵元是标量, 所以最后两组也能交换次序而相消.
-归一化端的行列式为
+对二阶行列式的两项分别求导,
 \begin{align*}
-\det\chi_\pm
-&=\det\mu_\pm\det e^{-\ii\lambda x\sg}
-=\det\mu_\pm\,e^{-\ii\lambda x}e^{\ii\lambda x}
-=\det\mu_\pm,\\
-\lim\limits_{x\to\pm\infty}\det\mu_\pm
-&=\det\begin{pmatrix}1&-\dfrac{\ii q_0}{z}\\
--\dfrac{\ii q_0}{z}&1\end{pmatrix}
-=1-\left(-\dfrac{\ii q_0}{z}\right)^2
+\partial_x\det\mu
+&=\partial_x(\mu_{11}\mu_{22}-\mu_{12}\mu_{21})\\
+&=\bigl(\ii(\lambda-k)\mu_{11}+q\mu_{21}\bigr)\mu_{22}
++\mu_{11}\bigl(-\conj{q}\mu_{12}+\ii(k-\lambda)\mu_{22}\bigr)\\
+&\quad-\bigl(-\ii(k+\lambda)\mu_{12}+q\mu_{22}\bigr)\mu_{21}
+-\mu_{12}\bigl(-\conj{q}\mu_{11}+\ii(k+\lambda)\mu_{21}\bigr)\\
+&=\ii\bigl[(\lambda-k)+(k-\lambda)\bigr]\mu_{11}\mu_{22}
++\ii\bigl[(k+\lambda)-(k+\lambda)\bigr]\mu_{12}\mu_{21}\\
+&\quad+q\mu_{21}\mu_{22}-q\mu_{22}\mu_{21}
+-\conj{q}\mu_{11}\mu_{12}+\conj{q}\mu_{12}\mu_{11}=0.
+\end{align*}
+每个矩阵元是标量, 所以最后两组乘积也相消.
+在归一化端取极限,
+\begin{align*}
+\det\mu_\pm
+&=\det Y
+=\det\begin{pmatrix}1&-\dfrac{\ii q_0}{z}\\
+-\dfrac{\ii q_0}{z}&1\end{pmatrix}\\
+&=1-\left(-\dfrac{\ii q_0}{z}\right)^2
 =1+\dfrac{q_0^2}{z^2}=\gamma.
 \end{align*}
-由于行列式不随 $x$ 变化, 它等于自己的端点极限.
-对散射关系取行列式,
+对 $\mu_+=\mu_-ESE^{-1}$ 取行列式, $\det E=1$ 给出
 \begin{equation*}
 \gamma=\gamma\det S,
 \qquad \gamma\ne0,
 \qquad \det S=1.
 \end{equation*}
 
-由 $\tr U=0$, Abel 恒等式给出 $\partial_x\det\chi_\pm=0$. 在归一化端取极限, 并使用 $\det e^{-\ii\lambda x\sg}=1$, 得到 $\det\chi_\pm=\gamma$. 对 \eqref{eq:Sdef} 取行列式即得 $\det S=1$.
-\par\medskip\noindent 四个 Wronskian 分别怎样消去另一项.\quad
+\par\medskip\noindent 四个 Wronskian 与空间指数的逐项计算.\quad
 二列行列式对每列都是线性的, 且两列相同的行列式为零.
 对第一条列关系, 两种取法为
 \begin{align*}
-\det(\chi_{+,1},\chi_{-,2})
-&=s_{11}\det(\chi_{-,1},\chi_{-,2})
-+s_{21}\det(\chi_{-,2},\chi_{-,2})\\
-&=s_{11}\gamma+s_{21}\cdot0=s_{11}\gamma,\\
-\det(\chi_{-,1},\chi_{+,1})
-&=s_{11}\det(\chi_{-,1},\chi_{-,1})
-+s_{21}\det(\chi_{-,1},\chi_{-,2})\\
-&=s_{11}\cdot0+s_{21}\gamma=s_{21}\gamma.
-\end{align*}
-对第二条列关系, 应按下面的列次序取行列式:
-\begin{align*}
-\det(\chi_{-,1},\chi_{+,2})
-&=s_{12}\det(\chi_{-,1},\chi_{-,1})
-+s_{22}\det(\chi_{-,1},\chi_{-,2})\\
-&=s_{22}\gamma,\\
-\det(\chi_{+,2},\chi_{-,2})
-&=s_{12}\det(\chi_{-,1},\chi_{-,2})
-+s_{22}\det(\chi_{-,2},\chi_{-,2})\\
-&=s_{12}\gamma.
-\end{align*}
-例如, 若把最后一个行列式的两列反过来,
-会得到 $-s_{12}\gamma$, 因而不能随意交换列序.
-除以 $\gamma$ 后恰好得到原文四个散射系数.
-
-对第一条列关系分别与 $\chi_{-,2}$、$\chi_{-,1}$ 取行列式, 有
-
-第二条列关系同理给出 $s_{12},s_{22}$, 即 \eqref{eq:wronskian}.
-\par\medskip\noindent 把四个行列式中的指数也逐个抽出.\quad
-由第一列与第二列分别带 $e^{-\ii\lambda x}$ 与 $e^{\ii\lambda x}$,
-\begin{align*}
-\det(\chi_{+,1},\chi_{-,2})
-&=e^{-\ii\lambda x}e^{\ii\lambda x}
 \det(\mu_{+,1},\mu_{-,2})
-=\det(\mu_{+,1},\mu_{-,2}),\\
-\det(\chi_{-,1},\chi_{+,2})
-&=e^{-\ii\lambda x}e^{\ii\lambda x}
-\det(\mu_{-,1},\mu_{+,2})
-=\det(\mu_{-,1},\mu_{+,2}),\\
-\det(\chi_{-,1},\chi_{+,1})
-&=e^{-2\ii\lambda x}\det(\mu_{-,1},\mu_{+,1}),\\
-\det(\chi_{+,2},\chi_{-,2})
-&=e^{2\ii\lambda x}\det(\mu_{+,2},\mu_{-,2}).
+&=s_{11}\det(\mu_{-,1},\mu_{-,2})
++s_{21}e^{2\ii\lambda x}\det(\mu_{-,2},\mu_{-,2})\\
+&=s_{11}\gamma,\\
+\det(\mu_{-,1},\mu_{+,1})
+&=s_{11}\det(\mu_{-,1},\mu_{-,1})
++s_{21}e^{2\ii\lambda x}\det(\mu_{-,1},\mu_{-,2})\\
+&=s_{21}e^{2\ii\lambda x}\gamma.
 \end{align*}
-因此四个系数也可写为
+对第二条列关系, 按下面的列次序取行列式:
+\begin{align*}
+\det(\mu_{-,1},\mu_{+,2})
+&=s_{12}e^{-2\ii\lambda x}\det(\mu_{-,1},\mu_{-,1})
++s_{22}\det(\mu_{-,1},\mu_{-,2})\\
+&=s_{22}\gamma,\\
+\det(\mu_{+,2},\mu_{-,2})
+&=s_{12}e^{-2\ii\lambda x}\det(\mu_{-,1},\mu_{-,2})
++s_{22}\det(\mu_{-,2},\mu_{-,2})\\
+&=s_{12}e^{-2\ii\lambda x}\gamma.
+\end{align*}
+所以四个系数逐元写为
 \begin{align*}
 s_{11}&=\dfrac{(\mu_+)_{11}(\mu_-)_{22}
 -(\mu_-)_{12}(\mu_+)_{21}}{\gamma},\\
@@ -1416,15 +1450,12 @@ s_{12}&=\dfrac{e^{2\ii\lambda x}}{\gamma}
 \bigl((\mu_+)_{12}(\mu_-)_{22}
 -(\mu_-)_{12}(\mu_+)_{22}\bigr).
 \end{align*}
-$s_{22}$ 的两列恰为 $\mu_{-,1},\mu_{+,2}$,
-二者都在 $D_+$ 解析; $s_{11}$ 的两列恰为
-$\mu_{+,1},\mu_{-,2}$, 二者都在 $D_-$ 解析.
+这正是 \eqref{eq:wronskian}. 两个非对角系数的指数分别为
+$s_{21}$ 的 $e^{-2\ii\lambda x}$ 与 $s_{12}$ 的 $e^{2\ii\lambda x}$.
+$s_{22}$ 的两列 $\mu_{-,1},\mu_{+,2}$ 都在 $D_+$ 解析;
+$s_{11}$ 的两列 $\mu_{+,1},\mu_{-,2}$ 都在 $D_-$ 解析.
 $\gamma$ 在相应开域没有零点, 所以除法保留解析性.
-另一方面, $s_{21}$ 与 $s_{12}$ 所用两列来自相反解析域,
-这里只能在共同边界上取值, 不能由这两个式子直接宣称全域解析.
-
-对透射系数, 两列的指数相消, 故
-
+另外两个行列式使用的列来自相反解析域, 在共同边界上定义反射数据.
 
 \par\smallskip\noindent 反射系数与行列式约束的代数.\quad
 由定义, 在分母不为零的谱弧上有
@@ -1525,48 +1556,38 @@ h(h(z))=-\dfrac{q_0^2}{-\dfrac{q_0^2}{z}}=z.
 &=\sigma_2\left(I+\dfrac{\ii q_0}{z}\sigma_1\right)\sigma_2\\
 &=I-\dfrac{\ii q_0}{z}\sigma_1=Y(z).
 \end{align*}
-相位满足
+固定实 $x,t$ 时, 空间相位满足
 \begin{equation*}
 \conj{(-\lambda(\conj{z})x)}
-=-\conj{\lambda(\conj{z})}
-\bigl[x-\conj{F(k(\conj{z}))}t\bigr]
-=-\lambda(z)[x-F(k(z))t]=(-\lambda(z)x).
+=-\conj{\lambda(\conj{z})}x=-\lambda(z)x.
 \end{equation*}
-这里 $x,t$ 为实变量, 这一点在取共轭时也被使用了.
+该等式只涉及空间指数, 不含背景传播因子 $F$.
 
 
 
-\par\medskip\noindent 共轭指数的负号与列交换的负号.\quad
-取共轭先将 $\ii$ 变为 $-\ii$, 故
+\par\medskip\noindent 共轭变换后的空间方程与归一化.\quad
+由 $\sigma_2\sg\sigma_2=-\sg$, 对 $\mu_\pm$ 直接求导,
+\begin{align*}
+&\partial_x\bigl(\sigma_2\conj{\mu_\pm(\conj{z})}\sigma_2\bigr)\\
+&=\sigma_2\bigl(\conj{U(\conj{z})}\conj{\mu_\pm(\conj{z})}
+-\ii\lambda(z)\conj{\mu_\pm(\conj{z})}\sg\bigr)\sigma_2\\
+&=U(z)\bigl(\sigma_2\conj{\mu_\pm(\conj{z})}\sigma_2\bigr)
++\ii\lambda(z)\bigl(\sigma_2\conj{\mu_\pm(\conj{z})}\sigma_2\bigr)\sg.
+\end{align*}
+变换后的矩阵满足同一修正空间方程, 而且
 \begin{equation*}
-\conj{e^{-\ii\lambda(\conj{z})x\sg}}
-=e^{\ii\lambda(z)x\sg}.
+\sigma_2\conj{\mu_\pm(\conj{z})}\sigma_2
+\longrightarrow\sigma_2\conj{Y(\conj{z})}\sigma_2=Y(z).
 \end{equation*}
-再与 $\sigma_2$ 共轭, 对角元交换:
+因此 Volterra 唯一性给出
+$\mu_\pm(z)=\sigma_2\conj{\mu_\pm(\conj{z})}\sigma_2$.
+后面处理散射关系时, 空间指数的变换使用
 \begin{align*}
-\sigma_2 e^{\ii\lambda x\sg}\sigma_2
-&=\sigma_2\begin{pmatrix}e^{\ii\lambda x}&0\\0&e^{-\ii\lambda x}\end{pmatrix}\sigma_2\\
+\sigma_2\conj{E(\conj{z})}\sigma_2
+&=\sigma_2e^{\ii\lambda(z)x\sg}\sigma_2\\
 &=\begin{pmatrix}e^{-\ii\lambda x}&0\\0&e^{\ii\lambda x}\end{pmatrix}
-=e^{-\ii\lambda x\sg}.
+=E(z).
 \end{align*}
-因为 $\sigma_2^2=I$, 乘积的约化可在中间插入 $I$:
-\begin{align*}
-\sigma_2\conj{Y(\conj{z})e^{-\ii\lambda(\conj{z})x\sg}}\sigma_2
-&=(\sigma_2\conj{Y(\conj{z})}\sigma_2)
-(\sigma_2 e^{\ii\lambda(z)x\sg}\sigma_2)\\
-&=Y(z)e^{-\ii\lambda(z)x\sg}.
-\end{align*}
-对变换后的解求导,
-\begin{align*}
-\partial_x\bigl(\sigma_2\conj{\chi_\pm(\conj{z})}\sigma_2\bigr)
-&=\sigma_2\conj{U(\conj{z})}\conj{\chi_\pm(\conj{z})}\sigma_2\\
-&=U(z)\sigma_2\conj{\chi_\pm(\conj{z})}\sigma_2.
-\end{align*}
-这就是同一空间方程; 上式又给出同一端态,
-所以可应用 Jost 唯一性.
-
-
-
 
 \par\medskip\noindent 时间矩阵约化中有理项的核对.\quad
 对介质矩阵逐元计算,
@@ -1646,83 +1667,78 @@ C e^{-\ii\lambda x\sg}=e^{\ii\lambda x\sg}C.
 右乘 $C$ 同时交换了两列.
 
 
-便得到 $\mu_\pm$ 的关系.
-\par\medskip\noindent 修正 Jost 关系及四条列关系逐项展开.\quad
-从 $\chi(h(z))=\chi(z)C(z)$ 出发,
+\par\medskip\noindent 换叶后的空间方程与四条列关系.\quad
+由 $U(h(z))=U(z)$、$\lambda(h(z))=-\lambda(z)$ 及 $\sg C=-C\sg$,
 \begin{align*}
-\mu(h(z))
-&=\chi(h(z))e^{\ii\lambda(h(z))x\sg}\\
-&=\chi(z)C(z)e^{-\ii\lambda(z)x\sg}\\
-&=\chi(z)e^{\ii\lambda(z)x\sg}C(z)=\mu(z)C(z).
+\partial_x\bigl(\mu_\pm(z)C(z)\bigr)
+&=U(z)\mu_\pm(z)C(z)+\ii\lambda(z)\mu_\pm(z)\sg C(z)\\
+&=U(h(z))\mu_\pm(z)C(z)
++\ii\lambda(h(z))\mu_\pm(z)C(z)\sg.
 \end{align*}
-共轭关系对 $\mu$ 的证明也保留两个指数负号:
-\begin{align*}
-\sigma_2\conj{\mu(\conj{z})}\sigma_2
-&=\sigma_2\conj{\chi(\conj{z})}
- e^{-\ii\lambda(z)x\sg}\sigma_2\\
-&=(\sigma_2\conj{\chi(\conj{z})}\sigma_2)
- (\sigma_2 e^{-\ii\lambda(z)x\sg}\sigma_2)\\
-&=\chi(z)e^{\ii\lambda(z)x\sg}=\mu(z).
-\end{align*}
-把右乘 $\sigma_2$ 的结果写成两列,
+归一化端的极限为 $Y(z)C(z)=Y(h(z))$, 故由同一空间积分方程的唯一性,
 \begin{equation*}
-\conj{\chi(\conj{z})}\sigma_2
-=\bigl(\ii\conj{\chi_2(\conj{z})},
--\ii\conj{\chi_1(\conj{z})}\bigr).
+\mu_\pm(h(z))=\mu_\pm(z)C(z).
 \end{equation*}
-再左乘 $\sigma_2$, 得
+再逐列展开共轭约化. 暂省略端点下标, 右乘 $\sigma_2$ 给出
 \begin{equation*}
-\chi_1(z)=\ii\sigma_2\conj{\chi_2(\conj{z})},
+\conj{\mu(\conj{z})}\sigma_2
+=\bigl(\ii\conj{\mu_2(\conj{z})},
+-\ii\conj{\mu_1(\conj{z})}\bigr).
+\end{equation*}
+左乘 $\sigma_2$, 得
+\begin{equation*}
+\mu_1(z)=\ii\sigma_2\conj{\mu_2(\conj{z})},
 \qquad
-\chi_2(z)=-\ii\sigma_2\conj{\chi_1(\conj{z})}.
+\mu_2(z)=-\ii\sigma_2\conj{\mu_1(\conj{z})}.
 \end{equation*}
-右乘 $C$ 则没有两个不同的符号:
+换叶乘法则为
 \begin{equation*}
-(\chi_1,\chi_2)C
-=\left(\dfrac{\ii z}{q_0}\chi_2,
-\dfrac{\ii z}{q_0}\chi_1\right).
+(\mu_1,\mu_2)C
+=\left(\dfrac{\ii z}{q_0}\mu_2,
+\dfrac{\ii z}{q_0}\mu_1\right),
 \end{equation*}
-相同乘法适用于 $\mu$.
-对解析列比较时, 例如
-$\mu_{-,1}(z)$ 与 $\mu_{-,2}(\conj{z})$,
-右边的第二列在 $D_-$ 解析, 而共轭后的自变量属于 $D_+$;
-所以两边确实在同一个区域上有意义.
-
-右乘矩阵的两列分别给出 \eqref{eq:jost-conjugate-columns}--\eqref{eq:jost-sheet-columns}. 变换后的列具有 \eqref{eq:symmetry-domains} 所确定的解析域, 因此同一 Volterra 唯一性论证在各解析域内成立.
-
-
-\par\medskip\noindent 由基底的约化得到散射矩阵的约化.\quad
-先在 $\conj{z}$ 处写散射关系并取共轭,
+所以
 \begin{equation*}
-\conj{\chi_+(\conj{z})}
-=\conj{\chi_-(\conj{z})}\conj{S(\conj{z})}.
+\mu_1(h(z))=\dfrac{\ii z}{q_0}\mu_2(z),
+\qquad
+\mu_2(h(z))=\dfrac{\ii z}{q_0}\mu_1(z).
 \end{equation*}
-左右乘 $\sigma_2$, 并在乘积中间插入
-$\sigma_2^2=I$, 得
+恢复端点下标即得 \eqref{eq:jost-conjugate-columns}--\eqref{eq:jost-sheet-columns}.
+例如 $z\in D_+$ 时, $\conj{z}\in D_-$, 因而
+$\mu_{-,1}(z)$ 与 $\ii\sigma_2\conj{\mu_{-,2}(\conj{z})}$
+均在 $D_+$ 解析. 其余变换后的列也由
+\eqref{eq:symmetry-domains} 确定同一解析域,
+所以各列的比较都可使用相应 Volterra 方程的唯一性.
+
+\par\medskip\noindent 由 Jost 矩阵的约化得到散射矩阵的约化.\quad
+在 $\conj{z}$ 处写 $\mu_+=\mu_-ESE^{-1}$, 取共轭并左右乘 $\sigma_2$.
+在每两个因子之间插入 $\sigma_2^2=I$, 利用已证的 $\mu$ 与 $E$ 的约化, 得
+\begin{equation*}
+\mu_+(z)=\mu_-(z)E(z)
+\bigl(\sigma_2\conj{S(\conj{z})}\sigma_2\bigr)E(z)^{-1}.
+\end{equation*}
+与原散射关系比较并消去可逆因子, 得
+\begin{equation*}
+S(z)=\sigma_2\conj{S(\conj{z})}\sigma_2.
+\end{equation*}
+换叶时 $E(h(z))=E(z)^{-1}$, 而 $C E^{-1}=EC$.
+在 $h(z)$ 处的散射关系因此为
 \begin{align*}
-\chi_+(z)
-&=(\sigma_2\conj{\chi_-(\conj{z})}\sigma_2)
-(\sigma_2\conj{S(\conj{z})}\sigma_2)\\
-&=\chi_-(z)(\sigma_2\conj{S(\conj{z})}\sigma_2).
+\mu_+(z)C(z)
+&=\mu_-(z)C(z)E(z)^{-1}S(h(z))E(z)\\
+&=\mu_-(z)E(z)C(z)S(h(z))E(z).
 \end{align*}
-与 $\chi_+=\chi_-S$ 比较, 左乘可逆的 $\chi_-^{-1}$,
-得到共轭约化.
-换叶时在 $h(z)$ 处写散射关系,
+另一方面, 原关系右乘 $C(z)$, 再用 $E^{-1}C=CE$, 得
 \begin{equation*}
-\chi_+(z)C(z)=\chi_-(z)C(z)S(h(z)).
+\mu_+(z)C(z)=\mu_-(z)E(z)S(z)C(z)E(z).
 \end{equation*}
-同时原关系右乘 $C(z)$ 给出
-$\chi_+(z)C(z)=\chi_-(z)S(z)C(z)$.
-两式消去 $\chi_-$ 后,
+消去两侧的可逆因子,
 \begin{equation*}
 C(z)S(h(z))=S(z)C(z),
 \qquad
-S(h(z))=C(z)^{-1}S(z)C(z).
+S(h(z))=C(z)^{-1}S(z)C(z)=\sigma_1S(z)\sigma_1.
 \end{equation*}
-$C$ 中非零的标量因子在共轭中抵消, 因而只留下
-$\sigma_1S\sigma_1$.
-
-
+$C$ 中非零的标量因子在最后的共轭乘积中抵消.
 
 \par\medskip\noindent 把两个矩阵约化完全展开为四个矩阵元.\quad
 共轭约化的右侧实际为
@@ -1773,14 +1789,20 @@ U=\begin{pmatrix}-\ii k&q\\-\conj{q}&\ii k\end{pmatrix},
 \qquad
 U^\dagger=\begin{pmatrix}\ii k&-q\\\conj{q}&-\ii k\end{pmatrix}=-U.
 \end{equation*}
-所以
+记 $H_\pm=\mu_\pm^\dagger\mu_\pm$. 由修正空间方程,
 \begin{align*}
-\partial_x(\chi_\pm^\dagger\chi_\pm)
-&=(U\chi_\pm)^\dagger\chi_\pm
-+\chi_\pm^\dagger U\chi_\pm\\
-&=\chi_\pm^\dagger U^\dagger\chi_\pm
-+\chi_\pm^\dagger U\chi_\pm=0.
+(H_\pm)_x
+&=(U\mu_\pm+\ii\lambda\mu_\pm\sg)^\dagger\mu_\pm
++\mu_\pm^\dagger(U\mu_\pm+\ii\lambda\mu_\pm\sg)\\
+&=\mu_\pm^\dagger(U^\dagger+U)\mu_\pm
+-\ii\lambda\sg H_\pm+\ii\lambda H_\pm\sg\\
+&=\ii\lambda[H_\pm,\sg].
 \end{align*}
+因而恒定的是指数共轭后的矩阵:
+\begin{equation*}
+\partial_x(E^{-1}H_\pm E)
+=E^{-1}\bigl[(H_\pm)_x+\ii\lambda[\sg,H_\pm]\bigr]E=0.
+\end{equation*}
 背景矩阵的乘积为
 \begin{align*}
 Y^\dagger Y
@@ -1791,20 +1813,22 @@ Y^\dagger Y
 &=\begin{pmatrix}1+\dfrac{q_0^2}{z^2}&0\\
 0&1+\dfrac{q_0^2}{z^2}\end{pmatrix}=\gamma I.
 \end{align*}
-由于 $(-\lambda x)$ 为实数, $e^{-\ii\lambda x\sg}$ 是酉矩阵,
-在归一化端
+在实 $z$ 上, $\lambda$ 为实数且 $E$ 酉. 从 $\mu_\pm\to Y$ 得
+$H_\pm\to\gamma I$. 取欧氏诱导范数 $\|\cdot\|_2$, 酉共轭保持该范数,
 \begin{equation*}
-\chi_\pm^\dagger\chi_\pm
-\longrightarrow e^{\ii\lambda x\sg}\gamma I e^{-\ii\lambda x\sg}=\gamma I.
+\|E^{-1}H_\pm E-\gamma I\|_2
+=\|H_\pm-\gamma I\|_2\longrightarrow0
+\qquad(x\to\pm\infty).
 \end{equation*}
-空间守恒性使该等式对所有有限 $x$ 成立.
-代入 $\chi_+=\chi_-S$,
+故 $E^{-1}H_\pm E=\gamma I$, 从而 $H_\pm=\gamma I$.
+将 $\mu_+=\mu_-ESE^{-1}$ 代入,
 \begin{equation*}
-\gamma I=\chi_+^\dagger\chi_+
-=S^\dagger\chi_-^\dagger\chi_-S
-=\gamma S^\dagger S.
+\gamma I=\mu_+^\dagger\mu_+
+=(ESE^{-1})^\dagger\gamma I(ESE^{-1})
+=\gamma ES^\dagger SE^{-1}.
 \end{equation*}
-$\gamma=1+\dfrac{q_0^2}{z^2}>0$, 故可除以它.
+由于 $\gamma=1+\dfrac{q_0^2}{z^2}>0$, 左乘 $E^{-1}$、右乘 $E$ 后可得 $S^\dagger S=I$.
+
 最后逐元展开得到
 \begin{equation*}
 S^\dagger S
@@ -1823,35 +1847,30 @@ S^\dagger S
 
 
 \par\medskip\noindent 本部分全部谱点与留数公式的逐式计算\par
-\par\smallskip\noindent 式 \eqref{eq:quartet} 之前: 两列的指数衰减.\quad
-固定 $t$ 与谱点, 原文相位直接给出
-\begin{align*}
-e^{-\ii\lambda x}&=e^{-\ii\lambda x}e^{\ii\lambda Ft},&
-|e^{-\ii\lambda x}|&=e^{x\operatorname{Im}\lambda}
- e^{-t\operatorname{Im}(\lambda F)},\\
-e^{\ii\lambda x}&=e^{\ii\lambda x}e^{-\ii\lambda Ft},&
-|e^{\ii\lambda x}|&=e^{-x\operatorname{Im}\lambda}
- e^{t\operatorname{Im}(\lambda F)}.
-\end{align*}
+\par\smallskip\noindent 式 \eqref{eq:quartet} 之前: 空间解列的指数衰减.\quad
+固定 $t$ 与谱点, 两个空间因子的模为
+\begin{equation*}
+|e^{-\ii\lambda x}|=e^{x\operatorname{Im}\lambda},
+\qquad
+|e^{\ii\lambda x}|=e^{-x\operatorname{Im}\lambda}.
+\end{equation*}
 在 $D_+$ 中 $\operatorname{Im}\lambda>0$.
-第一行随 $x\to-\infty$ 衰减, 第二行随 $x\to+\infty$ 衰减.
+因此 $e^{-\ii\lambda x}\mu_{-,1}$ 在负端衰减,
+$e^{\ii\lambda x}\mu_{+,2}$ 在正端衰减.
 对应的 $\mu$ 列在归一化半轴有界, 因而
 \begin{align*}
-\int_{-\infty}^0\|\chi_{-,1}(x)\|_1^2\,\dd x
+\int_{-\infty}^0\|e^{-\ii\lambda x}\mu_{-,1}(x)\|_1^2\,\dd x
 &\le\|\mu_{-,1}\|_{L^\infty(-\infty,0)}^2
- e^{-2t\operatorname{Im}(\lambda F)}
- \int_{-\infty}^0 e^{2x\operatorname{Im}\lambda}\,\dd x\\
-&=\dfrac{\|\mu_{-,1}\|_{L^\infty(-\infty,0)}^2
- e^{-2t\operatorname{Im}(\lambda F)}}{2\operatorname{Im}\lambda}<\infty,\\
-\int_0^{+\infty}\|\chi_{+,2}(x)\|_1^2\,\dd x
+\int_{-\infty}^0e^{2x\operatorname{Im}\lambda}\,\dd x\\
+&=\dfrac{\|\mu_{-,1}\|_{L^\infty(-\infty,0)}^2}
+{2\operatorname{Im}\lambda}<\infty,\\
+\int_0^{+\infty}\|e^{\ii\lambda x}\mu_{+,2}(x)\|_1^2\,\dd x
 &\le\|\mu_{+,2}\|_{L^\infty(0,+\infty)}^2
- e^{2t\operatorname{Im}(\lambda F)}
- \int_0^{+\infty} e^{-2x\operatorname{Im}\lambda}\,\dd x\\
-&=\dfrac{\|\mu_{+,2}\|_{L^\infty(0,+\infty)}^2
- e^{2t\operatorname{Im}(\lambda F)}}{2\operatorname{Im}\lambda}<\infty.
+\int_0^{+\infty}e^{-2x\operatorname{Im}\lambda}\,\dd x\\
+&=\dfrac{\|\mu_{+,2}\|_{L^\infty(0,+\infty)}^2}
+{2\operatorname{Im}\lambda}<\infty.
 \end{align*}
-这里把半轴在 $0$ 分开只是选择积分区间, 没有对变量换元.
-两个指数积分分别由
+其中两个指数积分分别由
 \begin{equation*}
 \left.\dfrac{e^{2x\operatorname{Im}\lambda}}{2\operatorname{Im}\lambda}
 \right|_{-\infty}^0
@@ -1863,42 +1882,44 @@ e^{\ii\lambda x}&=e^{\ii\lambda x}e^{-\ii\lambda Ft},&
 \end{equation*}
 计算得到.
 在 $D_-$ 中 $\operatorname{Im}\lambda<0$,
-$\chi_{+,1}$ 在正端平方可积, $\chi_{-,2}$ 在负端平方可积.
-把上面的积分指数符号与端点同时反转,
-两个积分的值都变为 $-\dfrac{1}{2\operatorname{Im}\lambda}>0$.
+$e^{-\ii\lambda x}\mu_{+,1}$ 在正端平方可积,
+$e^{\ii\lambda x}\mu_{-,2}$ 在负端平方可积.
+把上面两个积分的端点及指数符号反转, 指数积分的值均为
+$-\dfrac{1}{2\operatorname{Im}\lambda}>0$.
 
-\par\smallskip\noindent 平方可积条件怎样等价于透射零点.\quad
-第4节对行列式的求导计算适用于同一系统的任意两列,
-因此任意两个空间解的 Wronskian 都是常数.
-如果一个是衰减 Jost 列, 另一个也是同一半轴上的 $L^2$ 解,
-二阶行列式绝对值不超过两列欧氏范数的乘积.
-将该不等式在半轴上积分, 再用积分型 Cauchy--Schwarz 不等式,
-得到的上界是两列各自平方积分的平方根之积, 因而有限.
-这里没有对另一解另起辅助记号; 所用不等式就是行列式与范数的基本估计.
-一个非零常数在无限长半轴上的绝对值积分为无穷,
-所以这个 Wronskian 常数只能为零.
-于是任意半轴 $L^2$ 解都与对应 Jost 衰减列线性相关.
-两列在一处相关后, 空间线性初值问题的唯一性使同一个关系在全轴成立.
+\par\smallskip\noindent 平方可积条件与透射零点的等价性.\quad
+前面的列方程表明 $e^{-\ii\lambda x}\mu_{\pm,1}$ 与
+$e^{\ii\lambda x}\mu_{\pm,2}$ 都满足空间谱方程.
+任意两个空间解的 Wronskian 由 $\tr U=0$ 而与 $x$ 无关.
+若其中一个是衰减 Jost 列, 另一个是同一半轴上的 $L^2$ 解,
+则行列式的绝对值不超过两列欧氏范数的乘积.
+在半轴上积分并使用 Cauchy--Schwarz 不等式, 得到有限上界.
+非零常数在无限长半轴上的绝对值积分为无穷, 所以该 Wronskian 必为零.
+于是任意半轴 $L^2$ 解都与对应的衰减列相关.
+空间线性方程的唯一性使该常数倍关系延伸到整个实轴.
 
 因此 $D_+$ 内存在全轴 $L^2$ 解, 当且仅当
+\begin{align*}
+0&=\det\bigl(e^{-\ii\lambda x}\mu_{-,1},
+ e^{\ii\lambda x}\mu_{+,2}\bigr)\\
+&=e^{-\ii\lambda x}e^{\ii\lambda x}
+\det(\mu_{-,1},\mu_{+,2})
+=\gamma s_{22}.
+\end{align*}
+$\gamma$ 在 $D_+$ 内不为零, 所以该条件等价于 $s_{22}=0$.
+反之, 若 $s_{22}=0$, 两个非零空间解列存在非零常数倍关系
 \begin{equation*}
-\det(\chi_{-,1},\chi_{+,2})=0.
+e^{\ii\lambda x}\mu_{+,2}
+=b_j(t)e^{-\ii\lambda x}\mu_{-,1}.
 \end{equation*}
-用原文 Wronskian 公式直接替换,
+右侧在负端平方可积, 左侧在正端平方可积, 从而给出全轴 $L^2$ 解.
+在 $D_-$ 中使用
 \begin{equation*}
-\det(\chi_{-,1},\chi_{+,2})=\gamma s_{22},
-\qquad \gamma\ne0\quad\hbox{在 }D_+,
+\det\bigl(e^{-\ii\lambda x}\mu_{+,1},
+ e^{\ii\lambda x}\mu_{-,2}\bigr)
+=\det(\mu_{+,1},\mu_{-,2})=\gamma s_{11}
 \end{equation*}
-可知这与 $s_{22}=0$ 等价.
-反方向也具体成立: 如果 $s_{22}=0$, 两个非零列相关,
-$\chi_{-,1}$ 在负端衰减, 在正端又是 $\chi_{+,2}$ 的非零常数倍,
-所以它在全轴平方可积.
-在 $D_-$ 中用
-\begin{equation*}
-\det(\chi_{+,1},\chi_{-,2})=\gamma s_{11}
-\end{equation*}
-得到同样结论.
-没有把一般非实谱上的指数增长列误认为 $L^2$ 列.
+即可得到同样的结论.
 
 \par\smallskip\noindent 式 \eqref{eq:quartet}: 四点的零点类型与区域.\quad
 由共轭约化先有
@@ -1955,15 +1976,31 @@ $D_+$ 的两块区域是外部上半平面与内部下半平面.
 再加上共轭点就得到 $4N$ 个完整离散谱点.
 
 \par\smallskip\noindent 范数数据的空间常数性质.\quad
-
-Jost 列是非零空间解, 所以 $b_j(t)\ne0$.
-对 $\chi_{+,2}=b_j(t)\chi_{-,1}$ 求 $x$ 导数并使用同一空间方程,
-得到 $(b_j)_x\chi_{-,1}=0$. 因而 $b_j$ 与 $x$ 无关.
-固定 $t$ 时, 下文可省略 $b_j(t),c_j(t)$ 的时间自变量.
-它们的时间演化将在第 \ref{ch:scattering} 节由方程证明.
+在 $s_{22}(\zeta_j)=0$ 处, 两个非零 Jost 列相关.
+先容许相关倍数依赖 $x$, 将其写成
+\begin{equation*}
+\mu_{+,2}(\zeta_j)
+=b_j(x,t)e^{-2\ii\lambda(\zeta_j)x}\mu_{-,1}(\zeta_j).
+\end{equation*}
+第二列与第一列的修正空间方程分别含 $-\ii\lambda I$ 与 $+\ii\lambda I$.
+因此对右侧求导时,
+\begin{align*}
+&\partial_x\bigl(b_je^{-2\ii\lambda x}\mu_{-,1}\bigr)\\
+&=(b_j)_xe^{-2\ii\lambda x}\mu_{-,1}
++b_je^{-2\ii\lambda x}
+\bigl[(U+\ii\lambda I)\mu_{-,1}-2\ii\lambda\mu_{-,1}\bigr]\\
+&=(b_j)_xe^{-2\ii\lambda x}\mu_{-,1}
++(U-\ii\lambda I)\mu_{+,2}.
+\end{align*}
+左侧同时等于 $(U-\ii\lambda I)\mu_{+,2}$,
+故 $(b_j)_xe^{-2\ii\lambda x}\mu_{-,1}=0$.
+Jost 列在有限点非零, 所以 $(b_j)_x=0$ 且 $b_j(t)\ne0$.
+由 $s_{22}$ 与 $x$ 无关, $c_j(t)=\dfrac{b_j(t)}{s_{22}'(\zeta_j)}$ 也与 $x$ 无关.
+固定 $t$ 时可省略 $b_j,c_j$ 的时间自变量;
+其时间演化将在第 \ref{ch:scattering} 节证明.
 
 \par\smallskip\noindent 式 \eqref{eq:resplus}: 指数转换与分子分母的 Taylor 计算.\quad
-将原 Jost 列与修正列的定义逐个代入,
+将已得的列相关式同乘空间指数, 得
 \begin{equation*}
 \mu_{+,2}(\zeta_j)e^{\ii\lambda(\zeta_j)x}
 =b_j\mu_{-,1}(\zeta_j)e^{-\ii\lambda(\zeta_j)x}.
@@ -2007,31 +2044,28 @@ $\dfrac{s_{22}''}{2s_{22}'}-\dfrac{s_{22}''}{2s_{22}'}=0$.
 分子在该点非零, 所以这里不是可去奇点.
 
 \par\smallskip\noindent 式 \eqref{eq:resminus}: 共轭产生的负号逐列检查.\quad
-原相关式取共轭后为
+对 $\mu_{+,2}(\zeta_j)=b_je^{-2\ii\lambda(\zeta_j)x}\mu_{-,1}(\zeta_j)$ 取共轭,
 \begin{equation*}
-\conj{\chi_{+,2}(\zeta_j)}
-=\conj{b_j}\conj{\chi_{-,1}(\zeta_j)}.
+\conj{\mu_{+,2}(\zeta_j)}
+=\conj{b_j}e^{2\ii\lambda(\conj{\zeta_j})x}
+\conj{\mu_{-,1}(\zeta_j)}.
 \end{equation*}
-左乘 $\ii\sigma_2$,
+由两条共轭列关系,
 \begin{align*}
-\chi_{+,1}(\conj{\zeta_j})
-&=\conj{b_j}\ii\sigma_2\conj{\chi_{-,1}(\zeta_j)},\\
-\chi_{-,2}(\conj{\zeta_j})
-&=-\ii\sigma_2\conj{\chi_{-,1}(\zeta_j)}.
+\mu_{+,1}(\conj{\zeta_j})
+&=\ii\sigma_2\conj{\mu_{+,2}(\zeta_j)}\\
+&=\conj{b_j}e^{2\ii\lambda(\conj{\zeta_j})x}
+\ii\sigma_2\conj{\mu_{-,1}(\zeta_j)},\\
+\mu_{-,2}(\conj{\zeta_j})
+&=-\ii\sigma_2\conj{\mu_{-,1}(\zeta_j)}.
 \end{align*}
-第二行的 $-\ii$ 与第一行的 $+\ii$ 相反,
-因此
-\begin{equation*}
-\chi_{+,1}(\conj{\zeta_j})
-=-\conj{b_j}\chi_{-,2}(\conj{\zeta_j}).
-\end{equation*}
-改写成修正列,
+两式中的 $+\ii$ 与 $-\ii$ 相反, 所以
 \begin{equation*}
 \mu_{+,1}(\conj{\zeta_j})
 =-\conj{b_j}e^{2\ii\lambda(\conj{\zeta_j})x}
 \mu_{-,2}(\conj{\zeta_j}).
 \end{equation*}
-现在被除的列是第一列, 对应的空间指数为 $e^{2\ii\lambda x}$.
+对应的第一列留数因而带负号与 $e^{2\ii\lambda x}$.
 
 \par\smallskip\noindent 共轭零点处的导数由 Taylor 系数比较得到.\quad
 不能把非解析映射 $z\mapsto\conj{z}$ 当作解析函数套用复导数链式法则.
@@ -2066,21 +2100,25 @@ s_{11}'(\conj{\zeta_j})=\conj{s_{22}'(\zeta_j)}\ne0.
 共轭后的简单性也在非零的一次 Taylor 系数中同时得到证明.
 
 \par\smallskip\noindent 式 \eqref{eq:cpair}: 先算列相关常数, 再算导数.\quad
-在 $\conj{\zeta}$ 处使用两条换叶列关系,
+记 $\widehat\zeta=h(\conj{\zeta})$. 在 $\conj{\zeta}$ 处使用两条换叶列关系,
 \begin{align*}
-\chi_{+,2}(\widehat\zeta)
-&=\dfrac{\ii\conj{\zeta}}{q_0}\chi_{+,1}(\conj{\zeta}),\\
-\chi_{-,1}(\widehat\zeta)
-&=\dfrac{\ii\conj{\zeta}}{q_0}\chi_{-,2}(\conj{\zeta}).
+\mu_{+,2}(\widehat\zeta)
+&=\dfrac{\ii\conj{\zeta}}{q_0}\mu_{+,1}(\conj{\zeta}),\\
+\mu_{-,1}(\widehat\zeta)
+&=\dfrac{\ii\conj{\zeta}}{q_0}\mu_{-,2}(\conj{\zeta}).
 \end{align*}
 把共轭点的列相关关系代入第一行,
 \begin{align*}
-\chi_{+,2}(\widehat\zeta)
-&=-\conj{b_\zeta}\dfrac{\ii\conj{\zeta}}{q_0}
-\chi_{-,2}(\conj{\zeta})\\
-&=-\conj{b_\zeta}\chi_{-,1}(\widehat\zeta).
+\mu_{+,2}(\widehat\zeta)
+&=-\conj{b_\zeta}e^{2\ii\lambda(\conj{\zeta})x}
+\dfrac{\ii\conj{\zeta}}{q_0}\mu_{-,2}(\conj{\zeta})\\
+&=-\conj{b_\zeta}e^{2\ii\lambda(\conj{\zeta})x}
+\mu_{-,1}(\widehat\zeta)\\
+&=-\conj{b_\zeta}e^{-2\ii\lambda(\widehat\zeta)x}
+\mu_{-,1}(\widehat\zeta).
 \end{align*}
-右侧列非零, 所以相关倍数唯一,
+最后一步用了 $\lambda(\widehat\zeta)=-\lambda(\conj{\zeta})$.
+比较 $\widehat\zeta$ 处的范数数据定义, 即得
 $b_{\widehat\zeta}=-\conj{b_\zeta}$.
 
 换叶的差值可以精确通分:
@@ -2651,7 +2689,7 @@ J_--J_+
 \left(1-\dfrac{\ii J_+}{z}\right)+O(z^{-2})\\
 &=-\dfrac{\ii q}{z}+\dfrac{\ii q}{z}+O(z^{-2})=O(z^{-2}).
 \end{align*}
-乘回 $e^{\pm2\ii(-\lambda x)}$ 后, 在实轴上指数模为 1,
+在 $s_{21}$ 中乘回 $e^{-2\ii\lambda x}$、在 $s_{12}$ 中乘回 $e^{2\ii\lambda x}$ 后, 实轴上的指数模均为 1,
 所以 $s_{12},s_{21}=O(z^{-2})$.
 这说明完整散射矩阵的一阶系数是对角矩阵.
 在非实谱参数上, 不能不加条件地把指数因子的模也当作 1;

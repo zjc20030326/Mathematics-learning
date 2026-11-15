@@ -1,0 +1,176 @@
+{
+  "generated_utc": "2026-11-15T12:41:59.165655+00:00",
+  "script": "scripts/verify_jost_normalization.py",
+  "method": "Exact rational matrix algebra with nonzero formal exponential phases and their chain-rule derivatives; no numerical sampling.",
+  "domain": "Generic invertible 2x2 M; nonzero phase and tau; lambda,F fixed at a spectral point. Gram checks additionally assume real lambda and anti-Hermitian spatial U.",
+  "scope": "Checks normalization signs, scattering matrix order, four Wronskian phase factors, conjugation derivative identities and discrete column proportions. Does not prove Jost existence, analyticity, endpoint convergence, resonance solvability or an inverse problem.",
+  "source_sha256": {
+    "section\\03-direct-scattering.tex": "e362d63e0768ba919401286788481a17efd3360063c2a105dad17cff12b4f32a",
+    "section\\04-evolution-resonance.tex": "213d1f87e68d83f980c884a20afa023f8c86ad48a18823e07d2e06dad402c5f8",
+    "section\\05-rhp-reconstruction.tex": "721db1e5510f418c9c37b5bab21d933dca35c53129b36702a12832af3bf12ed4",
+    "section\\07-hmb-verification.tex": "1e79cd655322a4ee5170ae3694252f27b158be2769b56cff253df4889d5e75fd"
+  },
+  "checks_total": 18,
+  "checks_passed": 18,
+  "elapsed_seconds": 0.53517,
+  "checks": [
+    {
+      "name": "modified_space_equation_restores_phi_lax",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "modified_time_equation_restores_phi_lax",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "spatial_scattering_exponential_conjugation",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "scattering_space_constancy",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "scattering_time_commutator",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "time_conjugation_solves_scattering_ode",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "transmission_s11_wronskian",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "transmission_s22_wronskian",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "reflection_s21_wronskian_space_phase",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "reflection_s12_wronskian_space_phase",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "resonance_medium_conjugation_commutator",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "resonance_medium_exponential_conjugation_is_constant",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "real_axis_gram_commutator",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "real_axis_gram_exponential_conjugation_is_constant",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "discrete_proportion_space_sign",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "discrete_proportion_space_column_equation",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "discrete_norming_time_coefficient",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "discrete_full_lax_column_ratio",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    }
+  ]
+}

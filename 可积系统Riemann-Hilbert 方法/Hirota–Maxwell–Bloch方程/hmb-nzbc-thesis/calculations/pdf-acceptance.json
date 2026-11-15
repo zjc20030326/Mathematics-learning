@@ -1,12 +1,12 @@
 {
   "sources": {
     "tex_files": 9,
-    "labels": 199,
-    "references": 180,
+    "labels": 197,
+    "references": 193,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
-    "spatial_Jost_and_single_scattering_notation": true,
+    "normalized_Jost_and_single_scattering_notation": true,
     "cited_bibliography_entries": 18
   },
   "build": "XeLaTeX, BibTeX, XeLaTeX, XeLaTeX",
@@ -31,37 +31,37 @@
     [
       1,
       "4. 散射演化与共振相容性",
-      19
+      20
     ],
     [
       1,
       "5. 矩阵 RHP 与三场重构",
-      21
+      22
     ],
     [
       1,
       "6. 无反射 RHP 与轨道构造",
-      26
+      27
     ],
     [
       1,
       "7. 单轨道三场解的全局性与方程验证",
-      31
+      32
     ],
     [
       1,
       "8. 数值结果与动力学分析",
-      34
+      35
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 256,
+  "pdf_links_checked": 269,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
-    "6"
+    "7"
   ],
-  "pdf_sha256": "7f5e756cb119861761de3f86a9ee773088fa19513a57dc9f2d9e7dbd918902f6",
-  "visual_review": "已放大检查最终PDF第7—11页，确认y1/y2同一行、四列积分核和指数表对应、阶乘估计及分支点证明排版清楚，无裁切。"
+  "pdf_sha256": "92015f16a2b1c3ac32033a56b705da8564a88bb404cd43762270b3ef750a6585",
+  "visual_review": "保留用户最新源码与latexmk编译PDF；复查第10—11页的阶乘估计及相邻续排，无裁切。帽算子/路径积分此前已检查；详解保持既有版本。"
 }
