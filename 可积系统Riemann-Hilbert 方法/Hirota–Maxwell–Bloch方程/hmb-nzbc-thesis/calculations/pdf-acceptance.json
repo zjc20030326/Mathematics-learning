@@ -1,12 +1,12 @@
 {
   "sources": {
     "tex_files": 9,
-    "labels": 197,
+    "labels": 199,
     "references": 194,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
-    "normalized_Jost_and_single_scattering_notation": true,
+    "spatial_Jost_then_time_evolution_with_single_scattering_matrix": true,
     "cited_bibliography_entries": 18
   },
   "build": "XeLaTeX, BibTeX, XeLaTeX, XeLaTeX",
@@ -41,7 +41,7 @@
     [
       1,
       "6. 无反射 RHP 与轨道构造",
-      27
+      28
     ],
     [
       1,
@@ -62,6 +62,6 @@
     "3.2",
     "7"
   ],
-  "pdf_sha256": "41a1fa644619e0c6d67e19235a9c0a7b14eee8aff23b400bd2afe486e23d114d",
-  "visual_review": "已放大检查正文第8—20页，补齐时间参数的长公式均无裁切或标签重叠；最终第15页证明结束符已复查正确。197个标签编号一致，详解53个文件保持不变。"
+  "pdf_sha256": "e6ab8e6e828244dcae9f76de44c020ec9f9ca3356b4ea0ffabf3be04fff4dfa2",
+  "visual_review": "Rendered PDF pages 8-11 and 20-24 inspected for spatial Jost construction, branch continuity, time evolution, resonance and jump formulas; downstream pages 28,30,32-35 inspected for norming phases, residues and Lax reconstruction. No clipping, overlap or equation-number collision found."
 }

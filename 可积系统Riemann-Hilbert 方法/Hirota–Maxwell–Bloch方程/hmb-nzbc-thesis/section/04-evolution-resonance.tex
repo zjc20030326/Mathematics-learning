@@ -1,10 +1,20 @@
 本节在 HMB 方程成立的条件下确定 Jost 矩阵及散射数据的时间演化,
 再由介质方程证明共振原像处的相容关系.
+在 $k(z)\ne a$ 处, 记完整时空相位为
+\begin{equation}\label{eq:theta}
+\theta(x,t,z)=-\lambda(z)[x-F(k(z))t].
+\end{equation}
+由 $V_\infty=-FU_\infty$ 及 \eqref{eq:diagE}, 有
+$V_\infty Y=\ii\lambda FY\sg$, 因而 $Y(z)e^{\ii\theta(x,t,z)\sg}$ 满足背景 Lax 对.
 
 \begin{proposition}\label{prop:evolution}
-设三场满足基本条件及规范 HMB 系统. 对避开共振原像的普通连续谱,
+设三场满足基本条件及规范 HMB 系统. 对 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0,z_a^\pm\}$,
+空间 Jost 矩阵及其修正矩阵满足
 \begin{equation}\label{eq:chi-time}
-\mu_{\pm,t}=V\mu_\pm-\ii\lambda F\mu_\pm\sg.
+\begin{aligned}
+\chi_{\pm,t}(x,t,z)&=V(x,t,z)\chi_\pm(x,t,z)-\ii\lambda F\chi_\pm(x,t,z)\sg,\\
+\mu_{\pm,t}(x,t,z)&=V(x,t,z)\mu_\pm(x,t,z)-\ii\lambda F\mu_\pm(x,t,z)\sg.
+\end{aligned}
 \end{equation}
 散射矩阵满足 $S_x=0$ 和 $S_t=[\ii\lambda F\sg,S]$, 因而
 \begin{equation}\label{eq:timeS}
@@ -24,17 +34,18 @@ S(z,t)=e^{\ii\lambda Ft\widehat{\sigma}_3}S(z,0).
 \begin{equation*}
 (Z_\pm)_x=UZ_\pm+\ii\lambda Z_\pm\sg.
 \end{equation*}
-在各自归一化端, $\mu_\pm\to Y$, $\mu_{\pm,t}\to0$, $V-V_\infty\to0$,
+由微分后的 Volterra 方程作端态估计, 得 $\mu_{\pm,t}\to0$.
+又在各自归一化端有 $\mu_\pm\to Y$ 和 $V-V_\infty\to0$,
 且 $V_\infty Y=\ii\lambda FY\sg$, 所以 $Z_\pm\to0$.
-对各列应用 Volterra 唯一性, 得到 $Z_\pm=0$, 即 \eqref{eq:chi-time}.
+对各列应用 Volterra 唯一性, 得到 $Z_\pm=0$, 即 $\mu_\pm$ 的时间方程.
+再由 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$, 得到 $\chi_\pm$ 的时间方程.
 同样的逐列论证适用于各解析列.
 
-对散射关系 \eqref{eq:Sdef} 求时间导数, 代入 \eqref{eq:chi-time} 并消去相同的 $V$ 项, 有
+对散射关系 $\chi_+=\chi_-S$ 求时间导数, 代入 \eqref{eq:chi-time} 并消去相同的 $V$ 项, 有
 \begin{equation*}
-\mu_-e^{-\ii\lambda x\widehat{\sigma}_3}S_t
-=\mu_-e^{-\ii\lambda x\widehat{\sigma}_3}[\ii\lambda F\sg,S].
+\chi_-S_t=\chi_-[\ii\lambda F\sg,S].
 \end{equation*}
-连续谱上的 $\mu_-$ 可逆, 且指数作用可逆, 故得到 $S_t$ 方程及 \eqref{eq:timeS}.
+由 $\chi_-$ 可逆, 得到 $S_t$ 方程及 \eqref{eq:timeS}.
 展开上述指数作用,
 \begin{equation*}
 S(z,t)=
@@ -49,12 +60,18 @@ $\partial_t s_{11}=\partial_t s_{22}=0$, 所以离散零点不随 $t$ 变化.
 \end{proof}
 
 \begin{remark}
-在避开共振原像的普通连续谱上, 令
+在上述谱点, 令
 \begin{equation}\label{eq:full-jost}
-\phi_\pm=\mu_\pm e^{\ii\theta\sg}.
+\phi_\pm(x,t,z)=\chi_\pm(x,t,z)e^{\ii\lambda Ft\sg}
+=\mu_\pm(x,t,z)e^{\ii\theta(x,t,z)\sg}.
 \end{equation}
 由修正空间方程及 \eqref{eq:chi-time}, 有 $\phi_{\pm,x}=U\phi_\pm$, $\phi_{\pm,t}=V\phi_\pm$.
 相应结论适用于各自域内的解析列.
+记 $\Delta V=V-V_\infty$, 修正 Jost 方程还可写为
+\begin{equation}\label{eq:jost-total-differential}
+\dd\!\left(e^{-\ii\theta\widehat{\sigma}_3}(Y^{-1}\mu_\pm)\right)
+=e^{-\ii\theta\widehat{\sigma}_3}\!\left[Y^{-1}(\Delta Q\,\dd x+\Delta V\,\dd t)\mu_\pm\right].
+\end{equation}
 \end{remark}
 
 \begin{proposition}\label{prop:norming-evolution}
@@ -97,9 +114,9 @@ R_\infty=\begin{pmatrix}
 \end{equation}
 
 \begin{proposition}\label{prop:resonance}
-固定 $t$. 设三场满足基本条件及两条介质方程. 则在每个共振原像,
+固定 $t\in I$. 设三场满足基本条件及两条介质方程. 则在每个共振原像,
 \begin{equation}\label{eq:resonance-conjugation}
-\mu_\pm(z_a^\pm)^{-1}R\mu_\pm(z_a^\pm)
+\mu_\pm(x,t,z_a^\pm)^{-1}R(x,t)\mu_\pm(x,t,z_a^\pm)
 =\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sg.
 \end{equation}
 散射矩阵满足

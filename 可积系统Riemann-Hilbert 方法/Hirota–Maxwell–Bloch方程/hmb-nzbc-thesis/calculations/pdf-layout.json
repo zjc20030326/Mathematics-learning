@@ -1,10 +1,10 @@
 {
   "date": "2026-11-15",
-  "generated_utc": "2026-11-15T13:23:49.929635+00:00",
-  "scope": "Main section 3 only; explanation remains byte-for-byte unchanged.",
+  "generated_utc": "2026-11-15T14:44:11.643190+00:00",
+  "scope": "Spatial Jost construction in section 3; time evolution and resonance in section 4; corresponding wording in sections 5 and 7. Explanation unchanged.",
   "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis\\fduthesis.pdf",
   "pages": 40,
-  "sha256": "41a1fa644619e0c6d67e19235a9c0a7b14eee8aff23b400bd2afe486e23d114d",
+  "sha256": "e6ab8e6e828244dcae9f76de44c020ec9f9ca3356b4ea0ffabf3be04fff4dfa2",
   "bookmarks": [
     [
       1,
@@ -79,7 +79,7 @@
     [
       1,
       "6. 无反射 RHP 与轨道构造",
-      27
+      28
     ],
     [
       2,
@@ -118,22 +118,25 @@
     ]
   ],
   "key_pages_rendered": {
-    "eq:background-lax": 8,
-    "eq:theta": 8,
+    "eq:jost-normalization": 8,
+    "eq:volterra": 8,
     "eq:columnkernel": 9,
-    "eq:jost-column-volterra": 9,
-    "eq:jost-Gkernel": 9,
-    "eq:jost-kernel-estimate": 10,
     "eq:jost-neumann": 10,
     "prop:jost-branch": 10,
     "eq:branch-columnkernel": 11,
-    "eq:wronskian": 12,
-    "eq:conjugation": 13,
-    "eq:jost-conjugate-columns": 13,
+    "eq:Sdef": 11,
     "eq:resplus": 15,
-    "eq:asymptotic-coefficients": 17,
-    "eq:smallmu": 17,
-    "eq:n-volterra-system": 18
+    "eq:theta": 20,
+    "eq:chi-time": 20,
+    "eq:full-jost": 21,
+    "eq:jost-total-differential": 21,
+    "eq:C-timephase": 21,
+    "eq:resonance-conjugation": 22,
+    "eq:jump": 23,
+    "eq:general-cauchy": 24,
+    "eq:N-orbit-phase": 28,
+    "eq:orbit-phase": 30,
+    "eq:inverse-log-lax": 33
   },
   "all_rendered_pages": [
     7,
@@ -149,7 +152,17 @@
     17,
     18,
     19,
-    20
+    20,
+    21,
+    22,
+    23,
+    24,
+    28,
+    30,
+    32,
+    33,
+    34,
+    35
   ],
   "out_of_page_text_spans": [],
   "invalid_internal_links": [],
@@ -164,48 +177,31 @@
     },
     {
       "report": "jost-normalization-identities.json",
-      "passed": 18,
+      "passed": 24,
       "source_hashes_match": true
     }
   ],
-  "kernel_majorant_simplification": "Exact equality for |z|>0 and |z^2+q0^2|>0; complex modulus retained.",
   "reference_number_check": {
-    "labels_compared": 197,
-    "mismatches": {}
+    "stable_labels_compared": 178,
+    "mismatches": {},
+    "section3_from_3_8_and_sections_5_to_8_preserved": true
   },
-  "original_section3_label_sequence_preserved": true,
-  "classification": "prop:jost-branch remains a lemma; no novelty claim introduced.",
-  "prior_branch_point_analysis": "Zhang-Fan 2020, Proposition 2 and equations (3.22)-(3.23), author PDF p. 7.",
-  "literature_url": "https://zechuanzhang.github.io/files/Zhang-Fan2020_Article_InverseScatteringTransformForT.pdf#page=7",
+  "original_labels_preserved": true,
+  "new_labels": [
+    "eq:jost-normalization",
+    "eq:modified-jost"
+  ],
+  "classification": "prop:jost-branch remains a lemma.",
   "explanation_files_verified_unchanged": 53,
   "source_sha256": {
     "fduthesis.tex": "5561272448454b5bbc7af8dd550698ff2b5c54384b1bcd7b2341a51f1a3f03ed",
     "section\\01-introduction.tex": "69f55a0c7d2cdef3e830a28050bf556925c19089ced807ac409e5ce55405007d",
     "section\\02-model.tex": "5093df400abe6776880e03a49956e2e82f019c0cc13fdf78c866968636136cfa",
-    "section\\03-direct-scattering.tex": "a69eca78a518e33d746ee430c147f264d3cea942b8d6c0a63b3e99db7091dcbf",
-    "section\\04-evolution-resonance.tex": "213d1f87e68d83f980c884a20afa023f8c86ad48a18823e07d2e06dad402c5f8",
-    "section\\05-rhp-reconstruction.tex": "721db1e5510f418c9c37b5bab21d933dca35c53129b36702a12832af3bf12ed4",
+    "section\\03-direct-scattering.tex": "dbec27383664157d597ef0b5ccc6b8d4dd35049ac3ba81b41d82e312419feb48",
+    "section\\04-evolution-resonance.tex": "c5d922f31673cb26ab4a95bf6d0a20ec8bb414e4fbc20da58231143e73e31b19",
+    "section\\05-rhp-reconstruction.tex": "9b6bad6123bb52bd0034e8c351adabce19a50d87267adfe8b0adc320432522fb",
     "section\\06-reflectionless.tex": "862fb2f3ec17b7f25914e31b2dc8515ea1ce48fe375e2fe9555a605a266b4740",
-    "section\\07-hmb-verification.tex": "1e79cd655322a4ee5170ae3694252f27b158be2769b56cff253df4889d5e75fd",
+    "section\\07-hmb-verification.tex": "6aff5fb66ea2090102a9a92d99af3beb707d7dbf8d69568b6f6789160e7365d8",
     "section\\08-numerics.tex": "4fcaae5cb825c7288276cbd09c3d8fa9b51330aefe5094848008225b7fd7671e"
-  },
-  "visual_review": {
-    "enlarged_pdf_pages": [
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20
-    ],
-    "final_proof_endmark_rechecked_page": 15,
-    "result": "All revised formulas and time parameters readable; no clipping or label collisions; proof-end symbol corrected."
   }
 }

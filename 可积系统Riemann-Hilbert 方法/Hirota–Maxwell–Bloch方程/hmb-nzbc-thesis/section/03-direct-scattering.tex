@@ -1,5 +1,5 @@
 
-本节对每个固定的 $t\in I$ 构造 Jost 矩阵 $\mu_\pm(x,t,z)$,
+本节对每个固定的 $t\in I$ 构造空间 Jost 解 $\chi_\pm(x,t,z)$ 及其修正矩阵 $\mu_\pm(x,t,z)$,
 证明其解析性与唯一性, 再讨论散射数据、对称关系及渐近性质.
 同点代数运算中可省略全部自变量; 写出函数自变量时保留其时间参数.
 
@@ -19,10 +19,9 @@ Y(z)=I-\dfrac{\ii}{z}\sg Q_\infty
 =I-\dfrac{\ii q_0}{z}\sigma_1,\qquad
 \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
 \end{equation}
-由特征方程及 $V_\infty=-FU_\infty$, 在 $k\ne a$ 处有
+由特征方程得
 \begin{equation}\label{eq:diagE}
-U_\infty Y=-\ii\lambda Y\sg,\qquad
-V_\infty Y=\ii\lambda F Y\sg.
+U_\infty Y=-\ii\lambda Y\sg.
 \end{equation}
 直接计算行列式和逆矩阵, 得
 \begin{equation}\label{eq:Y-inverse}
@@ -30,53 +29,48 @@ V_\infty Y=\ii\lambda F Y\sg.
 Y^{-1}=\dfrac{I+\dfrac{\ii q_0}{z}\sigma_1}{\gamma(z)},\quad z\ne0,\pm\ii q_0.
 \end{equation}
 
-对 $z\notin\{0,\pm\ii q_0,z_a^\pm\}$, 考虑渐近谱问题
+对 $z\notin\{0,\pm\ii q_0\}$, 左乘 $Y^{-1}$ 将背景空间方程化为
+$(Y^{-1}\chi_\infty)_x=-\ii\lambda\sg(Y^{-1}\chi_\infty)$.
+相应的背景基本解为
 \begin{equation}\label{eq:background-lax}
-\phi_{\infty,x}=U_\infty\phi_\infty,\qquad \phi_{\infty,t}=V_\infty\phi_\infty.
-\end{equation}
-左乘 $Y^{-1}$ 后, 由 \eqref{eq:diagE} 得到对角系统
-\begin{equation*}
-(Y^{-1}\phi_\infty)_x=-\ii\lambda\sg(Y^{-1}\phi_\infty),\qquad
-(Y^{-1}\phi_\infty)_t=\ii\lambda F\sg(Y^{-1}\phi_\infty).
-\end{equation*}
-由此得到渐近谱问题 \eqref{eq:background-lax} 的解
-\begin{equation}\label{eq:theta}
-\phi_\infty(x,t,z)=Y(z)e^{\ii\theta(x,t,z)\sg},\qquad
-\theta(x,t,z)=-\lambda(z)[x-F(k(z))t].
+\chi_{\infty,x}=U_\infty\chi_\infty,\qquad
+\chi_\infty(x,z)=Y(z)e^{-\ii\lambda(z)x\sg}.
 \end{equation}
 
-固定上述谱点. 若矩阵 $\phi(x,t,z)$ 同时满足 Lax 对 \eqref{eq:gaugelax}, 令
-$\mu(x,t,z)=\phi(x,t,z)e^{-\ii\theta(x,t,z)\sg}$,
-并记 $\Delta Q(x,t)=Q(x,t)-Q_\infty$, $\Delta V(x,t,z)=V(x,t,z)-V_\infty(z)$.
-由 $\theta_x=-\lambda$, $\theta_t=\lambda F$, 得
-\begin{equation}\label{eq:jost-modified-lax}
+固定 $t\in I$, 对 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$,
+称满足空间谱方程及端点归一化
+\begin{equation}\label{eq:jost-normalization}
 \begin{aligned}
-(Y^{-1}\mu)_x+\ii\lambda[\sg,Y^{-1}\mu]&=Y^{-1}\Delta Q\mu,\\
-(Y^{-1}\mu)_t-\ii\lambda F[\sg,Y^{-1}\mu]&=Y^{-1}\Delta V\mu.
+&\chi_{\pm,x}(x,t,z)=U(x,t,z)\chi_\pm(x,t,z),\\
+&\chi_\pm(x,t,z)e^{\ii\lambda(z)x\sg}\longrightarrow Y(z),\qquad x\to\pm\infty
 \end{aligned}
 \end{equation}
-两式可写成关于 $x,t$ 的全微分形式
-\begin{equation}\label{eq:jost-total-differential}
-\dd\!\left(e^{-\ii\theta\widehat{\sigma}_3}(Y^{-1}\mu)\right)
-=e^{-\ii\theta\widehat{\sigma}_3}\!\left[Y^{-1}(\Delta Q\,\dd x+\Delta V\,\dd t)\mu\right].
+的矩阵 $\chi_\pm(x,t,z)$ 为空间 Jost 解. 定义修正 Jost 矩阵
+\begin{equation}\label{eq:modified-jost}
+\begin{aligned}
+&\mu_\pm(x,t,z)=\chi_\pm(x,t,z)e^{\ii\lambda(z)x\sg},\\
+&\mu_\pm(x,t,z)\longrightarrow Y(z),\qquad x\to\pm\infty.
+\end{aligned}
 \end{equation}
-
-固定 $t\in I$, 取归一化条件 $\mu_\pm(x,t,z)\to Y(z)$ ($x\to\pm\infty$).
-在 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0,z_a^\pm\}$ 处,
-沿水平路径 $(\pm\infty,t)\to(x,t)$ 对 \eqref{eq:jost-total-differential} 积分,
-此时 $\dd t=0$, 得到 Volterra 方程
+记 $\Delta Q(x,t)=Q(x,t)-Q_\infty$.
+由 \eqref{eq:diagE} 及空间谱方程, 得到修正空间方程
+\begin{equation}\label{eq:jost-modified-lax}
+(Y^{-1}\mu_\pm)_x+\ii\lambda[\sg,Y^{-1}\mu_\pm]
+=Y^{-1}\Delta Q\mu_\pm.
+\end{equation}
+在固定 $t$ 时从各自归一化端积分, 得到 Volterra 方程
 \begin{equation}\label{eq:volterra}
 \mu_\pm(x,t,z)=Y(z)+\int_{\pm\infty}^{x}
 Y(z)e^{-\ii\lambda(z)(x-y)\widehat{\sigma}_3}\!\left[
 Y(z)^{-1}\Delta Q(y,t)\mu_\pm(y,t,z)\right]\,\dd y.
 \end{equation}
-所得空间积分核不含 $F$, 在两个共振原像处仍正则.
-称该积分方程的解 $\mu_\pm$ 为归一化 Jost 矩阵.
+上述空间积分核在两个共振原像处仍正则.
 
 \begin{theorem}\label{thm:jost}
 设光场满足基本条件中的空间要求.
 对 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$, 方程 \eqref{eq:volterra} 存在唯一关于 $x$ 有界的解 $\mu_\pm$,
 并满足相应的端点归一化条件.
+相应的 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$ 是满足 \eqref{eq:jost-normalization} 的唯一空间 Jost 解.
 对每个固定的 $x,t$, 列 $\mu_{-,1},\mu_{+,2}$ 在 $D_+$ 解析, 列 $\mu_{+,1},\mu_{-,2}$ 在 $D_-$ 解析,
 并连续延拓到各自闭域中避开 $0,\pm\ii q_0$ 的紧集. 上述连续谱结论包含 $z=z_a^\pm$.
 \end{theorem}
@@ -162,8 +156,10 @@ G_j(x,y,z)\Delta Q(y,t)Yw_{\pm,j}^{(n)}(y,t,z)\,\dd y.
 \dfrac{M_{\pm,K}(x,t)^n}{n!}\longrightarrow0,
 \end{equation*}
 从而各列解唯一.
-对 \eqref{eq:volterra} 关于 $x$ 求导即得 \eqref{eq:jost-modified-lax} 的第一式;
-结合端点归一化, 得到所述 Jost 矩阵.
+对 \eqref{eq:volterra} 关于 $x$ 求导即得 \eqref{eq:jost-modified-lax},
+等价地有 $(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg$.
+乘回空间指数即恢复 \eqref{eq:jost-normalization} 的空间谱方程;
+结合端点归一化与 Volterra 唯一性, 得到所述空间 Jost 解.
 \end{proof}
 
 分支点处的连续性采用加权 Volterra 估计处理\cite{ZhangFan2020}.
@@ -180,6 +176,11 @@ G_j(x,y,z)\Delta Q(y,t)Yw_{\pm,j}^{(n)}(y,t,z)\,\dd y.
 并在对应归一化端趋于 $Y(z_b)$, 满足空间谱方程, 且秩为一.
 \end{lemma}
 \begin{proof}
+由 \eqref{eq:diagE}, 列核还可表示为
+\begin{equation*}
+K_j(x,y,z)=e^{\ii s_j\lambda(x-y)}e^{(x-y)U_\infty(z)}.
+\end{equation*}
+右端在分支点附近解析, 消去了原表达式中 $Y^{-1}$ 的表观奇性.
 由 $U_\infty^2=-\lambda^2I$, 当 $z\to z_b$ 时有
 \begin{equation}\label{eq:background-propagator}
 e^{(x-y)U_\infty}
@@ -196,14 +197,19 @@ K_j(x,y,z)=\dfrac{1+e^{2\ii s_j\lambda(x-y)}}{2}I
 \left|\dfrac{e^{2\ii s_j\lambda(x-y)}-1}{2\ii s_j\lambda}\right|\le|x-y|,\qquad
 \|K_j(x,y,z)\|_1\le1+C_b|x-y|.
 \end{equation*}
-其中 $C_b$ 在 $z_b$ 的固定小邻域内一致有界.
+其中 $C_b$ 是 $U_\infty(z)$ 在 $z_b$ 的固定小邻域内的统一界.
 
 对负端固定 $x\le b$, 利用 $1+C_b|x-y|\le A_b(1+|y|)$, 令
 \begin{equation*}
 L_b(x,t)=A_b\int_{-\infty}^{x}(1+|y|)|q(y,t)-q_0|\,\dd y.
 \end{equation*}
-各迭代项满足 $\|\mu_{-,j}^{(n)}(x,t,z)\|_1\le C_Y\dfrac{L_b(x,t)^n}{n!}$,
-其中 $C_Y$ 为背景列的统一界. 因而 Neumann 级数在上述半轴及谱参数邻域内一致收敛.
+类似于定理 \ref{thm:jost} 的 Neumann 级数估计, 以 $Y_j(z)$ 为零次项的迭代项满足
+\begin{equation*}
+\|\mu_{-,j}^{(n)}(x,t,z)\|_1\le C_Y\dfrac{L_b(x,t)^n}{n!},\qquad
+\|\mu_{-,j}(x,t,z)-Y_j(z)\|_1\le C_Y(e^{L_b(x,t)}-1),
+\end{equation*}
+其中 $C_Y$ 为该邻域内背景列的统一界.
+由于 $L_b(x,t)\le L_b(b,t)<\infty$, 级数在 $x\le b$ 及相应闭解析域的该邻域内一致收敛.
 对各项积分应用支配收敛, 再交换极限与求和, 即得 \eqref{eq:jost-branch-volterra} 及连续延拓.
 当 $x\to-\infty$ 时 $L_b(x,t)\to0$, 给出负端归一化;
 正端同理, 同一估计也给出端点解的唯一性.
@@ -213,20 +219,17 @@ L_b(x,t)=A_b\int_{-\infty}^{x}(1+|y|)|q(y,t)-q_0|\,\dd y.
 非零列在有限点不消失, 故其秩恒为一.
 \end{proof}
 
-\begin{remark}
-Jost 列在分支点的连续性与组成 RHP 的解析商的局部有界性分别涉及积分核和透射系数. 后者所需的边界条件列于定义 \ref{def:RHP}.
-\end{remark}
-
 \subsection{散射数据与离散谱}\label{ch:symmetry}\label{ch:discrete}
 记 $\Sigma^\circ=\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$.
-在 $\Sigma^\circ$ 上, 散射矩阵 $S(z,t)$ 由两组 Jost 矩阵的关系
+在 $\Sigma^\circ$ 上, 两组空间 Jost 解确定散射矩阵 $S(z,t)$:
 \begin{equation}\label{eq:Sdef}
 \begin{aligned}
+&\chi_+(x,t,z)=\chi_-(x,t,z)S(z,t),\\
 &\mu_+(x,t,z)=\mu_-(x,t,z)e^{-\ii\lambda(z)x\widehat{\sigma}_3}S(z,t),\\
-&S(z,t)=(s_{jk}(z,t))_{j,k=1}^{2}
+&S(z,t)=(s_{jk}(z,t))_{j,k=1}^{2}.
 \end{aligned}
 \end{equation}
-确定. 逐列写为
+其中第二式由 \eqref{eq:modified-jost} 得到. 逐列写为
 \begin{equation}\label{eq:scattering-columns}
 \begin{aligned}
 &\mu_{+,1}=s_{11}\mu_{-,1}+s_{21}e^{2\ii\lambda x}\mu_{-,2},\\
@@ -237,7 +240,7 @@ Jost 列在分支点的连续性与组成 RHP 的解析商的局部有界性分�
 \begin{proposition}\label{prop:scattering}
 在定理 \ref{thm:jost} 的条件下,
 \begin{equation}\label{eq:detjost}
-\det\mu_\pm=\gamma(z),\qquad \det S=1,\qquad S_x=0.
+\det\chi_\pm=\det\mu_\pm=\gamma(z),\qquad \det S=1,\qquad S_x=0.
 \end{equation}
 在同一 $(x,t,z)$ 处取列行列式, 散射系数满足
 \begin{equation}\label{eq:wronskian}
@@ -251,19 +254,19 @@ s_{12}(z,t)=e^{2\ii\lambda x}\dfrac{\det(\mu_{+,2},\mu_{-,2})}{\gamma}.
 其中 $s_{11}$ 在 $D_-$ 解析, $s_{22}$ 在 $D_+$ 解析, 并连续延拓到相应闭域中避开 $0,\pm\ii q_0$ 的紧集. $s_{12},s_{21}$ 在 $\Sigma^\circ$ 上连续.
 \end{proposition}
 \begin{proof}
-修正空间方程的第一、第二列分别含有右乘项 $\ii\lambda\mu_{\pm,1}$ 和 $-\ii\lambda\mu_{\pm,2}$.
-对两列行列式求导, 得
+由空间谱方程及 $\tr U=0$, Abel 恒等式给出
 \begin{equation*}
-\partial_x\det\mu_\pm=(\tr U+\ii\lambda-\ii\lambda)\det\mu_\pm=0.
+\partial_x\det\chi_\pm=(\tr U)\det\chi_\pm=0.
 \end{equation*}
-在归一化端取极限, 得到 $\det\mu_\pm=\det Y=\gamma\ne0$,
+又因 $\det e^{\ii\lambda x\sg}=1$, 有 $\det\chi_\pm=\det\mu_\pm$.
+在归一化端取极限, 得到 $\det\chi_\pm=\det\mu_\pm=\det Y=\gamma\ne0$,
 故 \eqref{eq:Sdef} 唯一确定 $S$. 对该关系取行列式即得 $\det S=1$.
-再对其求 $x$ 导数, 利用两组矩阵满足同一修正空间方程, 有
+对空间散射关系求 $x$ 导数, 有
 \begin{equation*}
-\mu_-e^{-\ii\lambda x\widehat{\sigma}_3}S_x
-=(\mu_+)_x-U\mu_+-\ii\lambda\mu_+\sg=0.
+\chi_-S_x=\chi_{+,x}-\chi_{-,x}S
+=U\chi_+-U\chi_-S=0.
 \end{equation*}
-由 $\mu_-$ 可逆, 得 $S_x=0$. 对 \eqref{eq:scattering-columns} 的第一式分别与 $\mu_{-,2}$、$\mu_{-,1}$ 取行列式, 得
+由 $\chi_-$ 可逆, 得 $S_x=0$. 对 \eqref{eq:scattering-columns} 的第一式分别与 $\mu_{-,2}$、$\mu_{-,1}$ 取行列式, 得
 \begin{equation*}
 \det(\mu_{+,1},\mu_{-,2})=s_{11}\gamma,\qquad
 \det(\mu_{-,1},\mu_{+,1})=s_{21}e^{2\ii\lambda x}\gamma.
@@ -708,4 +711,4 @@ S&=e^{\ii\lambda x\widehat{\sigma}_3}(\mu_-^{-1}\mu_+),\\
 计算 $\ii A_\pm\sigma_1=B\sigma_1-J_\pm\sg\sigma_1$ 即得 \eqref{eq:smallmu}. 因 $h$ 交换 $D_\pm$, 透射系数满足 $s_{22}(z,t)=s_{11}(w,t)$ 和 $s_{11}(z,t)=s_{22}(w,t)$; 将 $w^{-1}=-\dfrac{z}{q_0^2}$ 代入 \eqref{eq:transmission-highenergy}, 得到 \eqref{eq:transmission-smallenergy}. 在实轴上再用 $S(z,t)=\sigma_1S(w,t)\sigma_1$, 即得 \eqref{eq:scattering-two-infinities} 的第二式.
 \end{proof}
 
-散射数据的时间依赖由演化 Lax 方程确定, 共振点处的介质相容性将在下一节讨论.
+下一节将讨论散射数据的时间演化及共振原像处的相容性.

@@ -120,15 +120,49 @@ check('discrete_norming_time_coefficient',
 check('discrete_full_lax_column_ratio',
       d*T[1, 1]-(b/tau**2)*T[0, 0])
 
+
+# Spatial chi and modified mu use the same spatial scattering matrix.
+# Here M and P still denote generic mu_minus and mu_plus values.
+chi_minus = M*E
+chi_plus = P*E
+Ex = s.diff(E, phase)*s.I*ell*phase
+check('spatial_chi_equation_from_mu',
+      Mx*E+M*Ex-U*chi_minus)
+check('spatial_chi_time_equation_from_mu',
+      Mt*E-(V*chi_minus-chi_minus*s.I*ell*F*sig))
+check('spatial_chi_scattering_equals_mu_scattering',
+      chi_plus-chi_minus*S)
+full_time_phase = s.diag(tau, tau**-1)
+check('full_lax_chi_mu_normalizations_agree',
+      chi_minus*full_time_phase-M*T)
+
+# RHP data evolve by rho(t)=rho0/tau**2, rho_tilde(t)=rho_tilde0*tau**2.
+# T=exp(i*theta*sigma_3) gives J=T*J0*T^{-1}; hence Psi=M_RHP*T
+# has the x,t-independent jump J0.  This is a matrix-algebra identity,
+# with time phases defined only where F is finite.
+rho0, rho_tilde0, c0 = s.symbols('rho0 rho_tilde0 c0')
+rho_t = rho0/tau**2
+rho_tilde_t = rho_tilde0*tau**2
+J = s.Matrix([[1, rho_tilde_t/phase**2],
+              [-rho_t*phase**2, 1-rho_t*rho_tilde_t]])
+J0 = s.Matrix([[1, rho_tilde0], [-rho0, 1-rho0*rho_tilde0]])
+Ti = s.diag(phase/tau, tau/phase)
+check('rhp_evolved_jump_conjugates_to_constant', Ti*J*T-J0)
+c_t = c0*tau**2
+C = c_t/phase**2
+check('rhp_residue_timephase_consistency',
+      s.Matrix([C-c0*T[0, 0]/T[1, 1], C*T[1, 1]/T[0, 0]-c0]))
+
 sources = [ROOT/'section'/name for name in
            ['03-direct-scattering.tex', '04-evolution-resonance.tex',
-            '05-rhp-reconstruction.tex', '07-hmb-verification.tex']]
+            '05-rhp-reconstruction.tex', '06-reflectionless.tex',
+            '07-hmb-verification.tex']]
 report = {
     'generated_utc': datetime.now(timezone.utc).isoformat(),
     'script': 'scripts/verify_jost_normalization.py',
     'method': 'Exact rational matrix algebra with nonzero formal exponential phases and their chain-rule derivatives; no numerical sampling.',
-    'domain': 'Generic invertible 2x2 M; nonzero phase and tau; lambda,F fixed at a spectral point. Gram checks additionally assume real lambda and anti-Hermitian spatial U.',
-    'scope': 'Checks normalization signs, scattering matrix order, four Wronskian phase factors, conjugation derivative identities and discrete column proportions. Does not prove Jost existence, analyticity, endpoint convergence, resonance solvability or an inverse problem.',
+    'domain': 'Generic invertible 2x2 mu values; nonzero spatial and time phases; lambda,F fixed at a spectral point. Time phases require finite F, hence k != a in HMB. Gram checks additionally assume real lambda and anti-Hermitian spatial U.',
+    'scope': 'Checks spatial chi/modified mu/full phi normalization identities, scattering matrix order and evolution, four Wronskian phase factors, conjugation derivative identities, discrete column proportions and the constant jump/residue conjugation. Does not prove Jost existence, analyticity, endpoint convergence, resonance solvability, RHP solvability or an inverse problem.',
     'source_sha256': {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
                       for path in sources},
     'checks_total': len(checks),

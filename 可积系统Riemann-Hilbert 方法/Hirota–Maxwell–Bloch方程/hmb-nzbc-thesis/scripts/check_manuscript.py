@@ -56,11 +56,17 @@ def source_checks():
     assert len(re.findall(r'\\begin\{definition\}', body)) == 3
     assert r'S_{\rm sp}' not in body and r'\rho_{\rm sp}' not in body
     direct = (ROOT/'section/03-direct-scattering.tex').read_text(encoding='utf-8')
-    assert r'\label{eq:jost-total-differential}' in direct
+    evolution = (ROOT/'section/04-evolution-resonance.tex').read_text(encoding='utf-8')
+    assert r'\label{eq:jost-total-differential}' not in direct
+    assert r'\label{eq:theta}' not in direct
+    assert not re.search(r'\\(?:theta|phi)\b|V_\\infty|\\Delta V|\\dd t', direct)
+    assert r'\label{eq:jost-total-differential}' in evolution
+    assert r'\label{eq:theta}' in evolution
     assert r'\label{eq:volterra}' in direct
-    assert r'\label{eq:jost-normalization}' not in direct
+    assert r'\label{eq:jost-normalization}' in direct
+    assert r'\label{eq:modified-jost}' in direct
+    assert r'\chi_+' in direct and r'\chi_-' in direct
     assert r'\label{def:spatial-Jost}' not in direct
-    assert not re.search(r'\\chi_(?:\\pm|[+-]|\{(?:\\pm|[+-]))', body)
     assert r'\label{ass:fields}' in body
     assert r'\label{eq:norming-time}' in body
     assert r'\label{lem:RHP-determinant}' in body
@@ -74,7 +80,7 @@ def source_checks():
     return {'tex_files': len(files), 'labels': len(labels), 'references': len(refs),
             'balanced_delimiters_environments_braces': True,
             'eight_continuous_sections': True, 'forbidden_forms_absent': True,
-            'normalized_Jost_and_single_scattering_notation': True,
+            'spatial_Jost_then_time_evolution_with_single_scattering_matrix': True,
             'cited_bibliography_entries': len(citations)}
 
 
