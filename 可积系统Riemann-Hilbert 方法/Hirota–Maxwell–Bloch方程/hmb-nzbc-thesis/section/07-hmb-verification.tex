@@ -67,7 +67,7 @@ V=(M_t+\ii\lambda F M\sg)M^{-1}.
 \end{equation*}
 右因子不依赖 $x,t$, 因而两个对数导数的离散极点可去; 共轭极点同理.
 
-在分支点 $z_*=\pm\ii q_0$, 换叶约化使 $M(z_*)$ 消灭 $C(z_*)$ 的固定 $-1$ 特征空间. 该核不依赖 $x,t$, 因此 $M_x(z_*)$ 和 $M_t(z_*)$ 也消灭它. 又 $\lambda(z_*)=0$, $F$ 在此有限, \eqref{eq:inverse-log-lax} 的两个分子均消灭同一核. $\det M=\gamma$ 在 $z_*$ 有一阶零点, 而 $\operatorname{adj}M(z_*)$ 的像正是该核, 故两个商的分子抵消行列式的零点. 这证明分支点可去. 轮廓交点处 $\gamma\ne0$, 没有逆矩阵奇性. 在共振点, $U$ 解析, $V$ 的唯一留数为
+在分支点 $z_b=\pm\ii q_0$, 由换叶约化 \eqref{eq:Msym} 有 $M(z_b)\bigl(I-\dfrac{\ii z_b}{q_0}\sigma_1\bigr)=0$, 即 $M(z_b)$ 消灭常量矩阵 $\dfrac{\ii z_b}{q_0}\sigma_1$ 的一维特征空间 $E_1(z_b)=\ker\bigl(I-\dfrac{\ii z_b}{q_0}\sigma_1\bigr)$. 该子空间不依赖 $x,t$, 因此 $M_x(z_b)$ 和 $M_t(z_b)$ 也消灭 $E_1(z_b)$. 又 $\lambda(z_b)=0$, $F$ 在此有限, 而 \eqref{eq:inverse-log-lax} 中将 $M^{-1}$ 写作 $\gamma^{-1}\operatorname{adj}M$ 后两个分子分别为 $(M_x-\ii\lambda M\sg)\operatorname{adj}M$ 与 $(M_t+\ii\lambda F M\sg)\operatorname{adj}M$: 由 $M(z_b)\operatorname{adj}M(z_b)=\gamma(z_b)I=0$, 当 $M(z_b)=0$ 时 $\operatorname{adj}M(z_b)=0$, 当 $M(z_b)\ne0$ 时 $\operatorname{Im}\bigl(\operatorname{adj}M(z_b)\bigr)\subset\ker M(z_b)=E_1(z_b)$, 从而 $M_x(z_b)\operatorname{adj}M(z_b)=M_t(z_b)\operatorname{adj}M(z_b)=0$. 故两个分子在 $z_b$ 均为零, 抵消 $\det M=\gamma$ 在 $z_b$ 的一阶零点, 这证明分支点可去. 轮廓交点处 $\gamma\ne0$, 没有逆矩阵奇性. 在共振点 $k=a$, $U$ 解析, $V$ 的唯一留数为
 \begin{equation*}
 \Res_{k=a}V=\dfrac{\ii\eta_0\lambda(z_a)}{a}M(z_a)\sg M(z_a)^{-1}=\ii R.
 \end{equation*}
@@ -85,7 +85,7 @@ V=-FU+(M_t+FM_x)M^{-1}
 V=4\ii\beta k^3\sg+k^2(-\ii\alpha\sg-4\beta Q)
 +kW_1+W_0+\dfrac{\ii R}{k-a}.
 \end{equation}
-由 $\det\phi=\gamma$ 与 $x,t$ 无关, 两矩阵均迹零. 实谱上的共轭约化给出 $M^\dagger M=\gamma I$, 因此 $U,V$ 在实 $k\ne a$ 上反 Hermitian, 各系数具有相应约化.
+由 $\det\phi=\gamma$ 与 $x,t$ 无关, 两矩阵均迹零. 实轴上的共轭约化给出 $M^\dagger M=\gamma I$, 因此 $U,V$ 在实 $k\ne a$ 上反 Hermitian, 各系数具有相应约化.
 
 作为同一 $\phi$ 的对数导数, 两矩阵恒满足零曲率关系. 比较 $k^2$ 项的非对角元及 $k$ 项的对角元, 得
 \begin{equation*}
@@ -111,13 +111,13 @@ q_t=\ii\alpha\left(\dfrac{q_{xx}}{2}+|q|^2q\right)
 \end{equation*}
 前式为两条介质方程; 恢复 \eqref{eq:original-fields} 即得原 HMB 系统.
 
-最后, 在普通连续谱上令
+最后, 在普通谱弧上令
 \begin{equation*}
 \mu_-=M,\qquad
 \mu_+=M\diag(s_{22}^{-1},s_{22}).
 \end{equation*}
 已恢复的修正空间方程及 \eqref{eq:direct-M-ends} 表明两者具有相应端点归一化, 由唯一性即为重构场的修正 Jost 矩阵.
-令 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$, 因对角因子与空间指数对易, 有
+令 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$, 因对角因子与空间指数因子 $e^{-\ii\lambda x\sg}$ 对易, 有
 $\chi_+=\chi_-\diag(s_{22}^{-1},s_{22})$.
 故 $S=\diag(s_{22}^{-1},s_{22})$, 反射为零, 透射函数为 \eqref{eq:onezeros}; 外部零点的列关系给出 $b_1(0)=c_1(0)s_{22}'(\zeta_1)=1$.
 \end{proof}

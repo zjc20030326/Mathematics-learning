@@ -66,7 +66,7 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 \begin{equation}\label{eq:bloch}
 \partial_x(|\widetilde p|^2+\eta^2)=0,
 \end{equation}
-并且共同端态确定
+并且共同端态确定 Bloch 约束
 \begin{equation}\label{eq:C}
 |\widetilde p|^2+\eta^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right).
 \end{equation}
@@ -80,12 +80,7 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 在空间无穷远取极限即得 \eqref{eq:C}.
 \end{proof}
 \subsection{Lax 表示与规范变换}
-采用已有 HMB 的 Lax 表示\cite{LHP2013}. 在本文的变量与参数约定下, 先定义场矩阵
-\begin{equation}\label{eq:potential-matrices}
-\widetilde Q=\begin{pmatrix}0&\widetilde q\\-\conj{\widetilde q}&0\end{pmatrix},\qquad
-\widetilde R=\begin{pmatrix}\eta&-\widetilde p\\-\conj{\widetilde p}&-\eta\end{pmatrix}.
-\end{equation}
-原场的 Lax 对为
+HMB 系统的 Lax 对为\cite{LHP2013}
 \begin{equation}\label{eq:lax}
 \begin{aligned}
 \Phi_x&=\widetilde U\Phi,\qquad \Phi_t=\widetilde V\Phi,\\
@@ -93,7 +88,11 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 \widetilde V=\sum\limits_{j=0}^{3}k^jV_j(\widetilde q)+\dfrac{\ii \widetilde R}{k-a}.
 \end{aligned}
 \end{equation}
-其中 $V_j=V_j(\widetilde q)$ 的表达式为
+其中
+\begin{equation}\label{eq:potential-matrices}
+\widetilde Q=\begin{pmatrix}0&\widetilde q\\-\conj{\widetilde q}&0\end{pmatrix},\qquad
+\widetilde R=\begin{pmatrix}\eta&-\widetilde p\\-\conj{\widetilde p}&-\eta\end{pmatrix}.
+\end{equation}
 \begin{align}
 V_3&=4\ii\beta\sg,\qquad V_2=-\ii\alpha\sg-4\beta \widetilde Q,\label{eq:V32}\\
 V_1&=\begin{pmatrix}
@@ -117,12 +116,12 @@ V_1&=\begin{pmatrix}
 \end{equation}
 \end{proposition}
 \begin{proof}
-约化 \eqref{eq:antihermitian} 来自 $\widetilde Q^\dagger=-\widetilde Q$, $\widetilde R^\dagger=\widetilde R$ 及 \eqref{eq:V32}--\eqref{eq:V0}. 利用 $\widetilde U(k)=\widetilde U(a)-\ii(k-a)\sg$, 零曲率的有理部分为
+\eqref{eq:antihermitian} 来自 $\widetilde Q^\dagger=-\widetilde Q$, $\widetilde R^\dagger=\widetilde R$ 及 \eqref{eq:V32}--\eqref{eq:V0}. 利用 $\widetilde U(k)=\widetilde U(a)-\ii(k-a)\sg$, 零曲率的有理部分为
 \begin{equation}\label{eq:rationalzc}
 -\dfrac{\ii \widetilde R_x}{k-a}+\dfrac{\ii[\widetilde U(k),\widetilde R]}{k-a}
 =\dfrac{\ii([\widetilde U(a),\widetilde R]-\widetilde R_x)}{k-a}+[\sg,\widetilde R].
 \end{equation}
-共振留数为零即 $\widetilde R_x=[\widetilde U(a),\widetilde R]$, 其独立分量为
+有理部分在 $k=a$ 处的留数为零即 $\widetilde R_x=[\widetilde U(a),\widetilde R]$, 其独立分量为
 \begin{equation*}
 \widetilde p_x=2\eta \widetilde q-2\ii a\widetilde p,\qquad
 \eta_x=-(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p}).
@@ -147,7 +146,7 @@ $\widetilde q_t-\partial_x(V_0)_{12}-2(V_0)_{11}\widetilde q-2\widetilde p$, 且
 +\ii\alpha\left(\dfrac{\widetilde q_{xx}}{2}+|\widetilde q|^2\widetilde q\right).
 \end{align*}
 这给出光场方程. 常数项的对角元由
-$\widetilde q(V_0)_{21}+(V_0)_{12}\conj{\widetilde q}=\partial_x(V_0)_{11}$ 相消, 其余分量由迹零与约化确定.
+$\widetilde q(V_0)_{21}+(V_0)_{12}\conj{\widetilde q}=\partial_x(V_0)_{11}$ 相消, 其余分量由迹零与 \eqref{eq:antihermitian} 确定.
 \end{proof}
 
 \begin{proposition}\label{prop:gauge}
@@ -208,8 +207,8 @@ $G$ 与 $\sg$ 对易且不依赖 $x$, 因而共轭变换将各系数中的场及
 \end{equation}
 \end{remark}
 
-\subsection{单值化与背景谱}
-由基本条件, 两个 Lax 矩阵在空间两端具有共同的背景:
+\subsection{背景谱与单值化}
+由基本条件取 $x\to\pm\infty$ 极限, 可以得到两个背景谱矩阵
 \begin{equation}\label{eq:background-spatial}
 U_\infty=-\ii k\sg+Q_\infty,\qquad
 Q_\infty=\begin{pmatrix}0&q_0\\-q_0&0\end{pmatrix},
@@ -252,13 +251,12 @@ D_\pm=\{z:\pm\operatorname{Im}\lambda(z)>0\}
 \begin{equation}\label{eq:sheet}
 h(z)=-\dfrac{q_0^2}{z},\qquad k(h(z))=k(z),\qquad\lambda(h(z))=-\lambda(z).
 \end{equation}
-$z=\pm\ii q_0$ 是换叶映射的固定点, 对应两个分支点; $z=\pm q_0$ 是实轴与圆周的交点.
+$z=\pm\ii q_0$ 是换叶映射的不动点, 对应两个分支点; $z=\pm q_0$ 是实轴与圆周的交点.
 时间矩阵的共振极点 $k=a$ 在单值化平面中有两个实原像:
 \begin{equation}\label{eq:resonance-w}
 z_a^\pm=a\pm\sqrt{a^2+q_0^2},\qquad z_a^+z_a^-=-q_0^2.
 \end{equation}
-两点互为换叶, 空间背景矩阵在这两点均正则.
-取 $\Sigma$ 的定向使 $D_+$ 位于左侧, 解析区域及边界方向如图 \ref{fig:analytic-regions} 所示.
+两点互为换叶. 取 $\Sigma$ 的定向使 $D_+$ 位于左侧, 解析区域及边界方向如图 \ref{fig:analytic-regions} 所示.
 
 \begin{figure}[htbp]
 \centering

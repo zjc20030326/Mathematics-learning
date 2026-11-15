@@ -3,20 +3,19 @@
 本节建立这两类恢复公式, 并由透射系数的标量分解确定同相边界所需的相位约束.
 
 \subsection{矩阵 RHP 与积分表示}
-取满足共轭、换叶约化的演化反射数据 $\rho(z,t),\widetilde\rho(z,t)$,
-以及有限简单离散数据 $\zeta_j,c_j(0)$, $j=1,\ldots,m$, $m=2N$.
-各离散点在 $\Sigma$ 外, 透射系数在普通连续谱上非零,
-并取 \eqref{eq:C-timephase} 的 $C_j(x,t)$.
-共振处要求 \eqref{eq:resonance-reflection} 的反射条件.
-
 将 $\Sigma$ 定向为 $D_+$ 位于左侧: 实轴外部两段向右、内部区间向左,
-上半圆顺时针、下半圆逆时针. 下标 $+$、$-$ 表示左、右非切向边界值.
-普通谱弧删去 $0,\pm q_0,\pm\ii q_0,z_a^\pm$.
+上半圆顺时针、下半圆逆时针. 下标 $+$、$-$ 表示左、右非切向边界值,
+从 $\Sigma$ 中删去特殊点 $0,\pm q_0,\pm\ii q_0,z_a^\pm$ 后余下的光滑开弧称为普通谱弧.
+取满足共轭、换叶约化的演化反射数据 $\rho(z,t),\widetilde\rho(z,t)$,
+以及有限简单离散数据 $\zeta_j\in D_+$ 与 $c_j(0)$, $j=1,\ldots,m$, $m=2N$.
+透射系数在普通谱弧上非零, 并取 \eqref{eq:C-timephase} 的 $C_j(x,t)$,
+在共振原像 $z_a^\pm$ 处要求 \eqref{eq:resonance-reflection} 的反射条件.
 
 \begin{definition}\label{def:RHP}\label{thm:RHP}
-求关于 $z$ 分片亚纯的二阶矩阵 $M(x,t,z)$, 满足下列条件.
-在 $D_+$ 中只有第二列可在 $\zeta_j$ 有简单极点,
-在 $D_-$ 中只有第一列可在 $\conj{\zeta_j}$ 有简单极点, 留数由 \eqref{eq:resplus}--\eqref{eq:resminus} 给定.
+求关于 $z$ 分片亚纯的二阶矩阵 $M=(M_1,M_2)$, 满足下列条件.
+在 $D_+$ 中第一列解析、第二列仅可在 $\zeta_j$ 处有简单极点,
+在 $D_-$ 中第二列解析、第一列仅可在 $\conj{\zeta_j}$ 处有简单极点, 且满足留数条件
+$\Res_{z=\zeta_j}M_2(z)=C_j(x,t)M_1(\zeta_j)$ 及 $\Res_{z=\conj{\zeta_j}}M_1(z)=-\conj{C_j(x,t)}M_2(\conj{\zeta_j})$ (对应 \eqref{eq:resplus}--\eqref{eq:resminus}).
 要求普通谱弧上具有局部连续的非切向边界值, 跳跃为
 \begin{equation}\label{eq:jump}
 M_+=M_-J,\qquad
@@ -25,7 +24,7 @@ J=\begin{pmatrix}
 -\rho(z,t)e^{2\ii\lambda x}&1-\rho(z,t)\widetilde\rho(z,t)
 \end{pmatrix},\qquad \det J=1.
 \end{equation}
-两处归一化为
+在 $z\to\infty$ 和 $z\to0$ 处的渐近归一化为
 \begin{align}
 M(z)&=I+\dfrac{M^{(1)}}{z}+O(z^{-2}),\qquad z\to\infty,\label{eq:Minfty}\\
 M(z)&=-\dfrac{\ii q_0}{z}\sigma_1+O(1),\qquad z\to0.\label{eq:Mzero}
@@ -42,7 +41,7 @@ M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1.
 
 \begin{proposition}\label{prop:jump}
 设命题 \ref{prop:evolution} 的条件成立,
-其透射系数在普通连续谱上非零且离散零点有限、简单.
+其透射系数在普通谱弧上非零且离散零点有限、简单.
 以 Jost 解析列构造
 \begin{equation}\label{eq:Mdef}
 M(z)=\begin{cases}
@@ -162,7 +161,7 @@ M^{(1)}=-\ii q_0\sigma_1
 \begin{equation}\label{eq:reconq}
 Q(q)=\dfrac{\ii}{2}[\sg,M^{(1)}],\qquad q=\ii M^{(1)}_{12}.
 \end{equation}
-若三场还满足两条介质方程, 则 $M$ 在两个共振原像的空间归一化值可逆, 且
+若三场还满足两条介质方程, 则 $M(x,t,z_a^\pm)$ 可逆, 且
 \begin{equation}\label{eq:RfromM}
 R=M(x,t,z_a)\dfrac{\eta_0\lambda(z_a)}{a}\sg M(x,t,z_a)^{-1},
 \qquad z_a=z_a^\pm.
@@ -220,8 +219,8 @@ $\dfrac{\eta_0^2\lambda(z_a)^2}{a^2}I$;
 由透射系数的标量分解\cite{Fan2022,ZhangFan2020}及 $z=0$ 处的归一化, 还可得到迹公式与同相约束. 以下各谱数据取同一时刻.
 
 \begin{proposition}\label{prop:theta}
-设透射系数在普通轮廓上非零, 只有上述有限简单离散零点. 取
-$\ell(s)=\log(1-\rho(s)\widetilde\rho(s))$ 的零指标分支, 设其在普通弧上局部 Hölder 连续, 在 $0,\infty$ 的极限为零, 且 $\ell,\dfrac{\ell(s)}{s}\in L^1(\Sigma)$. 假设剔除零点后两域中的透射函数具有与乘积关系相容的单值对数, 这些对数与下述 Cauchy 积分在各有限特殊点的边界值有界并局部匹配. 则
+设透射系数在普通谱弧上非零, 只有上述有限简单离散零点. 取
+$\ell(s)=\log(1-\rho(s)\widetilde\rho(s))$ 的零指标分支, 设其在普通谱弧上局部 Hölder 连续, 在 $0,\infty$ 的极限为零, 且 $\ell,\dfrac{\ell(s)}{s}\in L^1(\Sigma)$. 假设剔除零点后两域中的透射函数具有与乘积关系相容的单值对数, 这些对数与下述 Cauchy 积分在各有限特殊点的边界值有界并局部匹配. 则
 \begin{equation}\label{eq:trace}
 s_{22}(z)=\prod\limits_{j=1}^{m}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}
 \exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s-z}\,\dd s\right\},\qquad z\in D_+.

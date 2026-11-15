@@ -35,7 +35,7 @@ S(z,t)=e^{\ii\lambda Ft\widehat{\sigma}_3}S(z,0).
 (Z_\pm)_x=UZ_\pm+\ii\lambda Z_\pm\sg.
 \end{equation*}
 由微分后的 Volterra 方程作端态估计, 得 $\mu_{\pm,t}\to0$.
-又在各自归一化端有 $\mu_\pm\to Y$ 和 $V-V_\infty\to0$,
+又在各自端点由端点归一化有 $\mu_\pm\to Y$ 和 $V-V_\infty\to0$,
 且 $V_\infty Y=\ii\lambda FY\sg$, 所以 $Z_\pm\to0$.
 对各列应用 Volterra 唯一性, 得到 $Z_\pm=0$, 即 $\mu_\pm$ 的时间方程.
 再由 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$, 得到 $\chi_\pm$ 的时间方程.
@@ -67,7 +67,7 @@ $\partial_t s_{11}=\partial_t s_{22}=0$, 所以离散零点不随 $t$ 变化.
 \end{equation}
 由修正空间方程及 \eqref{eq:chi-time}, 有 $\phi_{\pm,x}=U\phi_\pm$, $\phi_{\pm,t}=V\phi_\pm$.
 相应结论适用于各自域内的解析列.
-记 $\Delta V=V-V_\infty$, 修正 Jost 方程还可写为
+记 $\Delta V=V-V_\infty$, 由 \eqref{eq:full-jost} 可将修正 Jost 矩阵的全微分形式写为
 \begin{equation}\label{eq:jost-total-differential}
 \dd\!\left(e^{-\ii\theta\widehat{\sigma}_3}(Y^{-1}\mu_\pm)\right)
 =e^{-\ii\theta\widehat{\sigma}_3}\!\left[Y^{-1}(\Delta Q\,\dd x+\Delta V\,\dd t)\mu_\pm\right].
@@ -76,7 +76,7 @@ $\partial_t s_{11}=\partial_t s_{22}=0$, 所以离散零点不随 $t$ 变化.
 
 \begin{proposition}\label{prop:norming-evolution}
 在命题 \ref{prop:evolution} 的条件下, 设 $\zeta_j$ 是简单离散零点.
-按 \eqref{eq:norming-definition} 定义的空间范数数据满足
+按 \eqref{eq:norming-definition} 定义的范数常数 $b_j(t),c_j(t)$ 满足
 \begin{equation}\label{eq:norming-time}
 b_j(t)=b_j(0)e^{2\ii\lambda(\zeta_j)F(k(\zeta_j))t},\qquad
 c_j(t)=c_j(0)e^{2\ii\lambda(\zeta_j)F(k(\zeta_j))t}.
@@ -94,14 +94,14 @@ C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}
 \mu_{\pm,2,t}=V\mu_{\pm,2}+\ii\lambda F\mu_{\pm,2}.
 \end{equation*}
 对 \eqref{eq:norming-definition} 中的列相关式求时间导数.
-由于 $\zeta_j$ 与 $t$ 无关, 空间指数的时间导数为零; 消去相同的项, 得
+由于 $\zeta_j$ 与 $t$ 无关, $\partial_t\bigl(e^{-2\ii\lambda(\zeta_j)x}\bigr)=0$; 消去相同的项, 得
 \begin{equation*}
 b_j'(t)\mu_{-,1}
 =2\ii\lambda(\zeta_j)F(k(\zeta_j))b_j(t)\mu_{-,1}.
 \end{equation*}
 该列非零, 从而得到 $b_j$ 的标量常微分方程.
 积分即得第一式; $s_{22}'(\zeta_j)$ 不随时间变化, 得到第二式.
-再代入空间去相位因子, 得 \eqref{eq:C-timephase}.
+再代入 \eqref{eq:norming-definition} 中 $C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}$, 得 \eqref{eq:C-timephase}.
 \end{proof}
 
 介质矩阵的共同端态为
@@ -142,7 +142,7 @@ Jost 矩阵在 $z_a^\pm$ 正则, 且 $\det\mu_\pm=\gamma(z_a^\pm)>0$.
 Y(z_a)^{-1}R_\infty Y(z_a)=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
 \end{equation*}
 $\lambda(z_a)=\pm\sqrt{a^2+q_0^2}$ 为非零实数.
-指数矩阵及其逆有界, 并与 $\sg$ 对易. 在各自归一化端取极限, 得到 \eqref{eq:resonance-conjugation}.
+指数矩阵及其逆有界, 并与 $\sg$ 对易. 在 $x\to\pm\infty$ 处由端点归一化取极限, 得到 \eqref{eq:resonance-conjugation}.
 再由 \eqref{eq:Sdef} 及对角指数与 $\sg$ 的对易性, 得
 \begin{equation*}
 S(z_a,t)^{-1}\dfrac{\eta_0\lambda(z_a)}{a}\sg S(z_a,t)
