@@ -58,6 +58,12 @@ def main():
             failures.append(f'Missing chapter: {target.name}')
             continue
         a, b = original.read_text(encoding='utf-8'), target.read_text(encoding='utf-8')
+        if not b.startswith(a.rstrip()):
+            failures.append(f'{original.name}: current manuscript prefix differs')
+        if re.search(r'\\(?:textbf|bfseries|paragraph)\b', b):
+            failures.append(f'{original.name}: bold prose or paragraph headings remain')
+        if re.search(r'\\begin\{(?:theorem|lemma|proposition|definition)\}\[', b):
+            failures.append(f'{original.name}: optional statement name remains')
         old_labels = re.findall(r'\\label\{([^{}]+)\}', a)
         new_labels = re.findall(r'\\label\{([^{}]+)\}', b)
         all_labels += new_labels

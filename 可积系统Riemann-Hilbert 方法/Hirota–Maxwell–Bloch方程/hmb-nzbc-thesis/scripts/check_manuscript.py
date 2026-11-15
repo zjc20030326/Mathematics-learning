@@ -47,10 +47,18 @@ def source_checks():
     assert len(re.findall(r'\\section\{', main)) == 8
     assert r'\chapter{' not in main
     assert r'\begin{abstract' not in main
+    assert r'\PassOptionsToPackage{fleqn}{amsmath}' not in main
+    assert r'\setlength{\mathindent}{0pt}' not in main
     body = '\n'.join(p.read_text(encoding='utf-8-sig') for p in files[1:])
+    assert not re.search(r'\\(?:textbf|bfseries|paragraph)\b', body)
+    assert not re.search(r'\\begin\{(?:theorem|proposition|lemma|definition)\}\[', body)
+    assert len(re.findall(r'\\subsection\{', body)) == 12
+    assert len(re.findall(r'\\begin\{definition\}', body)) == 3
     assert r'S_{\rm sp}' not in body and r'\rho_{\rm sp}' not in body
     direct = (ROOT/'section/03-direct-scattering.tex').read_text(encoding='utf-8')
-    assert r'\phi' not in direct and r'\theta' not in direct
+    assert r'\label{eq:jost-total-differential}' in direct
+    assert r'\label{eq:jost-normalization}' in direct
+    assert r'\label{def:spatial-Jost}' not in direct
     assert r'\label{ass:fields}' in body
     assert r'\label{eq:norming-time}' in body
     assert r'\label{lem:RHP-determinant}' in body

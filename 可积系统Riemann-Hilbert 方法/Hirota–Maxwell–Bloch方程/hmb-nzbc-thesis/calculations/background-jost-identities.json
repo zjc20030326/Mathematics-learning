@@ -1,0 +1,130 @@
+{
+  "generated_utc": "2026-11-15T06:48:46.416406+00:00",
+  "script": "scripts/verify_background_jost.py",
+  "method": "Exact symbolic matrix identities; no numerical sampling.",
+  "domain": "z != 0, +/- i*q0; k(z) != a for time expressions.",
+  "scope": "Algebraic identities for conditional full-Lax solutions; no inverse-solvability claim.",
+  "source_sha256": {
+    "section\\02-model.tex": "70c4b38c1066ea59f72db31f14a6d07221b7f013d5c1fee6c3251e15a9356e26",
+    "section\\03-direct-scattering.tex": "34553a2fa4972c0c108cc602c4d58c67b2e1f663d44b74165ca8649c63559fb4",
+    "section\\04-evolution-resonance.tex": "e506df0382834407071159a689627ffe8a4dedee87c769447015eb2a2d98a63e"
+  },
+  "checks_total": 13,
+  "checks_passed": 13,
+  "checks": [
+    {
+      "name": "spectral_curve",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "background_square",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "first_eigenvector",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "second_eigenvector",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "determinant",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "inverse",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "space_diagonalization",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "time_diagonalization",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "theta_x",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "theta_t",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "x_coefficient_of_total_differential",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "t_coefficient_of_total_differential",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "medium_background_identity",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    }
+  ]
+}

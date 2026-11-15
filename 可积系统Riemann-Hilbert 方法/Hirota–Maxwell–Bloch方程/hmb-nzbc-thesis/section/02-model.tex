@@ -1,6 +1,10 @@
 
-\subsection{方程、背景与记号}
-设 $\widetilde q,\widetilde p$ 为复值函数, $\eta$ 为实值函数. HMB 系统写为
+HMB 系统的非零背景同时约束光场与介质的端态. 本节确定相容平面波及其 Lax 表示,
+经规范变换得到常背景谱问题, 并给出单值化变量与解析区域.
+
+\subsection{HMB 方程与基本条件}\label{ass:fields}
+设 $\widetilde q(x,t),\widetilde p(x,t)$ 为复值函数, $\eta(x,t)$ 为实值函数,
+其中 $x$ 为空间变量, $t$ 为时间变量. 考虑 HMB 系统
 \begin{equation}\label{eq:HMB}
 \begin{cases}
 \widetilde q_t=\ii\alpha\left(\dfrac{1}{2}\widetilde q_{xx}+|\widetilde q|^2\widetilde q\right)
@@ -9,7 +13,6 @@
 \eta_x=-(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p}).
 \end{cases}
 \end{equation}
-其中 $x$ 为推迟时间, $t$ 为演化变量; $\widetilde q,\widetilde p,\eta$ 分别表示光场、极化与粒子数反转.
 本文固定实参数 $q_0>0$, $a\ne0$, $\eta_0\ne0$ 和 $\alpha,\beta\in\mathbb R$.
 以 $\ii$ 表示虚数单位, 上标 $*$ 表示逐项复共轭, $A^T$ 表示转置,
 $A^\dagger=(A^*)^T$ 表示共轭转置. 记 $I$ 为二阶单位矩阵, $[A,B]=AB-BA$.
@@ -28,51 +31,31 @@ $A^\dagger=(A^*)^T$ 表示共轭转置. 记 $I$ 为二阶单位矩阵, $[A,B]=AB
 \left(q_0e^{-\ii\Omega t},-\dfrac{\ii\eta_0q_0}{a}e^{-\ii\Omega t},\eta_0\right),
 \qquad x\longrightarrow\pm\infty.
 \end{equation}
-特别地, 平面波光场满足
-\[
-(\widetilde q_{\rm bg})_t
-=\ii\left(\alpha q_0^2-\dfrac{2\eta_0}{a}\right)\widetilde q_{\rm bg}
-=-\ii\Omega\widetilde q_{\rm bg}.
-\]
-
-\subsection{函数空间与基本条件}
 设 $I\subset\mathbb R$ 是包含 $0$ 的开区间. 对整数 $r\ge0$,
-$W^{r,1}(\mathbb R)$ 表示至 $r$ 阶弱导数均可积的 Sobolev 空间. 定义
+$W^{r,1}(\mathbb R)$ 表示通常的 Sobolev 空间.
+\begin{definition}\label{def:perturbation-spaces}
+记
 \begin{equation}\label{eq:basic-spaces}
-\begin{gathered}
-L^1_1(\mathbb R)=
-\left\{f:\int_{-\infty}^{+\infty}(1+|x|)|f(x)|\,\dd x<\infty\right\},\\
-X_q=W^{3,1}(\mathbb R)\cap L^1_1(\mathbb R),\qquad
-X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
-\end{gathered}
-\end{equation}
-交空间取两范数之和.
-
-\begin{definition}[三场基本条件]\label{ass:fields}
-称三场满足基本条件, 是指 $\eta$ 为实值, 并且
-\begin{equation}\label{eq:physical-regularity}
 \begin{aligned}
-\widetilde q-\widetilde q_{\rm bg}
-&\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
-\widetilde p-\widetilde p_{\rm bg},\quad \eta-\eta_0
-&\in C(I;X_m).
+&L^1_1(\mathbb R)=
+\left\{f:\int_{-\infty}^{+\infty}(1+|x|)|f(x)|\,\dd x<\infty\right\},\\
+&X_q=W^{3,1}(\mathbb R)\cap L^1_1(\mathbb R),\qquad
+X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 \end{aligned}
 \end{equation}
-此外, 各场以及 $\widetilde q_t,\widetilde q_x,\widetilde q_{xx},
-\widetilde q_{xxx},\widetilde p_x,\eta_x$ 在 $\mathbb R\times I$ 上连续,
-空间弱导数与这些经典导数一致.
+交空间取两范数之和.
 \end{definition}
-这些条件规定场的正则性与衰减, 本身不要求场已经满足 HMB 方程.
-固定时刻的直接散射只使用其中关于光场的空间条件;
-散射数据的时间演化将另加方程条件.
-逆向构造则从散射数据开始, 最后验证方程与定义 \ref{ass:fields}.
-本文采用这套充分条件, 不预先断言一般 HMB 演化保持整个基本场类.
+以下假设三场及方程 \eqref{eq:HMB} 涉及的各阶导数在 $\mathbb R\times I$ 上连续, 且满足基本条件
+\begin{equation}\label{eq:physical-regularity}
+\begin{aligned}
+&\widetilde q-\widetilde q_{\rm bg}
+\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
+&\widetilde p-\widetilde p_{\rm bg},\quad \eta-\eta_0
+\in C(I;X_m).
+\end{aligned}
+\end{equation}
 
-一维 $W^{1,1}$ 函数有趋于零的连续代表, 因而 \eqref{eq:physical-regularity} 给出 \eqref{eq:targetboundary}.
-时间连续性保证各范数在紧时间区间上一致有界.
-一阶矩用于分支极限; 光场的空间导数用于高能展开与传播矩阵; 时间可微性用于 Jost 方程求导.
-
-\begin{lemma}[介质的 Bloch 约束]\label{prop:bloch}
+\begin{lemma}\label{prop:bloch}
 若满足基本条件的三场还满足 \eqref{eq:HMB} 的两条介质方程, 则
 \begin{equation}\label{eq:bloch}
 \partial_x(|\widetilde p|^2+\eta^2)=0,
@@ -83,17 +66,14 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 \end{equation}
 \end{lemma}
 \begin{proof}
-由介质方程及其实共轭,
-\begin{align*}
+由介质方程,
+\begin{equation*}
 \partial_x(|\widetilde p|^2+\eta^2)
-&=(2\eta\widetilde q-2\ii a\widetilde p)\conj{\widetilde p}
-+\widetilde p(2\eta\conj{\widetilde q}+2\ii a\conj{\widetilde p})\\
-&\quad-2\eta(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p})=0.
-\end{align*}
-在任一空间端点取极限即得 \eqref{eq:C}.
-这里首先得到的是 $x$ 方向守恒; 其数值由不随 $t$ 变化的背景参数固定.
+=2\operatorname{Re}(\widetilde p_x\conj{\widetilde p})+2\eta\eta_x=0.
+\end{equation*}
+在空间无穷远取极限即得 \eqref{eq:C}.
 \end{proof}
-\subsection{Lax 对}
+\subsection{Lax 表示与规范变换}
 采用已有 HMB 的 Lax 表示\cite{LHP2013}. 在本文的变量与参数约定下, 先定义场矩阵
 \begin{equation}\label{eq:potential-matrices}
 \widetilde Q=\begin{pmatrix}0&\widetilde q\\-\conj{\widetilde q}&0\end{pmatrix},\qquad
@@ -120,7 +100,7 @@ V_1&=\begin{pmatrix}
 (V_0)_{21}&=-\conj{(V_0)_{12}},\qquad (V_0)_{22}=-(V_0)_{11}.\nonumber
 \end{align}
 
-\begin{proposition}[Lax 相容性]\label{prop:zc}
+\begin{proposition}\label{prop:zc}
 对足够光滑的复场 $\widetilde q,\widetilde p$ 和实场 $\eta$, 零曲率条件
 \begin{equation}\label{eq:zc}
 \widetilde U_t-\widetilde V_x+[\widetilde U,\widetilde V]=0
@@ -138,19 +118,19 @@ V_1&=\begin{pmatrix}
 =\dfrac{\ii([\widetilde U(a),\widetilde R]-\widetilde R_x)}{k-a}+[\sg,\widetilde R].
 \end{equation}
 共振留数为零即 $\widetilde R_x=[\widetilde U(a),\widetilde R]$, 其独立分量为
-\[
+\begin{equation*}
 \widetilde p_x=2\eta \widetilde q-2\ii a\widetilde p,\qquad
 \eta_x=-(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p}).
-\]
+\end{equation*}
 多项式的四次至一次项由
-\[
+\begin{equation*}
 \begin{aligned}
 &[-\ii\sg,V_3]=0,\\
 &[-\ii\sg,V_2]+[\widetilde Q,V_3]=0,\\
 &-(V_2)_x+[-\ii\sg,V_1]+[\widetilde Q,V_2]=0,\\
 &-(V_1)_x+[-\ii\sg,V_0]+[\widetilde Q,V_1]=0.
 \end{aligned}
-\]
+\end{equation*}
 相消. 常数项的 $(1,2)$ 元为
 $\widetilde q_t-\partial_x(V_0)_{12}-2(V_0)_{11}\widetilde q-2\widetilde p$, 且
 \begin{align*}
@@ -165,155 +145,125 @@ $\widetilde q_t-\partial_x(V_0)_{12}-2(V_0)_{11}\widetilde q-2\widetilde p$, 且
 $\widetilde q(V_0)_{21}+(V_0)_{12}\conj{\widetilde q}=\partial_x(V_0)_{11}$ 相消, 其余分量由迹零与约化确定.
 \end{proof}
 
-\subsection{规范变换与背景谱问题}
-为去除端态的共同相位, 令
+\begin{proposition}\label{prop:gauge}
+设 $(\widetilde q,\widetilde p,\eta)$ 为满足基本条件的 HMB 系统 \eqref{eq:HMB} 的解. 作规范变换
 \begin{equation}\label{eq:gauge}
 G(t)=e^{-\frac{\ii\Omega t}{2}\sg},\qquad
 \Phi=G\phi,\qquad q=e^{\ii\Omega t}\widetilde q,\qquad
 p=e^{\ii\Omega t}\widetilde p.
 \end{equation}
-下文仍用 $q,p$ 表示规范变换后的场, 记 $Q=Q(q)=G^{-1}\widetilde QG$, $R=G^{-1}\widetilde RG$, 即将 \eqref{eq:potential-matrices} 中的场替换为 $q,p$. 此时
-\[
+保持 $\eta$ 不变, 则边界条件 \eqref{eq:targetboundary} 化为
+\begin{equation*}
 (q,p,\eta)\longrightarrow
 \left(q_0,-\dfrac{\ii\eta_0q_0}{a},\eta_0\right),\qquad x\to\pm\infty.
-\]
-
-\label{prop:gauge}规范后的 Lax 矩阵及其常端态如下.
-变换 \eqref{eq:gauge} 将 Lax 对化为
+\end{equation*}
+在 $k\ne a$ 处, Lax 对 \eqref{eq:lax} 化为
 \begin{equation}\label{eq:gaugelax}
-\begin{aligned}
-\phi_x&=U\phi,\qquad \phi_t=V\phi,\qquad U=-\ii k\sg+Q,\\
-V&=\sum\limits_{j=0}^{3}k^jV_j(q)+\dfrac{\ii\Omega}{2}\sg+\dfrac{\ii R}{k-a}.
-\end{aligned}
+\phi_x=U\phi,\qquad \phi_t=V\phi,
 \end{equation}
 其中
-\[
-Q=\begin{pmatrix}0&q\\-\conj{q}&0\end{pmatrix},\qquad
-R=\begin{pmatrix}\eta&-p\\-\conj{p}&-\eta\end{pmatrix}.
-\]
-记 $Q_\infty=Q(q_0)$, $U_\infty=-\ii k\sg+Q_\infty$, 则
-\begin{equation}\label{eq:Rbg}
-R_\infty=\begin{pmatrix}
-\eta_0&\dfrac{\ii\eta_0q_0}{a}\\[6pt]
--\dfrac{\ii\eta_0q_0}{a}&-\eta_0
-\end{pmatrix}
-=\dfrac{\ii\eta_0}{a}U_\infty(a),
+\begin{equation}\label{eq:gauged-U}
+U=-\ii k\sg+Q,\qquad
+Q=G^{-1}\widetilde QG=\begin{pmatrix}0&q\\-\conj{q}&0\end{pmatrix},
+\end{equation}
+\begin{equation}\label{eq:gauged-V}
+V=\sum\limits_{j=0}^{3}k^jV_j(q)+\dfrac{\ii\Omega}{2}\sg+\dfrac{\ii R}{k-a},\qquad
+R=G^{-1}\widetilde RG=\begin{pmatrix}\eta&-p\\-\conj{p}&-\eta\end{pmatrix}.
+\end{equation}
+$V_j(q)$ 为 \eqref{eq:V32}--\eqref{eq:V0} 中将 $\widetilde q$ 换为 $q$ 所得的矩阵.
+相应的规范 HMB 系统为
+\begin{equation}\label{eq:gauged-HMB}
+\begin{cases}
+q_t=\ii\alpha\left(\dfrac{q_{xx}}{2}+|q|^2q\right)
++\beta(q_{xxx}+6|q|^2q_x)+2p+\ii\Omega q,\\
+p_x=2\eta q-2\ii ap,\\
+\eta_x=-(\conj{q}p+q\conj{p}).
+\end{cases}
+\end{equation}
+\end{proposition}
+\begin{proof}
+由 $G_x=0$ 及 $G^{-1}G_t=-\dfrac{\ii\Omega}{2}\sg$, 将 $\Phi=G\phi$ 代入 \eqref{eq:lax}, 得
+\begin{equation*}
+U=G^{-1}\widetilde UG,\qquad
+V=G^{-1}\widetilde VG-G^{-1}G_t.
+\end{equation*}
+$G$ 与 $\sg$ 对易且不依赖 $x$, 因而共轭变换将各系数中的场及其空间导数分别变为 $q,p$ 及其空间导数, 得到 \eqref{eq:gaugelax}--\eqref{eq:gauged-V}.
+对 $q=e^{\ii\Omega t}\widetilde q$ 求时间导数产生 $\ii\Omega q$ 项;
+空间微分保留相位因子, 共轭乘积中的相位相消, 故 \eqref{eq:HMB} 化为 \eqref{eq:gauged-HMB}.
+将变换代入 \eqref{eq:targetboundary}, 即得常边界条件.
+\end{proof}
+
+\begin{remark}\label{rem:gauged-regularity}
+规范变换 \eqref{eq:gauge} 将三场的基本条件 \eqref{eq:physical-regularity} 等价地写为
+\begin{equation}\label{eq:evolution-regularity}
+\begin{aligned}
+&q-q_0\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
+&p+\dfrac{\ii\eta_0q_0}{a},\quad\eta-\eta_0\in C(I;X_m).
+\end{aligned}
+\end{equation}
+\end{remark}
+
+\subsection{单值化与背景谱}
+由基本条件, 两个 Lax 矩阵在空间两端具有共同的背景:
+\begin{equation}\label{eq:background-spatial}
+U_\infty=-\ii k\sg+Q_\infty,\qquad
+Q_\infty=\begin{pmatrix}0&q_0\\-q_0&0\end{pmatrix},
 \end{equation}
 \begin{equation}\label{eq:F}
 V_\infty=-F(k)U_\infty,\qquad
-F(k)=4\beta k^2-\alpha k-2\beta q_0^2+\dfrac{\eta_0}{a(k-a)}.
+F(k)=4\beta k^2-\alpha k-2\beta q_0^2+\dfrac{\eta_0}{a(k-a)},\quad k\ne a.
 \end{equation}
-
-由规范变换直接计算,
-
-由 $G_x=0$ 和 $G^{-1}G_t=-\dfrac{\ii\Omega}{2}\sg$,
-\[
-U=G^{-1}\widetilde UG,\qquad
-V=G^{-1}\widetilde VG-G^{-1}G_t.
-\]
-相位共轭把 $\widetilde Q,\widetilde R$ 分别变为 $Q,R$, 且 $V_j(q)=G^{-1}V_j(\widetilde q)G$, 得到 \eqref{eq:gaugelax}. 相应规范光场方程为
-\begin{equation}\label{eq:gauged-HMB}
-q_t=\ii\alpha\left(\dfrac{q_{xx}}{2}+|q|^2q\right)
-+\beta(q_{xxx}+6|q|^2q_x)+2p+\ii\Omega q.
-\end{equation}
-在常端态上, 传播矩阵的两个独立分量为
-\begin{align*}
-(V_\infty)_{12}
-&=q_0\left(-4\beta k^2+\alpha k+2\beta q_0^2-\dfrac{\eta_0}{a(k-a)}\right),\\
-(V_\infty)_{11}
-&=\ii\left(4\beta k^3-\alpha k^2-2\beta q_0^2k
-+\dfrac{\alpha q_0^2}{2}+\dfrac{\eta_0}{k-a}+\dfrac{\Omega}{2}\right)\\
-&=\ii k\left(4\beta k^2-\alpha k-2\beta q_0^2+\dfrac{\eta_0}{a(k-a)}\right).
-\end{align*}
-最后一步使用 $\dfrac{\alpha q_0^2}{2}+\dfrac{\Omega}{2}=\dfrac{\eta_0}{a}$, 即得 \eqref{eq:F}.
-
-
-
-
-规范变换只给扰动乘以模为一的时间因子, 所以基本条件等价于
-\begin{equation}\label{eq:evolution-regularity}
-\begin{aligned}
-q-q_0&\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
-p+\dfrac{\ii\eta_0q_0}{a},\quad\eta-\eta_0&\in C(I;X_m),
-\end{aligned}
-\end{equation}
-并具有定义 \ref{ass:fields} 中相应的经典导数.
-以后提及基本条件时, 对规范后三场使用这一等价形式.
-
-\subsection{谱曲面、单值化与背景基底}
-背景矩阵满足 $U_\infty^2=-(k^2+q_0^2)I$, 其特征值为 $\pm\ii\lambda$, 其中
+背景空间矩阵的特征方程为
+\begin{equation*}
+\det(\xi I-U_\infty)=\xi^2+k^2+q_0^2=0.
+\end{equation*}
+故其两个特征值为 $-\ii\lambda$ 与 $\ii\lambda$, 其中
 \begin{equation}\label{eq:spectral-curve}
 \lambda^2=k^2+q_0^2.
 \end{equation}
-沿切口 $\ii\lbrack-q_0,q_0\rbrack$ 粘合两张 $k$ 平面, 并以第一叶 $\lambda\sim k$ 选定谱根.
-引入单值化变量
+平方根在 $k=\pm\ii q_0$ 处分支. 沿切口 $\ii\lbrack-q_0,q_0\rbrack$ 交叉粘合两张 $k$ 平面,
+得到双叶谱曲面\cite{ZhangFan2020}, 并以 $k\to\infty$ 时 $\lambda\sim k$ 选定第一叶, 第二叶取相反的谱根.
+为在同一复平面中表示两叶谱点, 引入单值化变量 $z=k+\lambda$.
+由 $(\lambda-k)(\lambda+k)=q_0^2$, 得
 \begin{equation}\label{eq:uniform}
 z=k+\lambda,\qquad
 k(z)=\dfrac{1}{2}\left(z-\dfrac{q_0^2}{z}\right),\qquad
 \lambda(z)=\dfrac{1}{2}\left(z+\dfrac{q_0^2}{z}\right).
 \end{equation}
-两叶无穷远分别对应 $z=\infty$ 与 $z=0$.
+第一叶与第二叶的谱无穷远分别对应 $z=\infty$ 和 $z=0$.
 
-\begin{lemma}[背景振荡谱]\label{prop:curve}\label{prop:domains}
-背景空间指数无增长的 $k$ 集合及其单值化像分别为
+\label{prop:curve}\label{prop:domains}
+背景空间指数为 $e^{\mp\ii\lambda x}$, 因而其振荡谱由 $\lambda\in\mathbb R$ 确定.
+由 \eqref{eq:spectral-curve}, 振荡谱在 $k$ 平面上的投影为
 \begin{equation}\label{eq:lambda-spectrum}
 \Sigma_k=\mathbb R\cup\ii\lbrack-q_0,q_0\rbrack,
 \end{equation}
+其在单值化平面中的像为
 \begin{equation}\label{eq:Sigma}
 \Sigma=\mathbb R\cup\{z:|z|=q_0\}.
 \end{equation}
-定义
+事实上, \eqref{eq:uniform} 给出
+$\operatorname{Im}\lambda(z)=\dfrac{1}{2}\operatorname{Im}z\left(1-\dfrac{q_0^2}{|z|^2}\right)$.
+按照该虚部的符号定义两个开区域
 \begin{equation}\label{eq:domains}
 D_\pm=\{z:\pm\operatorname{Im}\lambda(z)>0\}
 =\left\{z:\pm\operatorname{Im}z\left(1-\dfrac{q_0^2}{|z|^2}\right)>0\right\}.
 \end{equation}
-则 $\Sigma$ 是两个解析域的公共边界.
-\end{lemma}
-\begin{proof}
-振荡条件为 $\lambda\in\mathbb R$. 写 $k=\xi+\ii\nu$, 则
-$\lambda^2=\xi^2-\nu^2+q_0^2+2\ii\xi\nu$.
-于是 $\xi\nu=0$ 且 $\xi^2-\nu^2+q_0^2\ge0$, 得到 \eqref{eq:lambda-spectrum}.
-再写 $z=re^{\ii\varphi}$, 有
-\[
-\operatorname{Im}\lambda(z)
-=\dfrac{1}{2}\left(r-\dfrac{q_0^2}{r}\right)\sin\varphi.
-\]
-其零集与正负区域给出 \eqref{eq:Sigma}--\eqref{eq:domains}.
-\end{proof}
+$D_+$ 由上半平面的圆外部分与下半平面的圆内部分组成, $D_-$ 由其余两部分组成,
+$\Sigma$ 是二者的公共边界.
 
-换叶是在同一 $k$ 处改变谱根的符号, 因而
+同一 $k$ 所对应的两个谱点具有相反的 $\lambda$. 将 $(k,\lambda)$ 换为 $(k,-\lambda)$,
+由 $k-\lambda=-q_0^2/z$ 得到换叶映射
 \begin{equation}\label{eq:sheet}
 h(z)=-\dfrac{q_0^2}{z},\qquad k(h(z))=k(z),\qquad\lambda(h(z))=-\lambda(z).
 \end{equation}
-取背景特征向量矩阵
-\begin{equation}\label{eq:E}
-Y(z)=I-\dfrac{\ii}{z}\sg Q_\infty
-=I-\dfrac{\ii q_0}{z}\sigma_1,\qquad
-\sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
-\end{equation}
-直接计算可得
-\begin{equation}\label{eq:diagE}
-U_\infty Y=-\ii\lambda Y\sg,\qquad
-\gamma(z):=\det Y=1+\dfrac{q_0^2}{z^2},\qquad
-Y^{-1}=\dfrac{I+\dfrac{\ii q_0}{z}\sigma_1}{\gamma(z)}.
-\end{equation}
-例如第一列特征向量的第二分量是
-$-\dfrac{\ii(\lambda-k)}{q_0}=-\dfrac{\ii q_0}{z}$, 从而得到上述 $Y$.
-在 $0,\pm\ii q_0$ 之外, $Y$ 可逆.
-
-传播矩阵的极点 $k=a$ 在单值化平面中有两个实原像:
+$z=\pm\ii q_0$ 是换叶映射的固定点, 对应两个分支点; $z=\pm q_0$ 是实轴与圆周的交点.
+时间矩阵的共振极点 $k=a$ 在单值化平面中有两个实原像:
 \begin{equation}\label{eq:resonance-w}
 z_a^\pm=a\pm\sqrt{a^2+q_0^2},\qquad z_a^+z_a^-=-q_0^2.
 \end{equation}
-它们互为换叶, 且 $\gamma(z_a^\pm)>0$.
-在避开共振原像处, 背景的完整时空解可写为
-\begin{equation}\label{eq:theta}
-\phi_0=Y(z)e^{\ii\theta(x,t,z)\sg},\qquad
-\theta(x,t,z)=-\lambda(z)[x-F(k(z))t].
-\end{equation}
-因为 $\theta_x=-\lambda$, $\theta_t=\lambda F$, 它同时满足背景的两个 Lax 方程.
-以下直接散射以纯空间归一化为主; 完整相位只在讨论演化和逆向验证时使用.
-解析域及其公共边界的分布见图 \ref{fig:analytic-regions}.
+两点互为换叶, 空间背景矩阵在这两点均正则.
+取 $\Sigma$ 的定向使 $D_+$ 位于左侧, 解析区域及边界方向如图 \ref{fig:analytic-regions} 所示.
 
 \begin{figure}[htbp]
 \centering
@@ -321,5 +271,3 @@ z_a^\pm=a\pm\sqrt{a^2+q_0^2},\qquad z_a^+z_a^-=-q_0^2.
 \caption{HMB 的单值化谱平面. 公共边界 $\Sigma$ 由实轴与圆 $|z|=q_0$ 组成; 淡蓝色区域为 $D_+$, 白色区域为 $D_-$. 箭头使 $D_+$ 位于定向边界的左侧. 方形点为分支点, 叉形点为边界交点.}
 \label{fig:analytic-regions}
 \end{figure}
-
-为进行后续的轮廓积分, 将 $\Sigma$ 定向为 $D_+$ 位于左侧: 实轴外段朝右, 内段朝左, 上半圆顺时针, 下半圆逆时针. $z=\pm\ii q_0$ 为背景特征向量退化的分支点, $z=\pm q_0$ 为轮廓交点. 共振原像 $z_a^\pm$ 处空间谱问题正则; 其 Jost 值取固定 $t$ 的空间归一化.

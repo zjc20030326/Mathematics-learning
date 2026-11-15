@@ -1,8 +1,8 @@
 {
-  "generated_utc": "2026-11-14T14:39:10.252932+00:00",
+  "generated_utc": "2026-11-15T04:02:13.335704+00:00",
   "script": "checks/verify_derivatives.py",
   "source": "chapters/08-numerics.tex",
-  "source_sha256": "e02d9ce60e3108169f93ac55a2b8be11b6b234eb8d2219c8dc22085286f1e18f",
+  "source_sha256": "eb6603f9492013fee78035b75bb5c558562563ed3166638f97ca8381618e7390",
   "python_version": "3.13.7",
   "sympy_version": "1.14.0",
   "method": "Exact symbolic identities with independent T,Tc,F,Fc; no finite differences.",

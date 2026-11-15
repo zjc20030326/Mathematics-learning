@@ -1,8 +1,8 @@
 {
   "sources": {
     "tex_files": 9,
-    "labels": 190,
-    "references": 192,
+    "labels": 200,
+    "references": 182,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -11,57 +11,57 @@
   },
   "build": "XeLaTeX, BibTeX, XeLaTeX, XeLaTeX",
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 42,
+  "pdf_pages": 39,
   "top_level_sections": [
     [
       1,
       "1. 绪论",
-      3
+      2
     ],
     [
       1,
       "2. HMB 模型、基本条件与背景谱问题",
-      4
+      2
     ],
     [
       1,
       "3. 非零背景的直接散射",
-      9
+      7
     ],
     [
       1,
       "4. 散射演化与共振相容性",
-      21
+      19
     ],
     [
       1,
       "5. 矩阵 RHP 与三场重构",
-      24
+      21
     ],
     [
       1,
       "6. 无反射 RHP 与轨道构造",
-      29
+      26
     ],
     [
       1,
       "7. 单轨道三场解的全局性与方程验证",
-      34
+      31
     ],
     [
       1,
       "8. 数值结果与动力学分析",
-      37
+      34
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 288,
+  "pdf_links_checked": 258,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
-    "2.29",
+    "3.2",
     "7"
   ],
-  "pdf_sha256": "236712905467fc2a550dc7b961c29142c55eb873c6211d73d95ea3e8a8bfcb62",
-  "visual_review": "Full-page review and selected enlargements completed in the rewrite task; publication rebuild pixel comparison is recorded in the companion acceptance.json."
+  "pdf_sha256": "e6e3043dcf93fbba6545b605e967373e2a1f19788330fc239cab7a0ab1bb21d3",
+  "visual_review": "Enlarged PDF pages 6-10 and 20-21 inspected: background spectrum separated from the eigenvector/Jost construction, conditional full differential formula and Volterra equation precede Theorem 3.1, and the medium background is first introduced in section 4. Display blocks, tags, figure and proof steps fit the text width."
 }

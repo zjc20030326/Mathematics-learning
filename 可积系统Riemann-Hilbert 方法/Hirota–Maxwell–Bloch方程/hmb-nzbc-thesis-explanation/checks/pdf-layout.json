@@ -1,16 +1,13 @@
 {
+  "date": "2026-11-15",
   "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-explanation\\hmb-explanation.pdf",
-  "pages": 164,
-  "bytes": 2425093,
-  "page_geometry": [
-    595.280029296875,
-    841.8900146484375
-  ],
-  "out_of_page_text_spans": [],
+  "pages": 157,
+  "bytes": 2266694,
+  "sha256": "7f37142238c1539019828e9d9a6b9b14e211c11420219c6cb7644297bdb274f5",
   "bookmarks": [
     [
       1,
-      "详细版阅读说明",
+      "详细阅读说明",
       1
     ],
     [
@@ -21,221 +18,158 @@
     [
       1,
       "1. 绪论",
-      4
-    ],
-    [
-      2,
-      "1.1 研究问题与数学特点",
-      4
-    ],
-    [
-      2,
-      "1.2 相关研究",
-      4
-    ],
-    [
-      2,
-      "1.3 本文结果与论证安排",
-      4
+      3
     ],
     [
       1,
       "2. HMB 模型、基本条件与背景谱问题",
+      3
+    ],
+    [
+      2,
+      "2.1 HMB 方程与基本条件",
+      4
+    ],
+    [
+      2,
+      "2.2 Lax 表示与规范变换",
       5
     ],
     [
       2,
-      "2.1 方程、背景与记号",
-      5
-    ],
-    [
-      2,
-      "2.2 函数空间与基本条件",
-      5
-    ],
-    [
-      2,
-      "2.3 Lax 对",
-      9
-    ],
-    [
-      2,
-      "2.4 规范变换与背景谱问题",
-      22
-    ],
-    [
-      2,
-      "2.5 谱曲面、单值化与背景基底",
-      28
+      "2.3 单值化与背景谱",
+      7
     ],
     [
       1,
       "3. 非零背景的直接散射",
-      40
+      33
     ],
     [
       2,
-      "3.1 空间归一化与 Volterra 方程",
-      40
+      "3.1 Jost 解及其解析性质",
+      34
     ],
     [
       2,
-      "3.2 分支点的连续延拓",
-      47
+      "3.2 散射数据与离散谱",
+      38
     ],
     [
       2,
-      "3.3 散射矩阵与解析系数",
-      49
-    ],
-    [
-      2,
-      "3.4 共轭与换叶约化",
-      53
-    ],
-    [
-      2,
-      "3.5 离散谱、范数数据与留数",
-      60
-    ],
-    [
-      2,
-      "3.6 两处谱无穷远的渐近展开",
-      68
-    ],
-    [
-      2,
-      "3.7 特殊谱点与后续 RHP 条件",
-      81
+      "3.3 两处无穷远的渐近展开",
+      43
     ],
     [
       1,
       "4. 散射演化与共振相容性",
-      81
-    ],
-    [
-      2,
-      "4.1 空间 Jost 解的修正时间方程",
-      82
-    ],
-    [
-      2,
-      "4.2 离散范数数据与时空留数系数",
-      83
-    ],
-    [
-      2,
-      "4.3 共振处的介质相容性",
-      83
-    ],
-    [
-      2,
-      "4.4 演化数据的正则性与逆问题条件",
-      84
+      78
     ],
     [
       1,
       "5. 矩阵 RHP 与三场重构",
+      82
+    ],
+    [
+      2,
+      "5.1 矩阵 RHP 与积分表示",
+      82
+    ],
+    [
+      2,
+      "5.2 三场重构与迹公式",
       85
-    ],
-    [
-      2,
-      "5.1 散射数据与矩阵问题",
-      85
-    ],
-    [
-      2,
-      "5.2 含反射的 Cauchy 表示",
-      89
-    ],
-    [
-      2,
-      "5.3 光场与介质的恢复公式",
-      93
-    ],
-    [
-      2,
-      "5.4 迹公式与相位条件",
-      96
     ],
     [
       1,
       "6. 无反射 RHP 与轨道构造",
-      98
+      95
     ],
     [
       2,
-      "6.1 多轨道无反射问题的条件性求解",
-      98
+      "6.1 多轨道无反射解",
+      95
     ],
     [
       2,
       "6.2 纯虚单轨道数据与全局矩阵解",
-      105
+      97
     ],
     [
       1,
       "7. 单轨道三场解的全局性与方程验证",
-      120
-    ],
-    [
-      2,
-      "7.1 单轨道三场解及逆向验证",
-      120
-    ],
-    [
-      2,
-      "7.2 双曲表达与局域化",
-      135
+      115
     ],
     [
       1,
       "8. 数值结果与动力学分析",
-      136
+      130
     ],
     [
       2,
-      "8.1 单轨道解的三场分布",
-      136
+      "8.1 三场分布与传播特征",
+      131
     ],
     [
       2,
-      "8.2 传播速度与内部振荡",
-      138
-    ],
-    [
-      2,
-      "8.3 参数影响与数值验证",
-      142
-    ],
-    [
-      2,
-      "8.4 数值计算的方法与结论范围",
-      157
+      "8.2 参数影响与数值核验",
+      132
     ],
     [
       1,
       "公式索引",
-      158
+      151
     ],
     [
       1,
       "参考文献",
-      163
+      156
     ]
   ],
   "contact_sheets": [
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-01.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-02.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-03.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-04.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-05.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-06.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-07.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-08.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-09.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-10.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-rewrite-review\\detail\\contact-11.png"
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-01.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-02.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-03.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-04.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-05.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-06.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-07.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-08.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-09.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-10.png"
   ],
-  "contact_pages_covered": 164
+  "contact_pages_covered": 157,
+  "key_pages_rendered": {
+    "eq:physical-regularity": 4,
+    "prop:gauge": 6,
+    "eq:background-spatial": 7,
+    "eq:F": 7,
+    "eq:uniform": 7,
+    "eq:resonance-w": 8,
+    "eq:E": 34,
+    "eq:diagE": 34,
+    "eq:Y-inverse": 34,
+    "eq:background-lax": 34,
+    "eq:theta": 34,
+    "eq:jost-modified-lax": 34,
+    "eq:jost-total-differential": 34,
+    "eq:jost-normalization": 35,
+    "eq:volterra": 35,
+    "thm:jost": 35,
+    "prop:jost-branch": 37,
+    "eq:Rbg": 80,
+    "prop:resonance": 80
+  },
+  "additional_proof_pages_rendered": [
+    33,
+    34,
+    35,
+    36,
+    37
+  ],
+  "out_of_page_text_spans": [],
+  "invalid_internal_links": [],
+  "blank_pages": [],
+  "pdf_links_checked": 483,
+  "build_log_issues": []
 }
