@@ -233,27 +233,17 @@ k(z)=\dfrac{1}{2}\left(z-\dfrac{q_0^2}{z}\right),\qquad
 第一叶与第二叶的谱无穷远分别对应 $z=\infty$ 和 $z=0$.
 
 \label{prop:curve}\label{prop:domains}
-背景空间指数为 $e^{\mp\ii\lambda x}$, 因而其振荡谱由 $\lambda\in\mathbb R$ 确定.
-由 \eqref{eq:spectral-curve}, 振荡谱在 $k$ 平面上的投影为
-\begin{equation}\label{eq:lambda-spectrum}
-\Sigma_k=\mathbb R\cup\ii\lbrack-q_0,q_0\rbrack,
-\end{equation}
-其在单值化平面中的像为
+利用上述单值化, 以下在 $z$ 平面上讨论散射问题, 并定义边界 $\Sigma$ 及区域 $D_\pm$ 如下:
 \begin{equation}\label{eq:Sigma}
-\Sigma=\mathbb R\cup\{z:|z|=q_0\}.
+\Sigma=\mathbb R\cup\{z:|z|=q_0\},
 \end{equation}
-事实上, \eqref{eq:uniform} 给出
-$\operatorname{Im}\lambda(z)=\dfrac{1}{2}\operatorname{Im}z\left(1-\dfrac{q_0^2}{|z|^2}\right)$.
-按照该虚部的符号定义两个开区域
 \begin{equation}\label{eq:domains}
 D_\pm=\{z:\pm\operatorname{Im}\lambda(z)>0\}
 =\left\{z:\pm\operatorname{Im}z\left(1-\dfrac{q_0^2}{|z|^2}\right)>0\right\}.
 \end{equation}
-$D_+$ 由上半平面的圆外部分与下半平面的圆内部分组成, $D_-$ 由其余两部分组成,
-$\Sigma$ 是二者的公共边界.
 
 同一 $k$ 所对应的两个谱点具有相反的 $\lambda$. 将 $(k,\lambda)$ 换为 $(k,-\lambda)$,
-由 $k-\lambda=-q_0^2/z$ 得到换叶映射
+由 $k-\lambda=-\dfrac{q_0^2}{z}$ 得到换叶映射
 \begin{equation}\label{eq:sheet}
 h(z)=-\dfrac{q_0^2}{z},\qquad k(h(z))=k(z),\qquad\lambda(h(z))=-\lambda(z).
 \end{equation}

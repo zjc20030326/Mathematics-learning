@@ -1,8 +1,8 @@
 {
   "sources": {
     "tex_files": 9,
-    "labels": 200,
-    "references": 182,
+    "labels": 199,
+    "references": 180,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -55,13 +55,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 258,
+  "pdf_links_checked": 256,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
-    "7"
+    "6"
   ],
-  "pdf_sha256": "e6e3043dcf93fbba6545b605e967373e2a1f19788330fc239cab7a0ab1bb21d3",
-  "visual_review": "Enlarged PDF pages 6-10 and 20-21 inspected: background spectrum separated from the eigenvector/Jost construction, conditional full differential formula and Volterra equation precede Theorem 3.1, and the medium background is first introduced in section 4. Display blocks, tags, figure and proof steps fit the text width."
+  "pdf_sha256": "7f5e756cb119861761de3f86a9ee773088fa19513a57dc9f2d9e7dbd918902f6",
+  "visual_review": "已放大检查最终PDF第7—11页，确认y1/y2同一行、四列积分核和指数表对应、阶乘估计及分支点证明排版清楚，无裁切。"
 }

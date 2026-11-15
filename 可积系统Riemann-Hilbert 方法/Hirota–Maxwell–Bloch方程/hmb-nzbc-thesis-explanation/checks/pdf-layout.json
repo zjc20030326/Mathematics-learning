@@ -1,9 +1,9 @@
 {
   "date": "2026-11-15",
   "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-explanation\\hmb-explanation.pdf",
-  "pages": 157,
-  "bytes": 2266694,
-  "sha256": "7f37142238c1539019828e9d9a6b9b14e211c11420219c6cb7644297bdb274f5",
+  "pages": 156,
+  "bytes": 2263439,
+  "sha256": "0af4ab3bdcffb4859a2162882e9470b941cf866c3f74d55445ac9b22a1596ad5",
   "bookmarks": [
     [
       1,
@@ -48,17 +48,17 @@
     [
       2,
       "3.1 Jost 解及其解析性质",
-      34
+      33
     ],
     [
       2,
       "3.2 散射数据与离散谱",
-      38
+      37
     ],
     [
       2,
       "3.3 两处无穷远的渐近展开",
-      43
+      42
     ],
     [
       1,
@@ -68,108 +68,101 @@
     [
       1,
       "5. 矩阵 RHP 与三场重构",
-      82
+      81
     ],
     [
       2,
       "5.1 矩阵 RHP 与积分表示",
-      82
+      81
     ],
     [
       2,
       "5.2 三场重构与迹公式",
-      85
+      84
     ],
     [
       1,
       "6. 无反射 RHP 与轨道构造",
-      95
+      94
     ],
     [
       2,
       "6.1 多轨道无反射解",
-      95
+      94
     ],
     [
       2,
       "6.2 纯虚单轨道数据与全局矩阵解",
-      97
+      96
     ],
     [
       1,
       "7. 单轨道三场解的全局性与方程验证",
-      115
+      114
     ],
     [
       1,
       "8. 数值结果与动力学分析",
-      130
+      129
     ],
     [
       2,
       "8.1 三场分布与传播特征",
-      131
+      130
     ],
     [
       2,
       "8.2 参数影响与数值核验",
-      132
+      131
     ],
     [
       1,
       "公式索引",
-      151
+      150
     ],
     [
       1,
       "参考文献",
-      156
+      155
     ]
   ],
   "contact_sheets": [
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-01.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-02.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-03.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-04.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-05.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-06.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-07.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-08.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-09.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\explanation\\contact-10.png"
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\explanation\\contact-01.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\explanation\\contact-02.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\explanation\\contact-03.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\explanation\\contact-04.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\explanation\\contact-05.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\explanation\\contact-06.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\explanation\\contact-07.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\explanation\\contact-08.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\explanation\\contact-09.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\explanation\\contact-10.png"
   ],
-  "contact_pages_covered": 157,
+  "contact_pages_covered": 156,
   "key_pages_rendered": {
-    "eq:physical-regularity": 4,
-    "prop:gauge": 6,
-    "eq:background-spatial": 7,
-    "eq:F": 7,
-    "eq:uniform": 7,
-    "eq:resonance-w": 8,
-    "eq:E": 34,
-    "eq:diagE": 34,
-    "eq:Y-inverse": 34,
-    "eq:background-lax": 34,
-    "eq:theta": 34,
-    "eq:jost-modified-lax": 34,
-    "eq:jost-total-differential": 34,
-    "eq:jost-normalization": 35,
-    "eq:volterra": 35,
-    "thm:jost": 35,
-    "prop:jost-branch": 37,
-    "eq:Rbg": 80,
-    "prop:resonance": 80
+    "eq:E": 33,
+    "eq:theta": 33,
+    "eq:columnkernel": 34,
+    "eq:jost-column-volterra": 34,
+    "eq:jost-Gkernel": 34,
+    "thm:jost": 34,
+    "eq:jost-neumann": 35,
+    "eq:jost-factorial": 35,
+    "prop:jost-branch": 36,
+    "eq:branch-columnkernel": 36
   },
   "additional_proof_pages_rendered": [
-    33,
-    34,
-    35,
-    36,
-    37
+    37,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54
   ],
   "out_of_page_text_spans": [],
   "invalid_internal_links": [],
   "blank_pages": [],
-  "pdf_links_checked": 483,
+  "pdf_links_checked": 479,
   "build_log_issues": []
 }

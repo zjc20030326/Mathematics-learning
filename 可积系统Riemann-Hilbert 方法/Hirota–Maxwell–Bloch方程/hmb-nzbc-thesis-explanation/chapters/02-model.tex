@@ -233,27 +233,17 @@ k(z)=\dfrac{1}{2}\left(z-\dfrac{q_0^2}{z}\right),\qquad
 第一叶与第二叶的谱无穷远分别对应 $z=\infty$ 和 $z=0$.
 
 \label{prop:curve}\label{prop:domains}
-背景空间指数为 $e^{\mp\ii\lambda x}$, 因而其振荡谱由 $\lambda\in\mathbb R$ 确定.
-由 \eqref{eq:spectral-curve}, 振荡谱在 $k$ 平面上的投影为
-\begin{equation}\label{eq:lambda-spectrum}
-\Sigma_k=\mathbb R\cup\ii\lbrack-q_0,q_0\rbrack,
-\end{equation}
-其在单值化平面中的像为
+利用上述单值化, 以下在 $z$ 平面上讨论散射问题, 并定义边界 $\Sigma$ 及区域 $D_\pm$ 如下:
 \begin{equation}\label{eq:Sigma}
-\Sigma=\mathbb R\cup\{z:|z|=q_0\}.
+\Sigma=\mathbb R\cup\{z:|z|=q_0\},
 \end{equation}
-事实上, \eqref{eq:uniform} 给出
-$\operatorname{Im}\lambda(z)=\dfrac{1}{2}\operatorname{Im}z\left(1-\dfrac{q_0^2}{|z|^2}\right)$.
-按照该虚部的符号定义两个开区域
 \begin{equation}\label{eq:domains}
 D_\pm=\{z:\pm\operatorname{Im}\lambda(z)>0\}
 =\left\{z:\pm\operatorname{Im}z\left(1-\dfrac{q_0^2}{|z|^2}\right)>0\right\}.
 \end{equation}
-$D_+$ 由上半平面的圆外部分与下半平面的圆内部分组成, $D_-$ 由其余两部分组成,
-$\Sigma$ 是二者的公共边界.
 
 同一 $k$ 所对应的两个谱点具有相反的 $\lambda$. 将 $(k,\lambda)$ 换为 $(k,-\lambda)$,
-由 $k-\lambda=-q_0^2/z$ 得到换叶映射
+由 $k-\lambda=-\dfrac{q_0^2}{z}$ 得到换叶映射
 \begin{equation}\label{eq:sheet}
 h(z)=-\dfrac{q_0^2}{z},\qquad k(h(z))=k(z),\qquad\lambda(h(z))=-\lambda(z).
 \end{equation}
@@ -1563,41 +1553,7 @@ h(z)=-\dfrac{q_0^2\conj z}{|z|^2}
 \end{align*}
 故 $h$ 把 $D_+$ 与 $D_-$ 互换, 与 $\operatorname{Im}\lambda(h(z))=-\operatorname{Im}\lambda(z)$ 完全一致.
 
-\par\medskip\noindent 补充计算: 连续谱每个分支和解析域的符号\par
-\par\smallskip\noindent 从指数的模得到振荡条件.\quad
-空间背景解的两个指数为 $e^{-\ii\lambda x}$ 和 $e^{\ii\lambda x}$. 对实 $x$,
-\begin{equation*}
-|e^{-\ii\lambda x}|=e^{x\operatorname{Im}\lambda},
-\qquad
-|e^{\ii\lambda x}|=e^{-x\operatorname{Im}\lambda}.
-\end{equation*}
-要使两种指数都在正负空间方向没有指数增长, 必须有 $\operatorname{Im}\lambda=0$. 只要求一个指数在一个空间方向衰减, 则会得到半个解析域, 不是这里的振荡谱.
-\par\smallskip\noindent 在 $k$ 平面分情况求出这个集合.\quad
-取 $k=\xi+\ii\nu$, 直接平方得到
-\begin{align*}
-k^2+q_0^2
-&=(\xi+\ii\nu)^2+q_0^2\\
-&=\xi^2+2\ii\xi\nu-\nu^2+q_0^2.
-\end{align*}
-$\lambda$ 为实数要求它的平方为非负实数, 故
-\begin{equation*}
-2\xi\nu=0,
-\qquad
-\xi^2-\nu^2+q_0^2\ge0.
-\end{equation*}
-第一种情况 $\nu=0$ 时, 第二个不等式成为 $\xi^2+q_0^2>0$, 所以整个实轴都在振荡谱中. 第二种情况 $\xi=0$ 时, 它成为
-\begin{equation*}
-q_0^2-\nu^2\ge0
-\quad\Longleftrightarrow\quad
--q_0\le\nu\le q_0.
-\end{equation*}
-若 $\xi\ne0$ 且 $\nu\ne0$, 虚部不为零, 不能有实谱根. 若 $\xi=0$ 且 $|\nu|>q_0$, 平方根为非零纯虚数, 两个指数便有增长或衰减. 这些情况合起来正好是 \eqref{eq:lambda-spectrum}.
-\par\smallskip\noindent 切口两端的准确含义.\quad
-原文的连续谱包含端点, 是对振荡谱闭包的记法. 在 $k=\pm\ii q_0$ 处, $\lambda=0$, 两个标量指数都等于 $1$, 但是 $U_\infty\ne0$ 且 $U_\infty^2=0$. 因而完整背景基本解还可以出现
-\begin{equation*}
-e^{xU_\infty}=\Id+xU_\infty,
-\end{equation*}
-即线性增长. 振荡谱由背景指数的谱根确定; 分支点处的矩阵传播核需采用上述退化形式.
+\par\medskip\noindent 补充计算: 单值化边界与解析域的符号\par
 \par\smallskip\noindent 单值化圆为什么对应原切口.\quad
 在 $z=q_0e^{\ii\varphi}$ 上,
 \begin{align*}

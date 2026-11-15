@@ -13,18 +13,18 @@
     },
     {
       "file": "02-model.tex",
-      "original_lines": 273,
-      "expanded_lines": 1730,
-      "original_display_blocks": 35,
-      "expanded_display_blocks": 176,
-      "original_labels": 39,
+      "original_lines": 263,
+      "expanded_lines": 1686,
+      "original_display_blocks": 34,
+      "expanded_display_blocks": 170,
+      "original_labels": 38,
       "original_prose_retained_in_order": true,
       "original_lines_split_by_insertions": 0
     },
     {
       "file": "03-direct-scattering.tex",
-      "original_lines": 654,
-      "expanded_lines": 2767,
+      "original_lines": 661,
+      "expanded_lines": 2760,
       "original_display_blocks": 99,
       "expanded_display_blocks": 317,
       "original_labels": 65,
@@ -83,10 +83,10 @@
     }
   ],
   "reference_number_check": {
-    "original_labels_compared": 200,
+    "original_labels_compared": 199,
     "mismatches": {}
   },
-  "indexed_equations": 149,
+  "indexed_equations": 148,
   "tex_files_checked": [
     "hmb-explanation.tex",
     "00-reading-guide.tex",

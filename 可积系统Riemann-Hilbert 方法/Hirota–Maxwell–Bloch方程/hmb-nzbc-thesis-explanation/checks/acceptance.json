@@ -1,383 +1,135 @@
 {
   "date": "2026-11-15",
-  "generated_utc": "2026-11-15T06:58:43.148741+00:00",
+  "generated_utc": "2026-11-15T08:37:33.958742+00:00",
   "working_branch": "main",
-  "editorial_working_tree_snapshot": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\baseline",
+  "baseline_commit": "ef7a64143246c3dcb36227717119b07466f1b3c3",
+  "editorial_working_tree_snapshot": {
+    "main": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\baseline-main",
+    "explanation": "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\baseline-explanation"
+  },
   "delivery": "Local revision on original main; no commit or push in this pass.",
   "changes": [
-    "Subsection 2.3 develops the background spectrum, Riemann surface, uniformization and spectral boundary",
-    "Subsection 3.1 derives the eigenvectors, background solution, modified system, total differential and Volterra equation",
-    "The standalone spatial Jost definition removed; Theorem 3.1 states analytic and unique bounded spatial solutions",
-    "Medium background introduced in section 4 where resonance compatibility first uses it",
-    "Detailed eigenvector and medium calculations moved with their manuscript topics"
+    "Eigenvector chains y1 and y2 share a single centered display row",
+    "The Lax pair is referred to without the qualifier normalized",
+    "Theorem 3.1 uses a common four-column Volterra equation and kernels K_j(x,y,z) and G_j(x,y,z)",
+    "Each column is paired with its integration direction, exponential modulus and analytic domain",
+    "Negative and positive endpoints use nonnegative masses M_minus and M_plus; reversed positive-endpoint integrals retain absolute values",
+    "Neumann convergence, normalization, analyticity, continuity and uniqueness are proved for all four columns",
+    "Branch-point kernels and companion detailed calculations use x-y directly"
   ],
-  "reference": {
-    "title": "Inverse scattering transform for the Gerdjikov-Ivanov equation with nonzero boundary conditions",
-    "doi": "10.1007/s00033-020-01371-z",
-    "read_scope": "Sections 2 and 3, PDF pages 2-7",
-    "primary_pdf": "https://zechuanzhang.github.io/files/Zhang-Fan2020_Article_InverseScatteringTransformForT.pdf"
-  },
   "source_sections": 8,
   "unchanged_manuscript_sections_in_this_pass": [
     "01-introduction.tex",
+    "02-model.tex",
+    "04-evolution-resonance.tex",
     "05-rhp-reconstruction.tex",
     "06-reflectionless.tex",
-    "07-hmb-verification.tex",
     "08-numerics.tex"
   ],
-  "branchpoint_and_later_direct_scattering_text_preserved_exactly": true,
-  "source_display_blocks_retained": 237,
-  "expanded_section_display_blocks": 936,
-  "source_labels_compared": 200,
+  "prior_uncommitted_subsection_2_3_preserved": true,
+  "source_display_blocks_retained": 236,
+  "expanded_section_display_blocks": 930,
+  "source_labels_compared": 199,
   "numbering_mismatches": {},
-  "indexed_equations": 149,
-  "number_changes": {
-    "eq:Rbg": {
-      "before": "2.22",
-      "after": "4.7"
-    },
-    "eq:E": {
-      "before": "2.30",
-      "after": "3.1"
-    },
-    "eq:diagE": {
-      "before": "2.31",
-      "after": "3.2"
-    },
-    "eq:resonance-w": {
-      "before": "2.32",
-      "after": "2.30"
-    },
-    "eq:theta": {
-      "before": "2.33",
-      "after": "3.5"
-    },
-    "eq:jost-normalization": {
-      "before": "3.1",
-      "after": "3.8"
-    },
-    "eq:modified-jost": {
-      "before": "3.2",
-      "after": "3.9"
-    },
-    "eq:volterra": {
-      "before": "3.3",
-      "after": "3.10"
-    },
-    "eq:columnkernel": {
-      "before": "3.4",
-      "after": "3.11"
-    },
-    "eq:jost-column-volterra": {
-      "before": "3.5",
-      "after": "3.12"
-    },
-    "eq:jost-Gkernel": {
-      "before": "3.6",
-      "after": "3.13"
-    },
-    "eq:jost-kernel-estimate": {
-      "before": "3.7",
-      "after": "3.14"
-    },
-    "eq:jost-neumann": {
-      "before": "3.8",
-      "after": "3.15"
-    },
-    "eq:jost-factorial": {
-      "before": "3.9",
-      "after": "3.16"
-    },
-    "eq:jost-weighted": {
-      "before": "3.10",
-      "after": "3.17"
-    },
-    "eq:jost-branch-volterra": {
-      "before": "3.11",
-      "after": "3.18"
-    },
-    "eq:background-propagator": {
-      "before": "3.12",
-      "after": "3.19"
-    },
-    "eq:branch-columnkernel": {
-      "before": "3.13",
-      "after": "3.20"
-    },
-    "eq:Sdef": {
-      "before": "3.14",
-      "after": "3.21"
-    },
-    "eq:scattering-columns": {
-      "before": "3.15",
-      "after": "3.22"
-    },
-    "eq:detjost": {
-      "before": "3.16",
-      "after": "3.23"
-    },
-    "eq:wronskian": {
-      "before": "3.17",
-      "after": "3.24"
-    },
-    "eq:reflection": {
-      "before": "3.18",
-      "after": "3.25"
-    },
-    "eq:scattering-determinant": {
-      "before": "3.19",
-      "after": "3.26"
-    },
-    "eq:symmetry-domains": {
-      "before": "3.20",
-      "after": "3.27"
-    },
-    "eq:conjugation": {
-      "before": "3.21",
-      "after": "3.28"
-    },
-    "eq:musheet": {
-      "before": "3.22",
-      "after": "3.29"
-    },
-    "eq:jost-conjugate-columns": {
-      "before": "3.23",
-      "after": "3.30"
-    },
-    "eq:jost-sheet-columns": {
-      "before": "3.24",
-      "after": "3.31"
-    },
-    "eq:Esheet": {
-      "before": "3.25",
-      "after": "3.32"
-    },
-    "eq:scattering-symmetry": {
-      "before": "3.26",
-      "after": "3.33"
-    },
-    "eq:sconj": {
-      "before": "3.27",
-      "after": "3.34"
-    },
-    "eq:ssheet": {
-      "before": "3.28",
-      "after": "3.35"
-    },
-    "eq:reflection-symmetry": {
-      "before": "3.29",
-      "after": "3.36"
-    },
-    "eq:scattering-unitarity": {
-      "before": "3.30",
-      "after": "3.37"
-    },
-    "eq:quartet": {
-      "before": "3.31",
-      "after": "3.38"
-    },
-    "eq:discrete-indexing": {
-      "before": "3.32",
-      "after": "3.39"
-    },
-    "eq:norming-definition": {
-      "before": "3.33",
-      "after": "3.40"
-    },
-    "eq:resplus": {
-      "before": "3.34",
-      "after": "3.41"
-    },
-    "eq:resminus": {
-      "before": "3.35",
-      "after": "3.42"
-    },
-    "eq:cpair": {
-      "before": "3.36",
-      "after": "3.43"
-    },
-    "eq:Cpair": {
-      "before": "3.37",
-      "after": "3.44"
-    },
-    "eq:highenergy-assumption": {
-      "before": "3.38",
-      "after": "3.45"
-    },
-    "eq:asymptotic-coefficients": {
-      "before": "3.39",
-      "after": "3.46"
-    },
-    "eq:mu-highenergy": {
-      "before": "3.40",
-      "after": "3.47"
-    },
-    "eq:transmission-highenergy": {
-      "before": "3.41",
-      "after": "3.48"
-    },
-    "eq:smallmu": {
-      "before": "3.42",
-      "after": "3.49"
-    },
-    "eq:transmission-smallenergy": {
-      "before": "3.43",
-      "after": "3.50"
-    },
-    "eq:scattering-two-infinities": {
-      "before": "3.44",
-      "after": "3.51"
-    },
-    "eq:mu-highenergy-system": {
-      "before": "3.45",
-      "after": "3.52"
-    },
-    "eq:n-volterra-system": {
-      "before": "3.46",
-      "after": "3.53"
-    },
-    "eq:asymptotic-L1-control": {
-      "before": "3.47",
-      "after": "3.54"
-    },
-    "eq:resonance-conjugation": {
-      "before": "4.7",
-      "after": "4.8"
-    },
-    "eq:resonance-reflection": {
-      "before": "4.8",
-      "after": "4.9"
-    }
-  },
-  "removed_label": "def:spatial-Jost",
-  "added_labels": {
-    "eq:background-lax": "3.4",
-    "eq:background-spatial": "2.22",
-    "eq:jost-modified-lax": "3.6",
-    "eq:Y-inverse": "3.3",
-    "eq:jost-total-differential": "3.7"
-  },
+  "indexed_equations": 148,
+  "number_changes": {},
   "pdfs": {
     "main": {
       "date": "2026-11-15",
       "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis\\fduthesis.pdf",
       "pages": 39,
-      "bytes": 1893114,
-      "sha256": "e6e3043dcf93fbba6545b605e967373e2a1f19788330fc239cab7a0ab1bb21d3",
+      "bytes": 1891664,
+      "sha256": "7f5e756cb119861761de3f86a9ee773088fa19513a57dc9f2d9e7dbd918902f6",
       "contact_pages_covered": 39,
       "key_pages_rendered": {
-        "eq:physical-regularity": 3,
-        "prop:gauge": 5,
-        "eq:background-spatial": 6,
-        "eq:F": 6,
-        "eq:uniform": 6,
-        "eq:resonance-w": 7,
-        "eq:E": 8,
-        "eq:diagE": 8,
-        "eq:Y-inverse": 8,
-        "eq:background-lax": 8,
+        "eq:E": 7,
         "eq:theta": 8,
-        "eq:jost-modified-lax": 8,
-        "eq:jost-total-differential": 8,
-        "eq:jost-normalization": 8,
-        "eq:volterra": 8,
-        "thm:jost": 9,
+        "eq:columnkernel": 8,
+        "eq:jost-column-volterra": 8,
+        "eq:jost-Gkernel": 9,
+        "thm:jost": 8,
+        "eq:jost-neumann": 9,
+        "eq:jost-factorial": 10,
         "prop:jost-branch": 10,
-        "eq:Rbg": 20,
-        "prop:resonance": 21
+        "eq:branch-columnkernel": 10
       },
       "additional_proof_pages_rendered": [
-        7,
-        8,
-        9,
-        10,
         11
       ],
       "out_of_page_text_spans": [],
       "invalid_internal_links": [],
       "blank_pages": [],
-      "pdf_links_checked": 258,
+      "pdf_links_checked": 256,
       "build_log_issues": []
     },
     "explanation": {
       "date": "2026-11-15",
       "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis-explanation\\hmb-explanation.pdf",
-      "pages": 157,
-      "bytes": 2266694,
-      "sha256": "7f37142238c1539019828e9d9a6b9b14e211c11420219c6cb7644297bdb274f5",
-      "contact_pages_covered": 157,
+      "pages": 156,
+      "bytes": 2263439,
+      "sha256": "0af4ab3bdcffb4859a2162882e9470b941cf866c3f74d55445ac9b22a1596ad5",
+      "contact_pages_covered": 156,
       "key_pages_rendered": {
-        "eq:physical-regularity": 4,
-        "prop:gauge": 6,
-        "eq:background-spatial": 7,
-        "eq:F": 7,
-        "eq:uniform": 7,
-        "eq:resonance-w": 8,
-        "eq:E": 34,
-        "eq:diagE": 34,
-        "eq:Y-inverse": 34,
-        "eq:background-lax": 34,
-        "eq:theta": 34,
-        "eq:jost-modified-lax": 34,
-        "eq:jost-total-differential": 34,
-        "eq:jost-normalization": 35,
-        "eq:volterra": 35,
-        "thm:jost": 35,
-        "prop:jost-branch": 37,
-        "eq:Rbg": 80,
-        "prop:resonance": 80
+        "eq:E": 33,
+        "eq:theta": 33,
+        "eq:columnkernel": 34,
+        "eq:jost-column-volterra": 34,
+        "eq:jost-Gkernel": 34,
+        "thm:jost": 34,
+        "eq:jost-neumann": 35,
+        "eq:jost-factorial": 35,
+        "prop:jost-branch": 36,
+        "eq:branch-columnkernel": 36
       },
       "additional_proof_pages_rendered": [
-        33,
-        34,
-        35,
-        36,
-        37
+        37,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
       ],
       "out_of_page_text_spans": [],
       "invalid_internal_links": [],
       "blank_pages": [],
-      "pdf_links_checked": 483,
+      "pdf_links_checked": 479,
       "build_log_issues": []
     }
   },
   "current_checks": [
-    "Independent source-paper reading and mathematical review",
-    "13 exact symbolic checks of the new background and differential identities",
     "Full XeLaTeX/BibTeX builds with clean final logs",
     "Exact manuscript prefix, formula index, source/PDF hashes and reference numbering checks",
+    "24 exact algebraic and scalar primitive checks with matching source hashes",
     "All-page PDF bounds, blank-page and internal-link validation",
-    "All-page contact sheets and enlarged revised mathematical pages visually inspected"
+    "Enlarged revised manuscript proof pages and companion proof and supplemental calculation pages inspected"
   ],
   "visual_review": {
-    "all_page_contact_sheets_actually_reviewed": {
-      "main": 39,
-      "explanation": 157
-    },
     "main_enlarged_pdf_pages": [
-      6,
       7,
       8,
       9,
       10,
-      20,
-      21
+      11
     ],
     "explanation_enlarged_pdf_pages": [
+      33,
       34,
-      35
-    ]
+      35,
+      36,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54
+    ],
+    "result": "No formula clipping or unreadable continuation; all four exponential signs and both endpoint mass estimates checked."
   },
   "matrix_checks": {
-    "total": 13,
-    "passed": 13,
-    "source_hashes_match": true
-  },
-  "prior_derivative_check": {
-    "total": 64,
-    "passed": 64,
-    "source_unchanged_and_hash_matches": true,
-    "rerun_in_this_pass": false
-  },
-  "scope": "Full differential identity conditional on a simultaneous Lax solution. Spatial Jost construction independently includes resonance preimages. Time compatibility proved in section 4."
+    "total": 24,
+    "passed": 24,
+    "source_hashes_match": true,
+    "scope": "Exact algebra and primitive signs, not analytic convergence or inverse solvability."
+  }
 }

@@ -2,8 +2,8 @@
   "date": "2026-11-15",
   "pdf": "D:\\Desktop\\数学学习\\可积系统Riemann-Hilbert 方法\\Hirota–Maxwell–Bloch方程\\hmb-nzbc-thesis\\fduthesis.pdf",
   "pages": 39,
-  "bytes": 1893114,
-  "sha256": "e6e3043dcf93fbba6545b605e967373e2a1f19788330fc239cab7a0ab1bb21d3",
+  "bytes": 1891664,
+  "sha256": "7f5e756cb119861761de3f86a9ee773088fa19513a57dc9f2d9e7dbd918902f6",
   "bookmarks": [
     [
       1,
@@ -117,42 +117,29 @@
     ]
   ],
   "contact_sheets": [
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\main\\contact-01.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\main\\contact-02.png",
-    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-background-jost-20261115-143740\\review\\main\\contact-03.png"
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\main\\contact-01.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\main\\contact-02.png",
+    "C:\\Users\\m1881\\AppData\\Local\\Temp\\hmb-four-columns-20261115-162828\\review\\main\\contact-03.png"
   ],
   "contact_pages_covered": 39,
   "key_pages_rendered": {
-    "eq:physical-regularity": 3,
-    "prop:gauge": 5,
-    "eq:background-spatial": 6,
-    "eq:F": 6,
-    "eq:uniform": 6,
-    "eq:resonance-w": 7,
-    "eq:E": 8,
-    "eq:diagE": 8,
-    "eq:Y-inverse": 8,
-    "eq:background-lax": 8,
+    "eq:E": 7,
     "eq:theta": 8,
-    "eq:jost-modified-lax": 8,
-    "eq:jost-total-differential": 8,
-    "eq:jost-normalization": 8,
-    "eq:volterra": 8,
-    "thm:jost": 9,
+    "eq:columnkernel": 8,
+    "eq:jost-column-volterra": 8,
+    "eq:jost-Gkernel": 9,
+    "thm:jost": 8,
+    "eq:jost-neumann": 9,
+    "eq:jost-factorial": 10,
     "prop:jost-branch": 10,
-    "eq:Rbg": 20,
-    "prop:resonance": 21
+    "eq:branch-columnkernel": 10
   },
   "additional_proof_pages_rendered": [
-    7,
-    8,
-    9,
-    10,
     11
   ],
   "out_of_page_text_spans": [],
   "invalid_internal_links": [],
   "blank_pages": [],
-  "pdf_links_checked": 258,
+  "pdf_links_checked": 256,
   "build_log_issues": []
 }

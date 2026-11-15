@@ -1,16 +1,16 @@
 {
-  "generated_utc": "2026-11-15T06:48:46.416406+00:00",
+  "generated_utc": "2026-11-15T08:34:28.118930+00:00",
   "script": "scripts/verify_background_jost.py",
-  "method": "Exact symbolic matrix identities; no numerical sampling.",
-  "domain": "z != 0, +/- i*q0; k(z) != a for time expressions.",
-  "scope": "Algebraic identities for conditional full-Lax solutions; no inverse-solvability claim.",
+  "method": "Exact rational symbolic matrix identities; exponential factor E and chain rule E_x=i*lambda*E; no numerical sampling.",
+  "domain": "z != 0, +/- i*q0; k(z) != a for time expressions; E != 0; scalar mass >= 0 and integer n >= 0.",
+  "scope": "Algebraic identities for conditional full-Lax solutions, four-column propagation kernels and scalar ordered-mass primitives; no analytic-convergence, norm-estimate, general Jost analyticity or inverse-solvability proof.",
   "source_sha256": {
-    "section\\02-model.tex": "70c4b38c1066ea59f72db31f14a6d07221b7f013d5c1fee6c3251e15a9356e26",
-    "section\\03-direct-scattering.tex": "34553a2fa4972c0c108cc602c4d58c67b2e1f663d44b74165ca8649c63559fb4",
+    "section\\02-model.tex": "091f24606585b3644e3e3c2e7b131745b49f5707a6720da5d45db69209876b6c",
+    "section\\03-direct-scattering.tex": "05be27a6ece1216de2ea85e0984f42f75a44f4bbbd71c1b2298eb82ad7e01222",
     "section\\04-evolution-resonance.tex": "e506df0382834407071159a689627ffe8a4dedee87c769447015eb2a2d98a63e"
   },
-  "checks_total": 13,
-  "checks_passed": 13,
+  "checks_total": 24,
+  "checks_passed": 24,
   "checks": [
     {
       "name": "spectral_curve",
@@ -123,6 +123,107 @@
         "0",
         "0",
         "0",
+        "0"
+      ]
+    },
+    {
+      "name": "first_column_kernel_basis_transform",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "second_column_kernel_basis_transform",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "first_column_kernel_x_equation",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "second_column_kernel_x_equation",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "first_column_kernel_diagonal_value",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "second_column_kernel_diagonal_value",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "first_column_branch_kernel_representation",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "second_column_branch_kernel_representation",
+      "passed": true,
+      "residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "negative_endpoint_ordered_mass_primitive",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "positive_endpoint_ordered_mass_primitive",
+      "passed": true,
+      "residuals": [
+        "0"
+      ]
+    },
+    {
+      "name": "zero_mass_primitive_boundary",
+      "passed": true,
+      "residuals": [
         "0"
       ]
     }

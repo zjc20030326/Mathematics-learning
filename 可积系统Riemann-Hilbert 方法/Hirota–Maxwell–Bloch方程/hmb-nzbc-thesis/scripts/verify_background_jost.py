@@ -1,4 +1,4 @@
-"""Exact matrix checks for the background and the Jost differential identity."""
+"""Exact background, conditional Jost differential and four-column kernel checks."""
 from pathlib import Path
 from datetime import datetime, timezone
 import hashlib
@@ -60,13 +60,52 @@ check('t_coefficient_of_total_differential',
 Rbg = s.Matrix([[eta0, s.I*eta0*q0/a], [-s.I*eta0*q0/a, -eta0]])
 check('medium_background_identity', Rbg-s.I*eta0/a*(-s.I*a*sig+Q))
 
+
+# Four-column propagation kernels.  The nonzero symbol phase represents
+# exp(i*lam*(x-y)); its x derivative is i*lam*phase at fixed spectral point.
+# All matrix checks therefore remain rational and avoid trigonometric
+# simplification or numerical sampling.
+phase = s.symbols('phase', nonzero=True)
+background_exponential = s.diag(phase**-1, phase)
+K1 = phase*Y*background_exponential*Yi
+K2 = phase**-1*Y*background_exponential*Yi
+G1 = s.diag(1, phase**2)*Yi
+G2 = s.diag(phase**-2, 1)*Yi
+check('first_column_kernel_basis_transform', Yi*K1-G1)
+check('second_column_kernel_basis_transform', Yi*K2-G2)
+check('first_column_kernel_x_equation',
+      s.diff(K1, phase)*s.I*lam*phase-(U+s.I*lam*eye)*K1)
+check('second_column_kernel_x_equation',
+      s.diff(K2, phase)*s.I*lam*phase-(U-s.I*lam*eye)*K2)
+check('first_column_kernel_diagonal_value', K1.subs(phase, 1)-eye)
+check('second_column_kernel_diagonal_value', K2.subs(phase, 1)-eye)
+check('first_column_branch_kernel_representation',
+      K1-((1+phase**2)*eye/2+(phase**2-1)*U/(2*s.I*lam)))
+check('second_column_branch_kernel_representation',
+      K2-((1+phase**-2)*eye/2+(phase**-2-1)*U/(-2*s.I*lam)))
+
+# Scalar algebra behind the ordered-integral factorial estimate.  With a
+# nonnegative density rho, M_-'=rho while M_+'=-rho.  The positive-endpoint
+# oriented integral thus has the opposite sign before taking its absolute
+# value.  These are chain-rule/primitive checks, not integral convergence,
+# kernel norm estimates or a proof of Jost analyticity.
+n = s.symbols('n', integer=True, nonnegative=True)
+mass = s.symbols('mass', positive=True)
+density = s.symbols('density', nonnegative=True)
+mass_primitive = mass**(n+1)/(n+1)
+check('negative_endpoint_ordered_mass_primitive',
+      s.diff(mass_primitive, mass)*density-density*mass**n)
+check('positive_endpoint_ordered_mass_primitive',
+      s.diff(mass_primitive, mass)*(-density)+density*mass**n)
+check('zero_mass_primitive_boundary', mass_primitive.subs(mass, 0))
+
 sources = [ROOT/'section'/name for name in
            ['02-model.tex', '03-direct-scattering.tex', '04-evolution-resonance.tex']]
 report = {'generated_utc': datetime.now(timezone.utc).isoformat(),
           'script': 'scripts/verify_background_jost.py',
-          'method': 'Exact symbolic matrix identities; no numerical sampling.',
-          'domain': 'z != 0, +/- i*q0; k(z) != a for time expressions.',
-          'scope': 'Algebraic identities for conditional full-Lax solutions; no inverse-solvability claim.',
+          'method': 'Exact rational symbolic matrix identities; exponential factor E and chain rule E_x=i*lambda*E; no numerical sampling.',
+          'domain': 'z != 0, +/- i*q0; k(z) != a for time expressions; E != 0; scalar mass >= 0 and integer n >= 0.',
+          'scope': 'Algebraic identities for conditional full-Lax solutions, four-column propagation kernels and scalar ordered-mass primitives; no analytic-convergence, norm-estimate, general Jost analyticity or inverse-solvability proof.',
           'source_sha256': {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
                             for path in sources},
           'checks_total': len(checks), 'checks_passed': sum(c['passed'] for c in checks),
