@@ -54,16 +54,11 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 以下假设三场及方程 \eqref{eq:HMB} 涉及的各阶导数在 $\mathbb R\times I$ 上连续, 并满足基本条件
 \begin{equation}\label{eq:physical-regularity}
 \begin{aligned}
-&\bigl[t\mapsto\widetilde q(\cdot,t)-\widetilde q_{\rm bg}(t)\bigr]
-\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
-&\bigl[t\mapsto\widetilde p(\cdot,t)-\widetilde p_{\rm bg}(t)\bigr]
-\in C(I;X_m),\\
-&\bigl[t\mapsto\eta(\cdot,t)-\eta_0\bigr]
-\in C(I;X_m).
+&\widetilde q-\widetilde q_{\rm bg}\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
+&\widetilde p-\widetilde p_{\rm bg},\quad\eta-\eta_0\in C(I;X_m).
 \end{aligned}
 \end{equation}
-其中 $C(I;X)$、$C^1(I;X)$ 分别表示关于时间 $t$ 的连续、连续可微映射;
-空间 $X$ 的范数均对 $x$ 计算.
+下文函数空间均关于变量 $x$, 而 $C(I;X)$、$C^1(I;X)$ 分别表示关于变量 $t$ 的连续性和连续可微性.
 
 \begin{lemma}\label{prop:bloch}
 若满足基本条件 \eqref{eq:physical-regularity} 的三场还满足 \eqref{eq:HMB} 的两条介质方程, 则
@@ -205,9 +200,8 @@ $G$ 与 $\sg$ 对易且不依赖 $x$, 因而共轭变换将各系数中的场及
 规范变换 \eqref{eq:gauge} 将三场的基本条件 \eqref{eq:physical-regularity} 等价地写为
 \begin{equation}\label{eq:evolution-regularity}
 \begin{aligned}
-&\bigl[t\mapsto q(\cdot,t)-q_0\bigr]\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
-&\bigl[t\mapsto p(\cdot,t)+\dfrac{\ii\eta_0q_0}{a}\bigr]\in C(I;X_m),\\
-&\bigl[t\mapsto\eta(\cdot,t)-\eta_0\bigr]\in C(I;X_m).
+&q-q_0\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
+&p+\dfrac{\ii\eta_0q_0}{a},\quad\eta-\eta_0\in C(I;X_m).
 \end{aligned}
 \end{equation}
 \end{remark}

@@ -1,63 +1,78 @@
 {
-  "generated_utc": "2026-11-16T09:57:56.716871+00:00",
-  "scope": "Clarified x-space and t-regularity; I_2 identities; left-edge multiline displays; concise asymptotics; sections 4-6 consistency. Explanation frozen.",
+  "generated_utc": "2026-11-16T11:32:21.701352+00:00",
+  "scope": "Proposition 3.6 first proof: unknown zeroth and first coefficients, full substitution, coefficient comparison; original derivative statement and technical paragraph removed; dependent reconstruction proof updated.",
   "pdf": "fduthesis.pdf",
   "pages": 39,
-  "sha256": "7486bcb8dc41f418a1a2f6d84eb308f226b4c375bff19dda60f25a46c3d8ed50",
-  "labels_preserved_by_file": {
-    "01-introduction.tex": 0,
-    "02-model.tex": 38,
-    "03-direct-scattering.tex": 77,
-    "04-evolution-resonance.tex": 14,
-    "05-rhp-reconstruction.tex": 27,
-    "06-reflectionless.tex": 29,
-    "07-hmb-verification.tex": 11,
-    "08-numerics.tex": 9
+  "sha256": "606ccf22a9aba9c7b90170e98aa4e120d6524acecc3b5b80eb4d40c3059f7524",
+  "numbering": {
+    "labels": 212,
+    "removed": "eq:mux-highenergy",
+    "changed": {
+      "eq:s22-highenergy": [
+        "3.55",
+        "3.54"
+      ],
+      "eq:s11-highenergy": [
+        "3.56",
+        "3.55"
+      ],
+      "eq:smallmu": [
+        "3.57",
+        "3.56"
+      ],
+      "eq:s22-smallenergy": [
+        "3.58",
+        "3.57"
+      ],
+      "eq:s11-smallenergy": [
+        "3.59",
+        "3.58"
+      ],
+      "eq:scattering-highenergy": [
+        "3.60",
+        "3.59"
+      ],
+      "eq:scattering-smallenergy": [
+        "3.61",
+        "3.60"
+      ],
+      "eq:mu-highenergy-system": [
+        "3.62",
+        "3.61"
+      ],
+      "eq:Apm-offdiag": [
+        "3.63",
+        "3.62"
+      ],
+      "eq:Apm-diag-ode": [
+        "3.64",
+        "3.63"
+      ]
+    },
+    "rendered_physical_pages": [
+      17,
+      18,
+      25
+    ]
   },
-  "aux_label_numbers_preserved": 213,
+  "equation_references_in_substitution": [
+    "eq:jost-modified-lax",
+    "eq:uniform"
+  ],
+  "exact_identity_checks": 48,
+  "coefficient_relations_independently_reviewed": true,
   "unchanged_explanation_files": 53,
   "unchanged_figure_pdfs": 5,
-  "top_level_alignment": [
-    "01-introduction.tex: 0 environments, 0 invalid rows",
-    "02-model.tex: 7 environments, 0 invalid rows",
-    "03-direct-scattering.tex: 24 environments, 0 invalid rows",
-    "04-evolution-resonance.tex: 1 environments, 0 invalid rows",
-    "05-rhp-reconstruction.tex: 5 environments, 0 invalid rows",
-    "06-reflectionless.tex: 6 environments, 0 invalid rows",
-    "07-hmb-verification.tex: 4 environments, 0 invalid rows",
-    "08-numerics.tex: 1 environments, 0 invalid rows"
-  ],
-  "identity_notation": "I_2 for 2x2 matrices; I_m for general dimension; I only time interval",
-  "interval_uses_audited": 19,
-  "out_of_page_text_spans": [],
-  "exact_identity_checks": 48,
   "source_sha256": {
     "fduthesis.tex": "ff321b0fc913def4c6a93859ee6ebe65de8b7d33564924d4ab9d31bcfac38991",
     "section\\01-introduction.tex": "edf111896b1575791573139a98d157780823364290c3551fee7c8dac652781ae",
-    "section\\02-model.tex": "495a7f027629be01e793fab238be500254b6850e35a0af177b3cb66c63197028",
-    "section\\03-direct-scattering.tex": "5fdf0f2f8a6b1df698b941b8aaae3ae58bc522ac54e9e4a9286fab0a1d6e22ef",
+    "section\\02-model.tex": "c08fea3951acbb81ce0201146de216dde2f4ab5b28d78568ef9121f8d822c99d",
+    "section\\03-direct-scattering.tex": "08bec7a6e6374c88bca35f97e68ff94c9b059fd154cb1f0e223f1dbd975ce81b",
     "section\\04-evolution-resonance.tex": "021620d90b73cc617b5c9cd8b05ce04755d847e021262acca37923152b6d22a6",
-    "section\\05-rhp-reconstruction.tex": "53359203f4911cdeea1a8132df94d1bfd5a9747a9523181db12bfda38a101b8d",
+    "section\\05-rhp-reconstruction.tex": "9987303b0396ace9c29e1c5f56ac0b4afb8ab8ce403da49e82a2f10edeb5b1fb",
     "section\\06-reflectionless.tex": "c9049cdd58a03b468cef59458071fe036c77a5cdb43b384efb62091e421fb2d3",
     "section\\07-hmb-verification.tex": "fadd645c871b2652f5a257e99a0d8216217e7c29dbd60c6cdede87e95809266c",
     "section\\08-numerics.tex": "2946d13fe75ac69912ff76206449edc3ca8c25f1aea01dc7b9e65c16f0165312"
   },
-  "visual_review": "Inspected final rendered PDF pages 3,6,16-19,21-23,25,28-32. Blocks remain centered with left-edge multiline rows; definition and time maps, coefficients and h substitution, RHP/residue and Schur layouts checked. No overlap or clipping observed.",
-  "reviewed_pdf_pages": [
-    3,
-    6,
-    16,
-    17,
-    18,
-    19,
-    21,
-    22,
-    23,
-    25,
-    28,
-    29,
-    30,
-    31,
-    32
-  ]
+  "visual_review": "Inspected final physical PDF pages 17,18,25: where-clause for 3.53, full substituted equation 3.61, left-edge coefficient equations, retained one-line scattering expansion, and dependent reconstruction proof. No overlap or clipping."
 }

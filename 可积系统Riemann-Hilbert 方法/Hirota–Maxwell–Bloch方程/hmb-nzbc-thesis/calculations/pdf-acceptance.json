@@ -1,8 +1,8 @@
 {
   "sources": {
     "tex_files": 9,
-    "labels": 213,
-    "references": 228,
+    "labels": 212,
+    "references": 237,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -160,7 +160,7 @@
     [
       1,
       "6. 无反射 RHP 与轨道构造",
-      27
+      26
     ],
     [
       1,
@@ -174,13 +174,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 309,
+  "pdf_links_checked": 317,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "7486bcb8dc41f418a1a2f6d84eb308f226b4c375bff19dda60f25a46c3d8ed50",
-  "visual_review": "Inspected final rendered PDF pages 3,6,16-19,21-23,25,28-32 for assumptions, left-edge multiline displays, asymptotic coefficients, phase signs, residue conditions and Schur formulas. Equation 6.12 split to keep its tag beside the block. No overlap or clipping observed."
+  "pdf_sha256": "606ccf22a9aba9c7b90170e98aa4e120d6524acecc3b5b80eb4d40c3059f7524",
+  "visual_review": "Inspected physical pages 17,18,25: proposition where-clause, full substituted high-energy equation, coefficient comparison, renumbered references and reconstruction proof. No overlap or clipping."
 }
