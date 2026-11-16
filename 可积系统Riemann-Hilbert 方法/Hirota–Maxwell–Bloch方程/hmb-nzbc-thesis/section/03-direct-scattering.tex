@@ -523,19 +523,23 @@ $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性.
     \end{align}
 \end{proposition}
 \begin{proof}
-    (1) 无穷远展开. 由空间 Volterra 方程的高能渐近展开\cite{BGKL2019}, 修正 Jost 解可写为
+    (1) 无穷远展开. 由修正空间方程 \eqref{eq:jost-modified-lax}、\eqref{eq:gauged-U} 及单值化公式 \eqref{eq:uniform}, 得
+    \begin{equation}\label{eq:mu-highenergy-lax}
+        (\mu_\pm)_x=-\dfrac{\ii z}{2}[\sg,\mu_\pm]+Q\mu_\pm
+        +\dfrac{\ii q_0^2}{2z}(\sg\mu_\pm+\mu_\pm\sg).
+    \end{equation}
+    由空间 Volterra 方程 \eqref{eq:volterra} 的高能渐近展开\cite{BGKL2019}, 修正 Jost 解可写为
     \begin{equation*}
-        \mu_\pm(x,t,z)=\mu_\pm^{(0)}(x,t)+\dfrac{\mu_\pm^{(1)}(x,t)}{z}+O(z^{-2}),
+        \mu_\pm(x,t,z)=\mu_\pm^{(0)}(x,t)+\dfrac{\mu_\pm^{(1)}(x,t)}{z}+O(z^{-2}).
     \end{equation*}
-    并记下标 $\mathrm d,\mathrm o$ 分别表示矩阵的对角、非对角部分, 代入修正空间方程 \eqref{eq:jost-modified-lax}, 并利用单值化公式 \eqref{eq:uniform}, 得
+    记下标 $\mathrm d,\mathrm o$ 分别表示矩阵的对角、非对角部分, 将上式代入 \eqref{eq:mu-highenergy-lax}, 得
     \begin{equation}\label{eq:mu-highenergy-system}
         \begin{aligned}
-             & \left(\mu_\pm^{(0)}+\dfrac{\mu_\pm^{(1)}}{z}+\cdots\right)_x \\
-             & =-\dfrac{\ii}{2}\left(z-\dfrac{q_0^2}{z}\right)\sg
-            \left(\mu_\pm^{(0)}+\dfrac{\mu_\pm^{(1)}}{z}+\cdots\right)
-            +Q\left(\mu_\pm^{(0)}+\dfrac{\mu_\pm^{(1)}}{z}+\cdots\right)    \\
-             & +\dfrac{\ii}{2}\left(z+\dfrac{q_0^2}{z}\right)
-            \left(\mu_\pm^{(0)}+\dfrac{\mu_\pm^{(1)}}{z}+\cdots\right)\sg.
+             & \left(\mu_\pm^{(0)}+\dfrac{\mu_\pm^{(1)}}{z}+O(z^{-2})\right)_x \\
+             & =-\dfrac{\ii z}{2}\left[\sg,\mu_\pm^{(0)}+\dfrac{\mu_\pm^{(1)}}{z}+O(z^{-2})\right]
+            +Q\left(\mu_\pm^{(0)}+\dfrac{\mu_\pm^{(1)}}{z}+O(z^{-2})\right) \\
+             & \quad+\dfrac{\ii q_0^2}{2z}\left[\sg\left(\mu_\pm^{(0)}+\dfrac{\mu_\pm^{(1)}}{z}+O(z^{-2})\right)
+            +\left(\mu_\pm^{(0)}+\dfrac{\mu_\pm^{(1)}}{z}+O(z^{-2})\right)\sg\right].
         \end{aligned}
     \end{equation}
     比较 $z$ 的系数和常数项, 得
@@ -580,10 +584,10 @@ $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性.
     \end{equation*}
     此时 $\lambda(z)$ 为实数,  $e^{\ii\lambda x\widehat{\sigma}_3}$ 保持对角项和余项阶数.
     代入 \eqref{eq:Sdef-mu} 即得 \eqref{eq:scattering-highenergy}.
-    最后由换叶对称性 \eqref{eq:scattering-symmetry-sheet}, 有
+    最后由换叶对称性 \eqref{eq:scattering-symmetry-sheet}、\eqref{eq:scattering-highenergy} 及 $\sigma_1\sg\sigma_1=-\sg$, 有
     \begin{equation*}
-        S(z,t)=\Id+\dfrac{\ii J_{\rm tot}(t)}{h(z)}\sg+O(h(z)^{-2})
-        =\Id-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z\sg+O(z^2),
+            S(z,t) =\sigma_1 S(h(z),t)\sigma_1
+            =\Id-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z\sg+O(z^2),
     \end{equation*}
     即得 \eqref{eq:scattering-smallenergy}.
 \end{proof}
