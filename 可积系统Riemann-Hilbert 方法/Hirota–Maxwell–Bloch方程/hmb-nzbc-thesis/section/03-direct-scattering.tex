@@ -201,7 +201,12 @@ L_b(x,t)=A_b\int_{-\infty}^{x}(1+|y|)|q(y,t)-q_0|\,\dd y.
 正端同理, 同一估计也给出端点解的唯一性.
 
 由于 $\lambda(z_b)=0$, 对 \eqref{eq:jost-branch-volterra} 关于 $x$ 求导即得 $\partial_x\mu_\pm(x,t,z_b)=U(x,t,z_b)\mu_\pm(x,t,z_b)$.
-由于 $Y(z_b)$ 的两列线性相关, 由端点 Volterra 方程 \eqref{eq:jost-branch-volterra} 的线性性及解的唯一性, $\mu_\pm(x,t,z_b)$ 的两列亦线性相关. 另一方面, 其非零归一化列由空间谱方程的唯一性不可能在有限 $x$ 处消失, 故 $\operatorname{rank}\mu_\pm(x,t,z_b)=1$.
+一方面, 由 \eqref{eq:E} 得 $Y_2(\ii q_0)=-Y_1(\ii q_0)$ 与 $Y_2(-\ii q_0)=Y_1(-\ii q_0)$, 故 $Y(z_b)$ 的两列线性相关; 由 Volterra 方程 \eqref{eq:jost-branch-volterra}及与定理 \ref{thm:jost} 同理的唯一性, 有
+\begin{equation*}
+\mu_{\pm,2}(x,t,\ii q_0)=-\mu_{\pm,1}(x,t,\ii q_0),\qquad
+\mu_{\pm,2}(x,t,-\ii q_0)=\mu_{\pm,1}(x,t,-\ii q_0),
+\end{equation*}
+即 $\mu_\pm(x,t,z_b)$ 的两列亦线性相关. 另一方面, 其非零归一化列由空间谱方程的唯一性不可能在有限 $x$ 处消失, 故 $\operatorname{rank}\mu_\pm(x,t,z_b)=1$.
 \end{proof}
 
 \subsection{散射数据与离散谱}\label{ch:symmetry}\label{ch:discrete}
@@ -246,18 +251,13 @@ s_{12}(z,t)&=e^{2\ii\lambda x}\dfrac{\det(\mu_{+,2},\mu_{-,2})}{\gamma}.
 又因 $\det e^{\ii\lambda x\sg}=1$, 有 $\det\chi_\pm=\det\mu_\pm$.
 在各自端点由端点归一化取极限, 得到 $\det\chi_\pm=\det\mu_\pm=\det Y=\gamma\ne0$,
 故 \eqref{eq:Sdef} 唯一确定 $S$. 对该关系取行列式即得 $\det S=1$.
-对空间散射关系求 $x$ 导数, 有
+对空间散射关系关于 $x$ 求导, 有
 \begin{equation*}
 \chi_-S_x=\chi_{+,x}-\chi_{-,x}S
 =U\chi_+-U\chi_-S=0.
 \end{equation*}
-由 $\chi_-$ 可逆, 得 $S_x=0$. 对 \eqref{eq:scattering-columns} 的第一式分别与 $\mu_{-,2}$、$\mu_{-,1}$ 取行列式, 得
-\begin{equation*}
-\det(\mu_{+,1},\mu_{-,2})=s_{11}\gamma,\qquad
-\det(\mu_{-,1},\mu_{+,1})=s_{21}e^{2\ii\lambda x}\gamma.
-\end{equation*}
-第二式同理给出 $s_{12},s_{22}$, 即 \eqref{eq:wronskian}.
-在 \eqref{eq:wronskian} 中, $s_{11}(z,t)$ 的分子 $\det(\mu_{+,1},\mu_{-,2})$ 由 $D_-$ 上的解析列组成, $s_{22}(z,t)$ 的分子 $\det(\mu_{-,1},\mu_{+,2})$ 由 $D_+$ 上的解析列组成, 且分母 $\gamma(z)$ 的零点仅位于分支点 $\pm\ii q_0$; 非对角散射系数 $s_{12}(z,t),s_{21}(z,t)$ 表达式中的 Jost 列及指数因子 $e^{\pm 2\ii\lambda x}$ 均在 $\Sigma^\circ$ 上连续.
+由 $\chi_-$ 可逆, 得 $S_x=0$. 利用 \eqref{eq:scattering-columns} 直接计算可得 \eqref{eq:wronskian}.
+在 \eqref{eq:wronskian} 中, $s_{11}$ 和 $s_{22}$ 的分子分别由 $D_-$ 和 $D_+$ 的解析列组成, 且分母 $\gamma(z)$ 的零点仅位于分支点 $\pm\ii q_0$; 非对角散射系数 $s_{12},s_{21}$ 表达式中的 Jost 列及指数因子 $e^{\pm 2\ii\lambda x}$ 均在 $\Sigma^\circ$ 上连续.
 由定理 \ref{thm:jost} 即得 $s_{11},s_{22}$ 与 $s_{12},s_{21}$ 所述的解析性与连续延拓性质.
 \end{proof}
 
