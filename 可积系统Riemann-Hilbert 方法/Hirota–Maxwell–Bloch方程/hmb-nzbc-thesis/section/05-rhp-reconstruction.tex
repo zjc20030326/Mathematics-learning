@@ -54,7 +54,7 @@ M_-(z)=\left(\dfrac{\mu_{+,1}}{s_{11}},\mu_{-,2}\right),&z\in D_-.
 \end{proposition}
 \begin{proof}
 解析性与列极点由定理 \ref{thm:jost} 及命题 \ref{prop:scattering}、\ref{prop:respair} 得到.
-由 \eqref{eq:Sdef} 与 \eqref{eq:modified-jost}, 逐列得到
+由 \eqref{eq:Sdef-mu} 与 \eqref{eq:Sdef-matrix}, 逐列得到
 \begin{equation*}
 \mu_{+,1}=s_{11}\mu_{-,1}+s_{21}e^{2\ii\lambda x}\mu_{-,2},\qquad
 \mu_{+,2}=s_{12}e^{-2\ii\lambda x}\mu_{-,1}+s_{22}\mu_{-,2}.
@@ -67,7 +67,7 @@ M_{+,2}=\widetilde\rho e^{-2\ii\lambda x}M_{-,1}+(1-\rho\widetilde\rho)M_{-,2},
 \begin{equation*}
 \det M_+=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{s_{22}}=\gamma,
 \end{equation*}
-另一域同理. 由 \eqref{eq:mu-highenergy}、\eqref{eq:transmission-highenergy} 与 \eqref{eq:smallmu}、\eqref{eq:transmission-smallenergy} 确定两处渐近归一化 \eqref{eq:Minfty}--\eqref{eq:Mzero}. 共轭约化 \eqref{eq:jost-conjugate-columns} 与 \eqref{eq:sconj} 交换两列和两域; 换叶约化 \eqref{eq:jost-sheet-columns} 与 \eqref{eq:ssheet} 将 $\mu_{-,1}$ 与 $\mu_{-,2}$、$\dfrac{\mu_{+,2}}{s_{22}}$ 与 $\dfrac{\mu_{+,1}}{s_{11}}$ 配对, 因而得到 \eqref{eq:Msym}.
+另一域同理. 由 \eqref{eq:mu-highenergy}、\eqref{eq:s22-highenergy}--\eqref{eq:s11-highenergy} 与 \eqref{eq:smallmu}、\eqref{eq:s22-smallenergy}--\eqref{eq:s11-smallenergy} 确定两处渐近归一化 \eqref{eq:Minfty}--\eqref{eq:Mzero}. 共轭约化 \eqref{eq:jost-conjugate-columns} 与 \eqref{eq:sconj} 交换两列和两域; 换叶约化 \eqref{eq:jost-sheet-columns} 与 \eqref{eq:ssheet} 将 $\mu_{-,1}$ 与 $\mu_{-,2}$、$\dfrac{\mu_{+,2}}{s_{22}}$ 与 $\dfrac{\mu_{+,1}}{s_{11}}$ 配对, 因而得到 \eqref{eq:Msym}.
 \end{proof}
 
 
@@ -174,7 +174,7 @@ R=M(x,t,z_a)\dfrac{\eta_0\lambda(z_a)}{a}\sg M(x,t,z_a)^{-1},
 恢复.
 \end{proposition}
 \begin{proof}
-(1) 光场恢复. 由 \eqref{eq:mu-highenergy} 与 \eqref{eq:transmission-highenergy}, 在 $D_+$ 中第二列除以 $s_{22}$ 后, 其对角系数从 $-\ii J_+$ 变为 $-\ii(J_++J_{\rm tot})=-\ii J_-$. 另一域相同, 故
+(1) 光场恢复. 由 \eqref{eq:mu-highenergy}--\eqref{eq:Apm-highenergy} 与 \eqref{eq:s22-highenergy}--\eqref{eq:s11-highenergy}, 在 $D_+$ 中第二列除以 $s_{22}$ 后, 其对角系数从 $-\ii J_+$ 变为 $-\ii(J_++J_{\rm tot})=-\ii J_-$. 另一域相同, 故
 \begin{equation*}
 M^{(1)}=-\ii B(q)+\ii J_-\sg,
 \end{equation*}
@@ -182,7 +182,7 @@ M^{(1)}=-\ii B(q)+\ii J_-\sg,
 \begin{equation}\label{eq:Mspace}
 M_x=-\ii k\sg M+QM+\ii\lambda M\sg
 \end{equation}
-比较无穷远的常数项得到: 命题 \ref{prop:highenergy} 还给出 $M_x=O(z^{-1})$, 而 $k,\lambda\sim\dfrac{z}{2}$.
+比较无穷远的常数项得到: \eqref{eq:mux-highenergy} 还给出 $M_x=O(z^{-1})$, 而 $k,\lambda\sim\dfrac{z}{2}$.
 
 (2) 介质恢复. 在共振点, $S$ 对角, 两种拼接均为 $M=\mu_-$. 命题 \ref{prop:resonance} 的证明给出
 \begin{equation*}
@@ -242,7 +242,7 @@ $\beta_+=\dfrac{s_{22}}{B_0}$、$\beta_-=s_{11}B_0$. 它们在相应域解析且
 \begin{equation*}
 f(z)=-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s-z}\,\dd s.
 \end{equation*}
-差函数在特殊点可去且在无穷远为零, 因而没有附加整函数项. 代回 $\beta_+$ 即得 \eqref{eq:trace}. 为取零点极限, 沿 $D_+$ 内的 $z=-\ii\varepsilon$, $\varepsilon\downarrow0$. 实轴上 $\left|\dfrac{s}{s+\ii\varepsilon}\right|\le1$, 圆周与零点分离, 故 $\dfrac{\ell(s)}{s-z}$ 受 $C\left|\dfrac{\ell(s)}{s}\right|$ 控制. 支配收敛结合 \eqref{eq:transmission-smallenergy} 给出的 $s_{22}(0)=1$ 得到 \eqref{eq:theta-condition}.
+差函数在特殊点可去且在无穷远为零, 因而没有附加整函数项. 代回 $\beta_+$ 即得 \eqref{eq:trace}. 为取零点极限, 沿 $D_+$ 内的 $z=-\ii\varepsilon$, $\varepsilon\downarrow0$. 实轴上 $\left|\dfrac{s}{s+\ii\varepsilon}\right|\le1$, 圆周与零点分离, 故 $\dfrac{\ell(s)}{s-z}$ 受 $C\left|\dfrac{\ell(s)}{s}\right|$ 控制. 支配收敛结合 \eqref{eq:s22-smallenergy} 给出的 $s_{22}(0)=1$ 得到 \eqref{eq:theta-condition}.
 \end{proof}
 
 每个完整四点轨道取外部上半平面的代表 $\zeta_n$, 则它的两个 $D_+$ 零点对无反射相位乘积的贡献为 $\left(\dfrac{\zeta_n}{\conj{\zeta_n}}\right)^2$. 因而同相约束化为

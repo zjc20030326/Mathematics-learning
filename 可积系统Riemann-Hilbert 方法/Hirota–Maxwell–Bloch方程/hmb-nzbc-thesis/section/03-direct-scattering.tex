@@ -45,21 +45,17 @@ $(Y^{-1}\chi)_x=-\ii\lambda\sg(Y^{-1}\chi)$.
 \end{aligned}
 \end{equation}
 的矩阵 $\chi_\pm(x,t,z)$ 为空间 Jost 解. 定义修正 Jost 矩阵
-\begin{equation}\label{eq:modified-jost}
-\begin{aligned}
-&\mu_\pm(x,t,z)=\chi_\pm(x,t,z)e^{\ii\lambda(z)x\sg},\\
-&\mu_\pm(x,t,z)\longrightarrow Y(z),\qquad x\to\pm\infty.
-\end{aligned}
-\end{equation}
+\begin{align}
+&\mu_\pm(x,t,z)=\chi_\pm(x,t,z)e^{\ii\lambda(z)x\sg},\label{eq:modified-jost}\\
+&\mu_\pm(x,t,z)\longrightarrow Y(z),\qquad x\to\pm\infty.\label{eq:modified-jost-bc}
+\end{align}
 记 $\Delta Q(x,t)=Q(x,t)-Q_\infty$.
 对 \eqref{eq:modified-jost} 求 $x$ 导数并结合 \eqref{eq:jost-normalization} 与 \eqref{eq:diagE}, 得到 $\mu_\pm$ 满足的微分方程
-\begin{equation}\label{eq:jost-modified-lax}
-\begin{aligned}
-&(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg,\\
+\begin{align}
+&(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg,\label{eq:jost-modified-lax}\\
 &(Y^{-1}\mu_\pm)_x+\ii\lambda[\sg,Y^{-1}\mu_\pm]
-=Y^{-1}\Delta Q\mu_\pm.
-\end{aligned}
-\end{equation}
+=Y^{-1}\Delta Q\mu_\pm.\label{eq:jost-modified-lax-Y}
+\end{align}
 在固定 $t$ 时沿两个特殊路径 $(-\infty,t)\to(x,t)$ 和 $(+\infty,t)\to(x,t)$ 积分, 得到 Volterra 方程
 \begin{equation}\label{eq:volterra}
 \mu_\pm(x,t,z)=Y(z)+\int_{\pm\infty}^{x}
@@ -157,8 +153,8 @@ G_j(x,y,z)\Delta Q(y,t)Yw_{\pm,j}^{(n)}(y,t,z)\,\dd y.
 \dfrac{M_{\pm,K}(x,t)^n}{n!}\longrightarrow0,
 \end{equation*}
 从而各列解唯一.
-对 \eqref{eq:volterra} 关于 $x$ 求导即得 \eqref{eq:jost-modified-lax} 的第二式,
-等价地有其第一式 $(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg$.
+对 \eqref{eq:volterra} 关于 $x$ 求导即得 \eqref{eq:jost-modified-lax-Y},
+等价地有 \eqref{eq:jost-modified-lax}.
 右乘空间指数因子 $e^{-\ii\lambda x\sg}$ 得 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$, 从而恢复 \eqref{eq:jost-normalization} 的空间谱方程;
 结合端点归一化与 Volterra 唯一性, 得到所述空间 Jost 解.
 \end{proof}
@@ -212,17 +208,15 @@ L_b(x,t)=A_b\int_{-\infty}^{x}(1+|y|)|q(y,t)-q_0|\,\dd y.
 即 $\mu_\pm(x,t,z_b)$ 的两列亦线性相关. 另一方面, 其非零归一化列由上述常微分方程 $\partial_x\mu_\pm(x,t,z_b)=U(x,t,z_b)\mu_\pm(x,t,z_b)$ 解的唯一性不可能在有限 $x$ 处消失, 故 $\operatorname{rank}\mu_\pm(x,t,z_b)=1$.
 \end{proof}
 
-\subsection{散射数据与离散谱}\label{ch:symmetry}\label{ch:discrete}
+\subsection{散射矩阵和对称性}\label{ch:symmetry}
 记 $\Sigma^\circ=\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$.
 在 $\Sigma^\circ$ 上, 两组空间 Jost 解确定散射矩阵 $S(z,t)$:
-\begin{equation}\label{eq:Sdef}
-\begin{aligned}
-&\chi_+(x,t,z)=\chi_-(x,t,z)S(z,t),\\
-&\mu_+(x,t,z)=\mu_-(x,t,z)e^{-\ii\lambda(z)x\widehat{\sigma}_3}S(z,t),\\
-&S(z,t)=\begin{pmatrix}s_{11}(z,t)&s_{12}(z,t)\\s_{21}(z,t)&s_{22}(z,t)\end{pmatrix}.
-\end{aligned}
-\end{equation}
-其中第二式由 \eqref{eq:modified-jost} 得到, $S(z,t)$ 的矩阵元 $s_{jk}(z,t)$ ($j,k=1,2$) 称为散射系数. 逐列写为
+\begin{align}
+&\chi_+(x,t,z)=\chi_-(x,t,z)S(z,t),\label{eq:Sdef}\\
+&\mu_+(x,t,z)=\mu_-(x,t,z)e^{-\ii\lambda(z)x\widehat{\sigma}_3}S(z,t),\label{eq:Sdef-mu}\\
+&S(z,t)=\begin{pmatrix}s_{11}(z,t)&s_{12}(z,t)\\s_{21}(z,t)&s_{22}(z,t)\end{pmatrix}.\label{eq:Sdef-matrix}
+\end{align}
+其中 \eqref{eq:Sdef-mu} 由 \eqref{eq:modified-jost} 得到, $S(z,t)$ 的矩阵元 $s_{jk}(z,t)$ ($j,k=1,2$) 称为散射系数. 逐列写为
 \begin{equation}\label{eq:scattering-columns}
 \begin{aligned}
 &\mu_{+,1}=s_{11}\mu_{-,1}+s_{21}e^{2\ii\lambda x}\mu_{-,2},\\
@@ -254,7 +248,7 @@ s_{12}(z,t)&=e^{2\ii\lambda x}\dfrac{\det(\mu_{+,2},\mu_{-,2})}{\gamma}.
 又因 $\det e^{\ii\lambda x\sg}=1$, 有 $\det\chi_\pm=\det\mu_\pm$.
 在各自端点由端点归一化取极限, 得到 $\det\chi_\pm=\det\mu_\pm=\det Y=\gamma\ne0$,
 故 \eqref{eq:Sdef} 唯一确定 $S$. 对该关系取行列式即得 $\det S=1$.
-对 \eqref{eq:Sdef} 第一式关于 $x$ 求导, 有
+对 \eqref{eq:Sdef} 关于 $x$ 求导, 有
 \begin{equation*}
 \chi_-S_x=\chi_{+,x}-\chi_{-,x}S
 =U\chi_+-U\chi_-S=0.
@@ -326,10 +320,10 @@ C(z)^{-1}=-\dfrac{\ii q_0}{z}\sigma_1,
 
 \begin{proposition}\label{prop:scattering-symmetry}
 散射矩阵满足
-\begin{equation}\label{eq:scattering-symmetry}
-S(z,t)=\sigma_2\conj{S(\conj{z},t)}\sigma_2,\qquad
-S(z,t)=\sigma_1S(h(z),t)\sigma_1.
-\end{equation}
+\begin{align}
+S(z,t)&=\sigma_2\conj{S(\conj{z},t)}\sigma_2,\label{eq:scattering-symmetry-conj}\\
+S(z,t)&=\sigma_1S(h(z),t)\sigma_1.\label{eq:scattering-symmetry-sheet}
+\end{align}
 特别地,
 \begin{equation}\label{eq:sconj}
 s_{11}(z,t)=\conj{s_{22}(\conj{z},t)},\qquad
@@ -348,16 +342,16 @@ S(z,t)^\dagger S(z,t)=I.
 \end{equation}
 \end{proposition}
 \begin{proof}
-由 \eqref{eq:Sdef},
+由 \eqref{eq:Sdef-mu},
 \begin{equation*}
 S(z,t)=e^{\ii\lambda(z)x\widehat{\sigma}_3}\!\left[\mu_-(x,t,z)^{-1}\mu_+(x,t,z)\right].
 \end{equation*}
-代入 \eqref{eq:conjugation}, 
-即得 \eqref{eq:scattering-symmetry} 的第一式. 再由 \eqref{eq:musheet},
+代入 \eqref{eq:conjugation},
+即得 \eqref{eq:scattering-symmetry-conj}. 再由 \eqref{eq:musheet},
 \begin{equation*}
 S(z,t)=e^{\ii\lambda(z)x\widehat{\sigma}_3}\!\left[C(z)\mu_-(x,t,h(z))^{-1}\mu_+(x,t,h(z))C(z)^{-1}\right]=\sigma_1S(h(z),t)\sigma_1,
 \end{equation*}
-逐元展开即得 \eqref{eq:sconj}--\eqref{eq:ssheet}; 除以相应透射系数得到 \eqref{eq:reflection-symmetry}. 
+即得 \eqref{eq:scattering-symmetry-sheet}, 逐元展开即得 \eqref{eq:sconj}--\eqref{eq:ssheet}; 除以相应透射系数得到 \eqref{eq:reflection-symmetry}.
 
 在 $z\in\mathbb R\mathbin{\backslash}\{0\}$ 上, $k,\lambda$ 为实数, 且 $U^\dagger=-U$.
 记 $H_\pm=\mu_\pm^\dagger\mu_\pm$, 则由 \eqref{eq:jost-modified-lax} 给出
@@ -366,8 +360,10 @@ S(z,t)=e^{\ii\lambda(z)x\widehat{\sigma}_3}\!\left[C(z)\mu_-(x,t,h(z))^{-1}\mu_+
 \partial_x\!\left(e^{\ii\lambda x\widehat{\sigma}_3}H_\pm\right)=0.
 \end{equation*}
 端点归一化及 $Y^\dagger Y=\gamma I$ 确定该常矩阵为 $\gamma I$, 故 $H_\pm=\gamma I$.
-将其代入 \eqref{eq:Sdef}, 即得 \eqref{eq:scattering-unitarity}.
+将其代入 \eqref{eq:Sdef-mu}, 即得 \eqref{eq:scattering-unitarity}.
 \end{proof}
+
+\subsection{离散谱和留数条件}\label{ch:discrete}
 离散谱 $Z$ 指空间谱方程 $f_x=U(x,t,z)f$ 在 $\mathbb C\mathbin{\backslash}\Sigma$ 中存在非零 $L^2(\mathbb R)$ 解的谱点集合\cite{ZhangFan2020}.
 
 \begin{proposition}\label{prop:discrete-spectrum}
@@ -378,11 +374,11 @@ Z=\{z\in D_+:s_{22}(z,t)=0\}\cup\{z\in D_-:s_{11}(z,t)=0\}.
 \end{proposition}
 \begin{proof}
 对 $z\in D_+$, 记 $u=\chi_{-,1}(\cdot,t,z)$, $v=\chi_{+,2}(\cdot,t,z)$.
-由 $\operatorname{Im}\lambda>0$ 及端点归一化,
+由 $\operatorname{Im}\lambda>0$ 及 \eqref{eq:jost-normalization} 的端点归一化,
 \begin{equation*}
 u\in L^2(-\infty,0),\qquad v\in L^2(0,+\infty).
 \end{equation*}
-若 $f_x=Uf$, $f\in L^2(-\infty,0)$, 令 $W=\det(f,u)$, 则
+若 $f_x=Uf$, $f\in L^2(-\infty,0)$, 令 $W=\det(f,u)$, 由 Abel 公式与 Cauchy--Schwarz 不等式,
 \begin{equation*}
 \begin{aligned}
 &W_x=(\tr U)W=0,\\
@@ -445,14 +441,14 @@ C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}.
 \begin{proof}
 由 $s_{22}(\zeta_j,t)=0$ 及 \eqref{eq:wronskian}, 两个非零列满足
 $\mu_{+,2}(x,t,\zeta_j)=d_j(x,t)\mu_{-,1}(x,t,\zeta_j)$.
-代入 \eqref{eq:jost-modified-lax} 第一式, 得
+代入 \eqref{eq:jost-modified-lax}, 得
 \begin{equation*}
 (d_j)_x+2\ii\lambda(\zeta_j)d_j=0,\qquad
 d_j(x,t)=b_j(t)e^{-2\ii\lambda(\zeta_j)x},
 \end{equation*}
 其中 $b_j(t)\ne0$ 与 $x$ 无关. 再由共轭列关系 \eqref{eq:jost-conjugate-columns}, 得 \eqref{eq:norming-definition} 的第二式.
 
-在简单零点处, 
+在简单零点处,
 \begin{equation*}
 \Res_{z=\zeta_j}\dfrac{\mu_{+,2}(x,t,z)}{s_{22}(z,t)}
 =\dfrac{\mu_{+,2}(x,t,\zeta_j)}{s_{22}'(\zeta_j,t)}.
@@ -475,33 +471,28 @@ C_{\widehat\zeta}(x,t)&=-\dfrac{q_0^2}{(\conj{\zeta})^2}\conj{C_\zeta(x,t)}.\lab
 q(\cdot,t)-q_0\in W^{2,1}(\mathbb R).
 \end{equation}
 因而 $q,q_x$ 有界, $q_x$ 在两端趋于零, 且 $q_x,q_{xx}\in L^1(\mathbb R)$. 记
-\begin{equation}\label{eq:asymptotic-coefficients}
-\begin{aligned}
-&B(q)=\sg Q=\begin{pmatrix}0&q\\\conj{q}&0\end{pmatrix},\qquad
-J_\pm(x,t)=\int_{\pm\infty}^{x}(q_0^2-|q(y,t)|^2)\,\dd y,\\
-&J_{\rm tot}(t)=\int_{-\infty}^{+\infty}(q_0^2-|q(y,t)|^2)\,\dd y
-=J_-(x,t)-J_+(x,t).
-\end{aligned}
-\end{equation}
+\begin{align}
+B(q)&=\sg Q=\begin{pmatrix}0&q\\\conj{q}&0\end{pmatrix},\label{eq:Bdef}\\
+J_\pm(x,t)&=\int_{\pm\infty}^{x}(q_0^2-|q(y,t)|^2)\,\dd y,\label{eq:Jpmdef}\\
+J_{\rm tot}(t)&=\int_{-\infty}^{+\infty}(q_0^2-|q(y,t)|^2)\,\dd y
+=J_-(x,t)-J_+(x,t).\label{eq:Jtotdef}
+\end{align}
 
 \begin{proposition}\label{prop:highenergy}
 在基本条件 \eqref{eq:evolution-regularity} 下, 固定 $t\in I$, 有以下渐近展开.
 各 Jost 列的余项在相应闭解析域内对实 $x$ 一致, 矩阵式按各自解析列理解.
 
 (1) 当 $z\to\infty$ 时,
-\begin{equation}\label{eq:mu-highenergy}
-\begin{aligned}
-&\mu_\pm(x,t,z)=I+\dfrac{A_\pm(x,t)}{z}+O(z^{-2}),\\
-&A_\pm(x,t)=-\ii B(q(x,t))+\ii J_\pm(x,t)\sg.
-\end{aligned}
-\end{equation}
-并且 $\partial_x\mu_\pm(x,t,z)=O(z^{-1})$. 相应透射系数满足
-\begin{equation}\label{eq:transmission-highenergy}
-\begin{aligned}
-s_{22}(z,t)&=1+\dfrac{\ii J_{\rm tot}(t)}{z}+O(z^{-2}),&&z\in\overline{D_+},\\
-s_{11}(z,t)&=1-\dfrac{\ii J_{\rm tot}(t)}{z}+O(z^{-2}),&&z\in\overline{D_-}.
-\end{aligned}
-\end{equation}
+\begin{align}
+\mu_\pm(x,t,z)&=I+\dfrac{A_\pm(x,t)}{z}+O(z^{-2}),\label{eq:mu-highenergy}\\
+A_\pm(x,t)&=-\ii B(q(x,t))+\ii J_\pm(x,t)\sg,\label{eq:Apm-highenergy}\\
+\partial_x\mu_\pm(x,t,z)&=O(z^{-1}).\label{eq:mux-highenergy}
+\end{align}
+相应透射系数满足
+\begin{align}
+s_{22}(z,t)&=1+\dfrac{\ii J_{\rm tot}(t)}{z}+O(z^{-2}),&&z\in\overline{D_+},\label{eq:s22-highenergy}\\
+s_{11}(z,t)&=1-\dfrac{\ii J_{\rm tot}(t)}{z}+O(z^{-2}),&&z\in\overline{D_-}.\label{eq:s11-highenergy}
+\end{align}
 
 (2) 当 $z\to0$ 时,
 \begin{equation}\label{eq:smallmu}
@@ -510,87 +501,65 @@ s_{11}(z,t)&=1-\dfrac{\ii J_{\rm tot}(t)}{z}+O(z^{-2}),&&z\in\overline{D_-}.
 +O(z),
 \end{equation}
 相应透射系数满足
-\begin{equation}\label{eq:transmission-smallenergy}
-\begin{aligned}
-s_{22}(z,t)&=1+\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z+O(z^2),&&z\in\overline{D_+},\\
-s_{11}(z,t)&=1-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z+O(z^2),&&z\in\overline{D_-}.
-\end{aligned}
-\end{equation}
+\begin{align}
+s_{22}(z,t)&=1+\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z+O(z^2),&&z\in\overline{D_+},\label{eq:s22-smallenergy}\\
+s_{11}(z,t)&=1-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z+O(z^2),&&z\in\overline{D_-}.\label{eq:s11-smallenergy}
+\end{align}
 
 (3) 在实轴上, 散射矩阵满足
-\begin{equation}\label{eq:scattering-two-infinities}
-\begin{aligned}
-S(z,t)&=I-\dfrac{\ii J_{\rm tot}(t)}{z}\sg+O(z^{-2}),&&z\to\infty,\\
-S(z,t)&=I-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z\sg+O(z^2),&&z\to0.
-\end{aligned}
-\end{equation}
+\begin{align}
+S(z,t)&=I-\dfrac{\ii J_{\rm tot}(t)}{z}\sg+O(z^{-2}),&&z\to\infty,\label{eq:scattering-highenergy}\\
+S(z,t)&=I-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z\sg+O(z^2),&&z\to0.\label{eq:scattering-smallenergy}
+\end{align}
 \end{proposition}
 \begin{proof}
-(1) 无穷远展开. 采用一阶渐近展开与比较系数的方法\cite{ZhangFan2020}, 写成
+(1) 无穷远展开. 采用一阶渐近展开与比较系数的方法\cite{ZhangFan2020}, 先形式地写成
 \begin{equation*}
-\mu_\pm=I+\dfrac{A_\pm}{z}+O(z^{-2}).
+\mu_\pm=I+\dfrac{A_\pm}{z}+O(z^{-2}),
 \end{equation*}
-记下标 $\mathrm d,\mathrm o$ 分别表示矩阵的对角、非对角部分.
-由 \eqref{eq:jost-modified-lax} 第一式及单值化公式,
+并记下标 $\mathrm d,\mathrm o$ 分别表示矩阵的对角、非对角部分.
+由 \eqref{eq:jost-modified-lax}、\eqref{eq:gauged-U} 及单值化公式 \eqref{eq:uniform}, 得
 \begin{equation}\label{eq:mu-highenergy-system}
-\mu_x=-\dfrac{\ii z}{2}[\sg,\mu]+Q\mu
-+\dfrac{\ii q_0^2}{2z}(\sg\mu+\mu\sg).
+(\mu_\pm)_x=-\dfrac{\ii z}{2}[\sg,\mu_\pm]+Q\mu_\pm
++\dfrac{\ii q_0^2}{2z}(\sg\mu_\pm+\mu_\pm\sg).
 \end{equation}
-比较常数项及 $z^{-1}$ 项的对角部分, 得
-\begin{equation*}
-\begin{aligned}
-&-\dfrac{\ii}{2}[\sg,A_\pm]+Q=0,
-\qquad A_{\pm,\mathrm o}=-\ii\sg Q,\\
-&(A_{\pm,\mathrm d})_x=(QA_\pm)_{\mathrm d}+\ii q_0^2\sg
-=\ii(q_0^2-|q|^2)\sg.
-\end{aligned}
-\end{equation*}
-端点归一化给出 $A_{\pm,\mathrm d}(\pm\infty,t)=0$, 故
-$A_\pm=-\ii B+\ii J_\pm\sg$, 即 \eqref{eq:mu-highenergy} 中的系数.
+将上述展开代入 \eqref{eq:mu-highenergy-system}, 比较 $O(1)$ 项及 $O(z^{-1})$ 项的对角部分, 并利用 $Q_{\mathrm d}=0$、\eqref{eq:Bdef} 及 $Q\sg Q=|q|^2\sg$, 得
+\begin{align}
+-\dfrac{\ii}{2}[\sg,A_\pm]+Q&=0,
+\qquad A_{\pm,\mathrm o}=-\ii\sg Q=-\ii B(q),\label{eq:Apm-offdiag}\\
+(A_{\pm,\mathrm d})_x&=(QA_{\pm,\mathrm o})_{\mathrm d}+\ii q_0^2\sg
+=\ii(q_0^2-|q|^2)\sg.\label{eq:Apm-diag-ode}
+\end{align}
+由端点归一化 \eqref{eq:modified-jost-bc} 及 \eqref{eq:E} 中的 $Y_{\mathrm d}(z)=I$, 得 $A_{\pm,\mathrm d}(\pm\infty,t)=0$. 对 \eqref{eq:Apm-diag-ode} 沿各自端点积分并结合 \eqref{eq:Jpmdef}, 得 $A_{\pm,\mathrm d}=\ii J_\pm\sg$, 连同 \eqref{eq:Apm-offdiag} 确定系数 \eqref{eq:Apm-highenergy}.
+在 \eqref{eq:highenergy-assumption} 下, 对实 $x$ 一致的余项估计与逐项合法性可通过对 Volterra 积分方程 \eqref{eq:volterra} 作分部积分予以验证\cite{BGKL2019}, 从而证得 \eqref{eq:mu-highenergy}--\eqref{eq:Apm-highenergy}.
+再将 \eqref{eq:mu-highenergy}--\eqref{eq:Apm-highenergy} 代入 \eqref{eq:mu-highenergy-system} 右端并利用 \eqref{eq:Apm-offdiag}, 可见 $O(z)$ 项与 $O(1)$ 项均消去, 即得 \eqref{eq:mux-highenergy}.
 
-上述展开及求导采用 Volterra 估计验证\cite{BGKL2019}. 令 $n_\pm=\left(I-\dfrac{\ii B}{z}\right)^{-1}\mu_\pm$, 则
-\begin{equation}\label{eq:n-volterra-system}
-\begin{aligned}
-&(n_\pm)_x=-\ii\lambda[\sg,n_\pm]
-+\left[\dfrac{\ii}{z}\bigl((q_0^2-|q|^2)\sg+B_x\bigr)+E\right]n_\pm,\\
-&n_\pm(\pm\infty,t,z)=I,\qquad
-\|E\|_{L^1}+\|E\|_{L^\infty}=O(|z|^{-2}).
-\end{aligned}
-\end{equation}
-由定理 \ref{thm:jost} 的 Neumann 估计, 二次及以上迭代项之和为 $O(z^{-2})$.
-一次迭代的对角项为 $\dfrac{\ii J_\pm\sg}{z}$, 非对角项为下列振荡积分的 $\dfrac{\ii}{z}$ 倍:
-\begin{equation}\label{eq:asymptotic-L1-control}
-\left|\int_{\pm\infty}^{x}e^{2\ii s_j\lambda(x-y)}f_j(y,t)\,\dd y\right|
-\le\dfrac{\|q_x\|_{L^\infty}+\|q_{xx}\|_{L^1}}{2|\lambda|}
-=O(|z|^{-1}),
-\end{equation}
-其中 $s_1=1,s_2=-1$, $f_j=\partial_xB_{3-j,j}$, 积分方向取该列允许的方向.
-此式由一次分部积分及 $q_x(\pm\infty,t)=0$ 得到.
-故 $n_\pm=I+\dfrac{\ii J_\pm\sg}{z}+O(z^{-2})$, 即验证了所用一阶展开.
-再由 \eqref{eq:n-volterra-system} 的非对角、对角部分得到
-\begin{equation*}
-\partial_x\mu_\pm=O(z^{-1}),\qquad
-(\mu_{\pm,\mathrm d})_x=\dfrac{\ii(q_0^2-|q|^2)}{z}\sg+O(z^{-2}),
-\end{equation*}
-从而逐项比较及一致余项均成立.
-最后代入 \eqref{eq:wronskian}, 利用 $J_--J_+=J_{\rm tot}$ 及 $\gamma=1+O(z^{-2})$,
-即得 \eqref{eq:transmission-highenergy}.
+最后, 由 \eqref{eq:mu-highenergy}--\eqref{eq:Apm-highenergy} 在 $\overline{D_+}$ 与 $\overline{D_-}$ 上分别计算列行列式, 得
+\begin{align*}
+\det(\mu_{-,1},\mu_{+,2})
+&=\det\!\begin{pmatrix}1+\dfrac{\ii J_-}{z}&-\dfrac{\ii q}{z}\\[8pt]-\dfrac{\ii\conj{q}}{z}&1-\dfrac{\ii J_+}{z}\end{pmatrix}+O(z^{-2})
+=1+\dfrac{\ii(J_--J_+)}{z}+O(z^{-2}),\\
+\det(\mu_{+,1},\mu_{-,2})
+&=\det\!\begin{pmatrix}1+\dfrac{\ii J_+}{z}&-\dfrac{\ii q}{z}\\[8pt]-\dfrac{\ii\conj{q}}{z}&1-\dfrac{\ii J_-}{z}\end{pmatrix}+O(z^{-2})
+=1-\dfrac{\ii(J_--J_+)}{z}+O(z^{-2}).
+\end{align*}
+将上两式及 \eqref{eq:Y-inverse} 中的 $\gamma(z)=1+\frac{q_0^2}{z^2}=1+O(z^{-2})$ 代入 \eqref{eq:wronskian}, 并利用 \eqref{eq:Jtotdef}, 即得 \eqref{eq:s22-highenergy} 和 \eqref{eq:s11-highenergy}.
 
-(2) 谱原点展开. 令 $w=h(z)=-\dfrac{q_0^2}{z}$. 由 \eqref{eq:musheet} 及第一步,
+(2) 谱原点展开. 令 $w=h(z)=-\frac{q_0^2}{z}$. 由换叶关系 \eqref{eq:musheet}、\eqref{eq:Esheet} 中的 $C(z)^{-1}=-\frac{\ii q_0}{z}\sigma_1$, 以及映射 \eqref{eq:symmetry-domains} 将 $z\to0$ 对应为 $w\to\infty$ 后代入 \eqref{eq:mu-highenergy}, 得
 \begin{equation*}
 \mu_\pm(x,t,z)=-\dfrac{\ii q_0}{z}\mu_\pm(x,t,w)\sigma_1
-=-\dfrac{\ii q_0}{z}\sigma_1+\dfrac{\ii}{q_0}A_\pm\sigma_1+O(z).
+=-\dfrac{\ii q_0}{z}\sigma_1+\dfrac{\ii}{q_0}A_\pm(x,t)\sigma_1+O(z).
 \end{equation*}
-将 $\ii A_\pm\sigma_1=B\sigma_1-J_\pm\sg\sigma_1$ 逐元展开, 得 \eqref{eq:smallmu}.
-再由 \eqref{eq:ssheet} 给出 $s_{22}(z,t)=s_{11}(w,t)$, $s_{11}(z,t)=s_{22}(w,t)$ 及
-$w^{-1}=-\dfrac{z}{q_0^2}$, 立即得到 \eqref{eq:transmission-smallenergy}.
+结合 \eqref{eq:Apm-highenergy} 将 $\ii A_\pm\sigma_1=B\sigma_1-J_\pm\sg\sigma_1$ 逐元展开, 即得 \eqref{eq:smallmu}.
+再由 \eqref{eq:ssheet} 与 \eqref{eq:s22-highenergy}--\eqref{eq:s11-highenergy}, 注意 \eqref{eq:symmetry-domains} 互换 $\overline{D_\pm}$ 且 $w^{-1}=-z/q_0^2$, 分别对 $z\in\overline{D_+}$ 和 $z\in\overline{D_-}$ 代换即得 \eqref{eq:s22-smallenergy} 和 \eqref{eq:s11-smallenergy}.
 
-(3) 实轴散射矩阵. 由 \eqref{eq:mu-highenergy},
+(3) 实轴散射矩阵. 对 $z\in\mathbb R\mathbin{\backslash}\{0\}$, 两列均适用 \eqref{eq:mu-highenergy}--\eqref{eq:Apm-highenergy}, 结合 \eqref{eq:Jtotdef} 得
 \begin{equation*}
-\mu_-^{-1}\mu_+=I+\dfrac{A_+-A_-}{z}+O(z^{-2})
+\mu_-(x,t,z)^{-1}\mu_+(x,t,z)
+=I+\dfrac{A_+(x,t)-A_-(x,t)}{z}+O(z^{-2})
 =I-\dfrac{\ii J_{\rm tot}(t)}{z}\sg+O(z^{-2}).
 \end{equation*}
-实轴上的指数共轭 $e^{\ii\lambda x\widehat{\sigma}_3}$ 保持余项阶数, 且固定对角项,
-代入 \eqref{eq:Sdef} 即得 \eqref{eq:scattering-two-infinities} 的第一式.
-最后由 \eqref{eq:scattering-symmetry} 中 $S(z,t)=\sigma_1S(w,t)\sigma_1$ 及 $\sigma_1\sg\sigma_1=-\sg$, 得到第二式.
+实轴上 $\lambda(z)\in\mathbb R$, 故指数共轭 $e^{\ii\lambda x\widehat{\sigma}_3}$ 保持对角矩阵 $\sg$ 不变且保持 $O(z^{-2})$ 余项阶数.
+代入 \eqref{eq:Sdef-mu} 即得 \eqref{eq:scattering-highenergy}.
+最后由 \eqref{eq:scattering-symmetry-sheet}、$\sigma_1\sg\sigma_1=-\sg$ 及 \eqref{eq:scattering-highenergy} 中令 $z\mapsto w=-q_0^2/z$, 即得 \eqref{eq:scattering-smallenergy}.
 \end{proof}
