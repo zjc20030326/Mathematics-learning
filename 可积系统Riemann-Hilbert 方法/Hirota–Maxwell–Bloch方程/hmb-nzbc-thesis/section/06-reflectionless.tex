@@ -1,4 +1,4 @@
-在无反射条件 $\rho=\widetilde\rho=0$ 下, 跳跃矩阵为 $I$, 谱边界上的非极点均可去.
+在无反射条件 $\rho=\widetilde\rho=0$ 下, 跳跃矩阵为 $\Id$, 谱边界上的非极点均可去.
 矩阵 RHP 因而化为由离散谱和范数数据确定的有限维留数系统.
 本节推导多轨道的行列式重构公式, 并对纯虚单轨道显式消元, 建立其全局矩阵解.
 
@@ -7,9 +7,9 @@
 固定 $N$ 个两两不交的完整简单四点轨道. 按 \eqref{eq:discrete-indexing} 选取外部上半平面代表 $\zeta_1,\ldots,\zeta_N$, 并置
 \begin{equation}\label{eq:N-orbit-data}
 \begin{aligned}
-m&=2N,\qquad \zeta_{N+n}=-\dfrac{q_0^2}{\conj{\zeta_n}},\qquad n=1,\ldots,N,\\
-c_{N+n}(0)&=-\dfrac{q_0^2}{(\conj{\zeta_n})^2}\conj{c_n(0)},\qquad
-C_j=c_j(0)e^{2\ii\theta(\zeta_j)},\qquad j=1,\ldots,m.
+&m=2N,\qquad \zeta_{N+n}=-\dfrac{q_0^2}{\conj{\zeta_n}},\qquad n=1,\ldots,N,\\
+&c_{N+n}(0)=-\dfrac{q_0^2}{(\conj{\zeta_n})^2}\conj{c_n(0)},\\
+&C_j(x,t)=c_j(0)e^{2\ii\theta(x,t,\zeta_j)},\qquad j=1,\ldots,m.
 \end{aligned}
 \end{equation}
 所有 $4N$ 个谱点互异且位于 $\Sigma$ 外, 各 $c_n(0)\ne0$. 同相背景要求
@@ -18,24 +18,27 @@ C_j=c_j(0)e^{2\ii\theta(\zeta_j)},\qquad j=1,\ldots,m.
 \end{equation}
 满足上述条件的谱点与范数常数组成同相背景的 $N$ 轨道无反射数据.
 \end{definition}
+下面固定实数对 $(x,t)$, 在有限维计算中省略各矩阵和留数系数的 $x,t$ 自变量.
 令 $\mathbf v_j=M_1(\zeta_j)$、$\mathbf u_j=M_2(\conj{\zeta_j})$, 其中 $j=1,\ldots,m$.
 
 \label{prop:finite}
-从 $M$ 减去 $z=0$ 及离散极点处的主部后, 所得矩阵在有限平面解析, 并在无穷远趋于 $I$.
-由 Liouville 定理,
+任一无反射 RHP 解减去 $z=0$ 及离散极点处的主部后,
+所得矩阵在有限平面解析, 并在无穷远趋于 $\Id$.
+由 Liouville 定理, 它必有部分分式表示
 \begin{equation}\label{eq:partialfraction}
-M(z)=I-\dfrac{\ii q_0}{z}\sigma_1+\sum\limits_{j=1}^{m}
+M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1+\sum\limits_{j=1}^{m}
 \left(\dfrac{C_j\mathbf v_je_2^T}{z-\zeta_j}
 -\dfrac{\conj{C_j}\mathbf u_je_1^T}{z-\conj{\zeta_j}}\right),
 \end{equation}
 在第一列取 $z=\zeta_j$, 在第二列取 $z=\conj{\zeta_j}$, 得正则列的留数系统
 \begin{align}
-\mathbf v_j&=e_1-\dfrac{\ii q_0}{\zeta_j}e_2
+&\mathbf v_j=e_1-\dfrac{\ii q_0}{\zeta_j}e_2
 -\sum\limits_{k=1}^{m}\dfrac{\conj{C_k}\mathbf u_k}{\zeta_j-\conj{\zeta_k}},\label{eq:finite1}\\
-\mathbf u_j&=e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1
+&\mathbf u_j=e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1
 +\sum\limits_{k=1}^{m}\dfrac{C_k\mathbf v_k}{\conj{\zeta_j}-\zeta_k}.\label{eq:finite2}
 \end{align}
-反之, 任一系统解通过 \eqref{eq:partialfraction} 给出具有指定留数和两处归一化的矩阵. 记
+反之, 任一留数系统的解通过上述部分分式给出具有指定留数和两处归一化的矩阵.
+为求解该系统, 记
 \begin{equation*}
 A_{jk}=\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}},\qquad
 B_{jk}=\dfrac{C_k}{\conj{\zeta_j}-\zeta_k},\qquad j,k=1,\ldots,m,
@@ -64,7 +67,10 @@ q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\mathbf v_j)_1.
 \end{equation}
 
 \begin{theorem}\label{thm:N-orbit-RHP}
-设数据满足定义 \ref{def:orbit-data}, 且 $\det L_N(x,t)\ne0$. 则式 \eqref{eq:finite-schur} 和 \eqref{eq:partialfraction} 给出无反射 RHP 的唯一解. 它满足 \eqref{eq:Msym} 及 $\det M=\gamma$, 在分支点解析且秩为一. 令
+设数据满足定义 \ref{def:orbit-data}.
+对每个满足 $\det L_N(x,t)\ne0$ 的实数对 $(x,t)$,
+式 \eqref{eq:finite-schur} 与部分分式表示给出该点处无反射 RHP 的唯一解.
+它满足约化关系 \eqref{eq:Msym} 及 $\det M=\gamma$, 在分支点解析且秩为一. 令
 \begin{equation}\label{eq:N-rhs}
 \begin{aligned}
 &\boldsymbol C=(C_1,\ldots,C_m)^T,\qquad
@@ -86,8 +92,9 @@ R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
 两个符号给出相同结果; 相应三场按 \eqref{eq:original-fields} 恢复.
 \end{theorem}
 \begin{proof}
-(1) 约化关系. 由 $\det L_N\ne0$, 留数系统 \eqref{eq:finite1}--\eqref{eq:finite2} 唯一确定 \eqref{eq:partialfraction} 中的正则列.
-共轭变换 $\sigma_2\conj{M(\conj{z})}\sigma_2$ 交换两组极点, 满足同一留数系统 \eqref{eq:finite1}--\eqref{eq:finite2} 和两处渐近归一化 \eqref{eq:Minfty}--\eqref{eq:Mzero}. 换叶变换
+(1) 约化关系. 由 $\det L_N\ne0$, 留数系统唯一确定部分分式中的正则列.
+共轭变换 $\sigma_2\conj{M(\conj{z})}\sigma_2$ 交换两组极点, 满足同一留数系统和两处归一化.
+换叶变换
 \begin{equation*}
 \widehat M(z)=M(h(z))\left(\dfrac{\ii z}{q_0}\sigma_1\right)^{-1}
 \end{equation*}
@@ -109,21 +116,27 @@ R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
 \det\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}
 =\det L_N\left(q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r\right),
 \end{equation*}
-得到第二式. 共振原像不在离散谱中, 且 $\gamma(z_a^\pm)>0$, 所以逆矩阵存在. 两个原像互为换叶, $\lambda(h(z))=-\lambda(z)$, 而 $\sigma_1\sigma_3\sigma_1=-\sigma_3$; 代入换叶约化 \eqref{eq:Msym} 即得 \eqref{eq:N-medium} 与谱叶无关.
+得到第二式. 共振原像不在离散谱中, 且 $\gamma(z_a^\pm)>0$, 所以逆矩阵存在.
+两个原像互为换叶, $\lambda$ 变号, 而 $\sigma_1\sigma_3\sigma_1=-\sigma_3$;
+代入换叶约化即知介质重构与谱叶无关.
 \end{proof}
 
 \subsection{纯虚单轨道数据与全局矩阵解}
+下面选取纯虚单轨道, 通过显式消元证明其 Schur 补行列式处处非零.
 取一个纯虚离散轨道
 \begin{equation}\label{eq:imaginarypoint}
-k_1=\ii b,\qquad b>q_0,\qquad
-\kappa=\sqrt{b^2-q_0^2},\qquad W=b+\kappa,\qquad h_0=\dfrac{q_0}{W}\in(0,1).
+\begin{aligned}
+&k_1=\ii b,\qquad b>q_0,\qquad \kappa=\sqrt{b^2-q_0^2},\\
+&W=b+\kappa,\qquad h_0=\dfrac{q_0}{W}\in(0,1).
+\end{aligned}
 \end{equation}
 两个 $D_+$ 零点与透射函数为
 \begin{equation}\label{eq:onezeros}
 \zeta_1=\ii W,\qquad \zeta_2=-\ii q_0h_0=h(\conj{\zeta_1}),\qquad
 s_{22}(z)=\dfrac{\lambda(z)-\ii\kappa}{\lambda(z)+\ii\kappa}.
 \end{equation}
-这正是无反射迹公式 \eqref{eq:trace} 的两因子乘积, 其在 $0,\infty$ 均趋于 1. 在外部零点选择 $b_1(0)=1$, 并由 \eqref{eq:cpair} 确定另一常数:
+这正是无反射迹公式的两因子乘积, 其在 $0,\infty$ 均趋于 1.
+在外部零点选择 $b_1(0)=1$, 再用范数常数的配对约束, 得
 \begin{equation}\label{eq:onec}
 c_1(0)=\dfrac{1}{s_{22}'(\zeta_1)}=\dfrac{4\ii\kappa}{1+h_0^2},\qquad
 c_2(0)=-h_0^2c_1(0).
@@ -141,21 +154,23 @@ s=\kappa[x-F(\ii b)t],\qquad T=e^{2s}.
 \end{equation}
 则其解为
 \begin{align}
-\mathbf v_1&=\dfrac{1+h_0^2}{\Delta_-}
-\begin{pmatrix}1-h_0\conj{T}\\\conj{T}-h_0\end{pmatrix},&
-\mathbf u_1&=\dfrac{1+h_0^2}{\Delta_-}
+&\mathbf v_1=\dfrac{1+h_0^2}{\Delta_-}
+\begin{pmatrix}1-h_0\conj{T}\\\conj{T}-h_0\end{pmatrix},\qquad
+\mathbf u_1=\dfrac{1+h_0^2}{\Delta_-}
 \begin{pmatrix}h_0-T\\1-h_0T\end{pmatrix},\label{eq:direct-vu1}\\
-\mathbf v_2&=\dfrac{1}{h_0}\mathbf u_1,&
-\mathbf u_2&=-\dfrac{1}{h_0}\mathbf v_1.\label{eq:direct-vu2}
+&\mathbf v_2=\dfrac{1}{h_0}\mathbf u_1,\qquad
+\mathbf u_2=-\dfrac{1}{h_0}\mathbf v_1.\label{eq:direct-vu2}
 \end{align}
 \end{lemma}
 \begin{proof}
-将 \eqref{eq:onezeros}--\eqref{eq:onec} 与 \eqref{eq:orbit-phase} 代入 \eqref{eq:finite1}--\eqref{eq:finite2} 的系数表达式得到
+代入上述谱点与范数数据, 留数系统的系数矩阵成为
 \begin{equation}\label{eq:one-AB}
-A=\dfrac{1}{1+h_0^2}
-\begin{pmatrix}(h_0^2-1)\conj{T}&2h_0^2T\\-2\conj{T}&(h_0^2-1)T\end{pmatrix},\quad
-B=\dfrac{1}{1+h_0^2}
+\begin{aligned}
+&A=\dfrac{1}{1+h_0^2}
+\begin{pmatrix}(h_0^2-1)\conj{T}&2h_0^2T\\-2\conj{T}&(h_0^2-1)T\end{pmatrix},\\
+&B=\dfrac{1}{1+h_0^2}
 \begin{pmatrix}(h_0^2-1)T&2h_0^2\conj{T}\\-2T&(h_0^2-1)\conj{T}\end{pmatrix}.
+\end{aligned}
 \end{equation}
 对应右端为
 \begin{equation*}
@@ -164,13 +179,7 @@ f_2=\begin{pmatrix}1\\h_0^{-1}\end{pmatrix},\quad
 g_1=\begin{pmatrix}h_0\\1\end{pmatrix},\quad
 g_2=\begin{pmatrix}-h_0^{-1}\\1\end{pmatrix}.
 \end{equation*}
-两个向量分量分别满足 \eqref{eq:N-block-system} 给出的同一四阶标量系数系统,
-\begin{equation*}
-\begin{pmatrix}I_2&A\\-B&I_2\end{pmatrix}
-\begin{pmatrix}\boldsymbol v\\\boldsymbol u\end{pmatrix}
-=\begin{pmatrix}\boldsymbol f\\\boldsymbol g\end{pmatrix}.
-\end{equation*}
-其 Schur 补行列式为
+两个向量分量分别满足前述分块系统, 其 Schur 补行列式为
 \begin{equation}\label{eq:one-schur-det}
 \det(I_2+AB)=\dfrac{\Delta_-\Delta_+}{(1+h_0^2)^2}>0.
 \end{equation}
@@ -185,10 +194,10 @@ g_2=\begin{pmatrix}-h_0^{-1}\\1\end{pmatrix}.
 \begin{pmatrix}1-h_0\conj{T}&\conj{T}-h_0\\
 \dfrac{h_0-T}{h_0}&\dfrac{1-h_0T}{h_0}\end{pmatrix}.
 \end{equation*}
-由 \eqref{eq:finite-schur} 中的 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$ 得到其余两列, 即 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2}.
+再由 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$ 得到其余两列, 即得所述显式解.
 \end{proof}
 
-将 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2} 代入部分分式表示 \eqref{eq:partialfraction}. 其系数可用以下秩一正交投影写成紧凑形式:
+将所得列向量代入部分分式, 合并后可用以下秩一正交投影表示其系数:
 \begin{equation}\label{eq:algebraic-P}
 P=\dfrac{1}{\Delta_-}
 \begin{pmatrix}
@@ -201,20 +210,20 @@ P=\dfrac{1}{\Delta_-}
 \begin{theorem}\label{thm:oneRHP}\label{prop:unique-reflectionless}
 在背景参数 $q_0>0$, $a\ne0$, $\eta_0\ne0$, $\alpha,\beta\in\mathbb R$ 和 $b>q_0$ 下, 数据 \eqref{eq:onezeros}--\eqref{eq:onec} 的无反射 RHP 有唯一解
 \begin{equation}\label{eq:explicitM}
-M(z)=H\bigl[(k(z)+\ii b)I-2\ii bP\bigr]Y(z)
+M(z)=H\bigl[(k(z)+\ii b)\Id-2\ii bP\bigr]Y(z)
 \diag\left(\dfrac{1}{\lambda(z)+\ii\kappa},\dfrac{1}{\lambda(z)-\ii\kappa}\right)H^{-1}.
 \end{equation}
 它满足定义 \ref{def:RHP} 的全部条件, 在分支点、谱交点与共振原像解析, 在分支点秩为一, 在共振原像可逆.
 \end{theorem}
 \begin{proof}
-在部分分式 \eqref{eq:partialfraction} 的第二列合并分母,
+在部分分式的第二列合并分母,
 $(z-\zeta_1)(z-\zeta_2)=2z(\lambda-\ii\kappa)$, 第一列同理. 利用
 $2bh_0=q_0(1+h_0^2)$、$2\kappa h_0=q_0(1-h_0^2)$ 化简分子, 得到 \eqref{eq:explicitM}.
 由引理 \ref{lem:direct-solve}, 留数系统对全体实 $x,t$ 唯一可解, 故定理 \ref{thm:N-orbit-RHP} 保证 \eqref{eq:explicitM} 满足 RHP 的留数、归一化及约化条件.
 
 记
 \begin{equation}\label{eq:Nfactor}
-N(k)=(k+\ii b)I-2\ii bP.
+N(k)=(k+\ii b)\Id-2\ii bP.
 \end{equation}
 $P$ 的特征值为 $1,0$, 故
 \begin{equation*}

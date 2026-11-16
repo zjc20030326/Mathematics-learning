@@ -1,15 +1,134 @@
 {
   "sources": {
     "tex_files": 9,
-    "labels": 201,
-    "references": 306,
+    "labels": 213,
+    "references": 228,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
+    "subsections": 13,
     "spatial_Jost_then_time_evolution_with_single_scattering_matrix": true,
-    "cited_bibliography_entries": 18
+    "cited_bibliography_entries": 18,
+    "citation_source_files": [
+      "01-introduction.tex",
+      "02-model.tex",
+      "03-direct-scattering.tex",
+      "04-evolution-resonance.tex",
+      "05-rhp-reconstruction.tex",
+      "06-reflectionless.tex",
+      "07-hmb-verification.tex",
+      "08-numerics.tex"
+    ],
+    "first_citation_order": [
+      "PN1995",
+      "LHP2013",
+      "ZZ2026",
+      "LXW2021",
+      "LTPY2020",
+      "Guo2022",
+      "LZX2021",
+      "LL2026",
+      "BGKL2019",
+      "KM2014",
+      "FKM2017",
+      "LM2024",
+      "WHH2025",
+      "Fan2022",
+      "ZhangFan2020",
+      "ZCY2020",
+      "BM2019",
+      "BPZ2024"
+    ]
   },
   "build": "XeLaTeX, BibTeX, XeLaTeX, XeLaTeX",
+  "bibliography": {
+    "style": "gbt7714-unsrt",
+    "loaded_bst": "gbt7714-unsrt.bst",
+    "cited_entries": 18,
+    "build_aux_entries": 18,
+    "build_bbl_entries": 18,
+    "first_citation_order": [
+      "PN1995",
+      "LHP2013",
+      "ZZ2026",
+      "LXW2021",
+      "LTPY2020",
+      "Guo2022",
+      "LZX2021",
+      "LL2026",
+      "BGKL2019",
+      "KM2014",
+      "FKM2017",
+      "LM2024",
+      "WHH2025",
+      "Fan2022",
+      "ZhangFan2020",
+      "ZCY2020",
+      "BM2019",
+      "BPZ2024"
+    ],
+    "build_aux_first_citation_order": [
+      "PN1995",
+      "LHP2013",
+      "ZZ2026",
+      "LXW2021",
+      "LTPY2020",
+      "Guo2022",
+      "LZX2021",
+      "LL2026",
+      "BGKL2019",
+      "KM2014",
+      "FKM2017",
+      "LM2024",
+      "WHH2025",
+      "Fan2022",
+      "ZhangFan2020",
+      "ZCY2020",
+      "BM2019",
+      "BPZ2024"
+    ],
+    "build_aux_numbers": {
+      "PN1995": 1,
+      "LHP2013": 2,
+      "ZZ2026": 3,
+      "LXW2021": 4,
+      "LTPY2020": 5,
+      "Guo2022": 6,
+      "LZX2021": 7,
+      "LL2026": 8,
+      "BGKL2019": 9,
+      "KM2014": 10,
+      "FKM2017": 11,
+      "LM2024": 12,
+      "WHH2025": 13,
+      "Fan2022": 14,
+      "ZhangFan2020": 15,
+      "ZCY2020": 16,
+      "BM2019": 17,
+      "BPZ2024": 18
+    },
+    "build_bbl_order": [
+      "PN1995",
+      "LHP2013",
+      "ZZ2026",
+      "LXW2021",
+      "LTPY2020",
+      "Guo2022",
+      "LZX2021",
+      "LL2026",
+      "BGKL2019",
+      "KM2014",
+      "FKM2017",
+      "LM2024",
+      "WHH2025",
+      "Fan2022",
+      "ZhangFan2020",
+      "ZCY2020",
+      "BM2019",
+      "BPZ2024"
+    ],
+    "source_aux_numbers_and_bbl_order_match": true
+  },
   "log_warnings_errors_overfull_underfull": [],
   "pdf_pages": 39,
   "top_level_sections": [
@@ -41,7 +160,7 @@
     [
       1,
       "6. 无反射 RHP 与轨道构造",
-      26
+      27
     ],
     [
       1,
@@ -55,13 +174,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 386,
+  "pdf_links_checked": 309,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "3bc6ca14a3d60ad2b015c387438f9e067ed66f909bf3533c57aa83a73870a54d",
-  "visual_review": "Inspected the new cited discrete-spectrum proposition on PDF page 14 and the finite coefficient-matching proof on pages 17-18. No clipping or equation-number collision; original equation numbers retained. Final display layout rebuilt with two additional XeLaTeX passes."
+  "pdf_sha256": "7486bcb8dc41f418a1a2f6d84eb308f226b4c375bff19dda60f25a46c3d8ed50",
+  "visual_review": "Inspected final rendered PDF pages 3,6,16-19,21-23,25,28-32 for assumptions, left-edge multiline displays, asymptotic coefficients, phase signs, residue conditions and Schur formulas. Equation 6.12 split to keep its tag beside the block. No overlap or clipping observed."
 }

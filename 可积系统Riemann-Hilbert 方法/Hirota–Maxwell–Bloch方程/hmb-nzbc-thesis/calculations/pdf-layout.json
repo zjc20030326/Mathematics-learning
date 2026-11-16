@@ -1,174 +1,63 @@
 {
-  "generated_utc": "2026-11-16T07:14:36.038451+00:00",
-  "scope": "Cited L2 discrete-spectrum definition and new proposition; finite coefficient-matching proof with a short independent uniform-remainder verification. Explanation unchanged.",
+  "generated_utc": "2026-11-16T09:57:56.716871+00:00",
+  "scope": "Clarified x-space and t-regularity; I_2 identities; left-edge multiline displays; concise asymptotics; sections 4-6 consistency. Explanation frozen.",
   "pdf": "fduthesis.pdf",
   "pages": 39,
-  "sha256": "3bc6ca14a3d60ad2b015c387438f9e067ed66f909bf3533c57aa83a73870a54d",
-  "bookmarks": [
-    [
-      1,
-      "目 录",
-      1
-    ],
-    [
-      1,
-      "1. 绪论",
-      2
-    ],
-    [
-      1,
-      "2. HMB 模型、基本条件与背景谱问题",
-      2
-    ],
-    [
-      2,
-      "2.1 HMB 方程与基本条件",
-      3
-    ],
-    [
-      2,
-      "2.2 Lax 表示与规范变换",
-      4
-    ],
-    [
-      2,
-      "2.3 背景谱与单值化",
-      6
-    ],
-    [
-      1,
-      "3. 非零背景的直接散射",
-      7
-    ],
-    [
-      2,
-      "3.1 Jost 解及其解析性质",
-      8
-    ],
-    [
-      2,
-      "3.2 散射数据与离散谱",
-      11
-    ],
-    [
-      2,
-      "3.3 两处无穷远的渐近展开",
-      16
-    ],
-    [
-      1,
-      "4. 散射演化与共振相容性",
-      18
-    ],
-    [
-      1,
-      "5. 矩阵 RHP 与三场重构",
-      21
-    ],
-    [
-      2,
-      "5.1 矩阵 RHP 与积分表示",
-      21
-    ],
-    [
-      2,
-      "5.2 三场重构与迹公式",
-      24
-    ],
-    [
-      1,
-      "6. 无反射 RHP 与轨道构造",
-      26
-    ],
-    [
-      2,
-      "6.1 多轨道无反射解",
-      26
-    ],
-    [
-      2,
-      "6.2 纯虚单轨道数据与全局矩阵解",
-      29
-    ],
-    [
-      1,
-      "7. 单轨道三场解的全局性与方程验证",
-      31
-    ],
-    [
-      1,
-      "8. 数值结果与动力学分析",
-      34
-    ],
-    [
-      2,
-      "8.1 三场分布与传播特征",
-      34
-    ],
-    [
-      2,
-      "8.2 参数影响与数值核验",
-      36
-    ],
-    [
-      1,
-      "参考文献",
-      38
-    ]
-  ],
-  "key_pages_rendered": {
-    "prop:discrete-spectrum": 14,
-    "prop:quartet": 15,
-    "eq:Cpair": 16,
-    "prop:highenergy": 16,
-    "eq:mu-highenergy-system": 17,
-    "eq:n-volterra-system": 17,
-    "eq:asymptotic-L1-control": 18,
-    "eq:Mspace": 24,
-    "eq:N-determinant-q": 28
+  "sha256": "7486bcb8dc41f418a1a2f6d84eb308f226b4c375bff19dda60f25a46c3d8ed50",
+  "labels_preserved_by_file": {
+    "01-introduction.tex": 0,
+    "02-model.tex": 38,
+    "03-direct-scattering.tex": 77,
+    "04-evolution-resonance.tex": 14,
+    "05-rhp-reconstruction.tex": 27,
+    "06-reflectionless.tex": 29,
+    "07-hmb-verification.tex": 11,
+    "08-numerics.tex": 9
   },
-  "all_rendered_pages": [
-    14,
-    15,
+  "aux_label_numbers_preserved": 213,
+  "unchanged_explanation_files": 53,
+  "unchanged_figure_pdfs": 5,
+  "top_level_alignment": [
+    "01-introduction.tex: 0 environments, 0 invalid rows",
+    "02-model.tex: 7 environments, 0 invalid rows",
+    "03-direct-scattering.tex: 24 environments, 0 invalid rows",
+    "04-evolution-resonance.tex: 1 environments, 0 invalid rows",
+    "05-rhp-reconstruction.tex: 5 environments, 0 invalid rows",
+    "06-reflectionless.tex: 6 environments, 0 invalid rows",
+    "07-hmb-verification.tex: 4 environments, 0 invalid rows",
+    "08-numerics.tex: 1 environments, 0 invalid rows"
+  ],
+  "identity_notation": "I_2 for 2x2 matrices; I_m for general dimension; I only time interval",
+  "interval_uses_audited": 19,
+  "out_of_page_text_spans": [],
+  "exact_identity_checks": 48,
+  "source_sha256": {
+    "fduthesis.tex": "ff321b0fc913def4c6a93859ee6ebe65de8b7d33564924d4ab9d31bcfac38991",
+    "section\\01-introduction.tex": "edf111896b1575791573139a98d157780823364290c3551fee7c8dac652781ae",
+    "section\\02-model.tex": "495a7f027629be01e793fab238be500254b6850e35a0af177b3cb66c63197028",
+    "section\\03-direct-scattering.tex": "5fdf0f2f8a6b1df698b941b8aaae3ae58bc522ac54e9e4a9286fab0a1d6e22ef",
+    "section\\04-evolution-resonance.tex": "021620d90b73cc617b5c9cd8b05ce04755d847e021262acca37923152b6d22a6",
+    "section\\05-rhp-reconstruction.tex": "53359203f4911cdeea1a8132df94d1bfd5a9747a9523181db12bfda38a101b8d",
+    "section\\06-reflectionless.tex": "c9049cdd58a03b468cef59458071fe036c77a5cdb43b384efb62091e421fb2d3",
+    "section\\07-hmb-verification.tex": "fadd645c871b2652f5a257e99a0d8216217e7c29dbd60c6cdede87e95809266c",
+    "section\\08-numerics.tex": "2946d13fe75ac69912ff76206449edc3ca8c25f1aea01dc7b9e65c16f0165312"
+  },
+  "visual_review": "Inspected final rendered PDF pages 3,6,16-19,21-23,25,28-32. Blocks remain centered with left-edge multiline rows; definition and time maps, coefficients and h substitution, RHP/residue and Schur layouts checked. No overlap or clipping observed.",
+  "reviewed_pdf_pages": [
+    3,
+    6,
     16,
     17,
     18,
-    24,
-    28
-  ],
-  "build_log_issues": [],
-  "blank_pages": [],
-  "out_of_page_text_words": [],
-  "pdf_links_checked": 386,
-  "invalid_internal_links": [],
-  "original_labels_preserved": true,
-  "new_label": "prop:discrete-spectrum",
-  "equation_number_check": {
-    "labels_compared": 148,
-    "mismatches": {}
-  },
-  "proposition_numbers": {
-    "discrete_spectrum": "3.4",
-    "columns_and_residues": "3.5",
-    "asymptotics": "3.6"
-  },
-  "method": "One finite asymptotic order; coefficient matching; uniform Volterra remainder and derivative estimates retained.",
-  "exact_existing_algebraic_checks_passed": 48,
-  "additional_coefficient_matching_checks_passed": 2,
-  "literature": {
-    "L2_definition": "Zhang-Fan 2020, section 6, PDF page 10.",
-    "asymptotic_estimate_method": "Biondini-Gabitov-Kovacic-Li 2019, section III.C and Appendix A.3; coefficients derived independently."
-  },
-  "explanation_files_verified_unchanged": 53,
-  "source_sha256": {
-    "fduthesis.tex": "bf090b49309e6235d8223d7dd01e9089b703d8dd3750dd792001ef51a1f93b01",
-    "section\\01-introduction.tex": "edf111896b1575791573139a98d157780823364290c3551fee7c8dac652781ae",
-    "section\\02-model.tex": "b784ed8d466d23d31113d5b2bf0d370d752c5d061f3baa3365720bc13c4da65e",
-    "section\\03-direct-scattering.tex": "1a74c23754e7e3193b7e7430ceee0b68ea6325f11936831a8ca3c03380833e49",
-    "section\\04-evolution-resonance.tex": "73197fd5d7cc81bf92d5a8210657528284a8cd0ac0c7911c107a93707a21b5e9",
-    "section\\05-rhp-reconstruction.tex": "8610045baaf7cdf54f39afb74035649153ac9cc625c405c55642c1eadcb40fde",
-    "section\\06-reflectionless.tex": "0a5062f7ea2feb04a5953c11752eee00bcd7fe74553eb7033c923772491e5e95",
-    "section\\07-hmb-verification.tex": "3e3a468b919f81ad01cb695f744309fb9875829cc848b2b4bb41adfc21702fba",
-    "section\\08-numerics.tex": "2c81a97d8655fea9e704911c1d47e145794a0a5eef47abf383b66df45b5d45b0"
-  }
+    19,
+    21,
+    22,
+    23,
+    25,
+    28,
+    29,
+    30,
+    31,
+    32
+  ]
 }

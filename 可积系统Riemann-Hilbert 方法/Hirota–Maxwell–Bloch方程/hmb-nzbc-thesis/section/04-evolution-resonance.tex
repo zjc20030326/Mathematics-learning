@@ -12,8 +12,8 @@ $V_\infty Y=\ii\lambda FY\sg$, 因而 $Y(z)e^{\ii\theta(x,t,z)\sg}$ 满足背景
 空间 Jost 矩阵及其修正矩阵满足
 \begin{equation}\label{eq:chi-time}
 \begin{aligned}
-\chi_{\pm,t}(x,t,z)&=V(x,t,z)\chi_\pm(x,t,z)-\ii\lambda F\chi_\pm(x,t,z)\sg,\\
-\mu_{\pm,t}(x,t,z)&=V(x,t,z)\mu_\pm(x,t,z)-\ii\lambda F\mu_\pm(x,t,z)\sg.
+&\chi_{\pm,t}(x,t,z)=V(x,t,z)\chi_\pm(x,t,z)-\ii\lambda F\chi_\pm(x,t,z)\sg,\\
+&\mu_{\pm,t}(x,t,z)=V(x,t,z)\mu_\pm(x,t,z)-\ii\lambda F\mu_\pm(x,t,z)\sg.
 \end{aligned}
 \end{equation}
 散射矩阵满足 $S_x=0$ 和 $S_t=[\ii\lambda F\sg,S]$, 因而
@@ -27,21 +27,21 @@ S(z,t)=e^{\ii\lambda Ft\widehat{\sigma}_3}S(z,0).
 \end{equation}
 \end{proposition}
 \begin{proof}
-基本条件 \eqref{eq:evolution-regularity} 中的 $C^1(I;L^1)$ 正则性允许对积分方程 \eqref{eq:volterra} 求时间导数.
+基本条件中的 $C^1(I;L^1(\mathbb R))$ 时间正则性允许对 Volterra 方程求时间导数.
 在避开 $0,\pm\ii q_0,z_a^\pm$ 的谱参数紧集上, Volterra 核与时间导数的迭代由可积函数一致控制.
 令 $Z_\pm=\mu_{\pm,t}-V\mu_\pm+\ii\lambda F\mu_\pm\sg$.
-由 \eqref{eq:gaugelax} 对应的零曲率关系与 \eqref{eq:jost-modified-lax}, 得
+由零曲率关系与修正空间方程, 得
 \begin{equation*}
 (Z_\pm)_x=UZ_\pm+\ii\lambda Z_\pm\sg.
 \end{equation*}
-由微分后的 \eqref{eq:volterra} 作端态估计, 得 $\mu_{\pm,t}\to0$.
-又在各自端点由端点归一化 \eqref{eq:modified-jost-bc} 有 $\mu_\pm\to Y$ 和 $V-V_\infty\to0$,
+由微分后的积分方程作端态估计, 得 $\mu_{\pm,t}\to0$.
+又在各自归一化端有 $\mu_\pm\to Y$ 和 $V-V_\infty\to0$,
 且 $V_\infty Y=\ii\lambda FY\sg$, 所以 $Z_\pm\to0$.
-对各列应用 \eqref{eq:volterra} 的唯一性论证, 得到 $Z_\pm=0$, 即 \eqref{eq:chi-time} 第二式.
-再由 \eqref{eq:modified-jost}, 得到 \eqref{eq:chi-time} 第一式.
+对各列应用 Volterra 唯一性, 得到 $Z_\pm=0$, 即 \eqref{eq:chi-time} 第二式.
+再乘回空间指数, 得到第一式.
 同样的逐列论证适用于各解析列.
 
-对 \eqref{eq:Sdef} 求时间导数, 代入 \eqref{eq:chi-time} 第一式并消去相同的 $V$ 项, 有
+对空间散射关系求时间导数, 代入 $\chi_\pm$ 的时间方程并消去相同的 $V$ 项, 有
 \begin{equation*}
 \chi_-S_t=\chi_-[\ii\lambda F\sg,S].
 \end{equation*}
@@ -55,7 +55,7 @@ e^{-2\ii\lambda Ft}s_{21}(z,0)&s_{22}(z,0)
 \end{pmatrix}.
 \end{equation*}
 对角元不变, 非对角元除以相应透射系数即得 \eqref{eq:timer}.
-在解析域内, 将 \eqref{eq:chi-time} 第二式代入 \eqref{eq:wronskian}, 同样得到
+在解析域内, 将相应列的时间方程代入 Wronskian 表达式, 同样得到
 $\partial_t s_{11}=\partial_t s_{22}=0$, 所以离散零点不随 $t$ 变化.
 \end{proof}
 
@@ -65,9 +65,9 @@ $\partial_t s_{11}=\partial_t s_{22}=0$, 所以离散零点不随 $t$ 变化.
 \phi_\pm(x,t,z)=\chi_\pm(x,t,z)e^{\ii\lambda Ft\sg}
 =\mu_\pm(x,t,z)e^{\ii\theta(x,t,z)\sg}.
 \end{equation}
-由 \eqref{eq:jost-modified-lax} 及 \eqref{eq:chi-time}, 有 $\phi_{\pm,x}=U\phi_\pm$, $\phi_{\pm,t}=V\phi_\pm$.
+由修正空间方程与时间方程, 有 $\phi_{\pm,x}=U\phi_\pm$, $\phi_{\pm,t}=V\phi_\pm$.
 相应结论适用于各自域内的解析列.
-记 $\Delta V=V-V_\infty$, 由 \eqref{eq:full-jost} 可将修正 Jost 矩阵的全微分形式写为
+记 $\Delta V=V-V_\infty$, 修正 Jost 矩阵的全微分形式为
 \begin{equation}\label{eq:jost-total-differential}
 \dd\!\left(e^{-\ii\theta\widehat{\sigma}_3}(Y^{-1}\mu_\pm)\right)
 =e^{-\ii\theta\widehat{\sigma}_3}\!\left[Y^{-1}(\Delta Q\,\dd x+\Delta V\,\dd t)\mu_\pm\right].
@@ -101,7 +101,7 @@ b_j'(t)\mu_{-,1}
 \end{equation*}
 该列非零, 从而得到 $b_j$ 的标量常微分方程.
 积分即得第一式; $s_{22}'(\zeta_j)$ 不随时间变化, 得到第二式.
-再代入 \eqref{eq:norming-definition} 中 $C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}$, 得 \eqref{eq:C-timephase}.
+再代入 $C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}$, 得 \eqref{eq:C-timephase}.
 \end{proof}
 
 介质矩阵的共同端态为
@@ -128,7 +128,7 @@ R_\infty=\begin{pmatrix}
 \begin{proof}
 Jost 矩阵在 $z_a^\pm$ 正则, 且 $\det\mu_\pm=\gamma(z_a^\pm)>0$.
 固定其中一个原像 $z_a$, 记 $B_\pm=\mu_\pm(z_a)^{-1}R\mu_\pm(z_a)$.
-将 \eqref{eq:gauged-HMB} 的两条介质方程写为 $R_x=[U(a),R]$, 由 \eqref{eq:jost-modified-lax} 得
+将两条介质方程写为 $R_x=[U(a),R]$, 由修正空间方程得
 \begin{equation*}
 \partial_x B_\pm+\ii\lambda(z_a)[\sg,B_\pm]
 =\mu_\pm^{-1}(R_x-[U(a),R])\mu_\pm=0.
@@ -137,12 +137,12 @@ Jost 矩阵在 $z_a^\pm$ 正则, 且 $\det\mu_\pm=\gamma(z_a^\pm)>0$.
 \begin{equation*}
 \partial_x\!\left(e^{\ii\lambda(z_a)x\widehat{\sigma}_3}B_\pm\right)=0.
 \end{equation*}
-由背景恒等式,
+由 $R_\infty=\dfrac{\ii\eta_0}{a}U_\infty(a)$ 及背景对角化关系,
 \begin{equation*}
 Y(z_a)^{-1}R_\infty Y(z_a)=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
 \end{equation*}
 $\lambda(z_a)=\pm\sqrt{a^2+q_0^2}$ 为非零实数.
-指数矩阵及其逆有界, 并与 $\sg$ 对易. 在 $x\to\pm\infty$ 处由端点归一化 \eqref{eq:modified-jost-bc} 取极限, 得到 \eqref{eq:resonance-conjugation}.
+指数矩阵及其逆有界, 并与 $\sg$ 对易. 在各自归一化端取极限, 得到 \eqref{eq:resonance-conjugation}.
 再由 \eqref{eq:Sdef-mu} 及对角指数与 $\sg$ 的对易性, 得
 \begin{equation*}
 S(z_a,t)^{-1}\dfrac{\eta_0\lambda(z_a)}{a}\sg S(z_a,t)

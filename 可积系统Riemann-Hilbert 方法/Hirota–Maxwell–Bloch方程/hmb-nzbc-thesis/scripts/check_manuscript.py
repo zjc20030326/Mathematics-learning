@@ -13,6 +13,73 @@ import pymupdf
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def first_citation_order(text):
+    """Read natbib citation keys in source order, ignoring TeX comments."""
+    text = re.sub(r'(?<!\\)%[^\n]*', '', text)
+    pattern = re.compile(
+        r'\\(?:cite(?:p|t|alp|alt|author|yearpar|year|num)?'
+        r'|Cite(?:p|t|alp|alt|author)?)(?![A-Za-z])\*?\s*'
+        r'(?:\[[^\]]*\]\s*){0,2}\{([^{}]+)\}')
+    order = []
+    seen = set()
+    for match in pattern.finditer(text):
+        for key in match[1].split(','):
+            key = key.strip()
+            assert key and key != '*', ('invalid citation key', key)
+            if key not in seen:
+                order.append(key)
+                seen.add(key)
+    return order
+
+
+def bibliography_checks(first_order, aux, bbl, blg):
+    """Match the current build's bibliography to first source citations."""
+    assert first_order and len(first_order) == len(set(first_order)), \
+        'source citation order must contain distinct keys'
+    styles = re.findall(r'\\bibstyle\s*\{([^{}]+)\}', aux)
+    assert styles == ['gbt7714-unsrt'], ('unexpected bibliography style', styles)
+    loaded_styles = re.findall(r'^The style file:\s*(.*?)\s*$', blg, re.MULTILINE)
+    loaded_styles = [s.replace('\\', '/').rsplit('/', 1)[-1] for s in loaded_styles]
+    assert loaded_styles == ['gbt7714-unsrt.bst'], \
+        ('unexpected BibTeX style file', loaded_styles)
+
+    aux_first_order = []
+    for group in re.findall(r'\\citation\s*\{([^{}]+)\}', aux):
+        for key in group.split(','):
+            key = key.strip()
+            if key not in aux_first_order:
+                aux_first_order.append(key)
+    assert aux_first_order == first_order, \
+        ('source/build citation order mismatch', first_order, aux_first_order)
+
+    numbered = re.findall(r'\\bibcite\s*\{([^{}]+)\}\s*\{\{(\d+)\}', aux)
+    assert len(numbered) == len(set(key for key, _ in numbered)), \
+        'duplicate bibliography keys in build aux'
+    assert len(numbered) == len(re.findall(r'\\bibcite\b', aux)), \
+        'unparsed or nonnumeric bibliography labels in build aux'
+    numbers = {key: int(number) for key, number in numbered}
+    expected_numbers = {key: n for n, key in enumerate(first_order, 1)}
+    assert numbers == expected_numbers, \
+        ('bibliography numbers differ from first source citation order',
+         expected_numbers, numbers)
+
+    bibitems = re.findall(r'\\bibitem\s*(?:\[[^\]]*\]\s*)?\{([^{}]+)\}', bbl)
+    assert len(bibitems) == len(re.findall(r'\\bibitem\b', bbl)), \
+        'unparsed bibliography entries in build bbl'
+    assert bibitems == first_order, \
+        ('bibliography entry order differs from first source citations',
+         first_order, bibitems)
+    return {
+        'style': styles[0], 'loaded_bst': loaded_styles[0],
+        'cited_entries': len(first_order),
+        'build_aux_entries': len(numbered), 'build_bbl_entries': len(bibitems),
+        'first_citation_order': first_order,
+        'build_aux_first_citation_order': aux_first_order,
+        'build_aux_numbers': numbers, 'build_bbl_order': bibitems,
+        'source_aux_numbers_and_bbl_order_match': True,
+    }
+
+
 def source_checks():
     files = [ROOT/'fduthesis.tex', *sorted((ROOT/'section').glob('*.tex'))]
     labels = []
@@ -52,7 +119,8 @@ def source_checks():
     body = '\n'.join(p.read_text(encoding='utf-8-sig') for p in files[1:])
     assert not re.search(r'\\(?:textbf|bfseries|paragraph)\b', body)
     assert not re.search(r'\\begin\{(?:theorem|proposition|lemma|definition)\}\[', body)
-    assert len(re.findall(r'\\subsection\{', body)) == 12
+    subsection_count = len(re.findall(r'\\subsection\{', body))
+    assert subsection_count == 13, ('unexpected subsection count', subsection_count)
     assert len(re.findall(r'\\begin\{definition\}', body)) == 3
     assert r'S_{\rm sp}' not in body and r'\rho_{\rm sp}' not in body
     direct = (ROOT/'section/03-direct-scattering.tex').read_text(encoding='utf-8')
@@ -71,17 +139,19 @@ def source_checks():
     assert r'\label{eq:norming-time}' in body
     assert r'\label{lem:RHP-determinant}' in body
     assert r'\label{lem:medium-reduction}' in body
-    citations = set()
-    for match in re.finditer(r'\\cite(?:\[[^\]]*\])?\{([^}]+)\}', body):
-        citations.update(match[1].split(','))
+    citation_order = first_citation_order(body)
+    citations = set(citation_order)
     bibliography = (ROOT/'citelist.bib').read_text(encoding='utf-8')
     keys = set(re.findall(r'@\w+\{([^,\s]+)', bibliography))
     assert not citations-keys, sorted(citations-keys)
     return {'tex_files': len(files), 'labels': len(labels), 'references': len(refs),
             'balanced_delimiters_environments_braces': True,
             'eight_continuous_sections': True, 'forbidden_forms_absent': True,
+            'subsections': subsection_count,
             'spatial_Jost_then_time_evolution_with_single_scattering_matrix': True,
-            'cited_bibliography_entries': len(citations)}
+            'cited_bibliography_entries': len(citations),
+            'citation_source_files': [p.name for p in files[1:]],
+            'first_citation_order': citation_order}
 
 
 def main():
@@ -114,10 +184,14 @@ def main():
     assert not invalid_links, invalid_links
     assert link_count > 30, link_count
     aux = (args.build_dir/'fduthesis.aux').read_text(encoding='utf-8', errors='replace')
+    bbl = (args.build_dir/'fduthesis.bbl').read_text(encoding='utf-8', errors='replace')
+    blg = (args.build_dir/'fduthesis.blg').read_text(encoding='utf-8', errors='replace')
+    bibliography = bibliography_checks(sources['first_citation_order'], aux, bbl, blg)
     eq224 = re.search(r'\\newlabel\{eq:diagE\}\{\{([^}]+)\}\{([^}]+)\}', aux)
     assert eq224
     report = {
         'sources': sources, 'build': 'XeLaTeX, BibTeX, XeLaTeX, XeLaTeX',
+        'bibliography': bibliography,
         'log_warnings_errors_overfull_underfull': bad, 'pdf_pages': len(document),
         'top_level_sections': sections, 'blank_pages': blanks,
         'pdf_links_checked': link_count, 'invalid_internal_links': invalid_links,
