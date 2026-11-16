@@ -120,6 +120,8 @@ def spectral_base(*, discrete=False):
     parameters are asserted. Unlike GI, HMB analyticity is set by Im(lambda),
     so its continuous spectrum is a real axis and a circle, not two axes.
     """
+    # At 0.86 of the 146.4 mm text width, 14 pt prints at about 11.23 pt.
+    label_size = 14
     fig, ax = plt.subplots(figsize=(6.18, 4.2))
     fig.subplots_adjust(left=.06, right=.98, bottom=.07, top=.97)
     ax.set_aspect('equal', adjustable='box')
@@ -153,22 +155,23 @@ def spectral_base(*, discrete=False):
                                     connectionstyle='arc3,rad=.02'))
     for x, y, text in [(-1.76, 1.53, r'$D_+$'), (-1.76, -1.53, r'$D_-$'),
                         (.43, -.43, r'$D_+$'), (.43, .43, r'$D_-$')]:
-        ax.text(x, y, text, ha='center', va='center', fontsize=11)
-    ax.text(2.40, .14, r'$\operatorname{Re}z$', ha='center', fontsize=10)
-    ax.text(.14, 1.94, r'$\operatorname{Im}z$', va='center', fontsize=10)
-    ax.text(.10, -.18, r'$0$', ha='left', va='top', fontsize=9)
+        ax.text(x, y, text, ha='center', va='center', fontsize=label_size)
+    ax.text(2.40, .14, r'$\operatorname{Re}z$', ha='center', fontsize=label_size)
+    ax.text(.14, 1.94, r'$\operatorname{Im}z$', va='center', fontsize=label_size)
+    ax.text(.10, -.18, r'$0$', ha='left', va='top', fontsize=label_size)
     # Intersections of contour arcs and branch points have different symbols.
     ax.plot([-1, 1], [0, 0], ls='', marker='x', ms=5.5, color='#242424')
-    ax.text(-1.20, -.13, r'$-q_0$', ha='center', va='top', fontsize=10)
-    ax.text(1.20, -.13, r'$q_0$', ha='center', va='top', fontsize=10)
+    ax.text(-1.20, -.13, r'$-q_0$', ha='center', va='top', fontsize=label_size)
+    ax.text(1.20, -.13, r'$q_0$', ha='center', va='top', fontsize=label_size)
     ax.plot([0, 0], [-1, 1], ls='', marker='s', ms=4.7,
             mfc='white', mec='#6D4C64', mew=.85)
-    ax.text(.12, 1.04, r'$\mathrm{i}q_0$', va='bottom', fontsize=10)
-    ax.text(.12, -1.05, r'$-\mathrm{i}q_0$', va='top', fontsize=10)
+    ax.text(.12, 1.04, r'$\mathrm{i}q_0$', va='bottom', fontsize=label_size)
+    ax.text(.12, -1.05, r'$-\mathrm{i}q_0$', va='top', fontsize=label_size)
     return fig, ax
 
 
 def spectral_figures():
+    label_size = 14
     fig, ax = spectral_base()
     export(fig, 'analytic-regions')
     fig, ax = spectral_base(discrete=True)
@@ -181,15 +184,15 @@ def spectral_figures():
             mfc='#2B638A', mec='#2B638A', mew=.9)
     ax.plot(np.real(minus), np.imag(minus), ls='', marker='o', ms=5.5,
             mfc='white', mec='#242424', mew=.95)
-    ax.text(zeta.real+.14, zeta.imag+.04, r'$\zeta_j$', fontsize=11,
+    ax.text(zeta.real+.14, zeta.imag+.04, r'$\zeta_j$', fontsize=label_size,
             ha='left', va='bottom')
-    ax.text(zeta.real+.14, -zeta.imag-.04, r'$(\zeta_j)^*$', fontsize=11,
+    ax.text(zeta.real+.14, -zeta.imag-.04, r'$(\zeta_j)^*$', fontsize=label_size,
             ha='left', va='top')
     ax.annotate(r'$h(\zeta_j)$', (hzeta.real, hzeta.imag), (-1.72, .50),
-                fontsize=11, ha='center', va='bottom',
+                fontsize=label_size, ha='center', va='bottom',
                 arrowprops=dict(arrowstyle='-', lw=.55, color='#5E5E5E'))
     ax.annotate(r'$h(\zeta_j^*)$', (hzeta.real, -hzeta.imag), (-1.72, -.50),
-                fontsize=11, ha='center', va='top',
+                fontsize=label_size, ha='center', va='top',
                 arrowprops=dict(arrowstyle='-', lw=.55, color='#5E5E5E'))
     export(fig, 'discrete-spectrum')
     return dict(type='symbolic general complex quartet',

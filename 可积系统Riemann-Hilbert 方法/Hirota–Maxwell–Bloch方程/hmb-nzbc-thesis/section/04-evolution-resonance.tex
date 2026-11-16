@@ -1,5 +1,5 @@
-本节在 HMB 方程成立的条件下确定 Jost 矩阵及散射数据的时间演化,
-再由介质方程证明共振原像处的相容关系.
+本节在规范 HMB 方程 \eqref{eq:gauged-HMB} 成立的条件下确定 Jost 矩阵及散射数据的时间演化,
+再由其中的介质方程证明共振原像处的相容关系.
 在 $k(z)\ne a$ 处, 记完整时空相位为
 \begin{equation}\label{eq:theta}
 \theta(x,t,z)=-\lambda(z)[x-F(k(z))t].
@@ -8,7 +8,7 @@
 $V_\infty Y=\ii\lambda FY\sg$, 因而 $Y(z)e^{\ii\theta(x,t,z)\sg}$ 满足背景 Lax 对.
 
 \begin{proposition}\label{prop:evolution}
-设三场满足基本条件及规范 HMB 系统. 对 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0,z_a^\pm\}$,
+设三场满足基本条件 \eqref{eq:evolution-regularity} 及规范 HMB 系统 \eqref{eq:gauged-HMB}. 对谱参数 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0,z_a^\pm\}$,
 空间 Jost 矩阵及其修正矩阵满足
 \begin{equation}\label{eq:chi-time}
 \begin{aligned}
@@ -27,25 +27,25 @@ S(z,t)=e^{\ii\lambda Ft\widehat{\sigma}_3}S(z,0).
 \end{equation}
 \end{proposition}
 \begin{proof}
-基本条件中的 $C^1(I;L^1)$ 正则性允许对相应 Jost 积分方程求时间导数.
+基本条件 \eqref{eq:evolution-regularity} 中的 $C^1(I;L^1)$ 正则性允许对积分方程 \eqref{eq:volterra} 求时间导数.
 在避开 $0,\pm\ii q_0,z_a^\pm$ 的谱参数紧集上, Volterra 核与时间导数的迭代由可积函数一致控制.
 令 $Z_\pm=\mu_{\pm,t}-V\mu_\pm+\ii\lambda F\mu_\pm\sg$.
-由零曲率关系和 \eqref{eq:jost-modified-lax}, 得
+由 \eqref{eq:gaugelax} 对应的零曲率关系与 \eqref{eq:jost-modified-lax} 第一式, 得
 \begin{equation*}
 (Z_\pm)_x=UZ_\pm+\ii\lambda Z_\pm\sg.
 \end{equation*}
-由微分后的 Volterra 方程作端态估计, 得 $\mu_{\pm,t}\to0$.
-又在各自端点由端点归一化有 $\mu_\pm\to Y$ 和 $V-V_\infty\to0$,
+由微分后的 \eqref{eq:volterra} 作端态估计, 得 $\mu_{\pm,t}\to0$.
+又在各自端点由端点归一化 \eqref{eq:modified-jost} 有 $\mu_\pm\to Y$ 和 $V-V_\infty\to0$,
 且 $V_\infty Y=\ii\lambda FY\sg$, 所以 $Z_\pm\to0$.
-对各列应用 Volterra 唯一性, 得到 $Z_\pm=0$, 即 $\mu_\pm$ 的时间方程.
-再由 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$, 得到 $\chi_\pm$ 的时间方程.
+对各列应用 \eqref{eq:volterra} 的唯一性论证, 得到 $Z_\pm=0$, 即 \eqref{eq:chi-time} 第二式.
+再由 \eqref{eq:modified-jost} 中 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$, 得到 \eqref{eq:chi-time} 第一式.
 同样的逐列论证适用于各解析列.
 
-对散射关系 $\chi_+=\chi_-S$ 求时间导数, 代入 \eqref{eq:chi-time} 并消去相同的 $V$ 项, 有
+对 \eqref{eq:Sdef} 第一式 $\chi_+=\chi_-S$ 求时间导数, 代入 \eqref{eq:chi-time} 第一式并消去相同的 $V$ 项, 有
 \begin{equation*}
 \chi_-S_t=\chi_-[\ii\lambda F\sg,S].
 \end{equation*}
-由 $\chi_-$ 可逆, 得到 $S_t$ 方程及 \eqref{eq:timeS}.
+由 $\chi_-$ 可逆, 得到 $S_t=[\ii\lambda F\sg,S]$ 及 \eqref{eq:timeS}.
 展开上述指数作用,
 \begin{equation*}
 S(z,t)=
@@ -55,7 +55,7 @@ e^{-2\ii\lambda Ft}s_{21}(z,0)&s_{22}(z,0)
 \end{pmatrix}.
 \end{equation*}
 对角元不变, 非对角元除以相应透射系数即得 \eqref{eq:timer}.
-在解析域内, 将列时间方程代入透射系数的 Wronskian 表达式, 同样得到
+在解析域内, 将 \eqref{eq:chi-time} 第二式代入 \eqref{eq:wronskian}, 同样得到
 $\partial_t s_{11}=\partial_t s_{22}=0$, 所以离散零点不随 $t$ 变化.
 \end{proof}
 
@@ -114,7 +114,7 @@ R_\infty=\begin{pmatrix}
 \end{equation}
 
 \begin{proposition}\label{prop:resonance}
-固定 $t\in I$. 设三场满足基本条件及两条介质方程. 则在每个共振原像,
+固定 $t\in I$. 设三场满足基本条件 \eqref{eq:evolution-regularity} 及 \eqref{eq:gauged-HMB} 中的两条介质方程. 则在每个共振原像,
 \begin{equation}\label{eq:resonance-conjugation}
 \mu_\pm(x,t,z_a^\pm)^{-1}R(x,t)\mu_\pm(x,t,z_a^\pm)
 =\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sg.
@@ -128,7 +128,7 @@ R_\infty=\begin{pmatrix}
 \begin{proof}
 Jost 矩阵在 $z_a^\pm$ 正则, 且 $\det\mu_\pm=\gamma(z_a^\pm)>0$.
 固定其中一个原像 $z_a$, 记 $B_\pm=\mu_\pm(z_a)^{-1}R\mu_\pm(z_a)$.
-将介质方程写为 $R_x=[U(a),R]$, 由 \eqref{eq:jost-modified-lax} 得
+将 \eqref{eq:gauged-HMB} 的两条介质方程写为 $R_x=[U(a),R]$, 由 \eqref{eq:jost-modified-lax} 第一式得
 \begin{equation*}
 \partial_x B_\pm+\ii\lambda(z_a)[\sg,B_\pm]
 =\mu_\pm^{-1}(R_x-[U(a),R])\mu_\pm=0.

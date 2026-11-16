@@ -15,7 +15,7 @@
 求关于 $z$ 分片亚纯的二阶矩阵 $M=(M_1,M_2)$, 满足下列条件.
 在 $D_+$ 中第一列解析、第二列仅可在 $\zeta_j$ 处有简单极点,
 在 $D_-$ 中第二列解析、第一列仅可在 $\conj{\zeta_j}$ 处有简单极点, 且满足留数条件
-$\Res_{z=\zeta_j}M_2(z)=C_j(x,t)M_1(\zeta_j)$ 及 $\Res_{z=\conj{\zeta_j}}M_1(z)=-\conj{C_j(x,t)}M_2(\conj{\zeta_j})$ (对应 \eqref{eq:resplus}--\eqref{eq:resminus}).
+$\Res\limits_{z=\zeta_j}M_2(z)=C_j(x,t)M_1(\zeta_j)$ 及 $\Res\limits_{z=\conj{\zeta_j}}M_1(z)=-\conj{C_j(x,t)}M_2(\conj{\zeta_j})$ (对应 \eqref{eq:resplus}--\eqref{eq:resminus}).
 要求普通谱弧上具有局部连续的非切向边界值, 跳跃为
 \begin{equation}\label{eq:jump}
 M_+=M_-J,\qquad
@@ -53,8 +53,8 @@ M_-(z)=\left(\dfrac{\mu_{+,1}}{s_{11}},\mu_{-,2}\right),&z\in D_-.
 则它是相应 RHP 的解.
 \end{proposition}
 \begin{proof}
-解析性与列极点由第 \ref{ch:direct} 节的结果得到.
-由 $\chi_+=\chi_-S$ 及 $\mu_\pm=\chi_\pm e^{\ii\lambda x\sg}$, 逐列得到
+解析性与列极点由定理 \ref{thm:jost} 及命题 \ref{prop:scattering}、\ref{prop:respair} 得到.
+由 \eqref{eq:Sdef} 与 \eqref{eq:modified-jost}, 逐列得到
 \begin{equation*}
 \mu_{+,1}=s_{11}\mu_{-,1}+s_{21}e^{2\ii\lambda x}\mu_{-,2},\qquad
 \mu_{+,2}=s_{12}e^{-2\ii\lambda x}\mu_{-,1}+s_{22}\mu_{-,2}.
@@ -63,11 +63,11 @@ M_-(z)=\left(\dfrac{\mu_{+,1}}{s_{11}},\mu_{-,2}\right),&z\in D_-.
 \begin{equation*}
 M_{+,2}=\widetilde\rho e^{-2\ii\lambda x}M_{-,1}+(1-\rho\widetilde\rho)M_{-,2},
 \end{equation*}
-即 \eqref{eq:jump}. Wronskian 表达式给出
+即 \eqref{eq:jump}. 由 \eqref{eq:wronskian} 给出
 \begin{equation*}
 \det M_+=\dfrac{\det(\mu_{-,1},\mu_{+,2})}{s_{22}}=\gamma,
 \end{equation*}
-另一域同理. 第 \ref{ch:asymptotics} 节的展开确定两处归一化. 共轭约化交换两列和两域; 换叶约化将 $\mu_{-,1}$ 与 $\mu_{-,2}$、$\dfrac{\mu_{+,2}}{s_{22}}$ 与 $\dfrac{\mu_{+,1}}{s_{11}}$ 配对, 因而得到 \eqref{eq:Msym}.
+另一域同理. 由 \eqref{eq:mu-highenergy}、\eqref{eq:transmission-highenergy} 与 \eqref{eq:smallmu}、\eqref{eq:transmission-smallenergy} 确定两处渐近归一化 \eqref{eq:Minfty}--\eqref{eq:Mzero}. 共轭约化 \eqref{eq:jost-conjugate-columns} 与 \eqref{eq:sconj} 交换两列和两域; 换叶约化 \eqref{eq:jost-sheet-columns} 与 \eqref{eq:ssheet} 将 $\mu_{-,1}$ 与 $\mu_{-,2}$、$\dfrac{\mu_{+,2}}{s_{22}}$ 与 $\dfrac{\mu_{+,1}}{s_{11}}$ 配对, 因而得到 \eqref{eq:Msym}.
 \end{proof}
 
 
@@ -81,11 +81,11 @@ M_{+,2}=\widetilde\rho e^{-2\ii\lambda x}M_{-,1}+(1-\rho\widetilde\rho)M_{-,2},
 由 $\det J=1$, 行列式在普通谱弧上没有跳跃.
 在离散极点, 奇异列的留数是正则列的标量倍数, 所以行列式的留数为零.
 有限特殊点的局部有界性使它们对行列式可去.
-两处归一化因而给出
+两处归一化 \eqref{eq:Minfty}--\eqref{eq:Mzero} 因而给出
 \begin{equation*}
 \det M(z)=1+\dfrac{d}{z}+\dfrac{q_0^2}{z^2}.
 \end{equation*}
-另一方面, 换叶约化给出
+另一方面, 换叶约化 \eqref{eq:Msym} 给出
 \begin{equation*}
 \det M(h(z))=\dfrac{z^2}{q_0^2}\det M(z).
 \end{equation*}
@@ -130,7 +130,7 @@ q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\mathbf v_j)_1
 \end{equation}
 \end{proposition}
 \begin{proof}
-(1) 消去主部并建立积分表示. 第 \ref{ch:discrete} 节的留数条件给出
+(1) 消去主部并建立积分表示. 留数条件 \eqref{eq:resplus}--\eqref{eq:resminus} (见定义 \ref{def:RHP}) 给出
 \begin{equation*}
 \Res_{z=\zeta_j}M=C_j\mathbf v_je_2^T,\qquad
 \Res_{z=\conj{\zeta_j}}M=-\conj{C_j}\mathbf u_je_1^T.
@@ -157,11 +157,11 @@ M^{(1)}=-\ii q_0\sigma_1
 
 \subsection{三场重构与迹公式}
 \begin{proposition}\label{prop:reconstruction}
-设三场满足基本条件, $M$ 由式 \eqref{eq:Mdef} 构造. 则
+设三场满足基本条件 \eqref{eq:evolution-regularity}, $M$ 由式 \eqref{eq:Mdef} 构造. 则
 \begin{equation}\label{eq:reconq}
 Q(q)=\dfrac{\ii}{2}[\sg,M^{(1)}],\qquad q=\ii M^{(1)}_{12}.
 \end{equation}
-若三场还满足两条介质方程, 则 $M(x,t,z_a^\pm)$ 可逆, 且
+若三场还满足 \eqref{eq:gauged-HMB} 中的两条介质方程, 则 $M(x,t,z_a^\pm)$ 可逆, 且
 \begin{equation}\label{eq:RfromM}
 R=M(x,t,z_a)\dfrac{\eta_0\lambda(z_a)}{a}\sg M(x,t,z_a)^{-1},
 \qquad z_a=z_a^\pm.
@@ -182,7 +182,7 @@ M^{(1)}=-\ii B(q)+\ii J_-\sg,
 \begin{equation}\label{eq:Mspace}
 M_x=-\ii k\sg M+QM+\ii\lambda M\sg
 \end{equation}
-比较无穷远的常数项得到: 第 \ref{ch:asymptotics} 节的积分估计还给出 $M_x=O(z^{-1})$, 而 $k,\lambda\sim\dfrac{z}{2}$.
+比较无穷远的常数项得到: 命题 \ref{prop:highenergy} 还给出 $M_x=O(z^{-1})$, 而 $k,\lambda\sim\dfrac{z}{2}$.
 
 (2) 介质恢复. 在共振点, $S$ 对角, 两种拼接均为 $M=\mu_-$. 命题 \ref{prop:resonance} 的证明给出
 \begin{equation*}
@@ -202,10 +202,10 @@ R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)I.
 \end{lemma}
 \begin{proof}
 引理 \ref{lem:RHP-determinant} 给出 $\det M(z_a)=\gamma(z_a)>0$.
-换叶约化中 $\lambda(h(z_a))=-\lambda(z_a)$,
+换叶约化 \eqref{eq:Msym} 中 $\lambda(h(z_a))=-\lambda(z_a)$,
 而 $\sigma_1\sg\sigma_1=-\sg$; 代入 \eqref{eq:RfromM}, 两次变号抵消, 得到同一个矩阵.
 
-共振处两侧有共同值, 实轴上的共轭约化使它具有形式
+共振处两侧有共同值, 实轴上的共轭约化 \eqref{eq:Msym} 使它具有形式
 \begin{equation*}
 M(z_a)=\begin{pmatrix}u&v\\-\conj v&\conj u\end{pmatrix}.
 \end{equation*}
@@ -225,7 +225,7 @@ $\ell(s)=\log(1-\rho(s)\widetilde\rho(s))$ 的零指标分支, 设其在普通�
 s_{22}(z)=\prod\limits_{j=1}^{m}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}
 \exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s-z}\,\dd s\right\},\qquad z\in D_+.
 \end{equation}
-$s_{11}$ 由共轭约化确定. 相同左右背景要求
+$s_{11}$ 由共轭约化 \eqref{eq:sconj} 确定. 相同左右背景要求
 \begin{equation}\label{eq:theta-condition}
 \prod\limits_{j=1}^{m}\dfrac{\zeta_j}{\conj{\zeta_j}}
 \exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s}\,\dd s\right\}=1.
@@ -234,7 +234,7 @@ $s_{11}$ 由共轭约化确定. 相同左右背景要求
 \end{proposition}
 \begin{proof}
 记 $B_0(z)=\displaystyle\prod\limits_{j=1}^{m}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}$, 定义
-$\beta_+=\dfrac{s_{22}}{B_0}$、$\beta_-=s_{11}B_0$. 它们在相应域解析且无零点, 无穷远归一化为 1. 由 $\det S=1$,
+$\beta_+=\dfrac{s_{22}}{B_0}$、$\beta_-=s_{11}B_0$. 它们在相应域解析且无零点, 无穷远归一化为 1. 由 \eqref{eq:scattering-determinant} ($\det S=1$),
 \begin{equation*}
 \beta_+\beta_-=s_{11}s_{22}=\dfrac{1}{1-\rho\widetilde\rho}.
 \end{equation*}
@@ -242,7 +242,7 @@ $\beta_+=\dfrac{s_{22}}{B_0}$、$\beta_-=s_{11}B_0$. 它们在相应域解析且
 \begin{equation*}
 f(z)=-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s-z}\,\dd s.
 \end{equation*}
-差函数在特殊点可去且在无穷远为零, 因而没有附加整函数项. 代回 $\beta_+$ 即得 \eqref{eq:trace}. 为取零点极限, 沿 $D_+$ 内的 $z=-\ii\varepsilon$, $\varepsilon\downarrow0$. 实轴上 $\left|\dfrac{s}{s+\ii\varepsilon}\right|\le1$, 圆周与零点分离, 故 $\dfrac{\ell(s)}{s-z}$ 受 $C\left|\dfrac{\ell(s)}{s}\right|$ 控制. 支配收敛结合 $s_{22}(0)=1$ 给出 \eqref{eq:theta-condition}.
+差函数在特殊点可去且在无穷远为零, 因而没有附加整函数项. 代回 $\beta_+$ 即得 \eqref{eq:trace}. 为取零点极限, 沿 $D_+$ 内的 $z=-\ii\varepsilon$, $\varepsilon\downarrow0$. 实轴上 $\left|\dfrac{s}{s+\ii\varepsilon}\right|\le1$, 圆周与零点分离, 故 $\dfrac{\ell(s)}{s-z}$ 受 $C\left|\dfrac{\ell(s)}{s}\right|$ 控制. 支配收敛结合 \eqref{eq:transmission-smallenergy} 给出的 $s_{22}(0)=1$ 得到 \eqref{eq:theta-condition}.
 \end{proof}
 
 每个完整四点轨道取外部上半平面的代表 $\zeta_n$, 则它的两个 $D_+$ 零点对无反射相位乘积的贡献为 $\left(\dfrac{\zeta_n}{\conj{\zeta_n}}\right)^2$. 因而同相约束化为

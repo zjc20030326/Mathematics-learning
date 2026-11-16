@@ -1,13 +1,13 @@
 {
-  "generated_utc": "2026-11-15T14:42:59.061700+00:00",
+  "generated_utc": "2026-11-16T05:09:47.412302+00:00",
   "script": "scripts/verify_background_jost.py",
   "method": "Exact rational symbolic matrix identities; exponential factor E and chain rule E_x=i*lambda*E; no numerical sampling.",
   "domain": "z != 0, +/- i*q0; k(z) != a for time expressions; E != 0; scalar mass >= 0 and integer n >= 0.",
   "scope": "Algebraic identities for conditional full-Lax solutions, four-column propagation kernels and scalar ordered-mass primitives; no analytic-convergence, norm-estimate, general Jost analyticity or inverse-solvability proof.",
   "source_sha256": {
-    "section\\02-model.tex": "5093df400abe6776880e03a49956e2e82f019c0cc13fdf78c866968636136cfa",
-    "section\\03-direct-scattering.tex": "dbec27383664157d597ef0b5ccc6b8d4dd35049ac3ba81b41d82e312419feb48",
-    "section\\04-evolution-resonance.tex": "c5d922f31673cb26ab4a95bf6d0a20ec8bb414e4fbc20da58231143e73e31b19"
+    "section\\02-model.tex": "a1d8f45088ae6692d063304c7efc11fac0864abab2a3e66ea5c8d8e0a88dffaf",
+    "section\\03-direct-scattering.tex": "b8fa5dc2150c96c3dd5f9b9070b6b64a8d6e717f1c51a58db701fc7094abdcd3",
+    "section\\04-evolution-resonance.tex": "93ae71cfcb685ea22550394d61f9bc5bfa52bec140cb605527b887266f379316"
   },
   "checks_total": 24,
   "checks_passed": 24,

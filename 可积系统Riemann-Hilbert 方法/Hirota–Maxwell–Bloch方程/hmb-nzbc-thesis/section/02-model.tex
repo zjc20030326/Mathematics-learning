@@ -23,8 +23,7 @@ $A^\dagger=(A^*)^T$ 表示共轭转置. 记 $I$ 为二阶单位矩阵, $[A,B]=AB
 e^{c\widehat{\sigma}_3}A=e^{c\sg}Ae^{-c\sg}.
 \end{equation*}
 
-将不依赖 $x$ 的场代入两条介质方程, 得到 $\widetilde p_{\rm bg}=-\dfrac{\ii\eta_0}{a}\widetilde q_{\rm bg}$.
-光场方程进一步确定相位频率, 因而相容平面波为
+将不依赖 $x$ 的场代入 \eqref{eq:HMB} 的两条介质方程, 得到 $\widetilde p_{\rm bg}=-\dfrac{\ii\eta_0}{a}\widetilde q_{\rm bg}$, 再由 \eqref{eq:HMB} 第一式确定相位频率, 因而相容平面波为
 \begin{equation}\label{eq:background}
 \widetilde q_{\rm bg}=q_0e^{-\ii\Omega t},\qquad
 \widetilde p_{\rm bg}=-\dfrac{\ii\eta_0}{a}\widetilde q_{\rm bg},\qquad
@@ -62,22 +61,22 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 \end{equation}
 
 \begin{lemma}\label{prop:bloch}
-若满足基本条件的三场还满足 \eqref{eq:HMB} 的两条介质方程, 则
+若满足基本条件 \eqref{eq:physical-regularity} 的三场还满足 \eqref{eq:HMB} 的两条介质方程, 则
 \begin{equation}\label{eq:bloch}
 \partial_x(|\widetilde p|^2+\eta^2)=0,
 \end{equation}
-并且共同端态确定 Bloch 约束
+并且共同端态 \eqref{eq:targetboundary} 确定 Bloch 约束
 \begin{equation}\label{eq:C}
 |\widetilde p|^2+\eta^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right).
 \end{equation}
 \end{lemma}
 \begin{proof}
-由介质方程,
+由 \eqref{eq:HMB} 的两条介质方程,
 \begin{equation*}
 \partial_x(|\widetilde p|^2+\eta^2)
 =2\operatorname{Re}(\widetilde p_x\conj{\widetilde p})+2\eta\eta_x=0.
 \end{equation*}
-在空间无穷远取极限即得 \eqref{eq:C}.
+由 \eqref{eq:targetboundary} 在空间无穷远取极限即得 \eqref{eq:C}.
 \end{proof}
 \subsection{Lax 表示与规范变换}
 HMB 系统的 Lax 对为\cite{LHP2013}
@@ -116,7 +115,7 @@ V_1&=\begin{pmatrix}
 \end{equation}
 \end{proposition}
 \begin{proof}
-\eqref{eq:antihermitian} 来自 $\widetilde Q^\dagger=-\widetilde Q$, $\widetilde R^\dagger=\widetilde R$ 及 \eqref{eq:V32}--\eqref{eq:V0}. 利用 $\widetilde U(k)=\widetilde U(a)-\ii(k-a)\sg$, 零曲率的有理部分为
+\eqref{eq:antihermitian} 来自 $\widetilde Q^\dagger=-\widetilde Q$, $\widetilde R^\dagger=\widetilde R$ 及 \eqref{eq:V32}--\eqref{eq:V0}. 利用 $\widetilde U(k)=\widetilde U(a)-\ii(k-a)\sg$, 零曲率关系 \eqref{eq:zc} 的有理部分为
 \begin{equation}\label{eq:rationalzc}
 -\dfrac{\ii \widetilde R_x}{k-a}+\dfrac{\ii[\widetilde U(k),\widetilde R]}{k-a}
 =\dfrac{\ii([\widetilde U(a),\widetilde R]-\widetilde R_x)}{k-a}+[\sg,\widetilde R].
@@ -145,7 +144,7 @@ $\widetilde q_t-\partial_x(V_0)_{12}-2(V_0)_{11}\widetilde q-2\widetilde p$, 且
 &=\beta(\widetilde q_{xxx}+6|\widetilde q|^2\widetilde q_x)
 +\ii\alpha\left(\dfrac{\widetilde q_{xx}}{2}+|\widetilde q|^2\widetilde q\right).
 \end{align*}
-这给出光场方程. 常数项的对角元由
+这给出 \eqref{eq:HMB} 中的光场方程. 常数项的对角元由
 $\widetilde q(V_0)_{21}+(V_0)_{12}\conj{\widetilde q}=\partial_x(V_0)_{11}$ 相消, 其余分量由迹零与 \eqref{eq:antihermitian} 确定.
 \end{proof}
 
@@ -208,7 +207,7 @@ $G$ 与 $\sg$ 对易且不依赖 $x$, 因而共轭变换将各系数中的场及
 \end{remark}
 
 \subsection{背景谱与单值化}
-由基本条件取 $x\to\pm\infty$ 极限, 可以得到两个背景谱矩阵
+由基本条件 \eqref{eq:evolution-regularity} 取 $x\to\pm\infty$ 极限, 可以得到 \eqref{eq:gauged-U}--\eqref{eq:gauged-V} 的两个背景谱矩阵
 \begin{equation}\label{eq:background-spatial}
 U_\infty=-\ii k\sg+Q_\infty,\qquad
 Q_\infty=\begin{pmatrix}0&q_0\\-q_0&0\end{pmatrix},
@@ -217,7 +216,7 @@ Q_\infty=\begin{pmatrix}0&q_0\\-q_0&0\end{pmatrix},
 V_\infty=-F(k)U_\infty,\qquad
 F(k)=4\beta k^2-\alpha k-2\beta q_0^2+\dfrac{\eta_0}{a(k-a)},\quad k\ne a.
 \end{equation}
-背景空间矩阵的特征方程为
+背景空间矩阵 \eqref{eq:background-spatial} 中 $U_\infty$ 的特征方程为
 \begin{equation*}
 \det(\xi I-U_\infty)=\xi^2+k^2+q_0^2=0.
 \end{equation*}
@@ -260,7 +259,7 @@ z_a^\pm=a\pm\sqrt{a^2+q_0^2},\qquad z_a^+z_a^-=-q_0^2.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.78\textwidth]{figures/analytic-regions.pdf}
+\includegraphics[width=0.86\textwidth]{figures/analytic-regions.pdf}
 \caption{HMB 的单值化谱平面. 公共边界 $\Sigma$ 由实轴与圆 $|z|=q_0$ 组成; 淡蓝色区域为 $D_+$, 白色区域为 $D_-$. 箭头使 $D_+$ 位于定向边界的左侧. 方形点为分支点, 叉形点为边界交点.}
 \label{fig:analytic-regions}
 \end{figure}

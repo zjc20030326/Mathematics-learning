@@ -86,8 +86,8 @@ R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
 两个符号给出相同结果; 相应三场按 \eqref{eq:original-fields} 恢复.
 \end{theorem}
 \begin{proof}
-(1) 约化关系. 由 $\det L_N\ne0$, 留数系统唯一确定 \eqref{eq:partialfraction} 中的正则列.
-共轭变换 $\sigma_2\conj{M(\conj{z})}\sigma_2$ 交换两组极点, 满足同一留数系统和两处归一化. 换叶变换
+(1) 约化关系. 由 $\det L_N\ne0$, 留数系统 \eqref{eq:finite1}--\eqref{eq:finite2} 唯一确定 \eqref{eq:partialfraction} 中的正则列.
+共轭变换 $\sigma_2\conj{M(\conj{z})}\sigma_2$ 交换两组极点, 满足同一留数系统 \eqref{eq:finite1}--\eqref{eq:finite2} 和两处渐近归一化 \eqref{eq:Minfty}--\eqref{eq:Mzero}. 换叶变换
 \begin{equation*}
 \widehat M(z)=M(h(z))\left(\dfrac{\ii z}{q_0}\sigma_1\right)^{-1}
 \end{equation*}
@@ -109,7 +109,7 @@ R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
 \det\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}
 =\det L_N\left(q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r\right),
 \end{equation*}
-得到第二式. 共振原像不在离散谱中, 且 $\gamma(z_a^\pm)>0$, 所以逆矩阵存在. 两个原像互为换叶, $\lambda(h(z))=-\lambda(z)$, 而 $\sigma_1\sigma_3\sigma_1=-\sigma_3$; 代入换叶约化即得 \eqref{eq:N-medium} 与谱叶无关.
+得到第二式. 共振原像不在离散谱中, 且 $\gamma(z_a^\pm)>0$, 所以逆矩阵存在. 两个原像互为换叶, $\lambda(h(z))=-\lambda(z)$, 而 $\sigma_1\sigma_3\sigma_1=-\sigma_3$; 代入换叶约化 \eqref{eq:Msym} 即得 \eqref{eq:N-medium} 与谱叶无关.
 \end{proof}
 
 \subsection{纯虚单轨道数据与全局矩阵解}
@@ -123,7 +123,7 @@ k_1=\ii b,\qquad b>q_0,\qquad
 \zeta_1=\ii W,\qquad \zeta_2=-\ii q_0h_0=h(\conj{\zeta_1}),\qquad
 s_{22}(z)=\dfrac{\lambda(z)-\ii\kappa}{\lambda(z)+\ii\kappa}.
 \end{equation}
-这正是无反射迹公式的两因子乘积, 其在 $0,\infty$ 均趋于 1. 在外部零点选择 $b_1(0)=1$, 并由换叶约化确定另一常数:
+这正是无反射迹公式 \eqref{eq:trace} 的两因子乘积, 其在 $0,\infty$ 均趋于 1. 在外部零点选择 $b_1(0)=1$, 并由 \eqref{eq:cpair} 确定另一常数:
 \begin{equation}\label{eq:onec}
 c_1(0)=\dfrac{1}{s_{22}'(\zeta_1)}=\dfrac{4\ii\kappa}{1+h_0^2},\qquad
 c_2(0)=-h_0^2c_1(0).
@@ -150,7 +150,7 @@ s=\kappa[x-F(\ii b)t],\qquad T=e^{2s}.
 \end{align}
 \end{lemma}
 \begin{proof}
-代入谱点和范数常数得到
+将 \eqref{eq:onezeros}--\eqref{eq:onec} 与 \eqref{eq:orbit-phase} 代入 \eqref{eq:finite1}--\eqref{eq:finite2} 的系数表达式得到
 \begin{equation}\label{eq:one-AB}
 A=\dfrac{1}{1+h_0^2}
 \begin{pmatrix}(h_0^2-1)\conj{T}&2h_0^2T\\-2\conj{T}&(h_0^2-1)T\end{pmatrix},\quad
@@ -164,7 +164,7 @@ f_2=\begin{pmatrix}1\\h_0^{-1}\end{pmatrix},\quad
 g_1=\begin{pmatrix}h_0\\1\end{pmatrix},\quad
 g_2=\begin{pmatrix}-h_0^{-1}\\1\end{pmatrix}.
 \end{equation*}
-两个向量分量分别满足同一个四阶标量系数系统,
+两个向量分量分别满足 \eqref{eq:N-block-system} 给出的同一四阶标量系数系统,
 \begin{equation*}
 \begin{pmatrix}I_2&A\\-B&I_2\end{pmatrix}
 \begin{pmatrix}\boldsymbol v\\\boldsymbol u\end{pmatrix}
@@ -185,10 +185,10 @@ g_2=\begin{pmatrix}-h_0^{-1}\\1\end{pmatrix}.
 \begin{pmatrix}1-h_0\conj{T}&\conj{T}-h_0\\
 \dfrac{h_0-T}{h_0}&\dfrac{1-h_0T}{h_0}\end{pmatrix}.
 \end{equation*}
-由 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$ 得到其余两列, 即 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2}.
+由 \eqref{eq:finite-schur} 中的 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$ 得到其余两列, 即 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2}.
 \end{proof}
 
-将所得列向量代入部分分式表示. 其系数可用以下秩一正交投影写成紧凑形式:
+将 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2} 代入部分分式表示 \eqref{eq:partialfraction}. 其系数可用以下秩一正交投影写成紧凑形式:
 \begin{equation}\label{eq:algebraic-P}
 P=\dfrac{1}{\Delta_-}
 \begin{pmatrix}
@@ -207,7 +207,7 @@ M(z)=H\bigl[(k(z)+\ii b)I-2\ii bP\bigr]Y(z)
 它满足定义 \ref{def:RHP} 的全部条件, 在分支点、谱交点与共振原像解析, 在分支点秩为一, 在共振原像可逆.
 \end{theorem}
 \begin{proof}
-在部分分式的第二列合并分母,
+在部分分式 \eqref{eq:partialfraction} 的第二列合并分母,
 $(z-\zeta_1)(z-\zeta_2)=2z(\lambda-\ii\kappa)$, 第一列同理. 利用
 $2bh_0=q_0(1+h_0^2)$、$2\kappa h_0=q_0(1-h_0^2)$ 化简分子, 得到 \eqref{eq:explicitM}.
 由引理 \ref{lem:direct-solve}, 留数系统对全体实 $x,t$ 唯一可解, 故定理 \ref{thm:N-orbit-RHP} 保证 \eqref{eq:explicitM} 满足 RHP 的留数、归一化及约化条件.
