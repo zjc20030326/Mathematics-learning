@@ -292,63 +292,55 @@ C(z)=\dfrac{\ii z}{q_0}\sigma_1.
 \mu_\pm(x,t,z)=\sigma_2\conj{\mu_\pm(x,t,\conj{z})}\sigma_2,
 \end{equation}
 \begin{equation}\label{eq:musheet}
-\mu_\pm(x,t,h(z))=\mu_\pm(x,t,z)C(z).
+\mu_\pm(x,t,z)=\mu_\pm(x,t,h(z))C(z)^{-1}.
 \end{equation}
 逐列写为
 \begin{align}
 &\mu_{\pm,1}(x,t,z)=\ii\sigma_2\conj{\mu_{\pm,2}(x,t,\conj{z})},\nonumber\\
 &\mu_{\pm,2}(x,t,z)=-\ii\sigma_2\conj{\mu_{\pm,1}(x,t,\conj{z})},\label{eq:jost-conjugate-columns}\\
-&\mu_{\pm,1}(x,t,h(z))=\dfrac{\ii z}{q_0}\mu_{\pm,2}(x,t,z),\nonumber\\
-&\mu_{\pm,2}(x,t,h(z))=\dfrac{\ii z}{q_0}\mu_{\pm,1}(x,t,z).\label{eq:jost-sheet-columns}
+&\mu_{\pm,1}(x,t,z)=-\dfrac{\ii q_0}{z}\mu_{\pm,2}(x,t,h(z)),\nonumber\\
+&\mu_{\pm,2}(x,t,z)=-\dfrac{\ii q_0}{z}\mu_{\pm,1}(x,t,h(z)).\label{eq:jost-sheet-columns}
 \end{align}
 \end{proposition}
 \begin{proof}
-由 $\sigma_2\sg\sigma_2=-\sg$、$\sigma_2\conj{Q}\sigma_2=Q$ 及 $k(\conj{z})=\conj{k(z)}$,
+由 $\sigma_2\sg\sigma_2=-\sg$、$\lambda(\conj{z})=\conj{\lambda(z)}$ 及 $\sigma_2\conj{Q}\sigma_2=Q$、$\sigma_2\conj{Q_\infty}\sigma_2=Q_\infty$, 直接由 \eqref{eq:E} 计算得
 \begin{equation*}
-U(x,t,z)=\sigma_2\conj{U(x,t,\conj{z})}\sigma_2,\qquad
-Y(z)=\sigma_2\conj{Y(\conj{z})}\sigma_2.
+Y(z)=\sigma_2\conj{Y(\conj{z})}\sigma_2,\qquad
+\Delta Q(x,t)=\sigma_2\conj{\Delta Q(x,t)}\sigma_2.
 \end{equation*}
-又有 $\lambda(\conj{z})=\conj{\lambda(z)}$, 故矩阵
-$\sigma_2\conj{\mu_\pm(x,t,\conj{z})}\sigma_2$ 在谱参数 $z$ 处满足 \eqref{eq:jost-modified-lax},
-并在对应端点趋于 $Y(z)$ (从而满足积分方程 \eqref{eq:volterra}). 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:conjugation}.
+可知矩阵 $\sigma_2\conj{\mu_\pm(x,t,\conj{z})}\sigma_2$ 在谱参数 $z$ 处满足积分方程 \eqref{eq:volterra}. 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:conjugation}.
 
-换叶保持 $k$ 而使 $\lambda$ 变号. 直接由 \eqref{eq:E} 计算,
+换叶保持 $k$ 而使 $\lambda(h(z))=-\lambda(z)$. 直接由 \eqref{eq:E} 计算得
 \begin{equation}\label{eq:Esheet}
-Y(h(z))=I+\dfrac{\ii z}{q_0}\sigma_1=Y(z)C(z),\qquad
-C(z)\sg=-\sg C(z).
-\end{equation}
-因此由 \eqref{eq:jost-modified-lax} 得
-\begin{equation*}
 \begin{aligned}
-\partial_x(\mu_\pm(x,t,z)C(z))
-&=U(x,t,z)\mu_\pm(x,t,z)C(z)-\ii\lambda(z)\mu_\pm(x,t,z)C(z)\sg\\
-&=U(x,t,h(z))\mu_\pm(x,t,z)C(z)
-+\ii\lambda(h(z))\mu_\pm(x,t,z)C(z)\sg,
+Y(h(z))&=I+\dfrac{\ii z}{q_0}\sigma_1=Y(z)C(z),\\
+C(z)\sg&=-\sg C(z),\qquad
+C(z)^{-1}=-\dfrac{\ii q_0}{z}\sigma_1,
 \end{aligned}
-\end{equation*}
-即 $\mu_\pm(x,t,z)C(z)$ 在谱参数 $h(z)$ 处满足 \eqref{eq:jost-modified-lax}, 其端点值为 $Y(z)C(z)=Y(h(z))$ (同样满足 $h(z)$ 处的 \eqref{eq:volterra}), 再次由定理 \ref{thm:jost} 的唯一性得到 \eqref{eq:musheet}.
-逐列展开即得 \eqref{eq:jost-conjugate-columns}--\eqref{eq:jost-sheet-columns}.
-变换后的列具有 \eqref{eq:symmetry-domains} 所确定的解析域,
-同一 Volterra 唯一性论证因而在各解析域内成立.
+\end{equation}
+可知矩阵 $\mu_\pm(x,t,h(z))C(z)^{-1}$ 在谱参数 $z$ 处满足积分方程 \eqref{eq:volterra}. 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:musheet}.
+
+将 \eqref{eq:conjugation}--\eqref{eq:musheet} 逐列展开即得 \eqref{eq:jost-conjugate-columns}--\eqref{eq:jost-sheet-columns}.
+变换后的列具有 \eqref{eq:symmetry-domains} 所确定的解析域,因而同一 Volterra 唯一性论证在各解析域内成立.
 \end{proof}
 
 \begin{proposition}\label{prop:scattering-symmetry}
 散射矩阵满足
 \begin{equation}\label{eq:scattering-symmetry}
 S(z,t)=\sigma_2\conj{S(\conj{z},t)}\sigma_2,\qquad
-S(h(z),t)=\sigma_1S(z,t)\sigma_1.
+S(z,t)=\sigma_1S(h(z),t)\sigma_1.
 \end{equation}
 特别地,
 \begin{equation}\label{eq:sconj}
-s_{22}(z,t)=\conj{s_{11}(\conj{z},t)},\qquad
+s_{11}(z,t)=\conj{s_{22}(\conj{z},t)},\qquad
 s_{12}(z,t)=-\conj{s_{21}(\conj{z},t)},
 \end{equation}
 \begin{equation}\label{eq:ssheet}
-s_{22}(h(z),t)=s_{11}(z,t),\qquad s_{12}(h(z),t)=s_{21}(z,t),
+s_{11}(z,t)=s_{22}(h(z),t),\qquad s_{12}(z,t)=s_{21}(h(z),t),
 \end{equation}
 \begin{equation}\label{eq:reflection-symmetry}
 \rho(z,t)=-\conj{\widetilde\rho(\conj{z},t)},\qquad
-\rho(h(z),t)=\widetilde\rho(z,t).
+\rho(z,t)=\widetilde\rho(h(z),t).
 \end{equation}
 透射系数的关系在相应解析域内成立. 在实轴 $z\in\mathbb R\mathbin{\backslash}\{0\}$ 上,
 \begin{equation}\label{eq:scattering-unitarity}
@@ -361,16 +353,12 @@ S(z,t)^\dagger S(z,t)=I,\qquad
 \begin{equation*}
 S(z,t)=e^{\ii\lambda(z)x\widehat{\sigma}_3}\!\left[\mu_-(x,t,z)^{-1}\mu_+(x,t,z)\right].
 \end{equation*}
-代入 \eqref{eq:conjugation}, 并使用 $\sigma_2\sg\sigma_2=-\sg$,
-即得 \eqref{eq:scattering-symmetry} 的第一式. 再由 $C\sg=-\sg C$ 和换叶关系,
+代入 \eqref{eq:conjugation}, 
+即得 \eqref{eq:scattering-symmetry} 的第一式. 再由 \eqref{eq:musheet},
 \begin{equation*}
-\begin{aligned}
-S(h(z),t)
-&=e^{-\ii\lambda x\widehat{\sigma}_3}\!\left[C^{-1}\mu_-^{-1}\mu_+C\right]\\
-&=C^{-1}S(z,t)C=\sigma_1S(z,t)\sigma_1.
-\end{aligned}
+S(z,t)=e^{\ii\lambda(z)x\widehat{\sigma}_3}\!\left[C(z)\mu_-(x,t,h(z))^{-1}\mu_+(x,t,h(z))C(z)^{-1}\right]=\sigma_1S(h(z),t)\sigma_1,
 \end{equation*}
-逐元展开即得 \eqref{eq:sconj}--\eqref{eq:ssheet}; 除以相应透射系数得到 \eqref{eq:reflection-symmetry}. 解析透射系数的关系也可直接对 \eqref{eq:wronskian} 应用 Jost 列的约化得到.
+逐元展开即得 \eqref{eq:sconj}--\eqref{eq:ssheet}; 除以相应透射系数得到 \eqref{eq:reflection-symmetry}. 
 
 在 $z\in\mathbb R\mathbin{\backslash}\{0\}$ 上, $k,\lambda$ 为实数, 且 $U^\dagger=-U$.
 记 $H_\pm=\mu_\pm^\dagger\mu_\pm$, 则由 \eqref{eq:jost-modified-lax} 给出
@@ -379,8 +367,7 @@ S(h(z),t)
 \partial_x\!\left(e^{\ii\lambda x\widehat{\sigma}_3}H_\pm\right)=0.
 \end{equation*}
 端点归一化及 $Y^\dagger Y=\gamma I$ 确定该常矩阵为 $\gamma I$, 故 $H_\pm=\gamma I$.
-将其代入 \eqref{eq:Sdef}, 利用实 $\lambda$ 对应的指数矩阵为幺正矩阵,
-并除以 $\gamma>0$, 即得 \eqref{eq:scattering-unitarity}.
+将其代入 \eqref{eq:Sdef}, 即得 \eqref{eq:scattering-unitarity}.
 \end{proof}
 离散谱指空间谱方程 $f_x=U(x,t,z)f$ 在 $\mathbb C\mathbin{\backslash}\Sigma$ 中存在非零 $L^2(\mathbb R)$ 解的谱点集合.
 以下按当前固定时刻 $t$ 研究离散谱, 并假定 $s_{22}$ 在 $D_+$ 中与 $s_{11}$ 在 $D_-$ 中的零点有限且均为简单零点.
@@ -498,18 +485,19 @@ s_{22}'(\zeta_j,t)\ne0.
 \end{equation*}
 即为 \eqref{eq:resminus}.
 
-再在 $z=\conj{\zeta}$ 使用换叶关系. 它给出
+再对 $z=\widehat\zeta$ (注意到 $h(\widehat\zeta)=\conj{\zeta}$) 使用 \eqref{eq:jost-sheet-columns}. 它给出
 \begin{equation*}
 \begin{aligned}
 \mu_{+,2}(x,t,\widehat\zeta)
-&=\dfrac{\ii\conj{\zeta}}{q_0}\mu_{+,1}(x,t,\conj{\zeta})\\
+&=-\dfrac{\ii q_0}{\widehat\zeta}\mu_{+,1}(x,t,\conj{\zeta})
+=\dfrac{\ii\conj{\zeta}}{q_0}\mu_{+,1}(x,t,\conj{\zeta})\\
 &=-\conj{b_\zeta(t)}e^{2\ii\lambda(\conj{\zeta})x}
 \dfrac{\ii\conj{\zeta}}{q_0}\mu_{-,2}(x,t,\conj{\zeta})\\
 &=-\conj{b_\zeta(t)}e^{-2\ii\lambda(\widehat\zeta)x}\mu_{-,1}(x,t,\widehat\zeta).
 \end{aligned}
 \end{equation*}
 比较 \eqref{eq:norming-definition}, 得 $b_{\widehat\zeta}(t)=-\conj{b_\zeta(t)}$.
-对恒等式 $s_{22}(h(z),t)=s_{11}(z,t)$ 求导, 有
+对恒等式 $s_{11}(z,t)=s_{22}(h(z),t)$ 求导, 有
 \begin{equation*}
 s_{22}'(\widehat\zeta,t)h'(\conj{\zeta})=\conj{s_{22}'(\zeta,t)},\qquad
 h'(\conj{\zeta})=\dfrac{q_0^2}{(\conj{\zeta})^2}.
