@@ -52,10 +52,13 @@ $(Y^{-1}\chi)_x=-\ii\lambda\sg(Y^{-1}\chi)$.
 \end{aligned}
 \end{equation}
 记 $\Delta Q(x,t)=Q(x,t)-Q_\infty$.
-由 \eqref{eq:diagE} 及空间谱方程, 得到修正空间方程
+对 \eqref{eq:modified-jost} 求 $x$ 导数并结合 \eqref{eq:jost-normalization} 与 \eqref{eq:diagE}, 得到 $\mu_\pm$ 满足的微分方程
 \begin{equation}\label{eq:jost-modified-lax}
-(Y^{-1}\mu_\pm)_x+\ii\lambda[\sg,Y^{-1}\mu_\pm]
+\begin{aligned}
+&(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg,\\
+&(Y^{-1}\mu_\pm)_x+\ii\lambda[\sg,Y^{-1}\mu_\pm]
 =Y^{-1}\Delta Q\mu_\pm.
+\end{aligned}
 \end{equation}
 在固定 $t$ 时沿两个特殊路径 $(-\infty,t)\to(x,t)$ 和 $(+\infty,t)\to(x,t)$ 积分, 得到 Volterra 方程
 \begin{equation}\label{eq:volterra}
@@ -154,8 +157,8 @@ G_j(x,y,z)\Delta Q(y,t)Yw_{\pm,j}^{(n)}(y,t,z)\,\dd y.
 \dfrac{M_{\pm,K}(x,t)^n}{n!}\longrightarrow0,
 \end{equation*}
 从而各列解唯一.
-对 \eqref{eq:volterra} 关于 $x$ 求导即得 \eqref{eq:jost-modified-lax},
-等价地有 $(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg$.
+对 \eqref{eq:volterra} 关于 $x$ 求导即得 \eqref{eq:jost-modified-lax} 的第二式,
+等价地有其第一式 $(\mu_\pm)_x=U\mu_\pm+\ii\lambda\mu_\pm\sg$.
 右乘空间指数因子 $e^{-\ii\lambda x\sg}$ 得 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$, 从而恢复 \eqref{eq:jost-normalization} 的空间谱方程;
 结合端点归一化与 Volterra 唯一性, 得到所述空间 Jost 解.
 \end{proof}
@@ -306,24 +309,24 @@ U(x,t,z)=\sigma_2\conj{U(x,t,\conj{z})}\sigma_2,\qquad
 Y(z)=\sigma_2\conj{Y(\conj{z})}\sigma_2.
 \end{equation*}
 又有 $\lambda(\conj{z})=\conj{\lambda(z)}$, 故矩阵
-$\sigma_2\conj{\mu_\pm(x,t,\conj{z})}\sigma_2$ 满足 $z$ 处的修正空间方程,
-并在对应端点趋于 $Y(z)$. 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:conjugation}.
+$\sigma_2\conj{\mu_\pm(x,t,\conj{z})}\sigma_2$ 在谱参数 $z$ 处满足 \eqref{eq:jost-modified-lax},
+并在对应端点趋于 $Y(z)$ (从而满足积分方程 \eqref{eq:volterra}). 定理 \ref{thm:jost} 的唯一性给出 \eqref{eq:conjugation}.
 
 换叶保持 $k$ 而使 $\lambda$ 变号. 直接由 \eqref{eq:E} 计算,
 \begin{equation}\label{eq:Esheet}
 Y(h(z))=I+\dfrac{\ii z}{q_0}\sigma_1=Y(z)C(z),\qquad
 C(z)\sg=-\sg C(z).
 \end{equation}
-因此
+因此由 \eqref{eq:jost-modified-lax} 得
 \begin{equation*}
 \begin{aligned}
 \partial_x(\mu_\pm(x,t,z)C(z))
 &=U(x,t,z)\mu_\pm(x,t,z)C(z)-\ii\lambda(z)\mu_\pm(x,t,z)C(z)\sg\\
 &=U(x,t,h(z))\mu_\pm(x,t,z)C(z)
-+\ii\lambda(h(z))\mu_\pm(x,t,z)C(z)\sg.
++\ii\lambda(h(z))\mu_\pm(x,t,z)C(z)\sg,
 \end{aligned}
 \end{equation*}
-其端点值为 $Y(z)C(z)=Y(h(z))$, 再次由唯一性得到 \eqref{eq:musheet}.
+即 $\mu_\pm(x,t,z)C(z)$ 在谱参数 $h(z)$ 处满足 \eqref{eq:jost-modified-lax}, 其端点值为 $Y(z)C(z)=Y(h(z))$ (同样满足 $h(z)$ 处的 \eqref{eq:volterra}), 再次由定理 \ref{thm:jost} 的唯一性得到 \eqref{eq:musheet}.
 逐列展开即得 \eqref{eq:jost-conjugate-columns}--\eqref{eq:jost-sheet-columns}.
 变换后的列具有 \eqref{eq:symmetry-domains} 所确定的解析域,
 同一 Volterra 唯一性论证因而在各解析域内成立.
@@ -370,7 +373,7 @@ S(h(z),t)
 逐元展开即得 \eqref{eq:sconj}--\eqref{eq:ssheet}; 除以相应透射系数得到 \eqref{eq:reflection-symmetry}. 解析透射系数的关系也可直接对 \eqref{eq:wronskian} 应用 Jost 列的约化得到.
 
 在 $z\in\mathbb R\mathbin{\backslash}\{0\}$ 上, $k,\lambda$ 为实数, 且 $U^\dagger=-U$.
-记 $H_\pm=\mu_\pm^\dagger\mu_\pm$, 则修正空间方程给出
+记 $H_\pm=\mu_\pm^\dagger\mu_\pm$, 则由 \eqref{eq:jost-modified-lax} 给出
 \begin{equation*}
 (H_\pm)_x=\ii\lambda[H_\pm,\sg],\qquad
 \partial_x\!\left(e^{\ii\lambda x\widehat{\sigma}_3}H_\pm\right)=0.
@@ -435,7 +438,7 @@ $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性. 共轭的不动点位�
 \begin{equation*}
 \mu_{+,2}(x,t,\zeta_j)=d_j(x,t)\mu_{-,1}(x,t,\zeta_j),\qquad d_j(x,t)\ne0.
 \end{equation*}
-对其求 $x$ 导数, 两列的修正空间方程给出
+对其求 $x$ 导数, 由 \eqref{eq:jost-modified-lax} 给出
 \begin{equation*}
 \bigl((d_j)_x+2\ii\lambda(\zeta_j)d_j\bigr)\mu_{-,1}(x,t,\zeta_j)=0.
 \end{equation*}

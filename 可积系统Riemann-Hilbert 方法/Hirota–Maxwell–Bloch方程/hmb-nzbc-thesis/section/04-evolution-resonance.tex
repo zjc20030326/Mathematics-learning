@@ -30,7 +30,7 @@ S(z,t)=e^{\ii\lambda Ft\widehat{\sigma}_3}S(z,0).
 基本条件中的 $C^1(I;L^1)$ 正则性允许对相应 Jost 积分方程求时间导数.
 在避开 $0,\pm\ii q_0,z_a^\pm$ 的谱参数紧集上, Volterra 核与时间导数的迭代由可积函数一致控制.
 令 $Z_\pm=\mu_{\pm,t}-V\mu_\pm+\ii\lambda F\mu_\pm\sg$.
-由零曲率关系和修正空间方程, 得
+由零曲率关系和 \eqref{eq:jost-modified-lax}, 得
 \begin{equation*}
 (Z_\pm)_x=UZ_\pm+\ii\lambda Z_\pm\sg.
 \end{equation*}
@@ -65,7 +65,7 @@ $\partial_t s_{11}=\partial_t s_{22}=0$, 所以离散零点不随 $t$ 变化.
 \phi_\pm(x,t,z)=\chi_\pm(x,t,z)e^{\ii\lambda Ft\sg}
 =\mu_\pm(x,t,z)e^{\ii\theta(x,t,z)\sg}.
 \end{equation}
-由修正空间方程及 \eqref{eq:chi-time}, 有 $\phi_{\pm,x}=U\phi_\pm$, $\phi_{\pm,t}=V\phi_\pm$.
+由 \eqref{eq:jost-modified-lax} 及 \eqref{eq:chi-time}, 有 $\phi_{\pm,x}=U\phi_\pm$, $\phi_{\pm,t}=V\phi_\pm$.
 相应结论适用于各自域内的解析列.
 记 $\Delta V=V-V_\infty$, 由 \eqref{eq:full-jost} 可将修正 Jost 矩阵的全微分形式写为
 \begin{equation}\label{eq:jost-total-differential}
@@ -88,7 +88,7 @@ C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}
 \end{equation}
 \end{proposition}
 \begin{proof}
-修正时间方程的两列分别满足
+由 \eqref{eq:chi-time} 的第二式, 两列分别满足
 \begin{equation*}
 \mu_{\pm,1,t}=V\mu_{\pm,1}-\ii\lambda F\mu_{\pm,1},\qquad
 \mu_{\pm,2,t}=V\mu_{\pm,2}+\ii\lambda F\mu_{\pm,2}.
@@ -128,7 +128,7 @@ R_\infty=\begin{pmatrix}
 \begin{proof}
 Jost 矩阵在 $z_a^\pm$ 正则, 且 $\det\mu_\pm=\gamma(z_a^\pm)>0$.
 固定其中一个原像 $z_a$, 记 $B_\pm=\mu_\pm(z_a)^{-1}R\mu_\pm(z_a)$.
-将介质方程写为 $R_x=[U(a),R]$, 由修正空间方程得
+将介质方程写为 $R_x=[U(a),R]$, 由 \eqref{eq:jost-modified-lax} 得
 \begin{equation*}
 \partial_x B_\pm+\ii\lambda(z_a)[\sg,B_\pm]
 =\mu_\pm^{-1}(R_x-[U(a),R])\mu_\pm=0.
@@ -155,6 +155,6 @@ S(z_a,t)^{-1}\dfrac{\eta_0\lambda(z_a)}{a}\sg S(z_a,t)
 \begin{equation*}
 R\mu_\pm(z_a)-\mu_\pm(z_a)\dfrac{\eta_0\lambda(z_a)}{a}\sg=0.
 \end{equation*}
-故修正时间方程 \eqref{eq:chi-time} 的共振留数相消.
+故 \eqref{eq:chi-time} 中的共振留数相消.
 该共轭恒等式同时给出介质矩阵的谱表示, 是三场重构的依据.
 \end{remark}
