@@ -1,8 +1,8 @@
 {
   "sources": {
     "tex_files": 9,
-    "labels": 200,
-    "references": 216,
+    "labels": 201,
+    "references": 306,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -11,7 +11,7 @@
   },
   "build": "XeLaTeX, BibTeX, XeLaTeX, XeLaTeX",
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 38,
+  "pdf_pages": 39,
   "top_level_sections": [
     [
       1,
@@ -46,22 +46,22 @@
     [
       1,
       "7. 单轨道三场解的全局性与方程验证",
-      30
+      31
     ],
     [
       1,
       "8. 数值结果与动力学分析",
-      33
+      34
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 293,
+  "pdf_links_checked": 386,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "6b79ff4ef8dc056aa087ccfd3e3081ba8ddef357c4fc5ee9621f39e3ca47b36a",
-  "visual_review": "Inspected remark 3.1 and the three matching parts of the asymptotic proposition and proof on PDF pages 16-18. Essential pairing results, four-column estimates and the spatial derivative estimate are retained; no clipping or equation-number collisions."
+  "pdf_sha256": "3bc6ca14a3d60ad2b015c387438f9e067ed66f909bf3533c57aa83a73870a54d",
+  "visual_review": "Inspected the new cited discrete-spectrum proposition on PDF page 14 and the finite coefficient-matching proof on pages 17-18. No clipping or equation-number collision; original equation numbers retained. Final display layout rebuilt with two additional XeLaTeX passes."
 }

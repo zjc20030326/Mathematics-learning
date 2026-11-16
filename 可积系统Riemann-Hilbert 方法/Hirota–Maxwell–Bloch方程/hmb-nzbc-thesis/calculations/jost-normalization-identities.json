@@ -1,19 +1,19 @@
 {
-  "generated_utc": "2026-11-16T05:09:48.901724+00:00",
+  "generated_utc": "2026-11-16T07:14:19.986665+00:00",
   "script": "scripts/verify_jost_normalization.py",
   "method": "Exact rational matrix algebra with nonzero formal exponential phases and their chain-rule derivatives; no numerical sampling.",
   "domain": "Generic invertible 2x2 mu values; nonzero spatial and time phases; lambda,F fixed at a spectral point. Time phases require finite F, hence k != a in HMB. Gram checks additionally assume real lambda and anti-Hermitian spatial U.",
   "scope": "Checks spatial chi/modified mu/full phi normalization identities, scattering matrix order and evolution, four Wronskian phase factors, conjugation derivative identities, discrete column proportions and the constant jump/residue conjugation. Does not prove Jost existence, analyticity, endpoint convergence, resonance solvability, RHP solvability or an inverse problem.",
   "source_sha256": {
-    "section\\03-direct-scattering.tex": "b8fa5dc2150c96c3dd5f9b9070b6b64a8d6e717f1c51a58db701fc7094abdcd3",
-    "section\\04-evolution-resonance.tex": "93ae71cfcb685ea22550394d61f9bc5bfa52bec140cb605527b887266f379316",
-    "section\\05-rhp-reconstruction.tex": "280f81c2c6ffcc74f9542674ca4d78c7fa695cd1d444f1c1f8444744c01397bc",
-    "section\\06-reflectionless.tex": "862fb2f3ec17b7f25914e31b2dc8515ea1ce48fe375e2fe9555a605a266b4740",
-    "section\\07-hmb-verification.tex": "f9edc681abff882a56da59f1353b8116902c81724aab72e78164707950fb40a9"
+    "section\\03-direct-scattering.tex": "1a74c23754e7e3193b7e7430ceee0b68ea6325f11936831a8ca3c03380833e49",
+    "section\\04-evolution-resonance.tex": "73197fd5d7cc81bf92d5a8210657528284a8cd0ac0c7911c107a93707a21b5e9",
+    "section\\05-rhp-reconstruction.tex": "8610045baaf7cdf54f39afb74035649153ac9cc625c405c55642c1eadcb40fde",
+    "section\\06-reflectionless.tex": "0a5062f7ea2feb04a5953c11752eee00bcd7fe74553eb7033c923772491e5e95",
+    "section\\07-hmb-verification.tex": "3e3a468b919f81ad01cb695f744309fb9875829cc848b2b4bb41adfc21702fba"
   },
   "checks_total": 24,
   "checks_passed": 24,
-  "elapsed_seconds": 0.756886,
+  "elapsed_seconds": 0.555952,
   "checks": [
     {
       "name": "modified_space_equation_restores_phi_lax",

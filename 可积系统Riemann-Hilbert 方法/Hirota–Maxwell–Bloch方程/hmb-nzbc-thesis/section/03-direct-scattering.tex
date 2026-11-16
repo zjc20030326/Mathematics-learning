@@ -368,20 +368,35 @@ S(z,t)=e^{\ii\lambda(z)x\widehat{\sigma}_3}\!\left[C(z)\mu_-(x,t,h(z))^{-1}\mu_+
 端点归一化及 $Y^\dagger Y=\gamma I$ 确定该常矩阵为 $\gamma I$, 故 $H_\pm=\gamma I$.
 将其代入 \eqref{eq:Sdef}, 即得 \eqref{eq:scattering-unitarity}.
 \end{proof}
-离散谱指空间谱方程 $f_x=U(x,t,z)f$ 在 $\mathbb C\mathbin{\backslash}\Sigma$ 中存在非零 $L^2(\mathbb R)$ 解的谱点集合.
-固定 $t\in I$. 在 $D_+$ 中, $\operatorname{Im}\lambda>0$, 空间 Jost 列
-$\chi_{-,1}=e^{-\ii\lambda x}\mu_{-,1}$ 与 $\chi_{+,2}=e^{\ii\lambda x}\mu_{+,2}$
-分别在负、正半轴指数衰减.
-任一同端的 $L^2$ 解与该衰减列的 Wronskian 为常数, 又由 Cauchy--Schwarz 不等式在该半轴上可积, 故为零.
-因此两端的 $L^2$ 解空间各为一维, 存在全轴 $L^2$ 解当且仅当上述两列线性相关.
-由 \eqref{eq:wronskian},
+离散谱 $Z$ 指空间谱方程 $f_x=U(x,t,z)f$ 在 $\mathbb C\mathbin{\backslash}\Sigma$ 中存在非零 $L^2(\mathbb R)$ 解的谱点集合\cite{ZhangFan2020}.
+
+\begin{proposition}\label{prop:discrete-spectrum}
+在定理 \ref{thm:jost} 的条件下, 固定 $t\in I$, 则
 \begin{equation*}
-\det\bigl(\chi_{-,1}(x,t,z),\chi_{+,2}(x,t,z)\bigr)
-=\det\bigl(\mu_{-,1}(x,t,z),\mu_{+,2}(x,t,z)\bigr)
-=\gamma(z)s_{22}(z,t),
+Z=\{z\in D_+:s_{22}(z,t)=0\}\cup\{z\in D_-:s_{11}(z,t)=0\}.
 \end{equation*}
-且 $\gamma(z)\ne0$, 故 $D_+$ 中的离散谱恰为 $s_{22}$ 的零点.
-在 $D_-$ 中对 $\chi_{+,1},\chi_{-,2}$ 作同样论证, 得到 $s_{11}$ 的结论.
+\end{proposition}
+\begin{proof}
+对 $z\in D_+$, 记 $u=\chi_{-,1}(\cdot,t,z)$, $v=\chi_{+,2}(\cdot,t,z)$.
+由 $\operatorname{Im}\lambda>0$ 及端点归一化,
+\begin{equation*}
+u\in L^2(-\infty,0),\qquad v\in L^2(0,+\infty).
+\end{equation*}
+若 $f_x=Uf$, $f\in L^2(-\infty,0)$, 令 $W=\det(f,u)$, 则
+\begin{equation*}
+\begin{aligned}
+&W_x=(\tr U)W=0,\\
+&\|W\|_{L^1(-\infty,0)}\le\|f\|_{L^2(-\infty,0)}\|u\|_{L^2(-\infty,0)}<\infty.
+\end{aligned}
+\end{equation*}
+故 $W=0$, 即 $f\in\operatorname{span}\{u\}$; 正端同理.
+由 \eqref{eq:wronskian} 及 $\gamma(z)\ne0$,
+\begin{equation*}
+\exists\,0\ne f\in L^2(\mathbb R):\ f_x=Uf\Longleftrightarrow\det(u,v)=\gamma(z)s_{22}(z,t)=0
+\Longleftrightarrow s_{22}(z,t)=0.
+\end{equation*}
+在 $D_-$ 中对 $\chi_{+,1},\chi_{-,2}$ 作同样论证即可.
+\end{proof}
 
 以下假定离散零点有限且均为简单零点.
 由 \eqref{eq:sconj}--\eqref{eq:ssheet}, $s_{22}$ 在 $D_+$ 中的每个零点 $\zeta$ 生成四点轨道
@@ -511,57 +526,54 @@ S(z,t)&=I-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z\sg+O(z^2),&&z\to0.
 \end{equation}
 \end{proposition}
 \begin{proof}
-(1) 无穷远展开. 令 $T=I-\dfrac{\ii B}{z}$, $\mu_\pm=Tn_\pm$.
-当 $|z|$ 足够大时, $T,T^{-1}$ 对实 $x$ 一致有界, 且由 \eqref{eq:modified-jost} 在各自端点有 $T\to Y$, $n_\pm\to I$.
-利用 $B\sg=-\sg B$, $B^2=|q|^2I$, 直接计算得
+(1) 无穷远展开. 采用一阶渐近展开与比较系数的方法\cite{ZhangFan2020}, 写成
+\begin{equation*}
+\mu_\pm=I+\dfrac{A_\pm}{z}+O(z^{-2}).
+\end{equation*}
+记下标 $\mathrm d,\mathrm o$ 分别表示矩阵的对角、非对角部分.
+由 \eqref{eq:jost-modified-lax} 第一式及单值化公式,
 \begin{equation}\label{eq:mu-highenergy-system}
-UT+\ii\lambda T\sg-T_x
-=\dfrac{\ii}{z}\bigl((q_0^2-|q|^2)\sg+B_x\bigr).
+\mu_x=-\dfrac{\ii z}{2}[\sg,\mu]+Q\mu
++\dfrac{\ii q_0^2}{2z}(\sg\mu+\mu\sg).
 \end{equation}
-将 $\mu_\pm=Tn_\pm$ 及 \eqref{eq:mu-highenergy-system} 代入 \eqref{eq:jost-modified-lax} 第一式, 得到
+比较常数项及 $z^{-1}$ 项的对角部分, 得
+\begin{equation*}
+\begin{aligned}
+&-\dfrac{\ii}{2}[\sg,A_\pm]+Q=0,
+\qquad A_{\pm,\mathrm o}=-\ii\sg Q,\\
+&(A_{\pm,\mathrm d})_x=(QA_\pm)_{\mathrm d}+\ii q_0^2\sg
+=\ii(q_0^2-|q|^2)\sg.
+\end{aligned}
+\end{equation*}
+端点归一化给出 $A_{\pm,\mathrm d}(\pm\infty,t)=0$, 故
+$A_\pm=-\ii B+\ii J_\pm\sg$, 即 \eqref{eq:mu-highenergy} 中的系数.
+
+上述展开及求导采用 Volterra 估计验证\cite{BGKL2019}. 令 $n_\pm=\left(I-\dfrac{\ii B}{z}\right)^{-1}\mu_\pm$, 则
 \begin{equation}\label{eq:n-volterra-system}
 \begin{aligned}
-&(n_\pm)_x=-\ii\lambda[\sg,n_\pm]+Cn_\pm,\\
-&C(x,t,z)=\dfrac{1}{z}T(x,t,z)^{-1}C_1(x,t),\qquad
-C_1=\ii\bigl((q_0^2-|q|^2)\sg+B_x\bigr).
+&(n_\pm)_x=-\ii\lambda[\sg,n_\pm]
++\left[\dfrac{\ii}{z}\bigl((q_0^2-|q|^2)\sg+B_x\bigr)+E\right]n_\pm,\\
+&n_\pm(\pm\infty,t,z)=I,\qquad
+\|E\|_{L^1}+\|E\|_{L^\infty}=O(|z|^{-2}).
 \end{aligned}
 \end{equation}
-由 \eqref{eq:highenergy-assumption}, 存在与 $x,z$ 无关的常数 $C_*>0$, 使
+由定理 \ref{thm:jost} 的 Neumann 估计, 二次及以上迭代项之和为 $O(z^{-2})$.
+一次迭代的对角项为 $\dfrac{\ii J_\pm\sg}{z}$, 非对角项为下列振荡积分的 $\dfrac{\ii}{z}$ 倍:
 \begin{equation}\label{eq:asymptotic-L1-control}
-\|C(\cdot,t,z)\|_{L^1}\le\dfrac{C_*}{|z|},\qquad
-\left\|C(\cdot,t,z)-\dfrac{C_1(\cdot,t)}{z}\right\|_{L^1}
-\le\dfrac{C_*}{|z|^2}.
+\left|\int_{\pm\infty}^{x}e^{2\ii s_j\lambda(x-y)}f_j(y,t)\,\dd y\right|
+\le\dfrac{\|q_x\|_{L^\infty}+\|q_{xx}\|_{L^1}}{2|\lambda|}
+=O(|z|^{-1}),
 \end{equation}
-对第 $j$ 列, 令 $s_1=1,s_2=-1$. 相应传播核
-$e^{-\ii\lambda(x-y)(\sg-s_jI)}$ 在允许的积分方向及闭解析域内范数不超过 $1$.
-类似于定理 \ref{thm:jost} 的 Neumann 估计, 二次及以上迭代项之和为 $O(z^{-2})$.
-结合 \eqref{eq:asymptotic-L1-control}, 有
+其中 $s_1=1,s_2=-1$, $f_j=\partial_xB_{3-j,j}$, 积分方向取该列允许的方向.
+此式由一次分部积分及 $q_x(\pm\infty,t)=0$ 得到.
+故 $n_\pm=I+\dfrac{\ii J_\pm\sg}{z}+O(z^{-2})$, 即验证了所用一阶展开.
+再由 \eqref{eq:n-volterra-system} 的非对角、对角部分得到
 \begin{equation*}
-n_{\pm,j}(x,t,z)=e_j+\dfrac{1}{z}\int_{\pm\infty}^{x}
-e^{-\ii\lambda(x-y)(\sg-s_jI)}C_1(y,t)e_j\,\dd y+O(z^{-2}).
+\partial_x\mu_\pm=O(z^{-1}),\qquad
+(\mu_{\pm,\mathrm d})_x=\dfrac{\ii(q_0^2-|q|^2)}{z}\sg+O(z^{-2}),
 \end{equation*}
-一次迭代的对角分量为 $\dfrac{\ii s_jJ_\pm}{z}$.
-对非对角分量, 令 $\ell=3-j$, $f_j=\partial_xB_{\ell j}$.
-由 $q_x(\pm\infty,t)=0$ 分部积分, 得
-\begin{equation*}
-\int_{\pm\infty}^{x}e^{2\ii s_j\lambda(x-y)}f_j(y,t)\,\dd y
-=-\dfrac{f_j(x,t)}{2\ii s_j\lambda}
-+\dfrac{1}{2\ii s_j\lambda}\int_{\pm\infty}^{x}
-e^{2\ii s_j\lambda(x-y)}\partial_yf_j(y,t)\,\dd y.
-\end{equation*}
-由于 $|\lambda|\ge c|z|$, 该分量的绝对值不超过
-\begin{equation*}
-\dfrac{\|q_x(\cdot,t)\|_{L^\infty}+\|q_{xx}(\cdot,t)\|_{L^1}}{2|z\lambda|}
-=O(z^{-2}).
-\end{equation*}
-因此四列统一满足
-\begin{equation*}
-n_\pm=I+\dfrac{\ii J_\pm\sg}{z}+O(z^{-2}),
-\end{equation*}
-乘回 $T$ 即得 \eqref{eq:mu-highenergy}.
-又由 \eqref{eq:n-volterra-system}, $[\sg,n_\pm]=O(z^{-2})$, $C=O(z^{-1})$, $T_x=O(z^{-1})$,
-从而 $\partial_xn_\pm=O(z^{-1})$ 及 $\partial_x\mu_\pm=O(z^{-1})$.
-最后将 \eqref{eq:mu-highenergy} 代入 \eqref{eq:wronskian}, 利用 $J_--J_+=J_{\rm tot}$ 及 $\gamma=1+O(z^{-2})$,
+从而逐项比较及一致余项均成立.
+最后代入 \eqref{eq:wronskian}, 利用 $J_--J_+=J_{\rm tot}$ 及 $\gamma=1+O(z^{-2})$,
 即得 \eqref{eq:transmission-highenergy}.
 
 (2) 谱原点展开. 令 $w=h(z)=-\dfrac{q_0^2}{z}$. 由 \eqref{eq:musheet} 及第一步,
