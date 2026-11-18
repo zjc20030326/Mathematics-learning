@@ -1,5 +1,4 @@
-纯虚单轨道解的三场扰动随同一包络传播. $F(\ii b)$ 的实部确定传播速度,
-虚部控制随动坐标中的内部振荡. 下文结合三场分布和参数对照说明这两种作用.
+纯虚单轨道解的三场扰动随同一包络传播, 其速度与随动振荡由 $F(\ii b)$ 确定.
 
 \subsection{三场分布与随动振荡}
 取定理 \ref{thm:direct-HMB} 中的参数
@@ -7,15 +6,14 @@
 q_0=1,\qquad a=2,\qquad\eta_0=0.6,\qquad
 \alpha=1,\qquad\beta=0.1,\qquad b=1.5,
 \end{equation}
-取式 \eqref{eq:onec} 的范数常数, 由留数系统 \eqref{eq:N-block-system} 及重构公式
-\eqref{eq:qfinite}、\eqref{eq:N-medium} 和 \eqref{eq:original-fields} 计算三场.
-图 \ref{fig:one} 显示, 光场、极化与粒子数反转的扰动均集中在 $x=A_bt$ 附近,
-其中 $A_b=\operatorname{Re}F(\ii b)$.
+范数常数由式 \eqref{eq:onec} 给定, 三场由留数系统 \eqref{eq:N-block-system}
+及式 \eqref{eq:qfinite}、\eqref{eq:N-medium}、\eqref{eq:original-fields} 重构.
+图 \ref{fig:one} 中三场的局域扰动均集中于 $x=A_bt$ 附近, 其中 $A_b=\operatorname{Re}F(\ii b)$.
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-fields.pdf}
-\caption{单轨道解的三场分布. 从上到下依次为 $|\widetilde q|$、$|\widetilde p|$ 和 $\eta$.
-左列为曲面图, 右列为同一区间上的等值图.
+\caption{单轨道三场 $|\widetilde q|$、$|\widetilde p|$、$\eta$ 的分布 (从上到下).
+左列为曲面图, 右列为等值图.
 参数见 \eqref{eq:numerical-parameters}, 绘图区间为 $x\in\lbrack-6,6\rbrack$、$t\in\lbrack-1.5,1.5\rbrack$.}
 \label{fig:one}
 \end{figure}
@@ -31,25 +29,24 @@ q_0=1,\qquad a=2,\qquad\eta_0=0.6,\qquad
 \begin{equation*}
 T=e^{2\kappa X}e^{-2\ii\kappa B_bt}.
 \end{equation*}
-若 $B_b\ne0$, 固定 $X$ 时, 规范三场 $(q,p,\eta)$ 以及 $|\widetilde q|$、$|\widetilde p|$ 和 $\eta$ 均以
+若 $B_b\ne0$, 固定 $X$ 时, 规范三场及原场的模 $|\widetilde q|$、$|\widetilde p|$ 和反转 $\eta$ 均以
 \begin{equation}\label{eq:internal-period}
 T_t=\dfrac{\pi}{\kappa|B_b|}
 \end{equation}
-为周期. 两个原复场 $\widetilde q,\widetilde p$ 以 $T_t$ 为共同随动周期的充要条件是
+为周期. 原复场 $\widetilde q,\widetilde p$ 具有该随动周期的充要条件为
 $\Omega T_t\in2\pi\mathbb Z$. 当 $\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}$ 时,
-$B_b=0$, 因而规范三场只随 $X$ 变化.
+$B_b=0$, 规范三场为关于 $X$ 的定形波.
 
 由 $P^2=P=P^\dagger$ 和 $\tr P=1$, 有 $|P_{12}|^2=P_{11}(1-P_{11})\le\dfrac{1}{4}$.
-在 $x=t=0$ 处, $T=1$ 且 $P_{12}=\dfrac{1}{2}$. 因而光场模的上界为
+结合 $T(0,0)=1$、$P_{12}(0,0)=\dfrac{1}{2}$, 得
 \begin{equation}\label{eq:amplitude-bound}
 |\widetilde q(x,t)|\le q_0+2b,\qquad |\widetilde q(0,0)|=q_0+2b.
 \end{equation}
 由投影矩阵的端态展开, 三场偏离背景的量在 $X\to\pm\infty$ 时均为 $O(e^{-2\kappa|X|})$.
 
-图 \ref{fig:dynamics}(a) 给出一个随动周期内的三个光场截面.
-在图 \ref{fig:dynamics}(b) 中, $\alpha$ 从 $0.5$ 增至 $1$ 时,
-中心光场模的振荡周期由约 $3.418$ 缩短至 $1.787$, 传播速度保持为 $A_b=-1.196$.
-取 $\alpha=-0.048$ 时, $B_b=0$, 光场模在随动坐标中保持定形.
+图 \ref{fig:dynamics} 给出光场的随动截面及中心振荡.
+$\alpha$ 从 $0.5$ 增至 $1$ 时, 周期由约 $3.418$ 缩短至 $1.787$,
+速度均为 $A_b=-1.196$. 取 $\alpha=-0.048$ 时, 光场模在随动坐标中保持定形.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-dynamics.pdf}
@@ -60,9 +57,8 @@ $t=0$、$\dfrac{T_t}{4}$、$\dfrac{T_t}{2}$ 时光场模随 $X$ 的分布.
 \end{figure}
 
 \subsection{包络传播与数值核验}
-由式 \eqref{eq:velocity}, 传播速度随 $\beta$ 作仿射变化.
-图 \ref{fig:velocity} 中, $\beta$ 由 $0$ 增至 $0.15$ 时, $A_b$ 由 $-0.096$ 变为 $-1.746$,
-两组参数对应同一随动频率 $2\kappa|B_b|$.
+固定其余参数, 由 \eqref{eq:velocity} 知传播速度随 $\beta$ 作仿射变化, 随动角频率 $2\kappa|B_b|$ 与 $\beta$ 无关.
+图 \ref{fig:velocity} 中, $\beta$ 由 $0$ 增至 $0.15$ 时, $A_b$ 由 $-0.096$ 变为 $-1.746$.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-velocity.pdf}
@@ -72,9 +68,9 @@ $t=0$、$\dfrac{T_t}{4}$、$\dfrac{T_t}{2}$ 时光场模随 $X$ 的分布.
 \end{figure}
 
 \FloatBarrier
-对参数 \eqref{eq:numerical-parameters}, 在五个时空样点上以 70 位十进制精度求解留数系统并计算重构场的导数.
-表 \ref{tab:direct-residuals} 汇总原方程、Lax 对及共振重构的样点残差,
-并列出 Bloch 约束的误差. 在相同样点上, 绘图所用的双精度值与高精度重构值之差均小于 $10^{-14}$.
+对参数 \eqref{eq:numerical-parameters}, 在五个时空样点上以 70 位十进制精度求解留数系统并计算场导数,
+原方程、Lax 对、共振重构及 Bloch 约束的残差见表 \ref{tab:direct-residuals}.
+同一样点上的双精度绘图值与高精度重构值之差均小于 $10^{-14}$.
 \begin{table}[htbp]
 \centering
 \caption{单轨道三场的高精度核验, 表内为样点最大绝对残差的向上舍入值}
