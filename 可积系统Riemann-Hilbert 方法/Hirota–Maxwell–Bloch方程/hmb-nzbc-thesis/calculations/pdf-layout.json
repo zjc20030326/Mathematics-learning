@@ -1,78 +1,160 @@
 {
-  "generated_utc": "2026-11-16T11:32:21.701352+00:00",
-  "scope": "Proposition 3.6 first proof: unknown zeroth and first coefficients, full substitution, coefficient comparison; original derivative statement and technical paragraph removed; dependent reconstruction proof updated.",
+  "scope": "Sections 5–8 revision, with the matrix RHP stated within the Jost-splicing proposition and the Cauchy representation derived immediately afterward.",
   "pdf": "fduthesis.pdf",
   "pages": 39,
-  "sha256": "606ccf22a9aba9c7b90170e98aa4e120d6524acecc3b5b80eb4d40c3059f7524",
-  "numbering": {
-    "labels": 212,
-    "removed": "eq:mux-highenergy",
-    "changed": {
-      "eq:s22-highenergy": [
-        "3.55",
-        "3.54"
-      ],
-      "eq:s11-highenergy": [
-        "3.56",
-        "3.55"
-      ],
-      "eq:smallmu": [
-        "3.57",
-        "3.56"
-      ],
-      "eq:s22-smallenergy": [
-        "3.58",
-        "3.57"
-      ],
-      "eq:s11-smallenergy": [
-        "3.59",
-        "3.58"
-      ],
-      "eq:scattering-highenergy": [
-        "3.60",
-        "3.59"
-      ],
-      "eq:scattering-smallenergy": [
-        "3.61",
-        "3.60"
-      ],
-      "eq:mu-highenergy-system": [
-        "3.62",
-        "3.61"
-      ],
-      "eq:Apm-offdiag": [
-        "3.63",
-        "3.62"
-      ],
-      "eq:Apm-diag-ode": [
-        "3.64",
-        "3.63"
-      ]
-    },
-    "rendered_physical_pages": [
-      17,
-      18,
-      25
-    ]
-  },
-  "equation_references_in_substitution": [
-    "eq:jost-modified-lax",
-    "eq:uniform"
-  ],
-  "exact_identity_checks": 48,
-  "coefficient_relations_independently_reviewed": true,
-  "unchanged_explanation_files": 53,
-  "unchanged_figure_pdfs": 5,
+  "sha256": "50269bd31f1dbc94640ce43e083752ab2c6b976230ae6c669bd7397977c10efa",
   "source_sha256": {
     "fduthesis.tex": "ff321b0fc913def4c6a93859ee6ebe65de8b7d33564924d4ab9d31bcfac38991",
     "section\\01-introduction.tex": "edf111896b1575791573139a98d157780823364290c3551fee7c8dac652781ae",
-    "section\\02-model.tex": "c08fea3951acbb81ce0201146de216dde2f4ab5b28d78568ef9121f8d822c99d",
-    "section\\03-direct-scattering.tex": "08bec7a6e6374c88bca35f97e68ff94c9b059fd154cb1f0e223f1dbd975ce81b",
-    "section\\04-evolution-resonance.tex": "021620d90b73cc617b5c9cd8b05ce04755d847e021262acca37923152b6d22a6",
-    "section\\05-rhp-reconstruction.tex": "9987303b0396ace9c29e1c5f56ac0b4afb8ab8ce403da49e82a2f10edeb5b1fb",
-    "section\\06-reflectionless.tex": "c9049cdd58a03b468cef59458071fe036c77a5cdb43b384efb62091e421fb2d3",
-    "section\\07-hmb-verification.tex": "fadd645c871b2652f5a257e99a0d8216217e7c29dbd60c6cdede87e95809266c",
-    "section\\08-numerics.tex": "2946d13fe75ac69912ff76206449edc3ca8c25f1aea01dc7b9e65c16f0165312"
+    "section\\02-model.tex": "30a9b10f9a6c8014b1795010dd556b461090e12da098185afe568708346e6977",
+    "section\\03-direct-scattering.tex": "b875d0872a5f3992203bcb1906ff7754447b6b1f3a2f8f34a325baa4269a913f",
+    "section\\04-evolution-resonance.tex": "e7d8eb5b6c02a1c1365bdc416bc02cdf5982549c6c8e6d215227b75e280f823b",
+    "section\\05-rhp-reconstruction.tex": "a299cbf47da66fd6a17243e5273e6ce3074168ea047ba34a8f2d327e162dd4c4",
+    "section\\06-reflectionless.tex": "d839623cc9ca1df6fe238816d94ffaa1d82d36c204157bb5ae921978524ff977",
+    "section\\07-hmb-verification.tex": "fb249609ce99f0e54ed51f890519e5c23de575a8b365d7e36ea5e275f2722aa9",
+    "section\\08-numerics.tex": "eeb97e73dc14489178e263f26bd14428ebd38881017704d5ba6b4d2c1e504985"
   },
-  "visual_review": "Inspected final physical PDF pages 17,18,25: where-clause for 3.53, full substituted equation 3.61, left-edge coefficient equations, retained one-line scattering expansion, and dependent reconstruction proof. No overlap or clipping."
+  "retained_labels": 212,
+  "added_labels": [
+    "eq:M-residues"
+  ],
+  "unchanged_explanation_files": 53,
+  "unchanged_earlier_section_and_figure_files": 6,
+  "section_5_to_8_bookmarks": [
+    [
+      1,
+      "5. 矩阵 RHP 与三场重构",
+      22
+    ],
+    [
+      2,
+      "5.1 矩阵 Riemann–Hilbert 问题",
+      22
+    ],
+    [
+      2,
+      "5.2 留数条件与重构公式",
+      23
+    ],
+    [
+      2,
+      "5.3 迹公式与相位条件",
+      25
+    ],
+    [
+      1,
+      "6. 无反射 RHP 与轨道构造",
+      26
+    ],
+    [
+      2,
+      "6.1 多轨道无反射解",
+      27
+    ],
+    [
+      2,
+      "6.2 纯虚单轨道数据与全局矩阵解",
+      29
+    ],
+    [
+      1,
+      "7. 单轨道三场解的全局性与方程验证",
+      31
+    ],
+    [
+      1,
+      "8. 数值结果与动力学分析",
+      34
+    ],
+    [
+      2,
+      "8.1 三场分布与随动振荡",
+      34
+    ],
+    [
+      2,
+      "8.2 包络传播与数值核验",
+      36
+    ],
+    [
+      1,
+      "参考文献",
+      38
+    ]
+  ],
+  "printed_numbers_and_pages": {
+    "eq:Mdef": [
+      "5.1",
+      "21"
+    ],
+    "eq:jump": [
+      "5.2",
+      "21"
+    ],
+    "eq:general-cauchy": [
+      "5.7",
+      "22"
+    ],
+    "eq:reconq": [
+      "5.13",
+      "23"
+    ],
+    "eq:RfromM": [
+      "5.14",
+      "23"
+    ],
+    "eq:trace": [
+      "5.19",
+      "25"
+    ],
+    "thm:N-orbit-RHP": [
+      "6.1",
+      "27"
+    ],
+    "eq:one-schur-det": [
+      "6.20",
+      "29"
+    ],
+    "thm:direct-HMB": [
+      "7.1",
+      "30"
+    ],
+    "eq:inverse-log-lax": [
+      "7.7",
+      "31"
+    ],
+    "fig:one": [
+      "8.1",
+      "34"
+    ],
+    "fig:dynamics": [
+      "8.2",
+      "35"
+    ],
+    "fig:velocity": [
+      "8.3",
+      "36"
+    ],
+    "tab:direct-residuals": [
+      "8.1",
+      "36"
+    ]
+  },
+  "out_of_page_text_spans": [],
+  "generated_utc": "2026-11-18T15:13:42.097354+00:00",
+  "reviewed_printed_pages": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    29
+  ],
+  "visual_review": "Inspected the revised RHP proposition, Cauchy representation, residue and reconstruction formulas, relocated determinant lemma, and cross-referenced one-orbit theorem in the rendered PDF.",
+  "numerical_figure_qa": "calculations/numerical-figure-qa.json",
+  "removed_labels": [
+    "def:RHP",
+    "thm:RHP",
+    "prop:cauchy-representation"
+  ]
 }

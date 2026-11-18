@@ -1,6 +1,5 @@
 在无反射条件 $\rho=\widetilde\rho=0$ 下, 跳跃矩阵为 $\Id$, 谱边界上的非极点均可去.
 矩阵 RHP 因而化为由离散谱和范数数据确定的有限维留数系统.
-本节推导多轨道的行列式重构公式, 并对纯虚单轨道显式消元, 建立其全局矩阵解.
 
 \subsection{多轨道无反射解}
 \begin{definition}\label{def:orbit-data}
@@ -18,13 +17,11 @@
 \end{equation}
 满足上述条件的谱点与范数常数组成同相背景的 $N$ 轨道无反射数据.
 \end{definition}
-下面固定实数对 $(x,t)$, 在有限维计算中省略各矩阵和留数系数的 $x,t$ 自变量.
+固定 $(x,t)\in\mathbb R^2$, 以下省略各矩阵和留数系数的 $x,t$ 自变量.
 令 $\mathbf v_j=M_1(\zeta_j)$、$\mathbf u_j=M_2(\conj{\zeta_j})$, 其中 $j=1,\ldots,m$.
 
 \label{prop:finite}
-任一无反射 RHP 解减去 $z=0$ 及离散极点处的主部后,
-所得矩阵在有限平面解析, 并在无穷远趋于 $\Id$.
-由 Liouville 定理, 它必有部分分式表示
+由 \eqref{eq:general-cauchy} 及 \eqref{eq:M-residues}, 在 $W=0$ 时任一矩阵解具有部分分式表示
 \begin{equation}\label{eq:partialfraction}
 M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1+\sum\limits_{j=1}^{m}
 \left(\dfrac{C_j\mathbf v_je_2^T}{z-\zeta_j}
@@ -37,8 +34,8 @@ M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1+\sum\limits_{j=1}^{m}
 &\mathbf u_j=e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1
 +\sum\limits_{k=1}^{m}\dfrac{C_k\mathbf v_k}{\conj{\zeta_j}-\zeta_k}.\label{eq:finite2}
 \end{align}
-反之, 任一留数系统的解通过上述部分分式给出具有指定留数和两处归一化的矩阵.
-为求解该系统, 记
+反之, 任一满足上述系统的正则列均由 \eqref{eq:partialfraction} 确定具有指定留数和归一化的有理矩阵.
+记
 \begin{equation*}
 A_{jk}=\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}},\qquad
 B_{jk}=\dfrac{C_k}{\conj{\zeta_j}-\zeta_k},\qquad j,k=1,\ldots,m,
@@ -67,9 +64,8 @@ q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\mathbf v_j)_1.
 \end{equation}
 
 \begin{theorem}\label{thm:N-orbit-RHP}
-设数据满足定义 \ref{def:orbit-data}.
-对每个满足 $\det L_N(x,t)\ne0$ 的实数对 $(x,t)$,
-式 \eqref{eq:finite-schur} 与部分分式表示给出该点处无反射 RHP 的唯一解.
+设离散数据满足定义 \ref{def:orbit-data}, 且在实数对 $(x,t)$ 处有 $\det L_N(x,t)\ne0$.
+则式 \eqref{eq:finite-schur} 与 \eqref{eq:partialfraction} 确定相应无反射 RHP 的唯一解.
 它满足约化关系 \eqref{eq:Msym} 及 $\det M=\gamma$, 在分支点解析且秩为一. 令
 \begin{equation}\label{eq:N-rhs}
 \begin{aligned}
@@ -92,7 +88,7 @@ R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
 两个符号给出相同结果; 相应三场按 \eqref{eq:original-fields} 恢复.
 \end{theorem}
 \begin{proof}
-(1) 约化关系. 由 $\det L_N\ne0$, 留数系统唯一确定部分分式中的正则列.
+(1) 约化关系. 由 $\det L_N\ne0$, 留数系统唯一可解, 从而 \eqref{eq:partialfraction} 唯一确定矩阵 $M$.
 共轭变换 $\sigma_2\conj{M(\conj{z})}\sigma_2$ 交换两组极点, 满足同一留数系统和两处归一化.
 换叶变换
 \begin{equation*}
@@ -107,7 +103,7 @@ R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
 \end{equation*}
 共轭点处同理, 得到带负号的第一列留数条件. 在 $0,\infty$ 处, 换叶交换两处归一化, 仍给出规定主项. 由唯一性得到两项约化 \eqref{eq:Msym}.
 
-(2) 行列式与分支点. 由部分分式表示, $M$ 在分支点、谱交点及共振原像解析, 并满足 RHP 的有限特殊点条件.
+(2) 行列式与分支点. 部分分式中的离散极点均在 $\Sigma$ 外, 因而 $M$ 在分支点、谱交点及共振原像解析.
 引理 \ref{lem:RHP-determinant} 给出 $\det M=\gamma$.
 若 $M(z_b)$ 为零矩阵, 则行列式至少有二阶零点, 与 $\gamma'(z_b)\ne0$ 矛盾; 因此其秩恰为一.
 
@@ -116,14 +112,11 @@ R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
 \det\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}
 =\det L_N\left(q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r\right),
 \end{equation*}
-得到第二式. 共振原像不在离散谱中, 且 $\gamma(z_a^\pm)>0$, 所以逆矩阵存在.
-两个原像互为换叶, $\lambda$ 变号, 而 $\sigma_1\sigma_3\sigma_1=-\sigma_3$;
-代入换叶约化即知介质重构与谱叶无关.
+得到第二式. 共振原像处的可逆性及介质重构的一致性由引理 \ref{lem:medium-reduction} 给出.
 \end{proof}
 
 \subsection{纯虚单轨道数据与全局矩阵解}
-下面选取纯虚单轨道, 通过显式消元证明其 Schur 补行列式处处非零.
-取一个纯虚离散轨道
+取纯虚离散轨道
 \begin{equation}\label{eq:imaginarypoint}
 \begin{aligned}
 &k_1=\ii b,\qquad b>q_0,\qquad \kappa=\sqrt{b^2-q_0^2},\\
@@ -135,8 +128,8 @@ R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sigma_3 M(z_a^\pm)^{-1}.
 \zeta_1=\ii W,\qquad \zeta_2=-\ii q_0h_0=h(\conj{\zeta_1}),\qquad
 s_{22}(z)=\dfrac{\lambda(z)-\ii\kappa}{\lambda(z)+\ii\kappa}.
 \end{equation}
-这正是无反射迹公式的两因子乘积, 其在 $0,\infty$ 均趋于 1.
-在外部零点选择 $b_1(0)=1$, 再用范数常数的配对约束, 得
+由无反射迹公式, 上述 $s_{22}$ 是两个 $D_+$ 零点对应因子的乘积, 在 $0,\infty$ 均趋于 1.
+取 $b_1(0)=1$, 由范数常数的配对关系得
 \begin{equation}\label{eq:onec}
 c_1(0)=\dfrac{1}{s_{22}'(\zeta_1)}=\dfrac{4\ii\kappa}{1+h_0^2},\qquad
 c_2(0)=-h_0^2c_1(0).
@@ -179,7 +172,12 @@ f_2=\begin{pmatrix}1\\h_0^{-1}\end{pmatrix},\quad
 g_1=\begin{pmatrix}h_0\\1\end{pmatrix},\quad
 g_2=\begin{pmatrix}-h_0^{-1}\\1\end{pmatrix}.
 \end{equation*}
-两个向量分量分别满足前述分块系统, 其 Schur 补行列式为
+直接计算 Schur 补的行列式, 得
+\begin{equation*}
+\det(I_2+AB)
+=(1+|T|^2)^2-\dfrac{4h_0^2(T+\conj T)^2}{(1+h_0^2)^2}.
+\end{equation*}
+按 $\Delta_\pm$ 分解右端, 得
 \begin{equation}\label{eq:one-schur-det}
 \det(I_2+AB)=\dfrac{\Delta_-\Delta_+}{(1+h_0^2)^2}>0.
 \end{equation}
@@ -197,7 +195,7 @@ g_2=\begin{pmatrix}-h_0^{-1}\\1\end{pmatrix}.
 再由 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$ 得到其余两列, 即得所述显式解.
 \end{proof}
 
-将所得列向量代入部分分式, 合并后可用以下秩一正交投影表示其系数:
+将所得列向量代入 \eqref{eq:partialfraction}, 其系数可用秩一正交投影表示:
 \begin{equation}\label{eq:algebraic-P}
 P=\dfrac{1}{\Delta_-}
 \begin{pmatrix}
@@ -213,7 +211,7 @@ P=\dfrac{1}{\Delta_-}
 M(z)=H\bigl[(k(z)+\ii b)\Id-2\ii bP\bigr]Y(z)
 \diag\left(\dfrac{1}{\lambda(z)+\ii\kappa},\dfrac{1}{\lambda(z)-\ii\kappa}\right)H^{-1}.
 \end{equation}
-它满足定义 \ref{def:RHP} 的全部条件, 在分支点、谱交点与共振原像解析, 在分支点秩为一, 在共振原像可逆.
+该解在分支点、谱交点与共振原像解析, 在分支点秩为一, 在共振原像可逆.
 \end{theorem}
 \begin{proof}
 在部分分式的第二列合并分母,
@@ -229,7 +227,7 @@ $P$ 的特征值为 $1,0$, 故
 \begin{equation*}
 \det N=(k-\ii b)(k+\ii b)=\lambda^2+\kappa^2.
 \end{equation*}
-它抵消两个列分母的乘积, 得 $\det M=\det Y=\gamma$. 在分支点 $z=\pm\ii q_0$ 上, $\lambda=0$, 两个列分母均非零; $N$ 可逆而 $Y$ 秩一, 因此 $M$ 解析且秩一. 交点和共振原像的 $\lambda$ 为实数, 也没有列分母零点; 共振处 $\gamma>0$, 所以 $M$ 可逆. 显式表达式不再含有其他有限奇点.
-
-Schur 行列式 \eqref{eq:one-schur-det} 严格为正, 因而解在全部实 $x,t$ 上存在且唯一.
+它抵消两个列分母的乘积, 得 $\det M=\det Y=\gamma$.
+在分支点 $z=\pm\ii q_0$ 处, $\lambda=0$, 两个列分母非零, 而 $N$ 可逆、$Y$ 秩一, 故 $M$ 解析且秩一.
+在谱交点和共振原像处, $\lambda$ 为实数, 列分母亦非零; 共振处的 $\gamma>0$ 进一步给出 $M$ 可逆.
 \end{proof}

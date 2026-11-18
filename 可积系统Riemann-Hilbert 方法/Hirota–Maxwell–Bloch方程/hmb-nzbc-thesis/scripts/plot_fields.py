@@ -89,11 +89,11 @@ SKILL_SCRIPTS = Path(os.environ.get('NATURE_FIGURE_SCRIPTS',
 
 
 def panel_label(ax, letter):
-    transform = ax.transAxes+ScaledTranslation(-7/72, 4/72, ax.figure.dpi_scale_trans)
+    transform = ax.transAxes+ScaledTranslation(-10/72, 4/72, ax.figure.dpi_scale_trans)
     if hasattr(ax, 'text2D'):
-        ax.text2D(0, 1, letter, transform=transform, fontsize=9, fontweight='bold', va='bottom')
+        ax.text2D(0, 1, letter, transform=transform, fontsize=11, fontweight='bold', va='bottom')
     else:
-        ax.text(0, 1, letter, transform=transform, fontsize=9, fontweight='bold', va='bottom')
+        ax.text(0, 1, letter, transform=transform, fontsize=11, fontweight='bold', va='bottom')
 
 
 def export(fig, name, *, axes=None, exclude=None):
@@ -109,7 +109,7 @@ def export(fig, name, *, axes=None, exclude=None):
     fig.savefig(ROOT/'figures'/(name+'.pdf'), dpi=600)
     if AUDIT: fig.savefig(QA/(name+'.svg'))
     # Backend-native previews live outside the manuscript project.
-    fig.savefig(Path(tempfile.gettempdir())/(name+'-2026-preview.png'), dpi=300)
+    fig.savefig(QA/(name+'.png'), dpi=300)
     plt.close(fig)
 
 
@@ -204,11 +204,31 @@ def spectral_figures():
                 domain_color='D+ pale blue, D- white')
 
 
+# Numerical artwork is drawn at the actual thesis text width (146.4 mm).
+# Each colorbar compares only the same field; the surfaces and maps in a row
+# use identical limits. All grids remain analytic residue-system evaluations.
+NUMERIC_WIDTH_IN = 146.4/25.4
+NUMERIC_COLORS = ['#276A8D', '#B56A32', '#5B7E53']
+NUMERIC_STYLES = ['-', '--', ':']
+
+
+def numeric_axes(ax):
+    ax.tick_params(labelsize=10, length=3, width=.75, pad=3)
+    ax.xaxis.label.set_size(11)
+    ax.yaxis.label.set_size(11)
+    for spine in ax.spines.values():
+        spine.set_linewidth(.75)
+
+
 def field_figure(X, TIME, x, times):
+    """Three rows: optical amplitude, polarization amplitude and inversion.
+
+    Left: three-dimensional surfaces on the original 121 by 101 analytic grid.
+    Right: contour maps on the original 401 by 251 grid, with per-field scales.
+    """
     q, p, eta, errors = calc(X, TIME)
     if max(errors.values()) >= 1e-10:
         raise ValueError(errors)
-    # Separate analytic sampling grids: the surface grid is stated in the data record.
     xs, ts = np.linspace(-6, 6, 121), np.linspace(-1.5, 1.5, 101)
     XS, TS = np.meshgrid(xs, ts)
     qs, ps, es, _ = calc(XS, TS)
@@ -216,91 +236,122 @@ def field_figure(X, TIME, x, times):
     surface_values = [abs(qs), abs(ps), es.real]
     titles = [r'$|\widetilde q(x,t)|$', r'$|\widetilde p(x,t)|$', r'$\eta(x,t)$']
     limits = [(0, 4), (0, np.sqrt(.45)), (-np.sqrt(.45), np.sqrt(.45))]
-    cmaps = ['viridis', 'magma', 'coolwarm']
-    fig = plt.figure(figsize=(6.18, 5.35))
-    grid = fig.add_gridspec(3, 3, height_ratios=[1, 1, .055],
-                           left=.10, right=.91, bottom=.09, top=.94,
-                           wspace=.55, hspace=.48)
+    ticks = [[0, 2, 4], [0, .3, .6], [-.6, 0, .6]]
+    cmaps = ['viridis', 'magma', 'RdBu_r']
+    fig = plt.figure(figsize=(NUMERIC_WIDTH_IN, 165/25.4))
+    grid = fig.add_gridspec(3, 3, width_ratios=[1, 1, .045],
+                           left=.075, right=.925, bottom=.065, top=.945,
+                           wspace=.36, hspace=.58)
     panels, colorbars = [], []
     for j in range(3):
-        ax = fig.add_subplot(grid[0, j], projection='3d')
+        norm = matplotlib.colors.Normalize(*limits[j])
+        ax = fig.add_subplot(grid[j, 0], projection='3d')
         ax.plot_surface(XS, TS, surface_values[j], rstride=1, cstride=1,
-                        cmap=cmaps[j], vmin=limits[j][0], vmax=limits[j][1],
-                        linewidth=0, antialiased=False, alpha=1)
+                        cmap=cmaps[j], norm=norm, linewidth=0,
+                        antialiased=False, alpha=1)
         ax.set(xlim=(-6, 6), ylim=(-1.5, 1.5), zlim=limits[j])
         ax.set_xticks([-6, 0, 6]); ax.set_yticks([-1, 0, 1])
-        ax.set_zticks([[0, 4], [0, .6], [-.6, 0, .6]][j])
+        ax.set_zticks(ticks[j])
         ax.grid(False)
-        for axis in [ax.xaxis, ax.yaxis, ax.zaxis]: axis.pane.fill=False
-        ax.set_xlabel(r'$x$', labelpad=0); ax.set_ylabel(r'$t$', labelpad=0)
-        ax.tick_params(pad=1, labelsize=8.5)
+        for axis in [ax.xaxis, ax.yaxis, ax.zaxis]:
+            axis.pane.fill = False
+            axis.pane.set_edgecolor('#E0E0E0')
+        ax.set_xlabel(r'$x$', labelpad=1, fontsize=11)
+        ax.set_ylabel(r'$t$', labelpad=1, fontsize=11)
+        ax.tick_params(pad=1, labelsize=10)
         ax.view_init(elev=27, azim=-58)
         ax.set_box_aspect((1.15, 1, .72))
-        ax.set_title(titles[j], fontsize=10, pad=8)
-        panel_label(ax, chr(97+j))
+        # Keep the projected z-ticks clear of the adjacent map's time label.
+        position = ax.get_position()
+        ax.set_position([position.x0-.035, position.y0, position.width, position.height])
+        ax.set_title(titles[j], fontsize=11, pad=8)
+        panel_label(ax, chr(97+2*j))
         panels.append(ax)
-        bot = fig.add_subplot(grid[1, j])
-        levels = np.linspace(limits[j][0], limits[j][1], 31)
-        im = bot.contourf(x, times, values[j], levels=levels, cmap=cmaps[j], extend='neither')
-        bot.set(xlabel=r'$x$', ylabel=r'$t$', xlim=(-6, 6), ylim=(-1.5, 1.5))
-        bot.set_xticks([-6, -3, 0, 3, 6]); bot.set_yticks([-1.5, 0, 1.5])
-        panel_label(bot, chr(100+j))
-        cax = fig.add_subplot(grid[2, j]); fig.colorbar(im, cax=cax, orientation='horizontal', ticks=[[0,2,4],[0,.3,.6],[-.6,0,.6]][j])
-        colorbars.append(cax); panels.append(bot)
+        contour = fig.add_subplot(grid[j, 1])
+        # Rasterize only the filled contour layer to avoid PDF stitching seams.
+        contour.set_rasterization_zorder(1.1)
+        levels = np.linspace(*limits[j], 41)
+        im = contour.contourf(x, times, values[j], levels=levels,
+                              cmap=cmaps[j], norm=norm)
+        contour.set(xlabel=r'$x$', ylabel=r'$t$', xlim=(-6, 6), ylim=(-1.5, 1.5))
+        contour.set_xticks([-6, 0, 6]); contour.set_yticks([-1.5, 0, 1.5])
+        numeric_axes(contour)
+        panel_label(contour, chr(98+2*j))
+        panels.append(contour)
+        cax = fig.add_subplot(grid[j, 2])
+        cax.set_rasterization_zorder(1.1)
+        fig.colorbar(im, cax=cax, ticks=ticks[j])
+        cax.tick_params(labelsize=9.5, length=2.5, pad=3)
+        colorbars.append(cax)
     export(fig, 'one-soliton-fields', axes=panels, exclude=colorbars)
     return errors
 
 
 def dynamics_figures(X, TIME, x, times):
+    """Separate comoving shape/oscillation from beta-controlled translation."""
     speed, _, period = velocity_period()
     profile_x = np.linspace(-4, 4, 401)
-    fig, axes = plt.subplots(1, 2, figsize=(6.18, 2.95))
-    fig.subplots_adjust(left=.10, right=.98, top=.90, bottom=.29, wspace=.34)
-    colors = ['#2B638A', '#B5793E', '#6E7F46']
-    for frac, ls, color in zip([0., .25, .5], ['-', '--', ':'], colors):
+    fig, axes = plt.subplots(1, 2, figsize=(NUMERIC_WIDTH_IN, 88/25.4))
+    fig.subplots_adjust(left=.105, right=.97, top=.90, bottom=.34, wspace=.43)
+    labels = [r'$0$', r'$0.25$', r'$0.5$']
+    for frac, ls, color, label in zip([0., .25, .5], NUMERIC_STYLES, NUMERIC_COLORS, labels):
         tt = frac*period
         qq, _, _, _ = calc(profile_x+speed*tt, tt)
-        axes[0].plot(profile_x, abs(qq), ls, color=color, lw=1.2,
-                     label=rf'$t/T_t={frac:g}$')
-    axes[0].set(xlabel=r'$X=x-A_bt$', ylabel=r'$|\widetilde q|$')
+        axes[0].plot(profile_x, abs(qq), ls, color=color, lw=1.4, label=label)
+    axes[0].set(xlabel=r'$X=x-A_bt$', ylabel=r'$|\widetilde q|$',
+                xlim=(-4, 4), ylim=(-.08, 4.15))
     axes[0].set_xticks([-4, -2, 0, 2, 4]); axes[0].set_yticks([0, 1, 2, 3, 4])
-    axes[0].legend(loc='upper center', bbox_to_anchor=(.5, -.31), ncol=3, fontsize=8,
-                   handlelength=1.4, handletextpad=.3, columnspacing=.7)
+    axes[0].legend(loc='upper center', bbox_to_anchor=(.5, -.25), ncol=3,
+                   title=r'$t/T_t$', fontsize=10, title_fontsize=10.5,
+                   handlelength=1.8, handletextpad=.35, columnspacing=.9,
+                   borderaxespad=0, labelspacing=.5)
     times_line = np.linspace(-2, 2, 501)
     stationary_alpha = -DEFAULT['eta0']/(DEFAULT['a']*(DEFAULT['a']**2+DEFAULT['b']**2))
     periodic_cases = []
-    for al, color in zip([stationary_alpha, .5, 1.], colors):
+    for al, color, ls in zip([stationary_alpha, .5, 1.], NUMERIC_COLORS, NUMERIC_STYLES):
         aa, bb, tt = velocity_period(alpha=al)
         qq, _, _, _ = calc(aa*times_line, times_line, alpha=al)
-        axes[1].plot(times_line, abs(qq), color=color, lw=1.2, label=rf'$\alpha={al:g}$')
+        axes[1].plot(times_line, abs(qq), ls, color=color, lw=1.4, label=rf'${al:g}$')
         periodic_cases.append(dict(alpha=al, A_b=aa, B_b=bb, T_t=tt))
-    axes[1].set(xlabel=r'$t$', ylabel=r'$|\widetilde q(A_bt,t)|$')
+    axes[1].set(xlabel=r'$t$', ylabel=r'$|\widetilde q(A_bt,t)|$',
+                xlim=(-2, 2), ylim=(1.9, 4.15))
     axes[1].set_xticks([-2, -1, 0, 1, 2]); axes[1].set_yticks([2, 3, 4])
-    axes[1].legend(loc='upper center', bbox_to_anchor=(.5, -.31), ncol=3, fontsize=8,
-                   handlelength=1.4, handletextpad=.3, columnspacing=.7)
-    for j, ax in enumerate(axes): panel_label(ax, chr(97+j))
+    axes[1].legend(loc='upper center', bbox_to_anchor=(.5, -.25), ncol=3,
+                   title=r'$\alpha$', fontsize=10, title_fontsize=10.5,
+                   handlelength=1.8, handletextpad=.35, columnspacing=.9,
+                   borderaxespad=0, labelspacing=.5)
+    for j, ax in enumerate(axes):
+        numeric_axes(ax)
+        panel_label(ax, chr(97+j))
     export(fig, 'one-soliton-dynamics', axes=list(axes))
 
-    fig, axes = plt.subplots(1, 2, figsize=(6.18, 3.0))
-    fig.subplots_adjust(left=.10, right=.88, top=.86, bottom=.18, wspace=.35)
+    fig, axes = plt.subplots(1, 2, figsize=(NUMERIC_WIDTH_IN, 78/25.4))
+    fig.subplots_adjust(left=.10, right=.87, top=.85, bottom=.20, wspace=.36)
     velocity_cases = []
     for j, (ax, be) in enumerate(zip(axes, [0., .15])):
         qq, _, _, errs = calc(X, TIME, beta=be)
         aa, bb, tt = velocity_period(beta=be)
-        im = ax.contourf(x, times, abs(qq), levels=np.linspace(0, 4, 31), cmap='viridis')
-        ax.plot(aa*times, times, color='white', ls='--', lw=.8)
+        ax.set_rasterization_zorder(1.1)
+        im = ax.contourf(x, times, abs(qq), levels=np.linspace(0, 4, 41), cmap='viridis')
+        ax.plot(aa*times, times, color='white', ls='--', lw=1.1)
         ax.set(xlabel=r'$x$', ylabel=r'$t$', xlim=(-6, 6), ylim=(-1.5, 1.5))
         ax.set_xticks([-6, -3, 0, 3, 6]); ax.set_yticks([-1.5, 0, 1.5])
-        ax.set_title(rf'$\beta={be:g},\ A_b={aa:g}$', fontsize=8.5, pad=6)
+        ax.set_title(rf'$\beta={be:g},\ A_b={aa:g}$', fontsize=10.5, pad=9)
+        numeric_axes(ax)
         panel_label(ax, chr(97+j))
-        if max(errs.values()) >= 1e-10: raise ValueError(errs)
+        if max(errs.values()) >= 1e-10:
+            raise ValueError(errs)
         velocity_cases.append(dict(beta=be, A_b=aa, B_b=bb, T_t=tt, errors=errs))
-    cax = fig.add_axes([.91, .18, .018, .68]); fig.colorbar(im, cax=cax, ticks=[0, 1, 2, 3, 4]); cax.set_title(r'$|\widetilde q|$', fontsize=9, pad=7)
+    cax = fig.add_axes([.905, .20, .022, .65])
+    cax.set_rasterization_zorder(1.1)
+    fig.colorbar(im, cax=cax, ticks=[0, 1, 2, 3, 4])
+    cax.tick_params(labelsize=10, length=3, pad=3)
+    cax.set_title(r'$|\widetilde q|$', fontsize=11, pad=9)
     export(fig, 'one-soliton-velocity', axes=list(axes), exclude=[cax])
     return periodic_cases, velocity_cases
 
 
-def main(audit=False):
+def main(audit=False, only_numerics=False):
     global AUDIT, require_matplotlib_panel_alignment
     AUDIT = audit
     if AUDIT:
@@ -314,7 +365,7 @@ def main(audit=False):
             capture_output=True, text=True, encoding='utf-8', errors='replace', env=child_env)
         source_record = json.loads(source_check.stdout)
         source_record['source'] = 'scripts/plot_fields.py'
-        source_record['manual_review'] = ('The 157 mm source canvas is placed at the thesis text width (146.4 mm); '
+        source_record['manual_review'] = ('Numerical canvases are drawn at the thesis text width (146.4 mm); spectral canvases retain their separate placement contract. '
             'the two production-column/TIFF warnings do not apply to vector thesis artwork. '
             'SVG sidecars and native PNG previews are retained with the QA.')
         (QA/'source-preflight.json').write_text(json.dumps(source_record, indent=2), encoding='utf-8')
@@ -322,11 +373,12 @@ def main(audit=False):
             raise RuntimeError(source_check.stdout)
     (ROOT/'figures').mkdir(exist_ok=True)
     matplotlib.rcParams.update({'font.family':'sans-serif', 'font.sans-serif':['DejaVu Sans','Arial'],
-        'font.size':9.5, 'axes.labelsize':9.5, 'xtick.labelsize':9, 'ytick.labelsize':9,
-        'legend.fontsize':8.5, 'pdf.fonttype':42, 'svg.fonttype':'none',
+        'font.size':11, 'axes.labelsize':11, 'xtick.labelsize':10, 'ytick.labelsize':10,
+        'legend.fontsize':10, 'pdf.fonttype':42, 'svg.fonttype':'none',
         'axes.spines.top':False, 'axes.spines.right':False, 'axes.linewidth':.7,
         'legend.frameon':False, 'savefig.dpi':600})
-    geometry_record = spectral_figures()
+    previous_report = json.loads((ROOT/'calculations'/'plot-results.json').read_text(encoding='utf-8'))
+    geometry_record = previous_report.get('spectral_geometry') if only_numerics else spectral_figures()
     x, times = np.linspace(-6,6,401), np.linspace(-1.5,1.5,251)
     X, TIME = np.meshgrid(x,times)
     base = field_figure(X,TIME,x,times)
@@ -341,7 +393,9 @@ def main(audit=False):
         high=fields(mp.mpf(xx),mp.mpf(tt))
         maxima=np.maximum(maxima,[abs(complex(v)-complex(h)) for v,h in zip(values,high)])
     assert max(maxima)<1e-12
-    names=['analytic-regions','discrete-spectrum','one-soliton-fields','one-soliton-dynamics','one-soliton-velocity']
+    names=['one-soliton-fields','one-soliton-dynamics','one-soliton-velocity']
+    if not only_numerics:
+        names=['analytic-regions','discrete-spectrum']+names
     qa={}
     child_env = dict(os.environ, PYTHONUTF8='1', PYTHONIOENCODING='utf-8')
     if AUDIT:
@@ -356,8 +410,8 @@ def main(audit=False):
                                      '--json-out',str(QA/(name+'.collisions.json'))],capture_output=True,text=True,encoding='utf-8',errors='replace',env=child_env)
             collision_record=json.loads((QA/(name+'.collisions.json')).read_text(encoding='utf-8'))
             collision_record['pdf']=pdf.name
-            if name=='one-soliton-fields' and collision_record['summary']['fail']==0:
-                collision_record['manual_review']='All nine fill-edge warnings concern the 3D axes tick labels -6, 0 and -1 and projected filled-region bounding boxes; final-size inspection confirms no surface or axis-label occlusion. The top three surfaces and bottom contour panels were inspected separately.'
+            if collision_record['summary']['warn']:
+                collision_record['manual_review']='Pending explicit review of the final PDF findings; see figure acceptance notes.'
             (QA/(name+'.collisions.json')).write_text(json.dumps(collision_record,indent=2),encoding='utf-8')
             alignment_record=json.loads((QA/(name+'.alignment.json')).read_text(encoding='utf-8'))
             qa[name]=dict(alignment_verdict=alignment_record['verdict'],
@@ -373,6 +427,10 @@ def main(audit=False):
         variables='x,t; k original spectral parameter; lambda background root; z uniformization; output q,p are original tilded fields',
         parameters=DEFAULT,grid=dict(x_min=-6,x_max=6,x_count=401,t_min=-1.5,t_max=1.5,t_count=251),
         surface_grid=dict(x_count=121,t_count=101,rule='separate analytic sampling grid for vector surface rendering'),
+        figure_layout=dict(fields='3 rows by 2 columns; optical, polarization, inversion; surfaces left and contour maps right',
+            width_mm=146.4,heights_mm=dict(fields=165,dynamics=88,velocity=78),
+            field_color_limits=dict(q=[0,4],p=[0,float(np.sqrt(.45))],eta=[-float(np.sqrt(.45)),float(np.sqrt(.45))]),
+            rasterized_layers='filled contour maps and colorbar fills at 600 dpi; all surfaces, axes, text and trajectories remain vector'),
         base_errors=base,high_precision_comparison_points=points,
         high_precision_comparison_q_p_eta=list(maxima),dynamics=dict(profile_t_over_T=[0,.25,.5],
         alpha_cases=alpha_cases,beta_cases=beta_cases),spectral_geometry=geometry_record,
@@ -384,4 +442,6 @@ def main(audit=False):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--audit',action='store_true',help='also run installed nature-figure source, layout and PDF audits')
-    main(parser.parse_args().audit)
+    parser.add_argument('--only-numerics',action='store_true',help='preserve spectral PDFs and regenerate only the three numerical figures')
+    args=parser.parse_args()
+    main(args.audit, args.only_numerics)

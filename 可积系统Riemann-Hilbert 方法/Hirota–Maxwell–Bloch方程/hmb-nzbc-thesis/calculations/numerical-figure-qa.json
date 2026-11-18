@@ -1,0 +1,253 @@
+{
+  "date": "2026-11-18",
+  "scope": "three numerical figures in the main thesis only",
+  "backend": "Python / Matplotlib",
+  "provenance": "Existing analytic residue-system script; style and layout adaptation only",
+  "core_numerics_unchanged": true,
+  "spectral_functions_and_pdfs_unchanged": true,
+  "numerical_evidence_matches_previous_report": true,
+  "source_preflight": {
+    "ready": true,
+    "strict": false,
+    "counts": {
+      "PASS": 19,
+      "WARN": 2,
+      "FAIL": 0
+    }
+  },
+  "source_warning_review": {
+    "EXPORT-RASTER": "Vector scientific PDF is the manuscript deliverable; 600 dpi embedded fill layers and PNG QA previews are intentional; no journal TIFF submission is requested.",
+    "FINAL-WIDTH": "The 146.4 mm numerical canvases match the actual thesis text width; generic 89/183 mm Nature column widths do not apply."
+  },
+  "fill_layer_review": "Only filled contour maps and colorbar fills are rasterized at 600 dpi. Native final-PDF renders confirm no polygon stitching seams. Surfaces, axes, labels, curves and center trajectories remain vector.",
+  "replicate_unit": "not applicable: no observations, random sampling, fitted statistics or PDE discretization",
+  "data_mapping": {
+    "q": "absolute original optical field",
+    "p": "absolute original polarization field",
+    "eta": "real population inversion"
+  },
+  "normalization": "Per-field scales shared between each surface and its map; beta maps share optical scale 0..4. No filtering or exclusions.",
+  "figures": {
+    "one-soliton-fields": {
+      "sha256": "ab2f631ba53974dc355a6930ed4da29ec17a89ecc9579bba03c1b60ec3ad80d1",
+      "width_mm": 146.4000001695421,
+      "height_mm": 164.99999533759222,
+      "qa": {
+        "alignment_verdict": "PASS",
+        "alignment_counts": {
+          "fail": 0,
+          "warn": 0,
+          "comparisons": 5,
+          "exemptions": 0
+        },
+        "text_exit": 0,
+        "collision_exit": 0,
+        "minimum_glyph_pt": 6.641509434,
+        "collision_verdict": "REVIEW REQUIRED",
+        "collision_counts": {
+          "fail": 0,
+          "warn": 12,
+          "contained_fill_overlays": 3,
+          "contained_image_overlays": 0
+        },
+        "manual_review": "Accepted after native-PDF full-figure and panel inspection: the twelve fill-edge WARNs are the four tick labels -6, 0, -1 and 1 on each of the three 3D panels a/c/e. The detector compares them with the projected filled-region bounding rectangle; the actual surface is clear of every label. All text-text and text-stroke checks have zero FAIL. The adjacent contour time labels were moved clear before this final export.",
+        "manual_review_status": "accepted after final native-PDF inspection"
+      },
+      "raster_fill_images": [
+        {
+          "width_px": 1159,
+          "height_px": 824,
+          "horizontal_dpi": 599.9999921007134,
+          "vertical_dpi": 600.0000166661536
+        },
+        {
+          "width_px": 52,
+          "height_px": 824,
+          "horizontal_dpi": 600.0009390038733,
+          "vertical_dpi": 600.0000166661536
+        },
+        {
+          "width_px": 1159,
+          "height_px": 825,
+          "horizontal_dpi": 599.9999921007134,
+          "vertical_dpi": 600.0
+        },
+        {
+          "width_px": 52,
+          "height_px": 825,
+          "horizontal_dpi": 600.0009390038733,
+          "vertical_dpi": 600.0
+        },
+        {
+          "width_px": 1159,
+          "height_px": 825,
+          "horizontal_dpi": 599.9999921007134,
+          "vertical_dpi": 600.0
+        },
+        {
+          "width_px": 52,
+          "height_px": 825,
+          "horizontal_dpi": 600.0009390038733,
+          "vertical_dpi": 600.0
+        }
+      ],
+      "panels": [
+        {
+          "panel": "a",
+          "question": "Optical amplitude surface; height and local peaks",
+          "quantity": "abs(q_tilde)",
+          "grid": "121 x 101 surface grid",
+          "uncertainty": "none: deterministic exact-solution evaluation",
+          "visual_review": "pass: axes, text, data shape, color/line encoding and legend inspected in final PDF"
+        },
+        {
+          "panel": "b",
+          "question": "Optical localization and motion in the x-t plane",
+          "quantity": "abs(q_tilde)",
+          "grid": "401 x 251 contour grid",
+          "uncertainty": "none: deterministic exact-solution evaluation",
+          "visual_review": "pass: axes, text, data shape, color/line encoding and legend inspected in final PDF"
+        },
+        {
+          "panel": "c",
+          "question": "Polarization amplitude surface; optical-medium response",
+          "quantity": "abs(p_tilde)",
+          "grid": "121 x 101 surface grid",
+          "uncertainty": "none: deterministic exact-solution evaluation",
+          "visual_review": "pass: axes, text, data shape, color/line encoding and legend inspected in final PDF"
+        },
+        {
+          "panel": "d",
+          "question": "Polarization localization and motion in the x-t plane",
+          "quantity": "abs(p_tilde)",
+          "grid": "401 x 251 contour grid",
+          "uncertainty": "none: deterministic exact-solution evaluation",
+          "visual_review": "pass: axes, text, data shape, color/line encoding and legend inspected in final PDF"
+        },
+        {
+          "panel": "e",
+          "question": "Population-inversion surface; medium depletion",
+          "quantity": "real(eta)",
+          "grid": "121 x 101 surface grid",
+          "uncertainty": "none: deterministic exact-solution evaluation",
+          "visual_review": "pass: axes, text, data shape, color/line encoding and legend inspected in final PDF"
+        },
+        {
+          "panel": "f",
+          "question": "Population-inversion localization and motion in the x-t plane",
+          "quantity": "real(eta)",
+          "grid": "401 x 251 contour grid",
+          "uncertainty": "none: deterministic exact-solution evaluation",
+          "visual_review": "pass: axes, text, data shape, color/line encoding and legend inspected in final PDF"
+        }
+      ]
+    },
+    "one-soliton-dynamics": {
+      "sha256": "3c61ae939f39291a86a7231bef89bada847551eaddb28e596d4fb131753e3b7d",
+      "width_mm": 146.4000001695421,
+      "height_mm": 88.00000110202366,
+      "qa": {
+        "alignment_verdict": "PASS",
+        "alignment_counts": {
+          "fail": 0,
+          "warn": 0,
+          "comparisons": 1,
+          "exemptions": 0
+        },
+        "text_exit": 0,
+        "collision_exit": 0,
+        "minimum_glyph_pt": 7.35,
+        "collision_verdict": "PASS",
+        "collision_counts": {
+          "fail": 0,
+          "warn": 0,
+          "contained_fill_overlays": 0,
+          "contained_image_overlays": 0
+        },
+        "manual_review": "No collision warnings."
+      },
+      "raster_fill_images": [],
+      "panels": [
+        {
+          "panel": "a",
+          "question": "Separate comoving localization from motion: t/T=0,0.25,0.5",
+          "quantity": "abs(q_tilde)",
+          "grid": "X=-4..4, 401 samples",
+          "uncertainty": "none: deterministic exact-solution evaluation",
+          "visual_review": "pass: axes, text, data shape, color/line encoding and legend inspected in final PDF"
+        },
+        {
+          "panel": "b",
+          "question": "Alpha controls internal oscillation at the comoving center",
+          "quantity": "abs(q_tilde(A_b*t,t))",
+          "grid": "t=-2..2, 501 samples",
+          "uncertainty": "none: deterministic exact-solution evaluation",
+          "visual_review": "pass: axes, text, data shape, color/line encoding and legend inspected in final PDF"
+        }
+      ]
+    },
+    "one-soliton-velocity": {
+      "sha256": "13efddc3681ae33610c648a2932c42293a84162f4d77e2dd00b1f4db1f9916e9",
+      "width_mm": 146.4000001695421,
+      "height_mm": 77.9999977959527,
+      "qa": {
+        "alignment_verdict": "PASS",
+        "alignment_counts": {
+          "fail": 0,
+          "warn": 0,
+          "comparisons": 1,
+          "exemptions": 0
+        },
+        "text_exit": 0,
+        "collision_exit": 0,
+        "minimum_glyph_pt": 7.35,
+        "collision_verdict": "PASS",
+        "collision_counts": {
+          "fail": 0,
+          "warn": 0,
+          "contained_fill_overlays": 0,
+          "contained_image_overlays": 0
+        },
+        "manual_review": "No collision warnings."
+      },
+      "raster_fill_images": [
+        {
+          "width_px": 1128,
+          "height_px": 1197,
+          "horizontal_dpi": 599.9999803854225,
+          "vertical_dpi": 600.0000025495052
+        },
+        {
+          "width_px": 1129,
+          "height_px": 1197,
+          "horizontal_dpi": 599.999951344875,
+          "vertical_dpi": 600.0000025495052
+        },
+        {
+          "width_px": 76,
+          "height_px": 1197,
+          "horizontal_dpi": 600.0003212378365,
+          "vertical_dpi": 600.0000025495052
+        }
+      ],
+      "panels": [
+        {
+          "panel": "a",
+          "question": "Envelope motion for beta=0, A_b=-0.096",
+          "quantity": "abs(q_tilde)",
+          "grid": "x=-6..6, t=-1.5..1.5; 401 x 251",
+          "uncertainty": "none: deterministic exact-solution evaluation",
+          "visual_review": "pass: axes, text, data shape, color/line encoding and legend inspected in final PDF"
+        },
+        {
+          "panel": "b",
+          "question": "Envelope motion for beta=0.15, A_b=-1.746",
+          "quantity": "abs(q_tilde)",
+          "grid": "x=-6..6, t=-1.5..1.5; 401 x 251",
+          "uncertainty": "none: deterministic exact-solution evaluation",
+          "visual_review": "pass: axes, text, data shape, color/line encoding and legend inspected in final PDF"
+        }
+      ]
+    }
+  }
+}

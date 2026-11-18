@@ -22,6 +22,30 @@
     "t_count": 101,
     "rule": "separate analytic sampling grid for vector surface rendering"
   },
+  "figure_layout": {
+    "fields": "3 rows by 2 columns; optical, polarization, inversion; surfaces left and contour maps right",
+    "width_mm": 146.4,
+    "heights_mm": {
+      "fields": 165,
+      "dynamics": 88,
+      "velocity": 78
+    },
+    "field_color_limits": {
+      "q": [
+        0,
+        4
+      ],
+      "p": [
+        0,
+        0.6708203932499369
+      ],
+      "eta": [
+        -0.6708203932499369,
+        0.6708203932499369
+      ]
+    },
+    "rasterized_layers": "filled contour maps and colorbar fills at 600 dpi; all surfaces, axes, text and trajectories remain vector"
+  },
   "base_errors": {
     "scaled_linear_residual": 8.448410592419093e-16,
     "Bloch_error": 6.726272082619646e-16,
@@ -121,72 +145,31 @@
     "domain_color": "D+ pale blue, D- white"
   },
   "files": [
-    "analytic-regions.pdf",
-    "discrete-spectrum.pdf",
     "one-soliton-fields.pdf",
     "one-soliton-dynamics.pdf",
     "one-soliton-velocity.pdf"
   ],
   "figure_qa": {
-    "analytic-regions": {
-      "alignment_verdict": "NOT APPLICABLE",
-      "alignment_counts": {
-        "fail": 0,
-        "warn": 0,
-        "comparisons": 0,
-        "exemptions": 0
-      },
-      "text_exit": 0,
-      "collision_exit": 0,
-      "minimum_glyph_pt": 7.0,
-      "collision_verdict": "PASS",
-      "collision_counts": {
-        "fail": 0,
-        "warn": 0,
-        "contained_fill_overlays": 3,
-        "contained_image_overlays": 0
-      },
-      "manual_review": "No collision warnings."
-    },
-    "discrete-spectrum": {
-      "alignment_verdict": "NOT APPLICABLE",
-      "alignment_counts": {
-        "fail": 0,
-        "warn": 0,
-        "comparisons": 0,
-        "exemptions": 0
-      },
-      "text_exit": 0,
-      "collision_exit": 0,
-      "minimum_glyph_pt": 7.0,
-      "collision_verdict": "PASS",
-      "collision_counts": {
-        "fail": 0,
-        "warn": 0,
-        "contained_fill_overlays": 3,
-        "contained_image_overlays": 0
-      },
-      "manual_review": "No collision warnings."
-    },
     "one-soliton-fields": {
       "alignment_verdict": "PASS",
       "alignment_counts": {
         "fail": 0,
         "warn": 0,
-        "comparisons": 7,
+        "comparisons": 5,
         "exemptions": 0
       },
       "text_exit": 0,
       "collision_exit": 0,
-      "minimum_glyph_pt": 6.0383386581,
+      "minimum_glyph_pt": 6.641509434,
       "collision_verdict": "REVIEW REQUIRED",
       "collision_counts": {
         "fail": 0,
-        "warn": 9,
+        "warn": 12,
         "contained_fill_overlays": 3,
         "contained_image_overlays": 0
       },
-      "manual_review": "All nine fill-edge warnings concern the 3D axes tick labels -6, 0 and -1 and projected filled-region bounding boxes; final-size inspection confirms no surface or axis-label occlusion. The top three surfaces and bottom contour panels were inspected separately."
+      "manual_review": "Accepted after native-PDF full-figure and panel inspection: the twelve fill-edge WARNs are the four tick labels -6, 0, -1 and 1 on each of the three 3D panels a/c/e. The detector compares them with the projected filled-region bounding rectangle; the actual surface is clear of every label. All text-text and text-stroke checks have zero FAIL. The adjacent contour time labels were moved clear before this final export.",
+      "manual_review_status": "accepted after final native-PDF inspection"
     },
     "one-soliton-dynamics": {
       "alignment_verdict": "PASS",
@@ -198,7 +181,7 @@
       },
       "text_exit": 0,
       "collision_exit": 0,
-      "minimum_glyph_pt": 5.6,
+      "minimum_glyph_pt": 7.35,
       "collision_verdict": "PASS",
       "collision_counts": {
         "fail": 0,
@@ -218,7 +201,7 @@
       },
       "text_exit": 0,
       "collision_exit": 0,
-      "minimum_glyph_pt": 5.95,
+      "minimum_glyph_pt": 7.35,
       "collision_verdict": "PASS",
       "collision_counts": {
         "fail": 0,

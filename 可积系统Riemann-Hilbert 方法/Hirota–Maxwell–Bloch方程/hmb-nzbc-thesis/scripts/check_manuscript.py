@@ -120,8 +120,8 @@ def source_checks():
     assert not re.search(r'\\(?:textbf|bfseries|paragraph)\b', body)
     assert not re.search(r'\\begin\{(?:theorem|proposition|lemma|definition)\}\[', body)
     subsection_count = len(re.findall(r'\\subsection\{', body))
-    assert subsection_count == 13, ('unexpected subsection count', subsection_count)
-    assert len(re.findall(r'\\begin\{definition\}', body)) == 3
+    assert subsection_count == 14, ('unexpected subsection count', subsection_count)
+    assert len(re.findall(r'\\begin\{definition\}', body)) == 2
     assert r'S_{\rm sp}' not in body and r'\rho_{\rm sp}' not in body
     direct = (ROOT/'section/03-direct-scattering.tex').read_text(encoding='utf-8')
     evolution = (ROOT/'section/04-evolution-resonance.tex').read_text(encoding='utf-8')

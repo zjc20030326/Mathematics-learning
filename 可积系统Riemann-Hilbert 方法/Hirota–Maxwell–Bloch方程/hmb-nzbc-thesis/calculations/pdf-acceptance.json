@@ -1,12 +1,12 @@
 {
   "sources": {
     "tex_files": 9,
-    "labels": 212,
-    "references": 237,
+    "labels": 213,
+    "references": 327,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
-    "subsections": 13,
+    "subsections": 14,
     "spatial_Jost_then_time_evolution_with_single_scattering_matrix": true,
     "cited_bibliography_entries": 18,
     "citation_source_files": [
@@ -150,12 +150,12 @@
     [
       1,
       "4. 散射演化与共振相容性",
-      18
+      19
     ],
     [
       1,
       "5. 矩阵 RHP 与三场重构",
-      21
+      22
     ],
     [
       1,
@@ -174,13 +174,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 317,
+  "pdf_links_checked": 408,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "606ccf22a9aba9c7b90170e98aa4e120d6524acecc3b5b80eb4d40c3059f7524",
-  "visual_review": "Inspected physical pages 17,18,25: proposition where-clause, full substituted high-energy equation, coefficient comparison, renumbered references and reconstruction proof. No overlap or clipping."
+  "pdf_sha256": "50269bd31f1dbc94640ce43e083752ab2c6b976230ae6c669bd7397977c10efa",
+  "visual_review": "Inspected pages 21–25 and 29 for the restructured matrix RHP, Cauchy representation, reconstruction, and one-orbit cross-references."
 }
