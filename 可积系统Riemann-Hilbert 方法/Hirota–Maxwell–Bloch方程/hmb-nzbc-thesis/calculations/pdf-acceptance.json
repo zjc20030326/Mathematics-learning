@@ -2,7 +2,7 @@
   "sources": {
     "tex_files": 9,
     "labels": 213,
-    "references": 327,
+    "references": 332,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -174,13 +174,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 408,
+  "pdf_links_checked": 413,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "c0ccc880bd0617732b9b2ea06bbd5476bb97d5abefb4f8e8a1e5fed14bd784cc",
-  "visual_review": "Rebuilt the current manuscript. The previously reviewed displays, residue placement, Plemelj proof, and internal links were checked against the latest output."
+  "pdf_sha256": "3f217302690141af9aaedd7a487f3f06b166c69f0956efd345c7368a7987a0f6",
+  "visual_review": "Reviewed printed pages 22–25. Matrix-column residue and reconstruction formulas, analytic transmission factors, and the phase condition fit and retain the existing numbering."
 }

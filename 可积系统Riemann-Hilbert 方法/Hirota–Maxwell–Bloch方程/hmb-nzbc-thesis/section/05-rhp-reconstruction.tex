@@ -87,35 +87,37 @@ M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
 \end{equation}
 
 \subsection{留数表示与三场重构}
-记 $m=2N$, $\mathbf v_j=M_1(\zeta_j)$, $\mathbf u_j=M_2(\conj{\zeta_j})$, 以 $e_1,e_2$ 表示标准基向量.
-由 \eqref{eq:resplus}--\eqref{eq:resminus}, 对 $j=1,\ldots,m$ 有
+由 \eqref{eq:resplus}--\eqref{eq:resminus}, $M$ 在 $\zeta_j$ 的极点位于第二列, 在 $\conj{\zeta_j}$ 的极点位于第一列.
+下标 $1,2$ 表示矩阵的第一、第二列. 取 \eqref{eq:C-timephase} 中的 $C_j$, 则对 $j=1,\ldots,2N$ 有
 \begin{equation}\label{eq:M-residues}
-\Res_{z=\zeta_j}M(z)=C_j\mathbf v_je_2^T,\qquad
-\Res_{z=\conj{\zeta_j}}M(z)=-\conj{C_j}\mathbf u_je_1^T.
+\Res_{z=\zeta_j}M(z)=\bigl(0,\,C_jM_1(\zeta_j)\bigr),\qquad
+\Res_{z=\conj{\zeta_j}}M(z)=\bigl(-\conj{C_j}M_2(\conj{\zeta_j}),\,0\bigr).
 \end{equation}
-将 \eqref{eq:M-residues} 代入 \eqref{eq:general-cauchy}, 分别在第一、第二列取 $z=\zeta_j$ 与 $z=\conj{\zeta_j}$, 得
+将留数代入 \eqref{eq:general-cauchy}, 在第一列取 $z=\zeta_j$, 在第二列取 $z=\conj{\zeta_j}$, 得
 \begin{align}
-&\mathbf v_j=e_1-\dfrac{\ii q_0}{\zeta_j}e_2
--\sum\limits_{k=1}^{m}\dfrac{\conj{C_k}\mathbf u_k}{\zeta_j-\conj{\zeta_k}}
-+\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{M_+(s)G(s)e_1}{s-\zeta_j}\,\dd s,
+&M_1(\zeta_j)=\begin{pmatrix}1\\-\dfrac{\ii q_0}{\zeta_j}\end{pmatrix}
+-\sum\limits_{k=1}^{2N}\dfrac{\conj{C_k}M_2(\conj{\zeta_k})}{\zeta_j-\conj{\zeta_k}}
++\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\bigl(M_+(s)G(s)\bigr)_1}{s-\zeta_j}\,\dd s,
 \label{eq:general-finite1}\\
-&\mathbf u_j=e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1
-+\sum\limits_{k=1}^{m}\dfrac{C_k\mathbf v_k}{\conj{\zeta_j}-\zeta_k}
-+\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{M_+(s)G(s)e_2}{s-\conj{\zeta_j}}\,\dd s.
+&M_2(\conj{\zeta_j})=\begin{pmatrix}-\dfrac{\ii q_0}{\conj{\zeta_j}}\\1\end{pmatrix}
++\sum\limits_{k=1}^{2N}\dfrac{C_kM_1(\zeta_k)}{\conj{\zeta_j}-\zeta_k}
++\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\bigl(M_+(s)G(s)\bigr)_2}{s-\conj{\zeta_j}}\,\dd s.
 \label{eq:general-finite2}
 \end{align}
-沿避开谱边界的闭角域令 $z\to\infty$, 此时 $\dfrac{z}{s-z}$ 在 $\Sigma$ 上一致有界, 并逐点趋于 $-1$.
-在 \eqref{eq:general-cauchy} 中对 $z(M(z)-\Id)$ 使用支配收敛, 得
+接着取 \eqref{eq:general-cauchy} 的无穷远系数. 当 $z$ 沿避开 $\Sigma$ 的闭角域趋于无穷远时,
+$\dfrac{z}{s-z}$ 在 $\Sigma$ 上一致有界且逐点趋于 $-1$. 由支配收敛,
 \begin{equation}\label{eq:M1-general}
 M^{(1)}=-\ii q_0\sigma_1
-+\sum\limits_{j=1}^{m}(C_j\mathbf v_je_2^T-\conj{C_j}\mathbf u_je_1^T)
++\sum\limits_{\xi\in Z}\Res_{s=\xi}M(s)
 -\dfrac{1}{2\pi\ii}\int\limits_\Sigma M_+(s)G(s)\,\dd s.
 \end{equation}
-按 $q=\ii M^{(1)}_{12}$ 定义重构光场, 则
+取 \eqref{eq:M1-general} 的 $(1,2)$ 元并乘以 $\ii$, 由 \eqref{eq:M-residues} 得光场重构公式
 \begin{equation}\label{eq:qgeneral}
-q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\mathbf v_j)_1
+q=q_0+\ii\sum\limits_{j=1}^{2N}C_jM_{11}(\zeta_j)
 -\dfrac{1}{2\pi}\int\limits_\Sigma \bigl(M_+(s)G(s)\bigr)_{12}\,\dd s.
 \end{equation}
+介质矩阵由 $M$ 在共振原像处的取值恢复.
+
 \begin{proposition}\label{prop:reconstruction}
 设三场满足基本条件, 透射系数在 $\Sigma_*$ 上非零且离散零点有限、简单.
 由 Jost 解析列按式 \eqref{eq:Mdef} 构造 $M$, 则
@@ -177,48 +179,55 @@ R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)\Id.
 \end{lemma}
 \begin{proof}
 由引理 \ref{lem:RHP-determinant}, $\det M(z_a)=\gamma(z_a)>0$. 两原像的一致性仍由 \eqref{eq:Msym} 给出.
-由实轴上的共轭对称性, 共振处的共同边界值形如
-\begin{equation*}
-M(z_a)=\begin{pmatrix}u&v\\-\conj v&\conj u\end{pmatrix}.
-\end{equation*}
-故 $M(z_a)^\dagger M(z_a)=\gamma(z_a)\Id$, 即 $\dfrac{M(z_a)}{\sqrt{\gamma(z_a)}}$ 为酉矩阵.
-式 \eqref{eq:RfromM} 由酉相似保持 Hermitian 性和迹零. 平方后用 $\sg^2=\Id$ 及 $\lambda(z_a)^2=a^2+q_0^2$, 得 \eqref{eq:reconstructed-bloch}.
+由实轴上的共轭对称性 \eqref{eq:Msym}, $M(z_a)^\dagger=\sigma_2M(z_a)^T\sigma_2=\operatorname{adj}M(z_a)$,
+故 $M(z_a)^\dagger M(z_a)=\gamma(z_a)\Id$, 从而 $\dfrac{M(z_a)}{\sqrt{\gamma(z_a)}}$ 为酉矩阵.
+式 \eqref{eq:RfromM} 的相似变换保持 Hermitian 性和迹零.
+平方后用 $\sg^2=\Id$ 及 $\lambda(z_a)^2=a^2+q_0^2$, 得 \eqref{eq:reconstructed-bloch}.
 \end{proof}
 
 \subsection{迹公式与相位条件}
-由透射系数的标量分解和原点归一化可得迹公式与相位条件\cite{Fan2022,ZhangFan2020}. 以下固定 $t$, 省略谱数据中的时间参数.
-
-\begin{proposition}\label{prop:theta}
-设透射系数在 $\Sigma_*$ 上非零, 且离散零点有限、简单. 取零指标分支
-$\ell(s)=\log(1-\rho(s)\widetilde\rho(s))$, 设 $\ell$ 在 $\Sigma_*$ 上局部 Hölder 连续, 在 $0,\infty$ 趋于零, 且 $\ell,\dfrac{\ell(s)}{s}\in L^1(\Sigma)$.
-去掉离散零点后, 设两域的透射函数具有与乘积关系相容的单值对数. 这些对数与下述 Cauchy 积分在有限特殊点处的边界值有界并局部匹配. 则
-\begin{equation}\label{eq:trace}
-s_{22}(z)=\prod\limits_{j=1}^{m}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}
-\exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s-z}\,\dd s\right\},\qquad z\in D_+.
-\end{equation}
-$s_{11}$ 由共轭约化 \eqref{eq:sconj} 确定. 相同左右背景要求
-\begin{equation}\label{eq:theta-condition}
-\prod\limits_{j=1}^{m}\dfrac{\zeta_j}{\conj{\zeta_j}}
-\exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s}\,\dd s\right\}=1.
-\end{equation}
-特别地, 无反射时 $s_{22}$ 等于 \eqref{eq:trace} 中的有理乘积, 且 $\displaystyle\prod\limits_{j=1}^{m}\dfrac{\zeta_j}{\conj{\zeta_j}}=1$.
-\end{proposition}
-\begin{proof}
-记 $B_0(z)=\displaystyle\prod\limits_{j=1}^{m}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}$, 定义
-$\beta_+=\dfrac{s_{22}}{B_0}$、$\beta_-=s_{11}B_0$. 它们在相应域解析且无零点, 无穷远归一化为 1. 由 \eqref{eq:scattering-determinant} ($\det S=1$),
+固定 $t$, 省略谱数据中的时间参数. 设透射系数在 $\Sigma_*$ 上非零, 离散零点有限、简单.
+按 \eqref{eq:discrete-indexing} 去除离散零点\cite{Fan2022,ZhangFan2020}, 在 $D_+$ 和 $D_-$ 中分别定义
+\begin{equation*}
+\beta_+(z)=s_{22}(z)\prod\limits_{j=1}^{2N}\dfrac{z-\conj{\zeta_j}}{z-\zeta_j},\qquad
+\beta_-(z)=s_{11}(z)\prod\limits_{j=1}^{2N}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}.
+\end{equation*}
+两者在各自的域内解析且无零点, 在无穷远趋于 $1$. 由 \eqref{eq:scattering-determinant}, 在 $\Sigma_*$ 上有
 \begin{equation*}
 \beta_+\beta_-=s_{11}s_{22}=\dfrac{1}{1-\rho\widetilde\rho}.
 \end{equation*}
-取 $f_+=\log\beta_+$、$f_-=-\log\beta_-$, 则 $f_+-f_-=-\ell$. 由 Plemelj 公式和无穷远归一化,
+取 $\log(1-\rho\widetilde\rho)$ 的零指标分支, 设该对数在 $\Sigma_*$ 上局部 Hölder 连续, 在原点及无穷远趋于零, 且它与除以 $s$ 后的函数均在 $\Sigma$ 上可积.
+设 $\log\beta_\pm$ 是与乘积关系相容的单值对数, 在无穷远归零. 在有限特殊点处, 这些对数与相应的 Cauchy 积分的边界值有界并局部匹配.
+
+\begin{proposition}\label{prop:theta}
+在上述条件下, $D_+$ 中的透射系数满足迹公式
+\begin{equation}\label{eq:trace}
+s_{22}(z)=\prod\limits_{j=1}^{2N}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}
+\exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\log\bigl(1-\rho(s)\widetilde\rho(s)\bigr)}{s-z}\,\dd s\right\}.
+\end{equation}
+$s_{11}$ 由 \eqref{eq:sconj} 确定. 同相背景的相位条件为
+\begin{equation}\label{eq:theta-condition}
+\prod\limits_{j=1}^{2N}\dfrac{\zeta_j}{\conj{\zeta_j}}
+\exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\log\bigl(1-\rho(s)\widetilde\rho(s)\bigr)}{s}\,\dd s\right\}=1.
+\end{equation}
+\end{proposition}
+\begin{proof}
+在 $\Sigma_*$ 上对乘积关系取对数, 得
 \begin{equation*}
-f(z)=-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ell(s)}{s-z}\,\dd s.
+\log\beta_+(s)+\log\beta_-(s)=-\log\bigl(1-\rho(s)\widetilde\rho(s)\bigr).
 \end{equation*}
-两侧具有相同跳跃, 差函数在特殊点可去, 由 Liouville 定理恒为零. 代回 $\beta_+$ 即得 \eqref{eq:trace}.
+这给出 $\log\beta_+$ 与 $-\log\beta_-$ 的跳跃. 由 Plemelj 公式及无穷远归一化,
+\begin{equation*}
+\log\beta_\pm(z)=\mp\dfrac{1}{2\pi\ii}\int\limits_\Sigma
+\dfrac{\log\bigl(1-\rho(s)\widetilde\rho(s)\bigr)}{s-z}\,\dd s,\qquad z\in D_\pm.
+\end{equation*}
+原分片与积分表示具有相同跳跃, 其差在有限特殊点可去, 且在无穷远趋于零, 故由 Liouville 定理为零.
+代回 $\beta_+$ 的定义, 即得 \eqref{eq:trace}.
 沿 $z=-\ii\varepsilon\in D_+$ 趋于原点, $\left|\dfrac{s}{s-z}\right|$ 在实轴和圆周上一致有界.
-由 $\dfrac{\ell(s)}{s}\in L^1(\Sigma)$ 及 $s_{22}(0)=1$, 取极限得 \eqref{eq:theta-condition}.
+由支配收敛及 $s_{22}(0)=1$, 在 \eqref{eq:trace} 中取极限得 \eqref{eq:theta-condition}.
 \end{proof}
 
-无反射时, 以外部上半平面的 $\zeta_n$ 为轨道代表, 每个轨道在 \eqref{eq:theta-condition} 中贡献因子 $\left(\dfrac{\zeta_n}{\conj{\zeta_n}}\right)^2$. 因而
+无反射时, \eqref{eq:trace} 化为有理乘积. 在 \eqref{eq:theta-condition} 中, 每个四点轨道贡献因子 $\left(\dfrac{\zeta_n}{\conj{\zeta_n}}\right)^2$, 其中 $\zeta_n$ 为外部上半平面的代表. 因而
 \begin{equation*}
 4\sum\limits_{n=1}^{N}\arg\zeta_n=0\pmod{2\pi}.
 \end{equation*}
