@@ -1,5 +1,5 @@
 % !TeX root = ../fduthesis.tex
-纯虚单轨道解的三场扰动随同一包络传播, 其速度与随动振荡由 $F(\ii b)$ 确定.
+本节基于定理 \ref{thm:direct-HMB} 的纯虚单轨道显式解, 分析三场局域扰动的包络传播、随动振荡与幅值特征, 并通过高精度数值计算核验重构三场与原方程及对称约束的一致性.
 
 \subsection{三场分布与随动振荡}
 取定理 \ref{thm:direct-HMB} 中的参数
@@ -9,7 +9,7 @@ q_0=1,\qquad a=2,\qquad\eta_0=0.6,\qquad
 \end{equation}
 范数常数由式 \eqref{eq:onec} 给定, 三场由留数系统 \eqref{eq:N-block-system}
 及式 \eqref{eq:qfinite}、\eqref{eq:N-medium}、\eqref{eq:original-fields} 重构.
-图 \ref{fig:one} 中三场的局域扰动均集中于 $x=A_bt$ 附近, 其中 $A_b=\operatorname{Re}F(\ii b)$.
+图 \ref{fig:one} 显示三场的局域扰动随同一包络集中于直线 $x=A_bt$ 附近传播, 其中速度与振荡频率由传播因子 $F(\ii b)$ 的实部与虚部决定.
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-fields.pdf}
@@ -34,20 +34,20 @@ T=e^{2\kappa X}e^{-2\ii\kappa B_bt}.
 \begin{equation}\label{eq:internal-period}
 T_t=\dfrac{\pi}{\kappa|B_b|}
 \end{equation}
-为周期. 原复场 $\widetilde q,\widetilde p$ 具有该随动周期的充要条件为
+为周期; 原复场 $\widetilde q,\widetilde p$ 具有该随动周期的充要条件为
 $\Omega T_t\in2\pi\mathbb Z$. 当 $\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}$ 时,
-$B_b=0$, 规范三场为关于 $X$ 的定形波.
+$B_b=0$, 规范三场退化为关于 $X$ 的定形波.
 
 由 $P^2=P=P^\dagger$ 和 $\tr P=1$, 有 $|P_{12}|^2=P_{11}(1-P_{11})\le\dfrac{1}{4}$.
-结合 $T(0,0)=1$、$P_{12}(0,0)=\dfrac{1}{2}$, 得
+结合 $T(0,0)=1$、$P_{12}(0,0)=\dfrac{1}{2}$, 得到光场振幅的精确上界
 \begin{equation}\label{eq:amplitude-bound}
 |\widetilde q(x,t)|\le q_0+2b,\qquad |\widetilde q(0,0)|=q_0+2b.
 \end{equation}
-由投影矩阵的端态展开, 三场偏离背景的量在 $X\to\pm\infty$ 时均为 $O(e^{-2\kappa|X|})$.
+由投影矩阵的端态展开, 三场偏离背景的量在 $X\to\pm\infty$ 时均以 $O(e^{-2\kappa|X|})$ 指数衰减.
 
-图 \ref{fig:dynamics} 给出光场的随动截面及中心振荡.
-$\alpha$ 从 $0.5$ 增至 $1$ 时, 周期由约 $3.418$ 缩短至 $1.787$,
-速度均为 $A_b=-1.196$. 取 $\alpha=-0.048$ 时, 光场模在随动坐标中保持定形.
+图 \ref{fig:dynamics} 展示了光场的随动截面及中心振荡特征.
+当 $\alpha$ 从 $0.5$ 增至 $1$ 时, 随动振荡周期由约 $3.418$ 缩短至 $1.787$,
+而包络速度保持为 $A_b=-1.196$. 取临界值 $\alpha=-0.048$ 时, $B_b=0$, 光场模在随动坐标中保持定形.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-dynamics.pdf}
@@ -58,8 +58,8 @@ $t=0$、$\dfrac{T_t}{4}$、$\dfrac{T_t}{2}$ 时光场模随 $X$ 的分布.
 \end{figure}
 
 \subsection{包络传播与数值核验}
-固定其余参数, 由 \eqref{eq:velocity} 知传播速度随 $\beta$ 作仿射变化, 随动角频率 $2\kappa|B_b|$ 与 $\beta$ 无关.
-图 \ref{fig:velocity} 中, $\beta$ 由 $0$ 增至 $0.15$ 时, $A_b$ 由 $-0.096$ 变为 $-1.746$.
+固定其余参数, 由 \eqref{eq:velocity}--\eqref{eq:frequency} 知三阶色散系数 $\beta$ 仅以仿射方式调控包络速度 $A_b$, 而不改变随动角频率 $2\kappa|B_b|$.
+如图 \ref{fig:velocity} 所示, 当 $\beta$ 由 $0$ 增至 $0.15$ 时, 传播速度 $A_b$ 由 $-0.096$ 变为 $-1.746$.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-velocity.pdf}
@@ -69,8 +69,7 @@ $t=0$、$\dfrac{T_t}{4}$、$\dfrac{T_t}{2}$ 时光场模随 $X$ 的分布.
 \end{figure}
 
 \FloatBarrier
-对参数 \eqref{eq:numerical-parameters}, 在五个时空样点上以 70 位十进制精度求解留数系统并计算场导数,
-原方程、Lax 对、共振重构及 Bloch 约束的残差见表 \ref{tab:direct-residuals}.
+为对解析重构与方程验证提供独立数值检验, 在参数 \eqref{eq:numerical-parameters} 下选取五个时空样点, 以 70 位十进制精度求解留数系统并计算场导数, 原方程、Lax 对、共振重构及 Bloch 约束的最大残差见表 \ref{tab:direct-residuals}.
 同一样点上的双精度绘图值与高精度重构值之差均小于 $10^{-14}$.
 \begin{table}[htbp]
 \centering
@@ -88,3 +87,5 @@ Bloch 长度平方 & $4.77\times10^{-72}$\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+表 \ref{tab:direct-residuals} 中的各项残差均低于 $2\times10^{-69}$, 与双精度绘图结果高度一致, 从而在数值上进一步印证了本文非零背景逆散射重构公式与纯虚单轨道显式三场解的正确性.
