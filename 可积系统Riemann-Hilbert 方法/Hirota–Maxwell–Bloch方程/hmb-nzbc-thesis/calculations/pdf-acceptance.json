@@ -1,8 +1,8 @@
 {
   "sources": {
     "tex_files": 9,
-    "labels": 211,
-    "references": 377,
+    "labels": 210,
+    "references": 369,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -150,7 +150,7 @@
     [
       1,
       "4. 散射演化与共振相容性",
-      19
+      18
     ],
     [
       1,
@@ -174,13 +174,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 458,
+  "pdf_links_checked": 450,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "b69e67edebba8468fdbb812a62e5bdc048af278bd9171245ce020b5a25008ff0",
+  "pdf_sha256": "173cc5383f024e74a2512396b1a6461dcd14afe2f3b1b7a52fd4c89789ec6512",
   "visual_review": "Visual review is not inferred by this automated check."
 }

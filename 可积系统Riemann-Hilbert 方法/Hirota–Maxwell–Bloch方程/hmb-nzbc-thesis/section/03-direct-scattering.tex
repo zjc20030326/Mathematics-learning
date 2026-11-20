@@ -483,7 +483,7 @@ $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性.
 \begin{align}
      & B(q)=\sg Q=\begin{pmatrix}0&q\\\conj{q}&0\end{pmatrix},\label{eq:Bdef}     \\
      & J_\pm(x,t)=\int_{\pm\infty}^{x}(q_0^2-|q(y,t)|^2)\,\dd y,\label{eq:Jpmdef} \\
-     & J_{\rm tot}(t)=\int_{-\infty}^{+\infty}(q_0^2-|q(y,t)|^2)\,\dd y
+     & J(t)=\int_{-\infty}^{+\infty}(q_0^2-|q(y,t)|^2)\,\dd y
     =J_-(x,t)-J_+(x,t).\label{eq:Jtotdef}
 \end{align}
 
@@ -501,8 +501,8 @@ $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性.
     \end{equation}
     相应透射系数满足
     \begin{align}
-         & s_{22}(z,t)=1+\dfrac{\ii J_{\rm tot}(t)}{z}+O(z^{-2}),\qquad z\in\overline{D_+},\label{eq:s22-highenergy} \\
-         & s_{11}(z,t)=1-\dfrac{\ii J_{\rm tot}(t)}{z}+O(z^{-2}),\qquad z\in\overline{D_-}.\label{eq:s11-highenergy}
+         & s_{22}(z,t)=1+\dfrac{\ii J(t)}{z}+O(z^{-2}),\qquad z\in\overline{D_+},\label{eq:s22-highenergy} \\
+         & s_{11}(z,t)=1-\dfrac{\ii J(t)}{z}+O(z^{-2}),\qquad z\in\overline{D_-}.\label{eq:s11-highenergy}
     \end{align}
 
     (2) 当 $z\to0$ 时,
@@ -513,14 +513,14 @@ $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性.
     \end{equation}
     相应透射系数满足
     \begin{align}
-         & s_{22}(z,t)=1+\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z+O(z^2),\qquad z\in\overline{D_+},\label{eq:s22-smallenergy} \\
-         & s_{11}(z,t)=1-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z+O(z^2),\qquad z\in\overline{D_-}.\label{eq:s11-smallenergy}
+         & s_{22}(z,t)=1+\dfrac{\ii J(t)}{q_0^2}z+O(z^2),\qquad z\in\overline{D_+},\label{eq:s22-smallenergy} \\
+         & s_{11}(z,t)=1-\dfrac{\ii J(t)}{q_0^2}z+O(z^2),\qquad z\in\overline{D_-}.\label{eq:s11-smallenergy}
     \end{align}
 
     (3) 在实轴上, 散射矩阵满足
     \begin{align}
-         & S(z,t)=\Id-\dfrac{\ii J_{\rm tot}(t)}{z}\sg+O(z^{-2}),\qquad z\to\infty,\label{eq:scattering-highenergy} \\
-         & S(z,t)=\Id-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z\sg+O(z^2),\qquad z\to0.\label{eq:scattering-smallenergy}
+         & S(z,t)=\Id-\dfrac{\ii J(t)}{z}\sg+O(z^{-2}),\qquad z\to\infty,\label{eq:scattering-highenergy} \\
+         & S(z,t)=\Id-\dfrac{\ii J(t)}{q_0^2}z\sg+O(z^2),\qquad z\to0.\label{eq:scattering-smallenergy}
     \end{align}
 \end{proposition}
 \begin{proof}
@@ -562,8 +562,8 @@ $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性.
 
     由两组解析列的展开, 分别在 $\overline{D_+}$ 与 $\overline{D_-}$ 上计算行列式, 得
     \begin{align*}
-         & \det(\mu_{-,1},\mu_{+,2})=1+\dfrac{\ii J_{\rm tot}}{z}+O(z^{-2}), \\
-         & \det(\mu_{+,1},\mu_{-,2})=1-\dfrac{\ii J_{\rm tot}}{z}+O(z^{-2}).
+         & \det(\mu_{-,1},\mu_{+,2})=1+\dfrac{\ii J}{z}+O(z^{-2}), \\
+         & \det(\mu_{+,1},\mu_{-,2})=1-\dfrac{\ii J}{z}+O(z^{-2}).
     \end{align*}
     将上两式及 $\gamma=1+O(z^{-2})$ 代入 \eqref{eq:wronskian}, 即得 \eqref{eq:s22-highenergy}--\eqref{eq:s11-highenergy}.
 
@@ -581,14 +581,14 @@ $h'(z)=\dfrac{q_0^2}{z^2}\ne0$ 保持零点的简单性.
     \begin{equation*}
         \mu_-(x,t,z)^{-1}\mu_+(x,t,z)
         =\Id+\dfrac{A_+(x,t)-A_-(x,t)}{z}+O(z^{-2})
-        =\Id-\dfrac{\ii J_{\rm tot}(t)}{z}\sg+O(z^{-2}).
+        =\Id-\dfrac{\ii J(t)}{z}\sg+O(z^{-2}).
     \end{equation*}
     此时 $\lambda(z)$ 为实数,  $e^{\ii\lambda x\widehat{\sigma}_3}$ 保持对角项和余项阶数.
     代入 \eqref{eq:Sdef-mu} 即得 \eqref{eq:scattering-highenergy}.
     最后由换叶对称性 \eqref{eq:scattering-symmetry-sheet}、\eqref{eq:scattering-highenergy} 及 $\sigma_1\sg\sigma_1=-\sg$, 有
     \begin{equation*}
             S(z,t) =\sigma_1 S(h(z),t)\sigma_1
-            =\Id-\dfrac{\ii J_{\rm tot}(t)}{q_0^2}z\sg+O(z^2),
+            =\Id-\dfrac{\ii J(t)}{q_0^2}z\sg+O(z^2),
     \end{equation*}
     即得 \eqref{eq:scattering-smallenergy}.
 \end{proof}

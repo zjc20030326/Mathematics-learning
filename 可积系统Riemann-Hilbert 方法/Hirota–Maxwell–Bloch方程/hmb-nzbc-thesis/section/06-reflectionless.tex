@@ -1,5 +1,5 @@
 % !TeX root = ../fduthesis.tex
-当 $\rho=\widetilde\rho=0$ 时, 跳跃矩阵退化为 $\Id$, 连续谱积分消失, 矩阵 RHP 化为有限维留数线性系统.
+当 $\rho=\widetilde\rho=0$ 时, 有 $G=0$, 跳跃条件 \eqref{eq:jump} 退化为 $M_-=M_+$, 连续谱积分消失, 矩阵 RHP 化为有限维留数线性系统.
 本节先建立一般 $N$ 轨道无反射数据的行列式重构公式, 再针对纯虚单轨道数据证明留数系统全局唯一可解并导出显式矩阵解.
 
 \subsection{多轨道无反射解}
@@ -82,7 +82,7 @@ q=q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r
 \end{equation}
 介质矩阵为
 \begin{equation}\label{eq:N-medium}
-R=M(z_a^\pm)\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sg M(z_a^\pm)^{-1}.
+R=\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(z_a^\pm)\sg M(z_a^\pm)^{-1}.
 \end{equation}
 两个共振原像给出同一矩阵 $R$, 原物理三场由 \eqref{eq:original-fields} 恢复.
 \end{theorem}
