@@ -2,7 +2,7 @@
   "sources": {
     "tex_files": 9,
     "labels": 213,
-    "references": 332,
+    "references": 335,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -174,13 +174,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 413,
+  "pdf_links_checked": 416,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "3f217302690141af9aaedd7a487f3f06b166c69f0956efd345c7368a7987a0f6",
-  "visual_review": "Reviewed printed pages 22–25. Matrix-column residue and reconstruction formulas, analytic transmission factors, and the phase condition fit and retain the existing numbering."
+  "pdf_sha256": "a5ea04c0cd1e251f6b78895176b06c32cd7c27d93f7a567f7c5dbfd4ed2ddf9d",
+  "visual_review": "Inspected printed pages 21–23 for the definition of the coefficient, the full expansion of M, and the comparison with the Jost coefficient."
 }

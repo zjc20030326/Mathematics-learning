@@ -1,3 +1,4 @@
+% !TeX root = ../fduthesis.tex
 \subsection{矩阵 Riemann--Hilbert 问题}
 固定 $x\in\mathbb R$ 和 $t\in I$.
 沿用图 \ref{fig:analytic-regions} 的谱边界定向, 以 $+$、$-$ 表示左、右非切向边界值.
@@ -25,11 +26,12 @@ J=\begin{pmatrix}
 \end{pmatrix},\qquad \det J=1.
 \end{equation}
 
-(3) 在两处谱无穷远有
+(3) 在无穷远和原点分别有
 \begin{align}
 &M(z)=\Id+\dfrac{M^{(1)}}{z}+O(z^{-2}),\qquad z\to\infty,\label{eq:Minfty}\\
 &M(z)=-\dfrac{\ii q_0}{z}\sigma_1+O(1),\qquad z\to0.\label{eq:Mzero}
 \end{align}
+其中 $M^{(1)}$ 为无穷远展开中 $z^{-1}$ 项的系数.
 
 (4) 矩阵 $M$ 满足两种对称性
 \begin{equation}\label{eq:Msym}
@@ -104,14 +106,15 @@ M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
 +\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\bigl(M_+(s)G(s)\bigr)_2}{s-\conj{\zeta_j}}\,\dd s.
 \label{eq:general-finite2}
 \end{align}
-接着取 \eqref{eq:general-cauchy} 的无穷远系数. 当 $z$ 沿避开 $\Sigma$ 的闭角域趋于无穷远时,
-$\dfrac{z}{s-z}$ 在 $\Sigma$ 上一致有界且逐点趋于 $-1$. 由支配收敛,
+令 $z$ 沿避开 $\Sigma$ 的闭角域趋于无穷远. 此时 $\dfrac{z}{s-z}$ 在 $\Sigma$ 上一致有界且逐点趋于 $-1$.
+在 \eqref{eq:general-cauchy} 的积分项中应用支配收敛, 得
 \begin{equation}\label{eq:M1-general}
-M^{(1)}=-\ii q_0\sigma_1
+M(z)=\Id+\dfrac{1}{z}\left(-\ii q_0\sigma_1
 +\sum\limits_{\xi\in Z}\Res_{s=\xi}M(s)
--\dfrac{1}{2\pi\ii}\int\limits_\Sigma M_+(s)G(s)\,\dd s.
+-\dfrac{1}{2\pi\ii}\int\limits_\Sigma M_+(s)G(s)\,\dd s\right)+o(z^{-1}).
 \end{equation}
-取 \eqref{eq:M1-general} 的 $(1,2)$ 元并乘以 $\ii$, 由 \eqref{eq:M-residues} 得光场重构公式
+在 $D_-$ 中, 由 \eqref{eq:Mdef} 有 $M_2=\mu_{-,2}$. 由 \eqref{eq:mu-highenergy}--\eqref{eq:Apm-highenergy},
+$M_{12}$ 的 $z^{-1}$ 项系数为 $-\ii q$. 与 \eqref{eq:M1-general} 比较, 再代入 \eqref{eq:M-residues}, 得
 \begin{equation}\label{eq:qgeneral}
 q=q_0+\ii\sum\limits_{j=1}^{2N}C_jM_{11}(\zeta_j)
 -\dfrac{1}{2\pi}\int\limits_\Sigma \bigl(M_+(s)G(s)\bigr)_{12}\,\dd s.
