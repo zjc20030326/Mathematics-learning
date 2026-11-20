@@ -17,7 +17,7 @@ M_-(z)=\left(\dfrac{\mu_{+,1}}{s_{11}},\mu_{-,2}\right),&z\in D_-.
 \end{equation}
 则 $M$ 满足下列条件:
 
-(1) 矩阵 $M$ 在 $\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 内解析, 仅在离散谱 $Z$ 处有简单极点.
+(1) 矩阵 $M$ 在 $\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 内解析, 在离散谱 $Z$ 处至多有简单极点.
 
 (2) 在 $\Sigma_*$ 上, $M$ 具有局部连续的非切向边界值, 且满足跳跃关系
 \begin{equation}\label{eq:jump}
@@ -46,7 +46,7 @@ G=\begin{pmatrix}
 M(z)=\sigma_2\conj{M(\conj z)}\sigma_2,\qquad
 M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 \end{equation}
-且在两个共振原像 $z_a^\pm$ 处连续, 两侧边界值满足 $M_+=M_-=\mu_-(x,t,z_a^\pm)$.
+且在两个共振原像 $z_a^\pm$ 处连续 ($M_+=M_-$); 特别地, 对式 \eqref{eq:Mdef} 构造的 $M$, 该公共值等于 $\mu_-(x,t,z_a^\pm)$.
 \end{proposition}
 \begin{proof}
 由定理 \ref{thm:jost} 与命题 \ref{prop:scattering}, 式 \eqref{eq:Mdef} 中的两列商仅可在分母零点处产生极点; 直接结合留数公式 \eqref{eq:resplus}--\eqref{eq:resminus} 及时间演化式 \eqref{eq:C-timephase}, 即得 $\zeta_j$ 处位于第二列、$\conj{\zeta_j}$ 处位于第一列的留数条件 \eqref{eq:M-residues}.
@@ -64,8 +64,8 @@ M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 在 $z_a^\pm$ 处, 由 \eqref{eq:resonance-reflection} 知散射矩阵为可逆对角矩阵, 代入 \eqref{eq:scattering-columns} 即得 $M_+=M_-=\mu_-(x,t,z_a^\pm)$.
 \end{proof}
 
-结合后续积分表示与重构分析的需要, 还要求 $M$ 在分支点 $\pm\ii q_0$ 与谱交点 $\pm q_0$ 附近局部有界.
-下文在逆散射讨论中直接研究满足上述全部 RHP 条件 (即命题 \ref{prop:jump} 的各项条件与 $\pm q_0,\pm\ii q_0$ 附近的局部有界性) 的矩阵解, 不再要求其预先由 Jost 解构造.
+为建立后续的积分表示与行列式恒等式, 进一步假定 $M$ 在分支点 $\pm\ii q_0$ 与谱交点 $\pm q_0$ 附近局部有界 (对式 \eqref{eq:Mdef} 构造的矩阵, 这等价于排除透射系数在 $\pm q_0,\pm\ii q_0$ 处趋于零的谱奇点).
+下文在逆散射讨论中直接研究满足条件 (1)--(5) (共振原像处仅要求连续 $M_+=M_-$) 及上述局部有界性的矩阵 RHP 解, 不再要求其预先由 Jost 解构造.
 
 \subsection{留数表示与三场重构}
 为利用 Plemelj 公式将上述矩阵 RHP 转化为积分方程, 将跳跃条件 \eqref{eq:jump} 直接写作加性形式 $M_+-M_-=M_+G$.
@@ -78,8 +78,8 @@ M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 -\sum\limits_{\xi\in Z}\dfrac{\Res_{s=\xi}M(s)}{z-\xi}-M_+(z)G(z).
 \end{aligned}
 \end{equation*}
-上式左端在 $D_-$ 内解析, 右端去掉末项后在 $D_+$ 内解析; 二者在原点与 $\pm q_0,\pm\ii q_0$ 附近有界, 且当 $z\to\infty$ 时均为 $O(z^{-1})$.
-此外, 由 \eqref{eq:scattering-highenergy}--\eqref{eq:scattering-smallenergy} 知实轴上 $G(s)=O(s^{-2})$ ($s\to\infty$) 且 $G(s)=O(s^2)$ ($s\to0$), 结合 \eqref{eq:Minfty}--\eqref{eq:Mzero} 与局部有界性可知 $M_+(s)G(s)$ 在 $\Sigma$ 的有限部分有界、在无穷远为 $O(s^{-2})$, 从而 $M_+G\in L^1(\Sigma)$.
+上式左端在 $D_-$ 内解析, 右端去掉末项后在 $D_+$ 内解析; 二者在 $0,\pm q_0,\pm\ii q_0,z_a^\pm$ 附近有界, 且当 $z\to\infty$ 时均为 $O(z^{-1})$.
+此外, 跳跃密度 $M_+G=M_+-M_-$ 在 $\Sigma_*$ 上连续, 在 $0,\pm q_0,\pm\ii q_0,z_a^\pm$ 附近有界 (原点处极部由 \eqref{eq:Mzero} 相消); 结合实轴无穷远衰减 $G(s)=O(s^{-2})$ (正向散射由 \eqref{eq:scattering-highenergy} 保证) 及 \eqref{eq:Minfty}, 可知 $M_+G$ 在 $\Sigma$ 上有界且在无穷远为 $O(s^{-2})$, 故 $M_+G\in L^1(\Sigma)\cap L^2(\Sigma)$.
 由 Plemelj 公式\cite{ZhangFan2020,Fan2022}, 对任意 $z\in\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 有积分表示
 \begin{equation}\label{eq:general-cauchy}
 M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
@@ -133,7 +133,7 @@ M^{(1)}=-\ii B(q)+\ii J_-\sg,
 \end{equation*}
 取非对角部分即得 \eqref{eq:reconq}.
 
-(2) 介质恢复. 由命题 \ref{prop:jump} 与命题 \ref{prop:resonance}, 在共振原像处有 $M(x,t,z_a)=\mu_-(x,t,z_a)$ 且 $\det M(x,t,z_a)=\gamma(z_a)>0$.
+(2) 介质恢复. 由命题 \ref{prop:resonance}, 在共振原像处散射矩阵对角且可逆, 结合 \eqref{eq:Mdef}、\eqref{eq:scattering-columns} 与 \eqref{eq:detjost} 有 $M(x,t,z_a)=\mu_-(x,t,z_a)$ 且 $\det M(x,t,z_a)=\gamma(z_a)>0$.
 将其代入 \eqref{eq:resonance-conjugation} 即得 \eqref{eq:RfromM}.
 换叶时 $\lambda(h(z_a))=-\lambda(z_a)$ 且 $\sigma_1\sg\sigma_1=-\sg$, 结合对称性 \eqref{eq:Msym} 可知两原像给出同一矩阵 $R$.
 最后由规范变换 \eqref{eq:gauge} 及 \eqref{eq:gauged-V} 即得 \eqref{eq:original-fields}.
@@ -157,7 +157,7 @@ q=q_0+\ii\sum\limits_{j=1}^{2N}C_jM_{11}(\zeta_j)
 \begin{proof}
 由 $\det(\Id-G)=1$, $\det M$ 可跨越 $\Sigma_*$ 解析延拓.
 由 \eqref{eq:M-residues}, 奇异列的留数与正则列成比例, 因而离散极点对 $\det M$ 均是可去奇点;
-$\pm q_0,\pm\ii q_0$ 处由局部有界性亦为可去奇点.
+$z_a^\pm$ 处由连续性、$\pm q_0,\pm\ii q_0$ 处由局部有界性亦为可去奇点.
 结合 \eqref{eq:Minfty}--\eqref{eq:Mzero} 与 Liouville 定理, 有
 \begin{equation*}
 \det M(z)=1+\dfrac{d}{z}+\dfrac{q_0^2}{z^2}.
@@ -215,7 +215,7 @@ $s_{11}$ 由共轭关系 \eqref{eq:sconj} 确定. 两端同相背景满足相位
 \log\beta_\pm(z)=\mp\dfrac{1}{2\pi\ii}\int\limits_\Sigma
 \dfrac{\log\bigl(1-\rho(s)\widetilde\rho(s)\bigr)}{s-z}\,\dd s,\qquad z\in D_\pm.
 \end{equation*}
-事实上, 左、右两端在 $\Sigma_*$ 上具有相同跳跃, 其差在 $\pm q_0,\pm\ii q_0$ 处可去且在无穷远趋于零, 故由 Liouville 定理恒为零.
+事实上, 左、右两端在 $\Sigma_*$ 上具有相同跳跃, 其差在 $0,\pm q_0,\pm\ii q_0,z_a^\pm$ 处均可去且在无穷远趋于零, 故由 Liouville 定理恒为零.
 代回 $\beta_+$ 的定义即得迹公式 \eqref{eq:trace}.
 
 在 \eqref{eq:trace} 中沿虚轴取 $z=-\ii\varepsilon\in D_+$ ($\varepsilon\downarrow0$).

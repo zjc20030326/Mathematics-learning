@@ -2,7 +2,7 @@
   "sources": {
     "tex_files": 9,
     "labels": 210,
-    "references": 369,
+    "references": 371,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -174,13 +174,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 450,
+  "pdf_links_checked": 452,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "173cc5383f024e74a2512396b1a6461dcd14afe2f3b1b7a52fd4c89789ec6512",
+  "pdf_sha256": "7a9abd6b5e17407b457fafbbb982524782074b6624d6ac2ba2afe97d34b587f1",
   "visual_review": "Visual review is not inferred by this automated check."
 }
