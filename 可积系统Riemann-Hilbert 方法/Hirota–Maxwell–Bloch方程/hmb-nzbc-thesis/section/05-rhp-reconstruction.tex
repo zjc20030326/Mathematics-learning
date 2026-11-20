@@ -1,5 +1,5 @@
 % !TeX root = ../fduthesis.tex
-本节将前两节所得的 Jost 解析列与散射关系整理为单值化谱平面上的矩阵 Riemann--Hilbert 问题 (RHP), 建立光场与介质矩阵的重构公式, 并导出透射系数的迹公式与同相背景相位条件.
+本节将前两节所得的 Jost 解析列与散射关系整理为单值化谱平面上的矩阵 Riemann--Hilbert 问题 (RHP), 建立光场与介质矩阵的重构公式, 并给出透射系数的迹公式与同相背景相位条件.
 
 \subsection{矩阵 Riemann--Hilbert 问题}
 固定 $x\in\mathbb R$ 和 $t\in I$.
@@ -46,7 +46,7 @@ G=\begin{pmatrix}
 M(z)=\sigma_2\conj{M(\conj z)}\sigma_2,\qquad
 M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 \end{equation}
-且在两个共振原像 $z_a^\pm$ 处连续 ($M_+=M_-$); 特别地, 对式 \eqref{eq:Mdef} 构造的 $M$, 该公共值等于 $\mu_-(x,t,z_a^\pm)$.
+且在两个共振原像 $z_a^\pm$ 处连续,即$M_+=M_-$; 特别地, 对式 \eqref{eq:Mdef} 构造的 $M$, 该公共值等于 $\mu_-(x,t,z_a^\pm)$.
 \end{proposition}
 \begin{proof}
 由定理 \ref{thm:jost} 与命题 \ref{prop:scattering}, 式 \eqref{eq:Mdef} 中的两列商仅可在分母零点处产生极点; 直接结合留数公式 \eqref{eq:resplus}--\eqref{eq:resminus} 及时间演化式 \eqref{eq:C-timephase}, 即得 $\zeta_j$ 处位于第二列、$\conj{\zeta_j}$ 处位于第一列的留数条件 \eqref{eq:M-residues}.
@@ -64,12 +64,12 @@ M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 在 $z_a^\pm$ 处, 由 \eqref{eq:resonance-reflection} 知散射矩阵为可逆对角矩阵, 代入 \eqref{eq:scattering-columns} 即得 $M_+=M_-=\mu_-(x,t,z_a^\pm)$.
 \end{proof}
 
-为建立后续的积分表示与行列式恒等式, 进一步假定 $M$ 在分支点 $\pm\ii q_0$ 与谱交点 $\pm q_0$ 附近局部有界 (对式 \eqref{eq:Mdef} 构造的矩阵, 这等价于排除透射系数在 $\pm q_0,\pm\ii q_0$ 处趋于零的谱奇点).
-下文在逆散射讨论中直接研究满足条件 (1)--(5) (共振原像处仅要求连续 $M_+=M_-$) 及上述局部有界性的矩阵 RHP 解, 不再要求其预先由 Jost 解构造.
+为建立后续的积分表示与行列式恒等式, 进一步假定 $M$ 在分支点 $\pm\ii q_0$ 与谱交点 $\pm q_0$ 附近局部有界.
+下文在逆散射讨论中直接研究满足条件 (1)--(5) 及上述局部有界性的矩阵 RHP 解, 不再要求其预先由 Jost 解构造.
 
 \subsection{留数表示与三场重构}
 为利用 Plemelj 公式将上述矩阵 RHP 转化为积分方程, 将跳跃条件 \eqref{eq:jump} 直接写作加性形式 $M_+-M_-=M_+G$.
-从 $M_\pm$ 中扣除无穷远常项、原点奇部及全部离散极点主部, 整理为
+从 $M_\pm$ 中扣除无穷远常项、原点奇部及全部离散极点主部, 可得
 \begin{equation*}
 \begin{aligned}
 &M_-(z)-\Id+\dfrac{\ii q_0}{z}\sigma_1
@@ -79,7 +79,7 @@ M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 \end{aligned}
 \end{equation*}
 上式左端在 $D_-$ 内解析, 右端去掉末项后在 $D_+$ 内解析; 二者在 $0,\pm q_0,\pm\ii q_0,z_a^\pm$ 附近有界, 且当 $z\to\infty$ 时均为 $O(z^{-1})$.
-此外, 跳跃密度 $M_+G=M_+-M_-$ 在 $\Sigma_*$ 上连续, 在 $0,\pm q_0,\pm\ii q_0,z_a^\pm$ 附近有界 (原点处极部由 \eqref{eq:Mzero} 相消); 结合实轴无穷远衰减 $G(s)=O(s^{-2})$ (正向散射由 \eqref{eq:scattering-highenergy} 保证) 及 \eqref{eq:Minfty}, 可知 $M_+G$ 在 $\Sigma$ 上有界且在无穷远为 $O(s^{-2})$, 故 $M_+G\in L^1(\Sigma)\cap L^2(\Sigma)$.
+此外, $M_+G=M_+-M_-$ 在 $\Sigma_*$ 上连续, 在 $0,\pm q_0,\pm\ii q_0,z_a^\pm$ 附近有界; 结合实轴无穷远衰减 $G(s)=O(s^{-2})$及 \eqref{eq:Minfty}, 可知 $M_+G$ 在 $\Sigma$ 上有界且在无穷远为 $O(s^{-2})$, 故 $M_+G\in L^1(\Sigma)\cap L^2(\Sigma)$.
 由 Plemelj 公式\cite{ZhangFan2020,Fan2022}, 对任意 $z\in\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 有积分表示
 \begin{equation}\label{eq:general-cauchy}
 M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
@@ -87,7 +87,7 @@ M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
 +\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{M_+(s)G(s)}{s-z}\,\dd s.
 \end{equation}
 
-将留数条件 \eqref{eq:M-residues} 代入 \eqref{eq:general-cauchy}, 在第一列取 $z=\zeta_j$, 在第二列取 $z=\conj{\zeta_j}$, 得离散谱处的闭合关系
+将留数条件 \eqref{eq:M-residues} 代入 \eqref{eq:general-cauchy}, 在第一列取 $z=\zeta_j$, 在第二列取 $z=\conj{\zeta_j}$, 得离散谱处的
 \begin{align}
 &M_1(\zeta_j)=\begin{pmatrix}1\\-\dfrac{\ii q_0}{\zeta_j}\end{pmatrix}
 -\sum\limits_{k=1}^{2N}\dfrac{\conj{C_k}M_2(\conj{\zeta_k})}{\zeta_j-\conj{\zeta_k}}
