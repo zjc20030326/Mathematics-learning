@@ -19,7 +19,7 @@ M_-(z)=\left(\dfrac{\mu_{+,1}}{s_{11}},\mu_{-,2}\right),&z\in D_-.
 
 (1) 矩阵 $M$ 在 $\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 内解析, 在离散谱 $Z$ 处至多有简单极点.
 
-(2) 在 $\Sigma_*$ 上, $M$ 具有局部连续的非切向边界值, 且满足跳跃关系
+(2) 在 $\Sigma_*$ 上, $M$ 的两侧非切向边界值 $M_\pm$ 存在且局部连续, 并满足跳跃关系
 \begin{equation}\label{eq:jump}
 M_-=M_+(\Id-G),\qquad
 G=\begin{pmatrix}
@@ -28,11 +28,12 @@ G=\begin{pmatrix}
 \end{pmatrix},\qquad \det(\Id-G)=1.
 \end{equation}
 
-(3) 按 \eqref{eq:discrete-indexing} 编号并取 \eqref{eq:C-timephase} 中的 $C_j(x,t)$, 以下标 $1,2$ 表示矩阵的第一、第二列, 则对每个 $j=1,\ldots,2N$ 满足留数条件
+(3) 在离散谱点处, $M$ 满足留数条件
 \begin{equation}\label{eq:M-residues}
 \Res_{z=\zeta_j}M(z)=\bigl(0,\,C_jM_1(\zeta_j)\bigr),\qquad
 \Res_{z=\conj{\zeta_j}}M(z)=\bigl(-\conj{C_j}M_2(\conj{\zeta_j}),\,0\bigr).
 \end{equation}
+其中 $j=1,\ldots,2N$, $\zeta_j$ 按 \eqref{eq:discrete-indexing} 编号, $C_j=C_j(x,t)$ 由 \eqref{eq:C-timephase} 给出, $M_1,M_2$ 分别表示 $M$ 的第一、第二列.
 
 (4) 在无穷远和原点处分别满足渐近行为
 \begin{align}
@@ -46,7 +47,7 @@ G=\begin{pmatrix}
 M(z)=\sigma_2\conj{M(\conj z)}\sigma_2,\qquad
 M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 \end{equation}
-且在两个共振原像 $z_a^\pm$ 处连续,即$M_+=M_-$; 特别地, 对式 \eqref{eq:Mdef} 构造的 $M$, 该公共值等于 $\mu_-(x,t,z_a^\pm)$.
+且在每个共振原像 $z_a^\pm$ 处, 两侧边界值连续延拓且相等; 对式 \eqref{eq:Mdef} 构造的 $M$, 该值为 $\mu_-(x,t,z_a^\pm)$.
 \end{proposition}
 \begin{proof}
 由定理 \ref{thm:jost} 与命题 \ref{prop:scattering}, 式 \eqref{eq:Mdef} 中的两列商仅可在分母零点处产生极点; 直接结合留数公式 \eqref{eq:resplus}--\eqref{eq:resminus} 及时间演化式 \eqref{eq:C-timephase}, 即得 $\zeta_j$ 处位于第二列、$\conj{\zeta_j}$ 处位于第一列的留数条件 \eqref{eq:M-residues}.
@@ -64,8 +65,10 @@ M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 在 $z_a^\pm$ 处, 由 \eqref{eq:resonance-reflection} 知散射矩阵为可逆对角矩阵, 代入 \eqref{eq:scattering-columns} 即得 $M_+=M_-=\mu_-(x,t,z_a^\pm)$.
 \end{proof}
 
-为建立后续的积分表示与行列式恒等式, 进一步假定 $M$ 在分支点 $\pm\ii q_0$ 与谱交点 $\pm q_0$ 附近局部有界.
-下文在逆散射讨论中直接研究满足条件 (1)--(5) 及上述局部有界性的矩阵 RHP 解, 不再要求其预先由 Jost 解构造.
+\begin{remark}
+下文的矩阵 RHP 以命题 \ref{prop:jump} 的条件 (1)--(5) 为基础, 并要求 $M$ 在分支点 $\pm\ii q_0$ 与谱交点 $\pm q_0$ 附近局部有界.
+对一般反射数据, 另要求 $G(s)=O(s^{-2})$ ($s\to\infty$); 正向散射数据由 \eqref{eq:scattering-highenergy} 满足该衰减条件.
+\end{remark}
 
 \subsection{留数表示与三场重构}
 为利用 Plemelj 公式将上述矩阵 RHP 转化为积分方程, 将跳跃条件 \eqref{eq:jump} 直接写作加性形式 $M_+-M_-=M_+G$.
@@ -79,7 +82,7 @@ M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 \end{aligned}
 \end{equation*}
 上式左端在 $D_-$ 内解析, 右端去掉末项后在 $D_+$ 内解析; 二者在 $0,\pm q_0,\pm\ii q_0,z_a^\pm$ 附近有界, 且当 $z\to\infty$ 时均为 $O(z^{-1})$.
-此外, $M_+G=M_+-M_-$ 在 $\Sigma_*$ 上连续, 在 $0,\pm q_0,\pm\ii q_0,z_a^\pm$ 附近有界; 结合实轴无穷远衰减 $G(s)=O(s^{-2})$及 \eqref{eq:Minfty}, 可知 $M_+G$ 在 $\Sigma$ 上有界且在无穷远为 $O(s^{-2})$, 故 $M_+G\in L^1(\Sigma)\cap L^2(\Sigma)$.
+此外, $M_+G=M_+-M_-$ 在 $\Sigma_*$ 上连续; 由 \eqref{eq:Mzero} 中两侧相同的原点主部和特殊谱点附近的局部有界性, 该差在 $\Sigma$ 的有限部分有界. 结合 \eqref{eq:Minfty} 与 $G(s)=O(s^{-2})$ ($s\to\infty$), 有 $M_+(s)G(s)=O(s^{-2})$, 故 $M_+G\in L^1(\Sigma)\cap L^2(\Sigma)$.
 由 Plemelj 公式\cite{ZhangFan2020,Fan2022}, 对任意 $z\in\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 有积分表示
 \begin{equation}\label{eq:general-cauchy}
 M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
@@ -87,7 +90,7 @@ M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
 +\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{M_+(s)G(s)}{s-z}\,\dd s.
 \end{equation}
 
-将留数条件 \eqref{eq:M-residues} 代入 \eqref{eq:general-cauchy}, 在第一列取 $z=\zeta_j$, 在第二列取 $z=\conj{\zeta_j}$, 得离散谱处的关系
+将留数条件 \eqref{eq:M-residues} 代入 \eqref{eq:general-cauchy}, 分别取第一列在 $z=\zeta_j$ 处及第二列在 $z=\conj{\zeta_j}$ 处的值, 得到
 \begin{align}
 &M_1(\zeta_j)=\begin{pmatrix}1\\-\dfrac{\ii q_0}{\zeta_j}\end{pmatrix}
 -\sum\limits_{k=1}^{2N}\dfrac{\conj{C_k}M_2(\conj{\zeta_k})}{\zeta_j-\conj{\zeta_k}}
