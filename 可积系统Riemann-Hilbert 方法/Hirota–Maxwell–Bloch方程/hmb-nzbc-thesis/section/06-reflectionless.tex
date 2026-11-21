@@ -12,7 +12,7 @@
 &C_j(x,t)=c_j(0)e^{2\ii\theta(x,t,\zeta_j)},\qquad j=1,\ldots,m.
 \end{aligned}
 \end{equation}
-所有 $4N$ 个谱点互异且位于 $\Sigma$ 外, 各 $c_n(0)\ne0$. 同相背景要求
+所有 $4N$ 个谱点互异且位于 $\Sigma$ 外, 各 $c_n(0)\ne0$. 由无反射相位条件 \eqref{eq:theta-condition}, 同相背景要求
 \begin{equation}\label{eq:N-orbit-phase}
 \prod\limits_{j=1}^{m}\dfrac{\zeta_j}{\conj{\zeta_j}}=1.
 \end{equation}
@@ -87,13 +87,14 @@ R=\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(z_a^\pm)\sg M(z_a^\pm)^{-1}.
 两个共振原像给出同一矩阵 $R$, 原物理三场由 \eqref{eq:original-fields} 恢复.
 \end{theorem}
 \begin{proof}
-(1) 唯一性与对称性. 由 $\det L_N\ne0$, 留数系统唯一可解, 式 \eqref{eq:partialfraction} 因而唯一确定 $M$.
+(1) 唯一性与对称性. 由留数条件及两处渐近归一化得 \eqref{eq:partialfraction}; 当 $\det L_N\ne0$ 时, 留数系统唯一可解, 故 $M$ 唯一.
 直接验证可知, 共轭变换 $\sigma_2\conj{M(\conj{z})}\sigma_2$ 交换两组极点, 满足同一留数条件与两处渐近归一化.
 对于换叶变换
 \begin{equation*}
 \widehat M(z)=M(h(z))\left(\dfrac{\ii z}{q_0}\sigma_1\right)^{-1},
 \end{equation*}
-记 $\zeta_{\widehat j}=h(\conj{\zeta_j})$. 当 $z\to\zeta_j$ 时, $h(z)\to\conj{\zeta_{\widehat j}}$, 由 $h'(\zeta_j)=\dfrac{q_0^2}{\zeta_j^2}$ 和配对关系 \eqref{eq:Cpair}, 得
+记 $\zeta_{\widehat j}=h(\conj{\zeta_j})$. 由 \eqref{eq:theta} 及换叶共轭关系, 有 $\theta(x,t,\zeta_{\widehat j})=-\conj{\theta(x,t,\zeta_j)}$, 故定义 \ref{def:orbit-data} 中的初值配对保证 \eqref{eq:Cpair} 对任意 $(x,t)$ 成立.
+当 $z\to\zeta_j$ 时, $h(z)\to\conj{\zeta_{\widehat j}}$, 由 $h'(\zeta_j)=\dfrac{q_0^2}{\zeta_j^2}$ 和配对关系 \eqref{eq:Cpair}, 得
 \begin{equation*}
 \Res_{z=\zeta_j}\widehat M_2(z)
 =\dfrac{\ii q_0\conj{C_{\widehat j}}}{\zeta_jh'(\zeta_j)}\mathbf u_{\widehat j}
@@ -130,7 +131,7 @@ R=\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(z_a^\pm)\sg M(z_a^\pm)^{-1}.
 \zeta_1=\ii W,\qquad \zeta_2=-\ii q_0h_0=h(\conj{\zeta_1}),\qquad
 s_{22}(z)=\dfrac{\lambda(z)-\ii\kappa}{\lambda(z)+\ii\kappa}.
 \end{equation}
-这里 $s_{22}$ 为无反射迹公式中两因子的乘积, 在 $0$ 与 $\infty$ 处均趋于 $1$. 取 $b_1(0)=1$, 由配对关系 \eqref{eq:cpair} 得
+这里 $s_{22}$ 为无反射迹公式中两因子的乘积, 在 $0$ 与 $\infty$ 处均趋于 $1$. 取 $b_1(0)=1$, 由 \eqref{eq:norming-definition} 及配对关系 \eqref{eq:cpair} 得
 \begin{equation}\label{eq:onec}
 c_1(0)=\dfrac{1}{s_{22}'(\zeta_1)}=\dfrac{4\ii\kappa}{1+h_0^2},\qquad
 c_2(0)=-h_0^2c_1(0).

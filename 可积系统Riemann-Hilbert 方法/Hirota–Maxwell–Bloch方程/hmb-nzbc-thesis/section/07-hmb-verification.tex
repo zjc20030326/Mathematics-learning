@@ -27,14 +27,12 @@
 \begin{equation*}
 M^{(1)}=H(2\ii b\Id-4\ii bP-\ii q_0\sigma_1-2\ii\kappa\sg)H^{-1},
 \end{equation*}
-故由 \eqref{eq:reconq} 有 $q=\ii M^{(1)}_{12}=-q_0-4bP_{12}$. 在共振原像处, 利用 $Y\lambda\sg Y^{-1}=\ii U_\infty$ 与 $N(a)^{-1}=\dfrac{N(a)^\dagger}{a^2+b^2}$, 得
+故由 \eqref{eq:reconq} 有 $q=\ii M^{(1)}_{12}=-q_0-4bP_{12}$. 在共振原像处, 由 \eqref{eq:diagE}、\eqref{eq:Rbg} 有 $Y\lambda\sg Y^{-1}=\ii U_\infty$ 及 $R_\infty=\dfrac{\ii\eta_0}{a}U_\infty(a)$. 结合 $N(a)^{-1}=\dfrac{N(a)^\dagger}{a^2+b^2}$, 得
 \begin{equation}\label{eq:direct-medium}
 \dfrac{\eta_0\lambda(z_a)}{a}M(z_a)\sg M(z_a)^{-1}
 =\dfrac{HN(a)R_\infty N(a)^\dagger H^{-1}}{a^2+b^2}=:R.
 \end{equation}
-右端与谱叶选取无关. 因 $N(a)N(a)^\dagger=(a^2+b^2)\Id$, 该酉相似变换保持 Hermitian 性、迹零性及 $R_\infty$ 的特征值, 故
-$R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)\Id$.
-代入 \eqref{eq:original-fields} 即得三场表达式 \eqref{eq:finalfields}--\eqref{eq:pcomponent} 及 Bloch 约束 \eqref{eq:C}.
+右端与谱叶选取无关. 结合 \eqref{eq:original-fields}, 即得三场表达式 \eqref{eq:finalfields}--\eqref{eq:pcomponent}.
 
 (2) 正则性与空间端态. 由 $\Delta_-\ge(1-h_0)^2(1+|T|^2)>0$ 与 $a^2+b^2>0$, 三场在 $\mathbb R^2$ 上光滑.
 当 $x\to\pm\infty$ 时, $|T|$ 分别趋于无穷和零, 从而投影矩阵趋于
@@ -42,7 +40,7 @@ $R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)\Id$.
 P_+=\dfrac{1}{1+h_0^2}\begin{pmatrix}1&-h_0\\-h_0&h_0^2\end{pmatrix},\qquad
 P_-=\dfrac{1}{1+h_0^2}\begin{pmatrix}h_0^2&-h_0\\-h_0&1\end{pmatrix}.
 \end{equation}
-于是 $q\to q_0$. 将 $P_\pm$ 代入 $N$, 得
+利用 $2bh_0=q_0(1+h_0^2)$, 即得 $q\to q_0$. 将 $P_\pm$ 代入 $N$, 得
 \begin{equation*}
 \begin{aligned}
 &N_+Y=Y_{-q_0}\diag(\lambda-\ii\kappa,\lambda+\ii\kappa),\\
@@ -156,7 +154,13 @@ q_t=\ii\alpha\left(\dfrac{q_{xx}}{2}+|q|^2q\right)
 由定理 \ref{thm:jost} 的唯一性即知它们恰为重构场的修正 Jost 矩阵.
 令 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$, 利用对角因子与空间指数的可交换性, 得
 $\chi_+=\chi_-\diag(s_{22}^{-1},s_{22})$.
-故散射矩阵为 $S=\diag(s_{22}^{-1},s_{22})$, 反射系数恒为零, 透射函数恰为 \eqref{eq:onezeros}; 再由 \eqref{eq:norming-definition} 与 \eqref{eq:onec} 给出 $b_1(0)=c_1(0)s_{22}'(\zeta_1)=1$.
+故散射矩阵为 $S=\diag(s_{22}^{-1},s_{22})$, 反射系数恒为零, 透射函数恰为 \eqref{eq:onezeros}.
+在 $D_+$ 中有 $\mu_{+,2}=s_{22}M_2$. 由于 $\zeta_1$ 是 $s_{22}$ 的简单零点, 由留数条件 \eqref{eq:M-residues} 得
+\begin{equation*}
+\mu_{+,2}(x,t,\zeta_1)
+=s_{22}'(\zeta_1)C_1(x,t)\mu_{-,1}(x,t,\zeta_1).
+\end{equation*}
+与 \eqref{eq:norming-definition} 比较, 再由 \eqref{eq:onec} 得 $b_1(0)=c_1(0)s_{22}'(\zeta_1)=1$.
 \end{proof}
 
 \begin{remark}

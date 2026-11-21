@@ -79,7 +79,7 @@ M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 \end{aligned}
 \end{equation*}
 上式左端在 $D_-$ 内解析, 右端去掉末项后在 $D_+$ 内解析; 二者在 $0,\pm q_0,\pm\ii q_0,z_a^\pm$ 附近有界, 且当 $z\to\infty$ 时均为 $O(z^{-1})$.
-此外, $M_+G=M_+-M_-$ 在 $\Sigma_*$ 上连续; 由 \eqref{eq:Mzero} 中两侧相同的原点主部、分支点与谱交点附近的局部有界性，以及共振原像处的连续性，可知该差在 $\Sigma$ 的有限部分有界. 结合 \eqref{eq:Minfty} 与 $G(s)=O(s^{-2})$ ($s\to\infty$), 有 $M_+(s)G(s)=O(s^{-2})$, 故 $M_+G\in L^1(\Sigma)\cap L^2(\Sigma)$.
+此外, $M_+G=M_+-M_-$ 在 $\Sigma_*$ 上连续; 由 \eqref{eq:Mzero} 中两侧相同的原点主部、分支点与谱交点附近的局部有界性, 以及共振原像处的连续性, 可知该差在 $\Sigma$ 的有限部分有界. 结合 \eqref{eq:Minfty} 与 $G(s)=O(s^{-2})$ ($s\to\infty$), 有 $M_+(s)G(s)=O(s^{-2})$, 故 $M_+G\in L^1(\Sigma)\cap L^2(\Sigma)$.
 由 Plemelj 公式\cite{ZhangFan2020,Fan2022}, 对任意 $z\in\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 有积分表示
 \begin{equation}\label{eq:general-cauchy}
 M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
@@ -227,7 +227,7 @@ $s_{11}$ 由共轭关系 \eqref{eq:sconj} 确定. 两端同相背景满足相位
 代回 $\beta_+$ 的定义即得迹公式 \eqref{eq:trace}.
 
 在 \eqref{eq:trace} 中沿虚轴取 $z=-\ii\varepsilon\in D_+$ ($\varepsilon\downarrow0$).
-当 $0<\varepsilon<q_0/2$ 时, 对一切 $s\in\Sigma$ 均有 $\left|\dfrac{s}{s-z}\right|\le2$.
+当 $0<\varepsilon<\dfrac{q_0}{2}$ 时, 对一切 $s\in\Sigma$ 均有 $\left|\dfrac{s}{s-z}\right|\le2$.
 结合 $s^{-1}\log(1-\rho\widetilde\rho)\in L^1(\Sigma)$, 由控制收敛定理及 \eqref{eq:s22-smallenergy} 给出的 $s_{22}(0)=1$, 取极限即得相位条件 \eqref{eq:theta-condition}.
 \end{proof}
 
@@ -235,4 +235,4 @@ $s_{11}$ 由共轭关系 \eqref{eq:sconj} 确定. 两端同相背景满足相位
 \begin{equation*}
 4\sum\limits_{n=1}^{N}\arg\zeta_n\equiv0\pmod{2\pi}.
 \end{equation*}
-特别地, 位于虚轴上的轨道代表 ($\arg\zeta_n=\pi/2$) 逐轨道自动满足这一相位条件.
+特别地, 位于虚轴上的轨道代表 ($\arg\zeta_n=\dfrac{\pi}{2}$) 逐轨道自动满足这一相位条件.
