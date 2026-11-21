@@ -65,13 +65,10 @@ M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 在 $z_a^\pm$ 处, 由 \eqref{eq:resonance-reflection} 知散射矩阵为可逆对角矩阵, 代入 \eqref{eq:scattering-columns} 即得 $M_+=M_-=\mu_-(x,t,z_a^\pm)$.
 \end{proof}
 
-\begin{remark}
-下文的矩阵 RHP 以命题 \ref{prop:jump} 的条件 (1)--(5) 为基础, 并要求 $M$ 在分支点 $\pm\ii q_0$ 与谱交点 $\pm q_0$ 附近局部有界.
-对一般反射数据, 另要求 $G(s)=O(s^{-2})$ ($s\to\infty$); 正向散射数据由 \eqref{eq:scattering-highenergy} 满足该衰减条件.
-\end{remark}
-
 \subsection{留数表示与三场重构}
-为利用 Plemelj 公式将上述矩阵 RHP 转化为积分方程, 将跳跃条件 \eqref{eq:jump} 写作加性形式 $M_+-M_-=M_+G$.
+以下对命题 \ref{prop:jump} 构造的矩阵 $M$ 建立积分表示, 并假定其在分支点 $\pm\ii q_0$ 与谱交点 $\pm q_0$ 附近局部有界.
+由 \eqref{eq:scattering-highenergy}, 正向散射数据对应的跳跃矩阵满足 $G(s)=O(s^{-2})$ ($s\to\infty$).
+将跳跃关系 \eqref{eq:jump} 写作加性形式 $M_+-M_-=M_+G$, 由 Plemelj 公式可得下述积分表示.
 从 $M_\pm$ 中扣除无穷远常项、原点奇部及全部离散极点主部, 可得
 \begin{equation*}
 \begin{aligned}
@@ -149,7 +146,9 @@ q=q_0+\ii\sum\limits_{j=1}^{2N}C_jM_{11}(\zeta_j)
 \end{equation}
 上式右端三项依次对应非零背景、离散谱和连续谱对光场的贡献.
 
-下面对一般矩阵 RHP 的解建立行列式恒等式及共振处介质矩阵的约化性质.
+给定反射系数、离散谱及相应范数常数, 考虑寻找满足命题 \ref{prop:jump} 中条件 (1)--(5) 的分片亚纯矩阵 $M$, 并要求其在分支点 $\pm\ii q_0$ 与谱交点 $\pm q_0$ 附近局部有界, 且跳跃矩阵满足 $G(s)=O(s^{-2})$ ($s\to\infty$).
+称这一边值问题为相应的一般矩阵 RHP. 其中, 共振原像处仅要求两侧边界值连续延拓且相等, 不预先指定其为 Jost 解.
+上述积分表示及离散谱关系对一般矩阵 RHP 的解同样成立. 下面建立其行列式恒等式及介质矩阵的约化性质.
 
 \begin{lemma}\label{lem:RHP-determinant}
 上述矩阵 RHP 的任一解均满足
