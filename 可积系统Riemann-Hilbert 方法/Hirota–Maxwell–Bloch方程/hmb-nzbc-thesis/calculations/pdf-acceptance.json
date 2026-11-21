@@ -2,7 +2,7 @@
   "sources": {
     "tex_files": 8,
     "labels": 207,
-    "references": 442,
+    "references": 463,
     "balanced_delimiters_environments_braces": true,
     "seven_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -129,7 +129,7 @@
     "source_aux_numbers_and_bbl_order_match": true
   },
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 40,
+  "pdf_pages": 42,
   "top_level_sections": [
     [
       1,
@@ -164,17 +164,17 @@
     [
       1,
       "7. 孤子解的显式构造",
-      34
+      35
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 522,
+  "pdf_links_checked": 543,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "a892c950f98effd3e8d2c7253b6efc72bd654a2f277d22f4507be1c51db4b21e",
-  "visual_review": "Verified 7-section 40-page PDF: TOC, Section 6 general theory, Section 7.1-7.2 formulas (7.1)-(7.18), 3-panel figures 7.1-7.2, and 18 references."
+  "pdf_sha256": "b3850e9db7705437648304ece9adcbdbbf63ddbe5ee696ef82ac7435bc7d6fb3",
+  "visual_review": "Verified all revised Section 6-7 pages (pp. 27-39): clean equations, no dropped eq numbers, no overfull/underfull, crisp 3-panel soliton figures."
 }

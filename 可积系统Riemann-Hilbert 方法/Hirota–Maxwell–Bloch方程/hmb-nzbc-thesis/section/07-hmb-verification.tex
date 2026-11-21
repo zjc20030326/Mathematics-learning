@@ -31,7 +31,7 @@ H=\diag(\ii,-\ii),\\
 \end{pmatrix}.
 \end{aligned}
 \end{equation}
-因 $0<h_0<1$, 向量 $\boldsymbol w$ 不为零, 从而 $\Delta_-=\boldsymbol w^\dagger\boldsymbol w>0$. 因此 $P$ 为秩一正交投影矩阵, 满足 $P^\dagger=P$、$P^2=P$ 与 $\tr P=1$.
+因 $h_0\in(0,1)$ 使 $T-h_0$ 与 $1-h_0T$ 不能同时为零, 故 $\Delta_->0$ 在 $\mathbb R^2$ 上处处成立, 从而 $P$ 为 $\mathbb R^2$ 上光滑的秩一正交投影矩阵, 满足 $P^\dagger=P$、$P^2=P$ 与 $\tr P=1$.
 
 \begin{theorem}\label{thm:oneRHP}
 在背景参数 $q_0>0$、$a\ne0$、$\eta_0\ne0$、$\alpha,\beta\in\mathbb R$ 与 $b>q_0$ 下, 数据 \eqref{eq:onezeros}--\eqref{eq:onec} 对应的无反射 RHP 对任意 $(x,t)\in\mathbb R^2$ 有唯一解
@@ -61,27 +61,30 @@ M(z)=\Id+\dfrac{M^{(1)}}{z}+O(z^{-2}),\qquad
 M^{(1)}=H(2\ii b\Id-4\ii bP-\ii q_0\sigma_1-2\ii\kappa\sg)H^{-1};
 \end{equation*}
 当 $z\to0$ 时, 由 $\dfrac{k(z)}{\lambda(z)}\to-1$ 与 $H\sigma_1H^{-1}=-\sigma_1$ 得 $M(z)=-\dfrac{\ii q_0}{z}\sigma_1+O(1)$.
-由秩一正交投影满足 $\sigma_2\conj P\sigma_2=\Id-P$, 直接验证 $\sigma_2\conj{N(\conj k)}\sigma_2=N(k)$, 结合 $\sigma_2\conj H\sigma_2=H$ 与 $Y(h(z))=Y(z)\dfrac{\ii z}{q_0}\sigma_1$, 知 $M$ 满足共轭与换叶对称性 \eqref{eq:Msym}.
+由秩一正交投影满足 $\sigma_2\conj P\sigma_2=\Id-P$, 直接验证 $\sigma_2\conj{N(\conj k)}\sigma_2=N(k)$, 结合 $\sigma_2\conj H\sigma_2=H$、$\sigma_2\conj{Y(\conj z)}\sigma_2=Y(z)$ 以及 $k(h(z))=k(z)$、$\lambda(h(z))=-\lambda(z)$、$Y(h(z))=Y(z)\dfrac{\ii z}{q_0}\sigma_1$ 与 $\sigma_1H^{-1}=-H^{-1}\sigma_1$, 知 $M$ 满足共轭与换叶对称性 \eqref{eq:Msym}.
 
 在 $z=\zeta_1=\ii W$ 处, $k(\zeta_1)=\ii b$、$\lambda(\zeta_1)=\ii\kappa$、$\lambda'(\zeta_1)=\dfrac{1+h_0^2}{2}$, 且 $Y(\zeta_1)=\begin{pmatrix}1&-h_0\\-h_0&1\end{pmatrix}$.
-由投影表达式 \eqref{eq:algebraic-P}, 代入 $Y(\zeta_1)$ 直接计算得
-\[
-(\Id-P)Y_2(\zeta_1)=-T(\Id-P)Y_1(\zeta_1).
-\]
-又 $N(\ii b)=2\ii b(\Id-P)$、$\lambda'(\zeta_1)=\dfrac{1+h_0^2}{2}$, 故
-\[
-\Res_{z=\zeta_1}M_2(z)=\dfrac{4\ii\kappa T}{1+h_0^2}M_1(\zeta_1)
+由 \eqref{eq:algebraic-P} 直接可见 $Y_2(\zeta_1)+TY_1(\zeta_1)=\boldsymbol w$, 又 $N(\ii b)=2\ii b(\Id-P)$ 且 $(\Id-P)\boldsymbol w=0$, 因而
+\begin{equation*}
+N(\ii b)Y_2(\zeta_1)=-T\,N(\ii b)Y_1(\zeta_1).
+\end{equation*}
+结合 $H^{-1}e_1=-\ii e_1$ 与 $H^{-1}e_2=\ii e_2$, 有 $M_1(\zeta_1)=-\dfrac{1}{2\kappa}HN(\ii b)Y_1(\zeta_1)$, 从而
+\begin{equation*}
+\Res_{z=\zeta_1}M_2(z)
+=\dfrac{2\ii}{1+h_0^2}HN(\ii b)Y_2(\zeta_1)
+=\dfrac{4\ii\kappa T}{1+h_0^2}\left(-\dfrac{1}{2\kappa}HN(\ii b)Y_1(\zeta_1)\right)
 =C_1M_1(\zeta_1).
-\]
+\end{equation*}
 结合对称性 \eqref{eq:Msym} 与配对关系 $C_2=-h_0^2\conj{C_1}$, 其余三个谱点处的留数条件自动成立.
 由定理 \ref{thm:N-orbit-RHP} 的唯一性, \eqref{eq:explicitM} 恰为该无反射 RHP 的唯一解.
 
-将 $M^{(1)}$ 代入 \eqref{eq:reconq} 得 $q=-q_0-4bP_{12}$.
-在共振原像处, 利用 \eqref{eq:diagE}、\eqref{eq:Rbg} 给出的 $Y\lambda\sg Y^{-1}=\ii U_\infty$ 与 $R_\infty=\dfrac{\ii\eta_0}{a}U_\infty(a)$, 以及 $N(a)^{-1}=\dfrac{N(a)^\dagger}{a^2+b^2}$, 代入 \eqref{eq:N-medium} 得
+将 $M^{(1)}$ 代入 \eqref{eq:reconq} 并由 $H\sigma_1H^{-1}=-\sigma_1$、$(HPH^{-1})_{12}=-P_{12}$ 得 $q=-q_0-4bP_{12}$.
+在共振原像处, 由 $P^\dagger=P=P^2$ 直接计算得 $N(a)N(a)^\dagger=(a^2+b^2)\Id+4b^2(P^2-P)=(a^2+b^2)\Id$, 即 $N(a)^{-1}=\dfrac{N(a)^\dagger}{a^2+b^2}$.
+再结合对角矩阵与 $\sg$ 可交换, 以及 \eqref{eq:diagE}、\eqref{eq:Rbg} 给出的 $Y\lambda\sg Y^{-1}=\ii U_\infty$ 与 $R_\infty=\dfrac{\ii\eta_0}{a}U_\infty(a)$, 代入 \eqref{eq:N-medium} 得
 \begin{equation*}
 R=\dfrac{HN(a)R_\infty N(a)^\dagger H^{-1}}{a^2+b^2},
 \end{equation*}
-再由 \eqref{eq:original-fields} 即得 \eqref{eq:finalfields}. 其余全局正则性、原 HMB 方程、边界条件、Bloch 约束与散射数据复原均由定理 \ref{thm:general-N-HMB-reconstruction} 直接保证.
+由 \eqref{eq:original-fields} 即得 \eqref{eq:finalfields}. 其余全局正则性、原 HMB 方程、边界条件、Bloch 约束与散射数据复原均由定理 \ref{thm:general-N-HMB-reconstruction} 直接保证.
 \end{proof}
 
 取背景与离散谱参数
@@ -153,7 +156,7 @@ r_j=1+\ii q_0\sum\limits_{k=1}^{4}\dfrac{\conj{C_k}}{(\zeta_j-\conj{\zeta_k})\co
 三场在 $\mathbb R^2$ 上光滑, 满足原 HMB 系统 \eqref{eq:HMB}、非零边界条件 \eqref{eq:targetboundary}、$I=\mathbb R$ 时的基本条件 \eqref{eq:physical-regularity} 及 Bloch 约束 \eqref{eq:C}, 且直接散射数据无反射并精确复原 \eqref{eq:two-orbit-s}--\eqref{eq:two-orbit-c}.
 \end{theorem}
 \begin{proof}
-数据 \eqref{eq:two-orbit-reps}--\eqref{eq:two-orbit-c} 满足 $N=2$ 时的定义 \ref{def:orbit-data}. 引理 \ref{lem:general-N-nondegeneracy} 给出 $\det L_2>0$ 全局成立, 将 $m=4$ 代入 \eqref{eq:original-fields} 与定理 \ref{thm:N-orbit-RHP} 即得 \eqref{eq:two-soliton-q}--\eqref{eq:two-soliton-R}, 其余结论均直接由定理 \ref{thm:general-N-HMB-reconstruction} 保证.
+离散数据 \eqref{eq:two-orbit-reps}--\eqref{eq:two-orbit-c} 满足 $N=2$ 时的定义 \ref{def:orbit-data}. 由引理 \ref{lem:general-N-nondegeneracy} 知 $\det L_2(x,t)>0$ 对任意 $(x,t)\in\mathbb R^2$ 成立, 从而留数系统 \eqref{eq:finite-schur} 唯一确定 $\boldsymbol v$ 与 $\boldsymbol u$. 将 $m=4$ 代入 \eqref{eq:original-fields}、\eqref{eq:partialfraction} 及定理 \ref{thm:N-orbit-RHP} 中的 \eqref{eq:N-rhs}--\eqref{eq:N-medium} 即得 \eqref{eq:two-soliton-q}--\eqref{eq:two-soliton-R}; 其余光滑性、原 HMB 系统、非零边界条件、基本条件、Bloch 约束与直接散射数据复原均由定理 \ref{thm:general-N-HMB-reconstruction} 保证.
 \end{proof}
 
 保持背景参数 $q_0=1$、$a=2$、$\eta_0=0.6$、$\alpha=1$、$\beta=0.1$ 不变, 选取满足同相条件 \eqref{eq:two-orbit-phase} 的一般复谱代表
