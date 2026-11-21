@@ -74,44 +74,21 @@ q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\boldsymbol v_j)_1.
 两个共振原像给出同一矩阵 $R$, 原物理三场由 \eqref{eq:original-fields} 恢复.
 \end{theorem}
 \begin{proof}
-由留数条件与两处渐近归一化知无反射解必具形式 \eqref{eq:partialfraction}, $\det L_N\ne0$ 保证留数系统唯一可解, 故 $M$ 唯一.
+由留数条件及渐近归一化知无反射解具有表示 \eqref{eq:partialfraction}. 当 $\det L_N\ne0$ 时, 线性系统 \eqref{eq:N-block-system} 唯一可解, 故 $M$ 唯一.
 
-为验证对称性 \eqref{eq:Msym}, 先考察 $\sigma_2\conj{M(\conj z)}\sigma_2$. 利用 $\sigma_2e_1=\ii e_2$、$\sigma_2e_2=-\ii e_1$ 与 $\sigma_2\conj{\sigma_1}\sigma_2=-\sigma_1$, 可见其两列分别为 $\ii\sigma_2\conj{M_2(\conj z)}$ 与 $-\ii\sigma_2\conj{M_1(\conj z)}$, 在 $z\to\infty$ 与 $z\to0$ 处保持归一化 \eqref{eq:Minfty}--\eqref{eq:Mzero}. 由 \eqref{eq:M-residues} 在 $\conj{\zeta_j}$ 处的留数取共轭得
-\begin{equation*}
-\Res_{z=\zeta_j}\bigl(-\ii\sigma_2\conj{M_1(\conj z)}\bigr)
-=-\ii\sigma_2\bigl(-C_j\conj{M_2(\conj{\zeta_j})}\bigr)
-=C_j\bigl(\ii\sigma_2\conj{M_2(\conj{\zeta_j})}\bigr),
-\end{equation*}
-同理在 $z=\conj{\zeta_j}$ 处亦满足 \eqref{eq:M-residues}, 故由唯一性得共轭对称性 $\sigma_2\conj{M(\conj z)}\sigma_2=M(z)$.
-
-对换叶对称性, 定义
-\begin{equation*}
-\widehat M(z)=M(h(z))\left(\dfrac{\ii z}{q_0}\sigma_1\right)^{-1}
-=-\dfrac{\ii q_0}{z}\bigl(M_2(h(z)),\,M_1(h(z))\bigr).
-\end{equation*}
-按 \eqref{eq:N-orbit-data}, 对 $n=1,\ldots,N$ 有 $\zeta_{N+n}=h(\conj{\zeta_n})$ 与 $h(\zeta_n)=\conj{\zeta_{N+n}}$; 结合 \eqref{eq:sheet} 与 \eqref{eq:theta} 知 $\theta(x,t,\zeta_{N+n})=-\conj{\theta(x,t,\zeta_n)}$, 故初值配对保证 \eqref{eq:Cpair} 对任意 $(x,t)\in\mathbb R^2$ 成立. 记 $h'(z)=\dfrac{q_0^2}{z^2}$, 则 \eqref{eq:Cpair} 及其共轭式分别给出 $C_{N+n}=-h'(\conj{\zeta_n})\conj{C_n}$ 与 $\conj{C_{N+n}}=-h'(\zeta_n)C_n$. 于是对每个 $n=1,\ldots,N$, 在 $z=\zeta_n$ 处有
-\begin{equation*}
+由留数条件 \eqref{eq:M-residues} 和归一化 \eqref{eq:Minfty}--\eqref{eq:Mzero}, 矩阵 $\sigma_2\conj{M(\conj z)}\sigma_2$ 与 $M$ 满足同一无反射 RHP, 因而由唯一性得到 \eqref{eq:Msym} 中的共轭对称性. 对换叶对称性, 令
+\[
+\widehat M(z)=M(h(z))\left(\dfrac{\ii z}{q_0}\sigma_1\right)^{-1}.
+\]
+由 \eqref{eq:N-orbit-data}、\eqref{eq:theta} 及配对式 \eqref{eq:Cpair}, 对 $n=1,\ldots,N$ 有 $\zeta_{N+n}=h(\conj{\zeta_n})$、$\conj{C_{N+n}}=-h'(\zeta_n)C_n$. 因此在 $z=\zeta_n$ 处,
+\[
 \Res_{z=\zeta_n}\widehat M_2(z)
-=\dfrac{\ii q_0\conj{C_{N+n}}}{\zeta_nh'(\zeta_n)}\boldsymbol u_{N+n}
-=C_n\left(-\dfrac{\ii q_0}{\zeta_n}\boldsymbol u_{N+n}\right)
-=C_n\widehat M_1(\zeta_n),
-\end{equation*}
-在 $z=\conj{\zeta_n}$ 处有
-\begin{equation*}
-\Res_{z=\conj{\zeta_n}}\widehat M_1(z)
-=-\dfrac{\ii q_0C_{N+n}}{\conj{\zeta_n}h'(\conj{\zeta_n})}\boldsymbol v_{N+n}
-=-\conj{C_n}\left(-\dfrac{\ii q_0}{\conj{\zeta_n}}\boldsymbol v_{N+n}\right)
-=-\conj{C_n}\widehat M_2(\conj{\zeta_n}).
-\end{equation*}
-由 $h(\zeta_{N+n})=\conj{\zeta_n}$ 与 $h'(\zeta_n)h'(\conj{\zeta_{N+n}})=1$ 知 $C_n=-h'(\conj{\zeta_{N+n}})\conj{C_{N+n}}$、$\conj{C_n}=-h'(\zeta_{N+n})C_{N+n}$, 互换 $n$ 与 $N+n$ 即得 $\widehat M$ 在 $z=\zeta_{N+n}$ 与 $z=\conj{\zeta_{N+n}}$ 处同样满足 \eqref{eq:M-residues}. 又当 $z\to\infty$ 时 $h(z)\to0$, 由 \eqref{eq:Mzero} 得 $M(h(z))=\dfrac{\ii z}{q_0}\sigma_1+O(1)$, 从而 $\widehat M(z)=\Id+O(z^{-1})$; 当 $z\to0$ 时 $h(z)\to\infty$, 由 \eqref{eq:Minfty} 得 $M(h(z))=\Id+O(z)$, 从而 $\widehat M(z)=-\dfrac{\ii q_0}{z}\sigma_1+O(1)$. 因此 $\widehat M$ 与 $M$ 满足同一无反射 RHP, 由唯一性得 $\widehat M=M$, 即 \eqref{eq:Msym} 的换叶对称性.
+=\dfrac{\ii q_0\conj{C_{N+n}}}{\zeta_n h'(\zeta_n)}\boldsymbol u_{N+n}
+=C_n\widehat M_1(\zeta_n).
+\]
+在其余配对点与共轭点处, 由 \eqref{eq:Cpair} 和共轭对称性同样得到 \eqref{eq:M-residues}. 又因 $h$ 交换 $0$ 与 $\infty$, 由 \eqref{eq:Minfty}--\eqref{eq:Mzero} 知 $\widehat M$ 具有与 $M$ 相同的渐近归一化. 故 $\widehat M=M$, 即 \eqref{eq:Msym} 中的换叶对称性.
 
-离散极点均在 $\Sigma$ 外, 故 $M$ 在分支点、谱交点与共振原像处解析. 引理 \ref{lem:RHP-determinant} 给出 $\det M=\gamma$; 若 $M(z_b^\pm)=0$, 则 $\det M$ 在 $z_b^\pm$ 处有至少二阶零点, 与 $\gamma'(z_b^\pm)\ne0$ 矛盾, 故 $\operatorname{rank}M(z_b^\pm)=1$.
-最后, 由 \eqref{eq:finite-schur} 与 \eqref{eq:qfinite} 得 \eqref{eq:N-determinant-q} 的第一式, 再由分块矩阵行列式恒等式
-\begin{equation*}
-\det\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}
-=\det L_N\left(q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r\right)
-\end{equation*}
-得第二式. 共振原像处的可逆性与介质重构一致性由引理 \ref{lem:medium-reduction} 保证.
+离散极点均在 $\Sigma$ 外, 故 $M$ 在分支点、谱交点与共振原像处解析. 由引理 \ref{lem:RHP-determinant} 得 $\det M=\gamma$; 若 $M(z_b^\pm)=0$, 则 $\det M$ 至少有二阶零点, 与 $\gamma'(z_b^\pm)\ne0$ 矛盾, 故 $\operatorname{rank}M(z_b^\pm)=1$. 最后, 由 \eqref{eq:finite-schur}、\eqref{eq:qfinite} 及分块行列式公式得到 \eqref{eq:N-determinant-q}; 介质重构的一致性由引理 \ref{lem:medium-reduction} 保证.
 \end{proof}
 
 \subsection{一般多轨道的全局正则性与 HMB 重构}
