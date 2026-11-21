@@ -1,12 +1,12 @@
 {
   "sources": {
     "tex_files": 9,
-    "labels": 210,
-    "references": 388,
+    "labels": 235,
+    "references": 513,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
-    "subsections": 14,
+    "subsections": 17,
     "spatial_Jost_then_time_evolution_with_single_scattering_matrix": true,
     "cited_bibliography_entries": 18,
     "citation_source_files": [
@@ -130,7 +130,7 @@
     "source_aux_numbers_and_bbl_order_match": true
   },
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 41,
+  "pdf_pages": 49,
   "top_level_sections": [
     [
       1,
@@ -140,7 +140,7 @@
     [
       1,
       "2. HMB 模型、基本条件与背景谱问题",
-      2
+      3
     ],
     [
       1,
@@ -159,28 +159,28 @@
     ],
     [
       1,
-      "6. 无反射 RHP 与轨道构造",
+      "6. 无反射 RHP 与一般重构",
       27
     ],
     [
       1,
-      "7. 单轨道三场解的全局性与方程验证",
-      32
+      "7. 孤子解的显式构造",
+      36
     ],
     [
       1,
       "8. 数值结果与动力学分析",
-      35
+      42
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 469,
+  "pdf_links_checked": 598,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "d52a8c0b9384ac0e2ba39201b97f4f0c26b88bc892dd0b018ee0fa76b8148907",
-  "visual_review": "Visual review is not inferred by this automated check."
+  "pdf_sha256": "b255925ee601e625cbf6220feda8bcb9982bbebce4d05f5644208e7819785e54",
+  "visual_review": "Inspected TOC, Section 6.2, Section 7.1-7.2, Section 8.2-8.3 pages and both two-soliton figures; layout, formulas, tables, and references verified."
 }

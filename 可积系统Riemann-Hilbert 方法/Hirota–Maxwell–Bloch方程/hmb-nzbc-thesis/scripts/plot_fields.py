@@ -351,7 +351,172 @@ def dynamics_figures(X, TIME, x, times):
     return periodic_cases, velocity_cases
 
 
-def main(audit=False, only_numerics=False):
+def two_soliton_data(q0=1.):
+    z1 = 2*q0*np.exp(1j*np.pi/3)
+    z2 = 3*q0*np.exp(2j*np.pi/3)
+    zeta = np.array([z1, z2, -q0*q0/np.conj(z1), -q0*q0/np.conj(z2)], dtype=complex)
+    def sp(idx):
+        z = zeta[idx]
+        return np.prod([z-zj for j, zj in enumerate(zeta) if j != idx])/np.prod([z-np.conj(zj) for zj in zeta])
+    c1, c2 = 1/sp(0), 1/sp(1)
+    c3 = -q0*q0/np.conj(z1)**2*np.conj(c1)
+    c4 = -q0*q0/np.conj(z2)**2*np.conj(c2)
+    return zeta, np.array([c1, c2, c3, c4], dtype=complex)
+
+
+def calc_two_soliton(X, TIME, *, q0=1., a=2., eta0=.6, alpha=1., beta=.1):
+    """Evaluate the general complex two-orbit (m=4) reflectionless RHP on plotting grids."""
+    X, TIME = np.broadcast_arrays(np.asarray(X, dtype=float), np.asarray(TIME, dtype=float))
+    shape = X.shape
+    zeta, constants = two_soliton_data(q0)
+    k = (zeta-q0*q0/zeta)/2
+    lam = (zeta+q0*q0/zeta)/2
+    F = dispersion(k, q0, a, eta0, alpha, beta)
+    C = constants*np.exp(-2j*lam*(X[..., None]-F*TIME[..., None]))
+    m = 4
+    A = np.conj(C)[..., None, :]/(zeta[:, None]-np.conj(zeta)[None, :])
+    B = C[..., None, :]/(np.conj(zeta)[:, None]-zeta[None, :])
+    L = np.broadcast_to(np.eye(2*m, dtype=complex), shape+(2*m, 2*m)).copy()
+    L[..., :m, m:] = A
+    L[..., m:, :m] = -B
+    f = np.column_stack((np.ones(m), -1j*q0/zeta))
+    g = np.column_stack((-1j*q0/np.conj(zeta), np.ones(m)))
+    rhs = np.broadcast_to(np.vstack((f, g)), shape+(2*m, 2))
+    scale = np.max(np.abs(L), axis=-1)
+    answer = np.linalg.solve(L/scale[..., :, None], rhs/scale[..., :, None])
+    v, u = answer[..., :m, :], answer[..., m:, :]
+    field = q0+1j*np.sum(C*v[..., :, 0], axis=-1)
+    za = a+np.sqrt(a*a+q0*q0)
+    lambda_a = (za+q0*q0/za)/2
+    M = np.broadcast_to(np.array([[1, -1j*q0/za], [-1j*q0/za, 1]], dtype=complex), shape+(2, 2)).copy()
+    M[..., :, 1] += np.sum(C[..., :, None]*v/(za-zeta)[..., None], axis=-2)
+    M[..., :, 0] -= np.sum(np.conj(C)[..., :, None]*u/(za-np.conj(zeta))[..., None], axis=-2)
+    R = M@np.diag([eta0*lambda_a/a, -eta0*lambda_a/a])@np.linalg.inv(M)
+    phase = np.exp(-1j*(-alpha*q0*q0+2*eta0/a)*TIME)
+    q, p, eta = phase*field, -phase*R[..., 0, 1], R[..., 0, 0]
+    linear = np.max(np.abs(L@answer-rhs)/(1+np.abs(L)@np.abs(answer)+np.abs(rhs)))
+    bloch = np.max(np.abs(np.abs(p)**2+eta**2-eta0**2*(1+q0*q0/a**2)))
+    return q, p, eta, dict(scaled_linear_residual=float(linear),
+                          Bloch_error=float(bloch), eta_imaginary=float(np.max(abs(eta.imag))))
+
+
+def two_soliton_figures():
+    """Generate two-soliton 3-field surface/contour figure and collision interaction figure."""
+    x, times = np.linspace(-8, 8, 401), np.linspace(-2.5, 2.5, 251)
+    X, TIME = np.meshgrid(x, times)
+    q, p, eta, errors = calc_two_soliton(X, TIME)
+    if max(errors.values()) >= 1e-10:
+        raise ValueError(errors)
+    xs, ts = np.linspace(-8, 8, 121), np.linspace(-2.5, 2.5, 101)
+    XS, TS = np.meshgrid(xs, ts)
+    qs, ps, es, _ = calc_two_soliton(XS, TS)
+    values = [abs(q), abs(p), eta.real]
+    surface_values = [abs(qs), abs(ps), es.real]
+    titles = [r'$|\widetilde q(x,t)|$', r'$|\widetilde p(x,t)|$', r'$\eta(x,t)$']
+    limits = [(0, 4.2), (0, np.sqrt(.45)), (-np.sqrt(.45), np.sqrt(.45))]
+    ticks = [[0, 2, 4], [0, .3, .6], [-.6, 0, .6]]
+    cmaps = ['viridis', 'magma', 'RdBu_r']
+    fig = plt.figure(figsize=(NUMERIC_WIDTH_IN, 165/25.4))
+    grid = fig.add_gridspec(3, 3, width_ratios=[1, 1, .045],
+                           left=.075, right=.925, bottom=.065, top=.945,
+                           wspace=.36, hspace=.58)
+    panels, colorbars = [], []
+    for j in range(3):
+        norm = matplotlib.colors.Normalize(*limits[j])
+        ax = fig.add_subplot(grid[j, 0], projection='3d')
+        ax.plot_surface(XS, TS, surface_values[j], rstride=1, cstride=1,
+                        cmap=cmaps[j], norm=norm, linewidth=0,
+                        antialiased=False, alpha=1)
+        ax.set(xlim=(-8, 8), ylim=(-2.5, 2.5), zlim=limits[j])
+        ax.set_xticks([-8, 0, 8]); ax.set_yticks([-2, 0, 2])
+        ax.set_zticks(ticks[j])
+        ax.grid(False)
+        for axis in [ax.xaxis, ax.yaxis, ax.zaxis]:
+            axis.pane.fill = False
+            axis.pane.set_edgecolor('#E0E0E0')
+        ax.set_xlabel(r'$x$', labelpad=1, fontsize=11)
+        ax.set_ylabel(r'$t$', labelpad=1, fontsize=11)
+        ax.tick_params(pad=1, labelsize=10)
+        ax.view_init(elev=27, azim=-58)
+        ax.set_box_aspect((1.15, 1, .72))
+        position = ax.get_position()
+        ax.set_position([position.x0-.035, position.y0, position.width, position.height])
+        ax.set_title(titles[j], fontsize=11, pad=8)
+        panel_label(ax, chr(97+2*j))
+        panels.append(ax)
+        contour = fig.add_subplot(grid[j, 1])
+        contour.set_rasterization_zorder(1.1)
+        levels = np.linspace(*limits[j], 41)
+        im = contour.contourf(x, times, values[j], levels=levels,
+                              cmap=cmaps[j], norm=norm)
+        contour.set(xlabel=r'$x$', ylabel=r'$t$', xlim=(-8, 8), ylim=(-2.5, 2.5))
+        contour.set_xticks([-8, 0, 8]); contour.set_yticks([-2, 0, 2])
+        numeric_axes(contour)
+        panel_label(contour, chr(98+2*j))
+        panels.append(contour)
+        cax = fig.add_subplot(grid[j, 2])
+        cax.set_rasterization_zorder(1.1)
+        fig.colorbar(im, cax=cax, ticks=ticks[j])
+        cax.tick_params(labelsize=9.5, length=2.5, pad=3)
+        colorbars.append(cax)
+    export(fig, 'two-soliton-fields', axes=panels, exclude=colorbars)
+
+    # Second figure: time snapshots (a) and collision trajectories with shift (b)
+    q0, a, eta0, alpha, beta = (DEFAULT[key] for key in ('q0', 'a', 'eta0', 'alpha', 'beta'))
+    zeta, _ = two_soliton_data(q0)
+    k = (zeta-q0*q0/zeta)/2
+    lam = (zeta+q0*q0/zeta)/2
+    F = dispersion(k, q0, a, eta0, alpha, beta)
+    v1 = float((lam[0]*F[0]).imag/lam[0].imag)
+    v2 = float((lam[1]*F[1]).imag/lam[1].imag)
+    s1_of = lambda z: ((z-zeta[0])/(z-np.conj(zeta[0])))*((z-zeta[2])/(z-np.conj(zeta[2])))
+    s2_of = lambda z: ((z-zeta[1])/(z-np.conj(zeta[1])))*((z-zeta[3])/(z-np.conj(zeta[3])))
+    dx1 = float(np.log(abs(s2_of(zeta[0])))/lam[0].imag)
+    dx2 = float(-np.log(abs(s1_of(zeta[1])))/lam[1].imag)
+
+    fig, axes = plt.subplots(1, 2, figsize=(NUMERIC_WIDTH_IN, 88/25.4))
+    fig.subplots_adjust(left=.10, right=.87, top=.90, bottom=.30, wspace=.38)
+    prof_x = np.linspace(-8, 8, 601)
+    for tt, ls, color, lbl in zip([-2., 0., 2.], ['--', '-', ':'], NUMERIC_COLORS, [r'$-2$', r'$0$', r'$2$']):
+        qq, _, _, _ = calc_two_soliton(prof_x, tt)
+        axes[0].plot(prof_x, abs(qq), ls, color=color, lw=1.35, label=lbl)
+    axes[0].set(xlabel=r'$x$', ylabel=r'$|\widetilde q(x,t)|$', xlim=(-8, 8), ylim=(-.08, 4.35))
+    axes[0].set_xticks([-8, -4, 0, 4, 8]); axes[0].set_yticks([0, 1, 2, 3, 4])
+    axes[0].legend(loc='upper center', bbox_to_anchor=(.5, -.26), ncol=3,
+                   title=r'$t$', fontsize=10, title_fontsize=10.5,
+                   handlelength=1.8, handletextpad=.35, columnspacing=.9,
+                   borderaxespad=0, labelspacing=.5)
+    numeric_axes(axes[0])
+    panel_label(axes[0], 'a')
+
+    axes[1].set_rasterization_zorder(1.1)
+    im = axes[1].contourf(x, times, abs(q), levels=np.linspace(0, 4.2, 43), cmap='viridis')
+    t_neg = np.linspace(-2.5, 0., 100)
+    t_pos = np.linspace(0., 2.5, 100)
+    axes[1].plot(v1*t_neg-dx1/2, t_neg, color='white', ls='--', lw=1.1, label='pre-collision')
+    axes[1].plot(v2*t_neg-dx2/2, t_neg, color='white', ls='--', lw=1.1)
+    axes[1].plot(v1*t_pos+dx1/2, t_pos, color='#FFB347', ls='-', lw=1.15, label='post-collision')
+    axes[1].plot(v2*t_pos+dx2/2, t_pos, color='#FFB347', ls='-', lw=1.15)
+    axes[1].set(xlabel=r'$x$', ylabel=r'$t$', xlim=(-8, 8), ylim=(-2.5, 2.5))
+    axes[1].set_xticks([-8, -4, 0, 4, 8]); axes[1].set_yticks([-2, 0, 2])
+    numeric_axes(axes[1])
+    panel_label(axes[1], 'b')
+    # Add compact legend below panel (b) matching panel (a)
+    h1 = Line2D([0], [0], color='#555555', ls='--', lw=1.2)
+    h2 = Line2D([0], [0], color='#D97706', ls='-', lw=1.3)
+    axes[1].legend([h1, h2], [r'$t<0$', r'$t>0$'], loc='upper center', bbox_to_anchor=(.5, -.26),
+                   ncol=2, title=r'$x_n^{(\pm)}(t)$', fontsize=9.5, title_fontsize=10.5,
+                   handlelength=1.8, handletextpad=.35, columnspacing=1.0, borderaxespad=0)
+    cax = fig.add_axes([.90, .30, .022, .60])
+    cax.set_rasterization_zorder(1.1)
+    fig.colorbar(im, cax=cax, ticks=[0, 1, 2, 3, 4])
+    cax.tick_params(labelsize=9.5, length=2.5, pad=3)
+    cax.set_title(r'$|\widetilde q|$', fontsize=10.5, pad=8)
+    export(fig, 'two-soliton-interaction', axes=list(axes), exclude=[cax])
+    return dict(errors=errors, v1=v1, v2=v2, Delta_x1=dx1, Delta_x2=dx2)
+
+
+def main(audit=False, only_numerics=False, only_two_soliton=False):
     global AUDIT, require_matplotlib_panel_alignment
     AUDIT = audit
     if AUDIT:
@@ -378,24 +543,55 @@ def main(audit=False, only_numerics=False):
         'axes.spines.top':False, 'axes.spines.right':False, 'axes.linewidth':.7,
         'legend.frameon':False, 'savefig.dpi':600})
     previous_report = json.loads((ROOT/'calculations'/'plot-results.json').read_text(encoding='utf-8'))
-    geometry_record = previous_report.get('spectral_geometry') if only_numerics else spectral_figures()
-    x, times = np.linspace(-6,6,401), np.linspace(-1.5,1.5,251)
-    X, TIME = np.meshgrid(x,times)
-    base = field_figure(X,TIME,x,times)
-    alpha_cases, beta_cases = dynamics_figures(X,TIME,x,times)
+    geometry_record = previous_report.get('spectral_geometry') if (only_numerics or only_two_soliton) else spectral_figures()
+    if only_two_soliton:
+        base = previous_report.get('base_errors')
+        alpha_cases = previous_report.get('dynamics', {}).get('alpha_cases')
+        beta_cases = previous_report.get('dynamics', {}).get('beta_cases')
+        maxima = np.array(previous_report.get('high_precision_comparison_q_p_eta', [0., 0., 0.]))
+        names = ['two-soliton-fields', 'two-soliton-interaction']
+    else:
+        x, times = np.linspace(-6,6,401), np.linspace(-1.5,1.5,251)
+        X, TIME = np.meshgrid(x,times)
+        base = field_figure(X,TIME,x,times)
+        alpha_cases, beta_cases = dynamics_figures(X,TIME,x,times)
+        import mpmath as mp
+        from verify_direct_rhp import fields
+        mp.mp.dps=70
+        points=[('-1.2','-.35'),('0','0'),('.37','.21'),('1.4','-.1'),('2.3','.6')]
+        maxima=np.zeros(3)
+        for xx,tt in points:
+            values=calc(float(xx),float(tt))[:3]
+            high=fields(mp.mpf(xx),mp.mpf(tt))
+            maxima=np.maximum(maxima,[abs(complex(v)-complex(h)) for v,h in zip(values,high)])
+        assert max(maxima)<1e-12
+        names=['one-soliton-fields','one-soliton-dynamics','one-soliton-velocity','two-soliton-fields','two-soliton-interaction']
+        if not only_numerics:
+            names=['analytic-regions','discrete-spectrum']+names
+    two_sol = two_soliton_figures()
+    # Cross-check double-precision two-soliton evaluator against 70-digit mpmath
     import mpmath as mp
-    from verify_direct_rhp import fields
-    mp.mp.dps=70
-    points=[('-1.2','-.35'),('0','0'),('.37','.21'),('1.4','-.1'),('2.3','.6')]
-    maxima=np.zeros(3)
-    for xx,tt in points:
-        values=calc(float(xx),float(tt))[:3]
-        high=fields(mp.mpf(xx),mp.mpf(tt))
-        maxima=np.maximum(maxima,[abs(complex(v)-complex(h)) for v,h in zip(values,high)])
-    assert max(maxima)<1e-12
-    names=['one-soliton-fields','one-soliton-dynamics','one-soliton-velocity']
-    if not only_numerics:
-        names=['analytic-regions','discrete-spectrum']+names
+    from verify_direct_rhp import ResidueSolution
+    mp.mp.dps = 70
+    q0_m, a_m, eta0_m, alpha_m, beta_m = [mp.mpf(s) for s in ('1', '2', '.6', '1', '.1')]
+    Fm = lambda k: 4*beta_m*k**2-alpha_m*k-2*beta_m*q0_m**2+eta0_m/(a_m*(k-a_m))
+    z1m, z2m = 2*q0_m*mp.exp(1j*mp.pi/3), 3*q0_m*mp.exp(2j*mp.pi/3)
+    zm = [z1m, z2m, -q0_m**2/mp.conj(z1m), -q0_m**2/mp.conj(z2m)]
+    sp = lambda idx: mp.fprod(zm[idx]-zj for j, zj in enumerate(zm) if j != idx)/mp.fprod(zm[idx]-mp.conj(zj) for zj in zm)
+    c1m, c2m = 1/sp(0), 1/sp(1)
+    cm = [c1m, c2m, -q0_m**2/mp.conj(z1m)**2*mp.conj(c1m), -q0_m**2/mp.conj(z2m)**2*mp.conj(c2m)]
+    Omega_m = -alpha_m*q0_m**2+2*eta0_m/a_m
+    points = [('-1.2', '-.35'), ('0', '0'), ('.37', '.21'), ('1.4', '-.1'), ('2.3', '.6')]
+    two_maxima = np.zeros(3)
+    for xx, tt in points:
+        values = calc_two_soliton(float(xx), float(tt))[:3]
+        sol_m = ResidueSolution(q0_m, zm, cm, mp.mpf(xx), mp.mpf(tt), Fm)
+        Rm = sol_m.medium(a_m, eta0_m)
+        ph = mp.exp(-1j*Omega_m*mp.mpf(tt))
+        high = (ph*1j*sol_m.M1()[0, 1], -ph*Rm[0, 1], Rm[0, 0])
+        two_maxima = np.maximum(two_maxima, [abs(complex(v)-complex(h)) for v, h in zip(values, high)])
+    assert max(two_maxima) < 1e-12, two_maxima
+    two_sol['high_precision_comparison_q_p_eta'] = list(two_maxima)
     qa={}
     child_env = dict(os.environ, PYTHONUTF8='1', PYTHONIOENCODING='utf-8')
     if AUDIT:
@@ -423,18 +619,18 @@ def main(audit=False, only_numerics=False):
                           manual_review=collision_record.get('manual_review','No collision warnings.'))
             if text.returncode or collision.returncode:
                 raise RuntimeError(f'{name}: PDF typography/collision audit failed; inspect QA records.')
-    report=dict(method='Equilibrated 4x4 direct residue solve; infinity/resonance reconstruction',
+    report=dict(method='Equilibrated direct residue solve (4x4 one-orbit and 8x8 two-orbit); infinity/resonance reconstruction',
         variables='x,t; k original spectral parameter; lambda background root; z uniformization; output q,p are original tilded fields',
         parameters=DEFAULT,grid=dict(x_min=-6,x_max=6,x_count=401,t_min=-1.5,t_max=1.5,t_count=251),
         surface_grid=dict(x_count=121,t_count=101,rule='separate analytic sampling grid for vector surface rendering'),
         figure_layout=dict(fields='3 rows by 2 columns; optical, polarization, inversion; surfaces left and contour maps right',
-            width_mm=146.4,heights_mm=dict(fields=165,dynamics=88,velocity=78),
+            width_mm=146.4,heights_mm=dict(fields=165,dynamics=88,velocity=78,two_fields=165,two_interaction=88),
             field_color_limits=dict(q=[0,4],p=[0,float(np.sqrt(.45))],eta=[-float(np.sqrt(.45)),float(np.sqrt(.45))]),
             rasterized_layers='filled contour maps and colorbar fills at 600 dpi; all surfaces, axes, text and trajectories remain vector'),
         base_errors=base,high_precision_comparison_points=points,
         high_precision_comparison_q_p_eta=list(maxima),dynamics=dict(profile_t_over_T=[0,.25,.5],
-        alpha_cases=alpha_cases,beta_cases=beta_cases),spectral_geometry=geometry_record,
-        files=[name+'.pdf' for name in names],figure_qa=qa)
+        alpha_cases=alpha_cases,beta_cases=beta_cases),two_soliton=two_sol,spectral_geometry=geometry_record,
+        files=['analytic-regions.pdf','discrete-spectrum.pdf','one-soliton-fields.pdf','one-soliton-dynamics.pdf','one-soliton-velocity.pdf','two-soliton-fields.pdf','two-soliton-interaction.pdf'],figure_qa=qa)
     (ROOT/'calculations'/'plot-results.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     print(json.dumps(report,indent=2))
 
@@ -442,6 +638,7 @@ def main(audit=False, only_numerics=False):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--audit',action='store_true',help='also run installed nature-figure source, layout and PDF audits')
-    parser.add_argument('--only-numerics',action='store_true',help='preserve spectral PDFs and regenerate only the three numerical figures')
+    parser.add_argument('--only-numerics',action='store_true',help='preserve spectral PDFs and regenerate only the numerical figures')
+    parser.add_argument('--only-two-soliton',action='store_true',help='preserve existing figures and generate only the two-soliton figures')
     args=parser.parse_args()
-    main(args.audit, args.only_numerics)
+    main(args.audit, args.only_numerics, args.only_two_soliton)

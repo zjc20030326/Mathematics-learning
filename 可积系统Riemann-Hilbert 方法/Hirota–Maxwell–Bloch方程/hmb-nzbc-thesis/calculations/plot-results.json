@@ -1,5 +1,5 @@
 {
-  "method": "Equilibrated 4x4 direct residue solve; infinity/resonance reconstruction",
+  "method": "Equilibrated direct residue solve (4x4 one-orbit and 8x8 two-orbit); infinity/resonance reconstruction",
   "variables": "x,t; k original spectral parameter; lambda background root; z uniformization; output q,p are original tilded fields",
   "parameters": {
     "q0": 1.0,
@@ -28,7 +28,9 @@
     "heights_mm": {
       "fields": 165,
       "dynamics": 88,
-      "velocity": 78
+      "velocity": 78,
+      "two_fields": 165,
+      "two_interaction": 88
     },
     "field_color_limits": {
       "q": [
@@ -129,6 +131,22 @@
       }
     ]
   },
+  "two_soliton": {
+    "errors": {
+      "scaled_linear_residual": 1.0243991425418842e-15,
+      "Bloch_error": 2.224087341773605e-15,
+      "eta_imaginary": 1.5135462327897642e-15
+    },
+    "v1": -1.9265027322404369,
+    "v2": 1.3553121852970784,
+    "Delta_x1": -0.5624480004048381,
+    "Delta_x2": 0.3163770002277219,
+    "high_precision_comparison_q_p_eta": [
+      2.886579864025407e-15,
+      4.2140571654244983e-16,
+      3.775166431889533e-16
+    ]
+  },
   "spectral_geometry": {
     "type": "symbolic general complex quartet",
     "poles_D_plus": [
@@ -145,12 +163,16 @@
     "domain_color": "D+ pale blue, D- white"
   },
   "files": [
+    "analytic-regions.pdf",
+    "discrete-spectrum.pdf",
     "one-soliton-fields.pdf",
     "one-soliton-dynamics.pdf",
-    "one-soliton-velocity.pdf"
+    "one-soliton-velocity.pdf",
+    "two-soliton-fields.pdf",
+    "two-soliton-interaction.pdf"
   ],
   "figure_qa": {
-    "one-soliton-fields": {
+    "two-soliton-fields": {
       "alignment_verdict": "PASS",
       "alignment_counts": {
         "fail": 0,
@@ -164,34 +186,13 @@
       "collision_verdict": "REVIEW REQUIRED",
       "collision_counts": {
         "fail": 0,
-        "warn": 12,
+        "warn": 9,
         "contained_fill_overlays": 3,
         "contained_image_overlays": 0
       },
-      "manual_review": "Accepted after native-PDF full-figure and panel inspection: the twelve fill-edge WARNs are the four tick labels -6, 0, -1 and 1 on each of the three 3D panels a/c/e. The detector compares them with the projected filled-region bounding rectangle; the actual surface is clear of every label. All text-text and text-stroke checks have zero FAIL. The adjacent contour time labels were moved clear before this final export.",
-      "manual_review_status": "accepted after final native-PDF inspection"
+      "manual_review": "Pending explicit review of the final PDF findings; see figure acceptance notes."
     },
-    "one-soliton-dynamics": {
-      "alignment_verdict": "PASS",
-      "alignment_counts": {
-        "fail": 0,
-        "warn": 0,
-        "comparisons": 1,
-        "exemptions": 0
-      },
-      "text_exit": 0,
-      "collision_exit": 0,
-      "minimum_glyph_pt": 7.35,
-      "collision_verdict": "PASS",
-      "collision_counts": {
-        "fail": 0,
-        "warn": 0,
-        "contained_fill_overlays": 0,
-        "contained_image_overlays": 0
-      },
-      "manual_review": "No collision warnings."
-    },
-    "one-soliton-velocity": {
+    "two-soliton-interaction": {
       "alignment_verdict": "PASS",
       "alignment_counts": {
         "fail": 0,

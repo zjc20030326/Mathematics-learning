@@ -23,7 +23,7 @@
       "-0.2"
     ]
   ],
-  "method": "Independent full block LU versus Schur solve and bordered determinant",
+  "method": "Independent full block LU versus Schur solve, bordered determinant, and Lemma 6.1 congruence identities",
   "representatives_divided_by_q0": {
     "2": [
       [
@@ -88,6 +88,12 @@
     "medium_two_sheets": "1.027922190188537e-80",
     "medium_Hermitian": "3.173147244493249e-82"
   },
+  "lemma_6_1_max_errors": {
+    "S_inverse_identity": "2.861071133408807e-79",
+    "H_Hermitian": "1.456416803415112e-77",
+    "det_L_positive_identity_rel": "4.484247178751957e-79",
+    "det_L_imag": "2.975267804446484e-79"
+  },
   "absolute_Schur_determinants": {
     "N=2,q0=1,x=-0.4,t=0.1": "1.05506378253507",
     "N=2,q0=1,x=0,t=0": "1.121413382783355",
@@ -108,5 +114,5 @@
     "N=4,q0=1.4,x=0,t=0": "1.195790534788314",
     "N=4,q0=1.4,x=0.6,t=-0.2": "84652.9121251026"
   },
-  "scope": "Sampled identities only. No claim of arbitrary-N global invertibility or PDE verification."
+  "scope": "Numerical cross-checks of general-N identities; analytic proof of global det(L_N)>0 is given in Section 6.2."
 }

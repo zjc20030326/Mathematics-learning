@@ -1,91 +1,109 @@
 % !TeX root = ../fduthesis.tex
-本节基于定理 \ref{thm:direct-HMB} 的纯虚单轨道显式解, 分析三场局域扰动的包络传播、随动振荡与幅值特征, 并通过高精度数值计算核验重构三场与原方程及对称约束的一致性.
+本节基于第 \ref{ch:verification} 节的单孤子与双孤子显式构造, 展示三场局域扰动的包络传播、随动呼吸振荡与双孤子弹性碰撞特征, 并对单、双孤子解的 HMB 方程、Lax 对、共振重构与 RHP 约束进行独立高精度数值核验.
 
-\subsection{三场分布与随动振荡}
-取定理 \ref{thm:direct-HMB} 中的参数
+\subsection{单孤子的动力学特征}
+取定理 \ref{thm:oneRHP} 中的背景与离散谱参数
 \begin{equation}\label{eq:numerical-parameters}
 q_0=1,\qquad a=2,\qquad\eta_0=0.6,\qquad
 \alpha=1,\qquad\beta=0.1,\qquad b=1.5,
 \end{equation}
 范数常数由式 \eqref{eq:onec} 给定, 三场由式 \eqref{eq:original-fields}、留数系统 \eqref{eq:N-block-system}
 及式 \eqref{eq:qfinite}、\eqref{eq:N-medium} 重构.
-图 \ref{fig:one} 显示三场的局域扰动随同一包络集中于直线 $x=A_bt$ 附近传播, 其中速度与振荡频率由传播因子 $F(\ii b)$ 的实部与虚部决定.
+图 \ref{fig:one} 显示三场的局域扰动随同一包络集中于直线 $x=A_bt$ 附近传播, 速度与随动振荡频率由命题 \ref{prop:one-soliton-dynamics} 中的 $A_b,B_b$ 精确给出.
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-fields.pdf}
-\caption{单轨道三场分布, 自上而下依次为 $|\widetilde q|$、$|\widetilde p|$、$\eta$.
+\caption{单孤子三场分布, 自上而下依次为 $|\widetilde q|$、$|\widetilde p|$、$\eta$.
 左列为曲面图, 右列为等值图.
 参数见 \eqref{eq:numerical-parameters}, 绘图区间为 $x\in\lbrack-6,6\rbrack$、$t\in\lbrack-1.5,1.5\rbrack$.}
 \label{fig:one}
 \end{figure}
 
-由式 \eqref{eq:F} 得
-\begin{align}
-&A_b=\operatorname{Re}F(\ii b)
-=-4\beta b^2-2\beta q_0^2-\dfrac{\eta_0}{a^2+b^2},\label{eq:velocity}\\
-&B_b=\operatorname{Im}F(\ii b)
-=-\alpha b-\dfrac{\eta_0b}{a(a^2+b^2)}.\label{eq:frequency}
-\end{align}
-在随动坐标 $X=x-A_bt$ 中, 式 \eqref{eq:orbit-phase} 化为
-\begin{equation*}
-T=e^{2\kappa X}e^{-2\ii\kappa B_bt}.
-\end{equation*}
-若 $B_b\ne0$, 固定 $X$ 时, 规范三场及原场的模 $|\widetilde q|$、$|\widetilde p|$ 和反转 $\eta$ 均以
-\begin{equation}\label{eq:internal-period}
-T_t=\dfrac{\pi}{\kappa|B_b|}
-\end{equation}
-为周期; 原复场 $\widetilde q,\widetilde p$ 具有该随动周期的充要条件为
-$\Omega T_t\in2\pi\mathbb Z$. 当 $\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}$ 时,
-$B_b=0$, 规范三场退化为关于 $X$ 的定形波.
-
-由 $P^2=P=P^\dagger$ 和 $\tr P=1$, 有 $|P_{12}|^2=P_{11}(1-P_{11})\le\dfrac{1}{4}$.
-结合 $T(0,0)=1$、$P_{12}(0,0)=\dfrac{1}{2}$, 得到光场振幅的精确上界
-\begin{equation}\label{eq:amplitude-bound}
-|\widetilde q(x,t)|\le q_0+2b,\qquad |\widetilde q(0,0)|=q_0+2b.
-\end{equation}
-由投影矩阵的端态展开, 三场偏离背景的量在 $X\to\pm\infty$ 时均以 $O(e^{-2\kappa|X|})$ 指数衰减.
-
+由式 \eqref{eq:velocity}--\eqref{eq:amplitude-bound}, 在参数 \eqref{eq:numerical-parameters} 下, 衰减率 $\kappa=\dfrac{\sqrt{5}}{2}\approx1.118$, 包络速度 $A_b=-1.196$, 随动振荡周期 $T_t\approx1.787$, 光场峰值达到精确上界 $|\widetilde q(0,0)|=q_0+2b=4$.
 图 \ref{fig:dynamics} 展示了光场的随动截面及中心振荡特征.
-当 $\alpha$ 从 $0.5$ 增至 $1$ 时, 随动振荡周期由约 $3.418$ 缩短至 $1.787$,
-而包络速度保持为 $A_b=-1.196$. 取临界值 $\alpha=-0.048$ 时, $B_b=0$, 光场模在随动坐标中保持定形.
+当二阶色散系数 $\alpha$ 从 $0.5$ 增至 $1$ 时, 随动振荡周期由约 $3.418$ 缩短至 $1.787$,
+而包络速度保持为 $A_b=-1.196$. 取临界值 $\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}=-0.048$ 时, $B_b=0$, 光场模在随动坐标中保持定形.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-dynamics.pdf}
-\caption{单轨道光场的随动振荡. (a) 参数 \eqref{eq:numerical-parameters} 下,
-$t=0$、$\dfrac{T_t}{4}$、$\dfrac{T_t}{2}$ 时光场模随 $X$ 的分布.
+\caption{单孤子光场的随动振荡. (a) 参数 \eqref{eq:numerical-parameters} 下,
+$t=0$、$\dfrac{T_t}{4}$、$\dfrac{T_t}{2}$ 时光场模随 $X=x-A_bt$ 的分布.
 (b) 取 $\alpha=-0.048,0.5,1$ 时的中心光场模 $|\widetilde q(A_bt,t)|$, 其余参数固定.}
 \label{fig:dynamics}
 \end{figure}
 
-\subsection{包络传播与数值核验}
 固定其余参数, 由 \eqref{eq:velocity}--\eqref{eq:frequency} 知三阶色散系数 $\beta$ 仅以仿射方式调控包络速度 $A_b$, 而不改变随动角频率 $2\kappa|B_b|$.
 如图 \ref{fig:velocity} 所示, 当 $\beta$ 由 $0$ 增至 $0.15$ 时, 传播速度 $A_b$ 由 $-0.096$ 变为 $-1.746$.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-velocity.pdf}
-\caption{不同 $\beta$ 下光场模的传播. (a) $\beta=0$. (b) $\beta=0.15$.
+\caption{不同 $\beta$ 下单孤子光场模的传播. (a) $\beta=0$. (b) $\beta=0.15$.
 其余参数见 \eqref{eq:numerical-parameters}. 两图共用色标, 虚线为中心轨迹 $x=A_bt$.}
 \label{fig:velocity}
 \end{figure}
 
 \FloatBarrier
-为对解析重构与方程验证提供独立数值检验, 在参数 \eqref{eq:numerical-parameters} 下选取五个时空样点, 以 70 位十进制精度求解留数系统并计算场导数, 原方程、Lax 对、共振重构及 Bloch 约束的最大残差见表 \ref{tab:direct-residuals}.
-同一样点上的双精度绘图值与高精度重构值之差均小于 $10^{-14}$.
+\subsection{双孤子的传播与相互作用}
+保持背景参数 $q_0=1$、$a=2$、$\eta_0=0.6$、$\alpha=1$、$\beta=0.1$ 不变, 在定理 \ref{thm:two-soliton} 中选取满足同相条件 \eqref{eq:two-orbit-phase} 的一般非虚轴复双轨道代表
+\begin{equation}\label{eq:two-soliton-params}
+\zeta_1=2q_0e^{\ii\frac{\pi}{3}},\qquad
+\zeta_2=3q_0e^{\ii\frac{2\pi}{3}},
+\end{equation}
+伴随谱点为 $\zeta_3=-\dfrac{q_0^2}{\conj{\zeta_1}}$、$\zeta_4=-\dfrac{q_0^2}{\conj{\zeta_2}}$. 两幅角之和为 $\arg\zeta_1+\arg\zeta_2=\pi$, 从而 $4(\arg\zeta_1+\arg\zeta_2)=4\pi\equiv0\pmod{2\pi}$, 精确满足同相背景条件.
+取规范范数初值 $b_1(0)=b_2(0)=1$, 即 $c_n(0)=\dfrac{1}{s'(\zeta_n)}$, $n=1,2$, 其余 $c_3(0),c_4(0)$ 按配对关系 \eqref{eq:two-orbit-c} 确定.
+由 $s'(\zeta_1)=s_1'(\zeta_1)s_2(\zeta_1)$ 与 $s'(\zeta_2)=s_2'(\zeta_2)s_1(\zeta_2)$, 该初值选取使双孤子碰撞对称地发生于原点 $(x,t)=(0,0)$ 附近.
+
+由式 \eqref{eq:two-orbit-vel-freq}--\eqref{eq:two-soliton-shift} 可得两轨道的动力学参数: 第一轨道的衰减率 $\operatorname{Im}\lambda(\zeta_1)=\dfrac{3\sqrt{3}}{8}\approx0.650$、包络速度 $v_1\approx-1.927$、随动呼吸周期 $T_{t,1}\approx2.979$;
+第二轨道的衰减率 $\operatorname{Im}\lambda(\zeta_2)=\dfrac{2\sqrt{3}}{3}\approx1.155$、包络速度 $v_2\approx1.355$、随动呼吸周期 $T_{t,2}\approx0.791$.
+由于两轨道均不在虚轴上, 各自呈现局域呼吸子形态, 其中第二轨道局域更窄、呼吸频率更高且峰值更大.
+图 \ref{fig:two-fields} 展示了双孤子物理三场 $|\widetilde q|$、$|\widetilde p|$ 与 $\eta$ 的时空分布: 两支反向传播的呼吸波包在 $(0,0)$ 处发生正面碰撞后各自穿透分离, 在远离两条轨迹的区域均平滑回归同相背景 $(1,0.3,0.6)$.
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/two-soliton-fields.pdf}
+\caption{双孤子三场分布, 自上而下依次为 $|\widetilde q|$、$|\widetilde p|$、$\eta$.
+左列为曲面图, 右列为等值图.
+背景参数同 \eqref{eq:numerical-parameters}, 谱点见 \eqref{eq:two-soliton-params}, $b_1(0)=b_2(0)=1$, 绘图区间为 $x\in\lbrack-8,8\rbrack$、$t\in\lbrack-2.5,2.5\rbrack$.}
+\label{fig:two-fields}
+\end{figure}
+
+进一步地, 图 \ref{fig:two-interaction} 通过碰撞前后的空间截面与渐近中心射线定量展示两支呼吸波包的弹性相互作用.
+由图 \ref{fig:two-interaction}(a) 可见, 在 $t=-2$ 时两波包完全分离, $t=0$ 时在原点附近相干叠加并形成约 $4.052$ 的峰值, $t=2$ 时再次完全分离并保持各自原有的局域宽度与呼吸结构.
+由命题 \ref{prop:two-soliton-interaction}, 穿衣模长比 $|s_2(\zeta_1)|=|s_1(\zeta_2)|\approx0.6940$, 碰撞引起的包络前向位移为
+\begin{equation*}
+\Delta x_1\approx-0.562,\qquad \Delta x_2\approx0.316.
+\end{equation*}
+在 $b_1(0)=b_2(0)=1$ 下, 碰撞前后的渐近中心轨迹分别为 $x_n^{(-)}(t)=v_nt-\dfrac{\Delta x_n}{2}$ 与 $x_n^{(+)}(t)=v_nt+\dfrac{\Delta x_n}{2}$, $n=1,2$.
+图 \ref{fig:two-interaction}(b) 表明上述解析渐近射线与数值等值图中的波包中心高度吻合, 清晰反映了双孤子的弹性碰撞与相移特征.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/two-soliton-interaction.pdf}
+\caption{双孤子碰撞与弹性位移分析. (a) $t=-2,0,2$ 时光场模 $|\widetilde q(x,t)|$ 的空间截面.
+(b) $|\widetilde q(x,t)|$ 等值图与碰撞前后渐近中心射线 $x_n^{(\pm)}(t)=v_nt\pm\dfrac{\Delta x_n}{2}$ 的对照, 虚线对应 $t<0$, 实线对应 $t>0$.}
+\label{fig:two-interaction}
+\end{figure}
+
+\subsection{数值核验}
+为对一般重构定理与单、双孤子显式解提供独立的数值检验, 分别在参数 \eqref{eq:numerical-parameters} 与 \eqref{eq:two-soliton-params} 下选取五个时空样点 $(-1.2,-0.35)$、$(0,0)$、$(0.37,0.21)$、$(1.4,-0.1)$ 与 $(2.3,0.6)$, 以 70 位十进制精度直接求解留数线性系统, 并采用独立高精度数值微分计算场与矩阵的时空偏导数.
+空间与时间 Lax 方程及 RHP 对称性在谱点 $z=2.1+0.7\ii$、$0.3-0.2\ii$、$1.2$ 处取最大残差.
+各项最大绝对残差汇总于表 \ref{tab:direct-residuals}.
+双精度绘图网格值与 70 位高精度重构值在全部五个样点上的最大偏差均小于 $10^{-14}$.
+此外, 对 $N=2,3,4$ 的一般复多轨道数据在 80 位十进制精度下核验引理 \ref{lem:general-N-nondegeneracy} 中的矩阵逆恒等式、Hermitian 结构与 $\det L_N>0$ 恒等式, 相对误差均低于 $2\times10^{-77}$.
 \begin{table}[htbp]
 \centering
-\caption{单轨道三场的高精度核验, 表内为样点最大绝对残差的向上舍入值}
+\caption{单孤子与双孤子解的高精度数值核验, 表内为样点最大绝对残差的向上舍入值}
 \label{tab:direct-residuals}
-\begin{tabular}{lc}
-\toprule 检验对象 & 最大绝对误差\\\midrule
-光场方程 & $1.87\times10^{-69}$\\
-极化方程 & $8.26\times10^{-71}$\\
-粒子数反转方程 & $1.50\times10^{-70}$\\
-空间 Lax 方程 & $4.82\times10^{-70}$\\
-时间 Lax 方程 & $1.95\times10^{-69}$\\
-两共振原像的介质重构 & $1.12\times10^{-71}$\\
-Bloch 长度平方 & $4.77\times10^{-72}$\\
+\begin{tabular}{lcc}
+\toprule 检验对象 & 单孤子最大误差 & 双孤子最大误差\\\midrule
+光场方程 & $1.87\times10^{-69}$ & $3.48\times10^{-69}$\\
+极化方程 & $8.26\times10^{-71}$ & $9.20\times10^{-71}$\\
+粒子数反转方程 & $1.50\times10^{-70}$ & $3.64\times10^{-71}$\\
+空间 Lax 方程 & $4.82\times10^{-70}$ & $8.01\times10^{-70}$\\
+时间 Lax 方程 & $1.95\times10^{-69}$ & $3.84\times10^{-69}$\\
+两共振原像介质重构 & $1.12\times10^{-71}$ & $2.44\times10^{-71}$\\
+Bloch 长度平方 & $4.77\times10^{-72}$ & $4.78\times10^{-72}$\\
+RHP 留数与谱对称性 & $3.58\times10^{-68}$ & $3.43\times10^{-69}$\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-表 \ref{tab:direct-residuals} 中的各项残差均低于 $2\times10^{-69}$, 与双精度绘图结果高度一致, 从而在数值上进一步印证了本文非零背景逆散射重构公式与纯虚单轨道显式三场解的正确性.
+表 \ref{tab:direct-residuals} 中单、双孤子解的全部方程与约束残差均低于 $4\times10^{-68}$, 与双精度绘图结果及渐近穿衣预测高度一致, 从数值层面充分印证了本文一般多轨道无反射重构理论与单、双孤子显式公式的正确性.
