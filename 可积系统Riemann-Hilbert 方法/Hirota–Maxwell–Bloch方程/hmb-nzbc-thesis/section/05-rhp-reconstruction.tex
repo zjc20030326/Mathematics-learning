@@ -182,6 +182,12 @@ R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)\Id.
 将 \eqref{eq:RfromM} 平方并利用 $\sg^2=\Id$ 与 $\lambda(z_a)^2=a^2+q_0^2$, 即得 \eqref{eq:reconstructed-bloch}.
 \end{proof}
 
+\begin{remark}
+引理 \ref{prop:bloch} 由 HMB 介质方程及非零边界条件推出 Bloch 约束 \eqref{eq:C}.
+与之对应, 引理 \ref{lem:medium-reduction} 不预先假定重构场满足 HMB 方程, 而是由一般矩阵 RHP 的结构得到同一约束.
+事实上, 由 \eqref{eq:gauged-V} 有 $R^2=(|p|^2+\eta^2)\Id$; 结合 \eqref{eq:reconstructed-bloch} 及 $|\widetilde p|=|p|$, 即得 \eqref{eq:C}.
+\end{remark}
+
 \subsection{迹公式与相位条件}
 固定 $t$, 省略谱数据中的时间参数. 设透射系数在 $\Sigma_*$ 上非零, 离散零点有限且简单.
 为用反射系数和离散谱表出解析透射系数, 按 \eqref{eq:discrete-indexing} 剥去离散零点\cite{Fan2022,ZhangFan2020}, 在 $D_+$ 和 $D_-$ 中分别定义
