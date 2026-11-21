@@ -1,162 +1,106 @@
 % !TeX root = ../fduthesis.tex
-本节将第 \ref{ch:soliton} 节的一般多轨道无反射理论具体化为 $N=1$ 与 $N=2$ 两种情形, 分别构造单孤子解与一般复谱双孤子解的显式表示, 并结合定理 \ref{thm:general-N-HMB-reconstruction} 分析它们的传播速度、内部呼吸振荡与弹性相互作用.
+作为第 \ref{ch:soliton} 节一般重构理论的应用, 本节分别取 $N=1$ 与 $N=2$ 构造单孤子解与满足同相条件的一般复谱双孤子解, 并给出代表性三场分布图像.
 
 \subsection{单孤子解}
-对 $N=1$, 外部上半平面代表 $\zeta_1$ 满足 $0<\arg\zeta_1<\pi$. 无反射同相条件 \eqref{eq:N-orbit-phase} 化为 $4\arg\zeta_1\equiv0\pmod{2\pi}$, 在区间 $(0,\pi)$ 内的唯一解为 $\arg\zeta_1=\dfrac{\pi}{2}$. 因此, 同相背景的单轨道离散谱代表必位于正虚轴上. 取
+对 $N=1$, 外部上半平面代表 $\zeta_1$ 满足 $0<\arg\zeta_1<\pi$. 无反射同相条件 \eqref{eq:N-orbit-phase} 化为 $4\arg\zeta_1\equiv0\pmod{2\pi}$, 在 $(0,\pi)$ 内的唯一解为 $\arg\zeta_1=\dfrac{\pi}{2}$, 故单轨道离散谱代表必位于正虚轴上. 取
 \begin{equation}\label{eq:imaginarypoint}
-\begin{aligned}
-&k_1=\ii b,\qquad b>q_0,\qquad \kappa=\sqrt{b^2-q_0^2},\\
-&W=b+\kappa,\qquad h_0=\dfrac{q_0}{W}\in(0,1).
-\end{aligned}
+k_1=\ii b,\quad b>q_0,\quad \kappa=\sqrt{b^2-q_0^2},\quad
+W=b+\kappa,\quad h_0=\dfrac{q_0}{W}\in(0,1).
 \end{equation}
 对应的两个 $D_+$ 零点与无反射透射函数为
 \begin{equation}\label{eq:onezeros}
 \zeta_1=\ii W,\qquad \zeta_2=-\ii q_0h_0=h(\conj{\zeta_1}),\qquad
 s_{22}(z)=\dfrac{\lambda(z)-\ii\kappa}{\lambda(z)+\ii\kappa}.
 \end{equation}
-这里 $s_{22}$ 为无反射迹公式中两因子的乘积, 在 $0$ 与 $\infty$ 处均趋于 $1$. 取 $b_1(0)=1$, 由 \eqref{eq:norming-definition} 及配对关系 \eqref{eq:cpair} 得
+取 $b_1(0)=1$, 由 \eqref{eq:norming-definition} 及配对关系 \eqref{eq:cpair} 得
 \begin{equation}\label{eq:onec}
 c_1(0)=\dfrac{1}{s_{22}'(\zeta_1)}=\dfrac{4\ii\kappa}{1+h_0^2},\qquad
 c_2(0)=-h_0^2c_1(0).
 \end{equation}
-令
-\begin{equation}\label{eq:orbit-phase}
-s=\kappa\bigl[x-F(\ii b)t\bigr],\qquad T=e^{2s}.
-\end{equation}
-由 $\lambda(\zeta_1)=\lambda(\zeta_2)=\ii\kappa$, $k(\zeta_2)=-\ii b$ 及 $F(-\ii b)=\conj{F(\ii b)}$, 得 $C_1=c_1(0)T$、$C_2=-h_0^2c_1(0)\conj{T}$.
-
-\begin{lemma}\label{lem:direct-solve}
-上述单轨道留数系统对任意 $(x,t)\in\mathbb R^2$ 唯一可解. 记
-\begin{equation}\label{eq:delta-pair}
-\Delta_\pm=(1+h_0^2)(1+|T|^2)\pm2h_0(T+\conj{T}),
-\end{equation}
-则其唯一解为
-\begin{align}
-&\boldsymbol v_1=\dfrac{1+h_0^2}{\Delta_-}
-\begin{pmatrix}1-h_0\conj{T}\\\conj{T}-h_0\end{pmatrix},\qquad
-\boldsymbol u_1=\dfrac{1+h_0^2}{\Delta_-}
-\begin{pmatrix}h_0-T\\1-h_0T\end{pmatrix},\label{eq:direct-vu1}\\
-&\boldsymbol v_2=\dfrac{1}{h_0}\boldsymbol u_1,\qquad
-\boldsymbol u_2=-\dfrac{1}{h_0}\boldsymbol v_1.\label{eq:direct-vu2}
-\end{align}
-\end{lemma}
-\begin{proof}
-代入谱点与范数数据 \eqref{eq:onezeros}--\eqref{eq:onec}, 留数系统的系数矩阵化为
-\begin{equation}\label{eq:one-AB}
-\begin{aligned}
-&A=\dfrac{1}{1+h_0^2}
-\begin{pmatrix}(h_0^2-1)\conj{T}&2h_0^2T\\-2\conj{T}&(h_0^2-1)T\end{pmatrix},\\
-&B=\dfrac{1}{1+h_0^2}
-\begin{pmatrix}(h_0^2-1)T&2h_0^2\conj{T}\\-2T&(h_0^2-1)\conj{T}\end{pmatrix},
-\end{aligned}
-\end{equation}
-右端向量为
-\begin{equation*}
-\boldsymbol f_1=\begin{pmatrix}1\\-h_0\end{pmatrix},\quad
-\boldsymbol f_2=\begin{pmatrix}1\\h_0^{-1}\end{pmatrix},\quad
-\boldsymbol g_1=\begin{pmatrix}h_0\\1\end{pmatrix},\quad
-\boldsymbol g_2=\begin{pmatrix}-h_0^{-1}\\1\end{pmatrix}.
-\end{equation*}
-直接计算 Schur 补 $L_1=I_2+AB$ 的行列式, 得
-\begin{equation}\label{eq:one-schur-det}
-\det(I_2+AB)
-=(1+|T|^2)^2-\dfrac{4h_0^2(T+\conj T)^2}{(1+h_0^2)^2}
-=\dfrac{\Delta_-\Delta_+}{(1+h_0^2)^2}>0.
-\end{equation}
-其中平方和分解
-\begin{equation*}
-\Delta_-=|T-h_0|^2+|1-h_0T|^2,\qquad
-\Delta_+=|T+h_0|^2+|1+h_0T|^2
-\end{equation*}
-直接给出下界 $\Delta_\pm\ge(1-h_0)^2(1+|T|^2)>0$, 与引理 \ref{lem:general-N-nondegeneracy} 的一般结论一致.
-用二阶逆矩阵公式计算 $\boldsymbol v=L_1^{-1}(\boldsymbol f-A\boldsymbol g)$, 约去公因子 $\Delta_+$ 后得
-\begin{equation*}
-\boldsymbol v=\dfrac{1+h_0^2}{\Delta_-}
-\begin{pmatrix}1-h_0\conj{T}&\conj{T}-h_0\\
-\dfrac{h_0-T}{h_0}&\dfrac{1-h_0T}{h_0}\end{pmatrix},
-\end{equation*}
-再由 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$ 即得 \eqref{eq:direct-vu1}--\eqref{eq:direct-vu2}.
-\end{proof}
-
-将上述解代入 \eqref{eq:partialfraction}, 并引入秩一正交投影矩阵
+记 $s=\kappa\bigl[x-F(\ii b)t\bigr]$、$T=e^{2s}$, 则由 $\lambda(\zeta_1)=\lambda(\zeta_2)=\ii\kappa$ 与 $F(-\ii b)=\conj{F(\ii b)}$ 得 $C_1=c_1(0)T$、$C_2=-h_0^2c_1(0)\conj T$.
+进一步记
 \begin{equation}\label{eq:algebraic-P}
-P=\dfrac{1}{\Delta_-}
-\begin{pmatrix}
+\begin{aligned}
+&\Delta_-=|T-h_0|^2+|1-h_0T|^2,\qquad
+\boldsymbol w=\begin{pmatrix}T-h_0\\1-h_0T\end{pmatrix},\qquad
+H=\diag(\ii,-\ii),\\
+&P=\dfrac{\boldsymbol w\boldsymbol w^\dagger}{\Delta_-}
+=\dfrac{1}{\Delta_-}\begin{pmatrix}
 |T-h_0|^2&(T-h_0)(1-h_0\conj{T})\\
 (1-h_0T)(\conj{T}-h_0)&|1-h_0T|^2
-\end{pmatrix},\qquad H=\diag(\ii,-\ii).
+\end{pmatrix}.
+\end{aligned}
 \end{equation}
-由 $\Delta_-=|T-h_0|^2+|1-h_0T|^2$, 直接验证有 $P^\dagger=P$, $P^2=P$, $\tr P=1$.
+显然 $P$ 为秩一正交投影矩阵, 满足 $P^\dagger=P$、$P^2=P$ 与 $\tr P=1$.
 
-\begin{theorem}\label{thm:oneRHP}\label{prop:unique-reflectionless}
-在背景参数 $q_0>0$, $a\ne0$, $\eta_0\ne0$, $\alpha,\beta\in\mathbb R$ 与 $b>q_0$ 下, 数据 \eqref{eq:onezeros}--\eqref{eq:onec} 对应的无反射 RHP 对任意 $(x,t)\in\mathbb R^2$ 有唯一解
+\begin{theorem}\label{thm:oneRHP}
+在背景参数 $q_0>0$、$a\ne0$、$\eta_0\ne0$、$\alpha,\beta\in\mathbb R$ 与 $b>q_0$ 下, 数据 \eqref{eq:onezeros}--\eqref{eq:onec} 对应的无反射 RHP 对任意 $(x,t)\in\mathbb R^2$ 有唯一解
 \begin{equation}\label{eq:explicitM}
-M(z)=H\bigl[(k(z)+\ii b)\Id-2\ii bP\bigr]Y(z)
-\diag\left(\dfrac{1}{\lambda(z)+\ii\kappa},\dfrac{1}{\lambda(z)-\ii\kappa}\right)H^{-1}.
+M(z)=H N(k(z))Y(z)
+\diag\left(\dfrac{1}{\lambda(z)+\ii\kappa},\dfrac{1}{\lambda(z)-\ii\kappa}\right)H^{-1},
 \end{equation}
-记
+其中
 \begin{equation}\label{eq:Nfactor}
-N(k)=(k+\ii b)\Id-2\ii bP,
+N(k)=(k+\ii b)\Id-2\ii bP.
 \end{equation}
-并记 $n_{jk}=N(a)_{jk}$. 则重构得到的单孤子物理三场为
+重构得到的单孤子物理三场为
 \begin{equation}\label{eq:finalfields}
 \begin{aligned}
 &\widetilde q=-e^{-\ii\Omega t}(q_0+4bP_{12}),\\
-&\widetilde p=\dfrac{e^{-\ii\Omega t}(N(a)R_\infty N(a)^\dagger)_{12}}{a^2+b^2},\qquad
-\eta=\dfrac{(N(a)R_\infty N(a)^\dagger)_{11}}{a^2+b^2},
+&\widetilde p=\dfrac{e^{-\ii\Omega t}\bigl(N(a)R_\infty N(a)^\dagger\bigr)_{12}}{a^2+b^2},\qquad
+\eta=\dfrac{\bigl(N(a)R_\infty N(a)^\dagger\bigr)_{11}}{a^2+b^2}.
 \end{aligned}
 \end{equation}
-其中介质分量显式展开为
-\begin{align}
-&\eta=\dfrac{\eta_0}{a^2+b^2}\left[|n_{11}|^2-|n_{12}|^2
-+\dfrac{\ii q_0}{a}(n_{11}\conj{n_{12}}-n_{12}\conj{n_{11}})\right],\label{eq:etacomponent}\\
-&e^{\ii\Omega t}\widetilde p=\dfrac{\eta_0}{a^2+b^2}\left[n_{11}\conj{n_{21}}-n_{12}\conj{n_{22}}
-+\dfrac{\ii q_0}{a}(n_{11}\conj{n_{22}}-n_{12}\conj{n_{21}})\right].\label{eq:pcomponent}
-\end{align}
-\label{thm:direct-HMB}\label{prop:oneboundary}
-该三场在 $\mathbb R^2$ 上光滑, 满足原 HMB 系统 \eqref{eq:HMB}、非零边界条件 \eqref{eq:targetboundary}、$I=\mathbb R$ 时的基本条件 \eqref{eq:physical-regularity} 及 Bloch 约束 \eqref{eq:C}, 空间端态误差均为 $O(e^{-2\kappa|x|})$, 且其直接散射数据无反射并精确复原 \eqref{eq:onezeros}--\eqref{eq:onec}.
+该三场在 $\mathbb R^2$ 上光滑, 满足原 HMB 系统 \eqref{eq:HMB}、非零边界条件 \eqref{eq:targetboundary}、$I=\mathbb R$ 时的基本条件 \eqref{eq:physical-regularity} 及 Bloch 约束 \eqref{eq:C}, 且其直接散射数据无反射并精确复原 \eqref{eq:onezeros}--\eqref{eq:onec}.
 \end{theorem}
 \begin{proof}
-利用 $(z-\zeta_1)(z-\zeta_2)=2z(\lambda-\ii\kappa)$ 合并 \eqref{eq:partialfraction} 中第二列的分母, 第一列同理; 再结合 $2bh_0=q_0(1+h_0^2)$ 与 $2\kappa h_0=q_0(1-h_0^2)$ 化简分子, 由引理 \ref{lem:direct-solve} 即得紧致投影表示 \eqref{eq:explicitM}.
-
-在无穷远展开 \eqref{eq:explicitM}, 得
+记 \eqref{eq:explicitM} 右端为 $M(z)$. 因 $\lambda(z)\mp\ii\kappa=\dfrac{(z-\zeta_1)(z-\zeta_2)}{2z}$ 与其共轭式, $M_2,M_1$ 的有限极点仅分别位于 $\{\zeta_1,\zeta_2\}$ 与 $\{\conj{\zeta_1},\conj{\zeta_2}\}$.
+当 $z\to\infty$ 时, 由 $k(z),\lambda(z)=\dfrac{z}{2}+O(z^{-1})$ 得
 \begin{equation*}
-M^{(1)}=H(2\ii b\Id-4\ii bP-\ii q_0\sigma_1-2\ii\kappa\sg)H^{-1},
+M(z)=\Id+\dfrac{M^{(1)}}{z}+O(z^{-2}),\qquad
+M^{(1)}=H(2\ii b\Id-4\ii bP-\ii q_0\sigma_1-2\ii\kappa\sg)H^{-1};
 \end{equation*}
-由 \eqref{eq:reconq} 得 $q=\ii M^{(1)}_{12}=-q_0-4bP_{12}$.
-在共振原像处, 由 \eqref{eq:diagE}、\eqref{eq:Rbg} 有 $Y\lambda\sg Y^{-1}=\ii U_\infty$ 与 $R_\infty=\dfrac{\ii\eta_0}{a}U_\infty(a)$; 又因 $P^2=P=P^\dagger$, 直接计算知 $N(a)^{-1}=\dfrac{N(a)^\dagger}{a^2+b^2}$, 代入 \eqref{eq:N-medium} 得
-\begin{equation}\label{eq:direct-medium}
-R=\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(z_a^\pm)\sg M(z_a^\pm)^{-1}
-=\dfrac{HN(a)R_\infty N(a)^\dagger H^{-1}}{a^2+b^2}.
-\end{equation}
-结合 \eqref{eq:original-fields} 与 $H=\diag(\ii,-\ii)$, 立即得到 \eqref{eq:finalfields}--\eqref{eq:pcomponent}.
-由于数据 \eqref{eq:onezeros}--\eqref{eq:onec} 满足定义 \ref{def:orbit-data} 且 $\delta=\operatorname{Im}\lambda(\zeta_1)=\kappa$, 其余关于全局正则性、原 HMB 方程、边界衰减、Bloch 约束及散射数据复原的结论均由定理 \ref{thm:general-N-HMB-reconstruction} 直接保证.
+当 $z\to0$ 时, 由 $\dfrac{k(z)}{\lambda(z)}\to-1$ 与 $H\sigma_1H^{-1}=-\sigma_1$ 得 $M(z)=-\dfrac{\ii q_0}{z}\sigma_1+O(1)$.
+由秩一正交投影满足 $\sigma_2\conj P\sigma_2=\Id-P$, 直接验证 $\sigma_2\conj{N(\conj k)}\sigma_2=N(k)$, 结合 $\sigma_2\conj H\sigma_2=H$ 与 $Y(h(z))=Y(z)\dfrac{\ii z}{q_0}\sigma_1$, 知 $M$ 满足共轭与换叶对称性 \eqref{eq:Msym}.
+
+在 $z=\zeta_1=\ii W$ 处, $k(\zeta_1)=\ii b$、$\lambda(\zeta_1)=\ii\kappa$、$\lambda'(\zeta_1)=\dfrac{1+h_0^2}{2}$, 且 $Y(\zeta_1)=\begin{pmatrix}1&-h_0\\-h_0&1\end{pmatrix}$.
+取与 $\boldsymbol w$ 正交的非零向量 $\boldsymbol w_\perp=(-(1-h_0\conj T),\,\conj T-h_0)^T$, 则 $N(\ii b)=2\ii b(\Id-P)=\dfrac{2\ii b}{\Delta_-}\boldsymbol w_\perp\boldsymbol w_\perp^\dagger$.
+直接计算得 $\boldsymbol w_\perp^\dagger Y_1(\zeta_1)=h_0^2-1$ 与 $\boldsymbol w_\perp^\dagger Y_2(\zeta_1)=(1-h_0^2)T$, 因而
+\begin{equation*}
+N(\ii b)Y_2(\zeta_1)=-T\,N(\ii b)Y_1(\zeta_1).
+\end{equation*}
+由此得
+\begin{equation*}
+\Res_{z=\zeta_1}M_2(z)
+=H N(\ii b)Y_2(\zeta_1)\dfrac{2\ii}{1+h_0^2}
+=\dfrac{4\ii\kappa T}{1+h_0^2}\left(-\dfrac{1}{2\kappa}HN(\ii b)Y_1(\zeta_1)\right)
+=C_1M_1(\zeta_1).
+\end{equation*}
+结合对称性 \eqref{eq:Msym} 与配对关系 $C_2=-h_0^2\conj{C_1}$, 其余三个谱点处的留数条件自动成立.
+由定理 \ref{thm:N-orbit-RHP} 的唯一性, \eqref{eq:explicitM} 恰为该无反射 RHP 的唯一解.
+
+将 $M^{(1)}$ 代入 \eqref{eq:reconq} 得 $q=-q_0-4bP_{12}$.
+在共振原像处, 利用 \eqref{eq:diagE}、\eqref{eq:Rbg} 给出的 $Y\lambda\sg Y^{-1}=\ii U_\infty$ 与 $R_\infty=\dfrac{\ii\eta_0}{a}U_\infty(a)$, 以及 $N(a)^{-1}=\dfrac{N(a)^\dagger}{a^2+b^2}$, 代入 \eqref{eq:N-medium} 得
+\begin{equation*}
+R=\dfrac{HN(a)R_\infty N(a)^\dagger H^{-1}}{a^2+b^2},
+\end{equation*}
+再由 \eqref{eq:original-fields} 即得 \eqref{eq:finalfields}. 其余全局正则性、原 HMB 方程、边界条件、Bloch 约束与散射数据复原均由定理 \ref{thm:general-N-HMB-reconstruction} 直接保证.
 \end{proof}
 
-由式 \eqref{eq:F} 与 \eqref{eq:orbit-phase}, 可进一步精确刻画单孤子的包络传播、随动振荡与振幅上界.
-\begin{proposition}\label{prop:one-soliton-dynamics}
-对定理 \ref{thm:oneRHP} 中的单孤子解, 记传播因子 $F(\ii b)$ 的实部与虚部为
-\begin{align}
-&A_b=\operatorname{Re}F(\ii b)
-=-4\beta b^2-2\beta q_0^2-\dfrac{\eta_0}{a^2+b^2},\label{eq:velocity}\\
-&B_b=\operatorname{Im}F(\ii b)
-=-\alpha b-\dfrac{\eta_0b}{a(a^2+b^2)}.\label{eq:frequency}
-\end{align}
-在随动坐标 $X=x-A_bt$ 下, 若 $B_b\ne0$, 则 $|\widetilde q|$、$|\widetilde p|$ 与 $\eta$ 均关于时间以
-\begin{equation}\label{eq:internal-period}
-T_t=\dfrac{\pi}{\kappa|B_b|}
+取背景与离散谱参数
+\begin{equation}\label{eq:one-soliton-params}
+q_0=1,\qquad a=2,\qquad \eta_0=0.6,\qquad
+\alpha=1,\qquad \beta=0.1,\qquad b=1.5,
 \end{equation}
-为周期振荡; 当 $\alpha=-\dfrac{\eta_0}{a(a^2+b^2)}$ 时 $B_b=0$, 规范三场退化为关于 $X$ 的定形行波. 此外, 光场模满足精确上界
-\begin{equation}\label{eq:amplitude-bound}
-|\widetilde q(x,t)|\le q_0+2b,\qquad |\widetilde q(0,0)|=q_0+2b.
-\end{equation}
-\end{proposition}
-\begin{proof}
-在 $X=x-A_bt$ 中, 式 \eqref{eq:orbit-phase} 写为 $T=e^{2\kappa X}e^{-2\ii\kappa B_bt}$.
-当 $B_b\ne0$ 时, 固定 $X$, $T$ 以 $T_t=\dfrac{\pi}{\kappa|B_b|}$ 为时间周期, 从而 $P$、$N(a)$ 及 $|\widetilde q|$、$|\widetilde p|$、$\eta$ 均具有周期 $T_t$; 当 $B_b=0$ 时 $T=e^{2\kappa X}$ 仅依赖 $X$.
-再由 $P^2=P=P^\dagger$ 与 $\tr P=1$, 得 $|P_{12}|^2=P_{11}(1-P_{11})\le\dfrac{1}{4}$, 即 $|P_{12}|\le\dfrac{1}{2}$, 结合 \eqref{eq:finalfields} 有 $|\widetilde q|\le q_0+4b|P_{12}|\le q_0+2b$.
-在 $(x,t)=(0,0)$ 处, $T(0,0)=1$, 代入 \eqref{eq:algebraic-P} 得 $P_{12}(0,0)=\dfrac{1}{2}$, 故等号达到.
-\end{proof}
+范数常数由 \eqref{eq:onec} 给定, 图 \ref{fig:one} 展示了单孤子解三场 $|\widetilde q|$、$|\widetilde p|$ 与 $\eta$ 的时空分布.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/one-soliton-fields.pdf}
+\caption{单孤子三场分布, 参数见 \eqref{eq:one-soliton-params}, 绘图区间为 $x\in\lbrack-6,6\rbrack$、$t\in\lbrack-1.5,1.5\rbrack$. (a) 光场模 $|\widetilde q(x,t)|$. (b) 极化模 $|\widetilde p(x,t)|$. (c) 粒子数反转 $\eta(x,t)$.}
+\label{fig:one}
+\end{figure}
+
+由图 \ref{fig:one} 可见, 三场的局域扰动集中于同一条直线型包络轨迹并伴随沿轨迹的周期呼吸调制, 远离包络中心时分别平滑回归同相非零背景 $(1,0.3,0.6)$.
 
 \subsection{双孤子解}
 对 $N=2$, 任取两个互异的外部上半平面轨道代表
@@ -173,38 +117,34 @@ T_t=\dfrac{\pi}{\kappa|B_b|}
 4(\arg\zeta_1+\arg\zeta_2)\equiv0\pmod{2\pi},\qquad
 \arg\zeta_1+\arg\zeta_2\in\left\{\dfrac{\pi}{2},\,\pi,\,\dfrac{3\pi}{2}\right\}.
 \end{equation}
-与单孤子情形不同, 两个轨道代表不再受限于虚轴, 只要两幅角之和为 $\dfrac{\pi}{2}$ 的整数倍, 两个复轨道的端态相位因子便相互抵消而保持两端同相.
-
-令单轨道有理因子与总透射函数分别为
+与单孤子情形不同, 两个代表不必位于虚轴上, 只要幅角之和为 $\dfrac{\pi}{2}$ 的整数倍即可保持两端同相.
+相应透射函数为
 \begin{equation}\label{eq:two-orbit-s}
-s_n(z)=\dfrac{(z-\zeta_n)(z-\zeta_{2+n})}{(z-\conj{\zeta_n})(z-\conj{\zeta_{2+n}})},\qquad n=1,2,\qquad
-s(z)=s_1(z)s_2(z).
+s(z)=\prod\limits_{j=1}^{4}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}.
 \end{equation}
-任取非零初值范数常数 $c_1(0),c_2(0)\ne0$, 由 \eqref{eq:N-orbit-data} 确定配对常数与时空演化系数
+任取非零初值常数 $c_1(0),c_2(0)\ne0$, 由 \eqref{eq:N-orbit-data} 确定配对常数与时空系数
 \begin{equation}\label{eq:two-orbit-c}
 \begin{aligned}
 &c_{2+n}(0)=-\dfrac{q_0^2}{(\conj{\zeta_n})^2}\conj{c_n(0)},\qquad n=1,2,\\
 &C_j(x,t)=c_j(0)e^{2\ii\theta(x,t,\zeta_j)},\qquad j=1,2,3,4.
 \end{aligned}
 \end{equation}
-特别地, 若给定 $b_1(0),b_2(0)\ne0$ 并取 $c_n(0)=\dfrac{b_n(0)}{s'(\zeta_n)}$, 则由 $s'(\zeta_{2+n})h'(\conj{\zeta_n})=\conj{s'(\zeta_n)}$ 可知配对式 \eqref{eq:two-orbit-c} 恰对应 $b_{2+n}(0)=-\conj{b_n(0)}$.
 
-将定理 \ref{thm:N-orbit-RHP} 与定理 \ref{thm:general-N-HMB-reconstruction} 具体化至 $N=2$, 直接得到一般复双孤子解的紧凑行列式重构公式.
 \begin{theorem}\label{thm:two-soliton}
 设背景参数满足第 \ref{ch:model} 节的要求, 离散数据 \eqref{eq:two-orbit-reps}--\eqref{eq:two-orbit-c} 满足同相条件 \eqref{eq:two-orbit-phase}.
-记四阶矩阵 $A_{jk}=\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}}$, $B_{jk}=\dfrac{C_k}{\conj{\zeta_j}-\zeta_k}$ 及 $L_2=I_4+AB$, $1\le j,k\le4$, 令
+记四阶矩阵 $A_{jk}=\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}}$、$B_{jk}=\dfrac{C_k}{\conj{\zeta_j}-\zeta_k}$ 与 $L_2=I_4+AB$, $1\le j,k\le4$, 令
 \begin{equation}\label{eq:two-soliton-rhs}
 \boldsymbol C=(C_1,C_2,C_3,C_4)^T,\qquad
 r_j=1+\ii q_0\sum\limits_{k=1}^{4}\dfrac{\conj{C_k}}{(\zeta_j-\conj{\zeta_k})\conj{\zeta_k}},\qquad j=1,2,3,4.
 \end{equation}
-则对任意 $(x,t)\in\mathbb R^2$, 有 $\det L_2(x,t)>0$, 留数系统 \eqref{eq:finite-schur} 唯一确定 $4\times2$ 矩阵 $\boldsymbol v=L_2^{-1}(\boldsymbol f-A\boldsymbol g)$ 与 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$, 相应双孤子物理三场为
+则对任意 $(x,t)\in\mathbb R^2$ 均有 $\det L_2(x,t)>0$, 留数系统 \eqref{eq:finite-schur} 唯一确定 $4\times2$ 矩阵 $\boldsymbol v=L_2^{-1}(\boldsymbol f-A\boldsymbol g)$ 与 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$, 双孤子物理三场为
 \begin{align}
 &\widetilde q(x,t)=e^{-\ii\Omega t}
 \dfrac{\det\begin{pmatrix}L_2&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}}{\det L_2},\label{eq:two-soliton-q}\\
 &\widetilde p(x,t)=-e^{-\ii\Omega t}R_{12}(x,t),\qquad
 \eta(x,t)=R_{11}(x,t),\label{eq:two-soliton-p-eta}
 \end{align}
-其中介质矩阵为
+其中介质矩阵由共振原像处的取值给出:
 \begin{equation}\label{eq:two-soliton-R}
 \begin{aligned}
 &R(x,t)=\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(x,t,z_a^\pm)\sg M(x,t,z_a^\pm)^{-1},\\
@@ -213,66 +153,23 @@ r_j=1+\ii q_0\sum\limits_{k=1}^{4}\dfrac{\conj{C_k}}{(\zeta_j-\conj{\zeta_k})\co
 -\dfrac{\conj{C_j}\boldsymbol u_je_1^T}{z_a^\pm-\conj{\zeta_j}}\right).
 \end{aligned}
 \end{equation}
-三场在 $\mathbb R^2$ 上光滑, 满足原 HMB 系统 \eqref{eq:HMB}、非零边界条件 \eqref{eq:targetboundary}、$I=\mathbb R$ 时的基本条件 \eqref{eq:physical-regularity} 及 Bloch 约束 \eqref{eq:C}, 空间端态误差在任意时间紧区间上均为 $O(e^{-2\delta|x|})$, 其中 $\delta=\min\{\operatorname{Im}\lambda(\zeta_1),\operatorname{Im}\lambda(\zeta_2)\}>0$; 其直接散射数据无反射, 且精确复原透射函数 \eqref{eq:two-orbit-s} 与范数常数 \eqref{eq:two-orbit-c}.
+三场在 $\mathbb R^2$ 上光滑, 满足原 HMB 系统 \eqref{eq:HMB}、非零边界条件 \eqref{eq:targetboundary}、$I=\mathbb R$ 时的基本条件 \eqref{eq:physical-regularity} 及 Bloch 约束 \eqref{eq:C}, 且直接散射数据无反射并精确复原 \eqref{eq:two-orbit-s}--\eqref{eq:two-orbit-c}.
 \end{theorem}
 \begin{proof}
-数据 \eqref{eq:two-orbit-reps}--\eqref{eq:two-orbit-c} 构成 $N=2$ 时的同相背景无反射数据.
-由引理 \ref{lem:general-N-nondegeneracy} 知 $\det L_2(x,t)>0$ 全局成立; 将 $m=4$ 代入 \eqref{eq:original-fields} 与定理 \ref{thm:N-orbit-RHP} 即得 \eqref{eq:two-soliton-q}--\eqref{eq:two-soliton-R}.
-其余全局光滑性、HMB 方程、边界条件、Bloch 约束与直接散射复原均直接由定理 \ref{thm:general-N-HMB-reconstruction} 推出.
+数据 \eqref{eq:two-orbit-reps}--\eqref{eq:two-orbit-c} 满足 $N=2$ 时的定义 \ref{def:orbit-data}. 引理 \ref{lem:general-N-nondegeneracy} 给出 $\det L_2>0$ 全局成立, 将 $m=4$ 代入 \eqref{eq:original-fields} 与定理 \ref{thm:N-orbit-RHP} 即得 \eqref{eq:two-soliton-q}--\eqref{eq:two-soliton-R}, 其余结论均直接由定理 \ref{thm:general-N-HMB-reconstruction} 保证.
 \end{proof}
 
-为刻画双孤子的传播速度、呼吸振荡与弹性碰撞, 对每个轨道 $n\in\{1,2\}$ 定义包络速度与随动角频率
-\begin{equation}\label{eq:two-orbit-vel-freq}
-v_n=\dfrac{\operatorname{Im}\bigl(\lambda(\zeta_n)F(k(\zeta_n))\bigr)}{\operatorname{Im}\lambda(\zeta_n)},\qquad
-\omega_n=-\dfrac{2|\lambda(\zeta_n)|^2\operatorname{Im}F(k(\zeta_n))}{\operatorname{Im}\lambda(\zeta_n)}.
+保持背景参数 $q_0=1$、$a=2$、$\eta_0=0.6$、$\alpha=1$、$\beta=0.1$ 不变, 选取满足同相条件 \eqref{eq:two-orbit-phase} 的一般复谱代表
+\begin{equation}\label{eq:two-soliton-params}
+\zeta_1=2q_0e^{\ii\frac{\pi}{3}},\qquad
+\zeta_2=3q_0e^{\ii\frac{2\pi}{3}},
 \end{equation}
-引入随动坐标 $X_n=x-v_nt$, 直接计算相位指数得
-\begin{equation}\label{eq:two-orbit-comoving}
-2\ii\theta(x,t,\zeta_n)
-=2\operatorname{Im}\lambda(\zeta_n)\,X_n
-+\ii\bigl(-2\operatorname{Re}\lambda(\zeta_n)\,X_n+\omega_nt\bigr).
-\end{equation}
-当 $\zeta_n$ 位于虚轴外时, $\operatorname{Re}\lambda(\zeta_n)\ne0$, 波包内部兼具空间相位调制与频率为 $|\omega_n|$ 的呼吸振荡\cite{ZCY2020}, 对应随动呼吸周期 $T_{t,n}=\dfrac{2\pi}{|\omega_n|}$; 当 $\zeta_n$ 退化至正虚轴时, $\lambda(\zeta_n)=\ii\kappa$, 式 \eqref{eq:two-orbit-vel-freq} 自动回到 \eqref{eq:velocity}--\eqref{eq:internal-period}.
+并取 $c_n(0)=\dfrac{1}{s'(\zeta_n)}$, $n=1,2$, 其余谱点与范数常数按 \eqref{eq:two-orbit-partners} 与 \eqref{eq:two-orbit-c} 确定. 对应的双孤子三场分布如图 \ref{fig:two} 所示.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/two-soliton-fields.pdf}
+\caption{双孤子三场分布, 背景参数同 \eqref{eq:one-soliton-params}, 谱点见 \eqref{eq:two-soliton-params}, $c_n(0)=\dfrac{1}{s'(\zeta_n)}$, $n=1,2$, 绘图区间为 $x\in\lbrack-8,8\rbrack$、$t\in\lbrack-2.5,2.5\rbrack$. (a) 光场模 $|\widetilde q(x,t)|$. (b) 极化模 $|\widetilde p(x,t)|$. (c) 粒子数反转 $\eta(x,t)$.}
+\label{fig:two}
+\end{figure}
 
-\begin{proposition}\label{prop:two-soliton-interaction}
-在定理 \ref{thm:two-soliton} 的条件下, 设两个轨道的包络速度满足 $v_1<v_2$.
-则当 $t\to\pm\infty$ 时, 双孤子解渐近分解为沿射线 $x-v_1t=O(1)$ 与 $x-v_2t=O(1)$ 传播的两个局域波包, 碰撞后各自保持原有的传播速度、衰减率与呼吸周期, 仅产生相位调制与包络位移:
-\begin{equation}\label{eq:two-soliton-shift}
-\Delta x_1=\dfrac{\ln|s_2(\zeta_1)|}{\operatorname{Im}\lambda(\zeta_1)}<0,\qquad
-\Delta x_2=-\dfrac{\ln|s_1(\zeta_2)|}{\operatorname{Im}\lambda(\zeta_2)}>0,
-\end{equation}
-且满足 $|s_2(\zeta_1)|=|s_1(\zeta_2)|\in(0,1)$ 与加权位移守恒关系
-\begin{equation}\label{eq:shift-conservation}
-\operatorname{Im}\lambda(\zeta_1)\Delta x_1+\operatorname{Im}\lambda(\zeta_2)\Delta x_2=0.
-\end{equation}
-\end{proposition}
-\begin{proof}
-沿第一条射线固定 $X_1=x-v_1t=O(1)$, 由 \eqref{eq:two-orbit-comoving} 知
-\begin{equation*}
-\operatorname{Re}\bigl(2\ii\theta(x,t,\zeta_2)\bigr)
-=2\operatorname{Im}\lambda(\zeta_2)\bigl[X_1+(v_1-v_2)t\bigr].
-\end{equation*}
-当 $t\to+\infty$ 时, 因 $v_1<v_2$ 且 $\operatorname{Im}\lambda(\zeta_2)>0$, 有 $C_2,C_4\to0$ 呈指数衰减, 留数系统中第二轨道退耦, 矩阵 $M$ 与光场 $q$ 指数收敛于仅含第一轨道且范数常数为 $c_1(0)$ 的单轨道解.
-
-当 $t\to-\infty$ 时, $C_2^{-1},C_4^{-1}\to0$ 呈指数衰减. 记 $s_2(0)=e^{\ii\varphi_2}$, 引入穿衣变换
-\begin{equation*}
-M(z)=e^{\frac{\ii\varphi_2}{2}\sg}\widetilde M(z)e^{-\frac{\ii\varphi_2}{2}\sg}
-\diag\bigl(s_2(z),s_2(z)^{-1}\bigr).
-\end{equation*}
-结合 $e^{-\frac{\ii\varphi_2}{2}\sg}\sigma_1e^{-\ii\varphi_2\sg}e^{\frac{\ii\varphi_2}{2}\sg}=\sigma_1$, $\widetilde M$ 保持相同的无穷远与原点归一化, 且在 $\zeta_1$ 处满足留数关系
-\begin{equation*}
-\Res_{z=\zeta_1}\widetilde M_2(z)
-=\dfrac{s_2(\zeta_1)^2}{s_2(0)}C_1\widetilde M_1(\zeta_1).
-\end{equation*}
-利用 $s_2(h(\conj z))=s_2(0)\conj{s_2(z)}$, 伴随极点 $\zeta_3$ 处的有效留数系数满足 $\dfrac{s_2(\zeta_3)^2}{s_2(0)}=\conj{\left(\dfrac{s_2(\zeta_1)^2}{s_2(0)}\right)}$, 仍满足配对关系 \eqref{eq:Cpair}.
-由于第二轨道的缩放变量在 $t\to-\infty$ 时按引理 \ref{lem:general-N-endstates} 同理消去 $\widetilde M$ 在 $\zeta_2,\zeta_4$ 处的极点, $\widetilde M$ 指数收敛于有效初值常数为 $c_1^{(-)}(0)=\dfrac{s_2(\zeta_1)^2}{s_2(0)}c_1(0)$ 的第一单轨道解, 相应规范光场为 $q\sim s_2(0)\widetilde q_1$.
-比较 $t\to+\infty$ 与 $t\to-\infty$ 时有效系数的模长 $|c_1(0)|$ 与 $|c_1^{(-)}(0)|=|c_1(0)||s_2(\zeta_1)|^2$, 由 $2\operatorname{Im}\lambda(\zeta_1)\Delta x_1=\ln|c_1^{(-)}(0)|-\ln|c_1(0)|=2\ln|s_2(\zeta_1)|$, 即得 $\Delta x_1=\dfrac{\ln|s_2(\zeta_1)|}{\operatorname{Im}\lambda(\zeta_1)}$.
-
-沿第二条射线 $X_2=x-v_2t=O(1)$ 同理分析: $t\to-\infty$ 时 $C_1,C_3\to0$, 第二轨道保持原常数 $c_2(0)$; $t\to+\infty$ 时 $C_1^{-1},C_3^{-1}\to0$, 穿衣有效常数为 $c_2^{(+)}(0)=\dfrac{s_1(\zeta_2)^2}{s_1(0)}c_2(0)$, 从而 $\Delta x_2=-\dfrac{\ln|s_1(\zeta_2)|}{\operatorname{Im}\lambda(\zeta_2)}$.
-
-最后, 由 $\zeta_3=-\dfrac{q_0^2}{\conj{\zeta_1}}$ 与 $\zeta_4=-\dfrac{q_0^2}{\conj{\zeta_2}}$ 直接计算模长比, 得
-\begin{equation*}
-|s_2(\zeta_1)|=\left|\dfrac{(\zeta_1-\zeta_2)(\zeta_1\conj{\zeta_2}+q_0^2)}{(\zeta_1-\conj{\zeta_2})(\zeta_1\zeta_2+q_0^2)}\right|=|s_1(\zeta_2)|.
-\end{equation*}
-因 $\operatorname{Im}\zeta_1,\operatorname{Im}\zeta_2>0$, 有 $|\zeta_1-\zeta_2|^2-|\zeta_1-\conj{\zeta_2}|^2=-4\operatorname{Im}\zeta_1\operatorname{Im}\zeta_2<0$ 以及 $|\zeta_1\conj{\zeta_2}+q_0^2|^2-|\zeta_1\zeta_2+q_0^2|^2=-4q_0^2\operatorname{Im}\zeta_1\operatorname{Im}\zeta_2<0$, 故 $0<|s_2(\zeta_1)|=|s_1(\zeta_2)|<1$. 由此立即得到 \eqref{eq:two-soliton-shift} 的符号与 \eqref{eq:shift-conservation}.
-\end{proof}
+图 \ref{fig:two} 显示, 两个分别对应一般复轨道的局域呼吸波包反向传播, 在原点附近发生相干叠加后再次分离为两支独立传播的波包, 远离两条轨迹处三场均回归同一非零背景 $(1,0.3,0.6)$.

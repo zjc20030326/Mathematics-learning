@@ -1,6 +1,5 @@
 {
   "method": "Equilibrated direct residue solve (4x4 one-orbit and 8x8 two-orbit); infinity/resonance reconstruction",
-  "variables": "x,t; k original spectral parameter; lambda background root; z uniformization; output q,p are original tilded fields",
   "parameters": {
     "q0": 1.0,
     "a": 2.0,
@@ -9,126 +8,21 @@
     "beta": 0.1,
     "b": 1.5
   },
-  "grid": {
-    "x_min": -6,
-    "x_max": 6,
-    "x_count": 401,
-    "t_min": -1.5,
-    "t_max": 1.5,
-    "t_count": 251
-  },
-  "surface_grid": {
-    "x_count": 121,
-    "t_count": 101,
-    "rule": "separate analytic sampling grid for vector surface rendering"
-  },
   "figure_layout": {
-    "fields": "3 rows by 2 columns; optical, polarization, inversion; surfaces left and contour maps right",
+    "fields": "1 row by 3 columns filled contours with per-panel horizontal colorbars: |q|, |p|, eta",
     "width_mm": 146.4,
-    "heights_mm": {
-      "fields": 165,
-      "dynamics": 88,
-      "velocity": 78,
-      "two_fields": 165,
-      "two_interaction": 88
-    },
-    "field_color_limits": {
-      "q": [
-        0,
-        4
-      ],
-      "p": [
-        0,
-        0.6708203932499369
-      ],
-      "eta": [
-        -0.6708203932499369,
-        0.6708203932499369
-      ]
-    },
-    "rasterized_layers": "filled contour maps and colorbar fills at 600 dpi; all surfaces, axes, text and trajectories remain vector"
+    "height_mm": 68
   },
-  "base_errors": {
-    "scaled_linear_residual": 8.448410592419093e-16,
-    "Bloch_error": 6.726272082619646e-16,
-    "eta_imaginary": 4.579669976578771e-16
-  },
-  "high_precision_comparison_points": [
-    [
-      "-1.2",
-      "-.35"
-    ],
-    [
-      "0",
-      "0"
-    ],
-    [
-      ".37",
-      ".21"
-    ],
-    [
-      "1.4",
-      "-.1"
-    ],
-    [
-      "2.3",
-      ".6"
-    ]
-  ],
-  "high_precision_comparison_q_p_eta": [
-    9.485749680535094e-16,
-    2.194270917860438e-16,
-    1.2412670766236366e-16
-  ],
-  "dynamics": {
-    "profile_t_over_T": [
-      0,
-      0.25,
-      0.5
-    ],
-    "alpha_cases": [
-      {
-        "alpha": -0.048,
-        "A_b": -1.1960000000000002,
-        "B_b": 1.3877787807814457e-17,
-        "T_t": null
-      },
-      {
-        "alpha": 0.5,
-        "A_b": -1.1960000000000002,
-        "B_b": -0.822,
-        "T_t": 3.4184013289735895
-      },
-      {
-        "alpha": 1.0,
-        "A_b": -1.1960000000000002,
-        "B_b": -1.572,
-        "T_t": 1.787484664386953
-      }
-    ],
-    "beta_cases": [
-      {
-        "beta": 0.0,
-        "A_b": -0.096,
-        "B_b": -1.572,
-        "T_t": 1.787484664386953,
-        "errors": {
-          "scaled_linear_residual": 9.65405288049483e-16,
-          "Bloch_error": 7.218348810931987e-16,
-          "eta_imaginary": 3.885780586188048e-16
-        }
-      },
-      {
-        "beta": 0.15,
-        "A_b": -1.746,
-        "B_b": -1.572,
-        "T_t": 1.787484664386953,
-        "errors": {
-          "scaled_linear_residual": 9.599460689304613e-16,
-          "Bloch_error": 8.8820315404745e-16,
-          "eta_imaginary": 5.412337245047638e-16
-        }
-      }
+  "one_soliton": {
+    "errors": {
+      "scaled_linear_residual": 8.448410592419093e-16,
+      "Bloch_error": 6.726272082619646e-16,
+      "eta_imaginary": 4.579669976578771e-16
+    },
+    "high_precision_comparison_q_p_eta": [
+      9.485749680535094e-16,
+      2.194270917860438e-16,
+      1.2412670766236366e-16
     ]
   },
   "two_soliton": {
@@ -137,10 +31,6 @@
       "Bloch_error": 2.224087341773605e-15,
       "eta_imaginary": 1.5135462327897642e-15
     },
-    "v1": -1.9265027322404369,
-    "v2": 1.3553121852970784,
-    "Delta_x1": -0.5624480004048381,
-    "Delta_x2": 0.3163770002277219,
     "high_precision_comparison_q_p_eta": [
       2.886579864025407e-15,
       4.2140571654244983e-16,
@@ -166,51 +56,46 @@
     "analytic-regions.pdf",
     "discrete-spectrum.pdf",
     "one-soliton-fields.pdf",
-    "one-soliton-dynamics.pdf",
-    "one-soliton-velocity.pdf",
-    "two-soliton-fields.pdf",
-    "two-soliton-interaction.pdf"
+    "two-soliton-fields.pdf"
   ],
   "figure_qa": {
-    "two-soliton-fields": {
+    "one-soliton-fields": {
       "alignment_verdict": "PASS",
       "alignment_counts": {
         "fail": 0,
         "warn": 0,
-        "comparisons": 5,
+        "comparisons": 2,
         "exemptions": 0
       },
       "text_exit": 0,
       "collision_exit": 0,
-      "minimum_glyph_pt": 6.641509434,
-      "collision_verdict": "REVIEW REQUIRED",
-      "collision_counts": {
-        "fail": 0,
-        "warn": 9,
-        "contained_fill_overlays": 3,
-        "contained_image_overlays": 0
-      },
-      "manual_review": "Pending explicit review of the final PDF findings; see figure acceptance notes."
-    },
-    "two-soliton-interaction": {
-      "alignment_verdict": "PASS",
-      "alignment_counts": {
-        "fail": 0,
-        "warn": 0,
-        "comparisons": 1,
-        "exemptions": 0
-      },
-      "text_exit": 0,
-      "collision_exit": 0,
-      "minimum_glyph_pt": 7.35,
+      "minimum_glyph_pt": 6.335106383,
       "collision_verdict": "PASS",
       "collision_counts": {
         "fail": 0,
         "warn": 0,
         "contained_fill_overlays": 0,
         "contained_image_overlays": 0
+      }
+    },
+    "two-soliton-fields": {
+      "alignment_verdict": "PASS",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 2,
+        "exemptions": 0
       },
-      "manual_review": "No collision warnings."
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 6.335106383,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
     }
   }
 }

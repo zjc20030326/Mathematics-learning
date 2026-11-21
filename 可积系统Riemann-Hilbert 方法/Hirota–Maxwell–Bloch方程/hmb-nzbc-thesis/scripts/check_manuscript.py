@@ -111,7 +111,7 @@ def source_checks():
     assert len(labels) == len(set(labels)), 'duplicate labels'
     assert not set(refs)-set(labels), sorted(set(refs)-set(labels))
     main = files[0].read_text(encoding='utf-8-sig')
-    assert len(re.findall(r'\\section\{', main)) == 8
+    assert len(re.findall(r'\\section\{', main)) == 7
     assert r'\chapter{' not in main
     assert r'\begin{abstract' not in main
     assert r'\PassOptionsToPackage{fleqn}{amsmath}' not in main
@@ -120,7 +120,7 @@ def source_checks():
     assert not re.search(r'\\(?:textbf|bfseries|paragraph)\b', body)
     assert not re.search(r'\\begin\{(?:theorem|proposition|lemma|definition)\}\[', body)
     subsection_count = len(re.findall(r'\\subsection\{', body))
-    assert subsection_count == 17, ('unexpected subsection count', subsection_count)
+    assert subsection_count == 14, ('unexpected subsection count', subsection_count)
     assert len(re.findall(r'\\begin\{definition\}', body)) == 2
     assert r'S_{\rm sp}' not in body and r'\rho_{\rm sp}' not in body
     direct = (ROOT/'section/03-direct-scattering.tex').read_text(encoding='utf-8')
@@ -146,7 +146,7 @@ def source_checks():
     assert not citations-keys, sorted(citations-keys)
     return {'tex_files': len(files), 'labels': len(labels), 'references': len(refs),
             'balanced_delimiters_environments_braces': True,
-            'eight_continuous_sections': True, 'forbidden_forms_absent': True,
+            'seven_continuous_sections': True, 'forbidden_forms_absent': True,
             'subsections': subsection_count,
             'spatial_Jost_then_time_evolution_with_single_scattering_matrix': True,
             'cited_bibliography_entries': len(citations),
@@ -170,7 +170,7 @@ def main():
     document = pymupdf.open(pdf)
     outline = document.get_toc()
     sections = [row for row in outline if re.match(r'^[1-9]\. ', row[1])]
-    assert len(sections) == 8 and all(row[0] == 1 for row in sections), sections
+    assert len(sections) == 7 and all(row[0] == 1 for row in sections), sections
     assert not any(re.match(r'^0\.', row[1]) for row in outline)
     blanks = [i+1 for i, page in enumerate(document) if len(page.get_text().strip()) < 20]
     assert not blanks, blanks

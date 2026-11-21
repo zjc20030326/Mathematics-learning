@@ -1,12 +1,12 @@
 {
   "sources": {
-    "tex_files": 9,
-    "labels": 235,
-    "references": 513,
+    "tex_files": 8,
+    "labels": 207,
+    "references": 442,
     "balanced_delimiters_environments_braces": true,
-    "eight_continuous_sections": true,
+    "seven_continuous_sections": true,
     "forbidden_forms_absent": true,
-    "subsections": 17,
+    "subsections": 14,
     "spatial_Jost_then_time_evolution_with_single_scattering_matrix": true,
     "cited_bibliography_entries": 18,
     "citation_source_files": [
@@ -16,8 +16,7 @@
       "04-evolution-resonance.tex",
       "05-rhp-reconstruction.tex",
       "06-reflectionless.tex",
-      "07-hmb-verification.tex",
-      "08-numerics.tex"
+      "07-hmb-verification.tex"
     ],
     "first_citation_order": [
       "PN1995",
@@ -130,7 +129,7 @@
     "source_aux_numbers_and_bbl_order_match": true
   },
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 49,
+  "pdf_pages": 40,
   "top_level_sections": [
     [
       1,
@@ -140,7 +139,7 @@
     [
       1,
       "2. HMB 模型、基本条件与背景谱问题",
-      3
+      2
     ],
     [
       1,
@@ -165,22 +164,17 @@
     [
       1,
       "7. 孤子解的显式构造",
-      36
-    ],
-    [
-      1,
-      "8. 数值结果与动力学分析",
-      42
+      34
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 598,
+  "pdf_links_checked": 522,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "b255925ee601e625cbf6220feda8bcb9982bbebce4d05f5644208e7819785e54",
-  "visual_review": "Inspected TOC, Section 6.2, Section 7.1-7.2, Section 8.2-8.3 pages and both two-soliton figures; layout, formulas, tables, and references verified."
+  "pdf_sha256": "a892c950f98effd3e8d2c7253b6efc72bd654a2f277d22f4507be1c51db4b21e",
+  "visual_review": "Verified 7-section 40-page PDF: TOC, Section 6 general theory, Section 7.1-7.2 formulas (7.1)-(7.18), 3-panel figures 7.1-7.2, and 18 references."
 }
