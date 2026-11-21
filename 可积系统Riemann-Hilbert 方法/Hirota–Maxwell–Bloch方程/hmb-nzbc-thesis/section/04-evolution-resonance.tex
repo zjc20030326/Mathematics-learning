@@ -1,5 +1,5 @@
 % !TeX root = ../fduthesis.tex
-本节在基本条件 \eqref{eq:evolution-regularity} 与规范 HMB 系统 \eqref{eq:gauged-HMB} 下, 确定空间 Jost 矩阵、散射矩阵及离散谱数据的时间演化规律, 并证明共振原像处的相容条件与零反射性质.
+本节在规范 HMB 系统 \eqref{eq:gauged-HMB} 与基本条件 \eqref{eq:evolution-regularity} 下, 确定空间 Jost 矩阵、散射矩阵及离散谱数据的时间演化规律, 并证明共振原像处的相容条件与零反射性质.
 在 $k(z)\ne a$ 处, 记完整时空相位为
 \begin{equation}\label{eq:theta}
     \theta(x,t,z)=-\lambda(z)[x-F(k(z))t].
@@ -7,7 +7,7 @@
 由 \eqref{eq:F} 中的 $V_\infty=-FU_\infty$ 及 \eqref{eq:diagE}, 得 $V_\infty Y=\ii\lambda FY\sg$. 结合 \eqref{eq:theta} 可知, $Y(z)e^{\ii\theta(x,t,z)\sg}$ 满足对应于 \eqref{eq:gaugelax} 与 \eqref{eq:background-spatial}--\eqref{eq:F} 的背景 Lax 对 $\phi_x=U_\infty\phi,\ \phi_t=V_\infty\phi$.
 
 \begin{proposition}\label{prop:evolution}
-    设三场满足基本条件 \eqref{eq:evolution-regularity} 及规范 HMB 系统 \eqref{eq:gauged-HMB}. 对谱参数 $z\in\Sigma\mathbin{\backslash}\{0,z_a^\pm,z_b^\pm\}$,
+    设三场满足规范 HMB 系统 \eqref{eq:gauged-HMB} 及基本条件 \eqref{eq:evolution-regularity}. 对谱参数 $z\in\Sigma\mathbin{\backslash}\{0,z_a^\pm,z_b^\pm\}$,
     空间 Jost 矩阵及其修正矩阵满足
     \begin{align}
          & \chi_{\pm,t}(x,t,z)=V(x,t,z)\chi_\pm(x,t,z)-\ii\lambda F\chi_\pm(x,t,z)\sg,\label{eq:chi-time} \\
@@ -39,7 +39,7 @@
     \begin{equation*}
         (Z_\pm)_x=UZ_\pm+\ii\lambda Z_\pm\sg.
     \end{equation*}
-    在 $x\to\pm\infty$ 处, 结合 $\mu_{\pm,t}\to0$、端态归一化 \eqref{eq:modified-jost-bc}、\eqref{eq:gauged-V}、\eqref{eq:F} 中的 $V\to V_\infty$ 以及 $V_\infty Y=\ii\lambda FY\sg$, 有 $Z_\pm\to0$.
+    在 $x\to\pm\infty$ 处, 结合 $\mu_{\pm,t}\to0$、\eqref{eq:gauged-V} 与 \eqref{eq:F} 中的 $V\to V_\infty$、端态归一化 \eqref{eq:modified-jost-bc} 以及 $V_\infty Y=\ii\lambda FY\sg$, 有 $Z_\pm\to0$.
     对各列应用定理 \ref{thm:jost} 中的 Volterra 唯一性, 得 $Z_\pm=0$, 即 \eqref{eq:mu-time}.
     由 \eqref{eq:modified-jost} 将 \eqref{eq:mu-time} 右乘 $e^{-\ii\lambda x\sg}$, 即得 \eqref{eq:chi-time}; 同样的逐列论证适用于各解析列.
 
@@ -108,7 +108,7 @@
 \end{equation}
 
 \begin{proposition}\label{prop:resonance}
-    固定 $t\in I$. 设三场满足基本条件 \eqref{eq:evolution-regularity} 及 \eqref{eq:gauged-HMB} 中的两条介质方程. 则在每个共振原像,
+    固定 $t\in I$. 设三场满足 \eqref{eq:gauged-HMB} 中的两条介质方程及基本条件 \eqref{eq:evolution-regularity}. 则在每个共振原像,
     \begin{equation}\label{eq:resonance-conjugation}
         \mu_\pm(x,t,z_a^\pm)^{-1}R(x,t)\mu_\pm(x,t,z_a^\pm)
         =\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sg.
@@ -129,7 +129,7 @@
         =\mu_\pm(z_a)^{-1}(R_x-[U(a),R])\mu_\pm(z_a)=0,
     \end{equation*}
     即 $\partial_x\bigl(e^{\ii\lambda(z_a)x\widehat{\sigma}_3}B_\pm\bigr)=0$.
-    由 \eqref{eq:Rbg} 与背景对角化关系 \eqref{eq:diagE}, 有
+    由背景对角化关系 \eqref{eq:diagE} 与 \eqref{eq:Rbg}, 有
     \begin{equation*}
         Y(z_a)^{-1}R_\infty Y(z_a)=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
     \end{equation*}
