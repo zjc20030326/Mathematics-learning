@@ -35,3 +35,6 @@
 *.gls
 *.glsdefs
 *.glstex
+
+# Local thesis staging/backup folder
+可积系统Riemann-Hilbert 方法/HMB论文暂存/
