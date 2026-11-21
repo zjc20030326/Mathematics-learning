@@ -31,7 +31,7 @@ H=\diag(\ii,-\ii),\\
 \end{pmatrix}.
 \end{aligned}
 \end{equation}
-显然 $P$ 为秩一正交投影矩阵, 满足 $P^\dagger=P$、$P^2=P$ 与 $\tr P=1$.
+因 $0<h_0<1$, 向量 $\boldsymbol w$ 不为零, 从而 $\Delta_-=\boldsymbol w^\dagger\boldsymbol w>0$. 因此 $P$ 为秩一正交投影矩阵, 满足 $P^\dagger=P$、$P^2=P$ 与 $\tr P=1$.
 
 \begin{theorem}\label{thm:oneRHP}
 在背景参数 $q_0>0$、$a\ne0$、$\eta_0\ne0$、$\alpha,\beta\in\mathbb R$ 与 $b>q_0$ 下, 数据 \eqref{eq:onezeros}--\eqref{eq:onec} 对应的无反射 RHP 对任意 $(x,t)\in\mathbb R^2$ 有唯一解
@@ -64,18 +64,15 @@ M^{(1)}=H(2\ii b\Id-4\ii bP-\ii q_0\sigma_1-2\ii\kappa\sg)H^{-1};
 由秩一正交投影满足 $\sigma_2\conj P\sigma_2=\Id-P$, 直接验证 $\sigma_2\conj{N(\conj k)}\sigma_2=N(k)$, 结合 $\sigma_2\conj H\sigma_2=H$ 与 $Y(h(z))=Y(z)\dfrac{\ii z}{q_0}\sigma_1$, 知 $M$ 满足共轭与换叶对称性 \eqref{eq:Msym}.
 
 在 $z=\zeta_1=\ii W$ 处, $k(\zeta_1)=\ii b$、$\lambda(\zeta_1)=\ii\kappa$、$\lambda'(\zeta_1)=\dfrac{1+h_0^2}{2}$, 且 $Y(\zeta_1)=\begin{pmatrix}1&-h_0\\-h_0&1\end{pmatrix}$.
-取与 $\boldsymbol w$ 正交的非零向量 $\boldsymbol w_\perp=(-(1-h_0\conj T),\,\conj T-h_0)^T$, 则 $N(\ii b)=2\ii b(\Id-P)=\dfrac{2\ii b}{\Delta_-}\boldsymbol w_\perp\boldsymbol w_\perp^\dagger$.
-直接计算得 $\boldsymbol w_\perp^\dagger Y_1(\zeta_1)=h_0^2-1$ 与 $\boldsymbol w_\perp^\dagger Y_2(\zeta_1)=(1-h_0^2)T$, 因而
-\begin{equation*}
-N(\ii b)Y_2(\zeta_1)=-T\,N(\ii b)Y_1(\zeta_1).
-\end{equation*}
-由此得
-\begin{equation*}
-\Res_{z=\zeta_1}M_2(z)
-=H N(\ii b)Y_2(\zeta_1)\dfrac{2\ii}{1+h_0^2}
-=\dfrac{4\ii\kappa T}{1+h_0^2}\left(-\dfrac{1}{2\kappa}HN(\ii b)Y_1(\zeta_1)\right)
+由投影表达式 \eqref{eq:algebraic-P}, 代入 $Y(\zeta_1)$ 直接计算得
+\[
+(\Id-P)Y_2(\zeta_1)=-T(\Id-P)Y_1(\zeta_1).
+\]
+又 $N(\ii b)=2\ii b(\Id-P)$、$\lambda'(\zeta_1)=\dfrac{1+h_0^2}{2}$, 故
+\[
+\Res_{z=\zeta_1}M_2(z)=\dfrac{4\ii\kappa T}{1+h_0^2}M_1(\zeta_1)
 =C_1M_1(\zeta_1).
-\end{equation*}
+\]
 结合对称性 \eqref{eq:Msym} 与配对关系 $C_2=-h_0^2\conj{C_1}$, 其余三个谱点处的留数条件自动成立.
 由定理 \ref{thm:N-orbit-RHP} 的唯一性, \eqref{eq:explicitM} 恰为该无反射 RHP 的唯一解.
 
