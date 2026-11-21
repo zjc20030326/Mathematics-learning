@@ -203,28 +203,46 @@ Y_{q_+}(z)=\begin{pmatrix}1&-\dfrac{\ii q_+}{z}\\-\dfrac{\ii\conj{q_+}}{z}&1\end
 若再满足同相条件 \eqref{eq:N-orbit-phase}, 则 $s(0)=1$、$q_+=q_0$, 重构三场的端态与 \eqref{eq:targetboundary} 一致.
 \end{lemma}
 \begin{proof}
-由 $\lambda(\zeta_{N+n})=-\conj{\lambda(\zeta_n)}$ 知对一切 $j=1,\ldots,m$ 有 $\operatorname{Im}\lambda(\zeta_j)\ge\delta>0$.
-由 \eqref{eq:theta}、\eqref{eq:N-orbit-data} 及 $c_j(0)\ne0$, 对任意整数 $r,s\ge0$, 在 $t\in J$ 上一致地有: 当 $x\to-\infty$ 时 $\partial_x^r\partial_t^s C_j=O(e^{2\delta x})$, 当 $x\to+\infty$ 时 $\partial_x^r\partial_t^s(C_j^{-1})=O(e^{-2\delta x})$.
+由 $\lambda(\zeta_{N+n})=-\conj{\lambda(\zeta_n)}$, 所有 $\zeta_j$ 均满足 $\operatorname{Im}\lambda(\zeta_j)\ge\delta>0$. 结合相位 \eqref{eq:theta} 与 \eqref{eq:N-orbit-data}, 对任意固定阶的 $x,t$ 导数, 在 $t\in J$ 上一致有
+\[
+C_j=O(e^{2\delta x})\quad(x\to-\infty),\qquad
+C_j^{-1}=O(e^{-2\delta x})\quad(x\to+\infty).
+\]
+这些估计也适用于相应的固定阶导数. 当 $x\to-\infty$ 时, $A,B=O(e^{2\delta x})$, 从 \eqref{eq:finite-schur} 及 \eqref{eq:partialfraction} 得
+\[
+M(x,t,z)=Y(z)+O(e^{2\delta x}).
+\]
 
-当 $x\to-\infty$ 时, $A,B$ 及其偏导数为 $O(e^{2\delta x})$, 由 \eqref{eq:partialfraction} 与 \eqref{eq:finite-schur} 直接得 $M-Y=O(e^{2\delta x})$ 及其偏导数估计.
-当 $x\to+\infty$ 时, 令 $\boldsymbol a=D\boldsymbol v$、$\boldsymbol b=\conj D\boldsymbol u$, 式 \eqref{eq:N-block-system} 化为
+为计算右端极限, 将 \eqref{eq:N-block-system} 写为
 \begin{equation}\label{eq:general-N-right-linear}
-\begin{pmatrix}D^{-1}&H\\-\conj{H}&(\conj D)^{-1}\end{pmatrix}
-\begin{pmatrix}\boldsymbol a\\\boldsymbol b\end{pmatrix}
+\begin{pmatrix}D^{-1}&H\\-\conj H&(\conj D)^{-1}\end{pmatrix}
+\begin{pmatrix}D\boldsymbol v\\\conj D\,\boldsymbol u\end{pmatrix}
 =\begin{pmatrix}\boldsymbol f\\\boldsymbol g\end{pmatrix}.
 \end{equation}
-因 $S=\ii\Gamma^\daggerH\Gamma$ 可逆, Cauchy 矩阵 $H$ 可逆, 故系数矩阵以 $O(e^{-2\delta x})$ 一致收敛于可逆常矩阵 $\begin{pmatrix}0&H\\-\conj{H}&0\end{pmatrix}$. 于是 $\boldsymbol a,\boldsymbol b$ 及其各阶偏导数以 $O(e^{-2\delta x})$ 收敛于 $\boldsymbol a_\infty=-(\conj{H})^{-1}\boldsymbol g$、$\boldsymbol b_\infty=H^{-1}\boldsymbol f$, 从而 $M$ 以同阶速率收敛于
-\begin{equation*}
-M_{\mathrm{r}}(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
-+\sum\limits_{j=1}^{m}\left(\dfrac{\boldsymbol a_{\infty,j}e_2^T}{z-\zeta_j}
--\dfrac{\boldsymbol b_{\infty,j}e_1^T}{z-\conj{\zeta_j}}\right).
-\end{equation*}
-由 $H\boldsymbol b_\infty=\boldsymbol f$ 与 $-\conj{H}\boldsymbol a_\infty=\boldsymbol g$ 知 $(M_{\mathrm{r}})_1(\zeta_j)=0$、$(M_{\mathrm{r}})_2(\conj{\zeta_j})=0$.
-有理函数 $(M_{\mathrm{r}})_{11}(z)$ 在 $z=0$ 解析、极点仅在 $\conj{\zeta_j}$、在各 $\zeta_j$ 处为零且在无穷远趋于 $1$, 由 Liouville 定理得 $(M_{\mathrm{r}})_{11}(z)=s(z)$; 又 $\dfrac{z(M_{\mathrm{r}})_{21}(z)}{s(z)}$ 整解析有界且在 $z=0$ 取值 $-\dfrac{\ii q_0}{s(0)}$, 得 $(M_{\mathrm{r}})_{21}(z)=-\dfrac{\ii q_0 s(z)}{z s(0)}$.
-同理得 $(M_{\mathrm{r}})_{22}(z)=s(z)^{-1}$ 与 $(M_{\mathrm{r}})_{12}(z)=-\dfrac{\ii q_0 s(0)}{z s(z)}$.
-由 $|s(0)|=1$ 与 $q_+=q_0 s(0)$ 即得 $M_{\mathrm{r}}(z)=Y_{q_+}(z)\diag\bigl(s(z),s(z)^{-1}\bigr)$.
+由于 $\zeta_j$ 与 $\conj{\zeta_k}$ 互异, Cauchy 矩阵 $H$ 可逆. 当 $x\to+\infty$ 时, $D^{-1},(\conj D)^{-1}\to0$, 故由 \eqref{eq:general-N-right-linear} 得
+\[
+D\boldsymbol v\longrightarrow-(\conj H)^{-1}\boldsymbol g,\qquad
+\conj D\,\boldsymbol u\longrightarrow H^{-1}\boldsymbol f.
+\]
+由系数矩阵的指数收敛和逆矩阵的光滑性, 上述极限及其固定阶导数的误差均为 $O(e^{-2\delta x})$.
 
-最后, 记 $s(0)=e^{\ii\varphi_+}$, 则 $Y_{q_+}(z)=e^{\frac{\ii\varphi_+}{2}\sg}Y(z)e^{-\frac{\ii\varphi_+}{2}\sg}$. 将 $M^{(1)}=-\ii q_0\sigma_1+\sum\limits_{j=1}^{m}(\boldsymbol a_je_2^T-\boldsymbol b_je_1^T)$ 与 \eqref{eq:general-N-M-ends} 分别代入 \eqref{eq:reconq} 与 \eqref{eq:N-medium}, 利用 $\det M(z_a^\pm)=\gamma(z_a^\pm)$ 为常数, 结合 \eqref{eq:diagE} 与 \eqref{eq:Rbg} 即得 \eqref{eq:general-N-field-ends}. 当 $s(0)=1$ 时 $q_+=q_0$、$R_+=R_\infty$, 经 \eqref{eq:original-fields} 恢复 \eqref{eq:targetboundary}.
+将极限代入 \eqref{eq:partialfraction}, 记得到的有理矩阵为 $M_{\mathrm r}(z)$. 由极限线性系统知
+\[
+(M_{\mathrm r})_1(\zeta_j)=0,\qquad
+(M_{\mathrm r})_2(\conj{\zeta_j})=0,\qquad j=1,\ldots,m.
+\]
+例如, $(M_{\mathrm r})_{11}$ 的零点为 $\zeta_j$, 极点只可能为 $\conj{\zeta_j}$, 且在 $\infty$ 处趋于 $1$, 因而由 Liouville 定理得 $(M_{\mathrm r})_{11}=s$. 对其余三个分量结合 $z=0,\infty$ 的归一化作同样分析, 得
+\[
+\begin{aligned}
+&(M_{\mathrm r})_{11}=s,\qquad
+(M_{\mathrm r})_{22}=s^{-1},\\
+&(M_{\mathrm r})_{12}=-\dfrac{\ii q_0s(0)}{zs},\qquad
+(M_{\mathrm r})_{21}=-\dfrac{\ii q_0s}{zs(0)}.
+\end{aligned}
+\]
+所以 $M_{\mathrm r}=Y_{q_+}\diag(s,s^{-1})$, 得到 \eqref{eq:general-N-M-ends}.
+
+利用无穷远展开系数 \eqref{eq:reconq} 可得 $q$ 的两端极限. 又因 $\det M(z_a^\pm)=\gamma(z_a^\pm)\ne0$, 在共振原像处对 $M$ 取逆不影响指数收敛阶. 将两端极限代入 \eqref{eq:N-medium}, 并用背景恒等式 \eqref{eq:diagE} 与 \eqref{eq:Rbg}, 即得 $R$ 的两端极限 \eqref{eq:general-N-field-ends}. 同相条件 \eqref{eq:N-orbit-phase} 给出 $s(0)=1$, 从而 $q_+=q_0$、$R_+=R_\infty$, 由 \eqref{eq:original-fields} 恢复 \eqref{eq:targetboundary}.
 \end{proof}
 
 \begin{theorem}\label{thm:general-N-HMB-reconstruction}
@@ -242,7 +260,11 @@ V=\phi_t\phi^{-1}=(M_t+\ii\lambda FM\sg)M^{-1}.
 \end{equation}
 由换叶对称性 \eqref{eq:Msym}、$\lambda(h(z))=-\lambda(z)$ 及 $\sigma_1\sg\sigma_1^{-1}=-\sg$, 知 $U,V$ 在换叶点取值相同, 为 $k$ 的单值有理矩阵.
 
-在每个 $\zeta_j$ 附近, 由 \eqref{eq:M-residues} 与 \eqref{eq:N-orbit-data} 有 $\Res_{z=\zeta_j}\phi_2(z)=c_j(0)\phi_1(\zeta_j)$, 故 $H_j(z)=\phi(z)\left(\Id-\dfrac{c_j(0)}{z-\zeta_j}e_1e_2^T\right)$ 在 $\zeta_j$ 处解析且 $\det H_j(\zeta_j)=\gamma(\zeta_j)\ne0$. 右因子不依赖 $(x,t)$, 因而 $U=H_{j,x}H_j^{-1}$、$V=H_{j,t}H_j^{-1}$ 在 $\zeta_j$ 处解析; 共轭点 $\conj{\zeta_j}$ 处同理.
+在每个 $\zeta_j$ 附近, \eqref{eq:M-residues} 与 \eqref{eq:N-orbit-data} 给出 $\Res_{z=\zeta_j}\phi_2(z)=c_j(0)\phi_1(\zeta_j)$. 因而
+\[
+\phi(z)\left(\Id-\dfrac{c_j(0)}{z-\zeta_j}e_1e_2^T\right)
+\]
+在 $\zeta_j$ 处解析可逆, 且右侧因子不依赖 $(x,t)$. 对数导数 $U,V$ 中该因子相消, 故 $\zeta_j$ 处的极点可去; 共轭点 $\conj{\zeta_j}$ 处同理.
 
 在分支点 $z_b\in\{z_b^+,z_b^-\}$ 处, 由 $h(z_b)=z_b$ 与 \eqref{eq:Msym} 得
 \begin{equation*}
