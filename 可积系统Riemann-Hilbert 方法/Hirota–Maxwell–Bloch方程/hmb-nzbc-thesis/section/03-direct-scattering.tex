@@ -26,10 +26,10 @@
 直接计算行列式和逆矩阵, 得
 \begin{equation}\label{eq:Y-inverse}
     \gamma(z):=\det Y=1+\dfrac{q_0^2}{z^2},\qquad
-    Y^{-1}=\dfrac{\Id+\dfrac{\ii q_0}{z}\sigma_1}{\gamma(z)},\quad z\ne0,\pm\ii q_0.
+    Y^{-1}=\dfrac{\Id+\dfrac{\ii q_0}{z}\sigma_1}{\gamma(z)},\quad z\ne0,z_b^\pm.
 \end{equation}
 
-对 $z\notin\{0,\pm\ii q_0\}$, 利用 \eqref{eq:diagE} 可将方程 $\chi_x=U_\infty\chi$ 化为
+对 $z\notin\{0,z_b^\pm\}$, 利用 \eqref{eq:diagE} 可将方程 $\chi_x=U_\infty\chi$ 化为
 $(Y^{-1}\chi)_x=-\ii\lambda\sg(Y^{-1}\chi)$.
 相应的背景基本解为
 \begin{equation}\label{eq:background-lax}
@@ -37,7 +37,7 @@ $(Y^{-1}\chi)_x=-\ii\lambda\sg(Y^{-1}\chi)$.
     \chi(x,z)=Y(z)e^{-\ii\lambda(z)x\sg}.
 \end{equation}
 
-固定 $t\in I$, 对 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$,
+固定 $t\in I$, 对 $z\in\Sigma\mathbin{\backslash}\{0,z_b^\pm\}$,
 称满足空间谱方程及端点归一化
 \begin{equation}\label{eq:jost-normalization}
     \begin{aligned}
@@ -66,14 +66,14 @@ $(Y^{-1}\chi)_x=-\ii\lambda\sg(Y^{-1}\chi)$.
 
 \begin{theorem}\label{thm:jost}
     设光场满足基本条件 \eqref{eq:evolution-regularity} 中的空间要求.
-    对 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$, 方程 \eqref{eq:volterra} 存在唯一关于 $x$ 有界的解 $\mu_\pm$,
+    对 $z\in\Sigma\mathbin{\backslash}\{0,z_b^\pm\}$, 方程 \eqref{eq:volterra} 存在唯一关于 $x$ 有界的解 $\mu_\pm$,
     并满足相应的端点归一化条件.
     其对应的 $\chi_\pm=\mu_\pm e^{-\ii\lambda x\sg}$ 是满足 \eqref{eq:jost-normalization} 的唯一空间 Jost 解.
     记 $\mu_\pm=(\mu_{\pm,1},\mu_{\pm,2})$, 对每个固定的 $x,t$, 列 $\mu_{-,1},\mu_{+,2}$ 在 $D_+$ 解析, 列 $\mu_{+,1},\mu_{-,2}$ 在 $D_-$ 解析,
-    并连续延拓到各自闭域中避开 $0,\pm\ii q_0$ 的紧集. 上述连续谱结论包含 $z=z_a^\pm$.
+    并连续延拓到各自闭域中避开 $0,z_b^\pm$ 的紧集. 上述连续谱结论包含 $z=z_a^\pm$.
 \end{theorem}
 \begin{proof}
-    (1) 解析性与有界性. 以 $e_1,e_2$ 表示标准基向量, 令 $s_1=1,s_2=-1$, 并记 $Y_j=Ye_j$, $\mu_{\pm,j}=\mu_\pm e_j$ ($j=1,2$), 则 $Y=(Y_1,Y_2)$.
+    (1) 解析性与有界性. 以 $e_1,e_2$ 表示标准基向量, 令 $s_1=1,s_2=-1$, 对 $j=1,2$ 记 $Y_j=Ye_j$, $\mu_{\pm,j}=\mu_\pm e_j$, 则 $Y=(Y_1,Y_2)$.
     由 $\sg e_j=s_je_j$, 有
     \begin{equation*}
         e^{\ii\lambda(x-y)\sg}e_j=e^{\ii s_j\lambda(x-y)}e_j.
@@ -125,7 +125,7 @@ $(Y^{-1}\chi)_x=-\ii\lambda\sg(Y^{-1}\chi)$.
         \le c(z)|q(y,t)-q_0|,\qquad
         c(z)=\dfrac{(|z|+q_0)^2}{|z^2+q_0^2|}.
     \end{equation}
-    在各列对应的闭域中取避开 $0,\pm\ii q_0$ 的紧集 $K$, 记 $c_K=\displaystyle\max\limits_{z\in K}c(z)$, 并令
+    在各列对应的闭域中取避开 $0,z_b^\pm$ 的紧集 $K$, 记 $c_K=\displaystyle\max\limits_{z\in K}c(z)$, 并令
     \begin{equation*}
         M_{-,K}(x,t)=c_K\int_{-\infty}^{x}|q(y,t)-q_0|\,\dd y,\qquad
         M_{+,K}(x,t)=c_K\int_x^{+\infty}|q(y,t)-q_0|\,\dd y.
@@ -166,7 +166,7 @@ $(Y^{-1}\chi)_x=-\ii\lambda\sg(Y^{-1}\chi)$.
     \begin{equation}\label{eq:jost-weighted}
         \int_{-\infty}^{+\infty}(1+|x|)|q(x,t)-q_0|\,\dd x<\infty.
     \end{equation}
-    在此条件下, 每个 Jost 解析列均可从其闭解析域连续延拓到分支点 $z_b=\pm\ii q_0$. 端点值满足
+    在此条件下, 每个 Jost 解析列均可从其闭解析域连续延拓到两个分支点 $z_b^\pm$. 对任一分支点 $z_b\in\{z_b^+,z_b^-\}$, 端点值满足
     \begin{equation}\label{eq:jost-branch-volterra}
         \mu_\pm(x,t,z_b)=Y(z_b)+\int_{\pm\infty}^{x}
         [\Id+(x-y)U_\infty(z_b)]\Delta Q(y,t)\mu_\pm(y,t,z_b)\,\dd y,
@@ -201,23 +201,23 @@ $(Y^{-1}\chi)_x=-\ii\lambda\sg(Y^{-1}\chi)$.
     正端同理, 同一估计也给出端点解的唯一性.
 
     由于 $\lambda(z_b)=0$, 对 \eqref{eq:jost-branch-volterra} 关于 $x$ 求导即得 $\partial_x\mu_\pm(x,t,z_b)=U(x,t,z_b)\mu_\pm(x,t,z_b)$.
-    一方面, 由 \eqref{eq:E} 得 $Y_2(\ii q_0)=-Y_1(\ii q_0)$ 与 $Y_2(-\ii q_0)=Y_1(-\ii q_0)$, 故 $Y(z_b)$ 的两列线性相关; 由 Volterra 方程 \eqref{eq:jost-branch-volterra}及与定理 \ref{thm:jost} 同理的唯一性, 有
+    一方面, 由 \eqref{eq:E} 得 $Y_2(z_b^+)=-Y_1(z_b^+)$ 与 $Y_2(z_b^-)=Y_1(z_b^-)$, 故 $Y(z_b)$ 的两列线性相关; 由 Volterra 方程 \eqref{eq:jost-branch-volterra} 及与定理 \ref{thm:jost} 同理的唯一性, 有
     \begin{equation*}
-        \mu_{\pm,2}(x,t,\ii q_0)=-\mu_{\pm,1}(x,t,\ii q_0),\qquad
-        \mu_{\pm,2}(x,t,-\ii q_0)=\mu_{\pm,1}(x,t,-\ii q_0),
+        \mu_{\pm,2}(x,t,z_b^+)=-\mu_{\pm,1}(x,t,z_b^+),\qquad
+        \mu_{\pm,2}(x,t,z_b^-)=\mu_{\pm,1}(x,t,z_b^-),
     \end{equation*}
     即 $\mu_\pm(x,t,z_b)$ 的两列亦线性相关. 另一方面, 其非零归一化列由上述常微分方程 $\partial_x\mu_\pm(x,t,z_b)=U(x,t,z_b)\mu_\pm(x,t,z_b)$ 解的唯一性不可能在有限 $x$ 处消失, 故 $\operatorname{rank}\mu_\pm(x,t,z_b)=1$.
 \end{proof}
 
 \subsection{散射矩阵和对称性}\label{ch:symmetry}
-记 $\Sigma^\circ=\Sigma\mathbin{\backslash}\{0,\pm\ii q_0\}$.
+记 $\Sigma^\circ=\Sigma\mathbin{\backslash}\{0,z_b^\pm\}$.
 在 $\Sigma^\circ$ 上, 两组空间 Jost 解确定散射矩阵 $S(z,t)$:
 \begin{align}
      & \chi_+(x,t,z)=\chi_-(x,t,z)S(z,t),\label{eq:Sdef}                                                          \\
      & \mu_+(x,t,z)=\mu_-(x,t,z)e^{-\ii\lambda(z)x\widehat{\sigma}_3}S(z,t),\label{eq:Sdef-mu}                    \\
      & S(z,t)=\begin{pmatrix}s_{11}(z,t)&s_{12}(z,t)\\s_{21}(z,t)&s_{22}(z,t)\end{pmatrix}.\label{eq:Sdef-matrix}
 \end{align}
-其中 \eqref{eq:Sdef-mu} 由 \eqref{eq:modified-jost} 得到, $S(z,t)$ 的矩阵元 $s_{jk}(z,t)$ ($j,k=1,2$) 称为散射系数. 逐列写为
+其中 \eqref{eq:Sdef-mu} 由 \eqref{eq:modified-jost} 得到, $S(z,t)$ 的矩阵元 $s_{jk}(z,t)$ 称为散射系数, $j,k=1,2$. 逐列写为
 \begin{equation}\label{eq:scattering-columns}
     \begin{aligned}
          & \mu_{+,1}=s_{11}\mu_{-,1}+s_{21}e^{2\ii\lambda x}\mu_{-,2},  \\
@@ -242,7 +242,7 @@ $(Y^{-1}\chi)_x=-\ii\lambda\sg(Y^{-1}\chi)$.
              & s_{12}(z,t)=e^{2\ii\lambda x}\dfrac{\det(\mu_{+,2},\mu_{-,2})}{\gamma}.
         \end{aligned}
     \end{equation}
-    其中 $s_{11}$ 在 $D_-$ 解析, $s_{22}$ 在 $D_+$ 解析, 并连续延拓到相应闭域中避开 $0,\pm\ii q_0$ 的紧集. $s_{12},s_{21}$ 在 $\Sigma^\circ$ 上连续.
+    其中 $s_{11}$ 在 $D_-$ 解析, $s_{22}$ 在 $D_+$ 解析, 并连续延拓到相应闭域中避开 $0,z_b^\pm$ 的紧集. $s_{12},s_{21}$ 在 $\Sigma^\circ$ 上连续.
 \end{proposition}
 \begin{proof}
     由 \eqref{eq:jost-normalization} 第一式及 $\tr U=0$, Abel 恒等式给出
@@ -258,7 +258,7 @@ $(Y^{-1}\chi)_x=-\ii\lambda\sg(Y^{-1}\chi)$.
         =U\chi_+-U\chi_-S=0.
     \end{equation*}
     由 $\chi_-$ 可逆, 得 $S_x=0$. 利用 \eqref{eq:scattering-columns} 直接计算可得 \eqref{eq:wronskian}.
-    在 \eqref{eq:wronskian} 中, $s_{11}$ 和 $s_{22}$ 的分子分别由 $D_-$ 和 $D_+$ 的解析列组成, 且分母 $\gamma(z)$ 的零点仅位于分支点 $\pm\ii q_0$; 非对角散射系数 $s_{12},s_{21}$ 表达式中的 Jost 列及指数因子 $e^{\pm 2\ii\lambda x}$ 均在 $\Sigma^\circ$ 上连续.
+    在 \eqref{eq:wronskian} 中, $s_{11}$ 和 $s_{22}$ 的分子分别由 $D_-$ 和 $D_+$ 的解析列组成, 且分母 $\gamma(z)$ 的零点仅位于分支点 $z_b^\pm$; 非对角散射系数 $s_{12},s_{21}$ 表达式中的 Jost 列及指数因子 $e^{\pm 2\ii\lambda x}$ 均在 $\Sigma^\circ$ 上连续.
     由定理 \ref{thm:jost} 即得 $s_{11},s_{22}$ 与 $s_{12},s_{21}$ 所述的解析性与连续延拓性质.
 \end{proof}
 

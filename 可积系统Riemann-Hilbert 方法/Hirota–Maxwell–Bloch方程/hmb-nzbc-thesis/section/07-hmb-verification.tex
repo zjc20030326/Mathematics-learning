@@ -29,7 +29,7 @@ M^{(1)}=H(2\ii b\Id-4\ii bP-\ii q_0\sigma_1-2\ii\kappa\sg)H^{-1},
 \end{equation*}
 故由 \eqref{eq:reconq} 有 $q=\ii M^{(1)}_{12}=-q_0-4bP_{12}$. 在共振原像处, 由 \eqref{eq:diagE}、\eqref{eq:Rbg} 有 $Y\lambda\sg Y^{-1}=\ii U_\infty$ 及 $R_\infty=\dfrac{\ii\eta_0}{a}U_\infty(a)$. 结合 $N(a)^{-1}=\dfrac{N(a)^\dagger}{a^2+b^2}$, 得
 \begin{equation}\label{eq:direct-medium}
-\dfrac{\eta_0\lambda(z_a)}{a}M(z_a)\sg M(z_a)^{-1}
+\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(z_a^\pm)\sg M(z_a^\pm)^{-1}
 =\dfrac{HN(a)R_\infty N(a)^\dagger H^{-1}}{a^2+b^2}=:R.
 \end{equation}
 右端与谱叶选取无关. 结合 \eqref{eq:original-fields}, 即得三场表达式 \eqref{eq:finalfields}--\eqref{eq:pcomponent}.
@@ -77,18 +77,18 @@ $U,V$ 在 $z$ 与 $h(z)$ 处取值相同, 是 $k$ 的单值有理矩阵.
 \end{equation*}
 右因子与 $x,t$ 无关, 在对数导数中消去, 故 $U,V$ 的离散极点均可去; 共轭极点处同理.
 
-在分支点 $z_b=\pm\ii q_0$ 处, 由 $h(z_b)=z_b$ 与 \eqref{eq:Msym} 得
+在任一分支点 $z_b\in\{z_b^+,z_b^-\}$ 处, 由 $h(z_b)=z_b$ 与 \eqref{eq:Msym} 得
 \begin{equation*}
 M(z_b)\left(\Id-\dfrac{\ii z_b}{q_0}\sigma_1\right)=0.
 \end{equation*}
 定理 \ref{thm:oneRHP} 给出 $\operatorname{rank}M(z_b)=1$, 故
 \begin{equation*}
-\ker M(\ii q_0)=\operatorname{span}\left\{\begin{pmatrix}1\\1\end{pmatrix}\right\},\qquad
-\ker M(-\ii q_0)=\operatorname{span}\left\{\begin{pmatrix}1\\-1\end{pmatrix}\right\}.
+\ker M(z_b^+)=\operatorname{span}\left\{\begin{pmatrix}1\\1\end{pmatrix}\right\},\qquad
+\ker M(z_b^-)=\operatorname{span}\left\{\begin{pmatrix}1\\-1\end{pmatrix}\right\}.
 \end{equation*}
 两个核空间均与 $x,t$ 无关, 从而 $M_x(z_b),M_t(z_b)$ 在其上为零.
 由 $M(z_b)\operatorname{adj}M(z_b)=0$, $\operatorname{adj}M(z_b)$ 的各列均属于相应核.
-再结合 $\lambda(z_b)=0$ 且 $F(k(z_b))$ 有限 ($k(z_b)=\pm\ii q_0\ne a$), 得
+再结合 $\lambda(z_b)=0$, 且由 $k(z_b)=\pm\ii q_0\ne a$ 知 $F(k(z_b))$ 有限, 得
 \begin{equation*}
 \begin{aligned}
 &\bigl[(M_x-\ii\lambda M\sg)\operatorname{adj}M\bigr]_{z=z_b}=0,\\
@@ -99,7 +99,7 @@ M(z_b)\left(\Id-\dfrac{\ii z_b}{q_0}\sigma_1\right)=0.
 谱交点处 $\gamma\ne0$, 亦为正则点.
 在 $k=a$ 处, $M$ 解析可逆, 故 $U$ 解析, 而 $V$ 仅有单极点且留数为
 \begin{equation*}
-\Res_{k=a}V=\dfrac{\ii\eta_0\lambda(z_a)}{a}M(z_a)\sg M(z_a)^{-1}=\ii R.
+\Res_{k=a}V=\dfrac{\ii\eta_0\lambda(z_a^\pm)}{a}M(z_a^\pm)\sg M(z_a^\pm)^{-1}=\ii R.
 \end{equation*}
 
 (4) 恢复 Lax 对并验证方程. 在第一叶无穷远处, $z=2k+O(k^{-1})$、$\lambda=k+O(k^{-1})$, 且 $M=\Id+\dfrac{M^{(1)}}{2k}+O(k^{-2})$、$M_x,M_t=O(k^{-1})$.

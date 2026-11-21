@@ -2,159 +2,156 @@
 本节在基本条件 \eqref{eq:evolution-regularity} 与规范 HMB 系统 \eqref{eq:gauged-HMB} 下, 确定空间 Jost 矩阵、散射矩阵及离散谱数据的时间演化规律, 并证明共振原像处的相容条件与零反射性质.
 在 $k(z)\ne a$ 处, 记完整时空相位为
 \begin{equation}\label{eq:theta}
-\theta(x,t,z)=-\lambda(z)[x-F(k(z))t].
+    \theta(x,t,z)=-\lambda(z)[x-F(k(z))t].
 \end{equation}
 由 \eqref{eq:F} 中的 $V_\infty=-FU_\infty$ 及 \eqref{eq:diagE}, 得 $V_\infty Y=\ii\lambda FY\sg$. 结合 \eqref{eq:theta} 可知, $Y(z)e^{\ii\theta(x,t,z)\sg}$ 满足对应于 \eqref{eq:gaugelax} 与 \eqref{eq:background-spatial}--\eqref{eq:F} 的背景 Lax 对 $\phi_x=U_\infty\phi,\ \phi_t=V_\infty\phi$.
 
 \begin{proposition}\label{prop:evolution}
-设三场满足基本条件 \eqref{eq:evolution-regularity} 及规范 HMB 系统 \eqref{eq:gauged-HMB}. 对谱参数 $z\in\Sigma\mathbin{\backslash}\{0,\pm\ii q_0,z_a^\pm\}$,
-空间 Jost 矩阵及其修正矩阵满足
-\begin{align}
-&\chi_{\pm,t}(x,t,z)=V(x,t,z)\chi_\pm(x,t,z)-\ii\lambda F\chi_\pm(x,t,z)\sg,\label{eq:chi-time}\\
-&\mu_{\pm,t}(x,t,z)=V(x,t,z)\mu_\pm(x,t,z)-\ii\lambda F\mu_\pm(x,t,z)\sg.\label{eq:mu-time}
-\end{align}
-散射矩阵满足 $S_x=0$ 和 $S_t=[\ii\lambda F\sg,S]$, 因而
-\begin{equation}\label{eq:timeS}
-S(z,t)=e^{\ii\lambda Ft\widehat{\sigma}_3}S(z,0).
-\end{equation}
-透射系数及其离散零点不随 $t$ 变化; 反射系数满足
-\begin{equation}\label{eq:timer}
-\rho(z,t)=e^{-2\ii\lambda Ft}\rho(z,0),\qquad
-\widetilde\rho(z,t)=e^{2\ii\lambda Ft}\widetilde\rho(z,0).
-\end{equation}
+    设三场满足基本条件 \eqref{eq:evolution-regularity} 及规范 HMB 系统 \eqref{eq:gauged-HMB}. 对谱参数 $z\in\Sigma\mathbin{\backslash}\{0,z_a^\pm,z_b^\pm\}$,
+    空间 Jost 矩阵及其修正矩阵满足
+    \begin{align}
+         & \chi_{\pm,t}(x,t,z)=V(x,t,z)\chi_\pm(x,t,z)-\ii\lambda F\chi_\pm(x,t,z)\sg,\label{eq:chi-time} \\
+         & \mu_{\pm,t}(x,t,z)=V(x,t,z)\mu_\pm(x,t,z)-\ii\lambda F\mu_\pm(x,t,z)\sg.\label{eq:mu-time}
+    \end{align}
+    散射矩阵满足 $S_x=0$ 和 $S_t=[\ii\lambda F\sg,S]$, 因而
+    \begin{equation}\label{eq:timeS}
+        S(z,t)=e^{\ii\lambda Ft\widehat{\sigma}_3}S(z,0).
+    \end{equation}
+    透射系数及其离散零点不随 $t$ 变化; 反射系数满足
+    \begin{equation}\label{eq:timer}
+        \rho(z,t)=e^{-2\ii\lambda Ft}\rho(z,0),\qquad
+        \widetilde\rho(z,t)=e^{2\ii\lambda Ft}\widetilde\rho(z,0).
+    \end{equation}
 \end{proposition}
 \begin{proof}
-由 \eqref{eq:evolution-regularity} 知 $q(\cdot,t)-q_0\in C^1(I;L^1(\mathbb R))$.
-在任一时间紧区间 $J\subset I$ 与避开 $\{0,\pm\ii q_0,z_a^\pm\}$ 的紧集 $K$ 上, 依 \eqref{eq:jost-kernel-estimate} 中的界 $c_K=\max_{z\in K}c(z)$, \eqref{eq:jost-neumann} 的积分核及其关于 $t$ 的导数分别受可积函数 $c_K|q(\cdot,t)-q_0|$ 与 $c_K|q_t(\cdot,t)|$ 一致控制, 且两者的 $L^1(\mathbb R)$ 范数在 $J$ 上一致有界, 故级数 \eqref{eq:jost-neumann} 一致收敛并可逐项关于 $t$ 求导.
-从而对 \eqref{eq:volterra} 在积分号下关于 $t$ 求导, 得
-\begin{equation}\label{eq:volterra-t}
-\begin{aligned}
-\mu_{\pm,t}(x,t,z)=\int_{\pm\infty}^{x}
-Y(z)e^{-\ii\lambda(z)(x-y)\widehat{\sigma}_3}\!\bigl[
-&Y(z)^{-1}\Delta Q_t(y,t)\mu_\pm(y,t,z)\\
-&+Y(z)^{-1}\Delta Q(y,t)\mu_{\pm,t}(y,t,z)\bigr]\,\dd y.
-\end{aligned}
-\end{equation}
-由 \eqref{eq:jost-factorial} 及 $q_t(\cdot,t)\in L^1(\mathbb R)$, 令 $x\to\pm\infty$ 得 $\mu_{\pm,t}(x,t,z)\to0$.
+    由 \eqref{eq:evolution-regularity} 知 $q(\cdot,t)-q_0\in C^1(I;L^1(\mathbb R))$.
+    在任一时间紧区间 $J\subset I$ 与避开 $\{0,z_a^\pm,z_b^\pm\}$ 的紧集 $K$ 上, 依 \eqref{eq:jost-kernel-estimate} 中的界 $c_K=\max_{z\in K}c(z)$, \eqref{eq:jost-neumann} 的积分核及其关于 $t$ 的导数分别受可积函数 $c_K|q(\cdot,t)-q_0|$ 与 $c_K|q_t(\cdot,t)|$ 一致控制, 且两者的 $L^1(\mathbb R)$ 范数在 $J$ 上一致有界, 故级数 \eqref{eq:jost-neumann} 一致收敛并可逐项关于 $t$ 求导.
+    从而对 \eqref{eq:volterra} 在积分号下关于 $t$ 求导, 得
+    \begin{equation}\label{eq:volterra-t}
+        \mu_{\pm,t}(x,t,z)=\int_{\pm\infty}^{x}
+        Y(z)e^{-\ii\lambda(z)(x-y)\widehat{\sigma}_3}\!\bigl[
+            Y(z)^{-1}\partial_t\bigl(\Delta Q(y,t)\mu_\pm(y,t,z)\bigr)\bigr]\,\dd y.
+    \end{equation}
+    由 \eqref{eq:jost-factorial} 及 $q_t(\cdot,t)\in L^1(\mathbb R)$, 令 $x\to\pm\infty$ 得 $\mu_{\pm,t}(x,t,z)\to0$.
 
-令 $Z_\pm=\mu_{\pm,t}-V\mu_\pm+\ii\lambda F\mu_\pm\sg$.
-由 \eqref{eq:zc} 经规范变换 \eqref{eq:gauge} 所得零曲率方程 $U_t-V_x+[U,V]=0$ 及修正空间方程 \eqref{eq:jost-modified-lax}, 得
-\begin{equation*}
-(Z_\pm)_x=UZ_\pm+\ii\lambda Z_\pm\sg.
-\end{equation*}
-在 $x\to\pm\infty$ 处, 结合 $\mu_{\pm,t}\to0$、端态归一化 \eqref{eq:modified-jost-bc}、\eqref{eq:gauged-V}、\eqref{eq:F} 中的 $V\to V_\infty$ 以及 $V_\infty Y=\ii\lambda FY\sg$, 有 $Z_\pm\to0$.
-对各列应用定理 \ref{thm:jost} 中的 Volterra 唯一性, 得 $Z_\pm=0$, 即 \eqref{eq:mu-time}.
-由 \eqref{eq:modified-jost} 将 \eqref{eq:mu-time} 右乘 $e^{-\ii\lambda x\sg}$, 即得 \eqref{eq:chi-time}; 同样的逐列论证适用于各解析列.
+    令 $Z_\pm=\mu_{\pm,t}-V\mu_\pm+\ii\lambda F\mu_\pm\sg$.
+    由 \eqref{eq:zc} 经规范变换 \eqref{eq:gauge} 所得零曲率方程 $U_t-V_x+[U,V]=0$ 及修正空间方程 \eqref{eq:jost-modified-lax}, 得
+    \begin{equation*}
+        (Z_\pm)_x=UZ_\pm+\ii\lambda Z_\pm\sg.
+    \end{equation*}
+    在 $x\to\pm\infty$ 处, 结合 $\mu_{\pm,t}\to0$、端态归一化 \eqref{eq:modified-jost-bc}、\eqref{eq:gauged-V}、\eqref{eq:F} 中的 $V\to V_\infty$ 以及 $V_\infty Y=\ii\lambda FY\sg$, 有 $Z_\pm\to0$.
+    对各列应用定理 \ref{thm:jost} 中的 Volterra 唯一性, 得 $Z_\pm=0$, 即 \eqref{eq:mu-time}.
+    由 \eqref{eq:modified-jost} 将 \eqref{eq:mu-time} 右乘 $e^{-\ii\lambda x\sg}$, 即得 \eqref{eq:chi-time}; 同样的逐列论证适用于各解析列.
 
-对 \eqref{eq:Sdef} 关于 $t$ 求导并代入 \eqref{eq:chi-time}, 消去 $V\chi_-$ 项后利用 \eqref{eq:detjost} 中 $\chi_-$ 可逆, 得
-\begin{equation*}
-\chi_-S_t=\chi_-[\ii\lambda F\sg,S]\Longrightarrow S_t=[\ii\lambda F\sg,S],
-\end{equation*}
-积分即得 \eqref{eq:timeS}, 展开为
-\begin{equation*}
-S(z,t)=\begin{pmatrix}
-s_{11}(z,0)&e^{2\ii\lambda Ft}s_{12}(z,0)\\
-e^{-2\ii\lambda Ft}s_{21}(z,0)&s_{22}(z,0)
-\end{pmatrix}.
-\end{equation*}
-代入 \eqref{eq:reflection} 即得 \eqref{eq:timer}. 结合命题 \ref{prop:discrete-spectrum} 可知离散零点不随 $t$ 变化.
+    对 \eqref{eq:Sdef} 关于 $t$ 求导并代入 \eqref{eq:chi-time}, 消去 $V\chi_-$ 项后利用 \eqref{eq:detjost} 中 $\chi_-$ 可逆, 得
+    \begin{equation*}
+        \chi_-S_t=\chi_-[\ii\lambda F\sg,S]\Longrightarrow S_t=[\ii\lambda F\sg,S],
+    \end{equation*}
+    积分即得 \eqref{eq:timeS}, 展开为
+    \begin{equation*}
+        S(z,t)=\begin{pmatrix}
+            s_{11}(z,0)                    & e^{2\ii\lambda Ft}s_{12}(z,0) \\
+            e^{-2\ii\lambda Ft}s_{21}(z,0) & s_{22}(z,0)
+        \end{pmatrix}.
+    \end{equation*}
+    代入 \eqref{eq:reflection} 即得 \eqref{eq:timer}. 结合命题 \ref{prop:discrete-spectrum} 可知离散零点不随 $t$ 变化.
 \end{proof}
 
 \begin{remark}
-在上述谱点处, 令
-\begin{equation}\label{eq:full-jost}
-\phi_\pm(x,t,z)=\chi_\pm(x,t,z)e^{\ii\lambda Ft\sg}
-=\mu_\pm(x,t,z)e^{\ii\theta(x,t,z)\sg}.
-\end{equation}
-由 \eqref{eq:jost-modified-lax}、\eqref{eq:mu-time}, 知完整 Jost 矩阵满足 Lax 对 $\phi_{\pm,x}=U\phi_\pm$, $\phi_{\pm,t}=V\phi_\pm$.
-记 $\Delta V=V-V_\infty$, 则 \eqref{eq:jost-modified-lax-Y}、\eqref{eq:mu-time} 可写为全微分形式
-\begin{equation}\label{eq:jost-total-differential}
-\dd\!\left(e^{-\ii\theta\widehat{\sigma}_3}(Y^{-1}\mu_\pm)\right)
-=e^{-\ii\theta\widehat{\sigma}_3}\!\left[Y^{-1}(\Delta Q\,\dd x+\Delta V\,\dd t)\mu_\pm\right].
-\end{equation}
+    在上述谱点处, 令
+    \begin{equation}\label{eq:full-jost}
+        \phi_\pm(x,t,z)=\chi_\pm(x,t,z)e^{\ii\lambda Ft\sg}
+        =\mu_\pm(x,t,z)e^{\ii\theta(x,t,z)\sg}.
+    \end{equation}
+    由 \eqref{eq:jost-modified-lax}、\eqref{eq:mu-time}, 知完整 Jost 矩阵满足 Lax 对 $\phi_{\pm,x}=U\phi_\pm$, $\phi_{\pm,t}=V\phi_\pm$.
+    记 $\Delta V=V-V_\infty$, 则 \eqref{eq:jost-modified-lax-Y}、\eqref{eq:mu-time} 可写为全微分形式
+    \begin{equation}\label{eq:jost-total-differential}
+        \dd\!\left(e^{-\ii\theta\widehat{\sigma}_3}(Y^{-1}\mu_\pm)\right)
+        =e^{-\ii\theta\widehat{\sigma}_3}\!\left[Y^{-1}(\Delta Q\,\dd x+\Delta V\,\dd t)\mu_\pm\right].
+    \end{equation}
 \end{remark}
 
 \begin{proposition}\label{prop:norming-evolution}
-在命题 \ref{prop:evolution} 的条件下, 设 $\zeta_j$ 是简单离散零点.
-按 \eqref{eq:norming-definition} 定义的范数常数 $b_j(t),c_j(t)$ 满足
-\begin{equation}\label{eq:norming-time}
-b_j(t)=b_j(0)e^{2\ii\lambda(\zeta_j)F(k(\zeta_j))t},\qquad
-c_j(t)=c_j(0)e^{2\ii\lambda(\zeta_j)F(k(\zeta_j))t}.
-\end{equation}
-相应留数系数为
-\begin{equation}\label{eq:C-timephase}
-C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}
-=c_j(0)e^{2\ii\theta(x,t,\zeta_j)}.
-\end{equation}
+    在命题 \ref{prop:evolution} 的条件下, 设 $\zeta_j$ 是简单离散零点.
+    按 \eqref{eq:norming-definition} 定义的范数常数 $b_j(t),c_j(t)$ 满足
+    \begin{equation}\label{eq:norming-time}
+        b_j(t)=b_j(0)e^{2\ii\lambda(\zeta_j)F(k(\zeta_j))t},\qquad
+        c_j(t)=c_j(0)e^{2\ii\lambda(\zeta_j)F(k(\zeta_j))t}.
+    \end{equation}
+    相应留数系数为
+    \begin{equation}\label{eq:C-timephase}
+        C_j(x,t)=c_j(t)e^{-2\ii\lambda(\zeta_j)x}
+        =c_j(0)e^{2\ii\theta(x,t,\zeta_j)}.
+    \end{equation}
 \end{proposition}
 \begin{proof}
-由 \eqref{eq:mu-time}, 相应解析列满足
-\begin{equation*}
-\mu_{-,1,t}=V\mu_{-,1}-\ii\lambda F\mu_{-,1},\qquad
-\mu_{+,2,t}=V\mu_{+,2}+\ii\lambda F\mu_{+,2}.
-\end{equation*}
-由命题 \ref{prop:evolution} 知 $\zeta_j$ 与 $t$ 无关. 对 \eqref{eq:norming-definition} 中的 $\mu_{+,2}(x,t,\zeta_j)$ 列相关式关于 $t$ 求导并消去 $V\mu_{+,2}$ 项, 得
-\begin{equation*}
-\bigl(b_j'(t)-2\ii\lambda(\zeta_j)F(k(\zeta_j))b_j(t)\bigr)\mu_{-,1}(x,t,\zeta_j)=0.
-\end{equation*}
-因 $\mu_{-,1}(\cdot,t,\zeta_j)$ 非零, 有 $b_j'(t)=2\ii\lambda(\zeta_j)F(k(\zeta_j))b_j(t)$, 积分即得 \eqref{eq:norming-time} 中的 $b_j(t)$ 演化式.
-再由命题 \ref{prop:evolution} 中 $s_{22}'(\zeta_j,t)$ 不随 $t$ 变化, 代入 \eqref{eq:norming-definition} 与 \eqref{eq:theta} 即得 \eqref{eq:norming-time} 中 $c_j(t)$ 的演化式及 \eqref{eq:C-timephase}.
+    由 \eqref{eq:mu-time}, 相应解析列满足
+    \begin{equation*}
+        \mu_{-,1,t}=V\mu_{-,1}-\ii\lambda F\mu_{-,1},\qquad
+        \mu_{+,2,t}=V\mu_{+,2}+\ii\lambda F\mu_{+,2}.
+    \end{equation*}
+    由命题 \ref{prop:evolution} 知 $\zeta_j$ 与 $t$ 无关. 对 \eqref{eq:norming-definition} 中的 $\mu_{+,2}(x,t,\zeta_j)$ 列相关式关于 $t$ 求导并消去 $V\mu_{+,2}$ 项, 得
+    \begin{equation*}
+        \bigl(b_j'(t)-2\ii\lambda(\zeta_j)F(k(\zeta_j))b_j(t)\bigr)\mu_{-,1}(x,t,\zeta_j)=0.
+    \end{equation*}
+    因 $\mu_{-,1}(\cdot,t,\zeta_j)$ 非零, 有 $b_j'(t)=2\ii\lambda(\zeta_j)F(k(\zeta_j))b_j(t)$, 积分即得 \eqref{eq:norming-time} 中的 $b_j(t)$ 演化式.
+    再由命题 \ref{prop:evolution} 中 $s_{22}'(\zeta_j,t)$ 不随 $t$ 变化, 代入 \eqref{eq:norming-definition} 与 \eqref{eq:theta} 即得 \eqref{eq:norming-time} 中 $c_j(t)$ 的演化式及 \eqref{eq:C-timephase}.
 \end{proof}
 
 介质矩阵的共同端态为
 \begin{equation}\label{eq:Rbg}
-R_\infty=\begin{pmatrix}
-\eta_0&\dfrac{\ii\eta_0q_0}{a}\\[6pt]
--\dfrac{\ii\eta_0q_0}{a}&-\eta_0
-\end{pmatrix}
-=\dfrac{\ii\eta_0}{a}U_\infty(a).
+    R_\infty=\begin{pmatrix}
+        \eta_0                   & \dfrac{\ii\eta_0q_0}{a} \\[6pt]
+        -\dfrac{\ii\eta_0q_0}{a} & -\eta_0
+    \end{pmatrix}
+    =\dfrac{\ii\eta_0}{a}U_\infty(a).
 \end{equation}
 
 \begin{proposition}\label{prop:resonance}
-固定 $t\in I$. 设三场满足基本条件 \eqref{eq:evolution-regularity} 及 \eqref{eq:gauged-HMB} 中的两条介质方程. 则在每个共振原像,
-\begin{equation}\label{eq:resonance-conjugation}
-\mu_\pm(x,t,z_a^\pm)^{-1}R(x,t)\mu_\pm(x,t,z_a^\pm)
-=\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sg.
-\end{equation}
-散射矩阵满足
-\begin{equation}\label{eq:resonance-reflection}
-[S(z_a^\pm,t),\sg]=0,\qquad
-\rho(z_a^\pm,t)=\widetilde\rho(z_a^\pm,t)=0.
-\end{equation}
+    固定 $t\in I$. 设三场满足基本条件 \eqref{eq:evolution-regularity} 及 \eqref{eq:gauged-HMB} 中的两条介质方程. 则在每个共振原像,
+    \begin{equation}\label{eq:resonance-conjugation}
+        \mu_\pm(x,t,z_a^\pm)^{-1}R(x,t)\mu_\pm(x,t,z_a^\pm)
+        =\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sg.
+    \end{equation}
+    散射矩阵和反射系数满足
+    \begin{equation}\label{eq:resonance-reflection}
+        [S(z_a^\pm,t),\sg]=0,\qquad
+        \rho(z_a^\pm,t)=\widetilde\rho(z_a^\pm,t)=0.
+    \end{equation}
 \end{proposition}
 \begin{proof}
-由定理 \ref{thm:jost} 与 \eqref{eq:detjost}, $\mu_\pm$ 在 $z_a^\pm$ 正则且 $\det\mu_\pm(x,t,z_a^\pm)=\gamma(z_a^\pm)>0$.
-固定原像 $z_a\in\{z_a^+,z_a^-\}$, 记 $B_\pm=\mu_\pm(z_a)^{-1}R\mu_\pm(z_a)$.
-由 \eqref{eq:gauged-U} 与 \eqref{eq:resonance-w} 知 $k(z_a)=a$、$U(a)=-\ii a\sg+Q$, 从而 \eqref{eq:gauged-HMB} 中的两条介质方程等价于 $R_x=[U(a),R]$.
-结合修正空间方程 \eqref{eq:jost-modified-lax}, 关于 $x$ 求导得
-\begin{equation*}
-\partial_x B_\pm+\ii\lambda(z_a)[\sg,B_\pm]
-=\mu_\pm(z_a)^{-1}(R_x-[U(a),R])\mu_\pm(z_a)=0,
-\end{equation*}
-即 $\partial_x\bigl(e^{\ii\lambda(z_a)x\widehat{\sigma}_3}B_\pm\bigr)=0$.
-由 \eqref{eq:Rbg} 与背景对角化关系 \eqref{eq:diagE}, 有
-\begin{equation*}
-Y(z_a)^{-1}R_\infty Y(z_a)=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
-\end{equation*}
-由 \eqref{eq:uniform} 与 \eqref{eq:resonance-w}, $\lambda(z_a)=\pm\sqrt{a^2+q_0^2}\in\mathbb R\mathbin{\backslash}\{0\}$, 故指数因子 $e^{\pm\ii\lambda(z_a)x\sg}$ 有界且与 $\sg$ 可交换. 在 $x\to\pm\infty$ 处由 \eqref{eq:modified-jost-bc} 与 $R\to R_\infty$ 取极限, 即得 \eqref{eq:resonance-conjugation}.
+    由定理 \ref{thm:jost} 与 \eqref{eq:detjost}, $\mu_\pm$ 在 $z_a^\pm$ 正则且 $\det\mu_\pm(x,t,z_a^\pm)=\gamma(z_a^\pm)>0$.
+    固定原像 $z_a\in\{z_a^+,z_a^-\}$, 记 $B_\pm=\mu_\pm(z_a)^{-1}R\mu_\pm(z_a)$.
+    由 \eqref{eq:gauged-U} 与 \eqref{eq:resonance-w} 知 $k(z_a)=a$、$U(a)=-\ii a\sg+Q$, 从而 \eqref{eq:gauged-HMB} 中的两条介质方程等价于 $R_x=[U(a),R]$.
+    结合修正空间方程 \eqref{eq:jost-modified-lax}, 关于 $x$ 求导得
+    \begin{equation*}
+        \partial_x B_\pm+\ii\lambda(z_a)[\sg,B_\pm]
+        =\mu_\pm(z_a)^{-1}(R_x-[U(a),R])\mu_\pm(z_a)=0,
+    \end{equation*}
+    即 $\partial_x\bigl(e^{\ii\lambda(z_a)x\widehat{\sigma}_3}B_\pm\bigr)=0$.
+    由 \eqref{eq:Rbg} 与背景对角化关系 \eqref{eq:diagE}, 有
+    \begin{equation*}
+        Y(z_a)^{-1}R_\infty Y(z_a)=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
+    \end{equation*}
+    由 \eqref{eq:uniform} 与 \eqref{eq:resonance-w}, $\lambda(z_a)=\pm\sqrt{a^2+q_0^2}\in\mathbb R\mathbin{\backslash}\{0\}$, 故指数因子 $e^{\pm\ii\lambda(z_a)x\sg}$ 有界且与 $\sg$ 可交换. 在 $x\to\pm\infty$ 处由 \eqref{eq:modified-jost-bc} 与 $R\to R_\infty$ 取极限, 即得 \eqref{eq:resonance-conjugation}.
 
-将 \eqref{eq:resonance-conjugation} 代入散射关系 \eqref{eq:Sdef-mu} 得
-\begin{equation*}
-S(z_a,t)^{-1}\dfrac{\eta_0\lambda(z_a)}{a}\sg S(z_a,t)
-=\dfrac{\eta_0\lambda(z_a)}{a}\sg.
-\end{equation*}
-因系数 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 得 $[S(z_a,t),\sg]=0$, 即 $S(z_a,t)$ 对角; 结合 \eqref{eq:detjost} 中的 $\det S=1$ 知其对角元均非零, 代入 \eqref{eq:reflection} 即得 \eqref{eq:resonance-reflection}.
+    将 \eqref{eq:resonance-conjugation} 代入散射关系 \eqref{eq:Sdef-mu} 得
+    \begin{equation*}
+        S(z_a,t)^{-1}\dfrac{\eta_0\lambda(z_a)}{a}\sg S(z_a,t)
+        =\dfrac{\eta_0\lambda(z_a)}{a}\sg.
+    \end{equation*}
+    因系数 $\dfrac{\eta_0\lambda(z_a)}{a}\ne0$, 得 $[S(z_a,t),\sg]=0$, 即 $S(z_a,t)$ 对角; 结合 \eqref{eq:detjost} 中的 $\det S=1$ 知其对角元均非零, 代入 \eqref{eq:reflection} 即得 \eqref{eq:resonance-reflection}.
 \end{proof}
 \begin{remark}
-由 \eqref{eq:gauged-V} 与 \eqref{eq:F} 可见, 当 $z\to z_a\in\{z_a^+,z_a^-\}$ (对应 $k\to a$) 时, \eqref{eq:mu-time} 右端在局部坐标 $k=a$ 处的单极点留数为
-\begin{equation*}
-\Res_{k=a}\bigl(V\mu_\pm-\ii\lambda F\mu_\pm\sg\bigr)
-=\ii\!\left(R(x,t)\mu_\pm(x,t,z_a)-\mu_\pm(x,t,z_a)\dfrac{\eta_0\lambda(z_a)}{a}\sg\right),
-\end{equation*}
-由共轭关系 \eqref{eq:resonance-conjugation} 该留数恒为零. 结合 \eqref{eq:modified-jost} 及 $e^{-\ii\lambda x\sg}$ 与 $\sg$ 可交换, \eqref{eq:chi-time}--\eqref{eq:mu-time} 右端的共振极点均相消, 从而演化方程可光滑延拓至 $z_a^\pm$.
-此外, 由 \eqref{eq:resonance-conjugation} 直接解出介质矩阵的谱表示
-\begin{equation*}
-R(x,t)=\dfrac{\eta_0\lambda(z_a^\pm)}{a}\mu_\pm(x,t,z_a^\pm)\sg\mu_\pm(x,t,z_a^\pm)^{-1},
-\end{equation*}
-并由 \eqref{eq:resonance-reflection} 知 $S(z_a^\pm,t)$ 对角, 故其取值与 $\pm$ 号选取无关, 为第 \ref{ch:rhp} 节的介质重构提供依据.
+    由 \eqref{eq:gauged-V} 与 \eqref{eq:F} 可见, 当 $z\to z_a\in\{z_a^+,z_a^-\}$, 即 $k\to a$ 时, \eqref{eq:mu-time} 右端在局部坐标 $k=a$ 处的单极点留数为
+    \begin{equation*}
+        \Res_{k=a}\bigl(V\mu_\pm-\ii\lambda F\mu_\pm\sg\bigr)
+        =\ii\!\left(R(x,t)\mu_\pm(x,t,z_a)-\mu_\pm(x,t,z_a)\dfrac{\eta_0\lambda(z_a)}{a}\sg\right),
+    \end{equation*}
+    由共轭关系 \eqref{eq:resonance-conjugation} 该留数恒为零. 结合 \eqref{eq:modified-jost} 及 $e^{-\ii\lambda x\sg}$ 与 $\sg$ 可交换, \eqref{eq:chi-time}--\eqref{eq:mu-time} 右端的共振极点均相消, 从而演化方程可光滑延拓至 $z_a^\pm$.
+    此外, 由 \eqref{eq:resonance-conjugation} 直接解出介质矩阵的谱表示
+    \begin{equation*}
+        R(x,t)=\dfrac{\eta_0\lambda(z_a^\pm)}{a}\mu_\pm(x,t,z_a^\pm)\sg\mu_\pm(x,t,z_a^\pm)^{-1},
+    \end{equation*}
+    并由 \eqref{eq:resonance-reflection} 知 $S(z_a^\pm,t)$ 对角, 故其取值与 $\pm$ 号选取无关, 为第 \ref{ch:rhp} 节的介质重构提供依据.
 \end{remark}

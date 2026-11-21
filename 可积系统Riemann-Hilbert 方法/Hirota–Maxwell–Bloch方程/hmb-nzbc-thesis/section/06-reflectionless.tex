@@ -18,7 +18,7 @@
 \end{equation}
 称上述谱点与范数常数为同相背景的 $N$ 轨道无反射数据.
 \end{definition}
-固定 $(x,t)\in\mathbb R^2$, 省略相应自变量, 令 $\mathbf v_j=M_1(\zeta_j)$、$\mathbf u_j=M_2(\conj{\zeta_j})$ ($j=1,\ldots,m$),
+固定 $(x,t)\in\mathbb R^2$, 省略相应自变量, 对 $j=1,\ldots,m$ 令 $\mathbf v_j=M_1(\zeta_j)$、$\mathbf u_j=M_2(\conj{\zeta_j})$,
 并以 $e_1,e_2$ 表示标准基向量.
 
 无反射时 $G=0$. 由 \eqref{eq:general-cauchy} 及 \eqref{eq:M-residues}, 任一矩阵解具有部分分式表示
@@ -105,7 +105,7 @@ R=\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(z_a^\pm)\sg M(z_a^\pm)^{-1}.
 
 (2) 行列式与分支点. 全部离散极点均位于 $\Sigma$ 外, 故 $M$ 在分支点、谱交点及共振原像处解析.
 引理 \ref{lem:RHP-determinant} 给出 $\det M=\gamma$.
-若 $M(z_b)$ 为零矩阵, 则 $\det M$ 在 $z_b$ 处至少有二阶零点, 与 $\gamma'(z_b)\ne0$ 矛盾; 因此 $\operatorname{rank}M(z_b)=1$.
+若 $M(z_b^\pm)$ 为零矩阵, 则 $\det M$ 在 $z_b^\pm$ 处至少有二阶零点, 与 $\gamma'(z_b^\pm)\ne0$ 矛盾; 因此 $\operatorname{rank}M(z_b^\pm)=1$.
 
 (3) 三场重构. 由 \eqref{eq:finite-schur}, 向量 $(\mathbf v_j)_1$ 组成的列向量恰为 $L_N^{-1}\boldsymbol r$, 代入 \eqref{eq:qfinite} 得 \eqref{eq:N-determinant-q} 的第一式. 再由分块矩阵行列式公式
 \begin{equation*}
@@ -214,7 +214,7 @@ M(z)=H\bigl[(k(z)+\ii b)\Id-2\ii bP\bigr]Y(z)
 该解在分支点、谱交点与共振原像处解析, 在分支点处秩为一, 在共振原像处可逆.
 \end{theorem}
 \begin{proof}
-利用 $(z-\zeta_1)(z-\zeta_2)=2z(\lambda-\ii\kappa)$ 合并第二列分母 (第一列同理), 再结合 $2bh_0=q_0(1+h_0^2)$ 与 $2\kappa h_0=q_0(1-h_0^2)$ 化简分子, 即得 \eqref{eq:explicitM}.
+利用 $(z-\zeta_1)(z-\zeta_2)=2z(\lambda-\ii\kappa)$ 合并第二列分母, 第一列同理; 再结合 $2bh_0=q_0(1+h_0^2)$ 与 $2\kappa h_0=q_0(1-h_0^2)$ 化简分子, 即得 \eqref{eq:explicitM}.
 引理 \ref{lem:direct-solve} 与定理 \ref{thm:N-orbit-RHP} 保证该矩阵对全部 $(x,t)\in\mathbb R^2$ 满足 RHP 的留数、归一化及对称性条件, 并具有唯一性.
 
 记
@@ -226,6 +226,6 @@ N(k)=(k+\ii b)\Id-2\ii bP.
 \det N=(k-\ii b)(k+\ii b)=\lambda^2+\kappa^2,
 \end{equation*}
 其与两个列分母之积相消, 给出 $\det M=\det Y=\gamma$.
-在分支点 $z=\pm\ii q_0$ 处, $\lambda=0$, 列分母非零, 而 $N$ 可逆、$Y$ 秩一, 故 $M$ 解析且秩一.
+在分支点 $z_b^\pm$ 处, $\lambda=0$, 列分母非零, 而 $N$ 可逆、$Y$ 秩一, 故 $M$ 解析且秩一.
 在谱交点和共振原像处, $\lambda$ 为实数, 列分母亦非零; 共振处的 $\gamma>0$ 进一步保证 $M$ 可逆.
 \end{proof}

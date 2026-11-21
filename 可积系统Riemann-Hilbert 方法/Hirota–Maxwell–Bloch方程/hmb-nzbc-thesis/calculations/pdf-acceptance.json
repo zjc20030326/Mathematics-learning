@@ -2,7 +2,7 @@
   "sources": {
     "tex_files": 9,
     "labels": 210,
-    "references": 371,
+    "references": 387,
     "balanced_delimiters_environments_braces": true,
     "eight_continuous_sections": true,
     "forbidden_forms_absent": true,
@@ -130,7 +130,7 @@
     "source_aux_numbers_and_bbl_order_match": true
   },
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 40,
+  "pdf_pages": 41,
   "top_level_sections": [
     [
       1,
@@ -165,7 +165,7 @@
     [
       1,
       "7. 单轨道三场解的全局性与方程验证",
-      31
+      32
     ],
     [
       1,
@@ -174,13 +174,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 452,
+  "pdf_links_checked": 468,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "7"
   ],
-  "pdf_sha256": "7a9abd6b5e17407b457fafbbb982524782074b6624d6ac2ba2afe97d34b587f1",
+  "pdf_sha256": "3b9b0ae41b3e6f7c963c41d734812947c977fcd584919d9b2027c77961aecffb",
   "visual_review": "Visual review is not inferred by this automated check."
 }
