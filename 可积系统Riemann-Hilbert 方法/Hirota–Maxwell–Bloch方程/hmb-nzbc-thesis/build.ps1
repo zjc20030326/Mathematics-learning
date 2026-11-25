@@ -11,11 +11,10 @@ try {
     & xelatex -recorder -synctex=1 -interaction=nonstopmode -halt-on-error -file-line-error "-output-directory=$buildDirectory" fduthesis.tex > (Join-Path $buildDirectory 'pass1.txt') 2>&1
     if ($LASTEXITCODE -ne 0) { throw "XeLaTeX pass 1 failed; see $buildDirectory\pass1.txt" }
     Copy-Item -LiteralPath (Join-Path $projectDirectory 'citelist.bib') -Destination $buildDirectory -Force
-    Get-ChildItem -LiteralPath $projectDirectory -Filter '*.bst' | Copy-Item -Destination $buildDirectory -Force
     Push-Location $buildDirectory
     try {
-        & bibtex fduthesis > (Join-Path $buildDirectory 'bibtex.txt') 2>&1
-        if ($LASTEXITCODE -ne 0) { throw "BibTeX failed; see $buildDirectory\bibtex.txt" }
+        & biber fduthesis > (Join-Path $buildDirectory 'biber.txt') 2>&1
+        if ($LASTEXITCODE -ne 0) { throw "Biber failed; see $buildDirectory\biber.txt" }
     }
     finally { Pop-Location }
     foreach ($pass in 2,3) {

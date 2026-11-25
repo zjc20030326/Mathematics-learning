@@ -6,7 +6,7 @@
 %%
 %% fduthesis.dtx  (with options: `definition')
 %% 
-%%     Copyright (C) 2017--2019 by Xiangdong Zeng <xdzeng96@gmail.com>
+%%     Copyright (C) 2017--2023 by Xiangdong Zeng <xdzeng96@gmail.com>
 %% 
 %%     This work may be distributed and/or modified under the
 %%     conditions of the LaTeX Project Public License, either
@@ -25,7 +25,6 @@
 %%     This work consists of the files fduthesis.dtx,
 %%                                     fduthesis-doc.dtx,
 %%                                     fduthesis-logo.dtx,
-%%                                     fduthesis-template.tex,
 %%               and the derived files fduthesis.ins,
 %%                                     fduthesis.cls,
 %%                                     fduthesis-en.cls,
@@ -43,7 +42,7 @@
 %%                                     fduthesis-code.pdf,
 %%                                 and README.md.
 %% 
-\GetIdInfo $Id: fduthesis.dtx 0.7d 2019-04-03 12:00:00Z Xiangdong Zeng <xdzeng96@gmail.com> $
+\GetIdInfo $Id: fduthesis.dtx 0.9a 2023-05-27 12:00:00Z Xiangdong Zeng <xdzeng96@gmail.com> $
   {Definition file for fduthesis}
 \ProvidesExplFile{\ExplFileName.def}
   {\ExplFileDate}{\ExplFileVersion}{\ExplFileDescription}
@@ -52,14 +51,14 @@
 \tl_const:Nn \c__fdu_name_en_tl   { Fudan~ University }
 \clist_map_inline:nn
   {
-    { ideo_comma       } { "3001 },
-    { ideo_full_stop   } { "3002 },
-    { fwid_comma       } { "FF0C },
-    { fwid_full_stop   } { "FF0E },
-    { fwid_colon       } { "FF1A },
-    { fwid_semicolon   } { "FF1B },
-    { fwid_left_paren  } { "FF08 },
-    { fwid_right_paren } { "FF09 }
+    { ideo_comma       } { ^^^^3001 },
+    { ideo_full_stop   } { ^^^^3002 },
+    { fwid_comma       } { ^^^^ff0c },
+    { fwid_full_stop   } { ^^^^ff0e },
+    { fwid_colon       } { ^^^^ff1a },
+    { fwid_semicolon   } { ^^^^ff1b },
+    { fwid_left_paren  } { ^^^^ff08 },
+    { fwid_right_paren } { ^^^^ff09 }
   }
   { \__fdu_define_punct:nn #1 }
 \fp_const:Nn \c__fdu_line_spread_fp
@@ -82,41 +81,58 @@
   { 作者签名, 日期 }
 \clist_const:Nn \c__fdu_auth_decl_sign_clist
   { 作者签名, 导师签名, 日期 }
-\clist_const:Nn \c__fdu_thesis_type_clist
-  { 博士学位论文, 硕士学位论文, 本科毕业论文 }
-\clist_const:Nn \c__fdu_degree_type_clist
-  { 学术学位, 专业学位 }
-\clist_const:Nn \c__fdu_secret_clist { 秘密, 机密, 绝密 }
+\prop_const_from_keyval:Nn \c__fdu_thesis_type_prop
+  {
+    doctor   = 博士学位论文,
+    master   = 硕士学位论文,
+    bachelor = 本科毕业论文,
+  }
+\prop_const_from_keyval:Nn \c__fdu_degree_type_prop
+  {
+    academic     = 学术学位,
+    professional = 专业学位,
+  }
+\prop_const_from_keyval:Nn \c__fdu_secret_prop
+  {
+    i   = 秘密,
+    ii  = 机密,
+    iii = 绝密,
+  }
 \clist_map_inline:nn
   {
-    { secret_level    } { 密 \qquad 级                  },
-    { secret_star     } { \textrm { \bigstar }          },
-    { school_id       } { 学校代码                      },
-    { student_id      } { 学 \qquad 号                  },
-    { department      } { 院系                          },
-    { major           } { 专业                          },
-    { author          } { 姓名                          },
-    { supervisor      } { 指导教师                      },
-    { date            } { 完成日期                      },
-    { instructors     } { 指导小组成员                  },
-    { author_sign     } { 作者签名                      },
-    { supervisor_sign } { 导师签名                      },
-    { sign_date       } { 日期                          },
-    { toc             } { 目 \quad 录                   },
-    { lof             } { 插图目录                      },
-    { lot             } { 表格目录                      },
-    { bib_en          } { Bibliography                  },
-    { pdf_creator     } { LaTeX~ with~ fduthesis~ class },
-    { orig_decl       } { \c__fdu_name_simp_tl \\ 学位论文独创性声明   },
-    { auth_decl       } { \c__fdu_name_simp_tl \\ 学位论文使用授权声明 }
+    { secret_level       } { 密 \qquad 级                  },
+    { secret_star        } { \textrm { \bigstar }          },
+    { school_id          } { 学校代码                      },
+    { student_id         } { 学 \qquad 号                  },
+    { department         } { 院系                          },
+    { major              } { 专业                          },
+    { major_professional } { 专业学位类别（领域）          },
+    { author             } { 姓名                          },
+    { supervisor         } { 指导教师                      },
+    { date               } { 完成日期                      },
+    { instructors        } { 指导小组成员                  },
+    { author_sign        } { 作者签名                      },
+    { supervisor_sign    } { 导师签名                      },
+    { sign_date          } { 日期                          },
+    { toc                } { 目 \quad 录                   },
+    { lof                } { 插图目录                      },
+    { lot                } { 表格目录                      },
+    { bib_en             } { Bibliography                  },
+    { pdf_creator        } { LaTeX~ with~ fduthesis~ class },
+    { orig_decl          }
+      { \c__fdu_name_simp_tl \\ 学位论文独创性声明   },
+    { auth_decl          }
+      { \c__fdu_name_simp_tl \\ 学位论文使用授权声明 },
   }
   { \__fdu_define_name:nn #1 }
 \clist_map_inline:nn
   {
-    { abstract } { 摘 \quad 要 } { Abstract          },
-    { keywords } { 关键字      } { Keywords:         },
-    { clc      } { 中图分类号  } { CLC~ number:      },
-    { notation } { 符号表      } { List~ of~ Symbols }
+    { abstract         } { 摘 \quad 要 } { Abstract          },
+    { keywords         } { 关键词      } { Keywords:         },
+    { clc              } { 中图分类号  } { CLC~ code:        },
+    { jel              } { JEL 分类号  } { JEL~ code:        },
+    { notation         } { 符号表      } { List~ of~ Symbols },
+    { acknowledgements } { 致 \quad 谢 } { Acknowledgements  }
   }
   { \__fdu_define_name:nnn #1 }
 \clist_map_inline:nn
@@ -130,6 +146,8 @@
     { theorem    } { 定理 } { Theorem    }
   }
   { \__fdu_define_name:nnn #1 }
+\tl_put_right:Nn \c__fdu_name_major_professional_tl
+  { { \skip_horizontal:n { -0.5 em } } }
 \endinput
 %%
 %% End of file `fduthesis.def'.

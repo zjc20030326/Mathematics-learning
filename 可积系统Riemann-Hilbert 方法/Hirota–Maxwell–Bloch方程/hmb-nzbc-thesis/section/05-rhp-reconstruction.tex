@@ -1,254 +1,158 @@
 % !TeX root = ../fduthesis.tex
-本节将前两节所得的 Jost 解析列与散射关系整理为单值化谱平面上的矩阵 Riemann--Hilbert 问题 (RHP), 建立光场与介质矩阵的重构公式, 并给出透射系数的迹公式与同相背景相位条件.
 
-\subsection{矩阵 Riemann--Hilbert 问题}
-固定 $x\in\mathbb R$ 和 $t\in I$.
-沿用图 \ref{fig:analytic-regions} 的谱边界定向, 以 $+$、$-$ 表示左、右非切向边界值.
-记 $\Sigma_*=\Sigma\mathbin{\backslash}\{0,\pm q_0,z_a^\pm,z_b^\pm\}$.
+基于前两章的解析延拓、离散谱留数、无穷远展开与共振原像相容性，本章将逆散射问题整理为单值化谱平面上的矩阵 Riemann--Hilbert 问题（RHP），导出规范光场与介质矩阵的重构公式，并建立透射系数的迹公式及同相非零背景的相位相容条件。
+
+\section{矩阵 Riemann--Hilbert 问题}
+
+本节固定 $(x,t)\in\mathbb R\times I$，将分别在 $D_+$ 与 $D_-$ 内解析的四条修正 Jost 列重新拼装为逐域解析的分片亚纯矩阵，以便在连续谱边界 $\Sigma$ 上构成标准矩阵跳跃问题。以下沿用图 \ref{fig:analytic-regions} 取定的连续谱边界 $\Sigma$ 定向，以 $+$、$-$ 分别表示从左侧区域 $D_+$ 与右侧区域 $D_-$ 趋于 $\Sigma$ 的非切向边界值，并记光滑开谱弧段集合为
+\begin{equation*}
+\Sigma_*=\Sigma\mathbin{\backslash}\{0,\pm q_0,z_a^\pm,z_b^\pm\}.
+\end{equation*}
 
 \begin{proposition}\label{prop:jump}
-设命题 \ref{prop:evolution} 的条件成立, 透射系数在 $\Sigma_*$ 上非零,
-离散零点有限且均为简单零点. 由修正 Jost 矩阵的解析列定义
+固定 $(x,t)\in\mathbb R\times I$，设命题 \ref{prop:evolution} 的条件成立，透射系数 $s_{11},s_{22}$ 在 $\Sigma_*$ 上非零，且离散零点集合 \eqref{eq:discrete-indexing} 有限、全为简单零点。定义分片亚纯矩阵函数
 \begin{equation}\label{eq:Mdef}
 M(z)=\begin{cases}
 M_+(z)=\left(\mu_{-,1},\dfrac{\mu_{+,2}}{s_{22}}\right),&z\in D_+,\\[6pt]
-M_-(z)=\left(\dfrac{\mu_{+,1}}{s_{11}},\mu_{-,2}\right),&z\in D_-.
+M_-(z)=\left(\dfrac{\mu_{+,1}}{s_{11}},\mu_{-,2}\right),&z\in D_-,
 \end{cases}
 \end{equation}
-则 $M$ 满足下列条件:
-
-(1) 矩阵 $M$ 在 $\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 内解析, 在离散谱 $Z$ 处至多有简单极点.
-
-(2) 在 $\Sigma_*$ 上, $M$ 的两侧非切向边界值 $M_\pm$ 存在且局部连续, 并满足跳跃关系
+则 $M(z)=M(x,t,z)$ 满足下列五条性质。
+\begin{enumerate}[(1)]
+\item 矩阵 $M(z)$ 在 $\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 内解析，在离散谱 $Z$ 处至多具有一阶简单极点。
+\item 在 $\Sigma_*$ 上，$M$ 的两侧非切向边界值 $M_\pm$ 存在且局部连续，并满足跳跃关系
 \begin{equation}\label{eq:jump}
 M_-=M_+(\Id-G),\qquad
 G=\begin{pmatrix}
 \rho\widetilde\rho&\widetilde\rho e^{-2\ii\lambda x}\\
 -\rho e^{2\ii\lambda x}&0
-\end{pmatrix},\qquad \det(\Id-G)=1.
+\end{pmatrix},\qquad
+\det(\Id-G)=1.
 \end{equation}
-
-(3) 在离散谱点处, $M$ 满足留数条件
+\item 记 $M=(M_1,M_2)$，在按 \eqref{eq:discrete-indexing} 编号的离散极点 $\zeta_j\in D_+$ 与 $\conj{\zeta_j}\in D_-$ 处满足留数条件
 \begin{equation}\label{eq:M-residues}
 \Res_{z=\zeta_j}M(z)=\bigl(0,\,C_jM_1(\zeta_j)\bigr),\qquad
 \Res_{z=\conj{\zeta_j}}M(z)=\bigl(-\conj{C_j}M_2(\conj{\zeta_j}),\,0\bigr).
 \end{equation}
-其中 $j=1,\ldots,2N$, $\zeta_j$ 按 \eqref{eq:discrete-indexing} 编号, $C_j=C_j(x,t)$ 由 \eqref{eq:C-timephase} 给出, $M_1,M_2$ 分别表示 $M$ 的第一、第二列.
-
-(4) 在无穷远和原点处分别满足渐近行为
+\item 在谱无穷远与谱原点处，$M(z)$ 分别满足渐近归一化条件
 \begin{align}
-&M(z)=\Id+\dfrac{M^{(1)}}{z}+O(z^{-2}),\qquad z\to\infty,\label{eq:Minfty}\\
-&M(z)=-\dfrac{\ii q_0}{z}\sigma_1+O(1),\qquad z\to0,\label{eq:Mzero}
+&M(z)=\Id+\dfrac{M^{(1)}}{z}+O(z^{-2}),\qquad z\longrightarrow\infty,\label{eq:Minfty}\\
+&M(z)=-\dfrac{\ii q_0}{z}\sigma_1+O(1),\qquad z\longrightarrow0.\label{eq:Mzero}
 \end{align}
-其中 $M^{(1)}$ 为无穷远展开中 $z^{-1}$ 项的系数矩阵.
-
-(5) 矩阵 $M$ 满足共轭与换叶对称性
+\item 矩阵 $M(z)$ 满足共轭与换叶对称性
 \begin{equation}\label{eq:Msym}
 M(z)=\sigma_2\conj{M(\conj z)}\sigma_2,\qquad
 M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 \end{equation}
-且在每个共振原像 $z_a^\pm$ 处, 两侧边界值连续延拓且相等; 对式 \eqref{eq:Mdef} 构造的 $M$, 该值为 $\mu_-(x,t,z_a^\pm)$.
+且在 \eqref{eq:resonance-w} 给出的共振原像 $z_a^\pm$ 处两侧边界值连续延拓并相等；对由 \eqref{eq:Mdef} 构造的矩阵 $M$，该共同极限值为 $\mu_-(x,t,z_a^\pm)$。
+\end{enumerate}
+其中 $j=1,\ldots,2N$，时变留数系数 $C_j(x,t)$ 由 \eqref{eq:C-timephase} 给出，反射系数 $\rho,\widetilde\rho$ 由 \eqref{eq:reflection} 定义，$M^{(1)}$ 为 $z^{-1}$ 项常矩阵系数，$h(z)=-\dfrac{q_0^2}{z}$ 为换叶映射 \eqref{eq:sheet}。
 \end{proposition}
 \begin{proof}
-由定理 \ref{thm:jost} 与命题 \ref{prop:scattering}, 式 \eqref{eq:Mdef} 中的两列商仅可在分母零点处产生极点; 直接结合留数公式 \eqref{eq:resplus}--\eqref{eq:resminus} 及时间演化式 \eqref{eq:C-timephase}, 即得 $\zeta_j$ 处位于第二列、$\conj{\zeta_j}$ 处位于第一列的留数条件 \eqref{eq:M-residues}.
-在 $\Sigma_*$ 上, 各 Jost 列与透射系数连续且分母非零, 故 $M_\pm$ 具有局部连续的非切向边界值.
-将散射列关系 \eqref{eq:scattering-columns} 改写为
+由定理 \ref{thm:jost} 与命题 \ref{prop:scattering} 知 $M_\pm$ 在 $D_\pm$ 内的解析性与简单极点位置，代入散射留数公式 \eqref{eq:resplus}--\eqref{eq:resminus} 与 \eqref{eq:C-timephase} 即得第 (1) 与第 (3) 项。利用散射列关系 \eqref{eq:scattering-columns}、反射系数定义 \eqref{eq:reflection} 与 \eqref{eq:scattering-determinant} 中的 $s_{11}^{-1}=s_{22}(1-\rho\widetilde\rho)$，改写得
 \begin{equation*}
 \begin{aligned}
 &M_{-,1}=(1-\rho\widetilde\rho)M_{+,1}+\rho e^{2\ii\lambda x}M_{+,2},\\
 &M_{-,2}=-\widetilde\rho e^{-2\ii\lambda x}M_{+,1}+M_{+,2},
 \end{aligned}
 \end{equation*}
-即得 \eqref{eq:jump}, 且直接计算有 $\det(\Id-G)=1$.
-将命题 \ref{prop:highenergy} 中 Jost 列与透射系数的渐近展开代入 \eqref{eq:Mdef}, 即得 \eqref{eq:Minfty}--\eqref{eq:Mzero}.
-由 Jost 列与透射系数的对称性 \eqref{eq:jost-conjugate-columns}--\eqref{eq:jost-sheet-columns} 和 \eqref{eq:sconj}--\eqref{eq:ssheet}, 得 \eqref{eq:Msym}.
-在 $z_a^\pm$ 处, 由 \eqref{eq:resonance-reflection} 知散射矩阵为可逆对角矩阵, 代入 \eqref{eq:scattering-columns} 即得 $M_+=M_-=\mu_-(x,t,z_a^\pm)$.
+写成矩阵乘积即证 \eqref{eq:jump}。将命题 \ref{prop:highenergy} 的渐近展开 \eqref{eq:mu-highenergy}--\eqref{eq:s11-highenergy} 与 \eqref{eq:smallmu}--\eqref{eq:s11-smallenergy} 代入 \eqref{eq:Mdef}，消去首项外余项即得 \eqref{eq:Minfty}--\eqref{eq:Mzero}；代入对称性 \eqref{eq:conjugation}--\eqref{eq:musheet} 与 \eqref{eq:sconj}--\eqref{eq:ssheet} 即证 \eqref{eq:Msym}。最后由命题 \ref{prop:resonance} 中的 $s_{12}(z_a^\pm,t)=s_{21}(z_a^\pm,t)=0$ 与 $\det S(z_a^\pm,t)=1$，结合 \eqref{eq:scattering-columns} 与 \eqref{eq:Mdef} 得 $M_+(z_a^\pm)=\mu_-(x,t,z_a^\pm)=M_-(z_a^\pm)$。
 \end{proof}
 
-\subsection{留数表示与三场重构}
-以下对命题 \ref{prop:jump} 构造的矩阵 $M$ 建立积分表示, 并假定其在分支点 $z_b^\pm$ 与谱交点 $\pm q_0$ 附近局部有界.
-由 \eqref{eq:scattering-highenergy}, 正向散射数据对应的跳跃矩阵满足 $s\to\infty$ 时 $G(s)=O(s^{-2})$.
-由跳跃关系 \eqref{eq:jump}, 有 $M_+-M_-=M_+G$.
-从 $M_\pm$ 中扣除无穷远常项、原点奇部及全部离散极点主部, 可得
-\begin{equation*}
-\begin{aligned}
-&M_-(z)-\Id+\dfrac{\ii q_0}{z}\sigma_1
--\sum\limits_{\xi\in Z}\dfrac{\Res_{s=\xi}M(s)}{z-\xi}\\
-&\quad=M_+(z)-\Id+\dfrac{\ii q_0}{z}\sigma_1
--\sum\limits_{\xi\in Z}\dfrac{\Res_{s=\xi}M(s)}{z-\xi}-M_+(z)G(z).
-\end{aligned}
-\end{equation*}
-上式左端在 $D_-$ 内解析, 右端去掉末项后在 $D_+$ 内解析; 二者在 $0,\pm q_0,z_a^\pm,z_b^\pm$ 附近有界, 且当 $z\to\infty$ 时均为 $O(z^{-1})$.
-此外, $M_+G=M_+-M_-$ 在 $\Sigma_*$ 上连续; 由 \eqref{eq:Mzero} 中两侧相同的原点主部、分支点与谱交点附近的局部有界性, 以及共振原像处的连续性, 可知该差在 $\Sigma$ 的有限部分有界. 结合 \eqref{eq:Minfty} 与 $s\to\infty$ 时的渐近估计 $G(s)=O(s^{-2})$, 有 $M_+(s)G(s)=O(s^{-2})$, 故 $M_+G\in L^1(\Sigma)\cap L^2(\Sigma)$.
-由 Plemelj 公式\cite{ZhangFan2020,Fan2022}, 对任意 $z\in\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 有积分表示
+从逆散射视角出发，给定满足上述相容条件且无穷远满足 $G(s)=O(s^{-2})$ 的散射数据 $\bigl(\rho,\widetilde\rho,\{\zeta_j,c_j(0)\}_{j=1}^{2N}\bigr)$ 后，不再预先假定 $M(z)$ 来自 Jost 解，而是寻求在分支点 $z_b^\pm$ 与交点 $\pm q_0$ 附近保持局部有界、在共振原像 $z_a^\pm$ 处两侧边界值连续相等且满足命题 \ref{prop:jump} 条件 (1)--(5) 的分片亚纯矩阵 $M(z)$，这构成了从散射数据直接求解矩阵 RHP 以重构物理场的反演框架。
+
+\section{留数表示与三场重构}
+
+为从上述矩阵 RHP 恢复物理三场 $(\widetilde q,\widetilde p,\eta)$ 并在第 \ref{ch:soliton} 章求解有限维无反射系统，本节建立矩阵 $M(z)$ 的 Cauchy 型积分表示、离散留数代数--积分方程以及物理三场的显式重构公式。
+
+假定矩阵 $M(z)$ 在 $z_b^\pm$ 与 $\pm q_0$ 附近局部有界，且 $s\to\infty$ 时 $G(s)=O(s^{-2})$。利用跳跃关系 $M_+-M_-=M_+G$，从 $M_\pm(z)$ 中减去无穷远单位阵、原点极点主部与全体离散极点主部，即得两侧分别在 $D_-$ 与 $D_+$ 内解析且在 $z\to\infty$ 处均为 $O(z^{-1})$ 的加性跳跃问题。由 $M_+G$ 在有限特殊点处的有界性与无穷远衰减性知 $M_+G\in L^1(\Sigma)\cap L^2(\Sigma)$，应用 Plemelj 公式\cite{ZhangFan2020,Fan2022}对 $z\in\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 得到 Cauchy 型积分表示
 \begin{equation}\label{eq:general-cauchy}
 M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
 +\sum\limits_{\xi\in Z}\dfrac{\Res_{s=\xi}M(s)}{z-\xi}
 +\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{M_+(s)G(s)}{s-z}\,\dd s.
 \end{equation}
-
-将留数条件 \eqref{eq:M-residues} 代入 \eqref{eq:general-cauchy}, 分别取第一列在 $z=\zeta_j$ 处及第二列在 $z=\conj{\zeta_j}$ 处的值, 得到
+将留数条件 \eqref{eq:M-residues} 代入 \eqref{eq:general-cauchy}，分别在 $z=\zeta_j$ 取第一列与在 $z=\conj{\zeta_j}$ 取第二列，可得决定极点留数向量的封闭线性系统
 \begin{align}
 &M_1(\zeta_j)=\begin{pmatrix}1\\-\dfrac{\ii q_0}{\zeta_j}\end{pmatrix}
--\sum\limits_{k=1}^{2N}\dfrac{\conj{C_k}M_2(\conj{\zeta_k})}{\zeta_j-\conj{\zeta_k}}
+-\sum\limits_{\ell=1}^{2N}\dfrac{\conj{C_\ell}M_2(\conj{\zeta_\ell})}{\zeta_j-\conj{\zeta_\ell}}
 +\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\bigl(M_+(s)G(s)\bigr)_1}{s-\zeta_j}\,\dd s,
 \label{eq:general-finite1}\\
 &M_2(\conj{\zeta_j})=\begin{pmatrix}-\dfrac{\ii q_0}{\conj{\zeta_j}}\\1\end{pmatrix}
-+\sum\limits_{k=1}^{2N}\dfrac{C_kM_1(\zeta_k)}{\conj{\zeta_j}-\zeta_k}
++\sum\limits_{\ell=1}^{2N}\dfrac{C_\ell M_1(\zeta_\ell)}{\conj{\zeta_j}-\zeta_\ell}
 +\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\bigl(M_+(s)G(s)\bigr)_2}{s-\conj{\zeta_j}}\,\dd s.
 \label{eq:general-finite2}
 \end{align}
-进一步, 为确定无穷远展开系数 $M^{(1)}$, 沿虚轴令 $z\to\infty$.
-当 $z$ 为纯虚数且 $|z|>2q_0$ 时, 对一切 $s\in\Sigma$ 有 $\left|\dfrac{z}{s-z}\right|\le2$, 且 $\dfrac{z}{s-z}\to-1$ 逐点成立.
-结合 $M_+G\in L^1(\Sigma)$, 对 \eqref{eq:general-cauchy} 中的积分项应用控制收敛定理, 得
+再沿正虚轴令 $z\to\infty$，对 \eqref{eq:general-cauchy} 应用控制收敛定理提取 $z^{-1}$ 展开，得
 \begin{equation}\label{eq:M1-general}
 M(z)=\Id+\dfrac{1}{z}\left(-\ii q_0\sigma_1
 +\sum\limits_{\xi\in Z}\Res_{s=\xi}M(s)
 -\dfrac{1}{2\pi\ii}\int\limits_\Sigma M_+(s)G(s)\,\dd s\right)+o(z^{-1}).
 \end{equation}
 
-利用 $M$ 在谱无穷远的展开系数与共振原像处的取值, 可以分别恢复光场与介质矩阵, 进而得到原物理三场.
+利用矩阵 $M(z)$ 在无穷远处的展开系数 $M^{(1)}$ 与共振原像 $z_a^\pm$ 处的取值，物理三场可精确重构如下。
 
 \begin{proposition}\label{prop:reconstruction}
-设三场满足基本条件 \eqref{eq:evolution-regularity}, 透射系数在 $\Sigma_*$ 上非零且离散零点有限、简单.
-由 Jost 解析列按式 \eqref{eq:Mdef} 构造 $M$, 则规范光场由无穷远展开系数 $M^{(1)}$ 确定:
+固定 $(x,t)\in\mathbb R\times I$，设定理 \ref{thm:jost} 与命题 \ref{prop:jump} 的条件成立，$M(z)$ 由 \eqref{eq:Mdef} 构造。则规范光场 $q(x,t)$ 由 \eqref{eq:Minfty} 中的系数 $M^{(1)}$ 确定为
 \begin{equation}\label{eq:reconq}
 Q=\dfrac{\ii}{2}[\sg,M^{(1)}],\qquad q=\ii M^{(1)}_{12}.
 \end{equation}
-若三场还满足规范 HMB 系统 \eqref{eq:gauged-HMB} 的两条介质方程, 则 $M(x,t,z_a^\pm)$ 可逆, 介质矩阵由共振原像处的取值恢复:
+若物理三场还满足 \eqref{eq:gauged-HMB} 中的两条介质方程，则 $M(x,t,z_a^\pm)$ 均可逆且介质矩阵 $R(x,t)$ 由共振原像取值恢复为
 \begin{equation}\label{eq:RfromM}
 R=\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(x,t,z_a^\pm)\sg M(x,t,z_a^\pm)^{-1},
 \end{equation}
-且两个共振原像给出同一介质矩阵. 原物理三场为
+且两共振原像 $z_a^+$ 与 $z_a^-$ 给出同一矩阵 $R$；结合规范变换 \eqref{eq:gauge}，原物理三场恢复为
 \begin{equation}\label{eq:original-fields}
 \widetilde q=e^{-\ii\Omega t}q,\qquad
-\widetilde p=-e^{-\ii\Omega t}R_{12},\qquad \eta=R_{11}.
+\widetilde p=-e^{-\ii\Omega t}R_{12},\qquad
+\eta=R_{11}.
 \end{equation}
 \end{proposition}
 \begin{proof}
-(1) 光场恢复. 将命题 \ref{prop:highenergy} 中 Jost 列与透射系数的无穷远展开代入 \eqref{eq:Mdef}: 在 $D_+$ 中, 第二列除以 $s_{22}$ 使对角系数由 $-\ii J_+$ 变为 $-\ii(J_++J)=-\ii J_-$, 而在 $D_-$ 中同理. 于是两域具有相同的 $z^{-1}$ 项系数矩阵
-\begin{equation*}
-M^{(1)}=-\ii B(q)+\ii J_-\sg,
-\end{equation*}
-取非对角部分即得 \eqref{eq:reconq}.
-
-(2) 介质恢复. 由命题 \ref{prop:resonance}, 在共振原像处散射矩阵对角且可逆, 结合 \eqref{eq:scattering-columns}、\eqref{eq:detjost} 与 \eqref{eq:Mdef} 有 $M(x,t,z_a^\pm)=\mu_-(x,t,z_a^\pm)$ 且 $\det M(x,t,z_a^\pm)=\gamma(z_a^\pm)>0$.
-将其代入 \eqref{eq:resonance-conjugation} 即得 \eqref{eq:RfromM}.
-换叶时 $\lambda(h(z_a^\pm))=-\lambda(z_a^\pm)$ 且 $\sigma_1\sg\sigma_1=-\sg$, 结合对称性 \eqref{eq:Msym} 可知两原像给出同一矩阵 $R$.
-最后由规范变换 \eqref{eq:gauge} 及 \eqref{eq:gauged-V} 即得 \eqref{eq:original-fields}.
+将命题 \ref{prop:highenergy} 中的展开 \eqref{eq:mu-highenergy}--\eqref{eq:s11-highenergy} 代入 \eqref{eq:Mdef}，在 $D_\pm$ 两区域均得出展开首项系数 $M^{(1)}=-\ii B(q)+\ii J_-\sg$，对照 \eqref{eq:Bdef} 作交换子即证 \eqref{eq:reconq}。在共振原像处，由命题 \ref{prop:jump} 第 (5) 项与 \eqref{eq:detjost} 有 $\det M(z_a^\pm)=\det\mu_-(z_a^\pm)=\gamma(z_a^\pm)>0$，代入 \eqref{eq:resonance-conjugation} 即证 \eqref{eq:RfromM}；再由 \eqref{eq:sheet} 中的 $\lambda(z_a^-)=-\lambda(z_a^+)$、换叶对称性 \eqref{eq:Msym} 中的 $M(z_a^-)=M(z_a^+)\dfrac{\ii z_a^+}{q_0}\sigma_1$ 以及 $\sigma_1\sg\sigma_1=-\sg$ 代换验证，即知两原像给出完全相同的矩阵 $R$。最后由 \eqref{eq:gauge} 与 \eqref{eq:gauged-V} 即得 \eqref{eq:original-fields}。
 \end{proof}
 
-将 \eqref{eq:M1-general} 中 $z^{-1}$ 项的 $(1,2)$ 元连同留数条件 \eqref{eq:M-residues} 代入 \eqref{eq:reconq}, 即得规范光场的显式重构公式
+将展开式 \eqref{eq:M1-general} 的 $(1,2)$ 元与留数条件 \eqref{eq:M-residues} 代入 \eqref{eq:reconq}，即得规范光场的显式分解重构公式
 \begin{equation}\label{eq:qgeneral}
 q=q_0+\ii\sum\limits_{j=1}^{2N}C_jM_{11}(\zeta_j)
--\dfrac{1}{2\pi}\int\limits_\Sigma \bigl(M_+(s)G(s)\bigr)_{12}\,\dd s.
+-\dfrac{1}{2\pi}\int\limits_\Sigma \bigl(M_+(s)G(s)\bigr)_{12}\,\dd s,
 \end{equation}
-上式右端三项依次对应非零背景、离散谱和连续谱对光场的贡献.
+右端三项依次刻画了非零背景常数、有限维离散孤子与连续谱辐射的贡献。
 
-给定反射系数、离散谱及相应范数常数, 考虑寻找满足命题 \ref{prop:jump} 中条件 (1)--(5) 的分片亚纯矩阵 $M$, 并要求其在分支点 $z_b^\pm$ 与谱交点 $\pm q_0$ 附近局部有界, 且当 $s\to\infty$ 时跳跃矩阵满足 $G(s)=O(s^{-2})$.
-称这一边值问题为相应的一般矩阵 RHP. 其中, 共振原像处仅要求两侧边界值连续延拓且相等, 不预先指定其为 Jost 解.
-上述积分表示及离散谱关系对一般矩阵 RHP 的解同样成立. 下面建立其行列式恒等式及介质矩阵的约化性质.
+\section{迹公式与相位条件}
 
-\begin{lemma}\label{lem:RHP-determinant}
-上述矩阵 RHP 的任一解均满足
-\begin{equation}\label{eq:detM}
-\det M(z)=\gamma(z)=1+\dfrac{q_0^2}{z^2}.
-\end{equation}
-\end{lemma}
-\begin{proof}
-由 $\det(\Id-G)=1$, $\det M$ 可跨越 $\Sigma_*$ 解析延拓.
-由 \eqref{eq:M-residues}, 奇异列的留数与正则列成比例, 因而离散极点对 $\det M$ 均是可去奇点;
-$z_a^\pm$ 处由连续性、$\pm q_0,z_b^\pm$ 处由局部有界性亦为可去奇点.
-结合 \eqref{eq:Minfty}--\eqref{eq:Mzero} 与 Liouville 定理, 有
-\begin{equation*}
-\det M(z)=1+\dfrac{d}{z}+\dfrac{q_0^2}{z^2}.
-\end{equation*}
-将其代入换叶对称性 \eqref{eq:Msym} 给出的 $\det M(h(z))=\dfrac{z^2}{q_0^2}\det M(z)$,
-比较 $z^{-1}$ 项系数得 $-d=d$, 故 $d=0$.
-\end{proof}
+为保证逆散射重构场在 $x\to\pm\infty$ 两端回归同一无相差平面波背景 \eqref{eq:targetboundary}，本节通过标量 Riemann--Hilbert 分解导出透射系数迹公式及相应的同相相位约束。
 
-\begin{lemma}\label{lem:medium-reduction}
-设 $M$ 为上述矩阵 RHP 的解. 则 $M$ 在两个共振原像 $z_a^\pm$ 处均可逆, 式 \eqref{eq:RfromM} 给出同一个 Hermitian 迹零矩阵 $R$, 且满足 Bloch 约束
-\begin{equation}\label{eq:reconstructed-bloch}
-R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)\Id.
-\end{equation}
-\end{lemma}
-\begin{proof}
-由引理 \ref{lem:RHP-determinant}, $\det M(z_a^\pm)=\gamma(z_a^\pm)>0$, 故 $M(z_a^\pm)$ 可逆. 两原像给出同一矩阵 $R$ 仍由 \eqref{eq:Msym} 保证.
-在实共振点 $z_a^\pm$ 处, 共轭对称性 \eqref{eq:Msym} 给出 $M(z_a^\pm)^\dagger=\sigma_2M(z_a^\pm)^T\sigma_2=\operatorname{adj}M(z_a^\pm)$,
-故 $M(z_a^\pm)^\dagger M(z_a^\pm)=\gamma(z_a^\pm)\Id$, 从而 $\dfrac{M(z_a^\pm)}{\sqrt{\gamma(z_a^\pm)}}$ 为酉矩阵.
-因此 \eqref{eq:RfromM} 为实对角迹零矩阵的酉相似变换, 保持 Hermitian 性与迹零性质.
-将 \eqref{eq:RfromM} 平方并利用 $\sg^2=\Id$ 与 $\lambda(z_a^\pm)^2=a^2+q_0^2$, 即得 \eqref{eq:reconstructed-bloch}.
-\end{proof}
-
-\begin{remark}
-引理 \ref{prop:bloch} 由 HMB 介质方程及非零边界条件推出 Bloch 约束 \eqref{eq:C}.
-与之对应, 引理 \ref{lem:medium-reduction} 由一般矩阵 RHP 的结构得到同一约束.
-事实上, 由 \eqref{eq:gauged-V} 有 $R^2=(|p|^2+\eta^2)\Id$; 结合 \eqref{eq:reconstructed-bloch} 及 $|\widetilde p|=|p|$, 即得 \eqref{eq:C}.
-\end{remark}
-
-\subsection{迹公式与相位条件}
-固定 $t$, 省略谱数据中的时间参数. 设透射系数在 $\Sigma_*$ 上非零, 离散零点有限且简单.
-为用反射系数和离散谱表出解析透射系数, 按 \eqref{eq:discrete-indexing} 剥去离散零点\cite{Fan2022,ZhangFan2020}, 在 $D_+$ 和 $D_-$ 中分别定义
+以下固定 $t\in I$ 并省略自变量 $t$。设透射系数 $s_{11},s_{22}$ 在 $\Sigma_*$ 上非零且离散零点有限、简单。按编号 \eqref{eq:discrete-indexing} 剥离零点\cite{Fan2022,ZhangFan2020}，在 $D_\pm$ 内分别构造无零点解析函数
 \begin{equation*}
 \beta_+(z)=s_{22}(z)\prod\limits_{j=1}^{2N}\dfrac{z-\conj{\zeta_j}}{z-\zeta_j},\qquad
-\beta_-(z)=s_{11}(z)\prod\limits_{j=1}^{2N}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}.
+\beta_-(z)=s_{11}(z)\prod\limits_{j=1}^{2N}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}},
 \end{equation*}
-两者分别在 $D_+$ 与 $D_-$ 内解析且无零点, 当 $z\to\infty$ 时均趋于 $1$. 由 \eqref{eq:scattering-determinant}, 在 $\Sigma_*$ 上有
-\begin{equation*}
-\beta_+(s)\beta_-(s)=s_{11}(s)s_{22}(s)=\dfrac{1}{1-\rho(s)\widetilde\rho(s)}.
-\end{equation*}
-以下设 $\ln(1-\rho\widetilde\rho)$ 选定与无穷远归一化 $\ln\beta_\pm(\infty)=0$ 相容的单值分支, 在 $\Sigma_*$ 上局部 H\"older 连续, 且 $\ln(1-\rho\widetilde\rho)$ 与 $s^{-1}\ln(1-\rho\widetilde\rho)$ 均在 $\Sigma$ 上可积; 同时设 $\ln\beta_\pm$ 在 $\pm q_0,z_b^\pm$ 附近有界.
+二者在 $z\to\infty$ 时趋于 $1$，且在 $\Sigma_*$ 上满足 $\beta_+(s)\beta_-(s)=\bigl(1-\rho(s)\widetilde\rho(s)\bigr)^{-1}$。假定单值连续对数分支 $\ln(1-\rho\widetilde\rho)$ 与 $\ln\beta_\pm(\infty)=0$ 相容，在 $\Sigma_*$ 上局部 H\"older 连续且与 $s^{-1}\ln(1-\rho\widetilde\rho)$ 均属于 $L^1(\Sigma)$，同时 $\ln\beta_\pm$ 在 $\pm q_0,z_b^\pm$ 附近有界。
 
 \begin{proposition}\label{prop:theta}
-在上述条件下, $D_+$ 中的透射系数满足迹公式
+在上述条件下，$D_+$ 内的透射系数 $s_{22}(z)$ 由其离散零点与反射系数唯一表示为迹公式
 \begin{equation}\label{eq:trace}
 s_{22}(z)=\prod\limits_{j=1}^{2N}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}
 \exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ln\bigl(1-\rho(s)\widetilde\rho(s)\bigr)}{s-z}\,\dd s\right\},
 \end{equation}
-$s_{11}$ 由共轭关系 \eqref{eq:sconj} 确定. 两端同相背景满足相位条件
+$D_-$ 内的 $s_{11}(z)$ 由 \eqref{eq:sconj} 确定，且与两端同相边界条件 \eqref{eq:targetboundary} 相容的散射数据必须满足相位条件
 \begin{equation}\label{eq:theta-condition}
 \prod\limits_{j=1}^{2N}\dfrac{\zeta_j}{\conj{\zeta_j}}
 \exp\left\{-\dfrac{1}{2\pi\ii}\int\limits_\Sigma\dfrac{\ln\bigl(1-\rho(s)\widetilde\rho(s)\bigr)}{s}\,\dd s\right\}=1.
 \end{equation}
 \end{proposition}
 \begin{proof}
-在 $\Sigma_*$ 上对乘积关系取对数, 得加性跳跃
-\begin{equation*}
-\ln\beta_+(s)-\bigl(-\ln\beta_-(s)\bigr)=-\ln\bigl(1-\rho(s)\widetilde\rho(s)\bigr).
-\end{equation*}
-由 Plemelj 公式及无穷远归零条件, 有
-\begin{equation*}
-\ln\beta_\pm(z)=\mp\dfrac{1}{2\pi\ii}\int\limits_\Sigma
-\dfrac{\ln\bigl(1-\rho(s)\widetilde\rho(s)\bigr)}{s-z}\,\dd s,\qquad z\in D_\pm.
-\end{equation*}
-事实上, 左、右两端在 $\Sigma_*$ 上具有相同跳跃, 其差在 $0,\pm q_0,z_a^\pm,z_b^\pm$ 处均可去且在无穷远趋于零, 故由 Liouville 定理恒为零.
-代回 $\beta_+$ 的定义即得迹公式 \eqref{eq:trace}.
-
-在 \eqref{eq:trace} 中沿虚轴取 $z=-\ii\varepsilon\in D_+$.
-当 $0<\varepsilon<\dfrac{q_0}{2}$ 时, 对一切 $s\in\Sigma$ 均有 $\left|\dfrac{s}{s-z}\right|\le2$.
-结合 $s^{-1}\ln(1-\rho\widetilde\rho)\in L^1(\Sigma)$, 由控制收敛定理及 \eqref{eq:s22-smallenergy} 给出的 $s_{22}(0)=1$, 取极限即得相位条件 \eqref{eq:theta-condition}.
+对 $\beta_+(s)\beta_-(s)=\bigl(1-\rho(s)\widetilde\rho(s)\bigr)^{-1}$ 取对数并按加性跳跃与无穷远衰减归零条件应用 Plemelj 公式与 Liouville 定理，即得 $\ln\beta_\pm(z)=\mp\dfrac{1}{2\pi\ii}\int_\Sigma\dfrac{\ln\bigl(1-\rho(s)\widetilde\rho(s)\bigr)}{s-z}\,\dd s$，代回 $\beta_+$ 定义并指数化即证 \eqref{eq:trace}，而 $s_{11}$ 由共轭关系 \eqref{eq:sconj} 给出。在 \eqref{eq:trace} 中沿虚轴取 $z=-\ii\varepsilon\in D_+$ 并令 $\varepsilon\to0^+$，借助一致界 $\left|\dfrac{s}{s+\ii\varepsilon}\right|\le2$ 与控制收敛定理，代入 \eqref{eq:s22-smallenergy} 给出的 $s_{22}(0)=1$ 即证 \eqref{eq:theta-condition}。
 \end{proof}
 
-当反射系数在连续谱上恒为零, 即 $\rho=\widetilde\rho=0$ 时, 称为无反射情形, 对应连续谱辐射消失的纯孤子解. 此时迹公式 \eqref{eq:trace} 中的积分项消失, 透射系数退化为有理乘积
+当反射系数 $\rho=\widetilde\rho=0$ 时，逆散射问题退化为无反射纯孤子情形，此时 \eqref{eq:trace} 化为有理乘积
 \begin{equation*}
 s_{22}(z)=\prod\limits_{j=1}^{2N}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}.
 \end{equation*}
-由 \eqref{eq:discrete-indexing} 中的四点轨道配对 $\zeta_{N+n}=-\dfrac{q_0^2}{\conj{\zeta_n}}$, $n=1,\ldots,N$, 其中 $\zeta_n$ 为外部上半平面的轨道代表, 可得
-\begin{equation*}
-\dfrac{\zeta_{N+n}}{\conj{\zeta_{N+n}}}=\dfrac{\zeta_n}{\conj{\zeta_n}},
-\qquad
-\dfrac{\zeta_n}{\conj{\zeta_n}}\cdot\dfrac{\zeta_{N+n}}{\conj{\zeta_{N+n}}}
-=\left(\dfrac{\zeta_n}{\conj{\zeta_n}}\right)^2=e^{4\ii\arg\zeta_n}.
-\end{equation*}
-于是由两端同相背景 $s_{22}(0)=1$ 给出的相位条件 \eqref{eq:theta-condition} 在无反射情形下化为
+利用 \eqref{eq:discrete-indexing} 中的轨道配对 $\zeta_{N+n}=-\dfrac{q_0^2}{\conj{\zeta_n}}$ 算得 $\dfrac{\zeta_{N+n}}{\conj{\zeta_{N+n}}}=\dfrac{\zeta_n}{\conj{\zeta_n}}$，因而同相相位条件 \eqref{eq:theta-condition} 简化为
 \begin{equation*}
 \prod\limits_{j=1}^{2N}\dfrac{\zeta_j}{\conj{\zeta_j}}
-=\prod\limits_{n=1}^{N}\left(\dfrac{\zeta_n}{\conj{\zeta_n}}\right)^2
-=\exp\left(4\ii\sum\limits_{n=1}^{N}\arg\zeta_n\right)=1,
-\end{equation*}
-即
-\begin{equation*}
+=\exp\left(4\ii\sum\limits_{n=1}^{N}\arg\zeta_n\right)=1,\qquad
 4\sum\limits_{n=1}^{N}\arg\zeta_n\equiv0\pmod{2\pi}.
 \end{equation*}
-特别地, 当轨道代表 $\zeta_n$ 位于正虚轴上时, 有 $\arg\zeta_n=\dfrac{\pi}{2}$, 从而 $\left(\dfrac{\zeta_n}{\conj{\zeta_n}}\right)^2=1$. 因此, 每个纯虚轨道均独立满足无反射同相条件; 对于一般复多轨道, 只需各轨道代表的幅角之和满足上述同余关系即可保持两端同相, 为第 \ref{ch:soliton}--\ref{ch:verification} 节的无反射重构与单、双孤子构造提供相位相容性依据.
+特别地，正虚轴轨道 $\arg\zeta_n=\dfrac{\pi}{2}$ 自动满足同相条件，而一般复谱多轨道则只需各代表幅角之和满足上述同余约束，这将作为第 \ref{ch:soliton}--\ref{ch:verification} 章构造无反射孤子解的基本条件。

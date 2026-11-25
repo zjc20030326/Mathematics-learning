@@ -1,15 +1,19 @@
 {
   "sources": {
-    "tex_files": 8,
-    "labels": 207,
-    "references": 463,
+    "tex_files": 10,
+    "labels": 194,
+    "references": 560,
     "balanced_delimiters_environments_braces": true,
-    "seven_continuous_sections": true,
+    "seven_chapters": true,
     "forbidden_forms_absent": true,
-    "subsections": 14,
+    "zero_gu_characters": true,
+    "zero_prose_colons": true,
+    "zero_index_k_conflict": true,
+    "sections_under_chapters": 16,
     "spatial_Jost_then_time_evolution_with_single_scattering_matrix": true,
     "cited_bibliography_entries": 18,
     "citation_source_files": [
+      "00-abstract.tex",
       "01-introduction.tex",
       "02-model.tex",
       "03-direct-scattering.tex",
@@ -39,12 +43,12 @@
       "BPZ2024"
     ]
   },
-  "build": "XeLaTeX, BibTeX, XeLaTeX, XeLaTeX",
+  "build": "XeLaTeX, Biber, XeLaTeX, XeLaTeX",
   "bibliography": {
-    "style": "gbt7714-unsrt",
-    "loaded_bst": "gbt7714-unsrt.bst",
+    "style": "gb7714-2025",
+    "backend": "biber",
     "cited_entries": 18,
-    "build_aux_entries": 18,
+    "build_bcf_entries": 18,
     "build_bbl_entries": 18,
     "first_citation_order": [
       "PN1995",
@@ -66,46 +70,6 @@
       "BM2019",
       "BPZ2024"
     ],
-    "build_aux_first_citation_order": [
-      "PN1995",
-      "LHP2013",
-      "ZZ2026",
-      "LXW2021",
-      "LTPY2020",
-      "Guo2022",
-      "LZX2021",
-      "LL2026",
-      "BGKL2019",
-      "KM2014",
-      "FKM2017",
-      "LM2024",
-      "WHH2025",
-      "Fan2022",
-      "ZhangFan2020",
-      "ZCY2020",
-      "BM2019",
-      "BPZ2024"
-    ],
-    "build_aux_numbers": {
-      "PN1995": 1,
-      "LHP2013": 2,
-      "ZZ2026": 3,
-      "LXW2021": 4,
-      "LTPY2020": 5,
-      "Guo2022": 6,
-      "LZX2021": 7,
-      "LL2026": 8,
-      "BGKL2019": 9,
-      "KM2014": 10,
-      "FKM2017": 11,
-      "LM2024": 12,
-      "WHH2025": 13,
-      "Fan2022": 14,
-      "ZhangFan2020": 15,
-      "ZCY2020": 16,
-      "BM2019": 17,
-      "BPZ2024": 18
-    },
     "build_bbl_order": [
       "PN1995",
       "LHP2013",
@@ -126,55 +90,75 @@
       "BM2019",
       "BPZ2024"
     ],
-    "source_aux_numbers_and_bbl_order_match": true
+    "entry_types": {
+      "PN1995": "article",
+      "LHP2013": "article",
+      "ZZ2026": "article",
+      "LXW2021": "article",
+      "LTPY2020": "article",
+      "Guo2022": "article",
+      "LZX2021": "article",
+      "LL2026": "article",
+      "BGKL2019": "article",
+      "KM2014": "article",
+      "FKM2017": "article",
+      "LM2024": "article",
+      "WHH2025": "online",
+      "Fan2022": "book",
+      "ZhangFan2020": "article",
+      "ZCY2020": "article",
+      "BM2019": "article",
+      "BPZ2024": "article"
+    },
+    "source_bcf_and_bbl_order_match": true
   },
   "log_warnings_errors_overfull_underfull": [],
-  "pdf_pages": 42,
-  "top_level_sections": [
+  "pdf_pages": 45,
+  "top_level_chapters": [
     [
       1,
-      "1. 绪论",
-      2
+      "第1章 绪论",
+      5
     ],
     [
       1,
-      "2. HMB 模型、基本条件与背景谱问题",
-      2
-    ],
-    [
-      1,
-      "3. 非零背景的直接散射",
+      "第2章 HMB 模型、基本条件与背景谱问题",
       7
     ],
     [
       1,
-      "4. 散射演化与共振相容性",
-      18
+      "第3章 非零背景的直接散射",
+      13
     ],
     [
       1,
-      "5. 矩阵 RHP 与三场重构",
-      22
+      "第4章 散射演化与共振相容性",
+      24
     ],
     [
       1,
-      "6. 无反射 RHP 与一般重构",
+      "第5章 矩阵 RHP 与三场重构",
       27
     ],
     [
       1,
-      "7. 孤子解的显式构造",
-      35
+      "第6章 无反射 RHP 与一般重构",
+      32
+    ],
+    [
+      1,
+      "第7章 孤子解的显式构造",
+      39
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 543,
+  "pdf_links_checked": 668,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
-    "7"
+    "9"
   ],
-  "pdf_sha256": "b3850e9db7705437648304ece9adcbdbbf63ddbe5ee696ef82ac7435bc7d6fb3",
-  "visual_review": "Verified all revised Section 6-7 pages (pp. 27-39): clean equations, no dropped eq numbers, no overfull/underfull, crisp 3-panel soliton figures."
+  "pdf_sha256": "d0e5ceac81c3deca58b18f22171d4af6d46b52b711eb348b1ce234c4b55e7a8e",
+  "visual_review": "Visual QA passed on 45-page PDF (7 chapters, single-page TOC p_01, Ch 7 end p_43, References p_44-45, Ch 8 and Cover I/II/III removed or hidden reversibly)"
 }

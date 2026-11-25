@@ -1,287 +1,229 @@
 % !TeX root = ../fduthesis.tex
-当 $\rho=\widetilde\rho=0$ 时, 有 $G=0$, 跳跃条件 \eqref{eq:jump} 退化为 $M_-=M_+$, 矩阵 RHP 化为有限维留数系统.
-本节建立一般 $N$ 轨道无反射解的行列式重构公式, 证明其全局非退化性, 并统一完成 HMB 方程逆向验证与散射数据复原.
 
-\subsection{多轨道无反射解}
+在建立矩阵 Riemann--Hilbert 问题与重构公式后，本章研究反射系数 $\rho=\widetilde\rho=0$ 的纯孤子无反射情形。此时跳跃矩阵 $G=0$，矩阵 RHP 退化为有限维留数线性系统；本章先建立一般 $N$ 轨道无反射求解与行列式公式，再证明系数矩阵在全时空上的严格正定性及原 HMB 系统与散射数据的完整重构定理。
+
+\section{多轨道无反射解}
+
+为统一构造任意数量孤子组成的纯孤子解，首先明确一般 $N$ 轨道同相无反射离散数据满足的几何、配对与相位条件。
+
 \begin{definition}\label{def:orbit-data}
-取 $N$ 个两两不交的完整简单四点轨道, 按 \eqref{eq:discrete-indexing} 选取外部上半平面代表 $\zeta_1,\ldots,\zeta_N$, 记
+取 $N\ge1$ 个两两不交的完整简单四点离散谱轨道 \eqref{eq:quartet}，按 \eqref{eq:discrete-indexing} 编号其外部上半平面轨道代表 $\zeta_1,\ldots,\zeta_N$，置全部 $2N$ 个 $D_+$ 离散谱与时空留数系数为
 \begin{equation}\label{eq:N-orbit-data}
 \begin{aligned}
 &m=2N,\qquad \zeta_{N+n}=-\dfrac{q_0^2}{\conj{\zeta_n}},\qquad n=1,\ldots,N,\\
 &c_{N+n}(0)=-\dfrac{q_0^2}{(\conj{\zeta_n})^2}\conj{c_n(0)},\\
-&C_j(x,t)=c_j(0)e^{2\ii\theta(x,t,\zeta_j)},\qquad j=1,\ldots,m.
+&C_j(x,t)=c_j(0)e^{2\ii\theta(x,t,\zeta_j)},\qquad j=1,\ldots,m,
 \end{aligned}
 \end{equation}
-所有 $4N$ 个谱点互异且位于 $\Sigma$ 外, 各 $c_n(0)\ne0$. 由无反射相位条件 \eqref{eq:theta-condition}, 同相背景要求
+假定所有 $4N$ 个谱点互异且严格位于 $\Sigma$ 外，$c_n(0)\ne0$，且满足源于 \eqref{eq:theta-condition} 的同相相位条件
 \begin{equation}\label{eq:N-orbit-phase}
 \prod\limits_{j=1}^{m}\dfrac{\zeta_j}{\conj{\zeta_j}}=1.
 \end{equation}
-称上述谱点与范数常数为同相背景的 $N$ 轨道无反射数据.
 \end{definition}
 
-固定 $(x,t)\in\mathbb R^2$, 省略相应自变量, 令 $\boldsymbol v_j=M_1(\zeta_j)$、$\boldsymbol u_j=M_2(\conj{\zeta_j})$, $j=1,\ldots,m$, 并以 $e_1,e_2$ 表示标准基向量.
-无反射时 $G=0$, 由 \eqref{eq:M-residues} 及 \eqref{eq:general-cauchy} 得部分分式表示
+下面从矩阵 RHP 出发将该无反射问题化约并求解为一个 $m$ 阶矩阵线性系统。固定时空点 $(x,t)\in\mathbb R^2$ 并暂时省略自变量记号，记未知列向量为
+\begin{equation*}
+\boldsymbol v_j=M_1(\zeta_j),\qquad \boldsymbol u_j=M_2(\conj{\zeta_j}),\qquad j=1,\ldots,m,
+\end{equation*}
+并以 $e_1,e_2$ 表示 $\mathbb C^2$ 的标准基向量。当无反射即 $G=0$ 时，将留数条件 \eqref{eq:M-residues} 代入 Cauchy 积分表示 \eqref{eq:general-cauchy}，积分项消失从而得到 $M(z)$ 的部分分式展开
 \begin{equation}\label{eq:partialfraction}
 M(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1+\sum\limits_{j=1}^{m}
 \left(\dfrac{C_j\boldsymbol v_je_2^T}{z-\zeta_j}
 -\dfrac{\conj{C_j}\boldsymbol u_je_1^T}{z-\conj{\zeta_j}}\right).
 \end{equation}
-分别在第一、第二列取 $z=\zeta_j$ 与 $z=\conj{\zeta_j}$, 得闭合线性系统
+在 \eqref{eq:partialfraction} 的第一列取 $z=\zeta_j$ 及第二列取 $z=\conj{\zeta_j}$，即得由 \eqref{eq:general-finite1}--\eqref{eq:general-finite2} 退化而来的 $2m$ 个向量方程组成的闭合线性代数系统
 \begin{align}
 &\boldsymbol v_j=e_1-\dfrac{\ii q_0}{\zeta_j}e_2
--\sum\limits_{k=1}^{m}\dfrac{\conj{C_k}\boldsymbol u_k}{\zeta_j-\conj{\zeta_k}},\label{eq:finite1}\\
+-\sum\limits_{\ell=1}^{m}\dfrac{\conj{C_\ell}\boldsymbol u_\ell}{\zeta_j-\conj{\zeta_\ell}},\label{eq:finite1}\\
 &\boldsymbol u_j=e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1
-+\sum\limits_{k=1}^{m}\dfrac{C_k\boldsymbol v_k}{\conj{\zeta_j}-\zeta_k}.\label{eq:finite2}
++\sum\limits_{\ell=1}^{m}\dfrac{C_\ell\boldsymbol v_\ell}{\conj{\zeta_j}-\zeta_\ell}.\label{eq:finite2}
 \end{align}
-记
+为以分块矩阵统一书写上述线性系统，对 $1\le j,\ell\le m$ 记
 \begin{equation*}
-A_{jk}=\dfrac{\conj{C_k}}{\zeta_j-\conj{\zeta_k}},\qquad
-B_{jk}=\dfrac{C_k}{\conj{\zeta_j}-\zeta_k},\qquad j,k=1,\ldots,m,
+A_{j\ell}=\dfrac{\conj{C_\ell}}{\zeta_j-\conj{\zeta_\ell}},\qquad
+B_{j\ell}=\dfrac{C_\ell}{\conj{\zeta_j}-\zeta_\ell},\qquad
+\boldsymbol f_j=e_1-\dfrac{\ii q_0}{\zeta_j}e_2,\qquad
+\boldsymbol g_j=e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1,
 \end{equation*}
-令 $\boldsymbol f_j=e_1-\dfrac{\ii q_0}{\zeta_j}e_2$、$\boldsymbol g_j=e_2-\dfrac{\ii q_0}{\conj{\zeta_j}}e_1$, 并以 $\boldsymbol v_j^T,\boldsymbol u_j^T,\boldsymbol f_j^T,\boldsymbol g_j^T$ 为 $m\times2$ 矩阵 $\boldsymbol v,\boldsymbol u,\boldsymbol f,\boldsymbol g$ 的第 $j$ 行, 则 \eqref{eq:finite1}--\eqref{eq:finite2} 写作
+并以 $\boldsymbol v_j^T,\boldsymbol u_j^T,\boldsymbol f_j^T,\boldsymbol g_j^T$ 分别作为 $m\times2$ 矩阵 $\boldsymbol v,\boldsymbol u,\boldsymbol f,\boldsymbol g$ 的第 $j$ 行，则闭合线性系统 \eqref{eq:finite1}--\eqref{eq:finite2} 写作分块线性方程组
 \begin{equation}\label{eq:N-block-system}
 \begin{pmatrix}I_m&A\\-B&I_m\end{pmatrix}
 \begin{pmatrix}\boldsymbol v\\\boldsymbol u\end{pmatrix}
 =\begin{pmatrix}\boldsymbol f\\\boldsymbol g\end{pmatrix}.
 \end{equation}
-由第二行 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$ 消去 $\boldsymbol u$, 得 $L_N\boldsymbol v=\boldsymbol f-A\boldsymbol g$, 其中 $L_N=I_m+AB$. 当 $\det L_N\ne0$ 时, 唯一解为
+由 \eqref{eq:N-block-system} 第二行消去 $\boldsymbol u=\boldsymbol g+B\boldsymbol v$，即得关于 $\boldsymbol v$ 的 $m$ 阶压缩线性方程组
+\begin{equation*}
+L_N\boldsymbol v=\boldsymbol f-A\boldsymbol g,\qquad L_N=I_m+AB.
+\end{equation*}
+只要压缩系数矩阵非退化即 $\det L_N\ne0$，系统 \eqref{eq:N-block-system} 就有唯一解
 \begin{equation}\label{eq:finite-schur}
 \boldsymbol v=L_N^{-1}(\boldsymbol f-A\boldsymbol g),\qquad
 \boldsymbol u=\boldsymbol g+B\boldsymbol v.
 \end{equation}
-提取 \eqref{eq:partialfraction} 中 $(1,2)$ 元的 $z^{-1}$ 项系数并代入 \eqref{eq:reconq}, 得
+进一步从部分分式 \eqref{eq:partialfraction} 中提取无穷远 $z^{-1}$ 展开项的 $(1,2)$ 元，并代入光场恢复公式 \eqref{eq:reconq}，可得规范光场的留数求和表达式
 \begin{equation}\label{eq:qfinite}
 q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\boldsymbol v_j)_1.
 \end{equation}
 
+在非退化条件 $\det L_N(x,t)\ne0$ 下，下面定理给出无反射 RHP 的唯一有理解及物理场的行列式和共振求值重构公式，并直接验证逆向重构所需的行列式恒等式与 Bloch 模长约束。
+
 \begin{theorem}\label{thm:N-orbit-RHP}
-设离散数据满足定义 \ref{def:orbit-data}, 且在给定 $(x,t)$ 处 $\det L_N(x,t)\ne0$.
-则 \eqref{eq:partialfraction} 与 \eqref{eq:finite-schur} 确定相应无反射 RHP 的唯一解, 它满足对称性 \eqref{eq:Msym}、$\det M=\gamma$, 且在分支点 $z_b^\pm$ 处解析并秩为一. 令
-\begin{equation}\label{eq:N-rhs}
-\begin{aligned}
-&\boldsymbol C=(C_1,\ldots,C_m)^T,\qquad
-\boldsymbol r=(\boldsymbol f-A\boldsymbol g)e_1,\\
-&r_j=1+\ii q_0\sum\limits_{k=1}^{m}
-\dfrac{\conj{C_k}}{(\zeta_j-\conj{\zeta_k})\conj{\zeta_k}},\qquad j=1,\ldots,m,
-\end{aligned}
+设离散数据满足定义 \ref{def:orbit-data}，且在给定 $(x,t)\in\mathbb R^2$ 处有 $\det L_N(x,t)\ne0$。则由部分分式 \eqref{eq:partialfraction} 与求解公式 \eqref{eq:finite-schur} 确定的 $M(z)$ 是跨 $\Sigma$ 无跳跃且满足命题 \ref{prop:jump} 条件 (1)--(5) 的无反射 RHP 的唯一解，满足对称性 \eqref{eq:Msym}、行列式恒等式
+\begin{equation}\label{eq:detM}
+\det M(z)=\gamma(z)=1+\dfrac{q_0^2}{z^2},\qquad z\in\mathbb C\mathbin{\backslash}\{0\},
 \end{equation}
-则规范光场与介质矩阵分别为
+以及分支点秩一性质 $\operatorname{rank}M(z_b^\pm)=1$。进一步，相应规范光场 $q$ 与介质矩阵 $R$ 分别由
 \begin{align}
 &q=q_0+\ii\boldsymbol C^T L_N^{-1}\boldsymbol r
 =\dfrac{\det\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}}{\det L_N},\label{eq:N-determinant-q}\\
 &R=\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(z_a^\pm)\sg M(z_a^\pm)^{-1},\label{eq:N-medium}
 \end{align}
-两个共振原像给出同一矩阵 $R$, 原物理三场由 \eqref{eq:original-fields} 恢复.
+给出，其中 $M(z_a^\pm)$ 均可逆且两共振原像给出同一 Hermitian 迹零矩阵 $R$，自动满足 Bloch 约束
+\begin{equation}\label{eq:reconstructed-bloch}
+R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)\Id,
+\end{equation}
+原物理三场 $(\widetilde q,\widetilde p,\eta)$ 仍由 \eqref{eq:original-fields} 恢复。其中列向量 $\boldsymbol C$ 与 $\boldsymbol r$ 分别定义为
+\begin{equation}\label{eq:N-rhs}
+\begin{aligned}
+&\boldsymbol C=(C_1,\ldots,C_m)^T,\qquad
+\boldsymbol r=(\boldsymbol f-A\boldsymbol g)e_1,\\
+&r_j=1+\ii q_0\sum\limits_{\ell=1}^{m}
+\dfrac{\conj{C_\ell}}{(\zeta_j-\conj{\zeta_\ell})\conj{\zeta_\ell}},\qquad j=1,\ldots,m.
+\end{aligned}
+\end{equation}
 \end{theorem}
 \begin{proof}
-由留数条件及渐近归一化知无反射解具有表示 \eqref{eq:partialfraction}. 当 $\det L_N\ne0$ 时, 线性系统 \eqref{eq:N-block-system} 唯一可解, 故 $M$ 唯一.
+任何无反射解必具形式 \eqref{eq:partialfraction}，由 $\det L_N\ne0$ 保证 \eqref{eq:finite-schur} 唯一确定 $M(z)$ 满足极点留数 \eqref{eq:M-residues} 与渐近条件 \eqref{eq:Minfty}--\eqref{eq:Mzero}，因此解存在且唯一。
 
-由留数条件 \eqref{eq:M-residues} 和归一化 \eqref{eq:Minfty}--\eqref{eq:Mzero}, 矩阵 $\sigma_2\conj{M(\conj z)}\sigma_2$ 与 $M$ 满足同一无反射 RHP, 因而由唯一性得到 \eqref{eq:Msym} 中的共轭对称性. 对换叶对称性, 令
-\[
-\widehat M(z)=M(h(z))\left(\dfrac{\ii z}{q_0}\sigma_1\right)^{-1}.
-\]
-由 \eqref{eq:N-orbit-data}、\eqref{eq:theta} 及配对式 \eqref{eq:Cpair}, 对 $n=1,\ldots,N$ 有 $\zeta_{N+n}=h(\conj{\zeta_n})$、$\conj{C_{N+n}}=-h'(\zeta_n)C_n$. 因此在 $z=\zeta_n$ 处,
-\[
-\Res_{z=\zeta_n}\widehat M_2(z)
-=\dfrac{\ii q_0\conj{C_{N+n}}}{\zeta_n h'(\zeta_n)}\boldsymbol u_{N+n}
-=C_n\widehat M_1(\zeta_n).
-\]
-在其余配对点与共轭点处, 由 \eqref{eq:Cpair} 和共轭对称性同样得到 \eqref{eq:M-residues}. 又因 $h$ 交换 $0$ 与 $\infty$, 由 \eqref{eq:Minfty}--\eqref{eq:Mzero} 知 $\widehat M$ 具有与 $M$ 相同的渐近归一化. 故 $\widehat M=M$, 即 \eqref{eq:Msym} 中的换叶对称性.
+为验证对称性 \eqref{eq:Msym}，先考察 $\sigma_2\conj{M(\conj z)}\sigma_2$。由 $\sigma_2 e_1=\ii e_2$、$\sigma_2 e_2=-\ii e_1$ 与 $\sigma_2\conj{\sigma_1}\sigma_2=-\sigma_1$ 核查渐近主部，再对 \eqref{eq:M-residues} 取共轭验证其在 $z=\zeta_j$ 与 $z=\conj{\zeta_j}$ 处满足同一留数条件，由唯一性即得 $M(z)=\sigma_2\conj{M(\conj z)}\sigma_2$。其次构造
+\begin{equation*}
+\widehat M(z)=M(h(z))\left(-\dfrac{\ii q_0}{z}\sigma_1\right)
+=-\dfrac{\ii q_0}{z}\bigl(M_2(h(z)),\,M_1(h(z))\bigr).
+\end{equation*}
+由 \eqref{eq:N-orbit-data} 与 \eqref{eq:theta} 知配对关系 \eqref{eq:Cpair} 对任意 $(x,t)$ 恒成立；结合 $h'(z)=\dfrac{q_0^2}{z^2}$ 与 $h'(\zeta_n)h'(\conj{\zeta_{N+n}})=1$，直接代换算得
+\begin{equation*}
+\Res_{z=\zeta_n}\widehat M_2(z)=C_n\widehat M_1(\zeta_n),\qquad
+\Res_{z=\conj{\zeta_n}}\widehat M_1(z)=-\conj{C_n}\widehat M_2(\conj{\zeta_n}),
+\end{equation*}
+互换下标 $n$ 与 $N+n$ 即知其在全部极点满足 \eqref{eq:M-residues}，且由 \eqref{eq:Minfty}--\eqref{eq:Mzero} 核查无穷远与原点主部不变，由唯一性即得 $\widehat M=M$，即换叶对称性 \eqref{eq:Msym} 成立。
 
-离散极点均在 $\Sigma$ 外, 故 $M$ 在分支点、谱交点与共振原像处解析. 由引理 \ref{lem:RHP-determinant} 得 $\det M=\gamma$; 若 $M(z_b^\pm)=0$, 则 $\det M$ 至少有二阶零点, 与 $\gamma'(z_b^\pm)\ne0$ 矛盾, 故 $\operatorname{rank}M(z_b^\pm)=1$. 最后, 由 \eqref{eq:finite-schur}、\eqref{eq:qfinite} 及分块行列式公式得到 \eqref{eq:N-determinant-q}; 介质重构的一致性由引理 \ref{lem:medium-reduction} 保证.
+关于行列式 \eqref{eq:detM}，在每个极点 $\xi\in Z$ 处，\eqref{eq:M-residues} 表明奇异列留数与同一位置正则列成比例，行列式展开的主部恰好相消，因此 $z^2\det M(z)$ 为整函数。结合渐近条件 \eqref{eq:Minfty}--\eqref{eq:Mzero} 与 Liouville 定理，存在常数 $d\in\mathbb C$ 使 $\det M(z)=1+\dfrac{d}{z}+\dfrac{q_0^2}{z^2}$。对换叶对称性 \eqref{eq:Msym} 取行列式并利用 $\det\left(\dfrac{\ii z}{q_0}\sigma_1\right)=\dfrac{z^2}{q_0^2}$，得
+\begin{equation*}
+1-\dfrac{dz}{q_0^2}+\dfrac{z^2}{q_0^2}
+=\det M(h(z))=\dfrac{z^2}{q_0^2}\det M(z)
+=\dfrac{z^2}{q_0^2}\left(1+\dfrac{d}{z}+\dfrac{q_0^2}{z^2}\right),
+\end{equation*}
+比较 $z$ 一次项系数得 $-d=d$，即 $d=0$，证得 \eqref{eq:detM}。因极点严格落在 $\Sigma$ 外，$M(z)$ 在分支点 $z_b^\pm$ 处解析且 $\det M(z_b^\pm)=\gamma(z_b^\pm)=0$；若 $M(z_b^\pm)=0$ 则 $\det M$ 至少有二阶零点，与 $\gamma'(z_b^\pm)\ne0$ 矛盾，因此 $\operatorname{rank}M(z_b^\pm)=1$。
+
+对于光场公式，将 \eqref{eq:finite-schur} 与 \eqref{eq:N-rhs} 代入 \eqref{eq:qfinite} 得 \eqref{eq:N-determinant-q} 第一式，应用分块 Schur 补恒等式即得第二式。对于介质矩阵，由 \eqref{eq:detM} 知在实共振原像处 $\det M(z_a^\pm)=\gamma(z_a^\pm)>0$，所以 $M(z_a^\pm)$ 可逆；结合换叶对称性 \eqref{eq:Msym} 与 $\lambda(z_a^-)=-\lambda(z_a^+)$ 同命题 \ref{prop:reconstruction} 一样知两原像给出同一个 $R$。进一步由实数 $z_a^\pm$ 处的共轭对称性 $M(z_a^\pm)=\sigma_2\conj{M(z_a^\pm)}\sigma_2$ 及二阶恒等式 $\sigma_2 A^T\sigma_2=\operatorname{adj}A$，得 $M(z_a^\pm)^\dagger M(z_a^\pm)=\gamma(z_a^\pm)\Id$，因此 \eqref{eq:N-medium} 是实对角迹零阵 $\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sg$ 的酉相似变换，必 Hermitian 且迹零。最后对 \eqref{eq:N-medium} 平方并代入 $\lambda(z_a^\pm)^2=a^2+q_0^2$，即证 Bloch 约束 \eqref{eq:reconstructed-bloch}。
 \end{proof}
 
-\subsection{一般多轨道的全局正则性与 HMB 重构}
-为分析线性系统 \eqref{eq:N-block-system} 的非退化性与渐近行为, 记 Cauchy 矩阵 $\mathcal C_{jk}=\dfrac{1}{\zeta_j-\conj{\zeta_k}}$ 及对角矩阵 $D=\diag(C_1,\ldots,C_m)$, $1\le j,k\le m$, 则 $A=\mathcal C\conj D$、$B=\conj{\mathcal C}D$.
+\section{一般多轨道的全局正则性与 HMB 重构}
+
+定理 \ref{thm:N-orbit-RHP} 将无反射多孤子的求解归结为条件 $\det L_N(x,t)\ne0$。为得到满足原 HMB 系统的全局光滑解并完成逆向验证，本节依次解决全时空正定性 $\det L_N>0$、空间端态指数收敛性，以及规范 Lax 对、原 HMB 方程与散射数据复原三个问题。
+
+首先引入 $m$ 阶 Cauchy 矩阵 $\mathcal C$ 与含时对角矩阵 $D$，
+\begin{equation*}
+\mathcal C_{j\ell}=\dfrac{1}{\zeta_j-\conj{\zeta_\ell}},\qquad
+D=\diag(C_1,\ldots,C_m),\qquad
+1\le j,\ell\le m,
+\end{equation*}
+则 \eqref{eq:N-block-system} 的系数子块分解为 $A=\mathcal C\conj D$ 与 $B=\conj{\mathcal C}D$。
 
 \begin{lemma}\label{lem:general-N-nondegeneracy}
-设背景参数满足第 \ref{ch:model} 节的要求, 离散谱与范数常数满足配对关系 \eqref{eq:N-orbit-data}, 所有 $4N$ 个谱点互异且位于 $\Sigma$ 外. 则对任意 $(x,t)\in\mathbb R^2$, 均有
+设背景参数满足第 \ref{ch:model} 章固定要求，离散数据满足定义 \ref{def:orbit-data}。则对任意 $(x,t)\in\mathbb R^2$，线性系统 \eqref{eq:N-block-system} 的 Schur 压缩矩阵 $L_N=I_m+AB$ 满足
 \begin{equation}\label{eq:general-N-positive}
 \det L_N(x,t)>0.
 \end{equation}
 \end{lemma}
 \begin{proof}
-由分块消元知 \eqref{eq:N-block-system} 的系数矩阵满足 $\det\begin{pmatrix}I_m&A\\-B&I_m\end{pmatrix}=\det(I_m+AB)=\det L_N$.
-构造可逆对角矩阵
-\begin{equation*}
-\Gamma=\diag\left(I_N,\dfrac{q_0}{\zeta_1},\ldots,\dfrac{q_0}{\zeta_N}\right),\qquad
-\Lambda=\ii\Gamma^\dagger\mathcal C\Gamma.
-\end{equation*}
-利用 $\zeta_{N+n}=-\dfrac{q_0^2}{\conj{\zeta_n}}$ 逐块计算, 得 Hermitian 矩阵
+对 \eqref{eq:N-block-system} 系数矩阵作分块行消元得其行列式等于 $\det L_N$。置可逆对角阵 $\Gamma=\diag\left(I_N,\dfrac{q_0}{\zeta_1},\ldots,\dfrac{q_0}{\zeta_N}\right)$ 与 Hermitian 矩阵 $\Lambda=\ii\Gamma^\dagger\mathcal C\Gamma$。按 \eqref{eq:N-orbit-data} 中的轨道配对 $\zeta_{N+n}=-\dfrac{q_0^2}{\conj{\zeta_n}}$ 对 $N\times N$ 子块计算，可得
 \begin{equation}\label{eq:general-N-Cauchy-block}
-\Lambda=\begin{pmatrix}K&T\\T^\dagger&-\conj K\end{pmatrix},\quad
-K_{jk}=\dfrac{\ii}{\zeta_j-\conj{\zeta_k}},\quad
-T_{jk}=\dfrac{\ii q_0}{\zeta_j\zeta_k+q_0^2},\quad
-1\le j,k\le N,
+\begin{aligned}
+&\Lambda=\begin{pmatrix}K&T\\T^\dagger&-\conj K\end{pmatrix},\\
+&K_{j\ell}=\dfrac{\ii}{\zeta_j-\conj{\zeta_\ell}},\qquad
+T_{j\ell}=\dfrac{\ii q_0}{\zeta_j\zeta_\ell+q_0^2},\qquad
+1\le j,\ell\le N,
+\end{aligned}
 \end{equation}
-其中 $|\zeta_j|>q_0$ 保证 $\zeta_j\zeta_k+q_0^2\ne0$, 且 $K^\dagger=K$、$T^T=T$.
-对任意非零 $\boldsymbol c=(c_1,\ldots,c_N)^T\in\mathbb C^N$, 由 $\operatorname{Im}\zeta_j>0$ 及互异指数函数 $e^{\ii\zeta_1s},\ldots,e^{\ii\zeta_Ns}$ 在 $\lbrack0,+\infty)$ 上的线性无关性,
+其中 $|\zeta_j|>q_0$ 保证分母非零，且 $K^\dagger=K$、$T^T=T$。对任意非零 $\boldsymbol c\in\mathbb C^N$，由 $\operatorname{Im}\zeta_j>0$ 写出 Laplace 积分 $\boldsymbol c^\dagger K\boldsymbol c=\int_0^{+\infty}\bigl|\sum_{j=1}^N \conj{c_j}e^{\ii\zeta_j s}\bigr|^2\,\dd s>0$，知 $K>0$ 与 $\conj K>0$。再置
 \begin{equation*}
-\boldsymbol c^\dagger K\boldsymbol c
-=\int_0^{+\infty}\left|\sum\limits_{j=1}^{N}\conj{c_j}e^{\ii\zeta_j s}\right|^2\,\dd s>0,
+K_0=\bigl(K+T(\conj K)^{-1}T^\dagger\bigr)^{-1}>0,\qquad
+T_0=K_0T(\conj K)^{-1},
 \end{equation*}
-故 $K>0$ 且 $\conj K>0$. 置 $K_0=\bigl(K+T(\conj K)^{-1}T^\dagger\bigr)^{-1}>0$ 与 $T_0=K_0T(\conj K)^{-1}$.
-由 $T^\dagger=\conj T$ 知 $\conj{(K_0^{-1})}=\conj K+T^\dagger K^{-1}T$, 于是
-\begin{equation*}
-K_0^{-1}K^{-1}T
-=T+T(\conj K)^{-1}T^\dagger K^{-1}T
-=T(\conj K)^{-1}\conj{(K_0^{-1})},
-\end{equation*}
-左右分别乘以 $K_0$ 与 $\conj{K_0}$ 即得 $KT_0=T\conj{K_0}$. 由此逐块相乘验证 $\Lambda$ 可逆且
+直接验证 $KT_0=T\conj{K_0}$，并按分块相乘验证 $\Lambda$ 可逆且逆矩阵为
 \begin{equation}\label{eq:general-N-Sinverse}
 \Lambda^{-1}=\begin{pmatrix}K_0&T_0\\T_0^\dagger&-\conj{K_0}\end{pmatrix}.
 \end{equation}
 
-再置 $d=\diag(C_1,\ldots,C_N)$ 与 $D_0=\diag(d,-\conj d)$. 由 \eqref{eq:Cpair} 有 $D=(\Gamma^\dagger)^2D_0$、$\conj D=\Gamma^2\conj{D_0}$, 结合 $\Gamma^\dagger\mathcal C\Gamma=-\ii\Lambda$ 及对角矩阵可交换性, 以 $\diag(\Gamma^\dagger,\Gamma)$ 作相似变换得
-\begin{equation*}
-\diag(\Gamma^\dagger,\Gamma)\begin{pmatrix}I_m&A\\-B&I_m\end{pmatrix}\diag(\Gamma^\dagger,\Gamma)^{-1}
-=\begin{pmatrix}
-I_m&-\ii\Lambda\conj{D_0}\\
--\ii\conj{\Lambda}D_0&I_m
-\end{pmatrix}.
-\end{equation*}
-左乘 $\diag\bigl(\Lambda^{-1},-(\conj{\Lambda})^{-1}\bigr)$ 得 Hermitian 矩阵
-\begin{equation*}
-\begin{pmatrix}
-\Lambda^{-1}&-\ii\conj{D_0}\\
-\ii D_0&-(\conj{\Lambda})^{-1}
-\end{pmatrix}.
-\end{equation*}
-将其按 $N$ 阶子块分为 $4\times4$ 分块矩阵, 按 $(1,4,2,3)$ 的次序同步作行、列分块置换, 由 \eqref{eq:general-N-Sinverse} 化为
+进一步置 $d=\diag(C_1,\ldots,C_N)$ 与 $D_0=\diag(d,-\conj d)$，由 \eqref{eq:Cpair} 核对得 $D=(\Gamma^\dagger)^2D_0$。以 $\diag(\Gamma^\dagger,\Gamma)$ 对 \eqref{eq:N-block-system} 的系数矩阵作相似变换，再利用 $\Gamma^\dagger\mathcal C\Gamma=-\ii\Lambda$ 并左乘行列式为 $|\det\Lambda|^{-2}>0$ 的分块矩阵 $\diag\bigl(\Lambda^{-1},-(\conj{\Lambda})^{-1}\bigr)$，随后按 $N$ 阶子块以 $(1,4,2,3)$ 次序同步行列置换并代入 \eqref{eq:general-N-Sinverse}，化得 Hermitian 矩阵
 \begin{equation*}
 \begin{pmatrix}\diag(K_0,K_0)&X\\X^\dagger&-\diag(\conj{K_0},\conj{K_0})\end{pmatrix},\qquad
 X=\begin{pmatrix}T_0&-\ii\conj d\\-\ii\conj d&-T_0^T\end{pmatrix}.
 \end{equation*}
-因 $m=2N$ 为偶数, 左乘因子行列式为 $(-1)^m|\det\Lambda|^{-2}=|\det\Lambda|^{-2}$, 且同步行列置换不改变行列式. 取左上角正定块 $\diag(K_0,K_0)$ 的 Schur 补, 再提出因子 $(-1)^m=1$, 即得
+最后对左上角正定块 $\diag(K_0,K_0)$ 取 Schur 补并注意 $m=2N$ 为偶数，即得
 \begin{equation*}
-\det L_N
-=|\det\Lambda|^2(\det K_0)^2\det\Bigl(\diag(\conj{K_0},\conj{K_0})+X^\dagger\diag(K_0^{-1},K_0^{-1})X\Bigr)>0,
+\det L_N=|\det\Lambda|^2(\det K_0)^2\det\Bigl(\diag(\conj{K_0},\conj{K_0})+X^\dagger\diag(K_0^{-1},K_0^{-1})X\Bigr)>0,
 \end{equation*}
-其中由 $K_0>0$ 知 $\conj{K_0}>0$ 且 $X^\dagger\diag(K_0^{-1},K_0^{-1})X\ge0$, 故二者之和严格正定.
+证得 \eqref{eq:general-N-positive} 在全时空成立。
 \end{proof}
 
 \begin{lemma}\label{lem:general-N-endstates}
-在引理 \ref{lem:general-N-nondegeneracy} 的条件下, 记 $\delta=\displaystyle\min\limits_{1\le n\le N}\operatorname{Im}\lambda(\zeta_n)>0$, 并令
+在引理 \ref{lem:general-N-nondegeneracy} 的条件下，记最小衰减指数 $\delta=\min\limits_{1\le n\le N}\operatorname{Im}\lambda(\zeta_n)>0$、有理透射函数 $s(z)=\prod\limits_{j=1}^{m}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}$ 及右端参数 $q_+=q_0s(0)$。则对任意时间紧区间 $J\subset\mathbb R$ 与避开 $Z\cup\{0\}$ 的紧谱集 $K\subset\mathbb C$，定理 \ref{thm:N-orbit-RHP} 给出的 $(M,q,R)$ 满足一致空间端态极限
+\begin{align}
+&M\longrightarrow Y(z),\quad q\longrightarrow q_0,\quad R\longrightarrow R_\infty,\qquad x\longrightarrow-\infty,\label{eq:general-N-M-ends}\\
+&\begin{aligned}
+&M\longrightarrow Y_{q_+}(z)\diag\bigl(s(z),s(z)^{-1}\bigr),\qquad q\longrightarrow q_+,\\
+&R\longrightarrow\dfrac{\ii\eta_0}{a}\begin{pmatrix}-\ii a&q_+\\-\conj{q_+}&\ii a\end{pmatrix},\qquad x\longrightarrow+\infty,
+\end{aligned}\label{eq:general-N-field-ends}
+\end{align}
+误差项及其任意固定阶 $(x,t)$-偏导数在 $J\times K$ 上一致为 $O(e^{-2\delta|x|})$；若满足同相条件 \eqref{eq:N-orbit-phase}，则 $s(0)=1$ 且 $q_+=q_0$，经 \eqref{eq:original-fields} 重构的物理三场严格满足非零边界条件 \eqref{eq:targetboundary}。其中带有右端极限光场参数的特征矩阵定义为
 \begin{equation*}
-s(z)=\prod\limits_{j=1}^{m}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}},\qquad
-q_+=q_0s(0),\qquad
 Y_{q_+}(z)=\begin{pmatrix}1&-\dfrac{\ii q_+}{z}\\-\dfrac{\ii\conj{q_+}}{z}&1\end{pmatrix}.
 \end{equation*}
-对任意时间紧区间 $J\subset\mathbb R$ 及避开 $Z\cup\{0\}$ 的紧谱集 $K\subset\mathbb C$, 有
-\begin{equation}\label{eq:general-N-M-ends}
-\begin{aligned}
-&M(x,t,z)\longrightarrow Y(z),&&x\longrightarrow-\infty,\\
-&M(x,t,z)\longrightarrow Y_{q_+}(z)\diag\bigl(s(z),s(z)^{-1}\bigr),&&x\longrightarrow+\infty,
-\end{aligned}
-\end{equation}
-在 $(t,z)\in J\times K$ 上一致成立, 且偏差及任意固定阶 $(x,t)$-偏导数均为 $O(e^{-2\delta|x|})$.
-相应端态满足
-\begin{equation}\label{eq:general-N-field-ends}
-\begin{aligned}
-&q\longrightarrow q_0,\qquad R\longrightarrow R_\infty,&&x\longrightarrow-\infty,\\
-&q\longrightarrow q_+,\qquad R\longrightarrow\dfrac{\ii\eta_0}{a}\begin{pmatrix}-\ii a&q_+\\-\conj{q_+}&\ii a\end{pmatrix},&&x\longrightarrow+\infty,
-\end{aligned}
-\end{equation}
-偏差及固定阶偏导数在 $t\in J$ 上一致为 $O(e^{-2\delta|x|})$.
-若再满足同相条件 \eqref{eq:N-orbit-phase}, 则 $s(0)=1$、$q_+=q_0$, 重构三场的端态与 \eqref{eq:targetboundary} 一致.
 \end{lemma}
 \begin{proof}
-由 $\lambda(\zeta_{N+n})=-\conj{\lambda(\zeta_n)}$ 知对一切 $j=1,\ldots,m$ 有 $\operatorname{Im}\lambda(\zeta_j)\ge\delta>0$.
-由 \eqref{eq:theta}、\eqref{eq:N-orbit-data} 及 $c_j(0)\ne0$, 对任意整数 $r,s\ge0$, 在 $t\in J$ 上一致地有: 当 $x\to-\infty$ 时 $\partial_x^r\partial_t^s C_j=O(e^{2\delta x})$, 当 $x\to+\infty$ 时 $\partial_x^r\partial_t^s(C_j^{-1})=O(e^{-2\delta x})$.
+由换叶关系 $\lambda(\zeta_{N+n})=-\conj{\lambda(\zeta_n)}$ 知全部 $\zeta_j$ 均满足 $\operatorname{Im}\lambda(\zeta_j)\ge\delta>0$，代入 \eqref{eq:theta} 与 \eqref{eq:N-orbit-data} 即得任意固定阶偏导数在 $t\in J$ 上一致满足
+\begin{equation*}
+\partial_x^{r_1}\partial_t^{r_2}C_j=O(e^{2\delta x}),\quad x\longrightarrow-\infty,\qquad
+\partial_x^{r_1}\partial_t^{r_2}\bigl(C_j^{-1}\bigr)=O(e^{-2\delta x}),\quad x\longrightarrow+\infty.
+\end{equation*}
+当 $x\to-\infty$ 时，$A,B$ 及其固定阶偏导一致为 $O(e^{2\delta x})$，经 \eqref{eq:partialfraction}、\eqref{eq:finite-schur}、\eqref{eq:N-determinant-q} 与 \eqref{eq:N-medium} 立即得出 \eqref{eq:general-N-M-ends} 及其 $O(e^{2\delta x})$ 导数界。
 
-当 $x\to-\infty$ 时, $A=\mathcal C\conj D$、$B=\conj{\mathcal C}D$ 及其任意固定阶偏导数在 $t\in J$ 上一致为 $O(e^{2\delta x})$, 故 $L_N=I_m+AB=I_m+O(e^{4\delta x})$. 由矩阵求逆的光滑性与 Leibniz 法则, \eqref{eq:finite-schur} 给出 $\boldsymbol v,\boldsymbol u$ 及其固定阶偏导数有界, 因而 $C_j\boldsymbol v_j,\conj{C_j}\boldsymbol u_j$ 及其固定阶偏导数一致为 $O(e^{2\delta x})$. 代入 \eqref{eq:partialfraction} 即得 $M(x,t,z)-Y(z)$ 及其固定阶偏导数在 $J\times K$ 上一致为 $O(e^{2\delta x})$.
-
-当 $x\to+\infty$ 时, 将 \eqref{eq:N-block-system} 直接改写为关于 $D\boldsymbol v$ 与 $\conj D\boldsymbol u$ 的线性方程组
+当 $x\to+\infty$ 时，将 \eqref{eq:N-block-system} 左乘 $\diag\bigl(D^{-1},(\conj D)^{-1}\bigr)$ 改写为
 \begin{equation}\label{eq:general-N-right-linear}
 \begin{pmatrix}D^{-1}&\mathcal C\\-\conj{\mathcal C}&(\conj D)^{-1}\end{pmatrix}
 \begin{pmatrix}D\boldsymbol v\\\conj D\boldsymbol u\end{pmatrix}
 =\begin{pmatrix}\boldsymbol f\\\boldsymbol g\end{pmatrix}.
 \end{equation}
-因引理 \ref{lem:general-N-nondegeneracy} 已证 $\Lambda=\ii\Gamma^\dagger\mathcal C\Gamma$ 可逆, Cauchy 矩阵 $\mathcal C$ 可逆, 故 \eqref{eq:general-N-right-linear} 的系数矩阵及其固定阶偏导数在 $t\in J$ 上一致以 $O(e^{-2\delta x})$ 收敛于可逆常矩阵 $\begin{pmatrix}0&\mathcal C\\-\conj{\mathcal C}&0\end{pmatrix}$. 由矩阵求逆的光滑性与 Leibniz 法则, $D\boldsymbol v$ 与 $\conj D\boldsymbol u$ 分别一致以 $O(e^{-2\delta x})$ 收敛于常数矩阵 $-(\conj{\mathcal C})^{-1}\boldsymbol g$ 与 $\mathcal C^{-1}\boldsymbol f$, 且其任意固定阶偏导数为 $O(e^{-2\delta x})$.
-以 $\boldsymbol a_j^T,\boldsymbol b_j^T$ 分别记 $-(\conj{\mathcal C})^{-1}\boldsymbol g$ 与 $\mathcal C^{-1}\boldsymbol f$ 的第 $j$ 行, 则 \eqref{eq:partialfraction} 中 $M(x,t,z)$ 及固定阶偏导数在 $J\times K$ 上一致以 $O(e^{-2\delta x})$ 收敛于
-\begin{equation*}
-M_{\mathrm{r}}(z)=\Id-\dfrac{\ii q_0}{z}\sigma_1
-+\sum\limits_{j=1}^{m}\left(\dfrac{\boldsymbol a_je_2^T}{z-\zeta_j}
--\dfrac{\boldsymbol b_je_1^T}{z-\conj{\zeta_j}}\right).
-\end{equation*}
-由 $\mathcal C(\mathcal C^{-1}\boldsymbol f)=\boldsymbol f$ 与 $\conj{\mathcal C}\bigl(-(\conj{\mathcal C})^{-1}\boldsymbol g\bigr)=-\boldsymbol g$, 逐分量检验得
-\begin{equation*}
-(M_{\mathrm{r}})_1(\zeta_j)=\boldsymbol f_j-\sum\limits_{k=1}^{m}\dfrac{\boldsymbol b_k}{\zeta_j-\conj{\zeta_k}}=0,\qquad
-(M_{\mathrm{r}})_2(\conj{\zeta_j})=\boldsymbol g_j+\sum\limits_{k=1}^{m}\dfrac{\boldsymbol a_k}{\conj{\zeta_j}-\zeta_k}=0.
-\end{equation*}
-有理函数 $(M_{\mathrm{r}})_{11}(z)$ 在 $z=0$ 解析、极点仅在 $\conj{\zeta_j}$、在各 $\zeta_j$ 处为零且在无穷远趋于 $1$, 故 $\dfrac{(M_{\mathrm{r}})_{11}(z)}{s(z)}$ 整解析且在无穷远趋于 $1$, 由 Liouville 定理得 $(M_{\mathrm{r}})_{11}(z)=s(z)$; 又 $\dfrac{z(M_{\mathrm{r}})_{21}(z)}{s(z)}$ 整解析有界且在 $z=0$ 取值 $-\dfrac{\ii q_0}{s(0)}$, 得 $(M_{\mathrm{r}})_{21}(z)=-\dfrac{\ii q_0 s(z)}{z s(0)}$.
-对第二列同理得 $(M_{\mathrm{r}})_{22}(z)=s(z)^{-1}$ 与 $(M_{\mathrm{r}})_{12}(z)=-\dfrac{\ii q_0 s(0)}{z s(z)}$.
-由 $|s(0)|=1$ 与 $q_+=q_0 s(0)$ 知 $\conj{q_+}=\dfrac{q_0}{s(0)}$, 从而 $M_{\mathrm{r}}(z)=Y_{q_+}(z)\diag\bigl(s(z),s(z)^{-1}\bigr)$.
-
-最后, 由 \eqref{eq:partialfraction} 提取无穷远展开首项 $M^{(1)}=-\ii q_0\sigma_1+\sum\limits_{j=1}^{m}(C_j\boldsymbol v_je_2^T-\conj{C_j}\boldsymbol u_je_1^T)$, 并记 $s(0)=e^{\ii\varphi_+}$, 则 $Y_{q_+}(z)=e^{\frac{\ii\varphi_+}{2}\sg}Y(z)e^{-\frac{\ii\varphi_+}{2}\sg}$. 将 \eqref{eq:general-N-M-ends} 分别代入 \eqref{eq:reconq} 与 \eqref{eq:N-medium}, 利用 $\det M(z_a^\pm)=\gamma(z_a^\pm)$ 为非零常数以及对角矩阵与 $\sg$ 可交换, 结合 \eqref{eq:diagE} 与 \eqref{eq:Rbg} 知 $x\to+\infty$ 时 $R\to e^{\frac{\ii\varphi_+}{2}\sg}R_\infty e^{-\frac{\ii\varphi_+}{2}\sg}$, 从而得 \eqref{eq:general-N-field-ends} 及同阶偏差估计. 当满足 \eqref{eq:N-orbit-phase} 时 $s(0)=1$, 故 $q_+=q_0$、$R\to R_\infty$, 经 \eqref{eq:original-fields} 恢复 \eqref{eq:targetboundary}.
+由引理 \ref{lem:general-N-nondegeneracy} 知 $\Lambda$ 可逆，从而 Cauchy 矩阵 $\mathcal C$ 可逆。当 $x\to+\infty$ 时 \eqref{eq:general-N-right-linear} 的系数矩阵及其固定阶导数以 $O(e^{-2\delta x})$ 收敛于可逆常矩阵，于是 $D\boldsymbol v$ 与 $\conj D\boldsymbol u$ 及其导数同阶收敛于 $-(\conj{\mathcal C})^{-1}\boldsymbol g$ 与 $\mathcal C^{-1}\boldsymbol f$。以二者第 $j$ 行 $\boldsymbol a_j^T,\boldsymbol b_j^T$ 代回 \eqref{eq:partialfraction}，极限有理矩阵 $M_{\mathrm{r}}(z)$ 满足 $(M_{\mathrm{r}})_1(\zeta_j)=0$ 与 $(M_{\mathrm{r}})_2(\conj{\zeta_j})=0$；结合零点、极点与无穷远主部对各分量应用 Liouville 定理，以及 $\conj{q_+}=\dfrac{q_0}{s(0)}$，即证 $M_{\mathrm{r}}(z)=Y_{q_+}(z)\diag\bigl(s(z),s(z)^{-1}\bigr)$。记 $s(0)=e^{\ii\varphi_+}$，有 $Y_{q_+}(z)=e^{\frac{\ii\varphi_+}{2}\sg}Y(z)e^{-\frac{\ii\varphi_+}{2}\sg}$，在 \eqref{eq:N-medium} 中消去可交换的对角矩阵 $\diag(s,s^{-1})$ 并结合 \eqref{eq:diagE} 与 \eqref{eq:Rbg}，即证 \eqref{eq:general-N-field-ends} 中的右端极限及 $O(e^{-2\delta x})$ 估计。当 \eqref{eq:N-orbit-phase} 成立时 $s(0)=1$，由 \eqref{eq:original-fields} 恢复 \eqref{eq:targetboundary}。
 \end{proof}
 
+联立上述非退化性与一致渐近结果，下面证明一般 $N$ 轨道无反射三场满足原 HMB 系统并精确复原预设散射数据。
+
 \begin{theorem}\label{thm:general-N-HMB-reconstruction}
-设背景参数满足第 \ref{ch:model} 节的要求, 离散数据满足定义 \ref{def:orbit-data} 的同相背景 $N$ 轨道无反射条件.
-则无反射 RHP 解 $M(x,t,z)$ 对任意 $(x,t)\in\mathbb R^2$ 唯一存在; 由 \eqref{eq:original-fields}、\eqref{eq:N-determinant-q} 与 \eqref{eq:N-medium} 重构的物理三场 $(\widetilde q,\widetilde p,\eta)$ 在 $\mathbb R^2$ 上光滑, 满足原 HMB 系统 \eqref{eq:HMB}、非零边界条件 \eqref{eq:targetboundary}、$I=\mathbb R$ 时的基本条件 \eqref{eq:physical-regularity} 及 Bloch 约束 \eqref{eq:C}.
-此外, 其直接散射数据无反射, 透射系数为 $s_{22}(z,t)=s(z)$, 离散零点与范数常数精确复原时间演化 \eqref{eq:norming-time}--\eqref{eq:C-timephase} 及给定数据 \eqref{eq:N-orbit-data}.
+设背景参数满足第 \ref{ch:model} 章固定要求，离散数据满足定义 \ref{def:orbit-data}。则对应无反射矩阵 RHP 解 $M(x,t,z)$ 对任意 $(x,t)\in\mathbb R^2$ 唯一存在，由 \eqref{eq:original-fields}、\eqref{eq:N-determinant-q} 与 \eqref{eq:N-medium} 重构的物理三场 $(\widetilde q,\widetilde p,\eta)$ 在 $\mathbb R^2$ 上无穷次光滑，严格满足原 HMB 系统 \eqref{eq:HMB}、同相非零边界条件 \eqref{eq:targetboundary}、全时间轴 $I=\mathbb R$ 上的基本条件 \eqref{eq:physical-regularity} 与 Bloch 约束 \eqref{eq:C}；反解直接散射问题所得散射数据严格无反射，透射系数复原 $s_{22}(z,t)=s(z)$，离散零点与范数常数也精确复原演化公式 \eqref{eq:norming-time}--\eqref{eq:C-timephase} 与初始数据 \eqref{eq:N-orbit-data}。
 \end{theorem}
 \begin{proof}
-引理 \ref{lem:general-N-nondegeneracy} 保证 $\det L_N>0$ 全局成立, 定理 \ref{thm:N-orbit-RHP} 在 $\mathbb R^2$ 上生效; 由 Cramer 法则知 $M,q,R$ 及 $(\widetilde q,\widetilde p,\eta)$ 在 $\mathbb R^2$ 上光滑.
+由引理 \ref{lem:general-N-nondegeneracy} 与定理 \ref{thm:N-orbit-RHP} 知 $M(x,t,z)$ 在 $\mathbb R^2$ 上唯一存在，再由指数函数光滑性与 Cramer 法则知 $M,q,R$ 及 $(\widetilde q,\widetilde p,\eta)$ 在 $\mathbb R^2$ 上无穷次光滑。
 
-首先恢复 Lax 矩阵形式. 令 $\phi=Me^{\ii\theta\sg}$, 对 $z\notin Z\cup\{0,z_a^\pm,z_b^\pm\}$ 定义
+置 $\phi=Me^{\ii\theta\sg}$，对常规谱点 $z\notin Z\cup\{0,z_a^\pm,z_b^\pm\}$ 定义对数导数矩阵
 \begin{equation}\label{eq:general-N-log-lax}
-U=\phi_x\phi^{-1}=(M_x-\ii\lambda M\sg)M^{-1},\quad
+U=\phi_x\phi^{-1}=(M_x-\ii\lambda M\sg)M^{-1},\qquad
 V=\phi_t\phi^{-1}=(M_t+\ii\lambda FM\sg)M^{-1}.
 \end{equation}
-由换叶对称性 \eqref{eq:Msym}、$\lambda(h(z))=-\lambda(z)$ 及 $\sigma_1\sg\sigma_1^{-1}=-\sg$, 知 $U,V$ 在换叶点取值相同, 为 $k$ 的单值有理矩阵.
-
-在每个 $\zeta_j$ 附近, 由 \eqref{eq:M-residues} 与 \eqref{eq:N-orbit-data} 有 $\Res_{z=\zeta_j}\phi_2(z)=c_j(0)\phi_1(\zeta_j)$, 故
-\begin{equation*}
-\phi(z)\left(\Id-\dfrac{c_j(0)}{z-\zeta_j}e_1e_2^T\right)
-\end{equation*}
-在 $\zeta_j$ 处解析且行列式等于 $\gamma(\zeta_j)\ne0$. 因右因子与 $(x,t)$ 无关, $U=\phi_x\phi^{-1}$ 与 $V=\phi_t\phi^{-1}$ 在 $\zeta_j$ 处解析; 对共轭点 $\conj{\zeta_j}$, 右乘常数因子 $\Id+\dfrac{\conj{c_j(0)}}{z-\conj{\zeta_j}}e_2e_1^T$ 同理可得解析性.
-
-在分支点 $z_b\in\{z_b^+,z_b^-\}$ 处, 由 $h(z_b)=z_b$ 与 \eqref{eq:Msym} 得
-\begin{equation*}
-M(z_b)\left(\Id-\dfrac{\ii z_b}{q_0}\sigma_1\right)=0.
-\end{equation*}
-结合 $\operatorname{rank}M(z_b)=1$, 其核空间分别为 $\operatorname{span}\{(1,1)^T\}$ 与 $\operatorname{span}\{(1,-1)^T\}$, 均与 $(x,t)$ 无关; 对恒等式 $M(z_b)\boldsymbol e=0$ 求偏导知 $M_x(z_b)$ 与 $M_t(z_b)$ 在 $\ker M(z_b)$ 上为零.
-由 $M(z_b)\operatorname{adj}M(z_b)=\gamma(z_b)\Id=0$ 知 $\operatorname{adj}M(z_b)$ 的各列均属于 $\ker M(z_b)$, 结合 $\lambda(z_b)=0$ 及 $k(z_b)=\pm\ii q_0\ne a$ 使 $F(k(z_b))$ 有限, 得
-\begin{equation*}
-\bigl[(M_x-\ii\lambda M\sg)\operatorname{adj}M\bigr]_{z=z_b}=0,\qquad
-\bigl[(M_t+\ii\lambda FM\sg)\operatorname{adj}M\bigr]_{z=z_b}=0,
-\end{equation*}
-分子消去 $M^{-1}=\gamma^{-1}\operatorname{adj}M$ 中 $\gamma$ 的一阶零点, 故分支点可去. 谱交点 $\pm q_0$ 处 $\gamma\ne0$, 无奇点.
-在共振原像 $z_a\in\{z_a^+,z_a^-\}$ 处, $M(z_a)$ 解析可逆, $U$ 在 $k=a$ 解析, 而 $V$ 仅有简单极点且留数为
-\begin{equation*}
-\Res_{k=a}V=\dfrac{\ii\eta_0\lambda(z_a)}{a}M(z_a)\sg M(z_a)^{-1}=\ii R.
-\end{equation*}
-由 \eqref{eq:general-N-log-lax} 有 $M_x(z_a)M(z_a)^{-1}=U(a)+\dfrac{\ii a}{\eta_0}R$, 对 \eqref{eq:N-medium} 关于 $x$ 求导得
+由换叶对称性 \eqref{eq:sheet}、\eqref{eq:Msym} 与 $\sigma_1\sg\sigma_1^{-1}=-\sg$ 知 $U,V$ 仅是物理谱参数 $k$ 的单值有理矩阵。在极点 $\zeta_j$ 与 $\conj{\zeta_j}$ 处，利用与 $(x,t)$ 无关的右乘因子 $\Id-\dfrac{c_j(0)}{z-\zeta_j}e_1e_2^T$ 与 $\Id+\dfrac{\conj{c_j(0)}}{z-\conj{\zeta_j}}e_2e_1^T$ 消去一列极点可知 $U,V$ 在 $Z$ 上解析；在分支点 $z_b^\pm$ 处，利用定理 \ref{thm:N-orbit-RHP} 给出的 $\operatorname{rank}M(z_b^\pm)=1$ 与常核空间 $\operatorname{span}\{(1,\pm1)^T\}$，结合 $\lambda(z_b^\pm)=0$ 与 $M(z_b^\pm)\operatorname{adj}M(z_b^\pm)=0$ 可知分子抵消 $\gamma$ 的一阶零点，因而 $z_b^\pm$ 也是可去奇点。在 $z_a\in\{z_a^+,z_a^-\}$ 处，$U$ 在 $k=a$ 解析，而 $V$ 仅在 $k=a$ 有一阶极点，留数为 $\Res_{k=a}V=\ii R$；同时由 \eqref{eq:general-N-log-lax} 分离 $k=a$ 极点并结合 \eqref{eq:N-medium} 对 $x$ 求导得
 \begin{equation}\label{eq:general-N-Rx}
-R_x=\bigl[M_x(z_a)M(z_a)^{-1},R\bigr]=[U(a),R].
+R_x=\bigl[M_x(z_a)M(z_a)^{-1},R\bigr]=\left[U(a)+\dfrac{\ii a}{\eta_0}R,R\right]=[U(a),R].
 \end{equation}
-
-在第一叶无穷远处, $z=2k+O(k^{-1})$、$\lambda=k+O(k^{-1})$, $M=\Id+\dfrac{M^{(1)}}{2k}+O(k^{-2})$, $M_x,M_t=O(k^{-1})$.
-共轭对称性 \eqref{eq:Msym} 给出 $M^{(1)}_{21}=-\conj{(M^{(1)}_{12})}$, 结合 \eqref{eq:reconq} 得 $\dfrac{\ii}{2}[\sg,M^{(1)}]=Q$. 代入 \eqref{eq:general-N-log-lax} 并用 Liouville 定理得 $U(k)=-\ii k\sg+Q$.
-再由 $V=-FU+(M_t+FM_x)M^{-1}$、$F(k)=O(k^2)$ 及 $M_x,M_t=O(k^{-1})$ 知 $(M_t+FM_x)M^{-1}=O(k)$, 且 $V-\dfrac{\ii R}{k-a}$ 整解析, 得
+在 $z\to\infty$ 处代入 $z=2k+O(k^{-1})$、$\lambda=k+O(k^{-1})$ 与 $M=\Id+\dfrac{M^{(1)}}{2k}+O(k^{-2})$，结合 \eqref{eq:reconq} 与 Liouville 定理，以及实轴上 $\phi^\dagger\phi=\gamma\Id$ 与 $\det\phi=\gamma$ 蕴含的反 Hermitian 与迹零性，可确定
 \begin{equation*}
-V(k)=4\ii\beta k^3\sg+k^2(-\ii\alpha\sg-4\beta Q)+kW_1+W_0+\dfrac{\ii R}{k-a}.
+U(k)=-\ii k\sg+Q,\qquad
+V(k)=4\ii\beta k^3\sg+k^2(-\ii\alpha\sg-4\beta Q)+kW_1+W_0+\dfrac{\ii R}{k-a},
 \end{equation*}
-由 $\det\phi=\gamma$ 与实轴上 $\phi^\dagger\phi=M^\dagger M=\gamma\Id$ 均不依赖 $(x,t)$, 知 $U,V$ 迹零且对实 $k\ne a$ 反 Hermitian, 从而 $\tr W_j=0$、$W_j^\dagger=-W_j$, $j=0,1$.
+其中系数 $W_0,W_1$ 迹零且反 Hermitian。
 
-接着确定 $W_1,W_0$ 并验证原 HMB 系统. 相容性条件 $U_t-V_x+[U,V]=0$ 对一切 $k\ne a$ 成立, 由 \eqref{eq:rationalzc} 与 \eqref{eq:general-N-Rx} 知极点项仅贡献纯非对角常项 $[\sg,R]$.
-比较 $k^2$ 项的 $(1,2)$ 元得 $(W_1)_{12}=\alpha q-2\ii\beta q_x$, 再比较 $k$ 项的 $(1,1)$ 元得 $\partial_x(W_1)_{11}=-2\ii\beta\partial_x|q|^2$, 故 $(W_1)_{11}=-2\ii\beta|q|^2+\chi_1(t)$.
-由引理 \ref{lem:general-N-endstates} 的左端极限, $x\to-\infty$ 时 $M\to Y$、$M_x,M_t\to0$, 结合 \eqref{eq:F} 与 \eqref{eq:diagE} 得 $V\to-FU_\infty=V_\infty$. 将 $-F(k)(-\ii k\sg)$ 中有理项拆为 $\dfrac{\ii\eta_0}{a}\sg+\dfrac{\ii\eta_0}{k-a}\sg$, 可见 $V_\infty$ 的 $k$ 项与常数项对角系数分别为 $-2\ii\beta q_0^2\sg$ 与 $\dfrac{\ii\eta_0}{a}\sg$.
-令 $x\to-\infty$ 比较得 $\chi_1(t)=0$, 从而 $W_1=V_1(q)$.
-继续比较 $k$ 项的 $(1,2)$ 元与常数项的 $(1,1)$ 元, 得
-\begin{equation*}
-(W_0)_{12}=2\beta|q|^2q+\dfrac{\ii\alpha}{2}q_x+\beta q_{xx},\qquad
-(W_0)_{11}=\dfrac{\ii\alpha}{2}|q|^2-\beta(q\conj{q_x}-q_x\conj q)+\chi_0(t).
-\end{equation*}
-与 $V_\infty$ 的常数项对角元 $\dfrac{\ii\eta_0}{a}$ 比较得 $\chi_0(t)=-\dfrac{\ii\alpha}{2}q_0^2+\dfrac{\ii\eta_0}{a}=\dfrac{\ii\Omega}{2}$, 故 $W_0=V_0(q)+\dfrac{\ii\Omega}{2}\sg$, 完全恢复规范 Lax 对 \eqref{eq:gaugelax}--\eqref{eq:gauged-V}.
+由 \eqref{eq:general-N-log-lax} 在 $k\ne a$ 处自动成立零曲率方程 $U_t-V_x+[U,V]=0$。参照 \eqref{eq:rationalzc} 与 \eqref{eq:general-N-Rx}，有理极点仅贡献常项 $[\sg,R]$；按 $k$ 的幂次比较零曲率方程，并将 $-F(k)(-\ii k\sg)$ 中的有理项拆为 $\dfrac{\ii\eta_0}{a}\sg+\dfrac{\ii\eta_0}{k-a}\sg$ 后利用引理 \ref{lem:general-N-endstates} 的左端极限 $V\to V_\infty$ 定出积分常数，即得 $W_1=V_1(q)$ 与 $W_0=V_0(q)+\dfrac{\ii\Omega}{2}\sg$，从而 $(U,V)$ 完全恢复规范 Lax 对 \eqref{eq:gaugelax}--\eqref{eq:gauged-V}。逆向应用命题 \ref{prop:gauge} 规范变换，结合命题 \ref{prop:zc} 的零曲率等价性及定理 \ref{thm:N-orbit-RHP} 保证的 Hermitian 迹零性质与 Bloch 约束 \eqref{eq:reconstructed-bloch}，即证 $(\widetilde q,\widetilde p,\eta)$ 严格满足 \eqref{eq:HMB} 与 \eqref{eq:C}。由引理 \ref{lem:general-N-endstates} 的一致指数衰减界 $O(e^{-2\delta|x|})$ 与 $(1+|x|)e^{-2\delta|x|}\in L^1(\mathbb R)$，即证边界 \eqref{eq:targetboundary} 与全时间轴 $I=\mathbb R$ 下的基本条件 \eqref{eq:physical-regularity} 成立。
 
-取 $G(t)=e^{-\frac{\ii\Omega t}{2}\sg}$, 令 $\widetilde U=GUG^{-1}$、$\widetilde V=GVG^{-1}+G_tG^{-1}$, 则 $\widetilde U,\widetilde V$ 恰为 $(\widetilde q,\widetilde p,\eta)$ 对应的 Lax 矩阵 \eqref{eq:lax}--\eqref{eq:V0}, 且零曲率条件在规范变换下保持成立.
-因三场光滑且由引理 \ref{lem:medium-reduction} 知 $R$ 为 Hermitian 迹零矩阵、满足 \eqref{eq:reconstructed-bloch}, 由命题 \ref{prop:zc} 即证 $(\widetilde q,\widetilde p,\eta)$ 满足原 HMB 系统 \eqref{eq:HMB} 与 Bloch 约束 \eqref{eq:C}.
-由引理 \ref{lem:general-N-endstates} 与 $s(0)=1$, 三场偏离背景的量及其任意固定阶偏导数在时间紧区间上一致为 $O(e^{-2\delta|x|})$. 因 $(1+|x|)e^{-2\delta|x|}\in L^1(\mathbb R)$, 结合控制收敛定理与中值定理即得 \eqref{eq:targetboundary} 及 $I=\mathbb R$ 时的基本条件 \eqref{eq:physical-regularity}.
-
-最后复原直接散射数据. 在 $\Sigma\mathbin{\backslash}\{0,z_b^\pm\}$ 上令 $\mu_-=M$、$\mu_+=M\diag\bigl(s^{-1},s\bigr)$.
-二者满足重构场的修正空间方程 \eqref{eq:jost-modified-lax}, 关于 $x$ 有界且当 $x\to\pm\infty$ 时趋于 $Y(z)$, 由定理 \ref{thm:jost} 的 Volterra 唯一性知其恰为重构场的修正 Jost 矩阵.
-由此得 $S(z,t)=\diag\bigl(s(z)^{-1},s(z)\bigr)$, 故 $\rho=\widetilde\rho=0$; 解析延拓至 $D_+$ 得 $s_{22}=s$ 与 $\mu_{+,2}=sM_2$, 离散零点恰为简单零点 $\zeta_1,\ldots,\zeta_m$.
-令 $z\to\zeta_j$, 由 \eqref{eq:M-residues} 得 $\mu_{+,2}(\zeta_j)=s'(\zeta_j)C_j(x,t)\mu_{-,1}(\zeta_j)$. 因 $x\to-\infty$ 时 $\mu_{-,1}(\zeta_j)\to Y_1(\zeta_j)\ne0$, 与 \eqref{eq:norming-definition} 对照即复原 $c_j(t)=c_j(0)e^{2\ii\lambda(\zeta_j)F(k(\zeta_j))t}$ 及 \eqref{eq:norming-time}--\eqref{eq:C-timephase}.
+最后在连续谱 $\Sigma\mathbin{\backslash}\{0,z_b^\pm\}$ 上置 $\mu_-=M$ 与 $\mu_+=M\diag\bigl(s^{-1},s\bigr)$。二者均满足修正方程 \eqref{eq:jost-modified-lax} 且由 \eqref{eq:general-N-M-ends}--\eqref{eq:general-N-field-ends} 在 $x\to\pm\infty$ 时各自趋于 $Y(z)$，由定理 \ref{thm:jost} 唯一性知其即重构场的修正 Jost 矩阵。由 \eqref{eq:Sdef-mu} 得 $S(z,t)=\diag\bigl(s(z)^{-1},s(z)\bigr)$，从而反射系数 $\rho=\widetilde\rho=0$ 且 $s_{22}(z,t)=s(z)$。在 $\zeta_j$ 处对 $\mu_{+,2}=sM_2$ 取极限并代入 \eqref{eq:M-residues} 与 \eqref{eq:norming-definition}，即复原时间演化式 \eqref{eq:norming-time}--\eqref{eq:C-timephase} 与初始数据 \eqref{eq:N-orbit-data}。
 \end{proof}

@@ -1,104 +1,65 @@
 % !LW recipe = latexmk (XeLaTeX)
 \documentclass[type=master,oneside]{fduthesis}
-% Load the template fonts before xeCJK checks the default CJK family.
-\DeclareHookRule{begindocument/before}{fduthesis}{before}{xeCJK}
-\fdusetup{
- style={font=times,cjk-font=windows,font-size=-4,fullwidth-stop=false,
- auto-make-cover=false,hyperlink=color,bib-backend=bibtex,
- bib-style=numerical,bib-resource={citelist.bib}},
- info={title={Hirota–Maxwell–Bloch 方程的非零边界谱分析与孤子解},
- title*={Spectral Analysis and Soliton Solutions of the Hirota–Maxwell–Bloch System with Nonzero Boundary Conditions},
- keywords={Hirota--Maxwell--Bloch 系统,非零边界,逆散射,Riemann--Hilbert 问题,介质重构},
- keywords*={Hirota--Maxwell--Bloch system,nonzero boundary conditions,inverse scattering,Riemann--Hilbert problem,medium reconstruction}}}
-\usepackage{booktabs,longtable,graphicx,array,placeins}
-\hypersetup{allcolors=black}
-\newtheorem{proposition}{命题}
-\newtheorem{remark}{注}
-\newcommand{\ii}{\mathrm{i}}
-\newcommand{\dd}{\mathrm{d}}
-\newcommand{\sg}{\sigma_3}
-\newcommand{\Id}{I_2}
-\newcommand{\conj}[1]{{#1}^{*}}
-\DeclareRobustCommand{\Res}{\operatorname*{Res}\limits}
-\DeclareMathOperator{\diag}{diag}
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\sech}{sech}
-\allowdisplaybreaks[2]
-\setlength{\emergencystretch}{2em}
-\makeatletter
-\setlength{\@fptop}{0pt}
-\setlength{\@fpsep}{14pt}
-\setlength{\@fpbot}{0pt plus 1fil}
-\makeatother
-% Keep the existing page geometry and continuous section numbering.
-\counterwithout{section}{chapter}
-\renewcommand{\thesection}{\arabic{section}}
-\renewcommand{\theHsection}{\arabic{section}}
-\counterwithout{equation}{chapter}
-\counterwithin{equation}{section}
-\counterwithout{figure}{chapter}
-\counterwithin{figure}{section}
-\counterwithout{table}{chapter}
-\counterwithin{table}{section}
-\renewcommand{\thefigure}{\thesection.\arabic{figure}}
-\renewcommand{\thetable}{\thesection.\arabic{table}}
-\ExplSyntaxOn
-\clist_map_inline:nn { axiom,corollary,definition,example,lemma,theorem,proposition,remark }
-  { \counterwithout{#1}{chapter} \counterwithin{#1}{section} }
-% No classification was supplied in the original project.
-\cs_set_protected:Npn \__fdu_clc:nn #1#2 { }
-\ExplSyntaxOff
-\makeatletter
-% fduthesis loads hyperref at the end of the preamble.
-\AtBeginDocument{%
-  \def\toclevel@section{0}%
-  \def\toclevel@subsection{1}%
-  \def\toclevel@subsubsection{2}}
-\makeatother
-\ctexset{
- section={name={,.},number=\arabic{section},format={\large\sffamily\mdseries},
-   beforeskip=1.2em,afterskip=0.65em,aftername=\quad},
- subsection={name={},number=\thesection.\arabic{subsection},
-   format={\normalsize\sffamily\mdseries},beforeskip=1em,afterskip=0.5em,aftername=\quad},
- subsubsection={name={},number=\thesubsection.\arabic{subsubsection},
-   format={\normalsize\sffamily},beforeskip=0.8em,afterskip=0.4em},
- section/tocline={\normalfont\sffamily\CTEXnumberline{#1}#2},
- subsection/tocline={\normalfont\CTEXnumberline{#1}#2}}
-\setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{2}
-\renewcommand{\sectionmark}[1]{\markright{\thesection.\quad #1}}
-\renewcommand{\topfraction}{0.9}
-\renewcommand{\bottomfraction}{0.85}
-\renewcommand{\textfraction}{0.1}
-\renewcommand{\floatpagefraction}{0.75}
+
+\input{setup}
+
 \begin{document}
-\raggedbottom
-\fancyhead[R]{}
+
+% 封面（硕士学位论文）、指导小组成员页与封三声明页暂已通过 setup.tex 中 auto-make-cover = false 隐藏；
+% 需恢复时将 setup.tex 中 auto-make-cover 改回 true 即可。
+
+% 前置部分包含目录、中英文摘要与插图清单
 \frontmatter
+
 \begingroup
-\linespread{1.15}\selectfont
+\linespread{1.05}\selectfont
 \tableofcontents
 \endgroup
+
+\input{section/00-abstract}
+
+\listoffigures
+
 \mainmatter
-\section{绪论}\label{ch:intro}
+\chapter{绪论}\label{ch:intro}
 \input{section/01-introduction}
-\section{HMB 模型、基本条件与背景谱问题}\label{ch:model}
+
+\chapter{HMB 模型、基本条件与背景谱问题}\label{ch:model}
 \input{section/02-model}
-\section{非零背景的直接散射}\label{ch:direct}
+
+\chapter{非零背景的直接散射}\label{ch:direct}
 \input{section/03-direct-scattering}
-\section{散射演化与共振相容性}\label{ch:scattering}
+
+\chapter{散射演化与共振相容性}\label{ch:scattering}
 \input{section/04-evolution-resonance}
-\section{矩阵 RHP 与三场重构}\label{ch:rhp}
+
+\chapter{矩阵 RHP 与三场重构}\label{ch:rhp}
 \input{section/05-rhp-reconstruction}
-\section{无反射 RHP 与一般重构}\label{ch:soliton}
+
+\chapter{无反射 RHP 与一般重构}\label{ch:soliton}
 \input{section/06-reflectionless}
-\section{孤子解的显式构造}\label{ch:verification}
+
+\chapter{孤子解的显式构造}\label{ch:verification}
 \input{section/07-hmb-verification}
+
 \FloatBarrier
+
 \backmatter
+
 \begingroup
 \linespread{1.2}\selectfont
-\setlength{\bibsep}{2pt}
-\bibliography{citelist}
+\printbibliography
+\renewcommand{\bibname}{参考文献}
 \endgroup
+
+% 暂隐致谢与攻读学位期间研究成果；需要恢复时取消以下注释即可
+% \begin{acknowledgements}
+% \end{acknowledgements}
+%
+% \chapter*{攻读学位期间研究成果}
+% \addcontentsline{toc}{chapter}{\normalfont\sffamily 攻读学位期间研究成果}
+% \begin{enumerate}[{[1]}]
+% \item 某某，某某某．Hirota--Maxwell--Bloch 方程的非零边界谱分析与孤子解（整理待投稿）．
+% \end{enumerate}
+
 \end{document}

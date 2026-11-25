@@ -1,0 +1,211 @@
+% !TEX root = ./fduthesis.tex
+
+% Load the template fonts before xeCJK checks the default CJK family.
+\DeclareHookRule{begindocument/before}{fduthesis}{before}{xeCJK}
+
+% setup.tex
+\fdusetup{
+  style = {
+    font = times,
+    cjk-font = windows,
+    font-size = -4,
+    fullwidth-stop = false,
+    hyperlink = none,
+    auto-make-cover = false, % 暂隐封面、指导小组成员页与封三声明页；恢复时改回 true 即可
+    bib-backend = biblatex,
+    bib-resource = {citelist.bib},
+    bib-style = gb7714-2025
+  },
+  info = {
+    degree = academic,
+    title = {Hirota--Maxwell--Bloch 方程的非零边界谱分析与孤子解},
+    title* = {Spectral Analysis and Soliton Solutions of the Hirota--Maxwell--Bloch System with Nonzero Boundary Conditions},
+    author = {某\quad 某},
+    author* = {Mou Mou},
+    supervisor = {某\quad 某\quad 教~授},
+    department = {数学科学学院},
+    major = {应用数学},
+    student-id = {202XXXXXXXX},
+    instructors = {{某\quad 某\quad 教~授},{某\quad 某\quad 教~授},{某某某\quad 教~授}},
+    keywords = {Hirota--Maxwell--Bloch 系统, 非零边界条件, 逆散射变换, Riemann--Hilbert 问题, 介质重构, 孤子解},
+    keywords* = {Hirota--Maxwell--Bloch system, Riemann--Hilbert problem, nonzero boundary conditions, inverse scattering transform, medium reconstruction, soliton solutions},
+    clc = {O175.29}
+  }
+}
+
+% 字体，英文字体更新为Times New Roman
+\setmainfont{Times New Roman}
+
+% 序号
+\usepackage{enumerate}
+
+% 图片与浮动控制
+\usepackage{graphicx,placeins}
+
+% 子图宏包
+\usepackage{subcaption}
+
+% 表格排列与三线表
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% 代码环境宏包（更新区需要）
+\usepackage{listings}
+\lstdefinestyle{lstStyleCode}{%
+  aboveskip         = \medskipamount,
+  belowskip         = \medskipamount,
+  basicstyle        = \ttfamily\zihao{6},
+  commentstyle      = \slshape\color{black!60},
+  stringstyle       = \color{green!40!black!100},
+  keywordstyle      = \bfseries\color{blue!50!black},
+  extendedchars     = false,
+  upquote           = true,
+  tabsize           = 2,
+  showstringspaces  = false,
+  xleftmargin       = 1em,
+  xrightmargin      = 1em,
+  breaklines        = false,
+  framexleftmargin  = 1em,
+  framexrightmargin = 1em,
+  columns           = flexible,
+  keepspaces        = true,
+  texcl             = true,
+  mathescape        = true
+}
+
+% 超链接
+\usepackage{hyperref}
+
+%更新区------------------------------------------------------------------------
+\lstnewenvironment{codeblock}[1][]{%
+  \lstset{style=lstStyleCode,#1}}{}
+%封面字体更新
+\AtBeginDocument{
+ \addtocontents{toc}{\protect\hypersetup{linkcolor=black}}
+  \addtocontents{toc}{\protect\color{black}}
+
+  \addtocontents{lof}{\protect\hypersetup{linkcolor=black}}
+  \addtocontents{lof}{\protect\color{black}}
+
+  \addtocontents{lot}{\protect\hypersetup{linkcolor=black}}
+  \addtocontents{lot}{\protect\color{black}}
+
+  \addtocontents{loa}{\protect\hypersetup{linkcolor=black}}
+  \addtocontents{loa}{\protect\color{black}}
+
+  \addtocontents{lol}{\protect\hypersetup{linkcolor=black}}
+  \addtocontents{lol}{\protect\color{black}}
+}
+%摘要更新
+\ExplSyntaxOn
+\cs_set_protected:Npn \__fdu_abstract_begin:
+  {
+    \cleardoublepage
+    \thispagestyle { plain }
+    % —— 补回被丢掉的目录项 + PDF 书签 ——
+    \phantomsection
+    \addcontentsline { toc } { chapter } { \c__fdu_name_abstract_tl }
+    % —— 补回页眉 ——
+    \__fdu_chapter_header:n { \c__fdu_name_abstract_tl }
+    % —— 你的自定义排版 ——
+    \zihao { -4 }
+    \begin { center }
+      \l__fdu_info_title_tl
+    \end { center }
+    \noindent \c__fdu_name_abstract_tl \c__fdu_fwid_colon_tl
+  }
+\cs_set_protected:Npn \__fdu_abstract_en_begin:
+  {
+    \cleardoublepage
+    \thispagestyle { plain }
+    \phantomsection
+    \addcontentsline { toc } { chapter } { \c__fdu_name_abstract_en_tl }
+    \__fdu_chapter_header:n { \c__fdu_name_abstract_en_tl }
+    \zihao { -4 }
+    \begin { center }
+      \l__fdu_info_title_en_tl
+    \end { center }
+    \noindent \c__fdu_name_abstract_en_tl :
+  }
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\cs_set_protected:Npn \__fdu_abstract_end:
+  {
+    \__fdu_keywords:nNn
+      { \sffamily \c__fdu_name_keywords_tl \c__fdu_fwid_colon_tl }
+      \l__fdu_info_keywords_clist { \c__fdu_fwid_semicolon_tl }
+  }
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\cs_set_protected:Npn \__fdu_abstract_en_end:
+  {
+    \__fdu_keywords:nNn
+      { \bfseries \c__fdu_name_keywords_en_tl \__fdu_quad: }
+      \l__fdu_info_keywords_en_clist { ; ~ }
+  }
+\ExplSyntaxOff
+%封面更新
+\ExplSyntaxOn
+\cs_set_protected:Npn \__fdu_cover_id:
+  {
+    \noindent
+    \begin{minipage}[t]{0.5\textwidth}
+      \raggedright
+      中图分类号：\l__fdu_info_clc_tl
+    \end{minipage}%
+    \begin{minipage}[t]{0.5\textwidth}
+      \raggedleft
+      学校代码：10246 \\
+      % 同等学力人员/英文项目   % ← 需要时去掉本行行首的 % 即可显示
+    \end{minipage}
+  }
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\cs_set_protected:Npn \__fdu_cover_info:
+  {
+    \begin{center}
+    \zihao{-3}        % ← 封面字号
+    \begin{tabular}{ @{} r @{：} c @{} }
+      \makebox[7em][s]{学生姓名} & \l__fdu_info_author_tl       \\[1ex]
+      \makebox[7em][s]{学号}     & \l__fdu_info_student_id_tl   \\[1ex]
+      \makebox[7em][s]{导师姓名、职称} & \l__fdu_info_supervisor_tl \\[1ex]
+      \makebox[7em][s]{学科专业} & \l__fdu_info_major_tl        \\[1ex]
+      \makebox[7em][s]{培养单位} & \l__fdu_info_department_tl   \\[1ex]
+      \makebox[7em][s]{论文提交日期} & \quad \the\year 年 \the\month 月 \the\day 日 \\
+    \end{tabular}
+    \end{center}
+  }
+\ExplSyntaxOff
+
+% 论文正文定理环境与自定义数学记号
+\hypersetup{allcolors=black}
+\newtheorem{proposition}{命题}
+\newtheorem{remark}{注}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\sg}{\sigma_3}
+\newcommand{\Id}{I_2}
+\newcommand{\conj}[1]{{#1}^{*}}
+\DeclareRobustCommand{\Res}{\operatorname*{Res}\limits}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sech}{sech}
+\allowdisplaybreaks[2]
+\setlength{\emergencystretch}{2em}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{14pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\ctexset{
+  figurename = {图},
+  listfigurename = {插图清单}
+}
