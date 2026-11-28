@@ -50,7 +50,7 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 其中交空间上的范数取组成空间范数之和。
 \end{definition}
 
-以下约定文中函数空间均关于空间变量 $x$ 定义，而 $C(I;X)$ 与 $C^1(I;X)$ 分别表示关于时间变量 $t\in I$ 取值于空间 $X$ 的连续性与连续可微性。本文假设物理三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 及方程 \eqref{eq:HMB} 中涉及的各阶偏导数在 $\mathbb R\times I$ 上连续，并满足基本正则条件
+下文函数空间均关于空间变量 $x$，时间正则性按相应空间范数理解。假设物理三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 及方程 \eqref{eq:HMB} 涉及的各阶偏导数在 $\mathbb R\times I$ 上连续，并满足基本条件
 \begin{equation}\label{eq:physical-regularity}
 \begin{aligned}
 &\widetilde q-\widetilde q_{\rm bg}\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
@@ -58,13 +58,12 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 \end{aligned}
 \end{equation}
 
-将 \eqref{eq:HMB} 中的两条介质方程分别乘以 $\conj{\widetilde p}$ 与 $\widetilde\eta$ 并取实部相加，直接计算得空间模长守恒律
+由方程 \eqref{eq:HMB} 中的两条介质方程可得
 \begin{equation}\label{eq:bloch}
-\partial_x(|\widetilde p|^2+\widetilde\eta^2)
-=2\operatorname{Re}\bigl((2\widetilde\eta\widetilde q-2\ii a\widetilde p)\conj{\widetilde p}\bigr)
--2\widetilde\eta(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p})=0.
+\partial_x\bigl(|\widetilde p|^2+\widetilde\eta^2\bigr)
+=2\operatorname{Re}(\widetilde p_x\conj{\widetilde p})+2\widetilde\eta\widetilde\eta_x=0.
 \end{equation}
-令 $x\to\pm\infty$ 并代入共同平面波端态 \eqref{eq:targetboundary}，即得全空间一致成立的 Bloch 守恒约束
+结合边界条件 \eqref{eq:targetboundary}，得到 Bloch 约束
 \begin{equation}\label{eq:C}
 |\widetilde p|^2+\widetilde\eta^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right).
 \end{equation}

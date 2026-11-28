@@ -159,6 +159,6 @@
     "3.2",
     "9"
   ],
-  "pdf_sha256": "6d896f87894085340f29033f2fccb7941699e569ef472be647786c190a04f1ce",
-  "visual_review": "Visual QA passed on 45-page PDF (p_07-p_10 Ch2 tilde-eta + [1] citation + eq:gauge, p_29 Ch5 eq:original-fields, p_40-p_43 Ch7 equations and Fig 7-1/7-2 panel c tilde-eta titles)"
+  "pdf_sha256": "d6d70e1b24ce6c1038036d2a43b25979b5072e91c4bc9effb61d16f644fc76e3",
+  "visual_review": "Visual QA passed on 45-page PDF (p_08 Ch2 simplified function space note and compact Bloch derivation (2.6)-(2.7), clean layout across p_08-p_09)"
 }
