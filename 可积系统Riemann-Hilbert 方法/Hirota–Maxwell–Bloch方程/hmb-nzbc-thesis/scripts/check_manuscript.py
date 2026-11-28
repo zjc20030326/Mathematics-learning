@@ -180,8 +180,10 @@ def source_checks():
     assert r'\label{lem:RHP-determinant}' not in body
     assert r'\label{lem:medium-reduction}' not in body
     assert r'\label{eq:norming-time}' in body
+    assert r'\label{eq:bloch}' not in body
+    assert r'\label{eq:C}' not in body
     refl = (ROOT/'section/06-reflectionless.tex').read_text(encoding='utf-8')
-    assert r'\label{eq:detM}' in refl and r'\label{eq:reconstructed-bloch}' in refl
+    assert r'\label{eq:detM}' in refl and r'\label{eq:reconstructed-bloch}' not in refl
 
     citation_order = first_citation_order(body)
     citations = set(citation_order)

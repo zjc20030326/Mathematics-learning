@@ -1,8 +1,8 @@
 {
   "sources": {
     "tex_files": 10,
-    "labels": 194,
-    "references": 560,
+    "labels": 191,
+    "references": 551,
     "balanced_delimiters_environments_braces": true,
     "seven_chapters": true,
     "forbidden_forms_absent": true,
@@ -152,13 +152,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 669,
+  "pdf_links_checked": 660,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "9"
   ],
-  "pdf_sha256": "d6d70e1b24ce6c1038036d2a43b25979b5072e91c4bc9effb61d16f644fc76e3",
-  "visual_review": "Visual QA passed on 45-page PDF (p_08 Ch2 simplified function space note and compact Bloch derivation (2.6)-(2.7), clean layout across p_08-p_09)"
+  "pdf_sha256": "06da2d7b1bdc3e4b749aacd2d1fdd7b054fb1c453e41f4660214bdb206c37b88",
+  "visual_review": "Visual QA passed on 45-page PDF (p_02-03 abstracts, p_06 intro, p_07-08 Ch2 regularity and clean Lax transition, p_33-34/p_37-38 Ch6 Hermitian traceless medium proof without Bloch constraint, p_40/p_42 Ch7 soliton theorems)"
 }

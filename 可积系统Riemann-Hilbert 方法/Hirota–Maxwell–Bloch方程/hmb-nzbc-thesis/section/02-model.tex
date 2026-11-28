@@ -1,10 +1,10 @@
 % !TeX root = ../fduthesis.tex
 
-与零背景情形不同，Hirota--Maxwell--Bloch（HMB）系统的非零空间边界不仅限定了光场振幅，而且通过两能级介质方程同步约束了极化场与粒子数反转的远场端态。本章依次完成平面波背景与 Bloch 约束确定、含时规范约化，以及双叶 Riemann 谱曲面的单值化构造。
+与零背景情形不同，Hirota--Maxwell--Bloch（HMB）系统的非零空间边界不仅限定了光场振幅，而且通过两能级介质方程同步约束了极化场与粒子数反转的远场端态。本章依次完成平面波背景确定、含时规范约化，以及双叶 Riemann 谱曲面的单值化构造。
 
 \section{HMB 方程与基本条件}\label{ass:fields}
 
-本节首先叙述 HMB 方程组及全篇遵循的常数背景、加权可积函数空间与 Bloch 约束。设复值函数 $\widetilde q(x,t)$ 与 $\widetilde p(x,t)$ 分别表示光场复包络与介质极化密度，实值函数 $\widetilde\eta(x,t)$ 表示粒子数反转，其中 $x\in\mathbb R$ 为空间变量，$t$ 为时间变量。考虑 HMB 方程组\cite{PN1995}
+本节首先叙述 HMB 方程组及全篇遵循的常数背景与加权可积函数空间。设复值函数 $\widetilde q(x,t)$ 与 $\widetilde p(x,t)$ 分别表示光场复包络与介质极化密度，实值函数 $\widetilde\eta(x,t)$ 表示粒子数反转，其中 $x\in\mathbb R$ 为空间变量，$t$ 为时间变量。考虑 HMB 方程组\cite{PN1995}
 \begin{equation}\label{eq:HMB}
 \begin{cases}
 \widetilde q_t=\ii\alpha\left(\dfrac{1}{2}\widetilde q_{xx}+|\widetilde q|^2\widetilde q\right)
@@ -50,22 +50,12 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 其中交空间上的范数取组成空间范数之和。
 \end{definition}
 
-下文函数空间均关于空间变量 $x$，时间正则性按相应空间范数理解。假设物理三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 及方程 \eqref{eq:HMB} 涉及的各阶偏导数在 $\mathbb R\times I$ 上连续，并满足基本条件
+下文函数空间均关于空间变量 $x$ 定义。假设物理三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 及方程 \eqref{eq:HMB} 涉及的各阶偏导数在 $\mathbb R\times I$ 上连续，并满足基本条件
 \begin{equation}\label{eq:physical-regularity}
 \begin{aligned}
 &\widetilde q-\widetilde q_{\rm bg}\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
 &\widetilde p-\widetilde p_{\rm bg},\quad\widetilde\eta-\eta_0\in C(I;X_m).
 \end{aligned}
-\end{equation}
-
-由方程 \eqref{eq:HMB} 中的两条介质方程可得
-\begin{equation}\label{eq:bloch}
-\partial_x\bigl(|\widetilde p|^2+\widetilde\eta^2\bigr)
-=2\operatorname{Re}(\widetilde p_x\conj{\widetilde p})+2\widetilde\eta\widetilde\eta_x=0.
-\end{equation}
-结合边界条件 \eqref{eq:targetboundary}，得到 Bloch 约束
-\begin{equation}\label{eq:C}
-|\widetilde p|^2+\widetilde\eta^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right).
 \end{equation}
 
 \section{Lax 表示与规范变换}

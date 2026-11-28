@@ -65,7 +65,7 @@ L_N\boldsymbol v=\boldsymbol f-A\boldsymbol g,\qquad L_N=I_m+AB.
 q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\boldsymbol v_j)_1.
 \end{equation}
 
-在非退化条件 $\det L_N(x,t)\ne0$ 下，下面定理给出无反射 RHP 的唯一有理解及物理场的行列式和共振求值重构公式，并直接验证逆向重构所需的行列式恒等式与 Bloch 模长约束。
+在非退化条件 $\det L_N(x,t)\ne0$ 下，下面定理给出无反射 RHP 的唯一有理解及物理场的行列式和共振求值重构公式，并直接验证逆向重构所需的行列式恒等式与介质矩阵性质。
 
 \begin{theorem}\label{thm:N-orbit-RHP}
 设离散数据满足定义 \ref{def:orbit-data}，且在给定 $(x,t)\in\mathbb R^2$ 处有 $\det L_N(x,t)\ne0$。则由部分分式 \eqref{eq:partialfraction} 与求解公式 \eqref{eq:finite-schur} 确定的 $M(z)$ 是跨 $\Sigma$ 无跳跃且满足命题 \ref{prop:jump} 条件 (1)--(5) 的无反射 RHP 的唯一解，满足对称性 \eqref{eq:Msym}、行列式恒等式
@@ -78,11 +78,7 @@ q=q_0+\ii\sum\limits_{j=1}^{m}C_j(\boldsymbol v_j)_1.
 =\dfrac{\det\begin{pmatrix}L_N&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}}{\det L_N},\label{eq:N-determinant-q}\\
 &R=\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(z_a^\pm)\sg M(z_a^\pm)^{-1},\label{eq:N-medium}
 \end{align}
-给出，其中 $M(z_a^\pm)$ 均可逆且两共振原像给出同一 Hermitian 迹零矩阵 $R$，自动满足 Bloch 约束
-\begin{equation}\label{eq:reconstructed-bloch}
-R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)\Id,
-\end{equation}
-原物理三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 仍由 \eqref{eq:original-fields} 恢复。其中列向量 $\boldsymbol C$ 与 $\boldsymbol r$ 分别定义为
+给出，其中 $M(z_a^\pm)$ 均可逆且两共振原像给出同一 Hermitian 迹零矩阵 $R$，原物理三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 仍由 \eqref{eq:original-fields} 恢复。其中列向量 $\boldsymbol C$ 与 $\boldsymbol r$ 分别定义为
 \begin{equation}\label{eq:N-rhs}
 \begin{aligned}
 &\boldsymbol C=(C_1,\ldots,C_m)^T,\qquad
@@ -115,7 +111,7 @@ R^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right)\Id,
 \end{equation*}
 比较 $z$ 一次项系数得 $-d=d$，即 $d=0$，证得 \eqref{eq:detM}。因极点严格落在 $\Sigma$ 外，$M(z)$ 在分支点 $z_b^\pm$ 处解析且 $\det M(z_b^\pm)=\gamma(z_b^\pm)=0$；若 $M(z_b^\pm)=0$ 则 $\det M$ 至少有二阶零点，与 $\gamma'(z_b^\pm)\ne0$ 矛盾，因此 $\operatorname{rank}M(z_b^\pm)=1$。
 
-对于光场公式，将 \eqref{eq:finite-schur} 与 \eqref{eq:N-rhs} 代入 \eqref{eq:qfinite} 得 \eqref{eq:N-determinant-q} 第一式，应用分块 Schur 补恒等式即得第二式。对于介质矩阵，由 \eqref{eq:detM} 知在实共振原像处 $\det M(z_a^\pm)=\gamma(z_a^\pm)>0$，所以 $M(z_a^\pm)$ 可逆；结合换叶对称性 \eqref{eq:Msym} 与 $\lambda(z_a^-)=-\lambda(z_a^+)$ 同命题 \ref{prop:reconstruction} 一样知两原像给出同一个 $R$。进一步由实数 $z_a^\pm$ 处的共轭对称性 $M(z_a^\pm)=\sigma_2\conj{M(z_a^\pm)}\sigma_2$ 及二阶恒等式 $\sigma_2 A^T\sigma_2=\operatorname{adj}A$，得 $M(z_a^\pm)^\dagger M(z_a^\pm)=\gamma(z_a^\pm)\Id$，因此 \eqref{eq:N-medium} 是实对角迹零阵 $\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sg$ 的酉相似变换，必 Hermitian 且迹零。最后对 \eqref{eq:N-medium} 平方并代入 $\lambda(z_a^\pm)^2=a^2+q_0^2$，即证 Bloch 约束 \eqref{eq:reconstructed-bloch}。
+对于光场公式，将 \eqref{eq:finite-schur} 与 \eqref{eq:N-rhs} 代入 \eqref{eq:qfinite} 得 \eqref{eq:N-determinant-q} 第一式，应用分块 Schur 补恒等式即得第二式。对于介质矩阵，由 \eqref{eq:detM} 知在实共振原像处 $\det M(z_a^\pm)=\gamma(z_a^\pm)>0$，所以 $M(z_a^\pm)$ 可逆；结合换叶对称性 \eqref{eq:Msym} 与 $\lambda(z_a^-)=-\lambda(z_a^+)$ 同命题 \ref{prop:reconstruction} 一样知两原像给出同一个 $R$。进一步由实数 $z_a^\pm$ 处的共轭对称性 $M(z_a^\pm)=\sigma_2\conj{M(z_a^\pm)}\sigma_2$ 及二阶恒等式 $\sigma_2 A^T\sigma_2=\operatorname{adj}A$，得 $M(z_a^\pm)^\dagger M(z_a^\pm)=\gamma(z_a^\pm)\Id$，因此 \eqref{eq:N-medium} 是实对角迹零阵 $\dfrac{\eta_0\lambda(z_a^\pm)}{a}\sg$ 的酉相似变换，必 Hermitian 且迹零。
 \end{proof}
 
 \section{一般多轨道的全局正则性与 HMB 重构}
@@ -202,7 +198,7 @@ Y_{q_+}(z)=\begin{pmatrix}1&-\dfrac{\ii q_+}{z}\\-\dfrac{\ii\conj{q_+}}{z}&1\end
 联立上述非退化性与一致渐近结果，下面证明一般 $N$ 轨道无反射三场满足原 HMB 系统并精确复原预设散射数据。
 
 \begin{theorem}\label{thm:general-N-HMB-reconstruction}
-设背景参数满足第 \ref{ch:model} 章固定要求，离散数据满足定义 \ref{def:orbit-data}。则对应无反射矩阵 RHP 解 $M(x,t,z)$ 对任意 $(x,t)\in\mathbb R^2$ 唯一存在，由 \eqref{eq:original-fields}、\eqref{eq:N-determinant-q} 与 \eqref{eq:N-medium} 重构的物理三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 在 $\mathbb R^2$ 上无穷次光滑，严格满足原 HMB 系统 \eqref{eq:HMB}、同相非零边界条件 \eqref{eq:targetboundary}、全时间轴 $I=\mathbb R$ 上的基本条件 \eqref{eq:physical-regularity} 与 Bloch 约束 \eqref{eq:C}；反解直接散射问题所得散射数据严格无反射，透射系数复原 $s_{22}(z,t)=s(z)$，离散零点与范数常数也精确复原演化公式 \eqref{eq:norming-time}--\eqref{eq:C-timephase} 与初始数据 \eqref{eq:N-orbit-data}。
+设背景参数满足第 \ref{ch:model} 章固定要求，离散数据满足定义 \ref{def:orbit-data}。则对应无反射矩阵 RHP 解 $M(x,t,z)$ 对任意 $(x,t)\in\mathbb R^2$ 唯一存在，由 \eqref{eq:original-fields}、\eqref{eq:N-determinant-q} 与 \eqref{eq:N-medium} 重构的物理三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 在 $\mathbb R^2$ 上无穷次光滑，严格满足原 HMB 系统 \eqref{eq:HMB}、同相非零边界条件 \eqref{eq:targetboundary} 与全时间轴 $I=\mathbb R$ 上的基本条件 \eqref{eq:physical-regularity}；反解直接散射问题所得散射数据严格无反射，透射系数复原 $s_{22}(z,t)=s(z)$，离散零点与范数常数也精确复原演化公式 \eqref{eq:norming-time}--\eqref{eq:C-timephase} 与初始数据 \eqref{eq:N-orbit-data}。
 \end{theorem}
 \begin{proof}
 由引理 \ref{lem:general-N-nondegeneracy} 与定理 \ref{thm:N-orbit-RHP} 知 $M(x,t,z)$ 在 $\mathbb R^2$ 上唯一存在，再由指数函数光滑性与 Cramer 法则知 $M,q,R$ 及 $(\widetilde q,\widetilde p,\widetilde\eta)$ 在 $\mathbb R^2$ 上无穷次光滑。
@@ -223,7 +219,7 @@ V(k)=4\ii\beta k^3\sg+k^2(-\ii\alpha\sg-4\beta Q)+kW_1+W_0+\dfrac{\ii R}{k-a},
 \end{equation*}
 其中系数 $W_0,W_1$ 迹零且反 Hermitian。
 
-由 \eqref{eq:general-N-log-lax} 在 $k\ne a$ 处自动成立零曲率方程 $U_t-V_x+[U,V]=0$。参照 \eqref{eq:rationalzc} 与 \eqref{eq:general-N-Rx}，有理极点仅贡献常项 $[\sg,R]$；按 $k$ 的幂次比较零曲率方程，并将 $-F(k)(-\ii k\sg)$ 中的有理项拆为 $\dfrac{\ii\eta_0}{a}\sg+\dfrac{\ii\eta_0}{k-a}\sg$ 后利用引理 \ref{lem:general-N-endstates} 的左端极限 $V\to V_\infty$ 定出积分常数，即得 $W_1=V_1(q)$ 与 $W_0=V_0(q)+\dfrac{\ii\Omega}{2}\sg$，从而 $(U,V)$ 完全恢复规范 Lax 对 \eqref{eq:gaugelax}--\eqref{eq:gauged-V}。逆向应用命题 \ref{prop:gauge} 规范变换，结合命题 \ref{prop:zc} 的零曲率等价性及定理 \ref{thm:N-orbit-RHP} 保证的 Hermitian 迹零性质与 Bloch 约束 \eqref{eq:reconstructed-bloch}，即证 $(\widetilde q,\widetilde p,\widetilde\eta)$ 严格满足 \eqref{eq:HMB} 与 \eqref{eq:C}。由引理 \ref{lem:general-N-endstates} 的一致指数衰减界 $O(e^{-2\delta|x|})$ 与 $(1+|x|)e^{-2\delta|x|}\in L^1(\mathbb R)$，即证边界 \eqref{eq:targetboundary} 与全时间轴 $I=\mathbb R$ 下的基本条件 \eqref{eq:physical-regularity} 成立。
+由 \eqref{eq:general-N-log-lax} 在 $k\ne a$ 处自动成立零曲率方程 $U_t-V_x+[U,V]=0$。参照 \eqref{eq:rationalzc} 与 \eqref{eq:general-N-Rx}，有理极点仅贡献常项 $[\sg,R]$；按 $k$ 的幂次比较零曲率方程，并将 $-F(k)(-\ii k\sg)$ 中的有理项拆为 $\dfrac{\ii\eta_0}{a}\sg+\dfrac{\ii\eta_0}{k-a}\sg$ 后利用引理 \ref{lem:general-N-endstates} 的左端极限 $V\to V_\infty$ 定出积分常数，即得 $W_1=V_1(q)$ 与 $W_0=V_0(q)+\dfrac{\ii\Omega}{2}\sg$，从而 $(U,V)$ 完全恢复规范 Lax 对 \eqref{eq:gaugelax}--\eqref{eq:gauged-V}。逆向应用命题 \ref{prop:gauge} 规范变换，结合命题 \ref{prop:zc} 的零曲率等价性及定理 \ref{thm:N-orbit-RHP} 保证的 Hermitian 迹零性质，即证 $(\widetilde q,\widetilde p,\widetilde\eta)$ 严格满足 \eqref{eq:HMB}。由引理 \ref{lem:general-N-endstates} 的一致指数衰减界 $O(e^{-2\delta|x|})$ 与 $(1+|x|)e^{-2\delta|x|}\in L^1(\mathbb R)$，即证边界 \eqref{eq:targetboundary} 与全时间轴 $I=\mathbb R$ 下的基本条件 \eqref{eq:physical-regularity} 成立。
 
 最后在连续谱 $\Sigma\mathbin{\backslash}\{0,z_b^\pm\}$ 上置 $\mu_-=M$ 与 $\mu_+=M\diag\bigl(s^{-1},s\bigr)$。二者均满足修正方程 \eqref{eq:jost-modified-lax} 且由 \eqref{eq:general-N-M-ends}--\eqref{eq:general-N-field-ends} 在 $x\to\pm\infty$ 时各自趋于 $Y(z)$，由定理 \ref{thm:jost} 唯一性知其即重构场的修正 Jost 矩阵。由 \eqref{eq:Sdef-mu} 得 $S(z,t)=\diag\bigl(s(z)^{-1},s(z)\bigr)$，从而反射系数 $\rho=\widetilde\rho=0$ 且 $s_{22}(z,t)=s(z)$。在 $\zeta_j$ 处对 $\mu_{+,2}=sM_2$ 取极限并代入 \eqref{eq:M-residues} 与 \eqref{eq:norming-definition}，即复原时间演化式 \eqref{eq:norming-time}--\eqref{eq:C-timephase} 与初始数据 \eqref{eq:N-orbit-data}。
 \end{proof}
