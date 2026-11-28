@@ -4,7 +4,7 @@
 
 \section{矩阵 Riemann--Hilbert 问题}
 
-本节固定 $(x,t)\in\mathbb R\times I$，将分别在 $D_+$ 与 $D_-$ 内解析的四条修正 Jost 列重新拼装为逐域解析的分片亚纯矩阵，以便在连续谱边界 $\Sigma$ 上构成标准矩阵跳跃问题。以下沿用图 \ref{fig:analytic-regions} 取定的连续谱边界 $\Sigma$ 定向，以 $+$、$-$ 分别表示从左侧区域 $D_+$ 与右侧区域 $D_-$ 趋于 $\Sigma$ 的非切向边界值，并记光滑开谱弧段集合为
+本节固定 $(x,t)\in\mathbb R\times I$，将分别在 $D_+$ 与 $D_-$ 内解析的四条修正 Jost 列拼装为分片亚纯矩阵，以便在连续谱边界 $\Sigma$ 上构成标准矩阵跳跃问题。以下沿用图 \ref{fig:analytic-regions} 取定的连续谱边界 $\Sigma$ 定向，以 $+$、$-$ 分别表示从左侧区域 $D_+$ 与右侧区域 $D_-$ 趋于 $\Sigma$ 的边界值，并记光滑开谱弧段集合为
 \begin{equation*}
 \Sigma_*=\Sigma\mathbin{\backslash}\{0,\pm q_0,z_a^\pm,z_b^\pm\}.
 \end{equation*}
@@ -20,7 +20,7 @@ M_-(z)=\left(\dfrac{\mu_{+,1}}{s_{11}},\mu_{-,2}\right),&z\in D_-,
 则 $M(z)=M(x,t,z)$ 满足下列五条性质。
 \begin{enumerate}[(1)]
 \item 矩阵 $M(z)$ 在 $\mathbb C\mathbin{\backslash}(\Sigma\cup Z)$ 内解析，在离散谱 $Z$ 处至多具有一阶简单极点。
-\item 在 $\Sigma_*$ 上，$M$ 的两侧非切向边界值 $M_\pm$ 存在且局部连续，并满足跳跃关系
+\item 在 $\Sigma_*$ 上，$M$ 的两侧边界值 $M_\pm$ 存在且局部连续，并满足跳跃关系
 \begin{equation}\label{eq:jump}
 M_-=M_+(\Id-G),\qquad
 G=\begin{pmatrix}
@@ -59,7 +59,7 @@ M(h(z))=M(z)\dfrac{\ii z}{q_0}\sigma_1,
 写成矩阵乘积即证 \eqref{eq:jump}。将命题 \ref{prop:highenergy} 的渐近展开 \eqref{eq:mu-highenergy}--\eqref{eq:s11-highenergy} 与 \eqref{eq:smallmu}--\eqref{eq:s11-smallenergy} 代入 \eqref{eq:Mdef}，消去首项外余项即得 \eqref{eq:Minfty}--\eqref{eq:Mzero}；代入对称性 \eqref{eq:conjugation}--\eqref{eq:musheet} 与 \eqref{eq:sconj}--\eqref{eq:ssheet} 即证 \eqref{eq:Msym}。最后由命题 \ref{prop:resonance} 中的 $s_{12}(z_a^\pm,t)=s_{21}(z_a^\pm,t)=0$ 与 $\det S(z_a^\pm,t)=1$，结合 \eqref{eq:scattering-columns} 与 \eqref{eq:Mdef} 得 $M_+(z_a^\pm)=\mu_-(x,t,z_a^\pm)=M_-(z_a^\pm)$。
 \end{proof}
 
-从逆散射视角出发，给定满足上述相容条件且无穷远满足 $G(s)=O(s^{-2})$ 的散射数据 $\bigl(\rho,\widetilde\rho,\{\zeta_j,c_j(0)\}_{j=1}^{2N}\bigr)$ 后，不再预先假定 $M(z)$ 来自 Jost 解，而是寻求在分支点 $z_b^\pm$ 与交点 $\pm q_0$ 附近保持局部有界、在共振原像 $z_a^\pm$ 处两侧边界值连续相等且满足命题 \ref{prop:jump} 条件 (1)--(5) 的分片亚纯矩阵 $M(z)$，这构成了从散射数据直接求解矩阵 RHP 以重构物理场的反演框架。
+对给定散射数据 $\bigl(\rho,\widetilde\rho,\{\zeta_j,c_j(0)\}_{j=1}^{2N}\bigr)$，若其满足上述相容条件且无穷远满足 $G(s)=O(s^{-2})$，反演问题即寻求在 $z_b^\pm$ 与 $\pm q_0$ 附近局部有界、在共振原像 $z_a^\pm$ 处两侧边界值连续相等且满足命题 \ref{prop:jump} 条件 (1)--(5) 的分片亚纯矩阵 $M(z)$，进而重构物理场。
 
 \section{留数表示与三场重构}
 
@@ -116,7 +116,7 @@ R=\dfrac{\eta_0\lambda(z_a^\pm)}{a}M(x,t,z_a^\pm)\sg M(x,t,z_a^\pm)^{-1},
 q=q_0+\ii\sum\limits_{j=1}^{2N}C_jM_{11}(\zeta_j)
 -\dfrac{1}{2\pi}\int\limits_\Sigma \bigl(M_+(s)G(s)\bigr)_{12}\,\dd s,
 \end{equation}
-右端三项依次刻画了非零背景常数、有限维离散孤子与连续谱辐射的贡献。
+右端三项分别对应非零背景、离散孤子与连续谱的贡献。
 
 \section{迹公式与相位条件}
 

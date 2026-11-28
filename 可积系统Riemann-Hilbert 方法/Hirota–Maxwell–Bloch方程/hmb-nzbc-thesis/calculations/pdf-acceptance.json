@@ -1,8 +1,8 @@
 {
   "sources": {
     "tex_files": 10,
-    "labels": 191,
-    "references": 551,
+    "labels": 192,
+    "references": 544,
     "balanced_delimiters_environments_braces": true,
     "seven_chapters": true,
     "forbidden_forms_absent": true,
@@ -152,13 +152,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 660,
+  "pdf_links_checked": 653,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "9"
   ],
-  "pdf_sha256": "06da2d7b1bdc3e4b749aacd2d1fdd7b054fb1c453e41f4660214bdb206c37b88",
-  "visual_review": "Visual QA passed on 45-page PDF (p_02-03 abstracts, p_06 intro, p_07-08 Ch2 regularity and clean Lax transition, p_33-34/p_37-38 Ch6 Hermitian traceless medium proof without Bloch constraint, p_40/p_42 Ch7 soliton theorems)"
+  "pdf_sha256": "9dbc2f8dbc8f154a776fc88c7ddd1d3e371a8bb8f01b0c2dfc317d3315fd86a3",
+  "visual_review": "Visual QA passed on 45-page PDF (p_08-p_11 Ch2 centered V3/V2/V1/V0 matrix expressions, shortened zc proof, focused Prop 2.2 and structured Remark 2.1, p_28/p_33/p_38/p_40 crisp Ch3-7 wording)"
 }

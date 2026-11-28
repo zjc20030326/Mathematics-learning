@@ -166,12 +166,12 @@ s_{11}s_{22}-s_{12}s_{21}=1,\qquad
 s_{11}s_{22}(1-\rho\widetilde\rho)=1.
 \end{equation}
 
-在单值化复 $z$ 平面上，谱参数存在两个基本对合对称性，分别为复共轭与 \eqref{eq:sheet} 定义的换叶映射。由 \eqref{eq:uniform}、\eqref{eq:domains} 与 \eqref{eq:sheet} 可见，$\lambda(\conj z)=\conj{\lambda(z)}$ 且 $\lambda(h(z))=-\lambda(z)$，因此复共轭与换叶分别表现为解析区域 $D_+$ 与 $D_-$ 之间的互逆双射
+在复 $z$ 平面上，由 \eqref{eq:uniform}、\eqref{eq:domains} 与 \eqref{eq:sheet} 可知 $\lambda(\conj z)=\conj{\lambda(z)}$ 且 $\lambda(h(z))=-\lambda(z)$，因此复共轭与换叶映射分别将 $D_+$ 与 $D_-$ 互换，即
 \begin{equation}\label{eq:symmetry-domains}
 z\mapsto\conj{z}:D_\pm\longrightarrow D_\mp,\qquad
 h:z\mapsto-\dfrac{q_0^2}{z}:D_\pm\longrightarrow D_\mp.
 \end{equation}
-这两个对合变换相互交换，它们的复合 $z\mapsto h(\conj z)=-\dfrac{q_0^2}{\conj z}$ 则各自保持 $D_+$ 与 $D_-$ 不变。由谱问题 \eqref{eq:gauged-U} 在上述对合下的不变性，修正 Jost 矩阵满足如下双重对称性。
+二者的复合 $z\mapsto h(\conj z)=-\dfrac{q_0^2}{\conj z}$ 保持 $D_+$ 与 $D_-$ 各自不变。由此可得修正 Jost 矩阵的双重对称性。
 
 \begin{proposition}\label{prop:symmetry}
 设定理 \ref{thm:jost} 的条件成立，由 \eqref{eq:modified-jost} 定义的修正 Jost 矩阵 $\mu_\pm(x,t,z)$ 在各自适用的解析域与边界 $\Sigma^\circ$ 上满足
@@ -236,7 +236,7 @@ S(z,t)^\dagger S(z,t)=\Id.
 
 \section{离散谱和留数条件}\label{ch:discrete}
 
-孤子解的产生源自空间谱算子在连续谱之外存在平方可积特征函数。具体而言，记 \eqref{eq:gaugelax} 第一式对应的空间谱方程 $\chi_x=U(x,t,z)\chi$ 在 $\mathbb C\mathbin{\backslash}\Sigma$ 内存在非零 $L^2(\mathbb R)$ 向量解的谱点集合为离散谱 $Z$\cite{ZhangFan2020}。下面命题借助 Wronskian 行列式 \eqref{eq:wronskian} 证明，该离散谱恰好完全由透射系数的零点集合确定。
+孤子解的产生源自空间谱算子在连续谱之外存在平方可积特征函数。记空间谱方程 $\chi_x=U(x,t,z)\chi$ 在 $\mathbb C\mathbin{\backslash}\Sigma$ 内存在非零 $L^2(\mathbb R)$ 向量解的谱点集合为离散谱 $Z$\cite{ZhangFan2020}。下面命题借助 Wronskian 行列式 \eqref{eq:wronskian} 证明，该离散谱恰好由透射系数的零点集合确定。
 
 \begin{proposition}\label{prop:discrete-spectrum}
 固定 $t\in I$，设定理 \ref{thm:jost} 的条件成立。则空间谱方程 $\chi_x=U(x,t,z)\chi$ 在 $\mathbb C\mathbin{\backslash}\Sigma$ 内的离散谱 $Z$ 完全由 \eqref{eq:Sdef-matrix} 中的透射系数 $s_{11}(z,t)$ 与 $s_{22}(z,t)$ 刻画为
@@ -260,7 +260,7 @@ u\in L^2(-\infty,0),\qquad v\in L^2(0,+\infty).
 在区域 $D_-$ 中对 $\chi_{+,1},\chi_{-,2}$ 作完全对称的论证，即得 $D_-$ 内的离散谱为 $s_{11}(z,t)=0$ 的点集。
 \end{proof}
 
-与零背景情形不同，非零背景下同时存在的共轭对称性 \eqref{eq:sconj} 与换叶对称性 \eqref{eq:ssheet} 将离散零点成组绑定。以下假设连续谱 $\Sigma$ 上不存在谱奇点，即透射系数的离散零点有限且均为一阶简单零点。由 \eqref{eq:sconj}--\eqref{eq:ssheet} 可知，透射系数 $s_{22}(z,t)$ 在 $D_+$ 中的任一简单零点 $\zeta$ 自动生成如下四点离散谱轨道
+与零背景情形不同，非零背景下同时存在的共轭对称性 \eqref{eq:sconj} 与换叶对称性 \eqref{eq:ssheet} 将离散零点成组绑定。以下假设连续谱 $\Sigma$ 上无谱奇点，且透射系数仅有有限个一阶简单离散零点。由 \eqref{eq:sconj}--\eqref{eq:ssheet} 可知，透射系数 $s_{22}(z,t)$ 在 $D_+$ 中的任一简单零点 $\zeta$ 自动生成如下四点离散谱轨道
 \begin{equation}\label{eq:quartet}
 \left\{\zeta,\conj{\zeta},-\dfrac{q_0^2}{\zeta},-\dfrac{q_0^2}{\conj{\zeta}}\right\},
 \end{equation}
@@ -314,11 +314,11 @@ Z=\{\zeta_j,\conj{\zeta_j}:j=1,\ldots,2N\}.
 
 \section{两处无穷远的渐近展开}\label{ch:asymptotics}
 
-在矩阵 Riemann--Hilbert 问题中，为了确立 $z\to\infty$ 与 $z\to0$ 两处的渐近归一化并证明归一化系数精确编码了规范光场 $q(x,t)$，需要研究修正 Jost 解与散射数据在两个谱无穷远处的渐近展开。基本条件 \eqref{eq:evolution-regularity} 蕴含空间二阶 Sobolev 可积性
+为确立 $z\to\infty$ 与 $z\to0$ 两处的渐近行为并从中恢复规范光场 $q(x,t)$，本节推导修正 Jost 解与散射数据在两处谱无穷远处的渐近展开。基本条件 \eqref{eq:evolution-regularity} 蕴含空间二阶 Sobolev 可积性
 \begin{equation}\label{eq:highenergy-assumption}
 q(\cdot,t)-q_0\in W^{2,1}(\mathbb R),
 \end{equation}
-因此 $q$ 与 $q_x$ 在 $\mathbb R$ 上一致有界，$\lim\limits_{|x|\to\infty}q_x(x,t)=0$，且 $q_x,q_{xx}\in L^1(\mathbb R)$。为简洁表达高阶展开系数中的背景乘积与空间积分量，引入辅助矩阵 $B(q)$ 及密度积分 $J_\pm(x,t)$、$J(t)$ 如下
+因此 $q$ 与 $q_x$ 在 $\mathbb R$ 上一致有界，$\lim\limits_{|x|\to\infty}q_x(x,t)=0$，且 $q_x,q_{xx}\in L^1(\mathbb R)$。引入矩阵 $B(q)$ 与积分量 $J_\pm(x,t)$、$J(t)$ 如下
 \begin{align}
 &B(q)=\sg Q=\begin{pmatrix}0&q\\\conj{q}&0\end{pmatrix},\label{eq:Bdef}\\
 &J_\pm(x,t)=\int_{\pm\infty}^{x}(q_0^2-|q(y,t)|^2)\,\dd y,\label{eq:Jpmdef}\\

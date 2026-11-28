@@ -47,7 +47,7 @@ e^{c\widehat{\sigma}_3}A=e^{c\sg}Ae^{-c\sg}.
 X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 \end{aligned}
 \end{equation}
-其中交空间上的范数取组成空间范数之和。
+其中交空间上的范数取两个空间范数之和。
 \end{definition}
 
 下文函数空间均关于空间变量 $x$ 定义。假设物理三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 及方程 \eqref{eq:HMB} 涉及的各阶偏导数在 $\mathbb R\times I$ 上连续，并满足基本条件
@@ -73,17 +73,22 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 \widetilde Q=\begin{pmatrix}0&\widetilde q\\-\conj{\widetilde q}&0\end{pmatrix},\qquad
 \widetilde R=\begin{pmatrix}\widetilde\eta&-\widetilde p\\-\conj{\widetilde p}&-\widetilde\eta\end{pmatrix},
 \end{equation}
-演化多项式各阶系数矩阵 $V_3,V_2,V_1,V_0$ 由 $\widetilde q$ 及其空间导数表出为
-\begin{align}
-&V_3=4\ii\beta\sg,\qquad V_2=-\ii\alpha\sg-4\beta \widetilde Q,\label{eq:V32}\\
-&V_1=\begin{pmatrix}
--2\ii\beta|\widetilde q|^2&\alpha \widetilde q-2\ii\beta \widetilde q_x\\
--\alpha\conj{\widetilde q}-2\ii\beta\conj{\widetilde q_x}&2\ii\beta|\widetilde q|^2
-\end{pmatrix},\label{eq:V1}\\
-&(V_0)_{11}=\dfrac{\ii\alpha}{2}|\widetilde q|^2-\beta(\widetilde q\conj{\widetilde q_x}-\widetilde q_x\conj{\widetilde q}),\qquad
-(V_0)_{12}=2\beta|\widetilde q|^2\widetilde q+\dfrac{\ii\alpha}{2}\widetilde q_x+\beta \widetilde q_{xx},\label{eq:V0}\\
-&(V_0)_{21}=-\conj{(V_0)_{12}},\qquad (V_0)_{22}=-(V_0)_{11}.\nonumber
-\end{align}
+多项式各阶系数矩阵 $V_3,V_2,V_1,V_0$ 为
+\begin{gather}
+V_3=4\ii\beta\sg=\begin{pmatrix}4\ii\beta&0\\0&-4\ii\beta\end{pmatrix},\label{eq:V32}\\
+V_2=-\ii\alpha\sg-4\beta\widetilde Q=\begin{pmatrix}-\ii\alpha&-4\beta\widetilde q\\4\beta\conj{\widetilde q}&\ii\alpha\end{pmatrix},\label{eq:V2}\\
+V_1=\alpha\widetilde Q+2\ii\beta\sg(\widetilde Q^2-\widetilde Q_x)
+=\begin{pmatrix}-2\ii\beta|\widetilde q|^2&\alpha\widetilde q-2\ii\beta\widetilde q_x\\-\alpha\conj{\widetilde q}-2\ii\beta\conj{\widetilde q_x}&2\ii\beta|\widetilde q|^2\end{pmatrix},\label{eq:V1}\\
+\begin{aligned}
+V_0&=\dfrac{\ii\alpha}{2}\sg(\widetilde Q_x-\widetilde Q^2)+\beta\bigl(\widetilde Q_{xx}-2\widetilde Q^3-[\widetilde Q_x,\widetilde Q]\bigr)\\
+&=\begin{pmatrix}
+\dfrac{\ii\alpha}{2}|\widetilde q|^2-\beta(\widetilde q\conj{\widetilde q_x}-\widetilde q_x\conj{\widetilde q})&
+2\beta|\widetilde q|^2\widetilde q+\dfrac{\ii\alpha}{2}\widetilde q_x+\beta\widetilde q_{xx}\\[6pt]
+-2\beta|\widetilde q|^2\conj{\widetilde q}+\dfrac{\ii\alpha}{2}\conj{\widetilde q_x}-\beta\conj{\widetilde q_{xx}}&
+-\dfrac{\ii\alpha}{2}|\widetilde q|^2+\beta(\widetilde q\conj{\widetilde q_x}-\widetilde q_x\conj{\widetilde q})
+\end{pmatrix}.
+\end{aligned}\label{eq:V0}
+\end{gather}
 
 由定义 \eqref{eq:potential-matrices}--\eqref{eq:V0} 中的 $\widetilde Q^\dagger=-\widetilde Q$ 与 $\widetilde R^\dagger=\widetilde R$ 可直接看出，Lax 矩阵满足反 Hermitian 对称关系
 \begin{equation}\label{eq:antihermitian}
@@ -104,14 +109,10 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 -\dfrac{\ii \widetilde R_x}{k-a}+\dfrac{\ii[\widetilde U(k),\widetilde R]}{k-a}
 =\dfrac{\ii([\widetilde U(a),\widetilde R]-\widetilde R_x)}{k-a}+[\sg,\widetilde R].
 \end{equation}
-在 $k=a$ 处的留数为零等价于 $\widetilde R_x=[\widetilde U(a),\widetilde R]$，按矩阵元写开即为 \eqref{eq:HMB} 的两条介质方程。另一方面，代入 \eqref{eq:V32}--\eqref{eq:V0} 逐阶比较 $k^4$ 至 $k$ 次幂项，系数均恒等相消；而 $k^0$ 项的 $(1,2)$ 元包含 \eqref{eq:rationalzc} 贡献的非对角余项 $([\sg,\widetilde R])_{12}=-2\widetilde p$，直接展开 $\partial_x(V_0)_{12}+2(V_0)_{11}\widetilde q$ 可知其化为
-\begin{equation*}
-\widetilde q_t-\partial_x(V_0)_{12}-2(V_0)_{11}\widetilde q-2\widetilde p=0,
-\end{equation*}
-这恰为 \eqref{eq:HMB} 的光场演化方程。结合 $\widetilde q(V_0)_{21}+(V_0)_{12}\conj{\widetilde q}=\partial_x(V_0)_{11}$、$\tr\widetilde U=\tr\widetilde V=0$ 及对称性 \eqref{eq:antihermitian}，对角元与其余矩阵元随之自动成立。
+在 $k=a$ 处的留数为零等价于 $\widetilde R_x=[\widetilde U(a),\widetilde R]$，即为 \eqref{eq:HMB} 的两条介质方程。另一方面，代入 \eqref{eq:V32}--\eqref{eq:V0} 逐阶比较 $k^4$ 至 $k$ 次幂项，系数均恒等相消；而 $k^0$ 项包含 \eqref{eq:rationalzc} 贡献的余项 $[\sg,\widetilde R]$，直接计算即得 \eqref{eq:HMB} 的光场演化方程及其复共轭方程，从而零曲率条件与 HMB 系统等价。
 \end{proof}
 
-由于边界 \eqref{eq:targetboundary} 在 $x\to\pm\infty$ 处带有含时相位因子 $e^{-\ii\Omega t}$，引入如下对角规范变换将远场端态化为常矩阵，从而把空间谱分析与时间变量解耦。
+由于边界 \eqref{eq:targetboundary} 在 $x\to\pm\infty$ 处带有含时相位因子 $e^{-\ii\Omega t}$，引入如下对角规范变换将端态化为常矩阵。
 
 \begin{proposition}\label{prop:gauge}
 设 $(\widetilde q,\widetilde p,\widetilde\eta)$ 为满足 \eqref{eq:targetboundary} 与 \eqref{eq:physical-regularity} 的 HMB 系统 \eqref{eq:HMB} 的解。在规范变换
@@ -123,18 +124,9 @@ p=e^{\ii\Omega t}\widetilde p,\qquad
 \eta=\widetilde\eta
 \end{aligned}
 \end{equation}
-下，边界条件 \eqref{eq:targetboundary} 化为常数端态 $(q,p,\eta)\to\bigl(q_0,-\dfrac{\ii\eta_0q_0}{a},\eta_0\bigr)$，Lax 对 \eqref{eq:lax} 在 $k\ne a$ 处化为规范 Lax 对
+下，Lax 对 \eqref{eq:lax} 在 $k\ne a$ 处化为规范 Lax 对
 \begin{equation}\label{eq:gaugelax}
 \phi_x=U\phi,\qquad \phi_t=V\phi,
-\end{equation}
-且规范场 $(q,p,\eta)$ 满足规范 HMB 系统
-\begin{equation}\label{eq:gauged-HMB}
-\begin{cases}
-q_t=\ii\alpha\left(\dfrac{1}{2}q_{xx}+|q|^2q\right)
-+\beta(q_{xxx}+6|q|^2q_x)+2p+\ii\Omega q,\\
-p_x=2\eta q-2\ii ap,\\
-\eta_x=-(\conj{q}p+q\conj{p}),
-\end{cases}
 \end{equation}
 其中规范 Lax 矩阵为
 \begin{align}
@@ -146,18 +138,30 @@ R=G^{-1}\widetilde RG=\begin{pmatrix}\eta&-p\\-\conj{p}&-\eta\end{pmatrix},\labe
 $\Omega$ 由 \eqref{eq:background} 给出，$V_j(q)$ 表示将 \eqref{eq:V32}--\eqref{eq:V0} 中的 $\widetilde q$ 换为 $q$ 所得系数矩阵。
 \end{proposition}
 \begin{proof}
-注意到 $G(t)$ 不依赖 $x$、与 $\sg$ 可交换且 $G^{-1}G_t=-\dfrac{\ii\Omega}{2}\sg$，将 $\Phi=G\phi$ 代入 \eqref{eq:lax} 得 $U=G^{-1}\widetilde UG$ 与 $V=G^{-1}\widetilde VG+\dfrac{\ii\Omega}{2}\sg$，共轭作用将非对角元乘以 $e^{\pm\ii\Omega t}$，直接化得 \eqref{eq:gaugelax}--\eqref{eq:gauged-V}。同时将 $q=e^{\ii\Omega t}\widetilde q$、$p=e^{\ii\Omega t}\widetilde p$ 与 $\eta=\widetilde\eta$ 代入 \eqref{eq:HMB} 与 \eqref{eq:targetboundary}，时间求导产生 $\ii\Omega q$ 项而端态相位因子相互抵消，命题得证。
+注意到 $G(t)$ 不依赖 $x$、与 $\sg$ 可交换且 $G^{-1}G_t=-\dfrac{\ii\Omega}{2}\sg$，将 $\Phi=G\phi$ 代入 \eqref{eq:lax} 得 $U=G^{-1}\widetilde UG$ 与 $V=G^{-1}\widetilde VG+\dfrac{\ii\Omega}{2}\sg$，共轭作用将非对角元乘以 $e^{\pm\ii\Omega t}$，直接化得 \eqref{eq:gaugelax}--\eqref{eq:gauged-V}。
 \end{proof}
 
 \begin{remark}\label{rem:gauged-regularity}
-在规范变换 \eqref{eq:gauge} 下，原三场的基本正则条件 \eqref{eq:physical-regularity} 等价地写为
+在规范变换 \eqref{eq:gauge} 下，原物理场与边界条件还满足如下性质。
+\begin{enumerate}[(1)]
+\item 边界条件 \eqref{eq:targetboundary} 化为常数端态 $(q,p,\eta)\to\bigl(q_0,-\dfrac{\ii\eta_0q_0}{a},\eta_0\bigr)$。
+\item 规范场 $(q,p,\eta)$ 满足规范 HMB 系统
+\begin{equation}\label{eq:gauged-HMB}
+\begin{cases}
+q_t=\ii\alpha\left(\dfrac{1}{2}q_{xx}+|q|^2q\right)
++\beta(q_{xxx}+6|q|^2q_x)+2p+\ii\Omega q,\\
+p_x=2\eta q-2\ii ap,\\
+\eta_x=-(\conj{q}p+q\conj{p}).
+\end{cases}
+\end{equation}
+\item 原三场的基本正则条件 \eqref{eq:physical-regularity} 等价地写为
 \begin{equation}\label{eq:evolution-regularity}
 \begin{aligned}
 &q-q_0\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
 &p+\dfrac{\ii\eta_0q_0}{a},\quad\eta-\eta_0\in C(I;X_m).
 \end{aligned}
 \end{equation}
-上述常边界条件是第 \ref{ch:direct}--\ref{ch:rhp} 章构造 Jost 解、分析散射演化及定义矩阵 RHP 的基本出发点。
+\end{enumerate}
 \end{remark}
 
 \section{背景谱与单值化}
@@ -183,7 +187,7 @@ F(k)=4\beta k^2-\alpha k-2\beta q_0^2+\dfrac{\eta_0}{a(k-a)},\qquad k\ne a.
 \end{equation}
 平方根 $\lambda(k)$ 在 $k=\pm\ii q_0$ 处分支。沿分支切口 $\ii\lbrack-q_0,q_0\rbrack$ 交叉粘合两张 $k$ 平面，得到双叶 Riemann 谱曲面\cite{ZhangFan2020}，并约定以 $k\to\infty$ 时 $\lambda\sim k$ 的分支选定第一叶，第二叶取相反的谱根 $-\lambda$。
 
-为在同一复平面中解析地表示两叶谱点并消去平方根支点，引入单值化坐标 $z=k+\lambda$。结合由 \eqref{eq:spectral-curve} 导出的恒等式 $(\lambda-k)(\lambda+k)=q_0^2$，即得单值化参数映射
+为消去平方根多值性，引入单值化坐标 $z=k+\lambda$。结合由 \eqref{eq:spectral-curve} 导出的恒等式 $(\lambda-k)(\lambda+k)=q_0^2$，即得单值化参数映射
 \begin{equation}\label{eq:uniform}
 z=k+\lambda,\qquad
 k(z)=\dfrac{1}{2}\left(z-\dfrac{q_0^2}{z}\right),\qquad
