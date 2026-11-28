@@ -158,14 +158,20 @@ def spectral_base():
     ax.text(-1.20, -.13, r'$-q_0$', ha='center', va='top', fontsize=label_size)
     ax.text(1.20, -.13, r'$q_0$', ha='center', va='top', fontsize=label_size)
     ax.plot([0, 0], [-1, 1], ls='', marker='s', ms=4.7, mfc='white', mec='#6D4C64', mew=.85)
-    ax.text(.12, 1.04, r'$\mathrm{i}q_0$', va='bottom', fontsize=label_size)
-    ax.text(.12, -1.05, r'$-\mathrm{i}q_0$', va='top', fontsize=label_size)
+    ax.text(.12, 1.04, r'${z_b}^+=\mathrm{i}q_0$', va='bottom', fontsize=label_size)
+    ax.text(.12, -1.05, r'${z_b}^-=-\mathrm{i}q_0$', va='top', fontsize=label_size)
     return fig, ax
 
 
 def spectral_figures():
     label_size = 14
     fig, ax = spectral_base()
+    a_val = 0.35
+    za_plus = a_val + np.sqrt(a_val**2 + 1.0)
+    za_minus = a_val - np.sqrt(a_val**2 + 1.0)
+    ax.plot([za_plus, za_minus], [0, 0], ls='', marker='D', ms=4.8, mfc='#9E3B33', mec='#9E3B33', mew=.7, zorder=4)
+    ax.text(za_plus, .14, r'${z_a}^+$', ha='center', va='bottom', fontsize=label_size, color='#9E3B33')
+    ax.text(za_minus, .14, r'${z_a}^-$', ha='center', va='bottom', fontsize=label_size, color='#9E3B33')
     export(fig, 'analytic-regions')
     fig, ax = spectral_base()
     zeta = 1.54+1.30j

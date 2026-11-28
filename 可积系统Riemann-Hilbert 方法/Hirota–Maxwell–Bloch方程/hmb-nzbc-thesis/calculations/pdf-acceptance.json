@@ -2,7 +2,7 @@
   "sources": {
     "tex_files": 10,
     "labels": 192,
-    "references": 544,
+    "references": 536,
     "balanced_delimiters_environments_braces": true,
     "seven_chapters": true,
     "forbidden_forms_absent": true,
@@ -152,13 +152,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 653,
+  "pdf_links_checked": 645,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "9"
   ],
-  "pdf_sha256": "9dbc2f8dbc8f154a776fc88c7ddd1d3e371a8bb8f01b0c2dfc317d3315fd86a3",
-  "visual_review": "Visual QA passed on 45-page PDF (p_08-p_11 Ch2 centered V3/V2/V1/V0 matrix expressions, shortened zc proof, focused Prop 2.2 and structured Remark 2.1, p_28/p_33/p_38/p_40 crisp Ch3-7 wording)"
+  "pdf_sha256": "dad279199c3024ce76e5d39b01ddbf487de196a6f074d1b5de8e7d65091028a0",
+  "visual_review": "Visual QA passed on 45-page PDF (p_10 merged Remark 2.1, p_11 streamlined Sec 2.3, p_12 Fig 2-1 with zb+- and za+-, p_17 Sec 3.2 eq:sheet, p_20 Fig 3-1 with zb+-)"
 }

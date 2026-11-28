@@ -144,7 +144,6 @@ $\Omega$ 由 \eqref{eq:background} 给出，$V_j(q)$ 表示将 \eqref{eq:V32}--\
 \begin{remark}\label{rem:gauged-regularity}
 在规范变换 \eqref{eq:gauge} 下，原物理场与边界条件还满足如下性质。
 \begin{enumerate}[(1)]
-\item 边界条件 \eqref{eq:targetboundary} 化为常数端态 $(q,p,\eta)\to\bigl(q_0,-\dfrac{\ii\eta_0q_0}{a},\eta_0\bigr)$。
 \item 规范场 $(q,p,\eta)$ 满足规范 HMB 系统
 \begin{equation}\label{eq:gauged-HMB}
 \begin{cases}
@@ -154,7 +153,7 @@ p_x=2\eta q-2\ii ap,\\
 \eta_x=-(\conj{q}p+q\conj{p}).
 \end{cases}
 \end{equation}
-\item 原三场的基本正则条件 \eqref{eq:physical-regularity} 等价地写为
+\item 边界条件 \eqref{eq:targetboundary} 化为常数端态 $(q,p,\eta)\to\bigl(q_0,-\dfrac{\ii\eta_0q_0}{a},\eta_0\bigr)$，基本正则条件 \eqref{eq:physical-regularity} 等价地写为
 \begin{equation}\label{eq:evolution-regularity}
 \begin{aligned}
 &q-q_0\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
@@ -166,7 +165,7 @@ p_x=2\eta q-2\ii ap,\\
 
 \section{背景谱与单值化}
 
-为构造空间谱问题 $\phi_x=U\phi$ 的端点基本解，本节先求常系数背景 Lax 矩阵，再将双叶代数谱曲面单值化为复平面上的解析区域与换叶对称结构\cite{ZhangFan2020}。在基本条件 \eqref{eq:evolution-regularity} 下，令 $x\to\pm\infty$ 取极限，得到 \eqref{eq:gauged-U}--\eqref{eq:gauged-V} 对应的两个常背景谱矩阵
+为构造空间谱问题 $\phi_x=U\phi$ 的端点基本解，本节先求常系数背景 Lax 矩阵，再对双叶代数谱曲面作单值化\cite{ZhangFan2020}。在基本条件 \eqref{eq:evolution-regularity} 下，令 $x\to\pm\infty$ 取极限，得到 \eqref{eq:gauged-U}--\eqref{eq:gauged-V} 对应的两个常背景谱矩阵
 \begin{equation}\label{eq:background-spatial}
 U_\infty=-\ii k\sg+Q_\infty,\qquad
 Q_\infty=\begin{pmatrix}0&q_0\\-q_0&0\end{pmatrix},
@@ -175,27 +174,18 @@ Q_\infty=\begin{pmatrix}0&q_0\\-q_0&0\end{pmatrix},
 V_\infty=-F(k)U_\infty,\qquad
 F(k)=4\beta k^2-\alpha k-2\beta q_0^2+\dfrac{\eta_0}{a(k-a)},\qquad k\ne a.
 \end{equation}
-其中 $V_\infty=-F(k)U_\infty$ 可由定义 \eqref{eq:gauged-V}、背景端态 $\bigl(q_0,-\dfrac{\ii\eta_0q_0}{a},\eta_0\bigr)$ 以及 \eqref{eq:background} 中的 $\Omega$ 直接代换并因式分解验证，确保 $[U_\infty,V_\infty]=0$。
 
-背景空间矩阵 \eqref{eq:background-spatial} 的特征方程为
-\begin{equation*}
-\det(\xi\Id-U_\infty)=\xi^2+k^2+q_0^2=0.
-\end{equation*}
-由此可知 $U_\infty$ 的两个特征值为 $-\ii\lambda$ 与 $\ii\lambda$，其中谱根 $\lambda$ 满足双叶代数谱曲线
+由特征方程 $\det(\xi\Id-U_\infty)=\xi^2+k^2+q_0^2=0$ 可知 $U_\infty$ 的特征值为 $\pm\ii\lambda$，其中
 \begin{equation}\label{eq:spectral-curve}
 \lambda^2=k^2+q_0^2.
 \end{equation}
-平方根 $\lambda(k)$ 在 $k=\pm\ii q_0$ 处分支。沿分支切口 $\ii\lbrack-q_0,q_0\rbrack$ 交叉粘合两张 $k$ 平面，得到双叶 Riemann 谱曲面\cite{ZhangFan2020}，并约定以 $k\to\infty$ 时 $\lambda\sim k$ 的分支选定第一叶，第二叶取相反的谱根 $-\lambda$。
-
-为消去平方根多值性，引入单值化坐标 $z=k+\lambda$。结合由 \eqref{eq:spectral-curve} 导出的恒等式 $(\lambda-k)(\lambda+k)=q_0^2$，即得单值化参数映射
+为消去平方根多值性，沿分支切口 $\ii\lbrack-q_0,q_0\rbrack$ 粘合两张 $k$ 平面并引入单值化坐标 $z=k+\lambda$\cite{ZhangFan2020}，结合 $(\lambda-k)(\lambda+k)=q_0^2$ 得
 \begin{equation}\label{eq:uniform}
 z=k+\lambda,\qquad
 k(z)=\dfrac{1}{2}\left(z-\dfrac{q_0^2}{z}\right),\qquad
 \lambda(z)=\dfrac{1}{2}\left(z+\dfrac{q_0^2}{z}\right).
 \end{equation}
-在映射 \eqref{eq:uniform} 下，第一叶与第二叶的谱无穷远分别对应 $z=\infty$ 与 $z=0$。
-
-利用单值化变换 \eqref{eq:uniform}，下文统一在复 $z$ 平面上讨论直接散射与逆散射问题，将连续谱轮廓 $\Sigma$ 及两侧解析区域 $D_\pm$ 分别定义为
+在复 $z$ 平面上，定义连续谱轮廓 $\Sigma$ 及两侧解析区域 $D_\pm$ 分别为
 \begin{equation}\label{eq:Sigma}
 \Sigma=\mathbb R\cup\{z\in\mathbb C:|z|=q_0\},
 \end{equation}
@@ -203,23 +193,15 @@ k(z)=\dfrac{1}{2}\left(z-\dfrac{q_0^2}{z}\right),\qquad
 D_\pm=\{z\in\mathbb C:\pm\operatorname{Im}\lambda(z)>0\}
 =\left\{z\in\mathbb C:\pm\operatorname{Im}z\left(1-\dfrac{q_0^2}{|z|^2}\right)>0\right\}.
 \end{equation}
-实轴与圆周 $|z|=q_0$ 上的谱点恰好对应 $\operatorname{Im}\lambda(z)=0$，构成解析区域的公共边界 $\Sigma$。
-
-注意到同一个物理谱参数 $k$ 在双叶谱曲面上对应特征根相反的两个谱点 $(k,\lambda)$ 与 $(k,-\lambda)$。由 $k-\lambda=-\dfrac{q_0^2}{z}$ 定义单值化平面上的换叶映射 $h$，满足
-\begin{equation}\label{eq:sheet}
-h(z)=-\dfrac{q_0^2}{z},\qquad
-k(h(z))=k(z),\qquad
-\lambda(h(z))=-\lambda(z).
-\end{equation}
-点 $z_b^\pm=\pm\ii q_0$ 是换叶映射 $h$ 的不动点，恰好对应切口端点即两个分支点；实点 $\pm q_0$ 则是实轴与圆周 $|z|=q_0$ 的两个边界交点。此外，演化矩阵 \eqref{eq:gauged-V} 中的实共振极点 $k=a$ 通过 $k(z)=a$ 在单值化平面上产生两个互异的实原像
+连续谱 $\Sigma$ 上包含两类特殊谱点，分别是对应 $k=\pm\ii q_0$ 的分支点 $z_b^\pm=\pm\ii q_0$，以及演化矩阵 \eqref{eq:gauged-V} 在实共振极点 $k=a$ 处的两个实原像
 \begin{equation}\label{eq:resonance-w}
 z_a^\pm=a\pm\sqrt{a^2+q_0^2},\qquad z_a^+z_a^-=-q_0^2.
 \end{equation}
-由 \eqref{eq:sheet} 可见 $z_a^+$ 与 $z_a^-$ 在换叶下相互映照，即 $h(z_a^\pm)=z_a^\mp$。按图 \ref{fig:analytic-regions} 取定连续谱轮廓 $\Sigma$ 的定向，使解析区域 $D_+$ 始终位于定向边界的左侧。
+轮廓 $\Sigma$ 的定向与区域划分如图 \ref{fig:analytic-regions} 所示，箭头取定为使 $D_+$ 位于定向边界左侧。
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.86\textwidth]{figures/analytic-regions.pdf}
-\caption[HMB 系统的单值化谱平面]{HMB 系统的单值化谱平面。公共边界 $\Sigma$ 由实轴与圆 $|z|=q_0$ 组成，淡蓝色区域为 $D_+$，白色区域为 $D_-$；边界箭头取定为使 $D_+$ 位于定向边界左侧；方形点表示分支点 $z_b^\pm$，叉形点表示谱交点 $\pm q_0$。}
+\caption[HMB 系统的单值化谱平面]{HMB 系统的单值化谱平面。公共边界 $\Sigma$ 由实轴与圆 $|z|=q_0$ 组成，淡蓝色区域为 $D_+$，白色区域为 $D_-$；边界箭头取定为使 $D_+$ 位于定向边界左侧；方形点表示分支点 $z_b^\pm=\pm\ii q_0$，菱形点表示实共振原像 $z_a^\pm$，叉形点表示谱交点 $\pm q_0$。}
 \label{fig:analytic-regions}
 \end{figure}

@@ -47,10 +47,7 @@
       "conj(zeta_j)",
       "h(zeta_j)"
     ],
-    "h": "-q0^2/z",
-    "pure_imaginary_orbit": "specialization used only in the one-orbit solution",
-    "contour_direction": "real exterior right; real interior left; upper circle clockwise; lower circle counterclockwise",
-    "domain_color": "D+ pale blue, D- white"
+    "h": "-q0^2/z"
   },
   "files": [
     "analytic-regions.pdf",
@@ -59,6 +56,44 @@
     "two-soliton-fields.pdf"
   ],
   "figure_qa": {
+    "analytic-regions": {
+      "alignment_verdict": "NOT APPLICABLE",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 0,
+        "exemptions": 0
+      },
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 9.8,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 4,
+        "contained_image_overlays": 0
+      }
+    },
+    "discrete-spectrum": {
+      "alignment_verdict": "NOT APPLICABLE",
+      "alignment_counts": {
+        "fail": 0,
+        "warn": 0,
+        "comparisons": 0,
+        "exemptions": 0
+      },
+      "text_exit": 0,
+      "collision_exit": 0,
+      "minimum_glyph_pt": 9.8,
+      "collision_verdict": "PASS",
+      "collision_counts": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 3,
+        "contained_image_overlays": 0
+      }
+    },
     "one-soliton-fields": {
       "alignment_verdict": "PASS",
       "alignment_counts": {
