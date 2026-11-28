@@ -152,13 +152,13 @@
     ]
   ],
   "blank_pages": [],
-  "pdf_links_checked": 668,
+  "pdf_links_checked": 669,
   "invalid_internal_links": [],
   "background_diagonalization_label": "eq:diagE",
   "current_eq_number_and_printed_page": [
     "3.2",
     "9"
   ],
-  "pdf_sha256": "d0e5ceac81c3deca58b18f22171d4af6d46b52b711eb348b1ce234c4b55e7a8e",
-  "visual_review": "Visual QA passed on 45-page PDF (7 chapters, single-page TOC p_01, Ch 7 end p_43, References p_44-45, Ch 8 and Cover I/II/III removed or hidden reversibly)"
+  "pdf_sha256": "6d896f87894085340f29033f2fccb7941699e569ef472be647786c190a04f1ce",
+  "visual_review": "Visual QA passed on 45-page PDF (p_07-p_10 Ch2 tilde-eta + [1] citation + eq:gauge, p_29 Ch5 eq:original-fields, p_40-p_43 Ch7 equations and Fig 7-1/7-2 panel c tilde-eta titles)"
 }

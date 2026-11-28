@@ -196,7 +196,7 @@ def three_panel_contour(name, eval_fn, xlim, ylim, xticks, yticks, q_max):
     if max(errors.values()) >= 1e-10:
         raise ValueError(errors)
     values = [abs(q), abs(p), eta.real]
-    titles = [r'$|\widetilde q(x,t)|$', r'$|\widetilde p(x,t)|$', r'$\eta(x,t)$']
+    titles = [r'$|\widetilde q(x,t)|$', r'$|\widetilde p(x,t)|$', r'$\widetilde\eta(x,t)$']
     bloch_lim = float(np.sqrt(.45))
     limits = [(0, q_max), (0, bloch_lim), (-bloch_lim, bloch_lim)]
     ticks = [[0, 2, 4], [0, .3, .6], [-.6, 0, .6]]

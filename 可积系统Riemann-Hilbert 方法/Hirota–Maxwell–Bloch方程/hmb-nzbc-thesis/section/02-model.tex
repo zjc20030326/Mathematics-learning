@@ -4,13 +4,13 @@
 
 \section{HMB 方程与基本条件}\label{ass:fields}
 
-本节首先叙述 HMB 方程组及全篇遵循的常数背景、加权可积函数空间与 Bloch 约束。设复值函数 $\widetilde q(x,t)$ 与 $\widetilde p(x,t)$ 分别表示光场复包络与介质极化密度，实值函数 $\eta(x,t)$ 表示粒子数反转，其中 $x\in\mathbb R$ 为空间变量，$t$ 为时间变量。考虑 HMB 方程组
+本节首先叙述 HMB 方程组及全篇遵循的常数背景、加权可积函数空间与 Bloch 约束。设复值函数 $\widetilde q(x,t)$ 与 $\widetilde p(x,t)$ 分别表示光场复包络与介质极化密度，实值函数 $\widetilde\eta(x,t)$ 表示粒子数反转，其中 $x\in\mathbb R$ 为空间变量，$t$ 为时间变量。考虑 HMB 方程组\cite{PN1995}
 \begin{equation}\label{eq:HMB}
 \begin{cases}
 \widetilde q_t=\ii\alpha\left(\dfrac{1}{2}\widetilde q_{xx}+|\widetilde q|^2\widetilde q\right)
 +\beta(\widetilde q_{xxx}+6|\widetilde q|^2\widetilde q_x)+2\widetilde p,\\
-\widetilde p_x=2\eta\widetilde q-2\ii a\widetilde p,\\
-\eta_x=-(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p}),
+\widetilde p_x=2\widetilde\eta\widetilde q-2\ii a\widetilde p,\\
+\widetilde\eta_x=-(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p}),
 \end{cases}
 \end{equation}
 其中固定实参数 $q_0>0$，$a\ne0$，$\eta_0\ne0$ 以及 $\alpha,\beta\in\mathbb R$。
@@ -26,12 +26,12 @@ e^{c\widehat{\sigma}_3}A=e^{c\sg}Ae^{-c\sg}.
 \begin{equation}\label{eq:background}
 \widetilde q_{\rm bg}=q_0e^{-\ii\Omega t},\qquad
 \widetilde p_{\rm bg}=-\dfrac{\ii\eta_0}{a}\widetilde q_{\rm bg},\qquad
-\eta_{\rm bg}=\eta_0,\qquad
+\widetilde\eta_{\rm bg}=\eta_0,\qquad
 \Omega=-\alpha q_0^2+\dfrac{2\eta_0}{a}.
 \end{equation}
 本文考察物理三场在空间两端均趋于上述同相平面波的非零边界条件，即
 \begin{equation}\label{eq:targetboundary}
-(\widetilde q,\widetilde p,\eta)\longrightarrow
+(\widetilde q,\widetilde p,\widetilde\eta)\longrightarrow
 \left(q_0e^{-\ii\Omega t},-\dfrac{\ii\eta_0q_0}{a}e^{-\ii\Omega t},\eta_0\right),\qquad x\longrightarrow\pm\infty.
 \end{equation}
 
@@ -50,23 +50,23 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 其中交空间上的范数取组成空间范数之和。
 \end{definition}
 
-以下约定文中函数空间均关于空间变量 $x$ 定义，而 $C(I;X)$ 与 $C^1(I;X)$ 分别表示关于时间变量 $t\in I$ 取值于空间 $X$ 的连续性与连续可微性。本文假设物理三场 $(\widetilde q,\widetilde p,\eta)$ 及方程 \eqref{eq:HMB} 中涉及的各阶偏导数在 $\mathbb R\times I$ 上连续，并满足基本正则条件
+以下约定文中函数空间均关于空间变量 $x$ 定义，而 $C(I;X)$ 与 $C^1(I;X)$ 分别表示关于时间变量 $t\in I$ 取值于空间 $X$ 的连续性与连续可微性。本文假设物理三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 及方程 \eqref{eq:HMB} 中涉及的各阶偏导数在 $\mathbb R\times I$ 上连续，并满足基本正则条件
 \begin{equation}\label{eq:physical-regularity}
 \begin{aligned}
 &\widetilde q-\widetilde q_{\rm bg}\in C(I;X_q)\cap C^1(I;L^1(\mathbb R)),\\
-&\widetilde p-\widetilde p_{\rm bg},\quad\eta-\eta_0\in C(I;X_m).
+&\widetilde p-\widetilde p_{\rm bg},\quad\widetilde\eta-\eta_0\in C(I;X_m).
 \end{aligned}
 \end{equation}
 
-将 \eqref{eq:HMB} 中的两条介质方程分别乘以 $\conj{\widetilde p}$ 与 $\eta$ 并取实部相加，直接计算得空间模长守恒律
+将 \eqref{eq:HMB} 中的两条介质方程分别乘以 $\conj{\widetilde p}$ 与 $\widetilde\eta$ 并取实部相加，直接计算得空间模长守恒律
 \begin{equation}\label{eq:bloch}
-\partial_x(|\widetilde p|^2+\eta^2)
-=2\operatorname{Re}\bigl((2\eta\widetilde q-2\ii a\widetilde p)\conj{\widetilde p}\bigr)
--2\eta(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p})=0.
+\partial_x(|\widetilde p|^2+\widetilde\eta^2)
+=2\operatorname{Re}\bigl((2\widetilde\eta\widetilde q-2\ii a\widetilde p)\conj{\widetilde p}\bigr)
+-2\widetilde\eta(\conj{\widetilde q}\widetilde p+\widetilde q\conj{\widetilde p})=0.
 \end{equation}
 令 $x\to\pm\infty$ 并代入共同平面波端态 \eqref{eq:targetboundary}，即得全空间一致成立的 Bloch 守恒约束
 \begin{equation}\label{eq:C}
-|\widetilde p|^2+\eta^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right).
+|\widetilde p|^2+\widetilde\eta^2=\eta_0^2\left(1+\dfrac{q_0^2}{a^2}\right).
 \end{equation}
 
 \section{Lax 表示与规范变换}
@@ -82,7 +82,7 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 其中 $k\in\mathbb C$ 为谱参数，位势矩阵 $\widetilde Q$ 与介质矩阵 $\widetilde R$ 分别定义为
 \begin{equation}\label{eq:potential-matrices}
 \widetilde Q=\begin{pmatrix}0&\widetilde q\\-\conj{\widetilde q}&0\end{pmatrix},\qquad
-\widetilde R=\begin{pmatrix}\eta&-\widetilde p\\-\conj{\widetilde p}&-\eta\end{pmatrix},
+\widetilde R=\begin{pmatrix}\widetilde\eta&-\widetilde p\\-\conj{\widetilde p}&-\widetilde\eta\end{pmatrix},
 \end{equation}
 演化多项式各阶系数矩阵 $V_3,V_2,V_1,V_0$ 由 $\widetilde q$ 及其空间导数表出为
 \begin{align}
@@ -103,7 +103,7 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 \end{equation}
 
 \begin{proposition}\label{prop:zc}
-设三场 $(\widetilde q,\widetilde p,\eta)$ 在 $\mathbb R\times I$ 上足够光滑，$\widetilde U,\widetilde V$ 由 \eqref{eq:lax}--\eqref{eq:V0} 定义。则在 $k\ne a$ 处，零曲率条件
+设三场 $(\widetilde q,\widetilde p,\widetilde\eta)$ 在 $\mathbb R\times I$ 上足够光滑，$\widetilde U,\widetilde V$ 由 \eqref{eq:lax}--\eqref{eq:V0} 定义。则在 $k\ne a$ 处，零曲率条件
 \begin{equation}\label{eq:zc}
 \widetilde U_t-\widetilde V_x+[\widetilde U,\widetilde V]=0
 \end{equation}
@@ -125,12 +125,14 @@ X_m=W^{1,1}(\mathbb R)\cap L^1_1(\mathbb R),
 由于边界 \eqref{eq:targetboundary} 在 $x\to\pm\infty$ 处带有含时相位因子 $e^{-\ii\Omega t}$，引入如下对角规范变换将远场端态化为常矩阵，从而把空间谱分析与时间变量解耦。
 
 \begin{proposition}\label{prop:gauge}
-设 $(\widetilde q,\widetilde p,\eta)$ 为满足 \eqref{eq:targetboundary} 与 \eqref{eq:physical-regularity} 的 HMB 系统 \eqref{eq:HMB} 的解。在规范变换
+设 $(\widetilde q,\widetilde p,\widetilde\eta)$ 为满足 \eqref{eq:targetboundary} 与 \eqref{eq:physical-regularity} 的 HMB 系统 \eqref{eq:HMB} 的解。在规范变换
 \begin{equation}\label{eq:gauge}
-G(t)=e^{-\frac{\ii\Omega t}{2}\sg},\qquad
-\Phi=G\phi,\qquad
-q=e^{\ii\Omega t}\widetilde q,\qquad
-p=e^{\ii\Omega t}\widetilde p
+\begin{aligned}
+&G(t)=e^{-\frac{\ii\Omega t}{2}\sg},\qquad \Phi=G\phi,\\
+&q=e^{\ii\Omega t}\widetilde q,\qquad
+p=e^{\ii\Omega t}\widetilde p,\qquad
+\eta=\widetilde\eta
+\end{aligned}
 \end{equation}
 下，边界条件 \eqref{eq:targetboundary} 化为常数端态 $(q,p,\eta)\to\bigl(q_0,-\dfrac{\ii\eta_0q_0}{a},\eta_0\bigr)$，Lax 对 \eqref{eq:lax} 在 $k\ne a$ 处化为规范 Lax 对
 \begin{equation}\label{eq:gaugelax}
@@ -155,7 +157,7 @@ R=G^{-1}\widetilde RG=\begin{pmatrix}\eta&-p\\-\conj{p}&-\eta\end{pmatrix},\labe
 $\Omega$ 由 \eqref{eq:background} 给出，$V_j(q)$ 表示将 \eqref{eq:V32}--\eqref{eq:V0} 中的 $\widetilde q$ 换为 $q$ 所得系数矩阵。
 \end{proposition}
 \begin{proof}
-注意到 $G(t)$ 不依赖 $x$、与 $\sg$ 可交换且 $G^{-1}G_t=-\dfrac{\ii\Omega}{2}\sg$，将 $\Phi=G\phi$ 代入 \eqref{eq:lax} 得 $U=G^{-1}\widetilde UG$ 与 $V=G^{-1}\widetilde VG+\dfrac{\ii\Omega}{2}\sg$，共轭作用将非对角元乘以 $e^{\pm\ii\Omega t}$，直接化得 \eqref{eq:gaugelax}--\eqref{eq:gauged-V}。同时将 $q=e^{\ii\Omega t}\widetilde q$ 与 $p=e^{\ii\Omega t}\widetilde p$ 代入 \eqref{eq:HMB} 与 \eqref{eq:targetboundary}，时间求导产生 $\ii\Omega q$ 项而端态相位因子相互抵消，命题得证。
+注意到 $G(t)$ 不依赖 $x$、与 $\sg$ 可交换且 $G^{-1}G_t=-\dfrac{\ii\Omega}{2}\sg$，将 $\Phi=G\phi$ 代入 \eqref{eq:lax} 得 $U=G^{-1}\widetilde UG$ 与 $V=G^{-1}\widetilde VG+\dfrac{\ii\Omega}{2}\sg$，共轭作用将非对角元乘以 $e^{\pm\ii\Omega t}$，直接化得 \eqref{eq:gaugelax}--\eqref{eq:gauged-V}。同时将 $q=e^{\ii\Omega t}\widetilde q$、$p=e^{\ii\Omega t}\widetilde p$ 与 $\eta=\widetilde\eta$ 代入 \eqref{eq:HMB} 与 \eqref{eq:targetboundary}，时间求导产生 $\ii\Omega q$ 项而端态相位因子相互抵消，命题得证。
 \end{proof}
 
 \begin{remark}\label{rem:gauged-regularity}

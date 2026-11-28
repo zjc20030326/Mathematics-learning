@@ -57,7 +57,7 @@ M(z)=HN(k(z))Y(z)
 \begin{aligned}
 &\widetilde q=-e^{-\ii\Omega t}(q_0+4bP_{12}),\\
 &\widetilde p=\dfrac{e^{-\ii\Omega t}\bigl(N(a)R_\infty N(a)^\dagger\bigr)_{12}}{a^2+b^2},\qquad
-\eta=\dfrac{\bigl(N(a)R_\infty N(a)^\dagger\bigr)_{11}}{a^2+b^2},
+\widetilde\eta=\dfrac{\bigl(N(a)R_\infty N(a)^\dagger\bigr)_{11}}{a^2+b^2},
 \end{aligned}
 \end{equation}
 其在 $\mathbb R^2$ 上光滑并满足原 HMB 系统 \eqref{eq:HMB}、边界条件 \eqref{eq:targetboundary}、$I=\mathbb R$ 时的基本条件 \eqref{eq:physical-regularity} 与 Bloch 约束 \eqref{eq:C}，且散射数据无反射并复原 \eqref{eq:onezeros}--\eqref{eq:onec}。其中穿衣线性因子定义为
@@ -81,12 +81,12 @@ N(k)=(k+\ii b)\Id-2\ii bP.
 q_0=1,\qquad a=2,\qquad \eta_0=0.6,\qquad
 \alpha=1,\qquad \beta=0.1,\qquad b=1.5,
 \end{equation}
-相应初始关联常数按 \eqref{eq:onec} 确定。依据显式解 \eqref{eq:finalfields} 绘制的单孤子物理三场 $|\widetilde q|$、$|\widetilde p|$ 与 $\eta$ 时空分布如图 \ref{fig:one} 所示。
+相应初始关联常数按 \eqref{eq:onec} 确定。依据显式解 \eqref{eq:finalfields} 绘制的单孤子物理三场 $|\widetilde q|$、$|\widetilde p|$ 与 $\widetilde\eta$ 时空分布如图 \ref{fig:one} 所示。
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/one-soliton-fields.pdf}
-\caption[单孤子物理三场时空分布]{单孤子三场时空分布，参数取自 \eqref{eq:one-soliton-params}，绘图区间为 $x\in\lbrack-6,6\rbrack$ 与 $t\in\lbrack-1.5,1.5\rbrack$。(a) 光场模 $|\widetilde q(x,t)|$；(b) 极化模 $|\widetilde p(x,t)|$；(c) 粒子数反转 $\eta(x,t)$。}
+\caption[单孤子物理三场时空分布]{单孤子三场时空分布，参数取自 \eqref{eq:one-soliton-params}，绘图区间为 $x\in\lbrack-6,6\rbrack$ 与 $t\in\lbrack-1.5,1.5\rbrack$。(a) 光场模 $|\widetilde q(x,t)|$；(b) 极化模 $|\widetilde p(x,t)|$；(c) 粒子数反转 $\widetilde\eta(x,t)$。}
 \label{fig:one}
 \end{figure}
 
@@ -126,7 +126,7 @@ s(z)=\prod\limits_{j=1}^{4}\dfrac{z-\zeta_j}{z-\conj{\zeta_j}}.
 &\widetilde q(x,t)=e^{-\ii\Omega t}
 \dfrac{\det\begin{pmatrix}L_2&\boldsymbol r\\-\ii\boldsymbol C^T&q_0\end{pmatrix}}{\det L_2},\label{eq:two-soliton-q}\\
 &\widetilde p(x,t)=-e^{-\ii\Omega t}R_{12}(x,t),\qquad
-\eta(x,t)=R_{11}(x,t),\label{eq:two-soliton-p-eta}
+\widetilde\eta(x,t)=R_{11}(x,t),\label{eq:two-soliton-p-eta}
 \end{align}
 且介质矩阵 $R(x,t)$ 由无反射 RHP 解在共振原像处确定为
 \begin{equation}\label{eq:two-soliton-R}
@@ -162,7 +162,7 @@ r_j=1+\ii q_0\sum\limits_{\ell=1}^{4}\dfrac{\conj{C_\ell}}{(\zeta_j-\conj{\zeta_
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/two-soliton-fields.pdf}
-\caption[双孤子物理三场时空分布]{双孤子三场时空分布，背景参数同 \eqref{eq:one-soliton-params}，复谱代表见 \eqref{eq:two-soliton-params}，初值取 $c_n(0)=\dfrac{1}{s'(\zeta_n)}$，$n=1,2$，绘图区间为 $x\in\lbrack-8,8\rbrack$ 与 $t\in\lbrack-2.5,2.5\rbrack$。(a) 光场模 $|\widetilde q(x,t)|$；(b) 极化模 $|\widetilde p(x,t)|$；(c) 粒子数反转 $\eta(x,t)$。}
+\caption[双孤子物理三场时空分布]{双孤子三场时空分布，背景参数同 \eqref{eq:one-soliton-params}，复谱代表见 \eqref{eq:two-soliton-params}，初值取 $c_n(0)=\dfrac{1}{s'(\zeta_n)}$，$n=1,2$，绘图区间为 $x\in\lbrack-8,8\rbrack$ 与 $t\in\lbrack-2.5,2.5\rbrack$。(a) 光场模 $|\widetilde q(x,t)|$；(b) 极化模 $|\widetilde p(x,t)|$；(c) 粒子数反转 $\widetilde\eta(x,t)$。}
 \label{fig:two}
 \end{figure}
 
