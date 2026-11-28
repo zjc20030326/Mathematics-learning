@@ -185,23 +185,17 @@ z=k+\lambda,\qquad
 k(z)=\dfrac{1}{2}\left(z-\dfrac{q_0^2}{z}\right),\qquad
 \lambda(z)=\dfrac{1}{2}\left(z+\dfrac{q_0^2}{z}\right).
 \end{equation}
-在复 $z$ 平面上，定义连续谱轮廓 $\Sigma$ 及两侧解析区域 $D_\pm$ 分别为
-\begin{equation}\label{eq:Sigma}
-\Sigma=\mathbb R\cup\{z\in\mathbb C:|z|=q_0\},
-\end{equation}
-\begin{equation}\label{eq:domains}
-D_\pm=\{z\in\mathbb C:\pm\operatorname{Im}\lambda(z)>0\}
-=\left\{z\in\mathbb C:\pm\operatorname{Im}z\left(1-\dfrac{q_0^2}{|z|^2}\right)>0\right\}.
-\end{equation}
-连续谱 $\Sigma$ 上包含两类特殊谱点，分别是对应 $k=\pm\ii q_0$ 的分支点 $z_b^\pm=\pm\ii q_0$，以及演化矩阵 \eqref{eq:gauged-V} 在实共振极点 $k=a$ 处的两个实原像
-\begin{equation}\label{eq:resonance-w}
-z_a^\pm=a\pm\sqrt{a^2+q_0^2},\qquad z_a^+z_a^-=-q_0^2.
-\end{equation}
-轮廓 $\Sigma$ 的定向与区域划分如图 \ref{fig:analytic-regions} 所示，箭头取定为使 $D_+$ 位于定向边界左侧。
+在复 $z$ 平面上，定义连续谱 $\Sigma$ 及两侧解析区域 $D_\pm$ 分别为
+\begin{align}
+\Sigma&=\mathbb R\cup\{z\in\mathbb C:|z|=q_0\},\label{eq:Sigma}\\
+D_\pm&=\{z\in\mathbb C:\pm\operatorname{Im}\lambda(z)>0\}
+=\left\{z\in\mathbb C:\pm\operatorname{Im}z\left(1-\dfrac{q_0^2}{|z|^2}\right)>0\right\}.\label{eq:domains}
+\end{align}
+连续谱 $\Sigma$ 上包含两类特殊谱点，分别是分支点 $z_b^\pm=\pm\ii q_0$，以及时间演化矩阵 \eqref{eq:gauged-V} 中 $k=a$ 对应的两个共振极点 $z_a^\pm=a\pm\sqrt{a^2+q_0^2}$。$\Sigma$ 的定向与区域划分如图 \ref{fig:analytic-regions} 所示，箭头取定为使 $D_+$ 位于定向边界左侧。
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.86\textwidth]{figures/analytic-regions.pdf}
-\caption[HMB 系统的单值化谱平面]{HMB 系统的单值化谱平面。公共边界 $\Sigma$ 由实轴与圆 $|z|=q_0$ 组成，淡蓝色区域为 $D_+$，白色区域为 $D_-$；边界箭头取定为使 $D_+$ 位于定向边界左侧；方形点表示分支点 $z_b^\pm=\pm\ii q_0$，菱形点表示实共振原像 $z_a^\pm$，叉形点表示谱交点 $\pm q_0$。}
+\caption[HMB 系统的单值化谱平面]{HMB 系统的单值化谱平面。淡蓝色区域为 $D_+$，白色区域为 $D_-$，箭头使 $D_+$ 在左侧。}
 \label{fig:analytic-regions}
 \end{figure}
